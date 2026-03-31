@@ -1,143 +1,119 @@
 import Link from "next/link";
-import { ArrowRight, Github, Twitter } from "lucide-react";
-
-import { Button } from "./ui/button";
 
 export function Footer() {
   return (
     <footer
-      className="border-t pt-20 pb-8"
-      style={{
-        borderColor: "var(--border-subtle)",
-        background: "var(--background)",
-      }}
+      className="border-t pt-20 pb-10"
+      style={{ borderColor: "var(--border-subtle)" }}
     >
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-          {/* Brand & Newsletter */}
-          <div className="col-span-1 md:col-span-2">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2.5 mb-5 group"
-            >
+      <div className="container mx-auto px-6 md:px-10">
+        {/* Top — Logo + Nav Groups */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
               <img
                 src="/logo-3d.webp"
                 alt="ArchiGen AI"
-                className="h-9 w-auto rounded-lg shadow-lg shadow-blue-500/10 group-hover:shadow-blue-500/30 transition-all duration-300"
+                className="h-8 w-auto rounded group-hover:opacity-80 transition-opacity duration-300"
               />
-              <span className="font-heading font-bold text-xl tracking-tight text-white">
+              <span className="font-heading font-semibold text-sm tracking-wide text-white">
                 ArchiGen AI
               </span>
             </Link>
-            <p className="text-slate-500 mb-8 max-w-sm leading-relaxed text-sm">
-              Discover, compare, and master AI tools curated by practicing
-              architects&mdash;not marketers.
+            <p className="text-[13px] text-slate-600 leading-relaxed max-w-xs">
+              Shaping the future of architectural design with AI.
+              Practitioner-tested. No sponsored picks.
             </p>
-
-            <div className="space-y-3">
-              <h4 className="text-sm font-semibold text-white font-heading">
-                Stay Ahead of the Curve
-              </h4>
-              <p className="text-xs text-slate-500 max-w-sm">
-                Join architects getting our top 5 tool picks + one deep-dive
-                tutorial every week.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-2 max-w-md">
-                <input
-                  type="email"
-                  placeholder="name@firm.com"
-                  className="bg-white/3 border rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 flex-grow transition-all"
-                  style={{ borderColor: "var(--border-subtle)" }}
-                />
-                <Button
-                  variant="gradient"
-                  className="whitespace-nowrap rounded-lg font-semibold text-sm"
-                >
-                  Subscribe <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                </Button>
-              </div>
-            </div>
           </div>
 
-          {/* Links: Directory */}
+          {/* Navigate */}
           <div>
-            <h4 className="font-heading font-semibold text-white mb-6 text-sm">
+            <h4 className="text-[11px] text-slate-500 tracking-[0.15em] uppercase font-medium mb-6">
+              Navigate
+            </h4>
+            <ul className="space-y-4">
+              {[
+                { label: "Home", href: "/" },
+                { label: "Journal", href: "/blog" },
+                { label: "Directory", href: "/tools" },
+                { label: "About", href: "/about" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-[13px] text-slate-600 hover:text-white transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Directory */}
+          <div>
+            <h4 className="text-[11px] text-slate-500 tracking-[0.15em] uppercase font-medium mb-6">
               Directory
             </h4>
-            <ul className="space-y-3.5">
+            <ul className="space-y-4">
               {[
-                { label: "Browse All Tools", href: "/tools" },
+                { label: "Browse Tools", href: "/tools" },
                 { label: "Categories", href: "/categories" },
-                { label: "Top Rated", href: "/tools" },
-                { label: "Free Options", href: "/tools", badge: "Popular" },
+                { label: "Submit a Tool", href: "#" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-500 hover:text-white transition-colors text-sm flex items-center gap-2"
+                    className="text-[13px] text-slate-600 hover:text-white transition-colors duration-300"
                   >
                     {link.label}
-                    {link.badge && (
-                      <span className="bg-emerald-500/10 text-emerald-400 text-[9px] px-1.5 py-0.5 rounded border border-emerald-500/15 font-medium">
-                        {link.badge}
-                      </span>
-                    )}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Links: Resources */}
+          {/* Newsletter */}
           <div>
-            <h4 className="font-heading font-semibold text-white mb-6 text-sm">
-              Resources
+            <h4 className="text-[11px] text-slate-500 tracking-[0.15em] uppercase font-medium mb-6">
+              Newsletter
             </h4>
-            <ul className="space-y-3.5">
-              {[
-                { label: "About Us", href: "/about" },
-                { label: "Workflow Guides", href: "#" },
-                { label: "Submit a Tool", href: "#" },
-                { label: "Contact", href: "#" },
-              ].map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-500 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <p className="text-[13px] text-slate-600 leading-relaxed mb-5">
+              Weekly tool picks + one deep-dive tutorial. No spam.
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="email"
+                placeholder="name@firm.com"
+                className="bg-white/[0.03] border rounded-md px-4 py-2.5 text-[13px] text-white placeholder:text-slate-700 focus:outline-none focus:border-slate-500 flex-grow transition-colors"
+                style={{ borderColor: "var(--border-subtle)" }}
+              />
+              <button className="text-[13px] text-white bg-white/[0.06] border rounded-md px-4 py-2.5 hover:bg-white/[0.1] transition-colors" style={{ borderColor: "var(--border-subtle)" }}>
+                Join
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom */}
         <div
           className="pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-4"
           style={{ borderColor: "var(--border-subtle)" }}
         >
-          <p className="text-[11px] text-slate-600">
-            &copy; {new Date().getFullYear()} ArchiGen AI. Built by the team
-            behind Vista Studios.
+          <p className="text-[11px] text-slate-700">
+            &copy; {new Date().getFullYear()} ArchiGen AI. Built by Vista Studios.
           </p>
-
-          <div className="flex items-center gap-3">
-            <Link
-              href="#"
-              className="text-slate-600 hover:text-white transition-colors p-1.5 rounded-md hover:bg-white/5"
-            >
-              <Twitter className="w-3.5 h-3.5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="#"
-              className="text-slate-600 hover:text-white transition-colors p-1.5 rounded-md hover:bg-white/5"
-            >
-              <Github className="w-3.5 h-3.5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
+          <div className="flex items-center gap-6">
+            {["X", "YouTube", "LinkedIn"].map((social) => (
+              <Link
+                key={social}
+                href="#"
+                className="text-[11px] text-slate-700 hover:text-white transition-colors duration-300"
+              >
+                {social}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
