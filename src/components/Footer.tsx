@@ -20,9 +20,11 @@ export function Footer() {
               href="/"
               className="inline-flex items-center gap-2.5 mb-5 group"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all">
-                A
-              </div>
+              <img
+                src="/logo-3d.webp"
+                alt="ArchiGen AI"
+                className="h-9 w-auto rounded-lg shadow-lg shadow-blue-500/10 group-hover:shadow-blue-500/30 transition-all duration-300"
+              />
               <span className="font-heading font-bold text-xl tracking-tight text-white">
                 ArchiGen AI
               </span>

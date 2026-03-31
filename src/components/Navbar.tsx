@@ -50,9 +50,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-8 h-full flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/40 transition-all duration-300 group-hover:scale-105">
-            A
-          </div>
+          <img
+            src="/logo-3d.webp"
+            alt="ArchiGen AI"
+            className="h-9 w-auto rounded-lg shadow-lg shadow-blue-500/10 group-hover:shadow-blue-500/30 transition-all duration-300 group-hover:scale-105"
+          />
           <span className="font-heading font-bold text-lg tracking-tight text-white hidden sm:block">
             ArchiGen AI
           </span>
