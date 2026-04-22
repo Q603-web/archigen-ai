@@ -1,0 +1,1405 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>ArchiGen AI — The front door for AI in architecture</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Editorial pairing (default) */
+    --f-display: 'Fraunces', 'Times New Roman', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Warm paper palette (default) */
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --rose: #D9B9B0;
+    --cream: #F4EFE3;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--f-sans);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .serif { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.02em; }
+  .hair { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+  /* ============ Top bar + Nav ============ */
+  .topstrip {
+    border-bottom: 1px solid var(--rule);
+    background: var(--ink);
+    color: var(--paper);
+    overflow: hidden;
+  }
+  .marquee {
+    display: flex; gap: 56px;
+    white-space: nowrap;
+    animation: marquee 60s linear infinite;
+    padding: 9px 0;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 18px 40px;
+    gap: 32px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em;}
+  .brand-mark {
+    width: 32px; height: 32px; border-radius: 6px;
+    background: var(--ink); color: var(--paper);
+    display: grid; place-items: center;
+    font-family: var(--f-mono); font-weight: 600; font-size: 12px;
+  }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a {
+    padding: 8px 16px; border-radius: 999px;
+    color: var(--paper); text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    transition: all 0.15s;
+  }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn {
+    padding: 9px 18px; border-radius: 999px;
+    font-size: 13px; font-weight: 500;
+    border: 1px solid var(--rule);
+    background: transparent; color: var(--ink);
+    text-decoration: none; cursor: pointer;
+    transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark:hover { background: var(--forest); border-color: var(--forest); }
+
+  /* ============ HERO ============ */
+  .hero { padding: 40px 0 72px; }
+  .hero-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 14px 0;
+    margin-bottom: 40px;
+  }
+  .hero-meta .left { display: flex; gap: 28px; align-items: baseline;}
+  .hero-meta .right { display: flex; gap: 28px; align-items: baseline; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px; border-radius: 999px;
+    font-family: var(--f-mono); font-size: 10px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--marigold); color: var(--ink);
+  }
+  .pill.forest { background: var(--forest); color: var(--cream); }
+  .pill.coral { background: var(--coral); color: var(--ink); }
+  .pill.ghost { background: transparent; border: 1px solid var(--rule); }
+
+  /* SPLIT hero (default) */
+  .hero-split {
+    display: grid; grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .hero-headline {
+    font-family: var(--f-display);
+    font-weight: 400;
+    font-size: 104px;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .hero-headline em { font-style: italic; font-weight: 300; }
+  .hero-sub {
+    margin-top: 32px;
+    max-width: 520px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .hero-byline {
+    margin-top: 28px;
+    display: flex; gap: 18px; align-items: center;
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .hero-byline a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+
+  .hero-cta { margin-top: 36px; display: flex; gap: 12px;}
+
+  /* Featured story card (right of hero) */
+  .feat-card {
+    position: relative;
+    aspect-ratio: 5/4.2;
+    border-radius: 18px;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 30px;
+    overflow: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .feat-card .topline {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #C9D3C7;
+  }
+  .feat-card .topline b { color: var(--cream); font-weight: 500; }
+  .feat-card .cursor {
+    position: absolute; top: 54px; right: 90px;
+    width: 26px; height: 30px;
+    transform: rotate(-18deg);
+  }
+  .feat-card .arrow-btn {
+    width: 36px; height: 36px; border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    display: grid; place-items: center;
+    color: var(--cream);
+  }
+  .feat-stack {
+    position: absolute;
+    left: 50%; top: 56%;
+    transform: translate(-50%, -50%);
+    width: 78%;
+  }
+  .feat-stack .quote {
+    background: #F7F2E6;
+    color: var(--ink);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-family: var(--f-display);
+    font-size: 17px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .feat-stack .quote .label {
+    position: absolute; top: -10px; left: 16px;
+    background: #F7F2E6;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 6px;
+  }
+  .feat-stack .quote.gold { background: var(--marigold); }
+  .feat-stack .quote.gold .label { background: var(--marigold); color: var(--ink); }
+  .feat-stack .quote.gold em { font-style: italic; }
+
+  .feat-card .bottomline {
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .feat-card .runtime-label { color: #C9D3C7; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .feat-card .runtime {
+    font-family: var(--f-display); font-size: 44px; letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .feat-card .chapter {
+    text-align: right;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #C9D3C7;
+  }
+  .feat-card .chapter b { color: var(--cream); font-weight: 500; display: block; }
+
+  /* Full-bleed hero variant */
+  .hero-bleed {
+    position: relative;
+    aspect-ratio: 16/8;
+    border-radius: 18px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(20,18,13,0.05) 0%, rgba(20,18,13,0.55) 70%, rgba(20,18,13,0.75) 100%),
+      repeating-linear-gradient(135deg, #8a7458 0 3px, #7a6750 3px 6px),
+      #8a7458;
+  }
+  .hero-bleed::after {
+    /* fake skyline silhouette */
+    content: '';
+    position: absolute; inset: auto 0 0 0; height: 45%;
+    background:
+      linear-gradient(180deg, transparent 0%, rgba(20,18,13,0.85) 100%);
+  }
+  .hero-bleed .placeholder-tag {
+    position: absolute; top: 20px; left: 24px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(244,239,227,0.75);
+    background: rgba(20,18,13,0.45);
+    padding: 6px 10px; border-radius: 4px;
+    backdrop-filter: blur(8px);
+  }
+  .hero-bleed .content {
+    position: absolute; inset: auto 0 0 0; padding: 56px;
+    color: var(--cream);
+  }
+  .hero-bleed h1 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 92px; line-height: 0.95; letter-spacing: -0.035em;
+    margin: 0; max-width: 980px;
+  }
+  .hero-bleed h1 em { font-style: italic; font-weight: 300; }
+  .hero-bleed .sub {
+    max-width: 520px;
+    margin-top: 24px; font-size: 16px; line-height: 1.5;
+    color: rgba(244,239,227,0.82);
+  }
+  .hero-bleed .cta { margin-top: 28px; display: flex; gap: 12px; }
+  .hero-bleed .cta .btn { background: transparent; border-color: rgba(244,239,227,0.35); color: var(--cream); }
+  .hero-bleed .cta .btn:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+  .hero-bleed .cta .btn.dark { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+  /* Magazine cover hero */
+  .hero-cover {
+    display: grid; grid-template-columns: 1fr 320px;
+    gap: 48px; align-items: end;
+  }
+  .hero-cover .cover-meta {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .hero-cover h1 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 142px; line-height: 0.88; letter-spacing: -0.045em;
+    margin: 0;
+  }
+  .hero-cover h1 em { font-style: italic; font-weight: 300; }
+  .hero-cover .inset {
+    aspect-ratio: 4/5;
+    border-radius: 8px;
+    background:
+      repeating-linear-gradient(135deg, #8a7458 0 2px, #7a6750 2px 4px);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-cover .inset .tag {
+    position: absolute; bottom: 12px; left: 12px; right: 12px;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--cream);
+    background: rgba(20,18,13,0.5);
+    padding: 8px 10px; border-radius: 4px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* ============ Positioning statement ============ */
+  .positioning {
+    padding: 56px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .positioning .grid {
+    display: grid; grid-template-columns: 200px 1fr 1fr; gap: 48px;
+  }
+  .positioning h2 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 42px; line-height: 1.05; letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .positioning h2 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .positioning p {
+    margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink-2);
+    max-width: 48ch;
+  }
+  .positioning .label { color: var(--muted); }
+
+  /* ============ Featured outputs ============ */
+  .section { padding: 72px 0; }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .section-head h2 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 48px; line-height: 1; letter-spacing: -0.025em; margin: 0;
+  }
+  .section-head h2 em { font-style: italic; font-weight: 300; }
+  .section-head .meta { display: flex; gap: 24px; align-items: baseline; color: var(--muted); }
+  .section-head .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
+
+  .outputs-row {
+    display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px;
+  }
+  .render-card {
+    position: relative;
+    aspect-ratio: 4/5;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #5a6a5e;
+  }
+  .render-card.wide { aspect-ratio: 4/3.2; }
+  .render-card .stripes {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 6px);
+  }
+  .render-card .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%);
+  }
+  .render-card .tl {
+    position: absolute; top: 16px; left: 16px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    background: rgba(20,18,13,0.5);
+    padding: 5px 8px; border-radius: 4px;
+    backdrop-filter: blur(6px);
+  }
+  .render-card .tr {
+    position: absolute; top: 16px; right: 16px;
+    width: 28px; height: 28px; border-radius: 999px;
+    background: rgba(20,18,13,0.5); color: var(--cream);
+    display: grid; place-items: center;
+    backdrop-filter: blur(6px);
+  }
+  .render-card .bl {
+    position: absolute; left: 16px; right: 16px; bottom: 14px;
+    color: var(--cream);
+  }
+  .render-card .bl .title {
+    font-family: var(--f-display); font-size: 22px; line-height: 1.1; letter-spacing: -0.01em;
+  }
+  .render-card .bl .sub {
+    margin-top: 6px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(244,239,227,0.8);
+  }
+
+  .render-card.c1 { background: #5a6a5e; }
+  .render-card.c2 { background: #6e5a4a; }
+  .render-card.c3 { background: #4a5562; }
+  .render-card.c4 { background: #8a7458; }
+  .render-card.c5 { background: #3d4a3e; }
+
+  /* ============ Featured tools ============ */
+  .tools-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .tool-card {
+    padding: 24px;
+    border-radius: 14px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column; gap: 20px;
+    min-height: 240px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .tool-card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(26,25,21,0.06); }
+  .tool-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px;
+  }
+  .tool-logo {
+    width: 40px; height: 40px; border-radius: 8px;
+    background: var(--ink); color: var(--paper);
+    display: grid; place-items: center;
+    font-family: var(--f-display); font-weight: 500; font-size: 18px;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  .tool-tag {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+    max-width: 90px;
+    line-height: 1.4;
+  }
+  .tool-card.feature .tool-tag { max-width: none; text-align: left; }
+  .tool-name {
+    font-family: var(--f-display); font-weight: 500; font-size: 24px; letter-spacing: -0.015em;
+    margin: 0 0 8px;
+  }
+  .tool-desc {
+    margin: 0;
+    font-size: 14px; line-height: 1.45; color: var(--ink-2);
+  }
+  .tool-foot {
+    margin-top: auto;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em;
+  }
+  .tool-foot .stars { color: var(--ink); }
+  .tool-foot svg { display: block; }
+
+  .tool-card.feature {
+    grid-column: span 2;
+    background: var(--forest);
+    color: var(--cream);
+    border-color: transparent;
+  }
+  .tool-card.feature .tool-logo { background: var(--cream); color: var(--forest); }
+  .tool-card.feature .tool-tag, .tool-card.feature .tool-foot { color: rgba(244,239,227,0.75); border-color: rgba(244,239,227,0.18); }
+  .tool-card.feature .tool-foot .stars { color: var(--cream); }
+  .tool-card.feature .tool-desc { color: rgba(244,239,227,0.88); }
+  .tool-card.feature .render-strip {
+    aspect-ratio: 16/7;
+    border-radius: 8px;
+    background: repeating-linear-gradient(135deg, #3f5e4c 0 2px, #375446 2px 5px);
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card.feature .render-strip .tag {
+    position: absolute; top: 10px; left: 12px;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(244,239,227,0.8);
+  }
+
+  /* ============ Bento articles ============ */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 220px;
+    gap: 16px;
+  }
+  .art-card {
+    position: relative;
+    padding: 24px;
+    border-radius: 14px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .art-card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(26,25,21,0.06); }
+  .art-card .cat {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+    display: flex; gap: 10px; align-items: center;
+  }
+  .art-card .cat .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); }
+  .art-card h3 {
+    font-family: var(--f-display); font-weight: 500;
+    font-size: 24px; line-height: 1.1; letter-spacing: -0.015em;
+    margin: auto 0 0;
+  }
+  .art-card h3.big {
+    font-size: 36px; line-height: 1.05;
+  }
+  .art-card .excerpt {
+    margin: 10px 0 0;
+    font-size: 13px; line-height: 1.45; color: var(--ink-2);
+  }
+  .art-card .foot {
+    margin-top: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .art-card .foot .arrow {
+    width: 28px; height: 28px; border-radius: 999px;
+    border: 1px solid var(--rule); display: grid; place-items: center;
+  }
+  .art-card.feature { grid-column: span 7; grid-row: span 2; background: var(--marigold); }
+  .art-card.feature h3 { font-size: 52px; line-height: 1; font-weight: 400; color: var(--ink); }
+  .art-card.feature .cat .dot { background: var(--ink); }
+  .art-card.feature .viz {
+    margin: 16px 0 20px;
+    height: 90px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .art-card.feature .viz::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, rgba(26,25,21,0.15) 0 2px, transparent 2px 12px);
+  }
+  .art-card.feature .viz::after {
+    content: ''; position: absolute; left: 0; bottom: 0; width: 68%; height: 100%;
+    background: rgba(26,25,21,0.18);
+  }
+
+  .art-card.dark { grid-column: span 5; grid-row: span 2; background: #17170F; color: var(--cream); border-color: transparent; }
+  .art-card.dark h3 { color: var(--cream); }
+  .art-card.dark .cat { color: rgba(244,239,227,0.6); }
+  .art-card.dark .excerpt { color: rgba(244,239,227,0.75); }
+  .art-card.dark .foot { color: rgba(244,239,227,0.6); }
+  .art-card.dark .foot .arrow { border-color: rgba(244,239,227,0.2); }
+  .art-card.dark .terminal {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    line-height: 1.7;
+    color: rgba(244,239,227,0.85);
+    margin-top: 14px;
+    margin-bottom: auto;
+  }
+  .art-card.dark .terminal .g { color: var(--marigold); }
+  .art-card.dark .terminal .r { color: var(--coral); }
+  .art-card.dark .terminal .d { color: rgba(244,239,227,0.4); }
+
+  .art-card.date { grid-column: span 3; background: var(--rose); border-color: transparent;}
+  .art-card.date .big-date {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 80px; line-height: 0.85; letter-spacing: -0.04em;
+    margin: 8px 0;
+  }
+  .art-card.date .date-meta {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-2);
+  }
+
+  .art-card.swatches { grid-column: span 4; background: #C9B8E0; border-color: transparent; }
+  .art-card.swatches .swatch-row { display: flex; gap: 8px; margin: 16px 0 12px;}
+  .art-card.swatches .swatch-row .sw {
+    flex: 1; aspect-ratio: 1;
+    border-radius: 6px;
+  }
+
+  .art-card.render { grid-column: span 3; padding: 0; overflow: hidden; border-color: transparent; background: #6b7a5a; }
+  .art-card.render .inner {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(135deg, #6b7a5a 0 2px, #5f6d50 2px 5px);
+  }
+  .art-card.render .inner::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
+  }
+  .art-card.render .tag {
+    position: absolute; top: 16px; left: 16px;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    background: rgba(20,18,13,0.5);
+    padding: 5px 8px; border-radius: 4px;
+    backdrop-filter: blur(6px);
+  }
+  .art-card.render .cap {
+    position: absolute; left: 16px; right: 16px; bottom: 16px;
+    color: var(--cream);
+    font-family: var(--f-display); font-size: 18px; line-height: 1.1;
+  }
+
+  .art-card.list { grid-column: span 3; background: var(--paper); }
+  .art-card.list ul { list-style: none; padding: 0; margin: 16px 0; }
+  .art-card.list li {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule-2);
+    font-size: 13px;
+  }
+  .art-card.list li:last-child { border-bottom: 0; }
+  .art-card.list li .t { color: var(--ink); }
+  .art-card.list li .r { font-family: var(--f-mono); color: var(--muted); font-size: 11px; letter-spacing: 0.05em;}
+  .art-card.list li .r.warn { color: var(--coral); }
+
+  /* ============ Newsletter strip ============ */
+  .newsletter {
+    margin-top: 48px;
+    padding: 48px;
+    border-radius: 18px;
+    background: var(--ink);
+    color: var(--cream);
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px;
+    align-items: center;
+  }
+  .newsletter h2 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 48px; line-height: 1; letter-spacing: -0.03em;
+    margin: 0;
+  }
+  .newsletter h2 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .newsletter p { margin: 16px 0 0; color: rgba(244,239,227,0.7); max-width: 42ch; }
+  .news-form {
+    display: flex; gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    padding: 6px;
+  }
+  .news-form input {
+    flex: 1; border: 0; background: transparent; color: var(--cream);
+    padding: 12px 16px; outline: none; font-family: var(--f-sans); font-size: 14px;
+  }
+  .news-form input::placeholder { color: rgba(244,239,227,0.4); }
+  .news-form button {
+    background: var(--cream); color: var(--ink);
+    border: 0; padding: 12px 20px; border-radius: 999px;
+    font-family: var(--f-sans); font-size: 13px; font-weight: 500;
+    cursor: pointer;
+  }
+  .news-form button:hover { background: var(--marigold); }
+  .news-meta {
+    margin-top: 20px;
+    display: flex; gap: 24px;
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: rgba(244,239,227,0.5);
+  }
+
+  /* ============ Footer ============ */
+  footer.foot {
+    padding: 72px 0 40px;
+    border-top: 1px solid var(--rule);
+  }
+  .foot-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .foot-brand h3 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 40px; line-height: 1; letter-spacing: -0.025em;
+    margin: 16px 0 16px;
+    max-width: 18ch;
+  }
+  .foot-brand h3 em { font-style: italic; font-weight: 300;}
+  .foot-col h4 {
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .foot-col a {
+    display: block; padding: 5px 0;
+    color: var(--ink); text-decoration: none;
+    font-size: 14px;
+  }
+  .foot-col a:hover { color: var(--terracotta); }
+  .foot-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between;
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============ Tweaks panel ============ */
+  .tweaks {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 300px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    box-shadow: 0 24px 48px rgba(26,25,21,0.16);
+    padding: 18px;
+    z-index: 100;
+    display: none;
+  }
+  .tweaks.open { display: block; }
+  .tweaks h4 {
+    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink); margin: 0 0 6px;
+  }
+  .tweaks .title {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .tweaks .title strong { font-family: var(--f-display); font-weight: 500; font-size: 20px; }
+  .tweaks .close { cursor: pointer; color: var(--muted); background: transparent; border: 0; font-size: 18px; }
+  .tweaks .group { margin-bottom: 14px; }
+  .tweaks .group > label {
+    display: block;
+    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 8px;
+  }
+  .seg { display: flex; gap: 4px; background: var(--paper-2); padding: 3px; border-radius: 999px; }
+  .seg button {
+    flex: 1; border: 0; background: transparent;
+    padding: 7px 10px; border-radius: 999px;
+    font-family: var(--f-sans); font-size: 12px; font-weight: 500; color: var(--ink-2);
+    cursor: pointer;
+  }
+  .seg button.on { background: var(--ink); color: var(--paper); }
+
+  /* Hide everything except chosen hero variant */
+  body[data-hero="split"] .hero-bleed, body[data-hero="split"] .hero-cover { display: none; }
+  body[data-hero="bleed"] .hero-split, body[data-hero="bleed"] .hero-cover { display: none; }
+  body[data-hero="cover"] .hero-split, body[data-hero="cover"] .hero-bleed { display: none; }
+
+  /* Palettes */
+  body[data-palette="warm"] { --paper: #F2EFE8; --paper-2: #EAE5D9; --accent-1: #2F4A3A; --accent-2: #C96F4A; --accent-3: #D9C89E; }
+  body[data-palette="editorial"] { --paper: #F4EFE3; --paper-2: #EDE6D4; }
+  body[data-palette="mono"] {
+    --paper: #EFEBE4; --paper-2: #E5DFD4;
+    --forest: #3A3A32; --terracotta: #C48A3E; --marigold: #C48A3E;
+    --coral: #B8693F; --sage: #6B6860; --rose: #D4CAB8;
+  }
+
+  /* Type pairings */
+  body[data-type="editorial"] { --f-display: 'Fraunces', serif; --f-sans: 'Inter', sans-serif; }
+  body[data-type="contemporary"] { --f-display: 'Instrument Serif', serif; --f-sans: 'Geist', sans-serif; }
+  body[data-type="magazine"] { --f-display: 'Old Standard TT', serif; --f-sans: 'Inter', sans-serif; }
+
+  /* Edit mode FAB */
+  .edit-fab {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--ink); color: var(--paper);
+    border: 0; cursor: pointer;
+    display: none;
+    z-index: 99;
+    box-shadow: 0 8px 24px rgba(26,25,21,0.2);
+    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em;
+  }
+  .edit-fab.show { display: grid; place-items: center; }
+</style>
+</head>
+<body data-hero="split" data-palette="warm" data-type="editorial">
+
+<!-- ============ Marquee strip ============ -->
+<div class="topstrip">
+  <div class="marquee">
+    <span>Issue № 042</span><span class="dot">/</span>
+    <span>The Volume Issue — AI, architecture &amp; the new render pipeline</span><span class="dot">/</span>
+    <span>New essay: What does AI build when architects are in charge?</span><span class="dot">/</span>
+    <span>Tool of the week — Vista</span><span class="dot">/</span>
+    <span>15 Apr 2026</span><span class="dot">/</span>
+    <span>Field notes from the practice</span><span class="dot">/</span>
+    <!-- repeat for seamless loop -->
+    <span>Issue № 042</span><span class="dot">/</span>
+    <span>The Volume Issue — AI, architecture &amp; the new render pipeline</span><span class="dot">/</span>
+    <span>New essay: What does AI build when architects are in charge?</span><span class="dot">/</span>
+    <span>Tool of the week — Vista</span><span class="dot">/</span>
+    <span>15 Apr 2026</span><span class="dot">/</span>
+    <span>Field notes from the practice</span><span class="dot">/</span>
+  </div>
+</div>
+
+<!-- ============ Nav ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Journal</a>
+      <a href="journal.html">Tools</a>
+      <a href="#">Case Studies</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="btn">Sign in</a>
+      <a href="#" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+
+    <div class="hero-meta">
+      <div class="left">
+        <span class="mono" style="color:var(--muted)">Vol. 04 · Issue 042</span>
+        <span class="mono" style="color:var(--muted)">The Volume Issue</span>
+      </div>
+      <div class="right">
+        <span class="mono" style="color:var(--muted)">15 Apr 2026</span>
+        <span class="mono" style="color:var(--ink)">Updated weekly</span>
+      </div>
+    </div>
+
+    <!-- SPLIT variant -->
+    <div class="hero-split">
+      <div>
+        <div style="display:flex; gap:10px; margin-bottom:28px">
+          <span class="pill forest">● Field notes · Featured</span>
+          <span class="pill ghost">6 min read</span>
+        </div>
+        <h1 class="hero-headline">What does AI <em>build</em> when architects are in&nbsp;charge?</h1>
+        <p class="hero-sub">Six studios spent a week letting the models draft. What came back wasn't faster — it was louder. We went through every frame to find what's worth keeping, and the five prompts that changed how we work.</p>
+
+        <div class="hero-byline">
+          <span>By Quincy Bayral &amp; Field Office</span>
+          <span>·</span>
+          <span>Field notes — Issue 042</span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#" class="btn dark">Read the essay →</a>
+          <a href="#" class="btn">Browse the archive</a>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="topline">
+          <div>
+            <div>Featured Study</div>
+            <div style="margin-top:4px"><b>No. 042 / The Volume Issue</b></div>
+          </div>
+          <div class="arrow-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </div>
+        </div>
+
+        <svg class="cursor" viewBox="0 0 26 30" fill="none">
+          <path d="M2 2 L2 22 L8 17 L12 27 L16 25 L12 15 L22 15 Z" fill="#E36A52" stroke="#1A1915" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+
+        <div class="feat-stack">
+          <div class="quote">
+            <span class="label">Prompt · 00:45</span>
+            "A concrete reading room with a single north-facing window. Make the silence visible."
+          </div>
+          <div class="quote gold">
+            <span class="label">Rework · 02:13</span>
+            <em>"Six studios. Ninety renders. The models are loud — but not wrong about light."</em>
+          </div>
+        </div>
+
+        <div class="bottomline">
+          <div>
+            <div class="runtime-label">Run time</div>
+            <div class="runtime">00:45</div>
+          </div>
+          <div class="chapter">
+            <b>Chapter 01</b>
+            <span>The 45-second brief</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLEED variant -->
+    <div class="hero-bleed">
+      <div class="placeholder-tag">[ RENDER · CONCRETE READING ROOM · NORTH LIGHT — 4096×2160 ]</div>
+      <div class="content">
+        <h1>What does AI <em>build</em> when architects are in charge?</h1>
+        <p class="sub">Six studios spent a week letting the models draft. We went through every frame to find what's worth keeping, and the five prompts that changed how we work.</p>
+        <div class="cta">
+          <a href="#" class="btn dark">Read the essay →</a>
+          <a href="#" class="btn">Browse the archive</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COVER variant -->
+    <div class="hero-cover">
+      <div>
+        <div class="cover-meta">Issue № 042 · Vol. 04 · 15 Apr 2026 — The Volume Issue</div>
+        <h1>What does<br>AI <em>build</em> when<br>architects are<br>in charge?</h1>
+        <div style="display:flex; gap:12px; margin-top:32px">
+          <a href="#" class="btn dark">Read the essay →</a>
+          <a href="#" class="btn">Browse the archive</a>
+        </div>
+      </div>
+      <div class="inset">
+        <div class="tag">[ COVER RENDER · Reading Room · North Light ]</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ Positioning ============ -->
+<section class="positioning">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="mono label">What this is</div>
+      </div>
+      <div>
+        <h2>A publication for architects who <em>design with the machine.</em></h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px">
+        <p>ArchiGen is a curated editorial platform for architects, archviz artists and design-forward studios figuring out where AI fits into the drawing set.</p>
+        <p>We test, we compare, we publish what's useful and put the rest down. Magazine on the cover, library underneath.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Featured outputs ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected <em>outputs</em></h2>
+      <div class="meta">
+        <span class="mono">5 of 214 · The archive</span>
+        <a href="#" class="mono">See all outputs →</a>
+      </div>
+    </div>
+
+    <div class="outputs-row">
+      <div class="render-card c1 wide" style="grid-row: span 2;">
+        <div class="stripes"></div>
+        <div class="overlay"></div>
+        <div class="tl">Render · Interior · Concrete &amp; Light</div>
+        <div class="tr">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+        </div>
+        <div class="bl">
+          <div class="title">North-light reading room, <em style="font-style:italic">after Zumthor</em></div>
+          <div class="sub">Vista v0.4 · 12 passes · Roskva Studio</div>
+        </div>
+      </div>
+
+      <div class="render-card c2">
+        <div class="stripes"></div><div class="overlay"></div>
+        <div class="tl">Render · Elevation · Brick</div>
+        <div class="bl">
+          <div class="title">Brick kiln, adaptive reuse</div>
+          <div class="sub">Midjourney → Vray finish</div>
+        </div>
+      </div>
+
+      <div class="render-card c3">
+        <div class="stripes"></div><div class="overlay"></div>
+        <div class="tl">Render · Urban · Nightfall</div>
+        <div class="bl">
+          <div class="title">Wet plaza, hour of blue</div>
+          <div class="sub">Krea + Blender · N.A. Office</div>
+        </div>
+      </div>
+
+      <div class="render-card c4">
+        <div class="stripes"></div><div class="overlay"></div>
+        <div class="tl">Diagram · Program · Stack</div>
+        <div class="bl">
+          <div class="title">Vertical school, six classrooms</div>
+          <div class="sub">In-house workflow · Field Office</div>
+        </div>
+      </div>
+
+      <div class="render-card c5">
+        <div class="stripes"></div><div class="overlay"></div>
+        <div class="tl">Render · Landscape · Moss</div>
+        <div class="bl">
+          <div class="title">Chapel on the moor</div>
+          <div class="sub">Flux · Hand retouched</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Featured tools ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Tools we actually <em>use</em></h2>
+      <div class="meta">
+        <span class="mono">6 curated of 48 in the directory</span>
+        <a href="#" class="mono">Enter the directory →</a>
+      </div>
+    </div>
+
+    <div class="tools-grid">
+
+      <div class="tool-card feature">
+        <div class="tool-head">
+          <div class="tool-logo">Vi</div>
+          <div style="display:flex; gap:8px">
+            <span class="pill" style="background:var(--marigold)">● Tool of the week</span>
+            <span class="mono" style="color:rgba(244,239,227,0.6)">v0.4.2</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="tool-tag">Render · img2img · text2img</div>
+          <h3 class="tool-name" style="color:var(--cream)">Vista</h3>
+          <p class="tool-desc">The fastest way we've found to go from SketchUp massing to a publishable render. Architectural priors, exposed seed, and enough control not to feel like a slot machine.</p>
+        </div>
+
+        <div class="render-strip">
+          <div class="tag">[ OUTPUT · NORTH-LIGHT · 03/12 ]</div>
+        </div>
+
+        <div class="tool-foot">
+          <span>Freemium · Pro $24/mo</span>
+          <span class="stars">★★★★★ 4.8 <span style="color:rgba(244,239,227,0.5); margin-left:6px">128 reviews</span></span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-head">
+          <div class="tool-logo">Kr</div>
+          <span class="tool-tag">Realtime · img2img</span>
+        </div>
+        <div>
+          <h3 class="tool-name">Krea</h3>
+          <p class="tool-desc">Best for iterating in front of a client. Real-time canvas, weak at plans.</p>
+        </div>
+        <div class="tool-foot">
+          <span>$10/mo</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-head">
+          <div class="tool-logo">Fl</div>
+          <span class="tool-tag">Base model</span>
+        </div>
+        <div>
+          <h3 class="tool-name">Flux · dev</h3>
+          <p class="tool-desc">Our go-to base. Understands materials. Struggles with scale. Needs a LoRA.</p>
+        </div>
+        <div class="tool-foot">
+          <span>Open · self-host</span>
+          <span class="stars">★★★★★</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-head">
+          <div class="tool-logo">Mj</div>
+          <span class="tool-tag">Concept · moodboard</span>
+        </div>
+        <div>
+          <h3 class="tool-name">Midjourney v7</h3>
+          <p class="tool-desc">Still the best at atmosphere. Worst at geometry. Use for the front of the book, not the set.</p>
+        </div>
+        <div class="tool-foot">
+          <span>$30/mo</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-head">
+          <div class="tool-logo">Lf</div>
+          <span class="tool-tag">Upscale · cleanup</span>
+        </div>
+        <div>
+          <h3 class="tool-name">Leonardo · Finish</h3>
+          <p class="tool-desc">Boring, fast, reliable. The last node in nine of our ten workflows.</p>
+        </div>
+        <div class="tool-foot">
+          <span>$12/mo</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-head">
+          <div class="tool-logo">Nv</div>
+          <span class="tool-tag">Sketch → render</span>
+        </div>
+        <div>
+          <h3 class="tool-name">Nvidia Canvas</h3>
+          <p class="tool-desc">Underrated for site-plan mood work. Pair with a trained checkpoint.</p>
+        </div>
+        <div class="tool-foot">
+          <span>Free</span>
+          <span class="stars">★★★☆☆</span>
+        </div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-head">
+          <div class="tool-logo">Rh</div>
+          <span class="tool-tag">Parametric · plugin</span>
+        </div>
+        <div>
+          <h3 class="tool-name">Rhino · GenAI</h3>
+          <p class="tool-desc">Grasshopper integration that actually respects tolerances. Ugly UI, good bones.</p>
+        </div>
+        <div class="tool-foot">
+          <span>$18/mo</span>
+          <span class="stars">★★★★☆</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Bento articles ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Latest in <em>the journal</em></h2>
+      <div class="meta">
+        <span class="mono">11 of 214 · Updated 15 Apr 2026</span>
+        <a href="journal.html" class="mono">Open the journal →</a>
+      </div>
+    </div>
+
+    <div class="bento">
+
+      <div class="art-card feature">
+        <div class="cat"><span class="dot"></span> Field Notes · 12 Apr 2026 · № 1</div>
+        <h3>A render is a drawing that hasn't decided yet.</h3>
+        <div class="viz"></div>
+        <p class="excerpt">A quiet case against the finished image, and for the conversations AI lets us have earlier in the project — when things can still move.</p>
+        <div class="foot">
+          <span>8 min · Essay</span>
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="art-card dark">
+        <div class="cat"><span class="dot" style="background:var(--marigold)"></span> Workflow · 11 Apr 2026</div>
+        <h3 class="big">From SketchUp massing to publishable render in 40 minutes.</h3>
+        <div class="terminal">
+          $ load site_01.skp<br>
+          <span class="d">› exporting viewport · 4096×2160</span><br>
+          $ vista render --style "concrete · north-light"<br>
+          <span class="g">✓ pass 03 of 12 — mat: concrete_cast</span><br>
+          <span class="r">! pass 07 — hand retouch at 00:21</span><br>
+          <span class="d">› finishing in Leonardo · upscale 2×</span>
+        </div>
+        <div class="foot">
+          <span>5 min · Walkthrough</span>
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="art-card date">
+        <div class="cat"><span class="dot" style="background:var(--ink)"></span> Meetup · London</div>
+        <div class="big-date">03<br>MAY</div>
+        <h3 style="font-size:22px; font-weight:500">Studio Night: AI in Practice</h3>
+        <div class="date-meta" style="margin-top:auto">RSVP · 42 of 80 · Free</div>
+      </div>
+
+      <div class="art-card swatches">
+        <div class="cat"><span class="dot" style="background:var(--ink)"></span> Materials · 09 Apr 2026</div>
+        <div class="swatch-row">
+          <div class="sw" style="background:#C96F4A"></div>
+          <div class="sw" style="background:#E2A13B"></div>
+          <div class="sw" style="background:#2F4A3A"></div>
+          <div class="sw" style="background:#4A5A6A"></div>
+        </div>
+        <h3>Four material prompts for a believable render.</h3>
+        <div class="foot">
+          <span>3 min · Field guide</span>
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="art-card render">
+        <div class="inner"></div>
+        <div class="tag">[ RENDER · Elev · 04 ]</div>
+        <div class="cap">The case for showing your seed.</div>
+      </div>
+
+      <div class="art-card list">
+        <div class="cat"><span class="dot"></span> Reading · 05 Apr 2026</div>
+        <ul>
+          <li><span class="t">Prompt hygiene</span><span class="r">4 min</span></li>
+          <li><span class="t">Seeds &amp; state</span><span class="r">2 min</span></li>
+          <li><span class="t">LoRA training for studios</span><span class="r warn">Long</span></li>
+          <li><span class="t">Publishing ethics</span><span class="r">3 min</span></li>
+        </ul>
+        <div class="foot">
+          <span>Field primer · 04</span>
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+      <div>
+        <h2>Letters from the <em>practice.</em></h2>
+        <p>One Sunday email. One essay, three tools we've actually used, one render worth looking at. No news, no roundups.</p>
+        <div class="news-meta">
+          <span>11,400 readers</span>
+          <span>Unsubscribe anytime</span>
+          <span>Since 2024</span>
+        </div>
+      </div>
+      <div>
+        <form class="news-form" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="you@studio.com" />
+          <button>Subscribe →</button>
+        </form>
+        <div style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,239,227,0.4); margin-top:14px">
+          No drip campaigns. No AI-generated newsletters.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <div class="brand-mark">AG</div>
+          <span>ArchiGen<em>/AI</em></span>
+        </div>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:var(--muted)">Est. 2024 · Based in the field</div>
+      </div>
+      <div class="foot-col">
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="#">Field notes</a>
+        <a href="#">Essays</a>
+        <a href="#">Workflows</a>
+        <a href="#">Case studies</a>
+      </div>
+      <div class="foot-col">
+        <h4>Tools</h4>
+        <a href="#">Directory</a>
+        <a href="#">Comparisons</a>
+        <a href="#">Pricing</a>
+        <a href="#">Stack builder</a>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="#">About</a>
+        <a href="#">Masthead</a>
+        <a href="#">Submit work</a>
+        <a href="#">Advertise</a>
+      </div>
+      <div class="foot-col">
+        <h4>Follow</h4>
+        <a href="#">Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS</a>
+        <a href="#">Are.na</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI · All rights not reserved</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ Tweaks ============ -->
+<button class="edit-fab" id="editFab" title="Open Tweaks">TWK</button>
+<div class="tweaks" id="tweaksPanel">
+  <div class="title">
+    <strong>Tweaks</strong>
+    <button class="close" id="tweaksClose">×</button>
+  </div>
+
+  <div class="group">
+    <label>Hero layout</label>
+    <div class="seg" data-key="hero">
+      <button data-val="split">Split</button>
+      <button data-val="bleed">Full-bleed</button>
+      <button data-val="cover">Cover</button>
+    </div>
+  </div>
+
+  <div class="group">
+    <label>Palette</label>
+    <div class="seg" data-key="palette">
+      <button data-val="warm">Warm</button>
+      <button data-val="editorial">Editorial</button>
+      <button data-val="mono">Mono</button>
+    </div>
+  </div>
+
+  <div class="group">
+    <label>Typography</label>
+    <div class="seg" data-key="type">
+      <button data-val="editorial">Editorial</button>
+      <button data-val="contemporary">Contemp.</button>
+      <button data-val="magazine">Magazine</button>
+    </div>
+  </div>
+
+  <div class="mono" style="color:var(--muted); padding-top:12px; border-top:1px solid var(--rule); margin-top:4px">
+    Toggle from the toolbar above — tweaks persist to disk.
+  </div>
+</div>
+
+<script>
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "hero": "split",
+    "palette": "warm",
+    "type": "editorial"
+  }/*EDITMODE-END*/;
+
+  const state = { ...TWEAK_DEFAULTS };
+
+  function apply() {
+    document.body.dataset.hero = state.hero;
+    document.body.dataset.palette = state.palette;
+    document.body.dataset.type = state.type;
+    document.querySelectorAll('.seg').forEach(seg => {
+      const key = seg.dataset.key;
+      seg.querySelectorAll('button').forEach(b => {
+        b.classList.toggle('on', b.dataset.val === state[key]);
+      });
+    });
+  }
+
+  document.querySelectorAll('.seg').forEach(seg => {
+    seg.addEventListener('click', (e) => {
+      const btn = e.target.closest('button'); if (!btn) return;
+      const key = seg.dataset.key;
+      state[key] = btn.dataset.val;
+      apply();
+      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: btn.dataset.val } }, '*'); } catch(e) {}
+    });
+  });
+
+  // Edit mode plumbing — register listener BEFORE announcing
+  window.addEventListener('message', (ev) => {
+    const d = ev.data || {};
+    if (d.type === '__activate_edit_mode') {
+      document.getElementById('tweaksPanel').classList.add('open');
+      document.getElementById('editFab').classList.remove('show');
+    } else if (d.type === '__deactivate_edit_mode') {
+      document.getElementById('tweaksPanel').classList.remove('open');
+      document.getElementById('editFab').classList.remove('show');
+    }
+  });
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
+
+  document.getElementById('tweaksClose').addEventListener('click', () => {
+    document.getElementById('tweaksPanel').classList.remove('open');
+  });
+
+  apply();
+</script>
+
+</body>
+</html>
