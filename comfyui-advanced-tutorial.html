@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=1280" />
-<title>ComfyUI Architecture Workflows: From Beginner to Production — ArchiGen AI</title>
-<meta name="description" content="ComfyUI is the most powerful AI rendering tool available to architects — and the most misunderstood. This is the workflow guide we wish existed when we started." />
+<title>ComfyUI Advanced: Exterior Workflows That Actually Work — ArchiGen AI</title>
+<meta name="description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control — with the gotchas." />
 <link rel="canonical" href="https://archigenai.com/comfyui-advanced-tutorial.html" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,18 +78,15 @@
   .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
   .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 
-  .node-block { background: #17170F; color: var(--cream); border-radius: 12px; padding: 24px 28px; margin: 32px 0; font-family: var(--f-mono); font-size: 12px; line-height: 1.8; }
-  .node-block .label { color: var(--marigold); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-  .node-block .g { color: #8BC47A; }
-  .node-block .y { color: var(--marigold); }
-  .node-block .r { color: var(--coral); }
-  .node-block .d { color: rgba(244,239,227,0.4); }
+  .node-block { background: #17170F; color: var(--cream); border-radius: 12px; padding: 24px 28px; margin: 24px 0; font-family: var(--f-mono); font-size: 13px; line-height: 1.7; overflow-x: auto; }
+  .node-block .label { color: var(--marigold); }
+  .node-block .arrow { color: var(--coral); }
+  .node-block .comment { color: rgba(244,239,227,0.5); font-style: italic; }
+  .node-block .group { display: block; margin-bottom: 8px; }
 
-  .checklist { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 32px 0; }
-  .checklist h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
-  .checklist ol { padding-left: 20px; margin: 0; }
-  .checklist li { margin-bottom: 12px; color: var(--ink-2); }
-  .checklist li strong { color: var(--ink); display: block; margin-bottom: 4px; }
+  .gotcha { border-left: 3px solid var(--coral); background: var(--paper-2); padding: 18px 24px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+  .gotcha .label { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral); margin-bottom: 6px; }
+  .gotcha p { margin: 0; font-size: 14px; }
 
   footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
   .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
@@ -125,7 +122,7 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="journal.html" class="active">Journal</a>
-      <a href="#">Tools</a>
+      <a href="tools.html">Tools</a>
       <a href="#">Case Studies</a>
       <a href="#">About</a>
     </div>
@@ -139,15 +136,15 @@
 <section class="article-header">
   <div class="wrap">
     <div class="meta">
-      <span class="tag">Workflow · April 2026</span>
-      <span class="tag">· 14 min read</span>
+      <span class="tag">Workflow · 23 Apr 2026</span>
+      <span class="tag">· 11 min read</span>
     </div>
-    <h1>ComfyUI Architecture Workflows: <em>From Beginner to Production</em></h1>
-    <p class="lede">ComfyUI is the most powerful AI rendering tool available to architects right now. It is also the most misunderstood. This is the workflow guide we wish had existed when we started — no Python experience required.</p>
+    <h1>ComfyUI advanced: <em>exterior workflows</em> that actually work</h1>
+    <p class="lede">A working ComfyUI exterior pipeline for architecture — depth ControlNet, material passes, site context inpainting, and lighting control. Assumes you can already install nodes.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name">ArchiGen AI Editorial</div>
-        <div class="detail">14 min read · Published April 2026 · No sponsored placements</div>
+        <div class="detail">11 min read · Apr 2026 · Vista Studios pipeline</div>
       </div>
     </div>
   </div>
@@ -156,143 +153,149 @@
 <div class="wrap">
   <div class="article-body">
 
-    <p>Most architects who try ComfyUI abandon it within a week. The interface looks like a circuit diagram. The terminology — samplers, schedulers, CFG scale, denoise strength — reads like a physics textbook. There is no obvious start button. So people give up and go back to Midjourney, which has a Discord and a typing box and works immediately.</p>
+    <p>Most ComfyUI tutorials show you how to make a hero render of a Tuscan villa. That's not the test. The test is whether the workflow holds up on a four-storey mixed-use scheme on a tight site, with surrounding buildings, awkward overshadowing, and a brief that calls for both day and dusk passes.</p>
 
-    <p>That is an understandable choice. It is also the wrong one if you care about the quality of your output. ComfyUI is not for everyone. But if you are doing serious architectural visualization work — anything that needs geometric fidelity, multi-pass consistency, or integration with your existing model outputs — then nothing else comes close.</p>
+    <p>This guide walks through the ComfyUI pipeline we use at Vista for exterior renders on real projects. It assumes you've installed ComfyUI and the Manager, and that you can drag nodes onto the canvas without panicking. Everything else is here.</p>
 
-    <p>This guide assumes you have no prior experience with ComfyUI. We will go from installation to a production exterior workflow in one read.</p>
+    <h2>Why exterior workflows are <em>hard</em></h2>
 
-    <hr>
+    <p>Interior renders are forgiving. The room is contained. Light is controlled. Materials are limited. Mistakes hide in the shadows.</p>
 
-    <h2>Why ComfyUI, and Why <em>Now</em></h2>
+    <p>Exteriors are unforgiving. You have to handle weather, sky, ground cover, vegetation, surrounding buildings, time of day, atmospheric perspective, and entourage — all of which the model wants to invent freely if you let it. The whole job of the workflow is constraining the model to your geometry while still letting it do the things it's good at.</p>
 
-    <p>The short answer: control. Every other AI image tool is a black box. You put a prompt in, an image comes out, and you have limited ability to influence what happens in between. ComfyUI exposes the entire pipeline as a node graph. Every step — the model, the conditioning, the sampler, the upscale method — is visible, editable, and saveable.</p>
+    <p>The pipeline below has four passes. Geometry. Material. Context. Light. Each one is a separate run. Trying to do them all in one pass is the most common reason ComfyUI exterior workflows fail.</p>
 
-    <p>For architects, this matters for three reasons. First, repeatability. With ComfyUI you can save the exact workflow that produced your best render and reproduce it on a new project or a different angle. Second, image conditioning. ComfyUI's ControlNet integration lets you feed your own geometry — a SketchUp viewport, a Rhino line drawing, a depth map — and have the model respect it. No other browser-based tool does this as reliably. Third, cost. Once the software is installed locally, generation is free. A rendering practice that produces hundreds of iterations per week can save thousands per year compared to credit-based cloud tools.</p>
+    <h2>The base <em>workflow</em></h2>
 
-    <hr>
-
-    <h2>Installation Without the Headache</h2>
-
-    <h3>What you actually need</h3>
-
-    <p>You need a GPU with at least 8GB VRAM to run most SDXL models comfortably. An NVIDIA RTX 3070 or better handles the workflows in this guide without issues. AMD GPUs work but require additional setup steps (DirectML on Windows, ROCm on Linux). Apple Silicon M-series chips work via the MPS backend and run reasonably well on 16GB unified memory.</p>
-
-    <p>If you do not have a capable GPU, <strong>fal.ai</strong> offers ComfyUI workflows as an API — you design the graph locally, send it to their cloud, and get results back. It is slightly slower and costs credits, but it sidesteps the hardware requirement entirely. For architects at small firms without workstation-grade machines, this is a legitimate production path.</p>
-
-    <h3>The install process</h3>
-
-    <p>Download ComfyUI from the official GitHub releases page. Windows users: grab the portable package — it includes Python and all dependencies. Unzip, double-click <code>run_nvidia_gpu.bat</code>, and a browser tab opens at <code>127.0.0.1:8188</code>. That is it for basic installation. No terminal, no pip commands, no environment management.</p>
-
-    <p>You will still need to download models separately. For architecture work, we use two base models: <strong>Juggernaut XL</strong> for photorealistic exteriors and <strong>RealVisXL</strong> when we want warmer, more atmospheric outputs. Both are free from Civitai. Drop the <code>.safetensors</code> file into your <code>ComfyUI/models/checkpoints/</code> folder and it appears in the interface immediately.</p>
-
-    <hr>
-
-    <h2>Understanding the Node Graph</h2>
-
-    <p>The ComfyUI interface is a canvas where processing steps are represented as nodes and connected by wires. Data flows from left to right. A minimal workflow has five nodes: a checkpoint loader (selects your model), a CLIP text encoder (processes your prompt), a KSampler (runs the diffusion), a VAE decoder (converts latent space back to pixels), and an image preview.</p>
-
-    <p>You do not need to understand the mathematics. What you need to understand is the flow: model → prompt → sample → decode → output. Everything else — ControlNet, upscalers, LoRAs, inpainting — slots into this chain.</p>
+    <p>Start with txt2img → ControlNet Depth → KSampler → Upscale. This is the spine of every exterior render we make.</p>
 
     <div class="node-block">
-      <div class="label">Minimal ComfyUI Workflow — Node Chain</div>
-      <span class="g">CheckpointLoaderSimple</span> → <span class="y">CLIPTextEncode</span> (positive)<br>
-      <span class="y">CLIPTextEncode</span> (negative) → <span class="g">KSampler</span><br>
-      <span class="g">CheckpointLoaderSimple</span>.VAE → <span class="g">VAEDecode</span><br>
-      <span class="g">KSampler</span>.LATENT → <span class="g">VAEDecode</span> → <span class="g">PreviewImage</span><br>
-      <span class="d">// Right-click anywhere to add nodes. Drag wires between colored ports.</span>
+      <span class="group"><span class="label">[Load Checkpoint]</span> → flux1-dev-fp8.safetensors <span class="comment">// Flux dev is our default base. SDXL works but is weaker on materials.</span></span>
+      <span class="group"><span class="label">[Load Image]</span> → <span class="arrow">depth_pass.png</span> <span class="comment">// 1024px depth from your SketchUp model</span></span>
+      <span class="group"><span class="label">[ControlNet Loader]</span> → control_flux_depth.safetensors</span>
+      <span class="group"><span class="label">[Apply ControlNet]</span> → strength: 0.8 · start: 0.0 · end: 0.7</span>
+      <span class="group"><span class="label">[CLIP Text Encode +]</span> → "[your material brief here]"</span>
+      <span class="group"><span class="label">[CLIP Text Encode -]</span> → "blurry, distorted geometry, fisheye, lens flare, watermark"</span>
+      <span class="group"><span class="label">[KSampler]</span> → steps: 28 · cfg: 4.5 · sampler: dpmpp_2m · scheduler: karras</span>
+      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → base_pass.png</span>
     </div>
 
-    <hr>
+    <p>The depth ControlNet is doing the heavy lifting. It tells Flux exactly where your masses are, what's in front of what, and where the openings sit. Without it, the model invents geometry. With it, the model fills in materiality on top of your geometry.</p>
 
-    <h2>The Architecture-Specific Workflow: Image-to-Image with ControlNet</h2>
+    <p>The end value of 0.7 on the ControlNet matters. Setting it to 1.0 (full strength to the end of the diffusion) makes the render look stiff and CGI-like. Releasing it at 0.7 lets the last few denoising steps refine the materials without forcing the geometry. We landed on 0.7 after about a week of testing. It's not negotiable.</p>
 
-    <p>Pure text-to-image generation is useful for mood boards and early concept exploration. For anything that needs to respect your actual design geometry, you need image-to-image conditioning via ControlNet.</p>
+    <div class="gotcha">
+      <div class="label">Gotcha</div>
+      <p>Generate the depth pass directly from your 3D software. Don't let ComfyUI's MiDaS depth estimator handle it — MiDaS guesses depth from the rendered image and gets architectural geometry wrong about 30% of the time. SketchUp's Z-Depth render output is free and accurate.</p>
+    </div>
 
-    <p>The workflow: export a viewport from SketchUp or Rhino as a clean line drawing or with the depth buffer (zbuffer/depth pass). Load this into ComfyUI as a conditioning image. The ControlNet preprocessor converts it into a format the model can read — a Canny edge map, a depth map, a normal map — and passes it alongside your text prompt into the sampler. The model then generates within the constraints of your geometry rather than inventing its own.</p>
+    <h2>The material <em>pass</em></h2>
 
-    <h3>Which ControlNet preprocessor to use</h3>
+    <p>Once the base render looks right structurally, the material pass refines surfaces. This is where you get concrete that looks like concrete instead of plaster, glass that reads as glass instead of acrylic, and corten steel that has actual texture rather than orange paint.</p>
 
-    <p><strong>Canny:</strong> Best for preserving hard edges — window lines, column grids, roof profiles. Use when geometric accuracy matters more than atmospheric softness. Works well for technical facades and orthographic views.</p>
-
-    <p><strong>Depth (Midas or ZoeDepth):</strong> Best for preserving spatial relationships without locking every edge. Use for perspective views where you want the model to have some creative latitude on surface texture while keeping the massing correct. Our most-used preprocessor for client presentations.</p>
-
-    <p><strong>Normal map:</strong> Best for interior work and surfaces with complex geometry. Less useful for typical exterior views.</p>
-
-    <p><strong>Lineart:</strong> Good for hand-drawn sketch inputs — if you have a section perspective or a concept sketch and want to generate from it directly, this is the right choice.</p>
+    <p>The material pass is an img2img run on the base output, with a tighter prompt and reduced denoise.</p>
 
     <div class="node-block">
-      <div class="label">ControlNet Exterior Workflow — Key Nodes</div>
-      <span class="g">LoadImage</span> (your SketchUp export) →<br>
-      <span class="y">ControlNetPreprocessor</span> (type: depth_midas) →<br>
-      <span class="g">ControlNetApply</span> (strength: 0.7–0.85, start: 0.0, end: 0.6) →<br>
-      <span class="d">// Lower strength = more creative latitude. Higher = tighter to your geometry.</span><br>
-      <span class="d">// End at 0.6 rather than 1.0 to allow atmospheric details in late diffusion passes.</span>
+      <span class="group"><span class="label">[Load Image]</span> → base_pass.png <span class="comment">// the output from above</span></span>
+      <span class="group"><span class="label">[VAE Encode]</span> → latent</span>
+      <span class="group"><span class="label">[CLIP Text Encode +]</span> → "board-formed concrete with 100mm boards, weathered grey patina, slightly damp surface, moss in the joints"</span>
+      <span class="group"><span class="label">[KSampler]</span> → denoise: 0.45 · steps: 24 · cfg: 5.0</span>
+      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → material_pass.png</span>
     </div>
 
+    <p>Denoise at 0.45 is the sweet spot. Below 0.35 the material change is invisible. Above 0.6 the geometry starts drifting. We've tested every value in between for two years. 0.45 is the answer for exteriors.</p>
+
+    <p>Run this pass once per material region. If you have a brick base, concrete middle, and zinc roof, that's three runs with three masks. Don't try to prompt all three materials in one pass — Flux will average them and you'll get something halfway between, which is exactly the AI slop look we're trying to avoid.</p>
+
+    <p>Specific material prompts that work for us, after extensive testing:</p>
+
+    <ul>
+      <li><strong>Concrete:</strong> "board-formed concrete with [60mm/100mm/200mm] boards, [weathered grey/warm beige/cool grey] patina, visible tie holes, slight surface variation"</li>
+      <li><strong>Glass:</strong> "low-iron architectural glazing, slight green tint, mullion shadows, faint reflection of sky and surroundings, no fisheye distortion"</li>
+      <li><strong>Corten steel:</strong> "weathered corten steel cladding, deep rust patina, vertical seams every 600mm, runoff staining at the base"</li>
+      <li><strong>Brick:</strong> "stack-bonded brick, hand-thrown red clay, 10mm raked mortar joints, slight efflorescence, occasional darker brick"</li>
+    </ul>
+
+    <p>The pattern is the same: name the material, name the surface treatment, name a defect or imperfection. The defect is what makes it look real. New brick looks fake. Brick with efflorescence looks like a building.</p>
+
+    <h2>Adding site <em>context</em></h2>
+
+    <p>Once your building looks right, the surrounding context needs to look right too. This is where most ComfyUI exterior workflows get bad. The model invents Hollywood Hills behind a project that's actually in Stratford.</p>
+
+    <p>The fix is inpainting the surroundings using a real-context reference. Take a Google Street View screenshot from the actual site, generate a depth pass from it, and use that as the inpaint mask source.</p>
+
+    <div class="node-block">
+      <span class="group"><span class="label">[Load Image]</span> → material_pass.png</span>
+      <span class="group"><span class="label">[Load Image]</span> → context_mask.png <span class="comment">// black where building, white where surroundings</span></span>
+      <span class="group"><span class="label">[Load Image]</span> → site_reference.png <span class="comment">// Street View screenshot or site photo</span></span>
+      <span class="group"><span class="label">[IPAdapter Load]</span> → ip-adapter-plus_sdxl_vit-h</span>
+      <span class="group"><span class="label">[IPAdapter Apply]</span> → reference: site_reference · weight: 0.55</span>
+      <span class="group"><span class="label">[Set Latent Noise Mask]</span> → <span class="arrow">context_mask.png</span></span>
+      <span class="group"><span class="label">[KSampler]</span> → denoise: 0.85 · steps: 30 · cfg: 4.0</span>
+      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → context_pass.png</span>
+    </div>
+
+    <p>IPAdapter weight of 0.55 lets the model take visual cues from your reference photo without copying it directly. Push it to 0.8 and you'll get an obvious paste-up. Drop it to 0.3 and the surroundings look generic.</p>
+
+    <div class="gotcha">
+      <div class="label">Gotcha</div>
+      <p>Mask carefully at the building edge. ComfyUI's default inpaint blends across mask boundaries with a hard edge that often shows. Add an Image Blur node on the mask itself (radius: 6 to 12px) to feather the transition. Your building won't look pasted.</p>
+    </div>
+
+    <h2>The lighting <em>pass</em></h2>
+
+    <p>Last pass. Now you have a building with the right materials in the right context. The final job is lighting — establishing time of day, sun angle, weather, and atmosphere.</p>
+
+    <p>Use img2img one more time, with a low denoise and a heavy lighting prompt:</p>
+
+    <div class="node-block">
+      <span class="group"><span class="label">[Load Image]</span> → context_pass.png</span>
+      <span class="group"><span class="label">[CLIP Text Encode +]</span> → "golden hour, sun at 25 degrees from west, warm orange light raking across the facade, long soft shadows, slight haze in the air, [time: 18:30 in autumn]"</span>
+      <span class="group"><span class="label">[KSampler]</span> → denoise: 0.30 · steps: 24 · cfg: 5.5</span>
+      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → final_pass.png</span>
+    </div>
+
+    <p>Denoise stays low here — 0.30 — because you don't want the building or context changing, just the light treatment. The cfg goes up to 5.5 because the lighting prompt needs to be heard loud over the existing image.</p>
+
+    <p>For multiple time-of-day passes (the brief that asks for "morning, midday, dusk, night"), just re-run the lighting pass with a different prompt and the same input image. Forty seconds per variant. The whole set takes three minutes.</p>
+
+    <blockquote>The hard part of ComfyUI isn't the nodes. It's the discipline to run four passes instead of trying to do everything in one.</blockquote>
+
+    <h2>Common ComfyUI <em>gotchas</em></h2>
+
+    <p><strong>Memory crashes on 8GB cards.</strong> Flux full-precision needs 24GB VRAM. The fp8 quantised version runs on 12GB. The Q4 GGUF version runs on 8GB but the quality drop is real. If you're on a consumer GPU, plan for fp8 minimum.</p>
+
+    <p><strong>The "loaded checkpoint mismatch" error.</strong> Almost always means your ControlNet is for SDXL and your base is Flux, or vice versa. They're not interchangeable. Match the family.</p>
+
+    <p><strong>Saved workflows breaking after a Manager update.</strong> Custom nodes get renamed or deprecated. Pin your custom node versions in the Manager. Don't auto-update mid-project.</p>
+
+    <p><strong>Outputs at 1024px not enlarging cleanly.</strong> ComfyUI's built-in upscale nodes are weak. Export to Leonardo Universal Upscaler or Topaz Gigapixel for the final 4K. Don't try to upscale inside ComfyUI for client work.</p>
+
+    <h2>Recommended node <em>packs</em></h2>
+
+    <p>Install these from the Manager. They're the only ones we use regularly enough to mention.</p>
+
+    <ul>
+      <li><strong>ComfyUI-Advanced-ControlNet</strong> — better timing controls, including the start/end values used above.</li>
+      <li><strong>ComfyUI_IPAdapter_plus</strong> — required for the context pass. The site-reference workflow won't work without it.</li>
+      <li><strong>ComfyUI-Impact-Pack</strong> — better sampler nodes, mask handling, detailer for fixing facade details after the main render.</li>
+      <li><strong>ComfyUI-AnimateDiff</strong> — only if you want to do video walkthroughs from your stills. Not strictly architectural, but useful.</li>
+      <li><strong>rgthree-comfy</strong> — quality-of-life nodes for managing complex graphs. You'll want this by your fifth workflow.</li>
+    </ul>
+
+    <p>Skip the rest. The temptation in ComfyUI is to install everything you see on Reddit. Don't. A clean install with these five packs will handle 95% of architecture work, and your workflows won't break every Sunday.</p>
+
+    <h2>What to do <em>next</em></h2>
+
+    <p>Build the base workflow first. Get a single exterior render through the full four-pass pipeline. Don't worry about quality — worry about completing the chain. Once you've done that, every subsequent project is a matter of swapping the depth pass and the prompts.</p>
+
+    <p>The whole pipeline takes about 25 to 35 minutes of compute on a decent GPU, plus 10 minutes of human time choosing prompts and masking. That's faster than V-Ray for the same quality on a non-trivial scheme. It's also more flexible — try four lighting variants in three minutes, instead of re-rendering the scene.</p>
+
+    <p>If your firm hasn't moved on ComfyUI yet, this is the workflow worth starting with. It'll feel slow for the first three projects. By the fifth, you won't go back.</p>
+
     <hr>
 
-    <h2>The Multi-Pass Exterior Workflow</h2>
-
-    <p>Single-pass generation is fine for quick ideation. For presentation-quality output, we run three passes.</p>
-
-    <h3>Pass 1 — Massing and atmosphere (768×512, denoise 1.0)</h3>
-
-    <p>This is your first generation from the SketchUp depth export. The goal is to establish the overall composition, light direction, and atmospheric feel. Do not obsess over material detail at this stage — the model will likely invent something plausible. Focus on getting the massing correct and the mood right. Try four to eight variations with different CFG values (6–10) and pick the strongest composition.</p>
-
-    <p>Prompt structure for this pass: lead with the overall scene type and lighting condition, then material keywords, then negative prompt. Example: <em>"contemporary residential exterior, dusk, raked golden light from west, raw concrete base, dark timber cladding, minimalist landscaping, ultra-detailed architectural photograph"</em>. Negative: <em>"cartoon, render, CGI watermark, people, cars, overexposed sky"</em>.</p>
-
-    <h3>Pass 2 — Material refinement (img2img, denoise 0.4–0.6)</h3>
-
-    <p>Take your best first-pass output into an image-to-image workflow. Drop the denoise strength to 0.4–0.6 so the model refines rather than regenerates. This is where you tighten material reads: push the concrete texture, sharpen the timber grain, add surface interest without breaking the composition. Small denoise adjustments have large effects — work in increments of 0.05.</p>
-
-    <p>If your first pass got the massing right but the materials look generic, this is where you fix it. If the composition itself is wrong, go back to Pass 1 rather than trying to fix it here. Trying to correct a fundamental composition problem in Pass 2 produces visible artifacts.</p>
-
-    <h3>Pass 3 — Upscale and finishing (4× via tiled upscaler)</h3>
-
-    <p>The standard approach: run the Pass 2 output through an Ultimate SD Upscale node set to 4× with a tile size of 512 and a denoise of 0.2–0.3. This adds genuine texture detail at high resolution without inventing geometry. Final output is typically 3072×2048 or similar — print-ready at A2.</p>
-
-    <p>If you want even sharper detail, pass the upscaled output through Leonardo.ai's Creative Upscaler. It adds a final layer of surface clarity that the ComfyUI upscaler alone rarely achieves. We use this on client-facing deliverables.</p>
-
-    <hr>
-
-    <h2>Four Tips That Save Hours</h2>
-
-    <p><strong>Save your seeds.</strong> Every KSampler node has a seed value that controls the random element of generation. When you find a composition you like, copy the seed number into a text file with the workflow parameters. Reproducing a specific output three months later from a seed is trivial. Trying to recreate it from visual memory alone is not.</p>
-
-    <p><strong>Use workflow JSON files as a deliverable format.</strong> ComfyUI saves entire node graphs as JSON. We send these to clients alongside rendered images so they can see exactly which parameters were used. It is also your version control for rendering work.</p>
-
-    <p><strong>The negative prompt is half your workflow.</strong> A carefully written negative prompt eliminates a category of bad outputs entirely. Our standard architecture negative: <em>"people, vegetation front and center, cars, watermark, text, blur, low quality, cartoonish, unrealistic proportions, inverted colors, overly saturated, HDR halo, lens flare"</em>. Build your own over time based on the failures you keep seeing.</p>
-
-    <p><strong>ControlNet strength is not a quality dial.</strong> Beginners turn it to 1.0 thinking more control means better results. What actually happens is the model becomes unable to synthesize convincing surface texture because the conditioning signal overwhelms the model's generative capacity. The sweet spot for exterior views from SketchUp depth maps is 0.65–0.80. Interior lineart can go higher, up to 0.90, because interior surfaces need to be more literal.</p>
-
-    <hr>
-
-    <h2>Models Worth Loading</h2>
-
-    <p>Model choice matters more than most ComfyUI tutorials acknowledge. For architecture work, we have tested most of the major SDXL-based checkpoints and landed on three as our primary rotation.</p>
-
-    <p><strong>Juggernaut XL v9</strong> is our main workhorse for photorealistic exteriors. Excellent material rendering, good at architectural lighting conditions, handles concrete and glass particularly well. Free on Civitai.</p>
-
-    <p><strong>RealVisXL v4</strong> produces outputs with slightly more photographic warmth and less clinical precision. Better for residential projects where atmosphere matters more than technical accuracy. Also free.</p>
-
-    <p><strong>FLUX.1 Dev</strong> (via GGUF quantized builds that run in ComfyUI) is the newest addition to our workflow. It handles complex prompt instructions better than SDXL-based models and produces results with exceptional material quality. Slower to generate, but the ceiling is noticeably higher. Run it through fal.ai if your local hardware is under spec.</p>
-
-    <hr>
-
-    <h2>When to Use ComfyUI vs. Everything Else</h2>
-
-    <p>ComfyUI is the right tool when: you need geometric fidelity to an existing design, you are generating at volume and cannot afford per-image pricing, you need repeatability across multiple views or phases, or you want to build a custom multi-pass pipeline that goes beyond what any consumer tool offers.</p>
-
-    <p>It is not the right tool when: you need results in five minutes and have no prior workflow set up, you want atmospheric concept images without reference geometry, or you are sharing the work with someone who needs to operate the tool independently without training.</p>
-
-    <p>For that last case — quick concept atmospheres, client session iteration, fast moodboarding — Midjourney or Krea are faster and more accessible. ComfyUI and Midjourney are not competitors. They solve different parts of the workflow.</p>
-
-    <blockquote>The question is never which tool is best. The question is which tool solves the specific problem in front of you.</blockquote>
-
-    <hr>
-
-    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">ArchiGen AI is an independent publication on AI tools for architecture practice. No affiliate placements. All evaluations based on live project work at Vista Studios.</p>
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Pipeline tested by Vista Studios on twelve live projects since November 2025. Compute on RTX 4090. Models: Flux dev fp8.</p>
 
   </div>
 </div>
@@ -311,26 +314,27 @@
       <div>
         <h4>Read</h4>
         <a href="journal.html">Journal</a>
-        <a href="honest-guide-ai-rendering-architecture.html">AI Rendering Guide</a>
-        <a href="best-ai-tools-architectural-visualization-2026.html">Best AI Tools 2026</a>
-        <a href="comfyui-advanced-tutorial.html">ComfyUI Workflows</a>
+        <a href="#">Field notes</a>
+        <a href="#">Essays</a>
+        <a href="#">Workflows</a>
       </div>
       <div>
         <h4>Tools</h4>
-        <a href="leonardo-ai-architecture-review.html">Leonardo AI</a>
-        <a href="midjourney-architecture-review.html">Midjourney</a>
-        <a href="chaos-veras-vs-rendair-ai.html">Veras vs Rendair</a>
+        <a href="tools.html">Directory</a>
+        <a href="#">Comparisons</a>
+        <a href="#">Stack builder</a>
       </div>
       <div>
-        <h4>Studio</h4>
-        <a href="vista-studios-positioning.html">About ArchiGen</a>
-        <a href="vista-studios-ai-workflow-philosophy.html">Our Workflow</a>
+        <h4>Follow</h4>
         <a href="#">Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS</a>
+        <a href="#">Are.na</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 ArchiGen AI · Vista Studios</span>
-      <span>No sponsored placements · No affiliate links</span>
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
     </div>
   </div>
 </footer>
