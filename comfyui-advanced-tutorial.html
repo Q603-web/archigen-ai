@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>ComfyUI Architecture Workflows: From Beginner to Production — ArchiGen AI</title>
+<meta name="description" content="ComfyUI is the most powerful AI rendering tool available to architects — and the most misunderstood. This is the workflow guide we wish existed when we started." />
+<link rel="canonical" href="https://archigenai.com/comfyui-advanced-tutorial.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .node-block { background: #17170F; color: var(--cream); border-radius: 12px; padding: 24px 28px; margin: 32px 0; font-family: var(--f-mono); font-size: 12px; line-height: 1.8; }
+  .node-block .label { color: var(--marigold); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .node-block .g { color: #8BC47A; }
+  .node-block .y { color: var(--marigold); }
+  .node-block .r { color: var(--coral); }
+  .node-block .d { color: rgba(244,239,227,0.4); }
+
+  .checklist { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 32px 0; }
+  .checklist h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+  .checklist ol { padding-left: 20px; margin: 0; }
+  .checklist li { margin-bottom: 12px; color: var(--ink-2); }
+  .checklist li strong { color: var(--ink); display: block; margin-bottom: 4px; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="#">Tools</a>
+      <a href="#">Case Studies</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="btn">Sign in</a>
+      <a href="#" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · April 2026</span>
+      <span class="tag">· 14 min read</span>
+    </div>
+    <h1>ComfyUI Architecture Workflows: <em>From Beginner to Production</em></h1>
+    <p class="lede">ComfyUI is the most powerful AI rendering tool available to architects right now. It is also the most misunderstood. This is the workflow guide we wish had existed when we started — no Python experience required.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">ArchiGen AI Editorial</div>
+        <div class="detail">14 min read · Published April 2026 · No sponsored placements</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Most architects who try ComfyUI abandon it within a week. The interface looks like a circuit diagram. The terminology — samplers, schedulers, CFG scale, denoise strength — reads like a physics textbook. There is no obvious start button. So people give up and go back to Midjourney, which has a Discord and a typing box and works immediately.</p>
+
+    <p>That is an understandable choice. It is also the wrong one if you care about the quality of your output. ComfyUI is not for everyone. But if you are doing serious architectural visualization work — anything that needs geometric fidelity, multi-pass consistency, or integration with your existing model outputs — then nothing else comes close.</p>
+
+    <p>This guide assumes you have no prior experience with ComfyUI. We will go from installation to a production exterior workflow in one read.</p>
+
+    <hr>
+
+    <h2>Why ComfyUI, and Why <em>Now</em></h2>
+
+    <p>The short answer: control. Every other AI image tool is a black box. You put a prompt in, an image comes out, and you have limited ability to influence what happens in between. ComfyUI exposes the entire pipeline as a node graph. Every step — the model, the conditioning, the sampler, the upscale method — is visible, editable, and saveable.</p>
+
+    <p>For architects, this matters for three reasons. First, repeatability. With ComfyUI you can save the exact workflow that produced your best render and reproduce it on a new project or a different angle. Second, image conditioning. ComfyUI's ControlNet integration lets you feed your own geometry — a SketchUp viewport, a Rhino line drawing, a depth map — and have the model respect it. No other browser-based tool does this as reliably. Third, cost. Once the software is installed locally, generation is free. A rendering practice that produces hundreds of iterations per week can save thousands per year compared to credit-based cloud tools.</p>
+
+    <hr>
+
+    <h2>Installation Without the Headache</h2>
+
+    <h3>What you actually need</h3>
+
+    <p>You need a GPU with at least 8GB VRAM to run most SDXL models comfortably. An NVIDIA RTX 3070 or better handles the workflows in this guide without issues. AMD GPUs work but require additional setup steps (DirectML on Windows, ROCm on Linux). Apple Silicon M-series chips work via the MPS backend and run reasonably well on 16GB unified memory.</p>
+
+    <p>If you do not have a capable GPU, <strong>fal.ai</strong> offers ComfyUI workflows as an API — you design the graph locally, send it to their cloud, and get results back. It is slightly slower and costs credits, but it sidesteps the hardware requirement entirely. For architects at small firms without workstation-grade machines, this is a legitimate production path.</p>
+
+    <h3>The install process</h3>
+
+    <p>Download ComfyUI from the official GitHub releases page. Windows users: grab the portable package — it includes Python and all dependencies. Unzip, double-click <code>run_nvidia_gpu.bat</code>, and a browser tab opens at <code>127.0.0.1:8188</code>. That is it for basic installation. No terminal, no pip commands, no environment management.</p>
+
+    <p>You will still need to download models separately. For architecture work, we use two base models: <strong>Juggernaut XL</strong> for photorealistic exteriors and <strong>RealVisXL</strong> when we want warmer, more atmospheric outputs. Both are free from Civitai. Drop the <code>.safetensors</code> file into your <code>ComfyUI/models/checkpoints/</code> folder and it appears in the interface immediately.</p>
+
+    <hr>
+
+    <h2>Understanding the Node Graph</h2>
+
+    <p>The ComfyUI interface is a canvas where processing steps are represented as nodes and connected by wires. Data flows from left to right. A minimal workflow has five nodes: a checkpoint loader (selects your model), a CLIP text encoder (processes your prompt), a KSampler (runs the diffusion), a VAE decoder (converts latent space back to pixels), and an image preview.</p>
+
+    <p>You do not need to understand the mathematics. What you need to understand is the flow: model → prompt → sample → decode → output. Everything else — ControlNet, upscalers, LoRAs, inpainting — slots into this chain.</p>
+
+    <div class="node-block">
+      <div class="label">Minimal ComfyUI Workflow — Node Chain</div>
+      <span class="g">CheckpointLoaderSimple</span> → <span class="y">CLIPTextEncode</span> (positive)<br>
+      <span class="y">CLIPTextEncode</span> (negative) → <span class="g">KSampler</span><br>
+      <span class="g">CheckpointLoaderSimple</span>.VAE → <span class="g">VAEDecode</span><br>
+      <span class="g">KSampler</span>.LATENT → <span class="g">VAEDecode</span> → <span class="g">PreviewImage</span><br>
+      <span class="d">// Right-click anywhere to add nodes. Drag wires between colored ports.</span>
+    </div>
+
+    <hr>
+
+    <h2>The Architecture-Specific Workflow: Image-to-Image with ControlNet</h2>
+
+    <p>Pure text-to-image generation is useful for mood boards and early concept exploration. For anything that needs to respect your actual design geometry, you need image-to-image conditioning via ControlNet.</p>
+
+    <p>The workflow: export a viewport from SketchUp or Rhino as a clean line drawing or with the depth buffer (zbuffer/depth pass). Load this into ComfyUI as a conditioning image. The ControlNet preprocessor converts it into a format the model can read — a Canny edge map, a depth map, a normal map — and passes it alongside your text prompt into the sampler. The model then generates within the constraints of your geometry rather than inventing its own.</p>
+
+    <h3>Which ControlNet preprocessor to use</h3>
+
+    <p><strong>Canny:</strong> Best for preserving hard edges — window lines, column grids, roof profiles. Use when geometric accuracy matters more than atmospheric softness. Works well for technical facades and orthographic views.</p>
+
+    <p><strong>Depth (Midas or ZoeDepth):</strong> Best for preserving spatial relationships without locking every edge. Use for perspective views where you want the model to have some creative latitude on surface texture while keeping the massing correct. Our most-used preprocessor for client presentations.</p>
+
+    <p><strong>Normal map:</strong> Best for interior work and surfaces with complex geometry. Less useful for typical exterior views.</p>
+
+    <p><strong>Lineart:</strong> Good for hand-drawn sketch inputs — if you have a section perspective or a concept sketch and want to generate from it directly, this is the right choice.</p>
+
+    <div class="node-block">
+      <div class="label">ControlNet Exterior Workflow — Key Nodes</div>
+      <span class="g">LoadImage</span> (your SketchUp export) →<br>
+      <span class="y">ControlNetPreprocessor</span> (type: depth_midas) →<br>
+      <span class="g">ControlNetApply</span> (strength: 0.7–0.85, start: 0.0, end: 0.6) →<br>
+      <span class="d">// Lower strength = more creative latitude. Higher = tighter to your geometry.</span><br>
+      <span class="d">// End at 0.6 rather than 1.0 to allow atmospheric details in late diffusion passes.</span>
+    </div>
+
+    <hr>
+
+    <h2>The Multi-Pass Exterior Workflow</h2>
+
+    <p>Single-pass generation is fine for quick ideation. For presentation-quality output, we run three passes.</p>
+
+    <h3>Pass 1 — Massing and atmosphere (768×512, denoise 1.0)</h3>
+
+    <p>This is your first generation from the SketchUp depth export. The goal is to establish the overall composition, light direction, and atmospheric feel. Do not obsess over material detail at this stage — the model will likely invent something plausible. Focus on getting the massing correct and the mood right. Try four to eight variations with different CFG values (6–10) and pick the strongest composition.</p>
+
+    <p>Prompt structure for this pass: lead with the overall scene type and lighting condition, then material keywords, then negative prompt. Example: <em>"contemporary residential exterior, dusk, raked golden light from west, raw concrete base, dark timber cladding, minimalist landscaping, ultra-detailed architectural photograph"</em>. Negative: <em>"cartoon, render, CGI watermark, people, cars, overexposed sky"</em>.</p>
+
+    <h3>Pass 2 — Material refinement (img2img, denoise 0.4–0.6)</h3>
+
+    <p>Take your best first-pass output into an image-to-image workflow. Drop the denoise strength to 0.4–0.6 so the model refines rather than regenerates. This is where you tighten material reads: push the concrete texture, sharpen the timber grain, add surface interest without breaking the composition. Small denoise adjustments have large effects — work in increments of 0.05.</p>
+
+    <p>If your first pass got the massing right but the materials look generic, this is where you fix it. If the composition itself is wrong, go back to Pass 1 rather than trying to fix it here. Trying to correct a fundamental composition problem in Pass 2 produces visible artifacts.</p>
+
+    <h3>Pass 3 — Upscale and finishing (4× via tiled upscaler)</h3>
+
+    <p>The standard approach: run the Pass 2 output through an Ultimate SD Upscale node set to 4× with a tile size of 512 and a denoise of 0.2–0.3. This adds genuine texture detail at high resolution without inventing geometry. Final output is typically 3072×2048 or similar — print-ready at A2.</p>
+
+    <p>If you want even sharper detail, pass the upscaled output through Leonardo.ai's Creative Upscaler. It adds a final layer of surface clarity that the ComfyUI upscaler alone rarely achieves. We use this on client-facing deliverables.</p>
+
+    <hr>
+
+    <h2>Four Tips That Save Hours</h2>
+
+    <p><strong>Save your seeds.</strong> Every KSampler node has a seed value that controls the random element of generation. When you find a composition you like, copy the seed number into a text file with the workflow parameters. Reproducing a specific output three months later from a seed is trivial. Trying to recreate it from visual memory alone is not.</p>
+
+    <p><strong>Use workflow JSON files as a deliverable format.</strong> ComfyUI saves entire node graphs as JSON. We send these to clients alongside rendered images so they can see exactly which parameters were used. It is also your version control for rendering work.</p>
+
+    <p><strong>The negative prompt is half your workflow.</strong> A carefully written negative prompt eliminates a category of bad outputs entirely. Our standard architecture negative: <em>"people, vegetation front and center, cars, watermark, text, blur, low quality, cartoonish, unrealistic proportions, inverted colors, overly saturated, HDR halo, lens flare"</em>. Build your own over time based on the failures you keep seeing.</p>
+
+    <p><strong>ControlNet strength is not a quality dial.</strong> Beginners turn it to 1.0 thinking more control means better results. What actually happens is the model becomes unable to synthesize convincing surface texture because the conditioning signal overwhelms the model's generative capacity. The sweet spot for exterior views from SketchUp depth maps is 0.65–0.80. Interior lineart can go higher, up to 0.90, because interior surfaces need to be more literal.</p>
+
+    <hr>
+
+    <h2>Models Worth Loading</h2>
+
+    <p>Model choice matters more than most ComfyUI tutorials acknowledge. For architecture work, we have tested most of the major SDXL-based checkpoints and landed on three as our primary rotation.</p>
+
+    <p><strong>Juggernaut XL v9</strong> is our main workhorse for photorealistic exteriors. Excellent material rendering, good at architectural lighting conditions, handles concrete and glass particularly well. Free on Civitai.</p>
+
+    <p><strong>RealVisXL v4</strong> produces outputs with slightly more photographic warmth and less clinical precision. Better for residential projects where atmosphere matters more than technical accuracy. Also free.</p>
+
+    <p><strong>FLUX.1 Dev</strong> (via GGUF quantized builds that run in ComfyUI) is the newest addition to our workflow. It handles complex prompt instructions better than SDXL-based models and produces results with exceptional material quality. Slower to generate, but the ceiling is noticeably higher. Run it through fal.ai if your local hardware is under spec.</p>
+
+    <hr>
+
+    <h2>When to Use ComfyUI vs. Everything Else</h2>
+
+    <p>ComfyUI is the right tool when: you need geometric fidelity to an existing design, you are generating at volume and cannot afford per-image pricing, you need repeatability across multiple views or phases, or you want to build a custom multi-pass pipeline that goes beyond what any consumer tool offers.</p>
+
+    <p>It is not the right tool when: you need results in five minutes and have no prior workflow set up, you want atmospheric concept images without reference geometry, or you are sharing the work with someone who needs to operate the tool independently without training.</p>
+
+    <p>For that last case — quick concept atmospheres, client session iteration, fast moodboarding — Midjourney or Krea are faster and more accessible. ComfyUI and Midjourney are not competitors. They solve different parts of the workflow.</p>
+
+    <blockquote>The question is never which tool is best. The question is which tool solves the specific problem in front of you.</blockquote>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">ArchiGen AI is an independent publication on AI tools for architecture practice. No affiliate placements. All evaluations based on live project work at Vista Studios.</p>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="honest-guide-ai-rendering-architecture.html">AI Rendering Guide</a>
+        <a href="best-ai-tools-architectural-visualization-2026.html">Best AI Tools 2026</a>
+        <a href="comfyui-advanced-tutorial.html">ComfyUI Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="leonardo-ai-architecture-review.html">Leonardo AI</a>
+        <a href="midjourney-architecture-review.html">Midjourney</a>
+        <a href="chaos-veras-vs-rendair-ai.html">Veras vs Rendair</a>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="vista-studios-positioning.html">About ArchiGen</a>
+        <a href="vista-studios-ai-workflow-philosophy.html">Our Workflow</a>
+        <a href="#">Newsletter</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI · Vista Studios</span>
+      <span>No sponsored placements · No affiliate links</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
