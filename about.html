@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=1280" />
-<title>The Directory — ArchiGen AI</title>
-<meta name="description" content="A curated database of every AI tool we've tested for architectural visualization. Coming soon." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — ArchiGen AI</title>
+<meta name="description" content="ArchiGen AI is a curated editorial platform for architects and archviz artists figuring out where AI fits into the drawing set." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,53 +90,63 @@
   .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .btn.dark:hover { background: var(--forest); border-color: var(--forest); }
 
-  .coming-soon {
-    padding: 120px 0 160px;
-    text-align: center;
+  /* ── About hero ── */
+  .about-hero {
+    padding: 120px 0 80px;
     border-bottom: 1px solid var(--rule);
+    max-width: 840px;
+    margin: 0 auto;
+    text-align: left;
   }
-  .coming-soon .tag {
+  .about-hero .tag {
     font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); margin-bottom: 32px;
-    display: flex; align-items: center; justify-content: center; gap: 12px;
+    display: flex; align-items: center; gap: 12px;
   }
-  .coming-soon .tag::before,
-  .coming-soon .tag::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--muted); }
-  .coming-soon h1 {
+  .about-hero .tag::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--muted); }
+  .about-hero h1 {
     font-family: var(--f-display); font-weight: 400;
-    font-size: clamp(56px, 8vw, 120px); line-height: 0.95; letter-spacing: -0.04em;
-    margin: 0 0 32px;
+    font-size: clamp(48px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.04em;
+    margin: 0 0 40px;
   }
-  .coming-soon h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
-  .coming-soon p {
-    font-size: 18px; line-height: 1.55; color: var(--ink-2);
-    max-width: 52ch; margin: 0 auto 40px;
+  .about-hero h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .about-hero p {
+    font-size: 18px; line-height: 1.6; color: var(--ink-2);
+    margin: 0 0 20px; max-width: 60ch;
   }
-  .coming-soon .actions { display: flex; gap: 12px; justify-content: center; }
+  .about-hero .actions { display: flex; gap: 12px; margin-top: 40px; }
 
-  .teaser {
-    padding: 72px 0;
+  /* ── About body ── */
+  .about-body {
+    padding: 80px 0;
     border-bottom: 1px solid var(--rule);
   }
-  .teaser-inner {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  .about-body .inner {
+    max-width: 840px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: start;
   }
-  .teaser-card {
-    padding: 24px;
-    border-radius: 14px;
-    background: var(--paper-2);
-    border: 1px solid var(--rule);
+  .about-body h2 {
+    font-family: var(--f-display); font-weight: 400;
+    font-size: 36px; line-height: 1.05; letter-spacing: -0.025em;
+    margin: 0 0 20px;
   }
-  .teaser-card .tc-label {
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 12px;
+  .about-body h2 em { font-style: italic; font-weight: 300; color: var(--forest); }
+  .about-body p { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px; }
+  .about-body ul {
+    list-style: none; padding: 0; margin: 0;
   }
-  .teaser-card h3 {
-    font-family: var(--f-display); font-weight: 400; font-size: 24px; letter-spacing: -0.015em;
-    margin: 0 0 10px; line-height: 1.1;
+  .about-body ul li {
+    padding: 12px 0; border-bottom: 1px solid var(--rule);
+    font-size: 14px; color: var(--ink-2);
+    display: flex; gap: 12px; align-items: baseline;
   }
-  .teaser-card p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink-2); }
+  .about-body ul li::before {
+    content: '—'; color: var(--muted);
+    font-family: var(--f-mono); font-size: 10px;
+  }
 
+  /* ── Footer ── */
   footer.foot {
     padding: 64px 0 40px;
     border-top: 1px solid var(--rule);
@@ -173,13 +183,11 @@
     color: rgba(244,239,227,0.4);
   }
 
-  /* ── Mobile: collapse grids at 480px ── */
-  @media (max-width: 480px) {
-    .wrap { padding: 0 16px; }
-    .nav-inner { padding: 12px 16px; grid-template-columns: 1fr auto; }
-    .nav-right { display: none; }
-    .teaser-inner { grid-template-columns: 1fr !important; }
-    .foot-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 14px 20px; }
+    .about-body .inner { grid-template-columns: 1fr; gap: 40px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -188,14 +196,14 @@
 <!-- Marquee -->
 <div class="topstrip">
   <div class="marquee">
-    <span>The Directory</span><span class="dot">/</span>
-    <span>48 tools tested and reviewed</span><span class="dot">/</span>
-    <span>Render · Concept · Post-production · Pipeline</span><span class="dot">/</span>
-    <span>No sponsored placements</span><span class="dot">/</span>
-    <span>The Directory</span><span class="dot">/</span>
-    <span>48 tools tested and reviewed</span><span class="dot">/</span>
-    <span>Render · Concept · Post-production · Pipeline</span><span class="dot">/</span>
-    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>A publication for architects designing with the machine</span><span class="dot">/</span>
+    <span>Field notes · Essays · Workflows · Tools</span><span class="dot">/</span>
+    <span>No affiliate links · No sponsored placements</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>A publication for architects designing with the machine</span><span class="dot">/</span>
+    <span>Field notes · Essays · Workflows · Tools</span><span class="dot">/</span>
+    <span>No affiliate links · No sponsored placements</span><span class="dot">/</span>
   </div>
 </div>
 
@@ -209,9 +217,9 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="journal.html">Journal</a>
-      <a href="tools.html" class="active">Tools</a>
+      <a href="tools.html">Tools</a>
       <a href="#">Case Studies</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
     </div>
     <div class="nav-right">
       <a href="#signin" class="btn">Sign in</a>
@@ -220,38 +228,36 @@
   </div>
 </nav>
 
-<!-- Coming soon hero -->
-<section class="coming-soon">
-  <div class="wrap">
-    <div class="tag">The Directory</div>
-    <h1>The full directory<br>is <em>coming.</em></h1>
-    <p>A curated database of every AI tool we've tested for architectural visualization — ranked, compared, and priced for real studio use. No affiliate links, no sponsored placements.</p>
+<!-- About hero -->
+<section style="padding: 0 40px;">
+  <div class="about-hero">
+    <div class="tag">About the publication</div>
+    <h1>Built for architects<br>who <em>work with AI.</em></h1>
+    <p>ArchiGen is an editorial platform covering AI tools, workflows, and techniques for architectural visualization. We test software, document real workflows, and write honestly about what actually works in studio practice.</p>
+    <p>No affiliate links. No sponsored tool reviews. Just fieldwork from practitioners who've run these tools on real projects.</p>
     <div class="actions">
-      <a href="workflows.html" class="btn dark">Browse workflows →</a>
-      <a href="journal.html" class="btn">Read the journal</a>
+      <a href="journal.html" class="btn dark">Read the journal →</a>
+      <a href="workflows.html" class="btn">Browse workflows</a>
     </div>
   </div>
 </section>
 
-<!-- Teaser categories -->
-<section class="teaser">
-  <div class="wrap">
-    <div class="teaser-inner">
-      <div class="teaser-card">
-        <div class="tc-label">Category · Render</div>
-        <h3>Rendering &amp; visualization</h3>
-        <p>Vista, Chaos Veras, Rendair, Krea, Leonardo — tools that take geometry and produce client-ready images. Ranked by output quality, consistency, and iteration speed.</p>
-      </div>
-      <div class="teaser-card">
-        <div class="tc-label">Category · Concept</div>
-        <h3>Concept &amp; ideation</h3>
-        <p>Midjourney, Flux, Firefly, Stable Diffusion — tools for the early stages, when you need fast options and loose passes rather than precise outputs.</p>
-      </div>
-      <div class="teaser-card">
-        <div class="tc-label">Category · Pipeline</div>
-        <h3>Pipeline &amp; post-production</h3>
-        <p>ComfyUI workflows, upscalers, inpainting tools, and the glue that holds the studio stack together. The boring stuff that makes everything else work.</p>
-      </div>
+<!-- About body -->
+<section class="about-body" style="padding-left: 40px; padding-right: 40px;">
+  <div class="inner">
+    <div>
+      <h2>What we <em>cover</em></h2>
+      <p>The full pipeline from concept sketch to client-ready render — and every AI tool that touches it. We focus on what's actually useful to architects and archviz artists working under real deadlines with real clients.</p>
+      <p>That means render engines, concept generators, upscalers, inpainting workflows, ComfyUI setups, prompt engineering for architectural subjects, and the broader question of how these tools change how studios are run.</p>
+    </div>
+    <div>
+      <h2>What we <em>don't</em> do</h2>
+      <ul>
+        <li>Sponsored tool reviews or affiliate-linked recommendations</li>
+        <li>Benchmarks that ignore real studio constraints (budget, iteration speed, client expectations)</li>
+        <li>Hype cycles — we wait until we've actually run the tool through a project</li>
+        <li>Tutorials that assume a render farm and unlimited compute time</li>
+      </ul>
     </div>
   </div>
 </section>
