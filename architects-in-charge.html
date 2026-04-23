@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>What Does AI Build When Architects Are in Charge? — ArchiGen AI</title>
+<meta name="description" content="When architects direct AI tools instead of marketers or engineers, the outputs are fundamentally different — more spatial, more considered. Six studios, ninety renders. Here's what we found." />
+<link rel="canonical" href="https://archigenai.com/architects-in-charge.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 20ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .pull-quote {
+    margin: 48px -48px;
+    padding: 32px 48px;
+    background: var(--forest);
+    color: var(--cream);
+    border-radius: 12px;
+  }
+  .pull-quote p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--cream);
+    margin: 0;
+  }
+  .pull-quote .attr {
+    display: block;
+    margin-top: 14px;
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(244,239,227,0.6);
+    font-style: normal;
+  }
+
+  .related {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 2px solid var(--ink);
+  }
+  .related .label {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: block;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .related-card {
+    padding: 24px;
+    border-radius: 12px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .related-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(26,25,21,0.07); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .related-card h4 { font-family: var(--f-display); font-weight: 400; font-size: 22px; line-height: 1.1; letter-spacing: -0.015em; margin: 0; }
+  .related-card .rc-sub { font-size: 13px; color: var(--ink-2); margin: 0; line-height: 1.45; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Issue № 042 — The Volume Issue</span><span class="dot">/</span>
+    <span>Six studios. Ninety renders. What the models get right about light.</span><span class="dot">/</span>
+    <span>Field notes from the practice</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Issue № 042 — The Volume Issue</span><span class="dot">/</span>
+    <span>Six studios. Ninety renders. What the models get right about light.</span><span class="dot">/</span>
+    <span>Field notes from the practice</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="#">Case Studies</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="btn">Sign in</a>
+      <a href="#" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Essay · 23 Apr 2026</span>
+      <span class="tag">· 10 min read</span>
+      <span class="tag">· Issue 042</span>
+    </div>
+    <h1>What does AI <em>build</em> when architects are in charge?</h1>
+    <p class="lede">Six studios spent a week letting the models draft. What came back wasn't faster — it was louder. We went through every frame to find what's worth keeping, and what the outputs reveal about who's directing them.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Quincy Bayral &amp; Field Office</div>
+        <div class="detail">ArchiGen AI — Field Notes · Vol. 04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>The standard critique of AI-generated architecture imagery is that it looks like anything and nothing. That's usually true. When you give the model a vague brief, it returns to its mean — swooping concrete, dramatic cantilevers, light arriving from everywhere at once. It has absorbed every award-winning project ever photographed, and it defaults to the aggregate of them.</p>
+
+    <p>That's not what happens when an architect is running it.</p>
+
+    <p>We spent three weeks asking six studios — ranging from a one-person practice in Glasgow to a sixteen-person firm in São Paulo — to document exactly how they were using AI tools in live project work. What came back was ninety renders, forty-odd workflow screenshots, and a clearer picture of the gap between AI-generated architecture and architecture generated with AI than we've seen written about anywhere.</p>
+
+    <p>The difference isn't the tool. It's the brief.</p>
+
+    <h2>The problem with the <em>generic prompt</em></h2>
+
+    <p>When a marketing team uses Midjourney to generate "an inspiring office building," they get the moodboard. Sky-lit atria, glass curtain walls, the kind of space that exists in pitch decks rather than buildings. It isn't bad. It's averaged. The model is doing exactly what it was asked — returning a plausible version of an inspiring office building as understood by every inspirational office building ever rendered.</p>
+
+    <p>The prompt encodes no site. No structural logic. No programme. No client. It has no constraints, so the model fills in the gaps with everything it's learned, and what it's learned is the visual vocabulary of architectural photography: impressive, frameable, technically impossible in several places, and utterly unspecific to any actual piece of land or practice or client brief.</p>
+
+    <p>You can spot this work instantly. It doesn't look fake — it often looks beautiful. But it doesn't look like anything anyone would actually build. The light is wrong in a particular way: too even, too flattering, as if photographed at the golden hour of a day that doesn't exist on this site's orientation. The geometry is dramatic but not useful. The materiality is expressive rather than constructional.</p>
+
+    <p>Architects know how to read this. Most of us find it mildly embarrassing.</p>
+
+    <h2>What architects bring to the <em>brief</em></h2>
+
+    <p>Architects think in specifics that non-specialists don't know to think in. A prompt like "warehouse conversion, east London, three-storey residential above a bakery, 1950s brick, thermal mass, south-facing courtyard" isn't just more detailed than "an inspiring building." It's a different kind of request. It encodes site, structure, material logic, programmatic pressure, and light — all before you've pressed return.</p>
+
+    <p>The model doesn't understand what those constraints mean architecturally. But it has been trained on enough documentation from buildings that had to solve those same problems that it responds differently when you name them. The thermal mass clause pulls it toward heavy-wall typologies. The south-facing courtyard changes the likely section. The 1950s brick pushes it toward load-bearing rather than frame logic.</p>
+
+    <p>None of this is explicit. The model isn't reasoning architecturally. But the output, when you architect the brief, is architecturally literate in a way the generic prompt never is.</p>
+
+    <p>We ran this test directly. The same massing in FLUX.1 Dev, five iterations with incrementally added specificity. The early outputs were technically correct but generic — a building that could be anywhere. By the fourth iteration, you could see the south wall thickening. The fifth was spatially particular in a way that's difficult to explain without seeing it: you could sense the building being on a specific site, rather than on no site at all.</p>
+
+    <div class="pull-quote">
+      <p>"The model doesn't care about the building. It doesn't understand what a door is, or why a column needs to be there. Those remain the architect's jobs — and they're the jobs worth keeping."</p>
+      <span class="attr">From the field notes · Issue 042</span>
+    </div>
+
+    <h2>Midjourney as a <em>conceptual instrument</em></h2>
+
+    <p>Midjourney's weakness in architectural work is documented: geometry failures, structural inventions, doors that open into other doors. We know this. We've all made the mistake of trusting it with technical things.</p>
+
+    <p>But its strength — which is rarely discussed with the same clarity — is atmosphere. Specifically, light. Midjourney is exceptional at light in the way that matters most at concept stage: it understands the qualitative difference between types of daylight, between diffused overcast and direct raking, between a high clerestory and a low window, in a way that generates spatially meaningful results when the brief asks for it directly.</p>
+
+    <p>Architects spend years learning to describe light conditions. North-facing, south-facing, the difference between a deep recess and a thin jamb, the way a masonry reveal changes the character of shadow. That trained eye makes us competent directors of Midjourney in a way that non-architects often aren't.</p>
+
+    <p>When we use Midjourney for early-stage work, we aren't asking it to draw buildings. We're asking it to describe light conditions. "A reading room. Thick walls. North light only. Concrete. Make the silence visible." The model returns something spatially coherent — not because it understands the programme, but because our brief asked it to solve a specific atmospheric problem that has its own architectural grammar.</p>
+
+    <p>Two of the studios we worked with use this as a disciplined first step: Midjourney to find the right register of light and material, never presented to a client, living in the pinboard as a reference the design has to earn its way back to. They're not using it to generate architecture. They're using it to describe what they're trying to make.</p>
+
+    <h2>ComfyUI and the <em>design of the pipeline</em></h2>
+
+    <p>Later in the process, the tools change. Midjourney's looseness is an asset at concept stage and a liability once geometry is set. By the time you're producing presentation material, you've moved to ComfyUI — and this is where the gap between architect-directed and non-architect-directed AI work becomes most legible.</p>
+
+    <p>ComfyUI requires you to think about an image as a set of decisions. ControlNet for geometry. LoRA for material character. Denoise for the ratio of model invention to source fidelity. Upscale for resolution. These aren't just technical choices. They're design choices. Getting the denoise setting right on a complex exterior requires the same judgment as getting a material specification right — you're deciding how much of the building should be explicit and how much should remain suggested.</p>
+
+    <p>Architects make these judgments fluently because they are variations on the judgment we make throughout a project: how much to show, how much to leave unresolved, what drawing to present at which meeting and in what state of completion. ComfyUI externalises the render pipeline in a way that maps onto how we already think about design information.</p>
+
+    <p>Non-architects find ComfyUI notoriously difficult — not because the software is opaque, but because the decisions it requires map onto a spatial intelligence they haven't been trained in. You can't get the denoise right if you haven't developed an opinion about what the right level of resolution means for this building at this stage. The tool is neutral. The judgment is professional.</p>
+
+    <h2>FLUX and material <em>intelligence</em></h2>
+
+    <p>FLUX.1 Dev has changed how we handle material exploration in early design. Its understanding of material properties — the way light reads differently off polished concrete than off board-marked concrete, the thermal connotations of brick versus CLT, the difference between a factory-finished aluminium panel and one that has weathered for three seasons — is better than anything that existed before.</p>
+
+    <p>We've found it most useful when we give it the same brief we'd give a materials consultant: not "make this look like wood" but "oak cross-laminated structural panel, factory edge trim, left to weather without treatment for three years, south-facing. How does it read at noon in September." The model returns something technically wrong in the details but atmospherically accurate in a way that's useful for client conversation.</p>
+
+    <p>fal.ai has made FLUX fast enough to use interactively. You can run eight or ten material variations in the time it used to take to set up a single render. That speed changes how you use it. It stops being a tool for final images and starts behaving like a fast sketchpad — testing material decisions at a speed closer to a pencil than to a render farm. Several studios we spoke with now do their first materials review entirely in FLUX before touching a proper render pipeline.</p>
+
+    <div class="pull-quote" style="background:var(--marigold); color:var(--ink);">
+      <p style="color:var(--ink);">"The studios that have integrated AI well aren't the ones with the most powerful tools. They're the ones where the people using the tools were already good at the underlying judgment the tools externalise."</p>
+      <span class="attr" style="color:rgba(26,25,21,0.6);">Observed across six practices · April 2026</span>
+    </div>
+
+    <h2>What this means for <em>the profession</em></h2>
+
+    <p>Three years of watching AI enter architectural practice has produced a fairly clear pattern. The firms that have integrated it well are not the ones with the most powerful tools or the biggest technology budgets. They're the ones where the people using the tools were already good at the underlying judgments the tools externalise.</p>
+
+    <p>The architect who uses Midjourney to find the right light condition for a project is the same architect who could find it by studying precedents for a week. The one who gets the ComfyUI denoise right is the one whose hand drawings always had the right level of resolution for the stage of the project. The tool doesn't create judgment. It amplifies it — which means it also amplifies the absence of judgment, in the familiar way that a faster car is more dangerous in inexperienced hands.</p>
+
+    <p>The outputs that embarrass architecture — the Instagram-optimised renders with no logic, the forms that couldn't be built, the light that doesn't belong to any hemisphere — are real, and they're a problem. But they're almost exclusively produced by people who weren't trained architects, or who are using the tools as substitutes for design thought rather than extensions of it. The model doesn't know which you're doing. It returns what you ask for.</p>
+
+    <p>There's a related concern worth naming, because it shows up in studio conversations but rarely in published writing. The risk isn't that AI replaces architectural judgment. The risk is that it makes weak architectural judgment look better than it is. A poorly conceived design that is beautifully rendered is a problem we've always had — AI has just lowered the cost of the render. The answer is the same as it's always been: develop genuine judgment, then use the tools in service of it.</p>
+
+    <h2>The essay's <em>actual answer</em></h2>
+
+    <p>When architects are in charge, AI builds the space between the idea and the object. Not a shortcut to the finished building — the productive friction of working through what you're actually trying to make, faster than before, with a collaborator that has absorbed more visual knowledge than any human could hold.</p>
+
+    <p>What we found across six studios was consistent enough to be worth stating plainly: the outputs that were worth anything — the ones that advanced the design, informed the client conversation, changed the way someone thought about a building — were the ones where the architect was in the room in the way they're always in the room: making specific, constrained, opinionated demands on a system that is good at fulfilling them but has no opinion of its own about what they should be.</p>
+
+    <p>The model doesn't care about the building. It doesn't understand what a door is, or why a column needs to be in that position, or what a load path demands. Those remain the architect's jobs — and they're the jobs worth keeping.</p>
+
+    <p>What the model can do is hold a brief long enough to return something worth arguing with. In practice, that turns out to be exactly what you need in the first week of a project, when the best move is often to have something imperfect in front of you so you can say, with precision, what it's not.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Field notes compiled April 2026. Six studios across five countries. No affiliate relationships. No sponsored placements. Edited slowly.</p>
+
+    <div class="related">
+      <span class="label">Related reading</span>
+      <div class="related-grid">
+        <a href="honest-guide-ai-rendering-architecture.html" class="related-card">
+          <span class="rc-tag">Guide · April 2026</span>
+          <h4>The Honest Guide to AI Rendering for Architecture Firms</h4>
+          <p class="rc-sub">What AI rendering actually does, where it still fails, and how to evaluate tools without getting sold a demo. No hype, no sponsored placements.</p>
+        </a>
+        <a href="best-ai-tools-architectural-visualization-2026.html" class="related-card">
+          <span class="rc-tag">Comparison · April 2026</span>
+          <h4>The Best AI Tools for Architectural Visualization in 2026</h4>
+          <p class="rc-sub">We tested every major platform across real project types — elevations, interiors, site renders. Here's what actually holds up in practice.</p>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="#">Field notes</a>
+        <a href="#">Essays</a>
+        <a href="#">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="#">Comparisons</a>
+        <a href="#">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS</a>
+        <a href="#">Are.na</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
