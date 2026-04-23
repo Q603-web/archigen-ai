@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>Leonardo AI for Architecture: Full Review — ArchiGen AI</title>
+<meta name="description" content="Six months of using Leonardo AI on real architecture projects — what it's actually good at, where it falls short, and whether the price is worth it." />
+<link rel="canonical" href="https://archigenai.com/leonardo-ai-review.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .review-card { border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 32px 0; background: var(--paper-2); }
+  .review-card .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+  .review-card .name { font-weight: 700; font-size: 22px; font-family: var(--f-display); }
+  .review-card .rating { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 6px 12px; border-radius: 999px; }
+  .review-card .pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .review-card .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 16px; }
+  .review-card .grid h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 8px; }
+  .review-card .grid .pros h4 { color: var(--sage); }
+  .review-card .grid .cons h4 { color: var(--coral); }
+  .review-card .grid ul { list-style: none; padding: 0; margin: 0; font-size: 14px; color: var(--ink-2); }
+  .review-card .grid li { padding: 4px 0; }
+
+  .compare-callout { border-left: 3px solid var(--slate); background: var(--paper-2); padding: 24px 28px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+  .compare-callout h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); margin: 0 0 12px; }
+  .compare-callout p { margin: 0 0 8px; font-size: 15px; }
+  .compare-callout p:last-child { margin-bottom: 0; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="#">Case Studies</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="btn">Sign in</a>
+      <a href="#" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool review · 23 Apr 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>Leonardo AI for <em>architecture</em></h1>
+    <p class="lede">Six months of running Leonardo through real project work. It's the last node in nine of our ten render pipelines — and the first node in none of them. Here's why.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">ArchiGen AI Editorial</div>
+        <div class="detail">7 min read · Apr 2026 · ★★★★☆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Leonardo AI started life as a Discord-adjacent image generator with a friendlier interface than Midjourney. In 2026, it's something else: the workhorse upscaler and finisher that quietly ends up in most of the architecture pipelines we've built. It's not the most exciting tool in the stack. It's the one we'd miss most if it disappeared.</p>
+
+    <h2>What it <em>does</em></h2>
+
+    <p>Leonardo is a generative image platform with three things going for it: a deep library of fine-tuned base models, a serious upscaler, and a Canvas tool that handles inpainting, outpainting, and image-to-image without the friction of running ComfyUI yourself.</p>
+
+    <p>The architecture-relevant features sit in three places. The "Phoenix" and "Lightning XL" base models are fast and competent at exterior renders. The Universal Upscaler is the best we've used at the $12/month price point. And the Canvas inpainting handles entourage replacement, sky swaps, and material edits in a single browser tab.</p>
+
+    <div class="review-card">
+      <div class="head">
+        <div class="name">Leonardo AI</div>
+        <div class="rating">★★★★☆ — 4.2 / 5.0</div>
+      </div>
+      <div class="pricing">Pricing: Free tier · Apprentice $12/mo · Artisan $30/mo · Maestro $60/mo</div>
+      <p>A solid generalist that earns its place at the end of the pipeline. Strong upscaler, useful Canvas, deep model library. Best value when used as a finisher rather than a primary renderer.</p>
+      <div class="grid">
+        <div class="pros">
+          <h4>Where it excels</h4>
+          <ul>
+            <li>Universal Upscaler quality</li>
+            <li>Architectural finish presets</li>
+            <li>Inpainting on Canvas</li>
+            <li>Photorealism on simple geometry</li>
+            <li>Token economy at $30/mo</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>Where it falls short</h4>
+          <ul>
+            <li>Complex geometry fidelity</li>
+            <li>Free tier is too limited</li>
+            <li>Slow during peak hours</li>
+            <li>No real geometry input</li>
+            <li>Plan-view renders are weak</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Where it <em>excels</em></h2>
+
+    <p><strong>Upscaling.</strong> The Universal Upscaler is the reason we keep paying. Take any 1024px AI render — from Veras, Rendair, Midjourney, anywhere — and run it through Leonardo at 2x with the "Crisp" preset. The output is consistently usable for print. We've A/B tested it against Topaz Gigapixel and Magnific, and Leonardo holds its own at half the price.</p>
+
+    <p><strong>Finishing renders.</strong> The Canvas tool handles the small fixes that used to require Photoshop. A streetlight in the wrong place, a weird artifact in the sky, an entourage figure that looks AI-generated — all fixable with inpainting in under a minute. We do final-pass cleanup in Leonardo before any client delivery.</p>
+
+    <p><strong>Photorealism on simple geometry.</strong> Single-volume buildings, isolated objects, hero shots of one facade — Leonardo does these well from a depth map or sketch. The Phoenix model has the right priors for contemporary architecture. We've used it for competition boards where the brief permitted abstraction.</p>
+
+    <p><strong>The architecture presets.</strong> Leonardo ships with prompt presets for "Architecture Exterior," "Interior Design," "Landscape" and a few others. They're not magic, but they're a sensible starting point for someone new to image prompting. Better than starting from a blank text box.</p>
+
+    <h2>Where it <em>falls short</em></h2>
+
+    <p><strong>Complex geometry.</strong> Anything with multiple massing volumes, faceted facades, or unusual roof forms confuses Leonardo. It will produce a render. The render will not look like your building. This is true of every text-to-image tool, but Leonardo doesn't have a geometry-aware mode the way Veras does, so there's no fix.</p>
+
+    <p><strong>The free tier.</strong> 150 daily tokens sounds generous until you realize a single high-resolution upscale eats 30 to 40 of them. The free tier is a marketing loop, not a usable product. Plan to subscribe from day one.</p>
+
+    <p><strong>Speed during peak hours.</strong> US business hours are when Leonardo slows down. A render that takes 12 seconds at 7am can take 90 seconds at 2pm. Not a deal-breaker, but worth knowing if you're delivering on a deadline.</p>
+
+    <p><strong>Plan-view renders.</strong> Leonardo cannot do orthographic. Ask it for a top-down site plan and you'll get an isometric. Ask it for an axonometric and you'll get something between perspective and isometric that resembles neither. This is a category limitation, not unique to Leonardo, but noted.</p>
+
+    <h2>Pricing in <em>practice</em></h2>
+
+    <p>The Apprentice tier at $12/month gives you 8,500 tokens — roughly 80 to 100 upscales or 200 to 300 generations. That's enough for a small firm doing one or two projects a week.</p>
+
+    <p>The Artisan tier at $30/month is what we recommend for active studios. 25,000 tokens, no relaxed-mode wait, and access to the higher-quality Maestro models. We split this seat across two designers and it's ample.</p>
+
+    <p>The Maestro tier at $60/month is overkill unless you're producing AI imagery as a primary deliverable. Most architecture firms don't need it.</p>
+
+    <p>Cost per usable image, calibrated against our last quarter: about $0.40 per finished, upscaled, client-quality render. That's competitive with anything in the category.</p>
+
+    <div class="compare-callout">
+      <h4>How it compares</h4>
+      <p><strong>vs Magnific:</strong> Magnific has the edge on hero-shot upscaling and texture detail, but costs $40/month minimum and lacks Leonardo's broader feature set. We use Magnific for portfolio work and Leonardo for everything else.</p>
+      <p><strong>vs Midjourney:</strong> Different categories. Midjourney is for atmosphere; Leonardo is for production. We use both.</p>
+      <p><strong>vs Krea:</strong> Krea wins on real-time interactivity and live client meetings. Leonardo wins on output quality and finishing tools.</p>
+    </div>
+
+    <h2>Workflow <em>tips</em></h2>
+
+    <p><strong>Use it as a finisher, not a starter.</strong> Generate your concept in Midjourney, your geometry-aware render in Veras, then bring both into Leonardo for upscaling and inpainting. That's where the value lives.</p>
+
+    <p><strong>Set up a private model library.</strong> Leonardo lets you train light fine-tunes on your own renders. Train one on your firm's preferred materials and lighting register. The output gets noticeably more "yours" within ten training images.</p>
+
+    <p><strong>Batch your upscales.</strong> Leonardo charges the same tokens whether you upscale one image or ten in a session, but the queue position resets between jobs. Batch them at the end of the day. You'll save real time.</p>
+
+    <p><strong>Use the Image Guidance feature.</strong> Drag in a reference image alongside your prompt and Leonardo will hew closer to that visual register. Especially useful for getting consistent atmospheric mood across a render set.</p>
+
+    <blockquote>Boring, fast, reliable. The last node in nine of our ten workflows.</blockquote>
+
+    <h2>The <em>verdict</em></h2>
+
+    <p>Leonardo AI is not the tool we'd reach for first when starting a new render. It's the tool we reach for last, every time. As an upscaler, finisher, and inpainter, at $30 a month, it's the best value in the category.</p>
+
+    <p>If you're running anything in our recommended stack — Midjourney, Veras, Rendair, ComfyUI, anything else — Leonardo is the cheapest way to lift the output quality across the board. Recommended without hesitation, with the caveat that it's not a primary renderer.</p>
+
+    <p><strong>Rating: ★★★★☆ — 4.2 / 5.0.</strong> Loses half a star for the limited free tier and the lack of real geometry input. Would be a five-star tool if either changed.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">No affiliate relationship with Leonardo AI. Tested by Vista Studios on live project work for six months prior to publication.</p>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="#">Field notes</a>
+        <a href="#">Essays</a>
+        <a href="#">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="#">Comparisons</a>
+        <a href="#">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS</a>
+        <a href="#">Are.na</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
