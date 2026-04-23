@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>The Honest Guide to AI Rendering for Architecture Firms — ArchiGen AI</title>
+<meta name="description" content="AI rendering is the fastest-moving category in architecture software. It's also the most overpromised. Here's what it actually does, where it fails, and how to evaluate tools without getting sold a demo." />
+<link rel="canonical" href="https://archigenai.com/honest-guide-ai-rendering-architecture.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .checklist { background: var(--paper-2); border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 32px 0; }
+  .checklist h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+  .checklist ol { padding-left: 20px; margin: 0; }
+  .checklist li { margin-bottom: 12px; color: var(--ink-2); }
+  .checklist li strong { color: var(--ink); display: block; margin-bottom: 4px; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="#">Tools</a>
+      <a href="#">Case Studies</a>
+      <a href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#" class="btn">Sign in</a>
+      <a href="#" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · April 2026</span>
+      <span class="tag">· 11 min read</span>
+    </div>
+    <h1>The Honest Guide to <em>AI Rendering</em> for Architecture Firms</h1>
+    <p class="lede">AI rendering is the fastest-moving category in architecture software right now. It's also the most overpromised. Here's what it actually does, where it fails, and how to evaluate tools without getting sold a demo.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">ArchiGen AI Editorial</div>
+        <div class="detail">11 min read · Published April 2026 · No sponsored placements</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Every week another architecture practice asks us some version of the same question: which AI rendering tool should we buy? The answer we give, privately, is almost always different from the one we would write into a product comparison table. What a firm actually needs has less to do with the best-reviewed tool and more to do with what phase they are stuck in, which clients they serve, and how much risk they can afford on a given deliverable.</p>
+
+    <p>This piece is the long version of that private answer.</p>
+
+    <hr>
+
+    <h2>What AI Rendering Actually Is</h2>
+
+    <p>The term has been stretched to cover three genuinely different things. First, there is text-to-image generation, where a language prompt produces an entirely new picture — Midjourney, Stable Diffusion, Leonardo. Second, there is image-to-image translation, where your existing model or sketch conditions the output — Chaos Veras, ComfyUI with ControlNet. Third, there is generative fill and editing, which modifies specific regions of an existing image — Firefly, Magnific, the inpainting features inside most of the above.</p>
+
+    <p>Most vendors market all three as one thing. They are not. The workflows, failure modes, and quality ceilings are different for each. A tool that is excellent at text-to-image may be useless at maintaining geometric fidelity to your SketchUp massing. A tool that excels at image-to-image may produce sterile, un-atmospheric results when asked to generate from scratch.</p>
+
+    <p>This matters because most AI rendering disappointments come from using the wrong category of tool for the task at hand.</p>
+
+    <hr>
+
+    <h2>The Four Things It Does Well</h2>
+
+    <p><strong>Concept-phase speed.</strong> What used to take a week of rendering and revision can now happen in an afternoon. The bottleneck moves from production time to decision time, which is what you actually want early in a project.</p>
+
+    <p><strong>Client communication.</strong> AI renders convey atmosphere, scale, and material feel better than any SketchUp axon or wireframe. For non-technical clients — developers, end users, planning committees — this translates to faster, more confident decisions.</p>
+
+    <p><strong>Iteration at volume.</strong> Ten facade variants in an hour is a reasonable expectation. Twenty material studies overnight is routine. This kind of volume changes how you test ideas because the cost of exploring a bad direction is close to zero.</p>
+
+    <p><strong>Atmospheric quality.</strong> Light, weather, vegetation, softness at edges — the qualities that make a render feel like a photograph rather than a CAD export — are where the current generation of models is genuinely exceptional. Even the best V-Ray artists notice.</p>
+
+    <hr>
+
+    <h2>The Four Things It Still Gets Wrong</h2>
+
+    <p><strong>Geometry fidelity.</strong> If your scheme depends on a specific cantilever, an unusual column spacing, or a tricky roof junction, the model will cheerfully invent something close but different. You cannot submit an AI render as a planning document. You can barely use one as a geometry reference for your own drawings.</p>
+
+    <p><strong>BIM integration.</strong> There is no production-grade path from Revit to AI render that preserves data fidelity. Most integrations export to a 2D image or depth map and regenerate from there, which is a translation, not a connection. If your workflow is model-of-record, AI rendering lives alongside it, not inside it.</p>
+
+    <p><strong>Technical accuracy.</strong> Material specifications are fictional. Lighting calculations are aesthetic, not photometric. If a detail matters — a shadow study, a glare analysis, a reflection diagram — use a physically based renderer.</p>
+
+    <p><strong>Repeatability.</strong> Getting the same building from a different angle, or the same interior with one finish changed, is possible but it requires discipline: seeds, reference images, ControlNet anchors, sometimes a custom LoRA. Without that scaffolding, every generation is a new building.</p>
+
+    <hr>
+
+    <h2>Common Mistakes Firms Make When Adopting AI Rendering</h2>
+
+    <p>The most frequent mistake is treating the tool as a replacement for a rendering artist rather than a change to the pipeline. Firms fire their visualization person, adopt Midjourney, and then discover nobody on the design team has the craft instincts to prompt and curate well. Six months later they are outsourcing to an AI rendering studio at higher rates than they were paying their staff.</p>
+
+    <p>The second mistake is the demo fallacy. Every vendor's demo looks fantastic. They are using ideal prompts, cherry-picked outputs, and stock context that happens to flatter the model. Your actual project — awkward site, mixed tenancy, a client who wants a specific red brick — will not produce the demo output on the first try, or the tenth.</p>
+
+    <p>The third is failing to version. Firms start generating renders with no convention for tracking which prompt produced which image, which seed, which model version. Three months in, they cannot reproduce the one render the principal actually liked, and the mood board stops building on itself.</p>
+
+    <hr>
+
+    <h2>How to Evaluate an AI Rendering Tool</h2>
+
+    <div class="checklist">
+      <h4>The six-criterion evaluation</h4>
+      <ol>
+        <li><strong>Generate from your own inputs.</strong> Not the vendor's demo prompt. Bring a real site photo, a real massing model, a real moodboard from a current project. If the tool only looks good on their examples, that is a tell.</li>
+        <li><strong>Test iteration, not just first-output quality.</strong> First results are easy. What you care about is whether the thirtieth result holds up and whether the fourth variant of shot seven still feels like the same building.</li>
+        <li><strong>Check print resolution.</strong> Generate, upscale, and open in Photoshop at 300 DPI. Most tools look good at screen resolution and fall apart at A2 print.</li>
+        <li><strong>Try the weakest material.</strong> Brick is easy. Try curtain wall, corten steel, perforated metal, or brushed concrete. These are where models differ most.</li>
+        <li><strong>Interrogate the pricing math.</strong> Per-credit, per-image, per-seat models all look reasonable on a landing page. Estimate a real project — 300 iterations across six weeks — and see what the bill looks like.</li>
+        <li><strong>Check the export rights.</strong> Some tools claim ownership of generated output in commercial use. Read the terms before your firm's name ends up attached to an image the vendor can redistribute.</li>
+      </ol>
+    </div>
+
+    <hr>
+
+    <h2>A Note on Client Expectations</h2>
+
+    <p>A developer who has seen Midjourney on LinkedIn now expects every rendering to look like it. A planning officer who has sat through a hundred photorealistic competition boards has started to distrust them. Both are reasonable responses to what AI rendering has done to the genre.</p>
+
+    <p>We have started, on some projects, deliberately leaving evidence of the process — a visible sketch layer, a hand-drawn overlay, a rougher pass — so that clients understand what they are looking at is a design exploration, not a promise. This is partly defensive and partly a return to something older. Architectural rendering was, for most of its history, a rhetorical medium. AI has not changed that. It has only made the rhetoric easier to produce and therefore more important to signal clearly.</p>
+
+    <blockquote>The best thing you can do with an AI render is to be clear about what it is. The worst thing is to let a client mistake it for a guarantee.</blockquote>
+
+    <hr>
+
+    <h2>The Honest Bottom Line</h2>
+
+    <p>AI rendering is worth adopting. It is not worth treating as a silver bullet. If you go into evaluation expecting a faster V-Ray, you will be disappointed. If you go in looking for a tool that moves schematic decisions earlier and makes client conversations richer, you will find one.</p>
+
+    <p>Start with one person in the firm. Pick two tools — one for atmosphere, one for consistency. Write down your prompts. Review the output weekly. In six months you will know more than any product comparison can teach you, and the tool you settled on will almost certainly be different from the one the buyer's guide recommended.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">ArchiGen AI is an independent publication on AI tools for architecture practice. No affiliate placements. Evaluations based on live project work.</p>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="#">Field notes</a>
+        <a href="#">Essays</a>
+        <a href="#">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="#">Directory</a>
+        <a href="#">Comparisons</a>
+        <a href="#">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#">Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS</a>
+        <a href="#">Are.na</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
