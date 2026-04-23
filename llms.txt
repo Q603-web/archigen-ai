@@ -1,0 +1,27 @@
+# ArchiGen AI
+
+> An editorial publication for architects, archviz artists, and design-forward studios figuring out where AI fits into the drawing set. We test, compare, and publish what's useful. No sponsored placements.
+
+ArchiGen AI is published by Vista Studios. Every tool and workflow we write about has been tested on real architectural projects.
+
+## Core essays
+
+- [What does AI build when architects are in charge?](https://archigenai.com/architects-in-charge.html): A field essay on what AI actually produces when architects direct the tools rather than follow them. On human authorship in the age of generative design.
+- [Best AI Tools for Architectural Visualization 2026](https://archigenai.com/best-ai-tools-architectural-visualization-2026.html): Tested comparisons of Midjourney, Chaos Veras, Stable Diffusion, and others for real architectural workflows.
+- [Honest Guide to AI Rendering](https://archigenai.com/honest-guide-ai-rendering.html): A candid breakdown of what AI rendering can and can't do for architecture practices today.
+- [Prompt Engineering for Architectural Exteriors](https://archigenai.com/prompt-engineering-architectural-exteriors.html): Practical techniques for getting AI to produce credible exterior renders.
+
+## Sections
+
+- [Journal](https://archigenai.com/journal.html): All articles and field notes.
+- [Workflows](https://archigenai.com/workflows.html): Step-by-step AI workflows for architectural practice.
+- [Tools Directory](https://archigenai.com/tools.html): Curated index of AI tools tested for architecture.
+
+## About
+
+- [Homepage](https://archigenai.com/): Latest issue and featured content.
+- [About](https://archigenai.com/about.html): About the publication.
+
+## Optional
+
+- Contact: Available through the website.

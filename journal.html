@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -79,7 +79,7 @@
     padding: 8px 16px; border-radius: 999px;
     color: var(--paper); text-decoration: none;
     font-size: 13px; font-weight: 500;
-    transition: all 0.15s;
+    transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
   }
   .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
   .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
@@ -89,7 +89,7 @@
     border: 1px solid var(--rule);
     background: transparent; color: var(--ink);
     text-decoration: none; cursor: pointer;
-    transition: all 0.15s;
+    transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
     display: inline-flex; align-items: center; gap: 8px;
   }
   .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
@@ -488,6 +488,41 @@
   .foot .brand em { color: rgba(244,239,227,0.6); }
 
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "alternateName": "ArchiGen",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vista Studios"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://archigenai.com/#website",
+      "url": "https://archigenai.com/",
+      "name": "ArchiGen AI",
+      "description": "The front door for AI in architecture.",
+      "publisher": { "@id": "https://archigenai.com/#organization" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#quincy-bayral",
+      "name": "Quincy Bayral",
+      "jobTitle": "Editor, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -777,6 +812,20 @@
       </article>
       </a>
 
+      <a href="honest-guide-ai-rendering-architecture.html" style="text-decoration:none;color:inherit;">
+      <article class="card paper" style="cursor:pointer;">
+        <div class="cat"><span class="dot"></span> Field Guide · 23 Apr 2026</div>
+        <h3>An honest guide to AI rendering in architecture.</h3>
+        <p class="excerpt">What actually works, what doesn't, and when the whole category is the wrong tool for the job. Written after two years running these pipelines on real projects — not demos.</p>
+        <div class="foot">
+          <span>11 min · Field Guide · Vista Studios tested</span>
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </div>
+      </article>
+      </a>
+
       <a href="midjourney-architecture-review.html" style="text-decoration:none;color:inherit;">
       <article class="card render" style="background:#6e5a4a;cursor:pointer;">
         <div class="inner" style="background: repeating-linear-gradient(135deg, #6e5a4a 0 2px, #5d4a3c 2px 5px);"></div>
@@ -801,6 +850,20 @@
         <p class="excerpt">Six months of running it through real project work. The last node in nine of our ten render pipelines — and the first node in none of them. Here's why.</p>
         <div class="foot">
           <span>7 min · Review · ★★★★☆</span>
+          <span class="arrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
+          </span>
+        </div>
+      </article>
+      </a>
+
+      <a href="ai-architecture-portfolio.html" style="text-decoration:none;color:inherit;">
+      <article class="card paper" style="cursor:pointer;">
+        <div class="cat"><span class="dot"></span> Career · 23 Apr 2026</div>
+        <h3>How to build an AI-augmented architecture portfolio.</h3>
+        <p class="excerpt">What clients and employers actually look for when they see AI in your work — and how to present process, not just output.</p>
+        <div class="foot">
+          <span>7 min · Guide</span>
           <span class="arrow">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
           </span>

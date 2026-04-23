@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Instrument+Serif:ital@0;1&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -50,10 +50,10 @@
   .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
   .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
   .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
-  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.15s; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
   .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
   .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
-  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
   .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
@@ -98,6 +98,74 @@
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "alternateName": "ArchiGen",
+      "url": "https://archigenai.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://archigenai.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vista Studios"
+      },
+      "sameAs": [
+        "https://www.instagram.com/archigenai",
+        "https://www.linkedin.com/company/archigenai",
+        "https://twitter.com/archigenai"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://archigenai.com/#website",
+      "url": "https://archigenai.com/",
+      "name": "ArchiGen AI",
+      "description": "The front door for AI in architecture.",
+      "publisher": { "@id": "https://archigenai.com/#organization" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#quincy-bayral",
+      "name": "Quincy Bayral",
+      "jobTitle": "Editor, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" },
+      "sameAs": [
+        "https://www.linkedin.com/in/quincy-bayral",
+        "https://twitter.com/quincybayral"
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Rendering for Small Firms — Budget Tiers Explained",
+  "description": "How to build an AI rendering stack at every budget level: free, $50/mo, $200/mo, and studio scale. A practical guide for small architecture practices.",
+  "author": { "@id": "https://archigenai.com/#quincy-bayral" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-04-15T09:00:00-04:00",
+  "dateModified": "2026-04-15T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-rendering-small-firms-budget-tiers.html",
+  "articleSection": "Field Guide",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["AI rendering small firm", "architecture AI budget", "AI rendering stack"]
+}
+</script>
 </head>
 <body>
 
