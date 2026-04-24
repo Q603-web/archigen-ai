@@ -27,7 +27,7 @@ if (!fs.existsSync(INTEL_DIR)) fs.mkdirSync(INTEL_DIR, { recursive: true });
 
 function firecrawlSearch(query, limit = 8) {
   return new Promise((resolve, reject) => {
-    const body = JSON.stringify({ query, limit, scrapeOptions: { formats: ['summary'], onlyMainContent: true } });
+    const body = JSON.stringify({ query, limit });
     const req = https.request({
       hostname: 'api.firecrawl.dev',
       path: '/v1/search',
