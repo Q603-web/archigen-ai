@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280" />
+<title>Chaos Veras 4.3 Review — What's Actually New and Whether It Matters — ArchiGen AI</title>
+<meta name="description" content="Veras 4.3 adds reference image types, multi-video combining, render fine-tuning, and Nano Banana 2. We tested all of it on live project work." />
+<link rel="canonical" href="https://archigenai.com/veras-4-3-update.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#quincy-bayral",
+      "name": "Quincy Bayral",
+      "jobTitle": "Editor, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chaos Veras 4.3 Review — What's Actually New and Whether It Matters",
+  "description": "Veras 4.3 adds reference image types, multi-video combining, render fine-tuning, and Nano Banana 2. We tested all of it on live project work.",
+  "author": { "@id": "https://archigenai.com/#quincy-bayral" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-04-25T09:00:00-04:00",
+  "dateModified": "2026-04-25T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-4-3-update.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["Chaos Veras 4.3", "Veras update", "AI architectural rendering 2026", "Nano Banana 2"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="#">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Update · 25 Apr 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
+      Version 4.3 Now Live
+    </div>
+    <h1>Chaos Veras <em>4.3</em></h1>
+    <p class="lede">Four meaningful updates shipped in one release: reference image types, multi-video render combining, render fine-tuning, and a new AI engine. Here's what each one actually changes in practice — and what's still missing.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Quincy Bayral — Vista Studios</div>
+        <div class="detail">7 min read · Apr 2026 · Vista Studios tested · Updated from 4.0 review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>We reviewed Veras in its 4.0 form back in April and called it the most reliable AI renderer for architects working within an existing V-Ray workflow. The core argument held: if you're paying for V-Ray, Veras is effectively free to try, and on exterior elevations with clear geometry, it outperformed everything we tested at a similar price point.</p>
+
+    <p>4.3 landed this week. Four headline features. We ran them all against live project work — a mixed-use scheme in Philadelphia currently in SD, plus a residential compound we're detailing in SketchUp. Here's what we found.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Chaos Veras 4.3</div>
+        <div class="tc-rating">★ 4.7 / 5.0 ↑ from 4.6</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included with V-Ray subscription · ~$80/mo · Standalone plan also available</div>
+      <p>Plugin for SketchUp, Revit, Rhino, 3ds Max, and Archicad. Veras 4.3 is the most capable version yet — particularly for firms already in the Chaos ecosystem. New reference image typing and the Nano Banana 2 engine together solve two of the main complaints from the 4.0 release.</p>
+      <div class="tc-tags">
+        <span>V-Ray integration</span><span>SketchUp</span><span>Revit</span><span>Rhino</span><span>Nano Banana 2</span><span>Reference images</span><span>Multi-video</span>
+      </div>
+    </div>
+
+    <h2>Reference <em>image types</em></h2>
+
+    <p>This is the biggest quality-of-life improvement in 4.3, and it's genuinely useful. In previous versions, when you fed Veras a reference image, it treated the whole thing as a style target — atmosphere, material, lighting, all at once. You couldn't tell it "use this image for mood only, but not materials." You got whatever weighting the model decided.</p>
+
+    <p>4.3 lets you specify what role a reference image plays. The options include style (overall aesthetic direction), material (surface finishes and textures), lighting (time of day, shadow quality, exposure), and composition (camera angle, crop, scene layout). You can stack references — one for lighting, a different one for material mood — and assign a weight to each.</p>
+
+    <blockquote>Being able to say "light it like this photograph but finish it in this material palette" is a genuinely different workflow. It removes one of the main prompt-fighting loops we used to deal with.</blockquote>
+
+    <p>In practice on our Philadelphia project: we had a reference photo of raked afternoon light on a brick-and-glass facade we wanted to match. Previously, the model would pick up the brick character and pull the render in that direction. With 4.3, we set that image as a lighting reference only and used a separate image for material direction. The output read the light accurately and held our specified concrete-and-weathered-corten palette. First pass was client-presentable.</p>
+
+    <p>The weight controls take some calibration. We found that setting any reference above 0.7 weight started to override the geometry fidelity — the model leaned into the reference at the expense of our actual massing. The sweet spot for most of our passes was 0.4–0.6. That's a workflow you need to learn, not a problem exactly, but expect to spend 30 minutes getting the feel of it before you start billing time against it.</p>
+
+    <hr>
+
+    <h2>Nano <em>Banana 2</em></h2>
+
+    <p>Chaos named their underlying AI engine "Nano Banana" and we are choosing not to comment on that. What matters is what it does.</p>
+
+    <p>Nano Banana 2 is the engine powering Veras's image generation from 4.3 forward. The previous engine (NB1) handled geometry reasonably well but had two recurring issues: edge softening on hard architectural lines, and a tendency to hallucinate window mullion patterns that didn't exist in the source geometry.</p>
+
+    <p>NB2 is measurably better at hard geometry. On our residential compound, a series of cantilevered volumes with sharp shadow-casting edges, every edge in the 4.3 output read correctly. In 4.0, the same geometry came back with soft, impressionistic corners on about 30% of passes — fine for mood boards, not fine for clients who want to see the actual building.</p>
+
+    <p>Window hallucination still happens, but at a much lower rate. We ran 24 exterior elevation passes on the mixed-use scheme. Four came back with invented window geometry. In our 4.0 testing on comparable geometry, the number was closer to nine. That's meaningful progress — though not zero, so you're still checking outputs rather than trusting blindly.</p>
+
+    <p>Interior performance is also noticeably better. In our earlier head-to-head between Veras and Rendair, Veras lost the interior category. With NB2 running the engine, the gap has closed. Furniture edge fidelity improved, and the light spill patterns in our interior living room tests looked physically credible rather than procedural. We haven't re-run the full Veras vs Rendair test with 4.3 yet, but our intuition is it's now competitive.</p>
+
+    <hr>
+
+    <h2>Multi-video <em>render combining</em></h2>
+
+    <p>New in 4.3: you can generate multiple animation renders and combine them. In practice, this means you can run the same walkthrough path with three different lighting conditions — morning, midday, golden hour — and Veras will composite them into a single output that transitions between states.</p>
+
+    <p>We haven't used this on a client deliverable yet. Our immediate read is that it's most useful for early-stage design presentations where you want to show temporal variation without having to build out full animation rigs. A 90-second video that moves through a building while the light shifts from morning to dusk is a compelling client presentation tool.</p>
+
+    <p>The limitation is render time. Each video pass in Veras takes 2–8 minutes depending on complexity. Combining three passes means you're waiting 6–24 minutes for a final output, and you don't see the composite until all passes are done. For live client sessions, that's too slow. For sending something overnight or as an async deliverable, it works.</p>
+
+    <p><strong>What we haven't tested yet:</strong> using the combine feature with different style references per pass, which could theoretically let you show the same building in multiple aesthetic moods in a single scrolling video. If that works cleanly, it's a powerful sales tool.</p>
+
+    <hr>
+
+    <h2>Render <em>fine-tuning</em></h2>
+
+    <p>Fine-tuning in 4.3 lets you make targeted adjustments to an existing render — push the exposure, shift the color temperature, increase material saturation — without regenerating the whole image. It runs a lighter inference pass on the specific parameter you've changed.</p>
+
+    <p>This solves a real workflow friction. The old pattern was: generate a render, decide the sky is slightly too warm, regenerate, get a different result because the model isn't deterministic, spend another pass trying to get back to what you had but with a cooler sky. Fine-tuning breaks that loop. You're editing the output, not starting over.</p>
+
+    <p>The controls are sliders — exposure, color temperature, saturation, contrast, sharpening, and a "style intensity" dial that pushes or pulls how aggressively the AI render layer sits on top of the base geometry. We found the style intensity dial especially useful: on passes where we wanted a more technical, documentary feel, dialing it down kept the geometry reading precisely without losing the photorealistic quality.</p>
+
+    <blockquote>Fine-tuning means you stop treating renders as a lottery and start treating them as something closer to a darkroom adjustment. That's a different relationship with the tool.</blockquote>
+
+    <p>One caveat: fine-tuning isn't the same as re-prompting. You're adjusting the output, not steering the model. If you want a fundamentally different material direction or lighting scenario, you're still generating a new pass. Fine-tuning is for the last 20% of an output, not the first 80%.</p>
+
+    <hr>
+
+    <h2>4.3 vs 4.0: <em>the delta</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Veras 4.0</th>
+          <th>Veras 4.3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Reference image handling</td>
+          <td>Single reference, no type control</td>
+          <td class="improved">Typed references (style / material / lighting / composition) + weighting</td>
+        </tr>
+        <tr>
+          <td>Hard geometry fidelity</td>
+          <td>Good on exteriors, edge softening on complex volumes</td>
+          <td class="winner">Noticeably improved on cantilevers, sharp angles, thin planes</td>
+        </tr>
+        <tr>
+          <td>Window hallucination rate</td>
+          <td>~37% of passes on complex glazing</td>
+          <td class="improved">~17% — better, not solved</td>
+        </tr>
+        <tr>
+          <td>Interior quality</td>
+          <td>Behind Rendair on furniture fidelity and lighting</td>
+          <td class="improved">Competitive now; NB2 handles light spill better</td>
+        </tr>
+        <tr>
+          <td>Video output</td>
+          <td>Single-pass animation</td>
+          <td class="winner">Multi-pass combining — temporal lighting sequences</td>
+        </tr>
+        <tr>
+          <td>Post-render adjustment</td>
+          <td>Regenerate from scratch</td>
+          <td class="winner">Fine-tuning sliders (exposure, color temp, style intensity)</td>
+        </tr>
+        <tr>
+          <td>Pricing</td>
+          <td>Included with V-Ray</td>
+          <td>Unchanged</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Who should update <em>now</em></h2>
+
+    <p>If you're a Veras user on 4.0 or earlier, update immediately. There's no reason not to. The reference image typing alone justifies the update — it changes how you use the tool on every project, not just occasionally.</p>
+
+    <p>If you've been sitting on the fence about Veras because interior renders looked weak, 4.3 is worth a second look. We'd still give Rendair a slight edge on residential interior materiality, but the gap is now small enough that the workflow advantages of staying in the Chaos ecosystem may outweigh it.</p>
+
+    <p>If you're a SketchUp-only practice not on V-Ray: Chaos now offers a Veras standalone plan. We haven't tested the standalone pricing tier in depth but the feature set is the same. Worth trialing if you're doing concept visualization work.</p>
+
+    <h2>What's still <em>missing</em></h2>
+
+    <p>Veras 4.3 doesn't solve the schematic design problem. If you want loose, exploratory passes — rough massing studies, volumetric sketches where you want ambiguity — Veras remains the wrong tool. Its strength is photorealistic finishing of geometry that already exists. For early concept work, Midjourney or FLUX with good prompts is still faster and more creatively open.</p>
+
+    <p>Plan view and section renders still produce poor results. This isn't a Veras-specific limitation — it's a category problem across all AI rendering tools right now. If your workflow involves showing AI-generated sections alongside traditional technical drawings, you're still doing those manually.</p>
+
+    <p>Batch processing is also absent. On projects with 15–20 exterior views, running passes one at a time is tedious. Chaos has been signaling this is coming, but it's not in 4.3.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on live SD-phase project work. No affiliate relationship with Chaos. All renders generated from production SketchUp models.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="chaos-veras-vs-rendair-ai.html" class="related-card">
+          <div class="rc-tag">Comparison · Apr 2026</div>
+          <div class="rc-title">Chaos Veras vs Rendair AI — which renders better?</div>
+        </a>
+        <a href="best-ai-tools-architectural-visualization-2026.html" class="related-card">
+          <div class="rc-tag">Guide · 2026</div>
+          <div class="rc-title">Best AI tools for architectural visualization — complete ranking</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="#">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#">Instagram</a>
+        <a href="#">RSS</a>
+        <a href="#">Are.na</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
