@@ -147,13 +147,13 @@
     },
     {
       "@type": "Person",
-      "@id": "https://archigenai.com/#quincy-bayral",
-      "name": "Quincy Bayral",
-      "jobTitle": "Editor, ArchiGen AI",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
       "worksFor": { "@id": "https://archigenai.com/#organization" },
       "sameAs": [
-        "https://www.linkedin.com/in/quincy-bayral",
-        "https://twitter.com/quincybayral"
+        "https://twitter.com/archigenai",
+        "https://twitter.com/archigenai"
       ]
     }
   ]
@@ -177,6 +177,46 @@
   "totalTime": "PT11M",
   "inLanguage": "en",
   "keywords": ["ComfyUI tutorial", "architectural rendering ComfyUI", "ControlNet depth architecture"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you use ComfyUI to render architectural exteriors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Vista Studios ComfyUI exterior pipeline uses four sequential passes: geometry (ControlNet Depth from your SketchUp Z-depth output), material (img2img at 0.45 denoise per material region), site context (IPAdapter at 0.55 weight with a real Street View reference), and lighting (img2img at 0.30 denoise with a time-of-day prompt). Each pass is separate — trying to do all four in one run is the most common reason ComfyUI exterior workflows fail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What ControlNet settings work best for architectural renders in ComfyUI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For architectural exteriors, set ControlNet Depth strength to 0.8 with start at 0.0 and end at 0.7. Releasing the ControlNet at 0.7 (rather than 1.0) lets the last few denoising steps refine materials without forcing geometry, avoiding the stiff CGI look. Use depth passes generated directly from your 3D software — not MiDaS, which gets architectural geometry wrong about 30% of the time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What denoise value should I use for material passes in ComfyUI architecture workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 0.45 denoise for material passes in ComfyUI architectural exterior workflows. Below 0.35 the material change is invisible; above 0.6 the geometry starts drifting. Run one pass per material region with a mask rather than prompting all materials at once, which produces an averaged, generic result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What GPU do I need to run Flux in ComfyUI for architecture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Flux full-precision requires 24GB VRAM. The fp8 quantized version runs on 12GB and is recommended for architecture work. The Q4 GGUF version runs on 8GB but has a noticeable quality drop. For cloud compute, RunPod with an RTX 4090 runs the full four-pass exterior pipeline in 25–35 minutes."
+      }
+    }
+  ]
 }
 </script>
 </head>

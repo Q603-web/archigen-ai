@@ -123,6 +123,46 @@
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When should architects NOT use AI rendering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI rendering should not be used for planning submissions where geometric accuracy is material, construction documentation, environmental and daylight studies requiring physically accurate simulation, anything in a legally binding document, or client sign-off on specific material selections. AI rendering is a communication tool, not a documentation tool — anywhere your output carries technical or legal weight, it is the wrong instrument."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is AI rendering actually good at in architecture practice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI rendering excels at three things: speed at ideation stage (generating forty exterior mood studies in an afternoon from rough massing), client communication in early stages (near-photographic images that close the imagination gap before geometry is locked), and variation generation for approved schemes (a dozen material studies from a V-Ray base render in the time it previously took to set up three)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "At what project stage should architects switch from AI rendering to traditional rendering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The handoff from AI rendering to traditional rendering typically happens around RIBA Stage 3, when the scheme is frozen and deliverables are formally committed. AI rendering handles concept through design development; traditional rendering (V-Ray, Corona, Enscape, or an external visualization studio) takes over once accuracy requirements for planning submissions and contractor packages exceed what AI can reliably deliver."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Midjourney compare to FLUX for architectural rendering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midjourney has no equal for atmosphere and mood at concept stage but lacks parametric control — you cannot lock a camera angle or reliably reproduce a view. FLUX (Black Forest Labs) has the strongest material surface quality of any open-weights model and higher prompt fidelity for spatial descriptions, but requires a wrapper (ComfyUI, fal.ai, or a hosted interface) to use productively. The gap between them on atmosphere has closed considerably with FLUX 1.1 Pro."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -169,7 +209,7 @@
     <p class="lede">What actually works, what doesn't, and when the whole category is the wrong tool for the job. Written after two years of running these pipelines on real projects â€” not demos.</p>
     <div class="byline">
       <div class="byline-info">
-        <div class="name">Quincy Bayral â€” Vista Studios</div>
+        <div class=”name”>Nora Sinclair — Vista Studios</div>
         <div class="detail">11 min read Â· Last updated Apr 2026 Â· Vista Studios tested</div>
       </div>
     </div>
