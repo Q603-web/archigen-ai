@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Finch 3D and Fenestra AI — Two Tools Rethinking Early-Stage Design — ArchiGen AI</title>
+<meta name="description" content="Finch 3D generates floor plans from constraints. Fenestra optimizes windows and facades with daylight simulation. We looked at both and compared where they actually fit in practice." />
+<link rel="canonical" href="https://archigenai.com/finch3d-fenestra-review.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/finch3d-fenestra-review.html" />
+<meta property="og:title" content="Finch 3D and Fenestra AI — Two Tools Rethinking Early-Stage Design — ArchiGen AI" />
+<meta property="og:description" content="Finch 3D generates floor plans from constraints. Fenestra optimizes windows and facades with daylight simulation. We looked at both and compared where they actually fit in practice." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Finch 3D and Fenestra AI — Two Tools Rethinking Early-Stage Design — ArchiGen AI" />
+<meta name="twitter:description" content="Finch 3D generates floor plans from constraints. Fenestra optimizes windows and facades with daylight simulation. We looked at both and compared where they actually fit in practice." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Finch 3D and Fenestra AI — Two Tools Rethinking Early-Stage Design",
+  "description": "Finch 3D generates floor plans from constraints. Fenestra optimizes windows and facades with daylight simulation. We looked at both and compared where they actually fit in practice.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-04-25T09:00:00-04:00",
+  "dateModified": "2026-04-25T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/finch3d-fenestra-review.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Finch 3D review", "Fenestra AI review", "generative floor plan tool", "AI facade optimization", "early stage design AI 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Finch 3D actually do for architects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finch 3D is a generative floor plan tool that runs as a Rhino plugin. You feed it a site boundary, program requirements (unit mix, square footage targets, circulation rules), and it generates layout options that satisfy those constraints. It is not a rendering tool — it is a layout optimization engine for the earliest stage of residential and mixed-use design. It works best on repetitive unit-count schemes where exploring many layout permutations quickly has real value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Fenestra AI and how is it different from Finch 3D?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fenestra is a facade and window optimization tool that uses AI-driven daylight simulation. Unlike Finch 3D, which works at the floor plan level, Fenestra operates on an existing massing or schematic model and analyzes window placement, glazing ratios, and shading geometry against climate data and target daylight metrics (sDA, ASE). It then proposes facade modifications that improve performance. The tools address completely different parts of the design workflow and are not direct competitors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Finch 3D free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finch 3D offers a free tier with limited project saves and output exports. The paid plans start at approximately $49/month for individual users and scale up for team seats. The free tier is genuinely useful for evaluation — you can run real projects through the constraint engine, you just can't export the outputs to Rhino without a paid plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which firms are Finch 3D and Fenestra best suited for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finch 3D is most useful for residential and mixed-use architects who do repetitive unit-planning work — multifamily housing, student accommodation, modular schemes. If your practice is primarily custom one-off projects, the generative layout workflow will feel forced. Fenestra is better suited to practices with sustainability or energy performance requirements baked into their briefs, or firms competing for projects where daylight and thermal performance analysis is part of the deliverable."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Review · 25 Apr 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Finch 3D and <em>Fenestra</em></h1>
+    <p class="lede">Two tools rethinking early-stage design — one generates floor plans from constraints, the other optimizes facades against climate data. Neither replaces the architect. Both might change when you reach for certain decisions.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="detail">8 min read · Apr 2026 · Vista Studios tested · First coverage on ArchiGen AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Both Finch 3D and Fenestra have been showing up in roundups from Coursiv and Architizer for the past six months. We hadn't covered either — partly because neither fits cleanly into the rendering-and-visualization niche that most of this journal covers, and partly because early-stage design tooling for architects is a harder category to review honestly. The claims tend to outrun the reality.</p>
+
+    <p>We ran both through real project scenarios over the past four weeks. Finch 3D went through a 48-unit multifamily housing scheme we were in early SD on. Fenestra we tested against a glazed commercial facade we've been analyzing for a client who wants to hit LEED Gold. Here's what we found.</p>
+
+    <hr>
+
+    <h2>Finch 3D: <em>what it is</em></h2>
+
+    <p>Finch 3D is a generative floor plan and massing tool that lives inside Rhino. You define a site boundary, set your program — unit mix, circulation requirements, shared amenity areas, maximum floor plate dimensions — and Finch generates layout options that satisfy the constraints you've specified. Think of it as a constraint-satisfaction engine for residential planning, not an AI in the image-generation sense.</p>
+
+    <p>The underlying logic is parametric. You're not prompting it in natural language. You're filling out a structured brief: 24 one-beds, 18 two-beds, 6 three-beds, double-loaded corridor, maximum unit depth of 12 metres, fire egress at both ends of each floor. Finch produces layouts that honour those constraints, then lets you explore variations — swap a double-loaded corridor for a point-access core, increase average unit size at the cost of unit count, try a different building footprint.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Finch 3D</div>
+        <div class="tc-rating">★ 4.2 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free tier (limited exports) · Paid from ~$49/mo individual · Team plans available</div>
+      <p>Rhino plugin for generative floor plan layout. Best suited to repetitive residential and mixed-use schemes where exploring many layout permutations quickly is genuinely valuable. Not a rendering tool — outputs are Rhino geometry and layout data, not visualizations.</p>
+      <div class="tc-tags">
+        <span>Rhino plugin</span><span>Floor plan generation</span><span>Multifamily</span><span>Constraint-based</span><span>Parametric</span>
+      </div>
+    </div>
+
+    <h3>What the free tier actually gets you</h3>
+
+    <p>The free tier is more useful than most free architecture software tiers, which typically give you a nonfunctional demo. In Finch's case, you can run real projects through the constraint engine and see generated layouts in the Rhino viewport. What's locked behind the paywall is export — you can't push the geometry into your actual model or downstream software without a paid plan. For evaluation purposes, that's fine. For billing time against it, you need the paid tier.</p>
+
+    <h3>Where it actually helps</h3>
+
+    <p>On the 48-unit scheme, we ran the program brief through Finch in about 40 minutes of setup. It returned twelve layout variants in a range from 38 to 51 units (the constraint engine finds the maximum feasible count within your site boundary, not just the number you specified). Three of those twelve layouts were genuinely worth comparing in more detail. One suggested a core placement that our team hadn't considered — a central wet wall spine that let us reduce corridor length by about 8% without compromising unit depths.</p>
+
+    <blockquote>Finch doesn't design. It searches. The value is in what it finds during the search that you might not have reached in the time you had.</blockquote>
+
+    <p>That's the honest framing for this tool: it's a fast search engine for feasible layout space, not a design collaborator. If you're an experienced residential architect, you'll recognize most of what it produces. The value isn't novel solutions — it's speed and coverage. In a two-hour SD session, you can explore layout territory that would take two or three days of manual iteration.</p>
+
+    <h3>Limitations worth knowing</h3>
+
+    <p>Finch works well on repetitive unit types. It struggles with anything bespoke. A custom residential project, a cultural building, anything with complex circulation or non-standard program — Finch has nothing to offer. The constraint engine is tuned for housing typologies. Push it outside that envelope and the outputs are either unrealistic or obviously wrong.</p>
+
+    <p>The Rhino dependency is also a real constraint. If your practice is Revit-first, Finch doesn't fit your workflow without a translation step. There's no native Revit integration as of this writing. You can export to DWG and trace, but that introduces coordination friction that erodes the time savings.</p>
+
+    <hr>
+
+    <h2>Fenestra: <em>what it is</em></h2>
+
+    <p>Fenestra is a different kind of tool entirely. It's a facade and window optimization platform that takes an existing building model — massing or schematic design — and runs climate-informed analysis on the envelope. The outputs include daylight scores (sDA and ASE), predicted energy loads from solar gain, and, critically, proposed modifications to window placement, size, and shading geometry that would improve your performance metrics.</p>
+
+    <p>It's closer to a performance consultant embedded in software than a generative design tool. You're not asking it to design a facade — you're asking it to analyze what you have and tell you where the problems are, with specific recommendations for fixing them.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Fenestra AI</div>
+        <div class="tc-rating">★ 4.4 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Freemium tier (limited analyses/month) · Paid from ~$79/mo · Climate data library included</div>
+      <p>Facade and window optimization tool with AI-driven daylight simulation. Analyzes window placement, glazing ratios, and shading geometry against climate data and target performance metrics. Outputs sDA/ASE scores and specific modification proposals. Works with Revit, Rhino, and IFC imports.</p>
+      <div class="tc-tags">
+        <span>Facade optimization</span><span>Daylight simulation</span><span>Energy performance</span><span>sDA / ASE</span><span>Revit</span><span>Rhino</span><span>IFC</span>
+      </div>
+    </div>
+
+    <h3>Testing it on a real performance brief</h3>
+
+    <p>The commercial facade project was a good test case because we had a specific brief: hit LEED Gold daylight credits, which requires demonstrating sDA of 55% or better across occupied areas. Our initial scheme had a west-facing glazed curtain wall that was generating excessive solar gain — the energy model was showing cooling loads that were going to hurt the LEED scorecard.</p>
+
+    <p>Fenestra ingested our Revit model via IFC export in about four minutes. It ran the climate analysis (we're working in Philadelphia, so mid-Atlantic climate data) and returned a detailed facade report inside fifteen minutes. The report identified three problem zones: the southwest corner where solar gain peaked in afternoon, a low-sill condition on the fourth floor that was creating glare without contributing meaningfully to dDA scores, and a shading overhang that was undersized by about 400mm for the latitude.</p>
+
+    <p>The recommendations were specific: recess the southwest glazing by 300mm, raise the fourth floor sill by 450mm, extend the overhang depth. Fenestra then modeled the proposed changes and showed the predicted sDA improvement — from 49% to 62%, which puts us comfortably above the LEED threshold. We haven't taken those changes through full detailed modeling yet, but the directional guidance aligns with what our energy consultant was independently suggesting.</p>
+
+    <blockquote>The value isn't that Fenestra tells you something you couldn't figure out yourself. It's that it does it in 15 minutes, with specific numbers, before your energy consultant bills you for three hours of simulation work.</blockquote>
+
+    <h3>Limitations</h3>
+
+    <p>Fenestra's analysis quality depends heavily on the fidelity of your input model. Feed it a rough massing model with generic window geometry and you'll get directional guidance but not precise numbers. For early SD it's useful as a rough screen. For DD-level accuracy you need a detailed model — at which point you're probably also involving your energy consultant directly.</p>
+
+    <p>The climate data library covers major metro areas well, but if you're working in a complex microclimate — coastal, high altitude, dense urban canyon — the standard climate files may not capture what's actually happening at your site. Fenestra doesn't yet support custom climate file uploads on the base tier.</p>
+
+    <p>Structural and constructibility logic isn't in scope. Fenestra will propose shading geometry that improves daylight performance without considering whether that geometry is cost-effective to build or structurally sensible to attach. You're still doing that judgment yourself.</p>
+
+    <hr>
+
+    <h2>Side by side: <em>where each fits</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Finch 3D</th>
+          <th>Fenestra</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Design phase</td>
+          <td class="winner">Pre-SD / early SD — before form is fixed</td>
+          <td class="note">SD through late DD — after form exists</td>
+        </tr>
+        <tr>
+          <td>Best project type</td>
+          <td>Repetitive residential, multifamily, modular</td>
+          <td class="winner">Any glazed building with performance requirements</td>
+        </tr>
+        <tr>
+          <td>Tool dependency</td>
+          <td>Rhino required</td>
+          <td class="winner">Revit, Rhino, IFC — wider compatibility</td>
+        </tr>
+        <tr>
+          <td>Free tier usefulness</td>
+          <td class="winner">Strong for evaluation — full constraint engine, limited export</td>
+          <td>Good — limited analyses per month, no custom climate files</td>
+        </tr>
+        <tr>
+          <td>Learning curve</td>
+          <td class="note">Moderate — constraint setup requires structured thinking</td>
+          <td class="winner">Low — mostly model import and parameter review</td>
+        </tr>
+        <tr>
+          <td>Output type</td>
+          <td>Rhino geometry (floor plans, layouts)</td>
+          <td class="winner">Performance reports, annotated modification proposals</td>
+        </tr>
+        <tr>
+          <td>Replaces consultants?</td>
+          <td>No — replaces some manual layout iteration</td>
+          <td>No — screens before engaging energy consultant</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Who should try <em>each one</em></h2>
+
+    <p><strong>Finch 3D</strong> is worth serious evaluation if you're a housing architect doing repetitive unit-count work in Rhino. The free tier is enough to run a real project through and see whether the layout search adds value to your process. If your practice doesn't do repetitive residential, skip it — the tool won't reshape to your workflow.</p>
+
+    <p><strong>Fenestra</strong> is worth trying for any practice that regularly deals with daylight or energy performance requirements — LEED, BREEAM, Passive House, or just clients who ask about energy early. The freemium tier's monthly analysis limit is genuinely limiting for a busy practice, but as a first screen before you involve a specialist consultant it's hard to argue with the time savings.</p>
+
+    <p>The interesting thing about covering both tools together is that they're not competing for the same problem. They address completely different moments in the design timeline. A practice doing well-considered multifamily housing with a sustainability brief could plausibly use both — Finch in the first week to explore layout options, Fenestra three weeks later once the chosen scheme has enough envelope geometry to analyze. That's a useful mental model for where each one lives.</p>
+
+    <p>Neither is essential. Neither is hype. Both are solving real, specific problems faster than the manual alternative — which is the only standard worth applying.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on live SD-phase project work. No affiliate relationship with Finch 3D or Fenestra. Finch 3D tested on 48-unit multifamily scheme in Rhino 8. Fenestra tested on a commercial glazed facade project with Philadelphia climate data.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="best-ai-tools-architects-2026-guide.html" class="related-card">
+          <div class="rc-tag">Guide · Apr 2026</div>
+          <div class="rc-title">The 2026 AI Tools for Architects Guide (No Sponsored Picks)</div>
+        </a>
+        <a href="veras-4-3-update.html" class="related-card">
+          <div class="rc-tag">Tool Review · Apr 2026</div>
+          <div class="rc-title">Chaos Veras 4.3 — What's Actually New and Whether It Matters</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
