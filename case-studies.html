@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Case Studies — ArchiGen AI</title>
+<meta name="description" content="Real architecture studios using AI in production. Documented workflows, actual deadlines, honest results — no vendor demos." />
+<link rel="canonical" href="https://archigenai.com/case-studies.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://archigenai.com/case-studies.html" />
+<meta property="og:title" content="Case Studies — ArchiGen AI" />
+<meta property="og:description" content="Real architecture studios using AI in production. Documented workflows, actual deadlines, honest results — no vendor demos." />
+<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta property="og:site_name" content="ArchiGen AI" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Case Studies — ArchiGen AI" />
+<meta name="twitter:description" content="Real architecture studios using AI in production. Documented workflows, actual deadlines, honest results — no vendor demos." />
+<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8; --paper-2: #EAE5D9;
+    --ink: #1A1915; --ink-2: #3A3830;
+    --muted: #706A5C; --rule: #1A19151A;
+    --forest: #2F4A3A; --terracotta: #C96F4A;
+    --marigold: #E2A13B; --coral: #E36A52;
+    --sage: #6B7A5A; --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--f-sans); font-size: 15px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; } .marquee .dot { opacity: 0.4; }
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark:hover { background: var(--forest); border-color: var(--forest); }
+
+  .page-hero { padding: 120px 0 80px; border-bottom: 1px solid var(--rule); max-width: 840px; margin: 0 auto; text-align: left; }
+  .page-hero .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .page-hero .tag::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--muted); }
+  .page-hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(48px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.04em; margin: 0 0 40px; }
+  .page-hero h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .page-hero p { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0 0 20px; max-width: 60ch; }
+  .page-hero .actions { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+
+  .page-body { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+  .page-body .inner { max-width: 840px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .page-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 20px; }
+  .page-body h2 em { font-style: italic; font-weight: 300; color: var(--forest); }
+  .page-body p { font-size: 15px; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px; }
+
+  .page-list { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+  .page-list .inner { max-width: 840px; margin: 0 auto; }
+  .page-list .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
+  .page-list ul { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+  .page-list ul li { padding: 24px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: baseline; }
+  .page-list ul li .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .page-list ul li .v { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot .brand { color: var(--paper); }
+  .foot .brand-mark { background: var(--paper); color: var(--ink); }
+  .foot .brand em { color: rgba(244,239,227,0.6); }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+  @media (max-width: 880px) {
+    .page-body .inner { grid-template-columns: 1fr; gap: 40px; }
+    .page-list ul li { grid-template-columns: 1fr; gap: 8px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 14px 20px; gap: 16px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 64px 0 56px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>A publication for architects designing with the machine</span><span class="dot">/</span>
+    <span>Field notes &middot; Essays &middot; Workflows &middot; Tools</span><span class="dot">/</span>
+    <span>Editorially independent &middot; Practitioner-tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>A publication for architects designing with the machine</span><span class="dot">/</span>
+    <span>Field notes &middot; Essays &middot; Workflows &middot; Tools</span><span class="dot">/</span>
+    <span>Editorially independent &middot; Practitioner-tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="journal.html">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn">Sign in</a>
+      <a href="index.html#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding: 0 40px;">
+  <div class="page-hero">
+    <div class="tag">Studio Reports</div>
+    <h1>Studios in<br><em>practice.</em></h1>
+    <p>Case studies from architecture firms actually shipping projects with AI in the pipeline. Real deadlines, real clients, real critique. We embed with one studio per issue and document what we see — what worked, what didn't, what they'd change.</p>
+    <p>No vendor demos. No glossy renders that took six weeks of cherry-picking to produce. The job, the schedule, the tools, and the tradeoffs.</p>
+    <div class="actions">
+      <a href="journal.html" class="btn dark">Read the journal →</a>
+      <a href="mailto:hello@archigenai.com?subject=Studio+case+study" class="btn">Pitch your studio</a>
+    </div>
+  </div>
+</section>
+
+<section class="page-body" style="padding-left: 40px; padding-right: 40px;">
+  <div class="inner">
+    <div>
+      <h2>First studies <em>shipping next.</em></h2>
+      <p>Three studios are letting us watch a project from kick-off to delivery this quarter — concept renders, feasibility studies, and a full visualization deliverable.</p>
+      <p>Each piece runs the practice through the actual tools they use day-to-day, with the firm critiquing the output. We publish even when the result is mixed.</p>
+    </div>
+    <div>
+      <h2>How it <em>works.</em></h2>
+      <p>We embed for the duration of one project — typically four to twelve weeks. We watch, take notes, screenshot, and ask uncomfortable questions.</p>
+      <p>Studios get final review before publication. They can pull anything client-confidential. They cannot edit our judgment.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-list" style="padding-left: 40px; padding-right: 40px;">
+  <div class="inner">
+    <div class="label">On the docket</div>
+    <ul>
+      <li><span class="k">Coming Q2 2026</span><span class="v">Vista Studios — schematic-to-render pipeline on a midrise multifamily</span></li>
+      <li><span class="k">Coming Q2 2026</span><span class="v">Two-person practice — using Midjourney + ComfyUI for a competition entry</span></li>
+      <li><span class="k">Coming Q3 2026</span><span class="v">Mid-size firm rolling out an internal AI rendering policy after a year of skunkworks</span></li>
+      <li><span class="k">On the list</span><span class="v">A studio that tried AI rendering, killed the program, and went back to V-Ray. We want to talk to you.</span></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand">
+          <div class="brand-mark">AG</div>
+          <span>ArchiGen<em>/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+        <a href="case-studies.html">Case studies</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <a href="about.html">About</a>
+        <a href="masthead.html">Masthead</a>
+        <a href="submit-work.html">Submit work</a>
+        <a href="advertise.html">Advertise</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI &middot; All rights not reserved</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
