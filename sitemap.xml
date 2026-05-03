@@ -152,4 +152,25 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://archigenai.com/nano-banana-2-architecture-rendering-explained.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/bim-first-ai-stack-2026-revit-archicad.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>

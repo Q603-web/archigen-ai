@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The BIM-First AI Stack for 2026 — What Actually Works Inside Revit and Archicad — ArchiGen AI</title>
+<meta name="description" content="Most 'top AI tools' lists ignore that BIM-native firms have different constraints. Here's the AI stack we'd actually deploy inside a Revit or Archicad practice in 2026 — and what to skip." />
+<link rel="canonical" href="https://archigenai.com/bim-first-ai-stack-2026-revit-archicad.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/bim-first-ai-stack-2026-revit-archicad.html" />
+<meta property="og:title" content="The BIM-First AI Stack for 2026 — What Actually Works Inside Revit and Archicad — ArchiGen AI" />
+<meta property="og:description" content="Most 'top AI tools' lists ignore that BIM-native firms have different constraints. Here's the AI stack we'd actually deploy inside a Revit or Archicad practice in 2026 — and what to skip." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The BIM-First AI Stack for 2026 — What Actually Works Inside Revit and Archicad — ArchiGen AI" />
+<meta name="twitter:description" content="Most 'top AI tools' lists ignore that BIM-native firms have different constraints. Here's the AI stack we'd actually deploy inside a Revit or Archicad practice in 2026 — and what to skip." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--slate); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The BIM-First AI Stack for 2026 — What Actually Works Inside Revit and Archicad",
+  "description": "Most 'top AI tools' lists ignore that BIM-native firms have different constraints. Here's the AI stack we'd actually deploy inside a Revit or Archicad practice in 2026 — and what to skip.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-03T10:00:00-04:00",
+  "dateModified": "2026-05-03T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/bim-first-ai-stack-2026-revit-archicad.html",
+  "articleSection": "Guides",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["BIM AI tools 2026", "AI for Revit", "AI for Archicad", "BIM workflow", "AI architectural rendering"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best AI rendering tool for Revit users in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For Revit-native firms, Chaos Veras 4.3 is the strongest option because it's already integrated into the V-Ray for Revit pipeline most firms run. Enscape AI features and the Autodesk Forma rendering layer are credible alternatives if you're already invested in those ecosystems. Avoid tools that require exporting to a third format — round-tripping kills the BIM advantage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should BIM firms use Midjourney or ComfyUI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but only for early-stage concept work, mood boards, and competition imagery — not as a substitute for geometry-locked rendering of your actual model. The mistake we see most often is BIM firms trying to substitute Midjourney for production renders, which breaks the data continuity that makes BIM valuable in the first place."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the right BIM AI budget for a 10-person firm in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A working stack runs roughly $400-$700 per seat per month at the practice level: existing BIM and rendering subscriptions ($200-$300), a Veras-class AI render layer ($80-$150), a concept tool like Midjourney ($30-$60), and a Forma or Spacely-class early-stage tool ($60-$100). Most of this should already be in place — the AI additions are usually the smallest line item."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Stack Guide · 03 May 2026</span>
+      <span class="tag">· 9 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4M3 7v10l9 4 9-4V7M3 7l9 4 9-4M12 11v10"/></svg>
+      For Revit + Archicad Practices
+    </div>
+    <h1>The BIM-first AI <em>stack</em></h1>
+    <p class="lede">Generic "top AI tools for architects" lists keep recommending the same six tools for every kind of practice. BIM-native firms have a different stack — different constraints, different round-trip problems, different failure modes. Here's what we'd actually deploy.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="detail">9 min read · May 2026 · Vista Studios tested</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Every other week, a new "Top 10 AI Tools for Architects in 2026" list lands on the trades. They all recommend roughly the same six tools — Midjourney, Veras, Rendair, Lookx, Spacely, Finch 3D — in slightly different orders. The lists are useful as a market scan. They're terrible as practice-level guidance.</p>
+
+    <p>The reason: a 4-person concept studio drawing in Rhino has nothing in common with a 35-person production firm running Revit on health-care projects. The right AI stack for one is the wrong stack for the other. This article is the BIM-first version — what the stack should look like for practices whose work lives inside Revit, Archicad, or Autodesk Forma, where the model is the deliverable and round-trips matter.</p>
+
+    <p>Vista Studios runs both a Revit pipeline and an Archicad pipeline depending on the client. We've tested every tool below in both contexts. What follows is what we'd actually deploy if we were standing up a BIM-native AI stack from scratch today.</p>
+
+    <h2>The four <em>jobs</em> a BIM AI stack has to do</h2>
+
+    <p>Before naming tools, name the jobs. A BIM practice has four distinct AI use cases, and the right tool for each is different.</p>
+
+    <p><strong>1. Geometry-locked rendering.</strong> Take a model that already exists in Revit or Archicad and turn it into client-presentable imagery without re-modeling, exporting, or losing parameter data. This is the largest single use case and where the most money gets wasted on the wrong tools.</p>
+
+    <p><strong>2. Concept and competition imagery.</strong> Early-stage exploration where the building doesn't fully exist yet, you need atmosphere and intent, and there's no model to lock to. Different problem, different tools.</p>
+
+    <p><strong>3. Schematic-design generative work.</strong> Massing studies, daylighting analysis, programmatic optimization — work that happens before you commit to detailed BIM modeling, but informs what gets modeled.</p>
+
+    <p><strong>4. Documentation acceleration.</strong> Sheet setup, view templates, schedule cleanup, code-checking, RFI drafting. The least-talked-about category, but the one where AI is starting to save real hours per week per modeler.</p>
+
+    <p>Confusing these is the source of most AI-stack disappointment. A team that buys Midjourney to "do AI rendering" and then complains it doesn't respect their model has bought the wrong tool for the job. A team that buys Veras for early-stage concept exploration finds it too constrained — also the wrong tool for that job. Map the tool to the job.</p>
+
+    <h2>Job 1: Geometry-locked <em>rendering</em></h2>
+
+    <p>This is the heart of the BIM stack. The constraint is non-negotiable: the rendered output must be the model you actually built, not a model the AI invented.</p>
+
+    <p><strong>Default pick: Chaos Veras 4.3.</strong> If you're a Revit firm running V-Ray (and most production-scale Revit firms are), Veras is included in your existing license. The new Nano Banana 2 engine in 4.3 is the strongest geometry-respecting renderer on the market right now — see our <a href="nano-banana-2-architecture-rendering-explained.html">NB2 deep dive</a> for what's under the hood. The reference image typing system added in 4.3 means you can match real photographs of materials and lighting without losing your model.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Chaos Veras 4.3</div>
+        <div class="tc-rating">★ Default for Revit firms</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included with V-Ray subscription · ~$80/mo standalone</div>
+      <p>Plugin for Revit, Archicad, SketchUp, Rhino, 3ds Max. Strongest geometry fidelity in the category. Best in class for exterior elevations, competitive on interior. Native to the V-Ray pipeline most BIM firms already run.</p>
+      <div class="tc-tags">
+        <span>Revit</span><span>Archicad</span><span>V-Ray</span><span>Nano Banana 2</span>
+      </div>
+    </div>
+
+    <p><strong>Strong alternative: Enscape AI features.</strong> For firms already deep in Enscape (common in Archicad practices), the AI features added through 2025-2026 give you in-viewport AI rendering without leaving the live walkthrough environment. Less flexibility than Veras on reference image control, but the workflow integration is genuinely seamless. If you're an Enscape firm, this is the path of least resistance.</p>
+
+    <p><strong>Skip: anything requiring an export to OBJ/FBX/USD.</strong> Several "top AI tools" lists feature renderers that work via FBX or USD export. For a BIM practice, that breaks the data link — you've left your model, the AI render isn't tied to anything in your central file, and any change to the model means re-exporting and re-rendering. Strictly worse than a plugin-based workflow. Walk past these.</p>
+
+    <h2>Job 2: Concept and <em>competition imagery</em></h2>
+
+    <p>This is where Midjourney earns its place. For images that aren't of your actual building yet — competition boards, competition narrative shots, cover images, atmosphere studies, brand-and-pitch deck visuals — Midjourney remains the strongest general-purpose tool. Our <a href="midjourney-architecture-review.html">Midjourney for architecture review</a> goes deep on prompt patterns.</p>
+
+    <p>The mistake BIM firms make is using Midjourney where they should be using Veras. The opposite mistake — using Veras where Midjourney would be faster — is rarer but real. For a competition pitch with no developed model, asking Veras to render anything coherent is asking it to do a job it wasn't designed for. Midjourney with strong reference imagery and a tight prompt will get you there in 15 minutes for $30 of credits.</p>
+
+    <p><strong>Add: Nano Banana Pro for compositing.</strong> If you do competition work that combines AI imagery with real site photography or model fragments, the Nano Banana Pro standalone tool (separate from NB2 inside Veras) is the strongest current option for clean compositing. Several recent ComfyUI tutorials in trade publications point to this exact pipeline — generate a hero image in Midjourney, refine the building portion in NB2 against your developed massing, composite with NB Pro.</p>
+
+    <h2>Job 3: Schematic-design <em>generative work</em></h2>
+
+    <p>This is the category most BIM firms underuse. The tools that matter:</p>
+
+    <p><strong>Autodesk Forma.</strong> If you're already in the Autodesk ecosystem, Forma is no longer optional. The site analysis layer — solar exposure, wind comfort, daylighting, microclimate — is now genuinely useful for early SD decisions. Run a study in Forma, take the findings into Revit. The integration is improving quarterly. Free with most AEC Collection subscriptions.</p>
+
+    <p><strong>Spacely.</strong> Programmatic massing and bulk envelope studies. Particularly strong for residential, multifamily, and student housing where unit count and efficiency drive massing decisions. Output is exportable to Rhino or Revit cleanly.</p>
+
+    <p><strong>Finch 3D.</strong> Generative layouts and floor-plan logic. Our <a href="finch3d-fenestra-review.html">Finch 3D review</a> covers where it lands. Worth a trial for any firm doing repeated multi-unit work.</p>
+
+    <p>None of these are "rendering tools." That's the point. They're the work that should happen before you commit to a BIM model, when changing a parameter is cheap. Doing this analysis after you've modeled in Revit is doing it backwards.</p>
+
+    <h2>Job 4: Documentation <em>acceleration</em></h2>
+
+    <p>The least glamorous category, where the most hours actually get saved.</p>
+
+    <p><strong>Hypar / Augmenta-class plugins for Revit.</strong> Automate sheet setup, view template application, and schedule cleanup. Easy to underestimate; pays for itself in a month at any firm with consistent project types. The exact vendor matters less than committing to one — pick whichever works in your typology.</p>
+
+    <p><strong>LLM-based RFI and code-checking assistants.</strong> Several tools now ingest Revit project files plus a code basis and produce drafted RFIs, code-checking memos, and consultant coordination notes. Quality is highly uneven and you must review every output, but for a busy practice the time savings on RFI drafting alone justify a $40-$80/month seat.</p>
+
+    <p><strong>Skip: the "AI for Revit" plugins that are wrappers around ChatGPT.</strong> Several of these have appeared. They take your model schedule, throw it at a generic LLM, and return text. You can do that yourself for free. Pay for tools that have actually integrated structured BIM data, not text-extraction layers.</p>
+
+    <h2>The full <em>BIM-first stack</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Job</th>
+          <th>Default tool</th>
+          <th>Approx cost / seat / mo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BIM authoring</td>
+          <td>Revit or Archicad</td>
+          <td>$200–300</td>
+        </tr>
+        <tr>
+          <td>Geometry-locked rendering</td>
+          <td class="winner">Chaos Veras 4.3</td>
+          <td>Included with V-Ray</td>
+        </tr>
+        <tr>
+          <td>Live walkthrough + AI</td>
+          <td>Enscape</td>
+          <td>$80–120</td>
+        </tr>
+        <tr>
+          <td>Concept and competition imagery</td>
+          <td>Midjourney</td>
+          <td>$30–60</td>
+        </tr>
+        <tr>
+          <td>Site / climate / SD analysis</td>
+          <td>Autodesk Forma</td>
+          <td>Included with AEC Collection</td>
+        </tr>
+        <tr>
+          <td>Generative massing</td>
+          <td>Spacely or Finch 3D</td>
+          <td>$60–100</td>
+        </tr>
+        <tr>
+          <td>Documentation automation</td>
+          <td>Hypar / Augmenta-class</td>
+          <td>$40–80</td>
+        </tr>
+        <tr>
+          <td>RFI / coordination LLM</td>
+          <td>Pick one, evaluate quarterly</td>
+          <td>$40–80</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The total practice-level AI add-on cost above existing BIM and rendering: roughly $200-$400 per seat per month for a fully equipped BIM-first stack. Less than a third of that goes to "AI" specifically — most is the standard BIM and rendering subscriptions firms already pay for.</p>
+
+    <blockquote>The honest read on AI for BIM firms in 2026 is that you don't need a new stack. You need to add 2-3 tools to the stack you already have, and you need to stop using the wrong tool for each job.</blockquote>
+
+    <h2>What we'd <em>not buy</em></h2>
+
+    <p>A few categories we'd actively avoid for BIM-first practices:</p>
+
+    <ul>
+      <li><strong>"AI BIM" all-in-one platforms</strong> that promise to replace Revit. They're not ready. Authoring tools are sticky for good reasons. Pick one and stay with it.</li>
+      <li><strong>Render-only tools that don't plug into your authoring environment.</strong> If a tool requires you to export, render, and re-import, the round-trip cost dominates the rendering benefit. Strictly worse than a plugin.</li>
+      <li><strong>Tools positioned around "10x your design productivity."</strong> The 10x claim is almost always concept-stage; in production it's closer to 1.2-1.4x for the right tasks. Buy on real numbers, not marketing.</li>
+      <li><strong>Anything with no clean billing or seat model.</strong> Per-render or per-token billing for production work is a budget time-bomb. Subscription tools with predictable cost are easier to defend internally and easier to scale.</li>
+    </ul>
+
+    <h2>What changes <em>next</em></h2>
+
+    <p>Two trends to watch over the rest of 2026:</p>
+
+    <p><strong>BIM authoring tools getting their own AI layers.</strong> Both Autodesk and Graphisoft have signaled native AI features at the modeling level — predictive component placement, AI-assisted detailing, automated annotation. If those land well, the case for third-party plugins narrows. If they ship as token-burning marketing demos, the third-party ecosystem stays healthy.</p>
+
+    <p><strong>Open-weights catching up to NB2.</strong> The biggest variable in the rendering category is whether an open-weights model emerges that matches Nano Banana 2's geometry fidelity. If FLUX or a successor ships an architectural-grade model with downloadable weights, ComfyUI-based workflows become viable for production rendering, and the licensing economics of Veras shift. Worth tracking, not worth restructuring your stack around yet.</p>
+
+    <p>For now: stand up the stack above, run it for a quarter, and re-evaluate at the end of the year. The ground is moving fast enough that any 18-month commitment is overcommitment. Buy what works today.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios across both Revit and Archicad pipelines on live project work. No affiliate relationships with any vendor named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="best-ai-tools-architectural-visualization-2026.html" class="related-card">
+          <div class="rc-tag">Roundup · 2026</div>
+          <div class="rc-title">Best AI Tools for Architectural Visualization 2026</div>
+        </a>
+        <a href="ai-rendering-small-firms-budget-tiers.html" class="related-card">
+          <div class="rc-tag">Guide · 2026</div>
+          <div class="rc-title">AI Rendering for Small Firms — Budget Tiers</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
