@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What Actually Works in 2026: The AI Tools We Use, Dropped, and Still Call Hype | ArchiGen AI</title>
+<meta name="description" content="Three buckets, sixteen tools, one honest read. Vista Studios' working AI stack for architecture in 2026: what we use every week, what we paid for and walked away from, and what keeps showing up in trade-press listicles without ever surviving a project." />
+<link rel="canonical" href="https://archigenai.com/what-actually-works-ai-architecture-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/what-actually-works-ai-architecture-2026.html" />
+<meta property="og:title" content="What Actually Works in 2026: AI Tools We Use, Dropped, and Still Call Hype | ArchiGen AI" />
+<meta property="og:description" content="Three buckets, sixteen tools, one honest read. Vista Studios' working AI stack for architecture in 2026." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="What Actually Works in 2026: AI Tools We Use, Dropped, and Still Call Hype" />
+<meta name="twitter:description" content="Three buckets, sixteen tools, one honest read. Vista Studios' working AI stack for architecture in 2026." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  .article-body a:hover { text-decoration-color: var(--terracotta); }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .bucket-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 24px; }
+  .bucket-badge.use { background: rgba(107,122,90,0.15); color: var(--sage); border: 1px solid rgba(107,122,90,0.3); }
+  .bucket-badge.dropped { background: rgba(227,106,82,0.12); color: var(--coral); border: 1px solid rgba(227,106,82,0.3); }
+  .bucket-badge.hype { background: rgba(226,161,59,0.15); color: var(--marigold); border: 1px solid rgba(226,161,59,0.3); }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 28px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+  .tool-card .tc-rating.warn { color: var(--marigold); background: rgba(226,161,59,0.12); }
+  .tool-card .tc-rating.bad { color: var(--coral); background: rgba(227,106,82,0.12); }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  .tool-card p + p { margin-top: 10px; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .warn { color: var(--marigold); font-weight: 600; }
+  .compare-table .bad { color: var(--coral); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Actually Works in 2026: The AI Tools We Use, Dropped, and Still Call Hype",
+  "description": "Three buckets, sixteen tools, one honest read. Vista Studios' working AI stack for architecture in 2026: what we use every week, what we paid for and walked away from, and what keeps showing up in trade-press listicles without surviving a project.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-06T10:00:00-04:00",
+  "dateModified": "2026-05-06T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/what-actually-works-ai-architecture-2026.html",
+  "articleSection": "Editorial",
+  "timeRequired": "PT11M",
+  "inLanguage": "en",
+  "keywords": ["AI tools for architects 2026", "honest AI architecture review", "Veras 4.0", "ComfyUI architecture", "Leonardo AI", "Rendair", "Finch 3D", "TestFit", "AI rendering"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best AI rendering tool for architects in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For practices already running V-Ray, Chaos Veras 4.0 is the strongest geometry-locked AI renderer in 2026. It's included with the V-Ray license, plugs into Revit, Archicad, SketchUp, and Rhino, and now uses Google's Nano Banana 2 engine. For interior shots specifically, Rendair AI outperforms it. Avoid generic web-based AI rendering tools that don't read your model. They're entertainment, not production."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Midjourney good for architectural rendering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midjourney is excellent for early-stage concept work, competition imagery, mood boards, and atmosphere studies. It's the wrong tool for production rendering of an existing model, because it has no geometry awareness and never will. Use Midjourney for the front of the project. Use Veras or Rendair for the back."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What AI tools should architects avoid in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avoid generic web-based AI rendering platforms that have no link to your model. Avoid 'AI for Revit' plugins that turn out to be ChatGPT wrappers around your project schedule. Avoid the bundled 'AI' overlays in real-time engines that just stylize the viewport. And treat any tool claiming '10x productivity' as a marketing number. In production architecture, the honest range is closer to 1.2 to 1.5x for the right tasks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Finch 3D worth it for architects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finch 3D is a real, well-built generative layout tool, but only valuable if you do repetitive multifamily housing work in Rhino. The marketing positions it as universal generative design. The reality is a narrow niche. If you're a housing architect doing unit-count studies, evaluate it seriously. Otherwise the marketing is writing checks the product was never built to cash."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Editorial · 06 May 2026</span>
+      <span class="tag">· 11 min read</span>
+    </div>
+    <h1>What actually <em>works</em> in 2026</h1>
+    <p class="lede">Three buckets, sixteen tools, one honest read. Vista Studios' working stack for architecture in 2026: what we use every week, what we paid for and walked away from, and what keeps showing up in listicles without ever surviving a project.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">11 min read · May 2026 · Vista Studios tested</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>There are now so many "Top 10 AI Tools for Architects 2026" listicles in circulation that they form their own genre, complete with conventions: the colour-graded hero shot of an unbuildable cantilever, the affiliate disclosure dressed up as a methodology section, the same six tools reshuffled in whichever order the highest-paying vendor preferred that quarter. None of these lists are written by anyone who has stood at a printer at 11pm watching a deadline render fail and reboot. That is probably why none of them ever tell you which tool actually finishes the render.</p>
+
+    <p>This is the version we'd write if nobody were paying us. Vista Studios runs a working practice on the stack below. We've also paid for things, used them on real projects, and walked away with the receipts. And we keep a running file of the tools that show up at every AIA Tech panel and never on a billable invoice. Three buckets. Sixteen names. Zero affiliate links anywhere on this site, ever.</p>
+
+    <hr>
+
+    <span class="bucket-badge use">★ Bucket 1 / Use</span>
+    <h2>Six tools we'd <em>fight to keep</em></h2>
+
+    <p>These are the tools we'd lose sleep over if they disappeared. Not the ones we tried for an afternoon and turned into a LinkedIn post. The ones that have survived a year of deadline weeks, client revisions at 9pm on a Friday, and the slow grind of a render queue working through forty versions of an elevation while you quietly consider whether you should have been an attorney.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">1. Chaos Veras 4.0</div>
+        <div class="tc-rating">Default renderer</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included with V-Ray subscription · ~$80/mo standalone</div>
+      <p>If you already pay for V-Ray, you already have Veras, and arguing about whether to use it is the architectural-software equivalent of paying for a gym membership and then driving past the gym. It plugs into Revit, Archicad, SketchUp, Rhino, and 3ds Max. The 4.0 release moved Veras onto Google's Nano Banana 2 engine and added a 2D-to-3D path through NB Pro for sketch work, which sounds like vendor copy until you actually feed it a depth pass and watch it return geometry that doesn't drift halfway through the elevation.</p>
+      <p>We tested it head-to-head against Rendair across twelve real client elevations on a mixed-use scheme in the Northeast. Veras landed eight client-ready on the exterior side. Rendair landed six. The full per-shot tally lives in the <a href="chaos-veras-vs-rendair-ai.html">Veras vs Rendair comparison</a>. Nothing else on this list comes close on cost-per-render at production scale, mostly because nothing else is hiding inside a license you already bought.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">2. Nano Banana 2 + Nano Banana Pro</div>
+        <div class="tc-rating">Engine layer</div>
+      </div>
+      <div class="tc-pricing">Pricing: API metered through Google · NB Pro available as a separate paid tier</div>
+      <p>NB2 is the model running underneath Veras 4.0. NB Pro is the standalone Google tool we run for compositing, mostly when AI imagery has to land cleanly on top of real site photography or fragments of a developed model and not look like a child's collage. The geometry fidelity gap between NB2 and the image models we were squinting at twelve months ago is the single biggest reason production AI rendering became a real category in 2026, instead of a cautionary tale we'd tell at the next office holiday party. The <a href="nano-banana-2-architecture-rendering-explained.html">Nano Banana 2 explainer</a> goes deep on what's actually under the hood and why the math finally went our way.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">3. ComfyUI</div>
+        <div class="tc-rating">Pipeline control</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free, open-source · GPU cost only</div>
+      <p>Where we go when Veras isn't enough, which is more often than the Veras marketing implies. Sketch-to-render with full ControlNet stacks, custom LoRAs trained on the firm's competition boards, batch processing four hundred elevation variations overnight, anything that needs node-graph control over the output. Our <a href="comfyui-sketch-to-photoreal-architecture.html">sketch-to-photoreal workflow</a> documents the exact pipeline we've used on a paying project. ComfyUI is the most powerful tool on this list. It is also the tool most likely to make a senior architect quietly weep into their coffee on a Tuesday afternoon. If nobody on your team genuinely enjoys node graphs, skip it. If somebody does, the ceiling lifts so far that you'll be slightly embarrassed by what you used to call "AI rendering" a year ago.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">4. Rendair AI</div>
+        <div class="tc-rating">Interior specialist</div>
+      </div>
+      <div class="tc-pricing">Pricing: $49–$119/mo</div>
+      <p>Rendair is not our default renderer. Veras wins almost everywhere it competes. The three places it doesn't compete are all interiors, and the gap is conspicuous: three out of three Rendair shots client-ready, one out of three for Veras, on the same project. That is the kind of result a practice notices. For projects with serious interior visualization, the $49 tier pays for itself on a single residential client revision cycle, the one where the client decides at 4pm on Thursday that the kitchen "reads cold" and the partner asks if we have anything warmer by Friday morning. We bring Rendair in when the brief calls for interiors. We ignore it when it doesn't. The <a href="chaos-veras-vs-rendair-ai.html">comparison page</a> has the per-shot tally.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">5. Midjourney</div>
+        <div class="tc-rating">Concept stage only</div>
+      </div>
+      <div class="tc-pricing">Pricing: $30–$60/mo</div>
+      <p>Strictly the front of the project. Competition narrative shots, mood boards, atmosphere studies, the cover image of the pitch deck. Never the renders of a building that already exists in our model, because Midjourney has never met your building and never will. Our <a href="midjourney-architecture-review.html">Midjourney review</a> covers the prompt patterns that hold up across a project arc and the ones that fall apart by the second revision. The mistake we keep watching firms make is buying Midjourney to "do AI rendering" and complaining when the building it returns has six floors instead of four. It was never going to count your floors. Map the tool to the job.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">6. Leonardo AI</div>
+        <div class="tc-rating">Finisher / upscaler</div>
+      </div>
+      <div class="tc-pricing">Pricing: $12 / $30 / $60/mo</div>
+      <p>The least exciting tool on this list and the one we'd miss most if it disappeared overnight. Leonardo's Universal Upscaler is what takes a 1024px AI render and quietly turns it into something a print shop won't refuse. Its Canvas inpainting handles the small humiliations that used to mean a Photoshop round-trip: a streetlight floating in mid-air, a sky that looks like a hospital gown, an entourage figure that appears to be in the early stages of dissolving. We sit at the Artisan tier ($30 a month). The <a href="leonardo-ai-review.html">Leonardo AI review</a> runs the long version. It's the last node in nine of our ten render pipelines and the first node in none of them. Quiet, cheap, indispensable, the architectural-AI equivalent of a good electrician.</p>
+    </div>
+
+    <hr>
+
+    <span class="bucket-badge dropped">✕ Bucket 2 / Dropped</span>
+    <h2>Five tools we paid for, used, and <em>stopped paying for</em></h2>
+
+    <p>The reasons matter more than the names, but the names also matter, because category lessons in software only land when somebody is willing to attach a logo to them. None of these are scams. All of them charged us money we shouldn't have spent.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Stable Diffusion via Automatic1111</div>
+        <div class="tc-rating bad">Superseded</div>
+      </div>
+      <p>Our entry point to local Stable Diffusion in 2024, and the place we first learned what a sampler was and why anyone should care. ComfyUI replaced it for everything: more flexible, more reproducible, more honest about what it's actually doing under the hood. Automatic1111 still works. The same GPU running ComfyUI just produces several times the output per hour. If you're starting now, skip the WebUI era entirely. It is not a heritage you need to live through.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">D5 Render and Twinmotion bundled "AI" features</div>
+        <div class="tc-rating bad">Cosmetic</div>
+      </div>
+      <p>Both real-time engines have bolted on "AI" overlays for stylization, and both vendors will tell their sales rep to tell you they've shipped a competitive AI rendering feature. They have not. The overlay is fine for the in-app walkthrough video. It's a parlour trick on a deliverable. Neither tool reads geometry the way Veras does, and neither composes freely the way Midjourney does. The bundled feature is a tile on the homepage. The actual rendering work is happening somewhere else.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">PromeAI / generic web-based AI rendering</div>
+        <div class="tc-rating bad">No geometry coupling</div>
+      </div>
+      <p>An entire category of web tools, of which PromeAI is just the most-Googled, takes a screenshot or massing image and returns something stylized that may or may not bear a passing resemblance to what you fed it. None of these tools have a link to your model. Two iterations in, you're hand-fixing things that would never have been wrong in a plugin renderer. Fine for a thumbnail in a Tuesday meeting. Worse than useless on a Thursday deliverable.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">"AI for Revit" ChatGPT-wrapper plugins</div>
+        <div class="tc-rating bad">Text-only</div>
+      </div>
+      <p>Several plugins now market themselves as "AI for Revit." On inspection, most of them pipe your project schedule or sheet metadata into a generic large language model and return the kind of text that ChatGPT would have returned for free if you'd asked it directly. The plugin is the disguise. Pay for tools that have actually integrated structured BIM data. There are a few. We'll review them when one of them survives a project. None of these have.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">FBX / OBJ-export AI render tools</div>
+        <div class="tc-rating bad">Round-trip kills it</div>
+      </div>
+      <p>Several "top tools" lists feature renderers that work via a one-time FBX or OBJ export, and every list ranks them in the top five. None of those lists ever mention what happens after the export. What happens is your model gains weight, loses parameters, and stops talking to your central file. Every change you make in design development means re-exporting, re-rendering, and re-explaining the discrepancy to whoever owns the BIM standards in the office. Strictly worse than a plugin pipeline. We've stopped evaluating new tools in this category, full stop.</p>
+    </div>
+
+    <hr>
+
+    <span class="bucket-badge hype">! Bucket 3 / Hype</span>
+    <h2>Five tools that <em>don't survive a project</em></h2>
+
+    <p>Not bad tools. Not scams. Tools whose marketing has been written by someone with stronger ambitions than the product currently supports. The "hype" call is about the gap between what the homepage promises and what we found in production, not about whether the company should exist.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Finch 3D</div>
+        <div class="tc-rating warn">Narrow niche, broad marketing</div>
+      </div>
+      <p>Finch is a genuinely well-built tool. Our <a href="finch3d-fenestra-review.html">Finch 3D review</a> says so in print, twice. The marketing is the part we'd quibble with: it positions Finch as generative design for any practice, when the reality is a strong tool for repetitive multifamily housing in Rhino, full stop. If you do unit-count studies in housing, evaluate Finch seriously, the free tier is enough to run a real project through. If your practice does bespoke residential, cultural buildings, or anything with non-standard circulation, the marketing is writing checks the product was never built to cash. The product is good. The pitch is for somebody else's project.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">TestFit</div>
+        <div class="tc-rating warn">Heavy promotion, narrow audience</div>
+      </div>
+      <p>TestFit is a feasibility tool for developers and project managers who need to know how many apartments will fit on a parcel before they commit to a design fee. For that user, it does its job and does it well. For an architecture practice doing the actual design work, TestFit is solving a problem you do not have, in software you do not need, on a timeline you are not on. The trade press has been calling it a design tool for two years. Two years is a long time to be wrong about something that specific.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">"AI BIM" all-in-one platforms</div>
+        <div class="tc-rating warn">Not ready</div>
+      </div>
+      <p>Several Series-A startups have promised, on the same conference panel, that they will replace Revit by Christmas. Some of the demos are genuinely striking. None of them have survived a real project at production scale yet, and the gap between a striking demo and a working authoring tool is roughly the gap between a single dramatic site visit and forty consecutive Mondays of construction administration. Authoring tools are sticky for good reasons. They accumulate firm-specific families, libraries, and standards across decades. A one-quarter-old startup has not earned that kind of trust. Re-evaluate at the end of 2027. For now, keep authoring where you already are, and let the people running "Revit-killers" go finish their second project first.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The "10x productivity" claim itself</div>
+        <div class="tc-rating warn">Marketing math</div>
+      </div>
+      <p>Every AI tool aimed at architects in 2026 claims a 10x productivity gain, often in the first sentence of the homepage. The honest range we've measured across our own stack is 1.2x to 1.5x for the right tasks, with the upper end concentrated in early-stage concept work where the bar for "finished" is generous. The 10x figure usually comes from comparing AI-assisted brainstorming against fully manual production rendering, which is the math equivalent of comparing a sketch napkin to a permit set and announcing a victory. Buy on numbers from your own work. Vendor decks are paid to lie a little.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">MyArchitectAI / generic listicle filler</div>
+        <div class="tc-rating warn">SEO-optimized, practice-irrelevant</div>
+      </div>
+      <p>An entire genre of tools, of which MyArchitectAI is just the most-Googled, exists primarily to rank in "best AI for architects" listicles next to each other. They produce stylized images from screenshots. They have no geometry coupling, no plugin into any authoring environment, no production track record, and a homepage that has been written by the same SEO consultant. They are the architectural-software equivalent of a free stock photo of a glass office tower. Skim past them. They are not for you.</p>
+    </div>
+
+    <hr>
+
+    <h2>The whole list, <em>one page</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Bucket</th>
+          <th>Tool</th>
+          <th>Use case</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="winner">Use</span></td><td>Chaos Veras 4.0</td><td>Geometry-locked production rendering</td></tr>
+        <tr><td><span class="winner">Use</span></td><td>Nano Banana 2 + Pro</td><td>Engine and compositing</td></tr>
+        <tr><td><span class="winner">Use</span></td><td>ComfyUI</td><td>Sketch-to-render, custom pipelines</td></tr>
+        <tr><td><span class="winner">Use</span></td><td>Rendair AI</td><td>Interior shots specifically</td></tr>
+        <tr><td><span class="winner">Use</span></td><td>Midjourney</td><td>Concept and competition imagery</td></tr>
+        <tr><td><span class="winner">Use</span></td><td>Leonardo AI</td><td>Upscaling and final-pass cleanup</td></tr>
+        <tr><td><span class="bad">Drop</span></td><td>Automatic1111</td><td>Use ComfyUI instead</td></tr>
+        <tr><td><span class="bad">Drop</span></td><td>D5 / Twinmotion bundled AI</td><td>Cosmetic, not production</td></tr>
+        <tr><td><span class="bad">Drop</span></td><td>PromeAI / generic web tools</td><td>No geometry coupling</td></tr>
+        <tr><td><span class="bad">Drop</span></td><td>"AI for Revit" wrappers</td><td>Free LLM in plugin clothing</td></tr>
+        <tr><td><span class="bad">Drop</span></td><td>FBX-export AI renderers</td><td>Round-trip kills the value</td></tr>
+        <tr><td><span class="warn">Hype</span></td><td>Finch 3D</td><td>Real product, narrow niche</td></tr>
+        <tr><td><span class="warn">Hype</span></td><td>TestFit</td><td>Developer tool, not design tool</td></tr>
+        <tr><td><span class="warn">Hype</span></td><td>"AI BIM" all-in-ones</td><td>Re-evaluate in 2027</td></tr>
+        <tr><td><span class="warn">Hype</span></td><td>"10x productivity" claim</td><td>Reality is ~1.2 to 1.5x</td></tr>
+        <tr><td><span class="warn">Hype</span></td><td>MyArchitectAI / listicle filler</td><td>SEO bait, no production fit</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Two tests we run before <em>adding anything</em></h2>
+
+    <p>The first is whether a tool survives a deadline. Most tools that look great in a demo fall apart the first Wednesday they meet a real one. The upload is mysteriously slow at 8pm. The output is no longer reproducible because the model was "improved" overnight. The credit system runs out the moment the project gets interesting. We don't add anything to the production stack until it has been through at least one full billable project, including the inevitable late-stage client revision that always kills the demo-ware. That filters most contenders before they ever reach the daily rotation.</p>
+
+    <p>The second is whether a tool owns a job in the pipeline or borrows one from another tool we already use. Veras owns geometry-locked rendering. Leonardo owns the finish. ComfyUI owns the custom pipeline. The tools we drop almost always borrow a job from a tool we already pay for, and do it slightly worse, for slightly more money. The pitch "we do everything" is the giveaway. The tools we keep are the ones that do one thing nobody else does, and don't apologize for the limit.</p>
+
+    <blockquote>The right AI stack for an architecture practice isn't long. It's six tools that own their jobs, and a willingness to walk away from anything else, no matter how loud the booth at the conference gets.</blockquote>
+
+    <h2>What's <em>worth watching</em></h2>
+
+    <p>Two threads across the rest of 2026. The first is whether an open-weights model emerges that matches Nano Banana 2's geometry fidelity. If FLUX or a successor ships an architectural-grade open-weights model, ComfyUI-based workflows become viable for full production rendering and the licensing economics of the plugin renderers shift overnight. We track this every quarter. It hasn't happened yet.</p>
+
+    <p>The second is native AI inside Revit and Archicad. Both Autodesk and Graphisoft have been signalling native AI features at the modeling level for two release cycles now: predictive component placement, AI-assisted detailing, automated annotation. If those features land well, the case for third-party plugins narrows fast. If they ship as token-burning marketing demos, the third-party ecosystem stays healthy and the rest of us keep our subscriptions.</p>
+
+    <p>Either way, re-evaluate at the end of the year. The ground is moving fast enough that any 18-month commitment is overcommitment. Buy what works on the project you're shipping next month. Worry about the rest of it after.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on live project work in 2025–2026. No affiliate relationships with any vendor named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="bim-first-ai-stack-2026-revit-archicad.html" class="related-card">
+          <div class="rc-tag">Stack guide · 2026</div>
+          <div class="rc-title">The BIM-first AI stack for 2026</div>
+        </a>
+        <a href="chaos-veras-vs-rendair-ai.html" class="related-card">
+          <div class="rc-tag">Comparison · 2026</div>
+          <div class="rc-title">Chaos Veras vs Rendair AI, head to head</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
