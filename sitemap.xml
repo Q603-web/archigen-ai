@@ -25,6 +25,14 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- 2026-05-06 Comparison -->
+  <url>
+    <loc>https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <url>
     <loc>https://archigenai.com/workflows.html</loc>
     <lastmod>2026-04-23</lastmod>
