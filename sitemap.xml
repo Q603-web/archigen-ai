@@ -5,15 +5,39 @@
   <!-- Core Pages -->
   <url>
     <loc>https://archigenai.com/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://archigenai.com/journal.html</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-08</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-08 Workflow -->
+  <url>
+    <loc>https://archigenai.com/hybrid-ai-render-workflow-architecture-2026.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-08 Tool Review -->
+  <url>
+    <loc>https://archigenai.com/myarchitectai-review-2026.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-08 Pipeline Review -->
+  <url>
+    <loc>https://archigenai.com/chaos-end-to-end-pipeline-enscape-veras-envision-2026.html</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
