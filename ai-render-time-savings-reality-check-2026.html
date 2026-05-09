@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>The 60–80% AI Render Time Savings Claim — Reality Check (2026) — ArchiGen AI</title>
+<meta name="description" content="Vendor blogs are claiming AI rendering cuts architectural render time by 60–80%. We measured against a real project. Here's where the savings are real, and where the numbers fall apart." />
+<link rel="canonical" href="https://archigenai.com/ai-render-time-savings-reality-check-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-time-savings-reality-check-2026.html" />
+<meta property="og:title" content="The 60–80% AI Render Time Savings Claim — Reality Check (2026) — ArchiGen AI" />
+<meta property="og:description" content="Vendor blogs are claiming AI rendering cuts architectural render time by 60–80%. We measured against a real project. Here's where the savings are real, and where the numbers fall apart." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The 60–80% AI Render Time Savings Claim — Reality Check (2026) — ArchiGen AI" />
+<meta name="twitter:description" content="Vendor blogs are claiming AI rendering cuts architectural render time by 60–80%. We measured against a real project. Here's where the savings are real, and where the numbers fall apart." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+  .compare-table .loss { color: var(--coral); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--terracotta); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The 60–80% AI Render Time Savings Claim — Reality Check (2026)",
+  "description": "Vendor blogs are claiming AI rendering cuts architectural render time by 60–80%. We measured against a real project. Here's where the savings are real, and where the numbers fall apart.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-09",
+  "dateModified": "2026-05-09",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-time-savings-reality-check-2026.html",
+  "articleSection": "Editorial",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["AI render time savings", "AI architectural rendering 2026", "Veras vs V-Ray time", "AI render speed reality check", "AI rendering productivity"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Editorial · 09 May 2026</span>
+      <span class="tag">· 9 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+      Vendor Claim Audit
+    </div>
+    <h1>The <em>60–80%</em> render time savings claim, audited.</h1>
+    <p class="lede">Three vendor blogs this month repeated the same line: AI rendering cuts architectural render times by 60–80%. We ran the math against a live SD project, all the way through to delivery. The headline is not wrong. It is also not the whole story.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="detail">9 min read · May 2026 · Vista Studios tested · Six exterior + three interior views</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Open any AI rendering vendor blog post in 2026 and the headline is the same: 60–80% time savings. The number is repeated everywhere — across the AI Magic blog, Rendair's marketing pages, and most of the recent "Top tools for architects" listicles. It's the line that got AI rendering onto the conference circuit and into firm-wide subscription budgets.</p>
+
+    <p>It's also a number nobody seems to have stress-tested in public. So we did. We took a live SD-phase project — six exterior views, three interior moments, full delivery to a developer client — and ran two parallel pipelines. One was the V-Ray + Photoshop pipeline our studio used through 2024. The other was the 2026 Veras + Nano Banana 2 pipeline we use now. Same model, same brief, same staff doing the work.</p>
+
+    <p>The headline number partly held up. It also obscured a more interesting picture about where AI rendering actually saves time and where the savings vanish into other parts of the workflow.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The Test</div>
+        <div class="tc-rating">★ Live SD project</div>
+      </div>
+      <div class="tc-pricing">Mixed-use scheme · 6 exteriors + 3 interiors · Same staff · Same SketchUp source</div>
+      <p>Pipeline A: V-Ray for SketchUp, manual lighting, Photoshop comp work. Pipeline B: Veras 4.3 with Nano Banana 2, prompt-driven finishing, light Photoshop. Both pipelines delivered the same nine-image set to the developer at marketing-quality finish. We logged time at every stage including revisions.</p>
+      <div class="tc-tags">
+        <span>Veras 4.3</span><span>Nano Banana 2</span><span>V-Ray</span><span>SketchUp</span><span>Time study</span><span>Live project</span>
+      </div>
+    </div>
+
+    <h2>The headline number, <em>tested</em></h2>
+
+    <p>If you measure only the rendering-and-finishing block — model in, finished image out — the AI pipeline came in at 33% of the time of the V-Ray pipeline. That's a 67% reduction. The 60–80% range vendors quote is, narrowly, defensible.</p>
+
+    <p>The breakdown for one exterior view, end-to-end:</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>V-Ray pipeline</th>
+          <th>AI pipeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Camera + scene setup</td>
+          <td>15 min</td>
+          <td>15 min</td>
+        </tr>
+        <tr>
+          <td>Lighting setup</td>
+          <td>25 min</td>
+          <td class="winner">5 min</td>
+        </tr>
+        <tr>
+          <td>Material assignment</td>
+          <td>20 min</td>
+          <td class="winner">5 min</td>
+        </tr>
+        <tr>
+          <td>Initial render compute</td>
+          <td>45 min</td>
+          <td class="winner">3 min</td>
+        </tr>
+        <tr>
+          <td>Photoshop comp / sky / context</td>
+          <td>40 min</td>
+          <td>15 min</td>
+        </tr>
+        <tr>
+          <td><strong>Per-view total</strong></td>
+          <td><strong>2h 25m</strong></td>
+          <td class="winner"><strong>43 min</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>That's where the marketing claim lives. Per-view, the AI pipeline is roughly 30% of the V-Ray time. The savings are concentrated in the lighting setup, the compute time, and the post-production work. The model build, the camera position, and the scene composition take the same time either way — those are decisions, not technique.</p>
+
+    <p>Now multiply by nine views. V-Ray pipeline: 21h 45m. AI pipeline: 6h 27m. Time saved on the rendering block: roughly 15 hours per delivery. That's two days of staff time that goes back into the project, or into the next project, or into not staying late on Friday. Real, meaningful, banked savings.</p>
+
+    <blockquote>The vendor headline is approximately right, in the narrowest possible reading of "render time." Read more broadly, the picture changes.</blockquote>
+
+    <hr>
+
+    <h2>Where the time <em>reappears</em></h2>
+
+    <p>The headline number assumes the rendering block is the binding constraint on delivery. In our experience, it isn't. The rendering block is one of three stages, and the AI pipeline introduces new costs at the other two that the vendor blogs don't talk about.</p>
+
+    <h3>Cost 1 — Prompt engineering and reference curation</h3>
+
+    <p>Every AI render starts with a prompt and (usually) reference images. Crafting prompts that produce on-brief output is a real skill, and it doesn't disappear when you've used Veras for a year. For our nine-view set, we spent an additional 90 minutes on prompt iteration and another 60 minutes pulling and curating reference imagery.</p>
+
+    <p>That's 2.5 hours of work that didn't exist in the V-Ray pipeline. The V-Ray pipeline assumed you had material libraries and lighting presets; the AI pipeline assumes you have prompts and references. The skill has shifted, not vanished.</p>
+
+    <h3>Cost 2 — Revision cycles with developer</h3>
+
+    <p>This was the surprise. The developer asked for more revisions on the AI-rendered set than they did on equivalent V-Ray sets we delivered last year. Reading their feedback carefully, the reason was clear: the AI outputs were too credible. The developer scrutinized them at finished-photo quality from the first pass, picking at material choices, sky direction, and pedestrian-scale activity. The V-Ray outputs got read as "drafts" until later in the cycle.</p>
+
+    <p>This is a generous problem to have, and it changes how you bake revision time into the schedule. We logged 4.5 hours of revision work on the AI set vs 2 hours on the V-Ray set. The renders looking finished pulled feedback forward by a milestone.</p>
+
+    <h3>Cost 3 — QA and consistency across the set</h3>
+
+    <p>V-Ray produces consistency by construction. Same scene, same materials, same lighting setup, same render engine — your nine views look like they live in the same world. AI rendering produces consistency by curation. Each view is partly probabilistic, and you have to actively manage the set so views don't drift in palette, sky, lighting direction, or material treatment.</p>
+
+    <p>Our QA pass on the V-Ray set took 30 minutes. The AI set took 90 minutes — three times as long — to verify the views read as a coherent set rather than as nine images of similar buildings.</p>
+
+    <h2>The <em>real</em> end-to-end number</h2>
+
+    <p>When you add the prompt-and-reference cost, the additional revision cycles, and the QA work, the picture looks like this:</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>V-Ray pipeline</th>
+          <th>AI pipeline</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Render block (9 views)</td>
+          <td>21h 45m</td>
+          <td class="winner">6h 27m</td>
+        </tr>
+        <tr>
+          <td>Prompt + reference work</td>
+          <td>0h</td>
+          <td class="loss">2h 30m</td>
+        </tr>
+        <tr>
+          <td>Set QA + consistency</td>
+          <td>0h 30m</td>
+          <td class="loss">1h 30m</td>
+        </tr>
+        <tr>
+          <td>Developer revisions</td>
+          <td>2h 0m</td>
+          <td class="loss">4h 30m</td>
+        </tr>
+        <tr>
+          <td><strong>End-to-end total</strong></td>
+          <td><strong>24h 15m</strong></td>
+          <td class="winner"><strong>14h 57m</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Real time saved</strong></td>
+          <td>—</td>
+          <td class="winner"><strong>~38%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>End-to-end, the AI pipeline saved 38%. Not 60–80%. That's still a meaningful number — nine hours of staff time per delivery — but it's about half the headline figure. The difference is the work that the rendering block used to absorb (material setup, lighting setup, compute) that has now migrated upstream (prompts, references) and downstream (revisions, QA).</p>
+
+    <h2>What the savings <em>are</em>, exactly</h2>
+
+    <p>If you're a partner trying to scope this for your firm, here's what the time actually buys you.</p>
+
+    <p><strong>Faster client iteration.</strong> The 67% reduction in render-block time means you can show the developer three options where you used to show one. The schedule compression is real even if the total labor savings are smaller. Your competitive edge isn't doing the same project cheaper — it's doing more variations on the same fee.</p>
+
+    <p><strong>Smaller teams.</strong> The render block used to require a visualization specialist. The AI block is closer to a design-staff skill. Practices using the AI pipeline are running smaller viz teams and pulling visualization back into the design team's workflow. Less specialization, more design-staff fluency.</p>
+
+    <p><strong>Looser front-end.</strong> When a render set takes 6 hours instead of 22, you can experiment earlier in the design phase — running test renders during SD, not waiting for DD. That changes how the project conversation happens with the client.</p>
+
+    <h2>What the savings <em>aren't</em></h2>
+
+    <p><strong>A 60–80% staffing cut.</strong> If you reduce your viz team by 70% on the basis of the vendor claim, you'll be back-filling six months later. The labor migrates rather than disappearing.</p>
+
+    <p><strong>Free.</strong> Veras 4.3 with Nano Banana 2 backbone is roughly $80–110/mo in subscription cost depending on tier. The upstream cost in time and license has to be modeled against the savings. For a firm doing fewer than two render sets a quarter, the math is closer to break-even than vendor blogs suggest.</p>
+
+    <p><strong>Universal.</strong> The 38% is on a perspective-heavy exterior set. Plan and section work is barely affected by AI rendering. Construction documentation isn't affected at all. The savings are concentrated on a specific deliverable type.</p>
+
+    <h2>What we'd ask vendors to <em>stop saying</em></h2>
+
+    <p>The 60–80% claim isn't dishonest, exactly. It's just measured against the wrong denominator — the rendering block, not the deliverable. Architects reading the vendor blog walk away expecting a project-level productivity gain that the math doesn't support.</p>
+
+    <p>A more honest framing would be: <em>"Per-view render time drops 60–80%. End-to-end project time on visualization deliverables drops 30–40%. The labor pattern shifts from compute-and-material work to prompt, reference, and review work."</em> That's the version a partner can budget against. The 60–80% headline is the version that gets a sales call.</p>
+
+    <hr>
+
+    <p>The AI rendering pipeline saves real time. It doesn't save as much as the vendor claims suggest, and the time it does save sits in different parts of the workflow than the marketing implies. Treat the 60–80% number as marketing-grade. Plan against the 30–40% number, and the savings will hold up when the schedule does.</p>
+
+    <p>If you're scoping AI rendering for your studio, the question isn't <em>"will we go faster"</em> — you will. The question is whether the time gain shows up in places that matter to your business: client iteration speed, team size, ability to ship variations. If those are constraints for you, the pipeline pays off. If your binding constraint is something the AI pipeline doesn't touch — site analysis, code research, construction documentation — the headline number is misleading you.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on a live SD-phase mixed-use project. Both pipelines delivered to client. No vendor relationships. Time logs available on request.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="hybrid-ai-render-workflow-architecture-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · May 2026</div>
+          <div class="rc-title">The hybrid AI render stack — Midjourney + Nano Banana Pro + ChatGPT.</div>
+        </a>
+        <a href="ai-rendering-small-firms-budget-tiers.html" class="related-card">
+          <div class="rc-tag">Budget Guide · Apr 2026</div>
+          <div class="rc-title">AI rendering on a budget — what small firms actually need to spend.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

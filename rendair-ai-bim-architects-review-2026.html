@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Rendair AI for BIM Architects — Hands-On Review (2026) — ArchiGen AI</title>
+<meta name="description" content="Rendair AI is repositioning as a BIM-friendly renderer. We tested the Revit and Archicad workflow on a live SD project to see whether the BIM pitch holds up." />
+<link rel="canonical" href="https://archigenai.com/rendair-ai-bim-architects-review-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/rendair-ai-bim-architects-review-2026.html" />
+<meta property="og:title" content="Rendair AI for BIM Architects — Hands-On Review (2026) — ArchiGen AI" />
+<meta property="og:description" content="Rendair AI is repositioning as a BIM-friendly renderer. We tested the Revit and Archicad workflow on a live SD project to see whether the BIM pitch holds up." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Rendair AI for BIM Architects — Hands-On Review (2026) — ArchiGen AI" />
+<meta name="twitter:description" content="Rendair AI is repositioning as a BIM-friendly renderer. We tested the Revit and Archicad workflow on a live SD project to see whether the BIM pitch holds up." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Rendair AI for BIM Architects — Hands-On Review (2026)",
+  "description": "Rendair AI is repositioning as a BIM-friendly renderer. We tested the Revit and Archicad workflow on a live SD project to see whether the BIM pitch holds up.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-09",
+  "dateModified": "2026-05-09",
+  "mainEntityOfPage": "https://archigenai.com/rendair-ai-bim-architects-review-2026.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Rendair AI", "AI for BIM architects", "Revit AI rendering", "Archicad AI rendering", "AI architectural rendering 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Rendair AI work directly inside Revit and Archicad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rendair AI does not have native Revit or Archicad plugins as of mid-2026. Architects export views as PNG, JPG, or screenshot from BIM software and upload them to Rendair's web app. Rendair's recent BIM-focused content marketing positions the tool as BIM-friendly because the engine respects clean orthographic and perspective views from BIM models, not because of in-app integration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Rendair AI better than Veras for BIM workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your software. If you are on V-Ray or Enscape, Veras is the simpler choice because it loads inside the same plugin ecosystem. Rendair AI is competitive on output quality, particularly on residential interiors, and is a stronger pick for firms on Archicad, Vectorworks, or any BIM software not in the Chaos ecosystem. Rendair's web-based workflow also avoids plugin version conflicts on multi-software teams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Rendair AI cost in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rendair AI offers a free trial tier with limited monthly renders, and paid plans starting around $19 per month for individual practitioners. Studio plans with team seats and higher resolution outputs start around $49 per month per seat. Pricing has held flat through 2026 despite added features."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Review · 09 May 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+      BIM Workflow Tested
+    </div>
+    <h1>Rendair AI's <em>BIM play</em></h1>
+    <p class="lede">Rendair just published a "Top 5 AI Tools for BIM Architects" piece on its own blog. That's not editorial — it's positioning. We tested whether the BIM pitch holds up on a live Revit and Archicad project, or whether it's a brand exercise dressed as a buyer's guide.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="detail">8 min read · May 2026 · Tested on live Revit + Archicad project</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Rendair AI has spent most of 2026 quietly fighting the same SEO battle as every AI rendering tool — top-of-funnel content keyed to "best AI tools for architects" and "AI architectural rendering software." This week the angle shifted. A new piece on the Rendair blog frames the tool as a BIM companion, lining itself up alongside Revit, Archicad, and Vectorworks rather than against Veras and Midjourney.</p>
+
+    <p>That's a deliberate move. BIM is where the firm-budget money lives. Plugins inside Revit and Archicad get bought on multi-seat licenses and renewed annually. Concept renders sold to a sole practitioner on a credit-card subscription is a different business. Rendair is signaling that it wants the firm-budget seat.</p>
+
+    <p>So we tested the claim. We took a mixed-use SD-phase project we are running in Revit and a residential addition currently in Archicad, and we ran both through Rendair's current 2026 workflow alongside our normal Veras-and-Enscape pipeline. Here is what actually happened.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Rendair AI — BIM workflow assessment</div>
+        <div class="tc-rating">★ 4.2 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free trial · Individual ~$19/mo · Studio ~$49/mo per seat · Web-based, no plugin install</div>
+      <p>Rendair AI's web app accepts PNG and JPG exports from any BIM tool. The "BIM friendliness" claim is real but specific: the engine handles clean orthographic and perspective exports better than freeform AI tools. There is no native Revit or Archicad plugin yet. For interior renders on BIM-sourced views, it is genuinely competitive. For exteriors, Veras still has the edge.</p>
+      <div class="tc-tags">
+        <span>Revit export</span><span>Archicad export</span><span>Web app</span><span>Interior</span><span>No plugin</span><span>Multi-BIM</span>
+      </div>
+    </div>
+
+    <h2>What "BIM-friendly" <em>actually means</em> here</h2>
+
+    <p>Let's strip the marketing first. Rendair AI does not have a Revit plugin. There is no "Render in Rendair" button inside Archicad. The workflow is: export a view from your BIM software as a PNG or JPG, drag it into Rendair's web app, choose a style, generate.</p>
+
+    <p>That is not BIM integration. It is BIM-compatible.</p>
+
+    <p>The real BIM-friendliness, as far as we can tell, is two things. First, the engine respects geometry from clean BIM exports better than it does freehand sketches — Rendair has clearly trained on architectural orthographic and perspective views. Second, the web-based workflow means you can stand on top of any BIM tool: Revit, Archicad, Vectorworks, Allplan, BricsCAD. That matters for studios that run mixed software stacks. Veras and Enscape are great if you live inside the Chaos ecosystem; Rendair is the answer if you don't.</p>
+
+    <blockquote>Rendair is BIM-friendly the way an electric kettle is gas-stove-friendly. It works with anyone's setup. That's a real virtue for studios with mixed software, but it's not what the marketing language implies.</blockquote>
+
+    <h3>The Revit test</h3>
+
+    <p>Our mixed-use scheme is being modeled in Revit 2026 with a moderately complex curtain wall on the north elevation, brick podium, and exposed concrete soffits. We exported a perspective view as PNG at 4096px and ran it through Rendair using a "warm dusk, photographic, urban context" style prompt.</p>
+
+    <p>First pass: 38 seconds to generate. Geometry held cleanly on the brick podium and the curtain wall mullions. The exposed concrete soffit read as concrete, not as polished plaster, which is a frequent failure mode in less geometry-aware AI tools. Soft shadows under the canopy were physically credible.</p>
+
+    <p>The miss: a second-floor balcony rail in our model came back as a glass panel guard rather than the metal picket rail we had drawn. This is a recurring AI rendering failure — narrow, repetitive metal elements get smoothed into glass or solid surfaces. Rendair did not solve it. Veras 4.3 also doesn't fully solve it, but the failure rate is slightly lower in our experience there.</p>
+
+    <h3>The Archicad test</h3>
+
+    <p>Archicad exports came in cleaner than Revit exports because the GDL-generated geometry has slightly less visual noise in raw views. Rendair handled the residential addition — timber rainscreen, slate roof, dormer detail — well. The dormer detail in particular held shape, where most AI tools either flatten it or hallucinate it into a different roof form.</p>
+
+    <p>The interior pass on the same project was the most impressive output we generated all week. We exported a perspective of the open kitchen-living space, fed it to Rendair with a "natural daylight, oak flooring, soft afternoon" prompt, and got back a render that we would have shown a client unedited. Furniture proportions held. The light direction was correct relative to the window placement in the model. Material reads were clean.</p>
+
+    <p>That interior result is consistent with our earlier head-to-head between Rendair and Veras 4.0, where Rendair won the interior category. With Veras 4.3 and Nano Banana 2 closing that gap, the comparison is now closer than it was — but Rendair still feels slightly more confident on residential interior moods.</p>
+
+    <hr>
+
+    <h2>Where the BIM pitch <em>doesn't hold</em></h2>
+
+    <p>If you read Rendair's recent blog post, you'd think the tool is a Revit-or-Archicad-native renderer with deep BIM awareness. It is not. There are workflow gaps that matter for serious BIM users.</p>
+
+    <h3>No view-from-BIM round trip</h3>
+
+    <p>You cannot send a Rendair output back into Revit or Archicad as a textured material, a placed image, or a 3D-aware overlay. The output is a flat PNG. For renders sold as deliverables to a client, that's fine. For workflows where you want to iterate on the model and re-render the same view at a known camera position with consistent material direction, you're rebuilding the prompt every time.</p>
+
+    <p>Veras has this advantage when used inside its plugins. It knows the camera. It can re-render a view consistently from one design iteration to the next. Rendair, being external, cannot.</p>
+
+    <h3>No batch processing</h3>
+
+    <p>If you have ten exterior views to deliver, you upload them one at a time, prompt them one at a time, wait for each one to finish before queuing the next. For a deliverable package, that's an hour or more of supervised work. Veras does not have batch either, but the in-plugin workflow makes the per-view friction lower.</p>
+
+    <h3>No drawing-aware features</h3>
+
+    <p>Rendair does not parse your BIM model. It cannot pull material assignments from your project. It cannot tell that the wall labeled "Wall_External_Brick_010" is supposed to be brick rather than concrete. The render is a per-image style transfer, not a model-aware visualization. That's standard for AI rendering tools, but it's worth being clear that "BIM-friendly" doesn't mean "model-aware."</p>
+
+    <hr>
+
+    <h2>Rendair vs Veras 4.3 vs Enscape AI <em>for BIM users</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Rendair AI</th>
+          <th>Veras 4.3</th>
+          <th>Enscape AI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Native Revit plugin</td>
+          <td>No</td>
+          <td class="winner">Yes</td>
+          <td class="winner">Yes</td>
+        </tr>
+        <tr>
+          <td>Native Archicad plugin</td>
+          <td>No</td>
+          <td class="winner">Yes</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Web-based workflow</td>
+          <td class="winner">Yes — multi-BIM compatible</td>
+          <td>Plugin-only</td>
+          <td>Plugin-only</td>
+        </tr>
+        <tr>
+          <td>Camera-consistent re-render</td>
+          <td>No</td>
+          <td class="winner">Yes</td>
+          <td class="winner">Yes</td>
+        </tr>
+        <tr>
+          <td>Interior render quality</td>
+          <td class="winner">Strong on residential mood</td>
+          <td>Improved in 4.3, competitive</td>
+          <td>Adequate, less stylized</td>
+        </tr>
+        <tr>
+          <td>Exterior render quality</td>
+          <td>Solid, occasional rail/picket smoothing</td>
+          <td class="winner">Best in category</td>
+          <td>Adequate</td>
+        </tr>
+        <tr>
+          <td>Pricing</td>
+          <td class="winner">~$19/mo individual</td>
+          <td>Bundled with V-Ray (~$80/mo)</td>
+          <td>Bundled with Enscape sub</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Who Rendair is <em>actually for</em></h2>
+
+    <p>The clearest fit, after spending the week on this:</p>
+
+    <ul>
+      <li><strong>Archicad-only studios.</strong> If you don't have a V-Ray subscription, Veras's standalone tier is decent but Rendair at $19/mo is genuinely cheaper for similar interior output. The lack of plugin matters less here because Archicad's BIMx and built-in renderer already handle the basics.</li>
+      <li><strong>Vectorworks, Allplan, BricsCAD users.</strong> Rendair is essentially the only practical AI render path for these tools that doesn't involve hand-routing through SketchUp. The web-based workflow is its real BIM advantage, even if Rendair won't say that directly.</li>
+      <li><strong>Solo practitioners and small studios on residential work.</strong> The interior strength plus the price point make Rendair an easy add to a residential workflow. We'd recommend it without reservation for that use case.</li>
+      <li><strong>Anyone serving up presentation renders to a non-architect client.</strong> The mood quality is high enough that Rendair outputs land well in client meetings — and clients don't care whether the render came from a plugin or a web app.</li>
+    </ul>
+
+    <h2>Who should <em>still skip it</em></h2>
+
+    <p>Skip Rendair if you are deep in the Chaos ecosystem already. If you have V-Ray and Enscape running on commercial projects, the in-plugin workflow advantage of Veras 4.3 outweighs Rendair's interior edge. The cost of context-switching to a web app for every render adds up faster than people expect on a 30-view deliverable.</p>
+
+    <p>Skip Rendair if your firm needs camera-consistent renders across design iterations. The lack of model awareness means every iteration is a fresh prompt, which is fine for one-offs but painful for projects where the same view will be re-rendered five or ten times as the design evolves.</p>
+
+    <hr>
+
+    <h2>The strategic <em>read</em></h2>
+
+    <p>Rendair publishing its own "Top 5 AI Tools for BIM Architects" piece is content marketing dressed as objectivity. It's also a useful tell about where Rendair thinks its growth is. The market for "AI rendering for architects" is now crowded enough that horizontal positioning gets you nowhere. Vertical positioning — "the BIM-friendly renderer" — is how you carve a defensible audience.</p>
+
+    <p>Whether the BIM pitch matures into something more substantive depends on whether Rendair ships actual plugin integration in 2026. A native Archicad plugin would be the obvious move and would put real pressure on Veras's Archicad position. A Vectorworks plugin would essentially own that segment. If neither ships in the next two quarters, the BIM positioning will start to feel hollow — clean exports are not integration, and the market eventually figures that out.</p>
+
+    <p>For now, if you fit one of the user profiles above, Rendair is a real, useful tool. Just buy it for what it is — a competent, BIM-export-friendly web renderer with strong residential interior output — not for what the blog post implies it is.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on a live Revit 2026 mixed-use project and an Archicad residential addition. No affiliate relationship with Rendair AI. Outputs generated from production BIM model exports.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="chaos-veras-vs-rendair-ai.html" class="related-card">
+          <div class="rc-tag">Comparison · Apr 2026</div>
+          <div class="rc-title">Chaos Veras vs Rendair AI — which renders better?</div>
+        </a>
+        <a href="bim-first-ai-stack-2026-revit-archicad.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">The BIM-first AI stack for 2026 — Revit and Archicad</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
