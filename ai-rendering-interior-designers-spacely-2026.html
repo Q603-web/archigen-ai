@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>AI Rendering for Interior Designers — Spacely.ai and the Interior-First Stack — ArchiGen AI</title>
+<meta name="description" content="Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do." />
+<link rel="canonical" href="https://archigenai.com/ai-rendering-interior-designers-spacely-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-rendering-interior-designers-spacely-2026.html" />
+<meta property="og:title" content="AI Rendering for Interior Designers — Spacely.ai and the Interior-First Stack — ArchiGen AI" />
+<meta property="og:description" content="Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="AI Rendering for Interior Designers — Spacely.ai and the Interior-First Stack — ArchiGen AI" />
+<meta name="twitter:description" content="Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Rendering for Interior Designers — Spacely.ai and the Interior-First Stack",
+  "description": "Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-10",
+  "dateModified": "2026-05-10",
+  "mainEntityOfPage": "https://archigenai.com/ai-rendering-interior-designers-spacely-2026.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["Spacely.ai", "interior design AI", "AI room rendering", "interior visualization 2026", "AI staging"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Review · 10 May 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+      Interior-Specific Stack · 2026
+    </div>
+    <h1>AI rendering for <em>interior designers.</em></h1>
+    <p class="lede">Veras, Rendair, and the rest were built around exterior facades. Interior work has different problems — material spec, room types, FF&amp;E placement, soft light. We spent a week testing Spacely.ai and the interior-first stack on real residential and small-commercial work.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="detail">7 min read · May 2026 · Vista Studios tested · Interior workflow focus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Almost every AI rendering tool we've reviewed on this site was designed for exterior architectural visualization first. The benchmark images on every product page show curtain-wall facades, civic buildings, residential street views. Veras, Rendair AI, MyArchitectAI — all of them are evaluated by how cleanly they render a building from the outside.</p>
+
+    <p>Interior designers — and the architects whose practice tilts heavily toward interiors — have been quietly adapting these tools to a use case they weren't built for. The pain points are different. You're not rendering a glass facade. You're rendering a kitchen with specific cabinetry, specific stone, specific light fixtures, and a client who wants to know whether the warm white quartz reads warmer than the cool white. Most of the AI rendering category does this badly.</p>
+
+    <p>This week we ran a focused test: same set of three interior projects (a kitchen renovation, a hospitality lobby, a mid-size dental office), through every tool we could find that claims interior strength. The clear standout in the interior-specific category was <strong>Spacely.ai</strong>. The honest assessment of the rest follows.</p>
+
+    <h2>Why interior rendering is <em>different</em></h2>
+
+    <p>The exterior tools fail on interiors in predictable ways. Three failure modes show up over and over:</p>
+
+    <p><strong>Material specification breakdown.</strong> Exterior renders survive imprecise materials — your client doesn't care which exact brick, just that it reads "brick." Interiors don't have that luxury. If your kitchen render shows a generic white marble and the spec is Calacatta Borghini, the client won't approve the render. Most exterior-trained models hallucinate a material that's adjacent to but not actually what you specified.</p>
+
+    <p><strong>FF&amp;E placement.</strong> Furniture, fixtures, and equipment placement is the entire game in interior design. The exterior tools either generate furniture they invented (often unsellable) or strip out furniture you've placed (because their training data treats interiors as empty rooms). Either failure makes the render useless.</p>
+
+    <p><strong>Soft light reads.</strong> Exterior light is brutal — direct sun, cast shadows, sky bounce. Interior light is layered: ambient, task, decorative, accent. The exterior models tend to flatten interior light into a single global illumination, which kills depth and reads as either too bright or too cave-like.</p>
+
+    <h2>Spacely.ai — <em>built for the interior workflow</em></h2>
+
+    <p>Spacely.ai's core proposition is "interior rendering and design intelligence for designers, not architects." That positioning matters. The tool is aware of room types in a way that the architectural renderers aren't — it knows what a primary bedroom, a powder room, or a hospitality lobby is supposed to do, and it generates accordingly.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Spacely.ai</div>
+        <div class="tc-rating">★ 4.4 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free tier (limited renders) · Pro $19/mo · Studio $49/mo · Agency tiers above</div>
+      <p>Interior-specific AI render and design tool. Strengths: room-type awareness, real material catalog, FF&amp;E recognition, virtual staging. Weaknesses: limited support for custom geometry input — best fit when working from photos or simple SketchUp/Rhino interior models.</p>
+      <div class="tc-tags">
+        <span>Room types</span><span>Material catalog</span><span>FF&amp;E aware</span><span>Virtual staging</span><span>Photo-to-render</span>
+      </div>
+    </div>
+
+    <p>For our kitchen renovation test, the input was a SketchUp model (cabinets blocked in, stone counters, basic appliance placement) and a brief: "warm modern, walnut cabinetry, white oak floors, paneled appliances, brass hardware." Spacely returned four credible variants in under three minutes. All four respected the cabinetry layout we'd modeled. Three of the four read the brass hardware correctly (the fourth went chrome). All four kept the appliance paneling.</p>
+
+    <blockquote>For the first time, an AI rendering tool produced output we could send to a client without re-prompting it five times. The room-type awareness shows up in details — the kitchen island was treated as social space, not just counter space, with appropriate lighting and reflective behavior.</blockquote>
+
+    <p>The material catalog is the unsung hero. Spacely lets you pick from a library of named materials (or upload your own samples) and apply them to specific surfaces. When you say "Calacatta Borghini on the island, walnut on the perimeter cabinets," the render holds those choices through generation. It's not perfect — about 15% of our passes had subtle material drift — but it's an order of magnitude better than what Veras or Midjourney does with material naming.</p>
+
+    <p>The hospitality lobby test was a tougher case. Larger volume, mixed seating, complex lighting (sconce, pendant, wall wash, daylight). Spacely struggled here. The renders were credible at first glance but the seating arrangement drifted from our model — banquettes shortened, lounge chairs moved off the rug placement we'd specified. For project-budget interiors with tight spec requirements, that's a problem. We ended up running these passes through Veras instead, which respected the geometry better even though its material handling was worse.</p>
+
+    <p>For the dental office, Spacely was excellent. Clinical interiors are a category the exterior tools choke on (they generate residential or commercial spaces by default). Spacely had explicit support for clinical room types — exam rooms, reception, sterile zones — and produced output that read as a real dental office, not a vaguely white room.</p>
+
+    <h2>Where Spacely <em>falls short</em></h2>
+
+    <p>Custom geometry input is the main weakness. Spacely's strongest mode is photo-to-render or simple SketchUp import. If your interior involves complex custom millwork, sculptural ceilings, or unusual volumes, you'll fight the tool. Veras and Rendair handle that geometry better; their material work is just worse.</p>
+
+    <p>The other limitation is exterior context. If your interior render needs to show a meaningful exterior view through a window — a specific city skyline, a known landscape — Spacely tends to invent generic context. For projects where the view <em>is</em> the design, this matters.</p>
+
+    <h2>The interior-first <em>stack</em></h2>
+
+    <p>Spacely is the centerpiece, but interior workflows benefit from a stack rather than a single tool. Here's what we ran during the test, and what each one was actually good for:</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Best Tool</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concept staging from photos</td>
+          <td class="winner">Spacely.ai</td>
+          <td>Room-type aware, fast, respects existing geometry</td>
+        </tr>
+        <tr>
+          <td>Material spec accuracy</td>
+          <td class="winner">Spacely.ai</td>
+          <td>Named material catalog, less drift than alternatives</td>
+        </tr>
+        <tr>
+          <td>Custom millwork &amp; complex volumes</td>
+          <td>Veras 4.3</td>
+          <td>Better geometry lock; weaker materials</td>
+        </tr>
+        <tr>
+          <td>Exterior view context through windows</td>
+          <td>Midjourney v7 / Nano Banana 2</td>
+          <td>Compose render in Spacely, paint exterior view in MJ</td>
+        </tr>
+        <tr>
+          <td>Mood boards &amp; inspiration generation</td>
+          <td>Midjourney v7</td>
+          <td>Still the best for atmosphere and aesthetic direction</td>
+        </tr>
+        <tr>
+          <td>Final photoreal output for portfolio</td>
+          <td>Spacely.ai → ComfyUI upscale</td>
+          <td>Spacely composition, Flux upscale for sharpness</td>
+        </tr>
+        <tr>
+          <td>Virtual staging for real estate</td>
+          <td class="winner">Spacely.ai</td>
+          <td>Built-in workflow, cleanest results in this category</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>One workflow we developed during the test: use Spacely for the primary interior pass, then composite a Midjourney-painted exterior view into the window plate. This is annoying but produces dramatically better results when the view is part of the brief — for example, a hospitality interior where the lobby looks out onto a specific city skyline.</p>
+
+    <h2>What about <em>Veras and Rendair</em> for interiors?</h2>
+
+    <p>Both have improved on interiors over the past two release cycles. Veras 4.3 in particular closed the gap on furniture edge fidelity and light spill. But neither was designed with the interior designer's workflow in mind.</p>
+
+    <p>The tell is the prompt language they accept. Veras wants you to describe a scene. Spacely wants you to describe a project: room type, design direction, material palette, FF&amp;E intent. The difference compounds across a real workflow. By the third or fourth project, the firms using Spacely are spending less time prompt-engineering and more time editing schedules and specifying.</p>
+
+    <blockquote>If your billable work is mostly interiors, Spacely is now the default. The architectural renderers are the backup for the cases Spacely can't yet handle.</blockquote>
+
+    <h2>Pricing <em>reality</em></h2>
+
+    <p>Spacely's $19/mo Pro tier is enough for most independent designers. The $49/mo Studio tier is where it makes sense for a small design firm — adds team workspaces, more renders per month, brand asset management. The Agency tiers are pitched at staging companies and real estate marketing firms, not architecture practices.</p>
+
+    <p>Compared to the architectural renderers, this is cheap. Veras at ~$80/mo (bundled with V-Ray) is a more committed tooling decision; Spacely is the kind of subscription a small firm can absorb without internal debate.</p>
+
+    <p>That pricing structure tells you something about who Spacely is built for. The architectural rendering category is selling to firms that already have rendering budgets. Spacely is selling to designers who never had a rendering budget — they were doing mood boards in Pinterest and presenting concepts in InDesign. Spacely brings rendering into a workflow that previously skipped it.</p>
+
+    <h2>Who should adopt <em>Spacely</em></h2>
+
+    <p>If you're an interior designer working primarily on residential, hospitality, or small commercial: <strong>Spacely is the strongest interior tool in this category right now.</strong> Try the free tier on a current project. The room-type awareness alone will tell you within a week whether it fits your workflow.</p>
+
+    <p>If you're an architect with a heavy interior practice: pair Spacely with whatever your existing exterior tool is. Use Spacely for kitchens, bathrooms, primary bedrooms, hospitality lobbies, healthcare interiors. Use Veras or Rendair for the architectural shell and complex geometry.</p>
+
+    <p>If you do mostly large-scale architectural work and interiors are a small share: skip Spacely. The architectural renderers are good enough for occasional interior passes, and adding a third tool to the workflow isn't worth the friction.</p>
+
+    <h2>What's still <em>missing</em></h2>
+
+    <p>Construction-document accuracy. Interior renders need to match shop drawings — millwork dimensions, hardware placement, tile grout sizes. None of the AI tools, Spacely included, are reliable here yet. The renders look right but won't survive a contractor saying "the cabinet pull doesn't match what you showed."</p>
+
+    <p>Specification export. The dream feature is a rendering tool that generates a parallel material schedule — every visible material in the render exported as a spec sheet with vendor, finish, and product code. Spacely is closer than the architectural tools (because of its named material catalog) but it's not there.</p>
+
+    <p>Lighting design integration. Interior lighting is its own discipline. None of these tools yet talk to lighting calc software (DIALux, AGi32) in a meaningful way. The renders look lit; the actual lighting plan is still done separately.</p>
+
+    <hr>
+
+    <p>If you've been frustrated that the AI rendering category hasn't served your interior workflow, Spacely is the first tool that takes the workflow seriously. It's not perfect. It's the first one that's even trying to be the right shape.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on three live interior projects. No affiliate relationship with Spacely.ai. Pricing as of May 2026.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="myarchitectai-review-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review · May 2026</div>
+          <div class="rc-title">MyArchitectAI in 2026 — does the 10-second render hold up on real work?</div>
+        </a>
+        <a href="best-ai-tools-architectural-visualization-2026.html" class="related-card">
+          <div class="rc-tag">Guide · 2026</div>
+          <div class="rc-title">Best AI tools for architectural visualization — complete ranking.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
