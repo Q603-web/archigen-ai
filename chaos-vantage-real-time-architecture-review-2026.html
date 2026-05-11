@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Chaos Vantage for Architects — Real-Time Photorealism on Live Client Meetings — ArchiGen AI</title>
+<meta name="description" content="Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up." />
+<link rel="canonical" href="https://archigenai.com/chaos-vantage-real-time-architecture-review-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/chaos-vantage-real-time-architecture-review-2026.html" />
+<meta property="og:title" content="Chaos Vantage for Architects — Real-Time Photorealism on Live Client Meetings — ArchiGen AI" />
+<meta property="og:description" content="Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Chaos Vantage for Architects — Real-Time Photorealism on Live Client Meetings — ArchiGen AI" />
+<meta name="twitter:description" content="Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  .cta-band { background: var(--ink); color: var(--paper); border-radius: 14px; padding: 36px 32px; margin: 48px 0 16px; }
+  .cta-band h3 { font-family: var(--f-display); font-weight: 400; font-size: 28px; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .cta-band h3 em { font-style: italic; color: var(--marigold); }
+  .cta-band p { color: rgba(244,239,227,0.78); margin: 0 0 20px; font-size: 15px; }
+  .cta-band a { display: inline-block; background: var(--paper); color: var(--ink); text-decoration: none; padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 14px; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Chaos Vantage for Architects — Real-Time Photorealism on Live Client Meetings",
+  "description": "Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-11T09:00:00-04:00",
+  "dateModified": "2026-05-11T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/chaos-vantage-real-time-architecture-review-2026.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Chaos Vantage", "real-time rendering", "architectural visualization 2026", "client design review", "RTX path tracing"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Review · 11 May 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Chaos <em>Vantage</em></h1>
+    <p class="lede">A real-time, path-traced rendering tool that scrubs photoreal scenes the way most architects scrub Sketchup viewports. We ran it through a live SD review and a residential pitch. Here's what it changes about how meetings actually go.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="detail">8 min read · May 2026 · Vista Studios tested · No affiliate with Chaos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Most of what we review on this site is AI-generative — diffusion models, sketch-to-render plugins, prompt-driven scene synthesis. Chaos Vantage is none of those things. It's a real-time path tracer that runs your actual V-Ray scene at presentation framerates on an RTX-class GPU, with full ray-traced light, reflection, refraction, and global illumination.</p>
+
+    <p>It keeps appearing in 2026 round-ups (AIRI lab put it at the top of their real-time list this month) and we kept dodging it because it isn't AI. But after running Vantage in two client sessions over the past three weeks, I think the absence of AI is exactly the point. It deserves a place in the conversation about what's actually changing architect-client meetings right now.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Chaos Vantage 2</div>
+        <div class="tc-rating">★ 4.6 / 5.0 — strong recommend for V-Ray studios</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included with V-Ray Premium (~$80/mo) · Standalone available · Requires RTX 30-series or better</div>
+      <p>Real-time path-traced visualization that opens your V-Ray scene as a navigable, photoreal environment. Built for live client design reviews, walkthroughs, and sun-study scrubs. Not generative AI — actual ray-traced light, computed at framerate.</p>
+      <div class="tc-tags">
+        <span>V-Ray ecosystem</span><span>Real-time path tracing</span><span>RTX required</span><span>Client review</span><span>Sun studies</span><span>Walkthroughs</span><span>Sketchup / Rhino / Revit / 3ds Max</span>
+      </div>
+    </div>
+
+    <h2>What it <em>actually</em> does</h2>
+
+    <p>You load a V-Ray scene — geometry, materials, lights, all of it — and Vantage opens it as a live, navigable environment. You can fly around with a game-controller-style camera, scrub the sun across the sky, swap materials, drop in entourage, and the view updates at 30–60fps with full ray-traced shading.</p>
+
+    <p>The key word is <em>scene</em>. Vantage isn't generating images. It's path-tracing your geometry in real time, the same way V-Ray would over five minutes of CPU rendering, but compressed to a frame budget. The output is technically a real render — light is computed from sources, materials respond to physics, glass refracts. There's no AI in the loop.</p>
+
+    <p>For practices coming from Enscape or D5, that distinction matters. Enscape and D5 are rasterized real-time engines with strong PBR shading — they look great, but they cheat on light. Reflections are screen-space, indirect bounce light is baked or approximated, and certain scenes (interior spaces with multiple bounces, glass curtain walls with deep mullion shadows) reveal those approximations. Vantage handles them honestly because it's tracing rays.</p>
+
+    <h2>The client meeting <em>moment</em></h2>
+
+    <p>This is the use case where I changed my mind about Vantage.</p>
+
+    <p>We had an SD review last Wednesday for a mixed-use scheme in Old City. Client is a developer's project manager — sharp, opinionated, runs five buildings at a time. Has seen enough renders to know when one is staged. Past meetings: I'd send static V-Ray stills the night before, walk her through them in a screenshare, take notes, regenerate overnight, repeat. Cycle time per iteration: about 18 hours.</p>
+
+    <p>This time I loaded the scene into Vantage before the call. When she asked what the south elevation looked like at 4pm in October instead of the noon-July shot I'd sent, I dragged the sun. The shadows reorganized in front of her. When she asked what the brick would look like in a warmer tone, I swapped the material from the asset browser. Done in 15 seconds. When she wanted to see the corner from a pedestrian eye-line, I flew the camera there.</p>
+
+    <blockquote>The meeting compressed eight hours of overnight regeneration into about forty minutes of live exploration. That changes the relationship — she stopped being a critic and started being a co-designer.</blockquote>
+
+    <p>That last bit is the structural change. When the client can see consequences in real time, she stops asking "can we see option B?" and starts saying "wait — hold there — go a little south — that's better." It's a different conversation. We came out of the meeting with twelve specific direction-clarifying decisions instead of three. The schedule slip we'd been carrying on this project collapsed.</p>
+
+    <h2>Where Vantage <em>fits</em> in the AI workflow</h2>
+
+    <p>If you've been reading ArchiGen for a while, you know the studio stack we've converged on for 2026 — sketch in Midjourney for ideation, model in Rhino or Sketchup, render in Veras or Rendair for client-deliverable stills, animate selectively. Vantage doesn't replace any of that. It's a different layer.</p>
+
+    <p>The honest framing: Veras (and the rest of the AI rendering category) is a <strong>finishing</strong> tool — you feed it a geometry pass and get back a photoreal final. Vantage is a <strong>conversation</strong> tool — you bring your geometry into it during design reviews to drive better decisions. The output of Vantage isn't usually the deliverable. The decisions it produces are.</p>
+
+    <p>Most of our Vantage scenes never get exported as final renders. They get screen-recorded during the meeting, with annotations as we talk. The recording is a project artifact in a way that a static deliverable isn't.</p>
+
+    <h2>Where it <em>falls down</em></h2>
+
+    <p>Three real limitations we hit in three weeks:</p>
+
+    <h3>Interior light is still hard at framerate</h3>
+
+    <p>Vantage 2 is much better than 1 at interior global illumination, but a scene with eight area lights and reflective floors still needs a few seconds to fully resolve when the camera stops moving. The motion is real-time; the convergence isn't. For client meetings this is mostly fine — you stop, it sharpens, you keep going. For animation or recorded walkthroughs, you'll notice it.</p>
+
+    <h3>Material editing is V-Ray, not Vantage</h3>
+
+    <p>You can swap materials live, but you can't <em>edit</em> them. If a brick texture is reading too warm, you're going back into V-Ray Material Editor, fixing it there, and reloading. This breaks the live-meeting rhythm. Workaround: pre-stage a palette of acceptable variants (we keep five brick options, four glass options, three terrazzo floor options pre-loaded) and swap between them as the client reacts.</p>
+
+    <h3>You need actual GPU</h3>
+
+    <p>RTX 30-series minimum. Realistically 4080 or better for fluid framerates on complex scenes. Our office runs a 4090 on the workstation and a laptop 4080 for travel — both fine. If you're on a 3060 or an integrated GPU, this is not the tool for you.</p>
+
+    <h2>Vantage vs Enscape vs D5: <em>the honest delta</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Vantage 2</th>
+          <th>Enscape 4</th>
+          <th>D5 Render</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rendering technique</td>
+          <td class="winner">Path-traced (real rays)</td>
+          <td>Rasterized + screen-space FX</td>
+          <td>Rasterized + screen-space FX</td>
+        </tr>
+        <tr>
+          <td>Material fidelity</td>
+          <td class="winner">V-Ray material parity</td>
+          <td>PBR (own format)</td>
+          <td>PBR (own format)</td>
+        </tr>
+        <tr>
+          <td>Live navigation framerate</td>
+          <td class="improved">30–60fps on RTX 4080+</td>
+          <td class="winner">60–144fps standard</td>
+          <td class="winner">60–144fps standard</td>
+        </tr>
+        <tr>
+          <td>Interior GI honesty</td>
+          <td class="winner">True bounce light</td>
+          <td>Approximated</td>
+          <td>Approximated</td>
+        </tr>
+        <tr>
+          <td>Setup friction</td>
+          <td>None if you're V-Ray</td>
+          <td class="winner">Drag-into-Revit fast</td>
+          <td>Asset library is huge</td>
+        </tr>
+        <tr>
+          <td>Animation export</td>
+          <td>Yes — high quality</td>
+          <td>Yes</td>
+          <td>Yes — very fast</td>
+        </tr>
+        <tr>
+          <td>Best use case</td>
+          <td class="winner">Live SD/DD client review</td>
+          <td>BIM-first early concept</td>
+          <td>Production stills + reels</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The honest read: if you're already in V-Ray, Vantage costs you nothing additional and gives you a real-time scene that respects your material library exactly. If you're a BIM-first practice on Revit with no V-Ray investment, Enscape is still the faster setup. If you want hyper-polished marketing reels on a deadline, D5 has the asset ecosystem.</p>
+
+    <h2>Should you <em>add it</em></h2>
+
+    <p>If you're a Chaos shop running V-Ray, Vantage is already included in your Premium plan. There's no reason not to install it this week. The friction is zero, the meeting transformation is real, and we've now stopped scheduling overnight render queues for SD-phase client reviews on three different projects.</p>
+
+    <p>If you're not in the Chaos ecosystem: Vantage exists as a standalone but the value proposition is meaningfully weaker. You're paying for a tool whose main strength is that it reads your V-Ray scenes natively, when you don't have V-Ray scenes. In that case, look at D5 or Enscape first. Come back to Vantage when you're already running V-Ray for production stills.</p>
+
+    <p>Where I'd flag a caution: don't oversell it. We had one project earlier this month where I demoed Vantage to a client who then assumed every meeting could be a live design jam, and started using the tool as a substitute for actually picking a direction. Real-time conversation is powerful, but it can let clients postpone decisions indefinitely. You still need to drive the meeting. The tool doesn't do that for you.</p>
+
+    <div class="cta-band">
+      <h3>Want our full <em>2026 rendering stack</em>?</h3>
+      <p>How Vista Studios pairs Vantage with Veras, Enscape, and a hand-rolled AI finishing pass — the actual project pipeline, end to end.</p>
+      <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html">Read the pipeline →</a>
+    </div>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on live SD-phase project work. No affiliate relationship with Chaos. Workstation: RTX 4090, 64GB RAM. Travel laptop: RTX 4080.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html" class="related-card">
+          <div class="rc-tag">Pipeline · May 2026</div>
+          <div class="rc-title">The end-to-end Chaos pipeline — Enscape, Veras, Envision in one workflow.</div>
+        </a>
+        <a href="veras-4-3-update.html" class="related-card">
+          <div class="rc-tag">Tool Update · Apr 2026</div>
+          <div class="rc-title">Chaos Veras 4.3 — what's actually new and whether it matters.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
