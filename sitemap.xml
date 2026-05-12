@@ -5,15 +5,39 @@
   <!-- Core Pages -->
   <url>
     <loc>https://archigenai.com/</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://archigenai.com/journal.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-12</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-12 Tool Review -->
+  <url>
+    <loc>https://archigenai.com/rendershop-ai-architects-tested-2026.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-12 Tool News -->
+  <url>
+    <loc>https://archigenai.com/veras-nano-banana-2-engine-architects-2026.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-12 Essay -->
+  <url>
+    <loc>https://archigenai.com/architectural-visualization-dying-response-2026.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
