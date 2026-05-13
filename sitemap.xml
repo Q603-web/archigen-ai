@@ -5,15 +5,39 @@
   <!-- Core Pages -->
   <url>
     <loc>https://archigenai.com/</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://archigenai.com/journal.html</loc>
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-13 Tool Review -->
+  <url>
+    <loc>https://archigenai.com/mnml-ai-review-architects-2026.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-13 Tool Review -->
+  <url>
+    <loc>https://archigenai.com/archivinci-ai-review-architects-2026.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-13 Workflow -->
+  <url>
+    <loc>https://archigenai.com/sketch-to-photoreal-ai-tools-architects-2026.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 

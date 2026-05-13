@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>The 2026 Sketch-to-Photoreal Field Test. Which AI Tools Actually Preserve Your Drawing | ArchiGen AI</title>
+<meta name="description" content="Every AI render tool now ships a sketch-to-photoreal mode. Most generate something pretty and ignore your drawing. We tested mnml.ai, ArchiVinci, Veras, ComfyUI, and Krea on the same hand sketches to see which ones respect what you actually drew." />
+<link rel="canonical" href="https://archigenai.com/sketch-to-photoreal-ai-tools-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/sketch-to-photoreal-ai-tools-architects-2026.html" />
+<meta property="og:title" content="The 2026 Sketch-to-Photoreal Field Test. Which AI Tools Actually Preserve Your Drawing | ArchiGen AI" />
+<meta property="og:description" content="Every AI render tool now ships a sketch-to-photoreal mode. Most generate something pretty and ignore your drawing. We tested mnml.ai, ArchiVinci, Veras, ComfyUI, and Krea on the same hand sketches to see which ones respect what you actually drew." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The 2026 Sketch-to-Photoreal Field Test. Which AI Tools Actually Preserve Your Drawing | ArchiGen AI" />
+<meta name="twitter:description" content="Every AI render tool now ships a sketch-to-photoreal mode. Most generate something pretty and ignore your drawing. We tested mnml.ai, ArchiVinci, Veras, ComfyUI, and Krea on the same hand sketches to see which ones respect what you actually drew." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The 2026 Sketch-to-Photoreal Field Test. Which AI Tools Actually Preserve Your Drawing",
+  "description": "Every AI render tool now ships a sketch-to-photoreal mode. Most generate something pretty and ignore your drawing. We tested mnml.ai, ArchiVinci, Veras, ComfyUI, and Krea on the same hand sketches to see which ones respect what you actually drew.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-13T09:00:00-04:00",
+  "dateModified": "2026-05-13T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/sketch-to-photoreal-ai-tools-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["sketch to photoreal", "AI rendering", "hand sketch architecture", "ControlNet", "ComfyUI architecture", "AI rendering comparison"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow &middot; 13 May 2026</span>
+      <span class="tag">&middot; 8 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>
+      Five-Tool Field Test
+    </div>
+    <h1>The sketch-to-photoreal field test. Which tools <em>actually</em> respect your drawing.</h1>
+    <p class="lede">Every AI render product in 2026 now sells a sketch-to-photoreal mode. Most of them quietly throw away your drawing and generate something pretty in roughly the same place. We took three real hand sketches from a working SD package and pushed them through mnml.ai, ArchiVinci, Veras, ComfyUI with ControlNet, and Krea AI. Two of the five preserve geometry intent. Two produce attractive frames that ignore what you drew. One sits in the middle and depends on how much setup you put in.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read &middot; May 2026 &middot; Vista Studios tested &middot; Three hand sketches</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>The pitch on every sketch-to-photoreal tool is the same. Hand the AI a marker sketch and get back a photorealistic frame, in seconds, ready for a client conversation. The pitch glosses over the only question that matters for a working architect, which is whether the photoreal output actually reflects the drawing you handed in. If it doesn't, the tool isn't sketch-to-photoreal. It is prompt-to-photoreal with a sketch-shaped piece of decoration on the side.</p>
+
+    <p>To find out which tools belong in which bucket, we picked three sketches from a current SD package. A residential addition front elevation, drawn in marker over a printed site photo. A mixed-use courtyard interior, drawn in pen on a yellow trace overlay. A small civic pavilion concept, drawn in graphite on letter paper, with the figure and a tree blocked in roughly for scale. Three different drawing styles, three different scenes, three real working documents from a real project. We pushed each sketch through five tools at comparable quality tiers and compared output to source.</p>
+
+    <h2>The five tools, and how each one accepts a sketch</h2>
+
+    <p>Before talking about quality, it matters how each tool ingests a hand drawing, because that constrains the upper limit of what it can do.</p>
+
+    <p><strong>mnml.ai</strong> takes a sketch upload through its web app or SketchUp plugin and routes it into a sketch-to-photoreal pipeline that is functionally a tuned ControlNet workflow with style presets layered on. You can pick a target style (Editorial, Daylight, Hand-drawn refinement) and add an optional text prompt. The drawing constrains geometry. The prompt constrains material and atmosphere. You get back a frame in 60 to 90 seconds.</p>
+
+    <p><strong>ArchiVinci AI</strong> accepts sketches through the same upload box as model viewports. Style presets are residential-leaning (Modern, Scandinavian, Mediterranean, Editorial) and the text prompt window is smaller than on mnml.ai. Returns a frame in 45 to 75 seconds.</p>
+
+    <p><strong>Veras</strong> can take a sketch input, but its primary input mode is a 3D model viewport from Revit, SketchUp, Rhino, or ArchiCAD. The sketch path works by uploading the drawing as a reference image and adjusting the style strength. It is not the workflow Veras was built for. You can feel that in the output.</p>
+
+    <p><strong>ComfyUI with ControlNet</strong> is the local-rig option. A properly tuned graph using Stable Diffusion XL or a Flux-class model, with ControlNet conditioning on a depth or canny preprocessor of the sketch, produces the most geometry-faithful output of any tool we tested. Setup cost is hours. Runtime per frame on a 4090-class GPU is under 30 seconds.</p>
+
+    <p><strong>Krea AI</strong> is the generalist image tool that creative directors keep recommending to architects who don't want to learn ComfyUI. It accepts sketches as image references with adjustable influence, supports a wide range of style targets, and turns out painterly or photoreal outputs in 20 to 40 seconds. Sketch fidelity depends entirely on how high you push the reference influence.</p>
+
+    <h2>The residential addition, where mnml.ai and ComfyUI both held the line</h2>
+
+    <p>The residential sketch was the easiest test. Marker over a site photo, with the addition drawn in cleanly and the existing house showing through as a faded reference. Clear roof pitch, clear window placement, clear material implication on the addition (board and batten on the new volume, lap on the existing house).</p>
+
+    <p>mnml.ai's output preserved every line that mattered. The shed roof pitch read correctly. The clerestory band landed in the right vertical position. The material assumption (board and batten on the new, lap on the existing) matched the sketch implication without being prompted. First-pass output was client-ready with one reprompt to clean up a window mullion pattern.</p>
+
+    <p>ComfyUI with canny ControlNet at 0.85 strength produced the tightest geometry match in the test. The marker linework survived almost completely into the final frame. The material choices were less editorial than mnml.ai's defaults, but the level of geometry control was unmatched.</p>
+
+    <p>ArchiVinci's output preserved the basic massing but smoothed the clerestory into a continuous glass band, which is the same residential bias we noted in our standalone ArchiVinci review. Veras held the existing house geometry well but introduced a hipped roof on the addition that wasn't in the drawing. Krea, set at high reference influence, produced a stylish but loose interpretation that read the volumes correctly but missed the roof pitch by an obvious margin.</p>
+
+    <blockquote>If you cannot tell, from looking at the AI output, that the sketch was about a shed roof and not a hipped roof, the tool failed.</blockquote>
+
+    <h2>The mixed-use courtyard interior, where the field collapses</h2>
+
+    <p>The interior sketch was harder. Pen on yellow trace, with a courtyard glazing pattern, two seating zones, a planter wall, and rough furniture blocks. The kind of drawing a project architect sketches over a model export at the desk in 15 minutes.</p>
+
+    <p>This is where most tools fell apart. mnml.ai held the glazing pattern but invented furniture that wasn't in the sketch. Veras produced a beautiful interior that bore almost no relation to the drawing, because Veras is trained to interpret 3D models, not pen-on-trace abstraction. Krea produced an editorial interior that respected one of the seating zones and ignored the other. ArchiVinci substituted a generic restaurant interior over the courtyard moment and added a fireplace.</p>
+
+    <p>ComfyUI was the only tool that held the entire sketch. With ControlNet running on a depth-from-canny preprocessor at 0.9 strength, the glazing pattern, both seating zones, the planter, and even the rough furniture blocks survived into the final frame. The output was less polished than Veras or Krea, but it was the drawing.</p>
+
+    <p>The lesson on interior sketches is that tools without strong control conditioning are guessing. They guess well when the scene is familiar and poorly when the scene is specific. A working studio that needs interiors to reflect actual design intent should either build a ComfyUI rig or accept that current commercial cloud tools are giving them photoreal mood, not photoreal documentation.</p>
+
+    <h2>The civic pavilion concept, where ambition broke everything</h2>
+
+    <p>The third sketch was the hardest. Graphite on letter paper, civic pavilion concept, geometry mostly suggested rather than locked, scale figure and a tree present, no material specification at all. The kind of drawing a designer puts in front of a client to test a direction, not to confirm one.</p>
+
+    <p>Every cloud tool struggled. mnml.ai produced a credible building in the right family but invented a material palette and altered the roof line. ArchiVinci picked a "Modern" preset and produced a generic glass box that ignored the drawing's pavilion language. Veras refused to commit to a roof line and produced a hedged geometry that read as neither the sketch nor a credible alternative. Krea produced something gorgeous and unrelated.</p>
+
+    <p>ComfyUI was again the only tool that respected the source, but it also revealed the limit of ControlNet when the source is loose. A graphite sketch with implied geometry doesn't give canny or depth preprocessors enough to grab. Output was geometry-faithful but materially blank. To produce a useful frame from a concept-level sketch, you need to invest in the prompt and the style model, not just the conditioning.</p>
+
+    <p>The honest read is that no current AI tool turns a true concept sketch into a usable photoreal frame without architect-level setup. The category exists for design development sketches with clear intent, not for the loose moves you make at the start of a project.</p>
+
+    <h2>How the five tools ranked on geometry fidelity</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Test sketch</th>
+          <th>mnml.ai</th>
+          <th>ArchiVinci</th>
+          <th>Veras</th>
+          <th>ComfyUI</th>
+          <th>Krea</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Residential addition (marker, clear)</td>
+          <td class="winner">Strong</td>
+          <td class="improved">Acceptable</td>
+          <td>Loose on roof</td>
+          <td class="winner">Tightest</td>
+          <td>Loose</td>
+        </tr>
+        <tr>
+          <td>Mixed-use courtyard interior (pen on trace)</td>
+          <td class="improved">Partial</td>
+          <td>Substituted scene</td>
+          <td>Beautiful, unrelated</td>
+          <td class="winner">Held the drawing</td>
+          <td>Held one zone</td>
+        </tr>
+        <tr>
+          <td>Civic pavilion concept (graphite, loose)</td>
+          <td class="improved">Right family</td>
+          <td>Generic glass box</td>
+          <td>Hedged</td>
+          <td class="winner">Faithful, blank</td>
+          <td>Gorgeous, unrelated</td>
+        </tr>
+        <tr>
+          <td>Setup time</td>
+          <td class="winner">Minutes</td>
+          <td class="winner">Minutes</td>
+          <td class="winner">Minutes</td>
+          <td>Hours</td>
+          <td class="winner">Minutes</td>
+        </tr>
+        <tr>
+          <td>Time per frame</td>
+          <td>60-90s</td>
+          <td>45-75s</td>
+          <td>30-60s</td>
+          <td class="winner">Under 30s</td>
+          <td class="winner">20-40s</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Our take, <em>what to actually use when</em></h2>
+
+    <p>For most architects in 2026, the practical sketch-to-photoreal workflow is a two-tool stack. Use mnml.ai's sketch-to-photoreal pass for clear DD-style sketches where the geometry is locked and the question is style. It is the best ratio of fidelity to setup cost on the commercial side. For sketches where the geometry is the entire point, especially interiors with specific design intent or concept frames that need to survive a client review, invest in a ComfyUI rig with ControlNet. It is the only tool we tested that consistently respects what you drew.</p>
+
+    <p>ArchiVinci and Krea are not bad tools. They are doing a different job. They produce attractive frames inspired by your sketch, which is the right deliverable for early creative-direction work but the wrong deliverable for design intent. Veras's sketch mode is the weakest link in an otherwise strong product, because Veras was built for 3D model inputs and sketches are not the workflow.</p>
+
+    <p>If you are picking one tool to buy in this category for residential and small-commercial SD work, mnml.ai. If you are picking one tool to learn for concept and interior work, ComfyUI. If you are picking one to ignore, the one with the most aggressive Instagram ad spend.</p>
+
+    <hr>
+
+    <p>Run this test yourself this week. Pick one sketch from your current project, the one with the clearest design intent, and push it through three tools you already pay for. Look at the output next to the sketch. If you cannot tell, by looking at the render, what the drawing was trying to say, the render isn't a translation of your work. It is a generation in the neighborhood of it.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on a live SD-phase mixed-use scheme. No affiliate relationships. ControlNet conditioning tuned per scene. Renders generated from working project sketches, not curated test images.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="mnml-ai-review-architects-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; May 2026</div>
+          <div class="rc-title">mnml.ai across every modeler you actually use.</div>
+        </a>
+        <a href="comfyui-sketch-to-photoreal-architecture.html" class="related-card">
+          <div class="rc-tag">Workflow &middot; 2026</div>
+          <div class="rc-title">ComfyUI sketch-to-photoreal for architecture, end to end.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
