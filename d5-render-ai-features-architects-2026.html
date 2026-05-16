@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>D5 Render in 2026. The AI features architects actually use, tested | ArchiGen AI</title>
+<meta name="description" content="D5 Render's 2026 push into AI denoising, AI lighting, and AI Generator has moved it from a Twinmotion alternative to a real-time engine worth a hard look. We ran the full AI pipeline on a residential project to see which features survive a deadline week." />
+<link rel="canonical" href="https://archigenai.com/d5-render-ai-features-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/d5-render-ai-features-architects-2026.html" />
+<meta property="og:title" content="D5 Render in 2026. The AI features architects actually use, tested | ArchiGen AI" />
+<meta property="og:description" content="D5 Render's 2026 push into AI denoising, AI lighting, and AI Generator has moved it from a Twinmotion alternative to a real-time engine worth a hard look. We ran the full AI pipeline on a residential project to see which features survive a deadline week." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="D5 Render in 2026. The AI features architects actually use, tested | ArchiGen AI" />
+<meta name="twitter:description" content="D5 Render's 2026 push into AI denoising, AI lighting, and AI Generator has moved it from a Twinmotion alternative to a real-time engine worth a hard look. We ran the full AI pipeline on a residential project to see which features survive a deadline week." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "D5 Render in 2026. The AI features architects actually use, tested",
+  "description": "D5 Render's 2026 push into AI denoising, AI lighting, and AI Generator has moved it from a Twinmotion alternative to a real-time engine worth a hard look. We ran the full AI pipeline on a residential project to see which features survive a deadline week.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-16T09:00:00-04:00",
+  "dateModified": "2026-05-16T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/d5-render-ai-features-architects-2026.html",
+  "articleSection": "Tool Review",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["D5 Render", "D5 AI Generator", "D5 AI denoising", "real-time rendering", "Twinmotion alternative", "architectural visualization"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool review &middot; 16 May 2026</span>
+      <span class="tag">&middot; 8 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>
+      Tested on a Live Residential Project
+    </div>
+    <h1>D5 Render's AI features in 2026, <em>which ones survive</em> a deadline week.</h1>
+    <p class="lede">D5 Render has spent the last year shipping AI features at a pace that should have been embarrassing for the established rendering engines. AI denoising, AI lighting passes, the D5 AI Generator that takes a viewport screenshot to a styled image, and a quietly improving asset library that now leans on AI tagging. The pitch is that you get path-traced real-time rendering and an AI image-gen workflow in the same application. We took a live residential project through every AI feature D5 ships in 2026 to find out which ones actually earn their place in a working architect's week.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read &middot; May 2026 &middot; Vista Studios tested &middot; Live residential project</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>For a long time the polite framing on D5 Render was that it was a credible Twinmotion alternative with a generous free tier and a slightly unfamiliar studio behind it. That framing is out of date. The 2026 release cadence has put D5 on a different footing. It is no longer a cheaper option you tolerate. It is a real-time path-traced engine with an AI stack stitched into the same application, and for a practice that wants stills, walkthroughs, and styled exploration without juggling three tools, that combination is now worth a hard look.</p>
+
+    <p>The catch with any tool that ships fast is that not every feature deserves your project hours. So we did the only useful thing. We took a current residential scheme, a two-storey house with a difficult west elevation and a client who keeps changing the cladding spec, and we ran every AI feature D5 ships in 2026 against it. A full deadline week. What follows is what held, what did not, and where D5 still trails the tools we use every day.</p>
+
+    <h2>Why D5 is suddenly worth a hard look</h2>
+
+    <p>Two things changed in the last twelve months. The first is that real-time path tracing in D5 is now genuinely usable on a working machine, not a render farm. Bouncing light across an interior with believable falloff used to be the line where you stopped tuning in real time and committed to a long bake. That line has moved. On the residential project we tested, the lounge interior with afternoon west light through a deep reveal resolved cleanly in real time on a single-GPU workstation. That is the baseline that makes everything else interesting.</p>
+
+    <p>The second is that D5 stopped treating AI as a side panel. The AI denoiser, the AI lighting tools, and the D5 AI Generator are first-class controls inside the same scene you are lighting and framing. You do not export anything. You do not go to a browser. The asset library quietly began surfacing AI-tagged results, which sounds boring until you realise how much of a render week is spent searching for the right tree. Live links to SketchUp, Revit, Rhino, Archicad, 3ds Max, Blender, and Cinema 4D mean the model you are pulling from is the model you ship from. The whole stack now fits in one window.</p>
+
+    <h2>The four AI features D5 actually ships in 2026</h2>
+
+    <p>D5's marketing site lists more than four AI features if you count every sub-control. In practical use there are four that move the needle. The rest are sensible plumbing.</p>
+
+    <h3>AI denoising</h3>
+
+    <p>The AI denoiser is the feature you stop noticing within a day, which is the strongest possible compliment. It cleans up the speckle in low-sample real-time path tracing without smearing fine detail. Brick coursing stays legible. Carpet pile keeps its texture. The denoiser sits on top of the rendering loop rather than as a post step, so what you see in the viewport is what you frame for the still. For a residential interior with a lot of soft furnishing and mixed lighting, this is the single feature that made D5 viable as our primary engine for the week.</p>
+
+    <h3>AI lighting</h3>
+
+    <p>The AI lighting tools are a smarter answer to a problem every architect knows. The model is correct. The render still looks flat. D5's AI lighting analyses the existing scene and proposes a relight that keeps your sun position and your fixtures but adjusts intensities and bounces to lift the image. It is not a one-click hero shot. It is a useful first draft that gets you to a credible frame faster than dragging exposure sliders. On three of our six views it gave us a usable starting point in seconds. On the difficult west elevation it overcooked the contrast and we dialled it back. The control is there. The default is a touch too dramatic for residential work.</p>
+
+    <h3>D5 AI Generator</h3>
+
+    <p>The D5 AI Generator is the one that gets all the screenshots on social. You take a viewport capture, hand it to the Generator with a style prompt, and it returns a styled image conditioned on your geometry. For early-stage exploration this is genuinely fun. For deliverable work it is the weakest of the four. The image looks great. The fidelity to your model is materially worse than what Veras gives you, because D5's Generator is operating on a captured frame rather than the underlying geometry. The wing on the upper floor of our scheme migrated by half a metre in two of the six generations. That is the kind of drift you cannot ship in front of a planning officer.</p>
+
+    <h3>AI-tagged asset library</h3>
+
+    <p>The asset library does not advertise itself as an AI feature, but the 2026 update added semantic tagging that finds the asset you described rather than the one you remembered the keyword for. Searching for a sparse Mediterranean street tree returned a useful shortlist instead of forty generic oaks. Over a render week this saves time you do not realise you are losing. It is the most boring AI feature in the stack. It is also the one we missed most when we switched back to Twinmotion mid-test for a comparison.</p>
+
+    <h2>Tested on a live residential project</h2>
+
+    <p>Six views, one west elevation that has refused to flatter the design since schematic, two interiors, two aerials, and a street approach. We rendered each view through the D5 AI stack first, then through Twinmotion for parity, then ran a single comparison pass through a cloud img2img tool fed a flat D5 viewport capture.</p>
+
+    <p>The denoiser and the live path tracing carried D5 through the interiors without complaint. Both lounge frames were ready in real time and the AI denoiser kept the timber floor and the linen sofa reading honestly. The street approach and the aerials held up because the model fidelity was never in question, the engine was simply lighting the geometry. Where things got more interesting was the west elevation. AI lighting wanted to push the contrast for drama. With the proposed render strength dialled back to roughly sixty percent it produced the best frame we got out of the week. Twinmotion needed a manual exposure correction to reach parity. D5 won that view.</p>
+
+    <p>The D5 AI Generator earned its keep on a different task. The client wanted to see the same elevation in two cladding alternates that had not yet been modelled. The Generator returned credible explorations of a charred timber option and a warm render finish in roughly a minute each, both anchored to our existing scene. As exploration, useful. We did not ship those frames as deliverables. We modelled the agreed cladding and re-rendered through the path tracer.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>D5 Render 2026 AI stack</th>
+          <th>Twinmotion equivalent</th>
+          <th>Cloud img2img on viewport</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Real-time path tracing</td>
+          <td class="winner">Native, denoised in viewport</td>
+          <td class="improved">Path Tracer mode, slower iteration</td>
+          <td>Not available</td>
+        </tr>
+        <tr>
+          <td>Noise cleanup on stills</td>
+          <td class="winner">AI denoiser, on by default</td>
+          <td>Manual sample count tuning</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Lighting first draft</td>
+          <td class="winner">AI lighting suggestion</td>
+          <td>Manual exposure and sun tuning</td>
+          <td>Inferred, often wrong</td>
+        </tr>
+        <tr>
+          <td>Styled exploration of alternates</td>
+          <td class="improved">D5 AI Generator, viewport-based</td>
+          <td>None native, third-party only</td>
+          <td class="winner">Strong, geometry drift</td>
+        </tr>
+        <tr>
+          <td>Asset search</td>
+          <td class="winner">AI-tagged library</td>
+          <td>Keyword library</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>BIM and modeller live link</td>
+          <td class="winner">SketchUp, Revit, Rhino, Archicad, 3ds Max, Blender, C4D</td>
+          <td class="improved">Revit, Archicad, Rhino, SketchUp</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Where D5 still loses to Veras and Twinmotion</h2>
+
+    <p>Two specific places. The first is AI image generation depth. The D5 AI Generator is convenient because it lives inside your render application, but on geometry fidelity and material control it is behind Veras 4.3, and the gap is not small. If your AI render workflow is built around faithfully styling a documented model, Veras is still the right tool. D5's Generator is a sketching aid. Veras is a deliverable engine. Different jobs.</p>
+
+    <p>The second is the maturity of camera and animation craft. Twinmotion's camera path tools and its sequencer are still smoother than D5's, and for studios with a dedicated visualisation team that ship long animations every month, that gap matters. D5's video tools are competent. They are not yet the reason you would choose the application.</p>
+
+    <blockquote>D5 is no longer the cheaper alternative. For a small practice running one project at a time, it is now the most complete single window in the category.</blockquote>
+
+    <h2>Our take, <em>who should switch and who should not</em></h2>
+
+    <p>If you are a small to mid-sized practice that ships mostly stills and short walkthroughs, that wants real-time path tracing without a separate denoise pass, and that occasionally needs to show a client two cladding options before lunch, D5 Render in 2026 is now the most defensible single-application choice in the category. The free tier is generous enough to test on a real project. D5 Pro and D5 Team are priced where a one-person studio can afford the former and a five-person team can afford the latter without rearranging the rendering budget.</p>
+
+    <p>If your visualisation work is animation-heavy, if you have a dedicated viz team with established Twinmotion habits, or if your AI render pipeline is built on Veras fidelity to BIM geometry, do not switch. Keep D5 as the second tool in your stack for the AI denoiser and the Generator alone. Both are worth having available even if D5 is not your primary engine.</p>
+
+    <p>The honest summary is that D5 has used the last twelve months to make the case that real-time rendering and AI styling belong in the same window. On a residential project with a deadline week, that case mostly held. The denoiser is essential. The lighting suggestion is a useful first draft. The Generator is a sketching tool that occasionally pretends to be a deliverable engine, and you have to know which mode you are in. The asset library is the silent win.</p>
+
+    <hr>
+
+    <p>Take one current project this week and run it through D5's free tier. Pick three views you already have rendered somewhere else and rebuild them in D5 with AI denoising on, AI lighting as a first pass, and the Generator for one styled alternate. If the denoised path-traced frame is a faster path to your usual quality than your current tool, you have just found the missing window in your rendering week.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on a live two-storey residential scheme. No affiliate relationships. D5 Render 2026 with full AI stack, Twinmotion 2026 for parity, single cloud img2img pass for comparison. Six matched views, same materials, same week.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="reddit-top-5-ai-rendering-tools-audited-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; 2026</div>
+          <div class="rc-title">The Reddit top 5 AI rendering tools, audited.</div>
+        </a>
+        <a href="chaos-vantage-real-time-architecture-review-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; 2026</div>
+          <div class="rc-title">Chaos Vantage for real-time architecture review.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
