@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>AI Site Analysis for Architects in 2026. Which Tools Actually Read Zoning, Solar, and Context | ArchiGen AI</title>
+<meta name="description" content="Every 2026 AI tools list now puts site analysis next to rendering and generative design. Most architects still do site analysis by hand. We tested Spacemaker, Autodesk Forma, TestFit, Hypar, and Finch 3D on a real urban infill site to see which AI tools genuinely understand a parcel and which ones are just pretty maps." />
+<link rel="canonical" href="https://archigenai.com/ai-site-analysis-tools-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-site-analysis-tools-architects-2026.html" />
+<meta property="og:title" content="AI Site Analysis for Architects in 2026. Which Tools Actually Read Zoning, Solar, and Context | ArchiGen AI" />
+<meta property="og:description" content="Every 2026 AI tools list now puts site analysis next to rendering and generative design. Most architects still do site analysis by hand. We tested Spacemaker, Autodesk Forma, TestFit, Hypar, and Finch 3D on a real urban infill site to see which AI tools genuinely understand a parcel and which ones are just pretty maps." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="AI Site Analysis for Architects in 2026. Which Tools Actually Read Zoning, Solar, and Context | ArchiGen AI" />
+<meta name="twitter:description" content="Every 2026 AI tools list now puts site analysis next to rendering and generative design. Most architects still do site analysis by hand. We tested Spacemaker, Autodesk Forma, TestFit, Hypar, and Finch 3D on a real urban infill site to see which AI tools genuinely understand a parcel and which ones are just pretty maps." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Site Analysis for Architects in 2026. Which Tools Actually Read Zoning, Solar, and Context",
+  "description": "Every 2026 AI tools list now puts site analysis next to rendering and generative design. Most architects still do site analysis by hand. We tested Spacemaker, Autodesk Forma, TestFit, Hypar, and Finch 3D on a real urban infill site to see which AI tools genuinely understand a parcel and which ones are just pretty maps.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-17",
+  "dateModified": "2026-05-17",
+  "mainEntityOfPage": "https://archigenai.com/ai-site-analysis-tools-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["AI site analysis", "Autodesk Forma", "Spacemaker", "Hypar", "TestFit", "Finch 3D", "AI for architects 2026", "zoning analysis AI", "solar analysis AI"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow &middot; 17 May 2026</span>
+      <span class="tag">&middot; 9 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>
+      Real Urban Infill Test
+    </div>
+    <h1>AI site analysis in 2026. Which tools actually read a parcel, <em>and which ones</em> just draw it.</h1>
+    <p class="lede">Every 2026 AI-tools-for-architects roundup now puts site analysis next to rendering and generative design. Almost none of them test it. Most practices still do their site analysis by hand because the tools that claim to automate it have a habit of producing beautiful diagrams of the wrong information. We took a real urban infill parcel through Autodesk Forma, Spacemaker, TestFit, Hypar, and Finch 3D and graded each one on whether the analysis was correct, useful, and trustable.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">9 min read &middot; May 2026 &middot; Vista Studios tested &middot; Real urban infill parcel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Site analysis is the part of the project where mistakes compound. A bad render gets re-rendered. A bad facade gets re-cladded. A bad site analysis funnels every downstream decision toward a building that should not be on that lot. So when the comparison posts started listing AI site analysis tools next to AI rendering tools as if they were the same kind of product, our antenna went up. They are not the same kind of product. The failure modes are not the same. And the maturity gap between the two categories is large enough that the roundups misleading you about it actually matters.</p>
+
+    <p>We took one real parcel. Mid-block urban infill, mixed zoning, a slight grade change, a protected tree, an existing easement, and a neighborhood plan overlay that the city updated last year. The kind of site where the rules are knowable but require attention. We fed it to every tool that markets itself as an AI site analysis platform and graded the output not on prettiness but on whether a practicing architect would trust it enough to start massing.</p>
+
+    <h2>What &ldquo;AI site analysis&rdquo; actually means in 2026</h2>
+
+    <p>The term covers four very different jobs. <strong>Zoning interpretation</strong> means reading the parcel's actual zoning code, height limits, FAR, setbacks, and overlays, and reporting them as developable envelope. <strong>Solar and shadow analysis</strong> means simulating sun across the day and year, including impact on neighboring properties. <strong>Context analysis</strong> means understanding the surrounding fabric, average heights, building typologies, access patterns. <strong>Feasibility</strong> means producing a yield study that fits inside all of the above.</p>
+
+    <p>The tools we tested cluster differently. Forma and Spacemaker (now the same product under Autodesk) lean toward solar and microclimate. TestFit leans toward yield and feasibility. Hypar leans toward zoning and configurable rules. Finch 3D leans toward conceptual massing iteration. None of them does all four jobs equally well. The marketing pretends they do.</p>
+
+    <h2>The five tools, head to head on a real parcel</h2>
+
+    <h3>Autodesk Forma (with Spacemaker integrated)</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Autodesk Forma</div>
+        <span class="tc-rating">Recommended &middot; Solar &amp; microclimate</span>
+      </div>
+      <div class="tc-pricing">Cloud subscription &middot; Autodesk AEC Collection tier or standalone</div>
+      <p>Strongest microclimate and solar analysis in the category. Wind, daylight, noise, and operational energy simulations are credible enough to bring into early-stage conversations. Zoning is light. Yield modeling is limited compared to TestFit.</p>
+      <div class="tc-tags">
+        <span>solar</span>
+        <span>wind</span>
+        <span>microclimate</span>
+        <span>energy</span>
+        <span>autodesk</span>
+      </div>
+    </div>
+
+    <p>Forma's microclimate analyses are the most defensible output we got from any tool in the test. The solar study correctly accounted for the seasonal angles, the wind simulation noted the tunnel effect along the long side of the parcel, and the daylight access analysis flagged the same upper-floor units our in-house solar review would have flagged. Where Forma fell short was zoning. It does not know your specific overlay. It expects you to enter the envelope parameters yourself, which means the tool can confidently produce a yield study inside an envelope that violates your actual code. The analysis is correct. The premise can be wrong.</p>
+
+    <h3>TestFit</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">TestFit</div>
+        <span class="tc-rating">Recommended &middot; Yield &amp; feasibility</span>
+      </div>
+      <div class="tc-pricing">Per-seat subscription &middot; Multifamily, industrial, and parking modules</div>
+      <p>The strongest feasibility tool in the test, particularly for multifamily and parking-driven sites. Generates real unit mixes against real envelopes and runs the parking math you would otherwise do twice. Site analysis is in service of yield, not the other way around.</p>
+      <div class="tc-tags">
+        <span>yield study</span>
+        <span>parking</span>
+        <span>multifamily</span>
+        <span>feasibility</span>
+        <span>BIM-ready output</span>
+      </div>
+    </div>
+
+    <p>If your site analysis is in service of a yield study for a developer client, TestFit is the right starting point. The output is opinionated, the parking math is real, and the unit mix conversation can happen in the same tool. It is not pretending to be a site analysis platform. It is a feasibility platform that respects site constraints. For an infill parcel where the question is &ldquo;how many keys does this become and how does the parking work,&rdquo; TestFit will give you a defensible answer in an hour. For an infill parcel where the question is &ldquo;is this even buildable under the new overlay,&rdquo; you need something else first.</p>
+
+    <h3>Hypar</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Hypar</div>
+        <span class="tc-rating">Specialist &middot; Configurable zoning rules</span>
+      </div>
+      <div class="tc-pricing">Cloud platform &middot; Free tier and paid workflow tiers</div>
+      <p>The closest thing to programmable zoning in the test. You can encode local rules, overlays, and exceptions as functions and run the same site through them. Power user tool. Steep enough that most firms will not get to value without dedicated time.</p>
+      <div class="tc-tags">
+        <span>zoning</span>
+        <span>programmable</span>
+        <span>functions</span>
+        <span>workflow</span>
+        <span>technical</span>
+      </div>
+    </div>
+
+    <p>Hypar is the answer for a firm that runs the same type of project across many jurisdictions and wants the zoning logic encoded so the next site analysis is a parameter change instead of a fresh read of the code. We were able to model our overlay constraints inside Hypar and have the tool flag a setback violation that two of the other tools missed. The cost is the on-ramp. This is not a tool you open between meetings. It is a tool the firm invests in, and the payoff is the third project, not the first.</p>
+
+    <h3>Finch 3D</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Finch 3D</div>
+        <span class="tc-rating">Specialist &middot; Massing iteration</span>
+      </div>
+      <div class="tc-pricing">SaaS subscription &middot; Architect and team tiers</div>
+      <p>Generative massing inside a constrained envelope. Fenestra release sharpened the rule-based generation. Excellent at the conceptual-to-schematic transition once you already know the envelope. Site analysis itself is thin.</p>
+      <div class="tc-tags">
+        <span>massing</span>
+        <span>generative</span>
+        <span>schematic</span>
+        <span>Fenestra</span>
+      </div>
+    </div>
+
+    <p>Finch 3D earned its category-leader reputation for a reason, but the reason is not site analysis. It is brilliant at generating many massing options inside a defined envelope. Feed it the wrong envelope and it will generate many brilliant options of a building that cannot be permitted. The right place for Finch is downstream of whatever tool actually understands the parcel, and our existing Finch 3D Fenestra review covers the schematic side in detail.</p>
+
+    <h3>The honest fifth slot: Spacemaker as a standalone reference</h3>
+
+    <p>Spacemaker as a standalone product no longer exists, but its DNA inside Forma is what most of the comparison posts are still referencing when they list &ldquo;Spacemaker&rdquo; separately. We tested the integrated workflow and it is the right call. Microclimate analysis is the same engine. The new piece is the connection to Forma's wider AEC suite, which matters more than the comparison posts give it credit for.</p>
+
+    <h2>The grading table</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Job</th>
+          <th>Forma</th>
+          <th>TestFit</th>
+          <th>Hypar</th>
+          <th>Finch 3D</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Zoning interpretation</td>
+          <td>Manual envelope</td>
+          <td>Light</td>
+          <td class="winner">Best</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Solar &amp; shadow</td>
+          <td class="winner">Best</td>
+          <td>None</td>
+          <td>Possible via functions</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Context analysis</td>
+          <td class="improved">Strong</td>
+          <td>Light</td>
+          <td>Programmable</td>
+          <td>Light</td>
+        </tr>
+        <tr>
+          <td>Feasibility / yield</td>
+          <td>Light</td>
+          <td class="winner">Best</td>
+          <td>Possible via functions</td>
+          <td>Light</td>
+        </tr>
+        <tr>
+          <td>Setup time to value</td>
+          <td class="winner">Fast</td>
+          <td class="winner">Fast</td>
+          <td>Slow</td>
+          <td class="winner">Fast</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The failure modes the marketing does not warn you about</h2>
+
+    <p>Three failures showed up across multiple tools and you should know about all of them before you trust an analysis to a client meeting.</p>
+
+    <p><strong>The wrong envelope problem.</strong> If you feed any of these tools an envelope that does not match the actual code, the downstream analysis is plausible and wrong. Hypar is the only tool that pushes back. The others trust you. Validate the envelope by hand against the code before you trust anything the tool tells you about what fits inside it.</p>
+
+    <p><strong>The overlay blindness problem.</strong> Local plan overlays, historic district rules, view corridors, and incentive programs change the rules of your parcel in ways the tools do not auto-detect. Forma and TestFit will both let you draw a building that violates a recent overlay because they do not read overlays. The overlay knowledge has to live in the architect.</p>
+
+    <p><strong>The pretty-diagram problem.</strong> Every tool in this category produces presentation-ready diagrams. A solar study with smooth gradients and a yield study with neat color blocks is persuasive whether or not it is correct. The diagram is not the analysis. Pressure-test the assumptions before you put a diagram in a deck.</p>
+
+    <blockquote>The site analysis category is the part of the AI architecture stack where confidence outruns capability. Beautiful output, true output, and useful output are three different things.</blockquote>
+
+    <h2>Our take, <em>which tool belongs in which kind of practice</em></h2>
+
+    <p>For a multifamily-leaning practice doing developer-driven feasibility work, the right starting stack is <strong>TestFit for yield plus Forma for solar and microclimate</strong>. Hypar enters when the firm gets repeatable enough across jurisdictions that encoding zoning logic pays for itself. Finch 3D is downstream once the envelope is real. Skip the tools that promise to do all four jobs from a single upload. None of them does, and the ones that imply they do are the ones whose outputs you should trust least.</p>
+
+    <p>For a boutique or single-project firm doing one parcel at a time, the honest answer is that Forma covers the most ground per dollar, but the parts it covers are the parts where the analyst's judgment is most needed anyway. The tools earn their keep on the second and third project, not the first. Plan accordingly.</p>
+
+    <p>The deeper point is that AI site analysis in 2026 is at roughly the maturity AI rendering was at three years ago: the outputs are credible-looking, the failure modes are not yet boring, and the human in the loop is doing real work whether the marketing acknowledges it or not. That is fine. It means the tools are useful. It also means they are not yet the analyst.</p>
+
+    <hr>
+
+    <p>Test it this week. Take one current parcel, run it through whichever single tool you already have access to, and put the analysis next to whatever your in-house process produced. The deltas are the conversation. The deltas are also where you will figure out which tool belongs in your stack and which one is a beautiful diagram of the wrong answer.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on a live urban infill parcel with mixed zoning, a protected tree, and a recent neighborhood plan overlay. No affiliate relationships. Same parcel data fed into Autodesk Forma, TestFit, Hypar, and Finch 3D.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="testfit-feasibility-generative-design-review-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; 2026</div>
+          <div class="rc-title">TestFit on a real feasibility brief. Where the yield math actually pays.</div>
+        </a>
+        <a href="finch3d-fenestra-review.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; 2026</div>
+          <div class="rc-title">Finch 3D Fenestra, the generative massing release reviewed.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

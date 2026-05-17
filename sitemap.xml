@@ -5,15 +5,39 @@
   <!-- Core Pages -->
   <url>
     <loc>https://archigenai.com/</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://archigenai.com/journal.html</loc>
-    <lastmod>2026-05-16</lastmod>
+    <lastmod>2026-05-17</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-17 Comparison -->
+  <url>
+    <loc>https://archigenai.com/ai-site-analysis-tools-architects-2026.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-17 Tool Review -->
+  <url>
+    <loc>https://archigenai.com/myarchitectai-review-architects-2026.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 2026-05-17 Tool Review -->
+  <url>
+    <loc>https://archigenai.com/vizbase-ai-review-architects-2026.html</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
