@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Geometry-Aware AI Renderers — The Tools That Hold Your Building — ArchiGen AI</title>
+<meta name="description" content="Architects leave Midjourney over geometry, not image quality — it invents a floor or moves a column. The fix is a different class of tool. We compare the four model-aware renderers that lock to your actual building." />
+<link rel="canonical" href="https://archigenai.com/geometry-aware-ai-renderers-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/geometry-aware-ai-renderers-architects-2026.html" />
+<meta property="og:title" content="Geometry-Aware AI Renderers — The Tools That Hold Your Building — ArchiGen AI" />
+<meta property="og:description" content="Architects leave Midjourney over geometry, not image quality — it invents a floor or moves a column. The fix is a different class of tool. We compare the four model-aware renderers that lock to your actual building." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Geometry-Aware AI Renderers — The Tools That Hold Your Building — ArchiGen AI" />
+<meta name="twitter:description" content="Architects leave Midjourney over geometry, not image quality — it invents a floor or moves a column. The fix is a different class of tool. We compare the four model-aware renderers that lock to your actual building." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .cta-box { border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 48px 0; background: var(--forest); color: var(--cream); }
+  .cta-box h4 { font-family: var(--f-display); font-weight: 400; font-size: 24px; margin: 0 0 8px; color: var(--cream); }
+  .cta-box p { margin: 0 0 16px; font-size: 14px; color: rgba(244,239,227,0.8); }
+  .cta-box a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Geometry-Aware AI Renderers — The Tools That Hold Your Building",
+  "description": "Architects leave Midjourney over geometry, not image quality — it invents a floor or moves a column. The fix is a different class of tool. We compare the four model-aware renderers that lock to your actual building.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-22",
+  "dateModified": "2026-05-22",
+  "mainEntityOfPage": "https://archigenai.com/geometry-aware-ai-renderers-architects-2026.html",
+  "articleSection": "Comparison",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["geometry-aware AI rendering", "Midjourney alternatives for architects", "Veras 4", "model-aware renderer", "AI rendering architecture 2026", "ControlNet architecture"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Comparison &middot; 22 May 2026</span>
+      <span class="tag">&middot; 9 min read</span>
+    </div>
+    <h1>Geometry-aware renderers &mdash; the tools that hold your <em>building</em></h1>
+    <p class="lede">Architects do not abandon Midjourney because the images look bad. They abandon it because it invents a third floor and slides a column a foot every bay. That is not a prompt problem &mdash; it is a category problem. Here are the four tools that take your actual model as input and are not allowed to make things up.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair &mdash; Vista Studios</div>
+        <div class="detail">9 min read &middot; May 2026 &middot; Comparison guide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Ask architects why they stopped using Midjourney for project work and you will almost never hear "the images were not good enough." The complaint is more specific and more frustrating than that. You feed it a clean four-storey massing and it hands back a beautiful building with four-and-a-half storeys. You ask for a regular structural bay and the columns drift a foot every span. The render is gorgeous. It is also not your building. For a mood board, that does not matter. In front of a client who has seen the plans, it is the kind of mistake that costs you the room.</p>
+
+    <p>This is the single most repeated grievance in the architecture-AI conversation right now, and it gets misdiagnosed constantly. Architects go hunting for a better prompt, a magic parameter, a newer model version. None of that fixes it &mdash; because it is not a quality problem and it is not a prompt problem. Midjourney, and every other text-to-image model, never received your building. It received a sentence. The fix is not a better sentence. It is a different class of tool: one that takes your actual geometry as an input and is structurally not allowed to invent its way around it. This guide is the map of that category &mdash; the four geometry-aware renderers worth knowing in 2026, what each is genuinely for, and how to pick.</p>
+
+    <h2>Why text-to-image <em>cannot</em> hold your geometry</h2>
+
+    <p>It helps to be precise about the mechanism, because the precision tells you why the fix has to be a different tool rather than a better habit. A diffusion model has been trained on millions of images of buildings. What it learned is what buildings tend to look like &mdash; the statistical shape of windows, cornices, massing, light. When you prompt it, it samples a plausible image from that learned space. At no point in that pipeline is there a representation of <em>your</em> floor count, your bay spacing, your fenestration grid. There is nothing for the model to be faithful to, because the thing you want it to obey was never handed to it.</p>
+
+    <p>So the model is not disobeying you. It is doing exactly what it was built to do: producing a plausible building. "Plausible" and "yours" are different targets, and no amount of prompt engineering closes that gap, because the gap is missing information, not a misunderstanding. The tools in this guide all solve it the same way conceptually and differently in practice &mdash; they inject your geometry into the pipeline as a hard constraint: a live model, an uploaded viewport, a depth map, a line drawing. The diffusion step then decorates your building instead of dreaming a new one. The differences between the four come down to <em>where</em> that geometry lives and <em>how much</em> control you get over the constraint.</p>
+
+    <h2>The four tools that actually hold your model</h2>
+
+    <h3>1. Veras 4 &mdash; the BIM-native default</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Veras 4 (Chaos)</div>
+        <div class="tc-rating">&star; 4.5 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Subscription &middot; plans from ~$30/mo &middot; free trial &middot; plugin for SketchUp, Rhino &amp; Revit</div>
+      <p>Renders directly off your live model inside the modeller you already use. No export, no upload. The geometry lock is total because your scene <em>is</em> the model. The default choice for any firm whose work lives in a mainstream BIM or CAD tool.</p>
+      <div class="tc-tags">
+        <span>Plugin-based</span><span>Live model</span><span>SketchUp</span><span>Rhino</span><span>Revit</span><span>BIM-first</span>
+      </div>
+    </div>
+
+    <p>Veras 4 runs a seventh-generation engine &mdash; Chaos moved it onto Google's Nano Banana Pro &mdash; and the practical result is cleaner output with markedly fewer of the artifacts that dogged earlier versions. But the engine is not the reason Veras sits at the top of this list for most firms. The reason is the workflow: Veras renders directly off your live model inside SketchUp, Rhino or Revit. There is no export, no screenshot, no round-trip. Your geometry <em>is</em> the scene. Move a wall in Revit, re-render, and the wall has moved in the image. The fidelity is not "good" &mdash; it is exact, because there is no translation step in which something could be lost.</p>
+
+    <p>That tight coupling is also the one real limitation. Veras assumes your model lives in one of those three host applications. If your practice models somewhere else &mdash; Archicad, Vectorworks, a pure conceptual tool &mdash; Veras is not the answer, and you should not contort your modelling workflow to fit it. For the large share of firms already inside the big three, though, Veras 4 is the shortest path from "real model" to "real render," and we have covered how it stacks up against the accessibility-first crowd in our <a href="chaos-veras-vs-rendair-ai.html">Veras vs Rendair AI comparison</a>.</p>
+
+    <h3>2. ArchiVinci &mdash; geometry-aware iteration, no plugin</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">ArchiVinci</div>
+        <div class="tc-rating">&star; 4.0 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Freemium &middot; paid plans from ~$16/mo &middot; browser-based, nothing to install</div>
+      <p>Reaches the geometry-aware tier from the browser instead of a plugin. Upload a viewport capture, massing screenshot or sketch and it constrains the generated image to the lines and depth it reads. Good lock, not an absolute one.</p>
+      <div class="tc-tags">
+        <span>Browser-based</span><span>No install</span><span>Upload workflow</span><span>Sketch-to-render</span><span>Fast iteration</span>
+      </div>
+    </div>
+
+    <p>ArchiVinci sits in the same geometry-aware iteration tier as Veras but reaches it from the opposite direction. Instead of a plugin bolted onto your modeller, it is a browser tool: you upload a viewport capture, a massing screenshot or a hand sketch, and ArchiVinci constrains the generated image to the lines and depth it reads from what you gave it. The output respects your composition, your proportions and your major geometry far more reliably than a text prompt ever will.</p>
+
+    <p>The honest trade is fidelity. An uploaded screenshot carries less geometric information than a live model &mdash; there is no depth buffer, no object data, just pixels &mdash; so the lock is good rather than absolute. Push ArchiVinci hard on a complex facade and it will occasionally simplify a detail it could not read cleanly. For early-stage iteration, for firms whose models do not live in SketchUp, Rhino or Revit, and for anyone who wants a fast loop without installing anything, that trade is well worth making. Our fuller <a href="archivinci-ai-review-architects-2026.html">ArchiVinci review</a> walks through where the upload workflow holds and where it slips.</p>
+
+    <h3>3. D5 Render &mdash; a real renderer with an AI layer on top</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">D5 Render</div>
+        <div class="tc-rating">&star; 4.3 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free tier &middot; D5 Pro subscription for teams &middot; Windows desktop application</div>
+      <p>Different in kind. D5 is a real-time GPU rendering engine first; the AI features sit on top. Geometry is locked because D5 is genuinely rendering your imported model &mdash; not constraining a diffusion guess. Full camera and scene control.</p>
+      <div class="tc-tags">
+        <span>Real-time engine</span><span>GPU renderer</span><span>Model import</span><span>Camera control</span><span>AI styling layer</span>
+      </div>
+    </div>
+
+    <p>D5 Render belongs in this guide but it is different in kind from the other three. D5 is a real-time rendering engine first &mdash; a GPU renderer in the lineage of Enscape and Lumion &mdash; and its AI features are layered on top of that foundation. Geometry is not "locked" here by a clever constraint on a diffusion model. It is locked because D5 is genuinely rendering your imported model the way renderers always have. There is no probability distribution to police; the building in the frame is the building you imported.</p>
+
+    <p>What the AI layer does is take over the parts where invention is welcome: styling, material suggestion, entourage, sky and post. The building stays exactly as designed while the machine helps with everything around it. The cost is that D5 expects you to do real scene work &mdash; import, camera, lighting, materials &mdash; rather than typing a sentence and waiting. For firms that want full control of the shot and are comfortable with a renderer's workflow, that is a feature, not a tax. We go deeper on the AI side specifically in our <a href="d5-render-ai-features-architects-2026.html">D5 Render AI features review</a>.</p>
+
+    <h3>4. ComfyUI + ControlNet &mdash; maximum control, steepest climb</h3>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">ComfyUI + ControlNet</div>
+        <div class="tc-rating">&star; 4.2 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free &amp; open-source &middot; runs locally &middot; needs a capable GPU</div>
+      <p>A node-graph interface for running diffusion models locally. Feed a depth pass or line render of your model in as a ControlNet input and the diffusion model is pinned to your edges. The most precise lock available &mdash; and the most demanding to learn.</p>
+      <div class="tc-tags">
+        <span>Node graph</span><span>Open-source</span><span>Local / offline</span><span>ControlNet</span><span>Depth + line input</span><span>Expert tier</span>
+      </div>
+    </div>
+
+    <p>ComfyUI is a node-graph interface for running diffusion models locally, and the piece that matters for this guide is ControlNet. You take a view of your model &mdash; a depth pass, a line render, a Canny edge map exported straight from your viewport &mdash; and feed it into the graph as a ControlNet input. The diffusion model is then pinned to those edges. It can change material, light, weather, season and time of day freely; it cannot move the line. This is the most precise geometry lock available anywhere and, because you can stack and weight multiple control inputs, also the most flexible.</p>
+
+    <p>It is also the one that will cost you a weekend to learn and a technically minded person to keep running. Node graphs reward people who think in pipelines and punish everyone else; the depth-and-line export step has to be set up correctly or the lock is loose. For a firm with a visualization specialist or a computational-design lead, ComfyUI delivers a controllable, license-free pipeline that no commercial tool can match on precision. For a firm without that person, it is the wrong tool no matter how good the results look in a demo. Our <a href="comfyui-rhino-architects-workflow-2026.html">ComfyUI + Rhino workflow guide</a> is the place to start if you want to attempt it.</p>
+
+    <h2>The four, side by <em>side</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>How it locks geometry</th>
+          <th>Where it runs</th>
+          <th>Learning curve</th>
+          <th>Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Veras 4</strong></td>
+          <td>Renders off your live model &mdash; no translation</td>
+          <td>Plugin in SketchUp / Rhino / Revit</td>
+          <td class="winner">Low</td>
+          <td>BIM-first firms</td>
+        </tr>
+        <tr>
+          <td><strong>ArchiVinci</strong></td>
+          <td>Constrains to an uploaded viewport or sketch</td>
+          <td>Browser &mdash; nothing to install</td>
+          <td class="winner">Low</td>
+          <td>Studios outside the big three modellers</td>
+        </tr>
+        <tr>
+          <td><strong>D5 Render</strong></td>
+          <td>Genuinely renders the imported model</td>
+          <td>Windows desktop app</td>
+          <td>Medium</td>
+          <td>Full scene, camera &amp; lighting control</td>
+        </tr>
+        <tr>
+          <td><strong>ComfyUI + ControlNet</strong></td>
+          <td>Depth / line input pins every edge</td>
+          <td>Local node graph &mdash; needs a GPU</td>
+          <td class="improved">High</td>
+          <td>Teams with a visualization specialist</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>How to choose &mdash; it is a question about your <em>file</em></h2>
+
+    <p>The mistake is shopping for "the best geometry-aware renderer." There is no such thing, because the four do not really compete &mdash; each owns a different answer to one question: <strong>where does your model already live?</strong> Answer that honestly and the choice mostly makes itself.</p>
+
+    <ul>
+      <li><strong>Your model lives in SketchUp, Rhino or Revit.</strong> Use Veras 4. It reads the file you already work in, the lock is exact, and the learning curve is an afternoon. Stop here.</li>
+      <li><strong>Your model lives somewhere else, or you want zero installation.</strong> Use ArchiVinci. The browser upload workflow gets you a good geometry lock without bending your modelling pipeline around a plugin.</li>
+      <li><strong>You want a real renderer's control over camera, light and scene.</strong> Use D5 Render. You will do more scene-building work, and in exchange you get a shot you fully directed rather than one you described.</li>
+      <li><strong>You have a tech artist and want a license-free, maximally precise pipeline.</strong> Use ComfyUI with ControlNet. Nothing else matches it on control &mdash; provided someone on the team genuinely wants to own it.</li>
+    </ul>
+
+    <h2>What none of them <em>fix</em></h2>
+
+    <p>Geometry-aware is not judgement-aware. Every tool here will still need a real prompt &mdash; or a real renderer's hand &mdash; for material, light, atmosphere and mood. They hold the building; they do not supply the taste. They are also, all four, slower to a first image than typing a Midjourney prompt. You are trading setup time for trust, and that is almost always the right trade for project work &mdash; but it is a trade, and it is worth saying out loud.</p>
+
+    <blockquote>A geometry lock is a guarantee of fidelity, not of quality. Lock a sloppy massing and you get a faithful render of a sloppy massing.</blockquote>
+
+    <p>And none of them will rescue a weak model. The geometry lock faithfully reproduces whatever you give it &mdash; including its mistakes. These tools end the era of the AI inventing a building you did not design. They do not begin an era of the AI designing it well. That part is still yours.</p>
+
+    <div class="cta-box">
+      <h4>We test the rendering stack on real project work.</h4>
+      <p>No sponsored placements, no affiliate links &mdash; just field notes from a working studio. The ArchiGen AI journal ships tool reviews and workflow breakdowns weekly.</p>
+      <a href="journal.html">Read the journal &rarr;</a>
+    </div>
+
+    <h2>Our take</h2>
+
+    <p><a href="midjourney-v8-architects-renders-2026.html">Midjourney V8</a> made the concept phase faster and sharper this spring, and it remains the right tool while the building is still an idea &mdash; competition imagery, mood, atmosphere. But the V8 release did nothing for geometry, because resolution and speed were never the problem. The moment your building stops being an idea and becomes a model, you change tiers. The geometry-aware tier is where project rendering actually happens in 2026, and the firms that get burned in front of clients are the ones still trying to make the concept-phase tool do project-phase work.</p>
+
+    <p>Do not overthink the choice within the tier. If you are a BIM-first firm, Veras 4 reads the file you already work in and you are done. If you want a real renderer's control of the shot, D5. If you have a visualization specialist who wants a license-free, maximally controllable pipeline, ComfyUI with ControlNet. If you want none of that complexity and just want a browser tab, ArchiVinci. The four differ in workflow, cost and ceiling &mdash; but they agree on the one principle that matters. Once the geometry is real, never hand it to a model that cannot see it.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Field guide by ArchiGen AI. Tool capabilities and pricing current as of May 2026 and approximate. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="midjourney-v8-architects-renders-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; May 2026</div>
+          <div class="rc-title">Midjourney V8 &mdash; what the 2026 release actually changes for architects</div>
+        </a>
+        <a href="ai-native-vs-plugin-renderers-2026.html" class="related-card">
+          <div class="rc-tag">Editorial &middot; May 2026</div>
+          <div class="rc-title">AI-native renderers vs V-Ray with AI plugins &mdash; the category split most architects are ignoring</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
