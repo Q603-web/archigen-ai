@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Nano Banana Pro + Midjourney + ChatGPT — Is the Three-Tool Render Workflow Actually Worth It? — ArchiGen AI</title>
+<meta name="description" content="A new wave of YouTube tutorials is selling architects a three-tool AI render workflow: Nano Banana Pro for geometry, Midjourney for atmosphere, ChatGPT to orchestrate the prompts. We ran it on real concept work. Here is what stitching three models together actually gets you, where it falls apart, and whether it beats a single geometry-aware renderer." />
+<link rel="canonical" href="https://archigenai.com/nano-banana-pro-midjourney-architecture-workflow-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/nano-banana-pro-midjourney-architecture-workflow-2026.html" />
+<meta property="og:title" content="Nano Banana Pro + Midjourney + ChatGPT — Is the Three-Tool Render Workflow Actually Worth It? — ArchiGen AI" />
+<meta property="og:description" content="A new wave of YouTube tutorials is selling architects a three-tool AI render workflow. We ran it on real concept work and report back." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Nano Banana Pro + Midjourney + ChatGPT — Is the Three-Tool Render Workflow Actually Worth It? — ArchiGen AI" />
+<meta name="twitter:description" content="A new wave of YouTube tutorials is selling architects a three-tool AI render workflow. We ran it on real concept work and report back." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-rating.warn { color: var(--coral); background: rgba(227,106,82,0.12); }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .warn { color: var(--coral); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .step-list { counter-reset: step; padding: 0; list-style: none; margin: 32px 0; }
+  .step-list li { counter-increment: step; padding: 20px 24px 20px 64px; border: 1px solid var(--rule); border-radius: 10px; margin-bottom: 12px; background: var(--paper-2); position: relative; }
+  .step-list li::before { content: counter(step); position: absolute; left: 20px; top: 20px; width: 28px; height: 28px; border-radius: 50%; background: var(--ink); color: var(--paper); font-family: var(--f-mono); font-size: 12px; font-weight: 600; display: grid; place-items: center; }
+  .step-list li strong { display: block; font-size: 15px; margin-bottom: 6px; color: var(--ink); }
+  .step-list li p { margin: 0; font-size: 14px; color: var(--ink-2); }
+
+  .cta-box { border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 48px 0; background: var(--forest); color: var(--cream); }
+  .cta-box h4 { font-family: var(--f-display); font-weight: 400; font-size: 24px; margin: 0 0 8px; color: var(--cream); }
+  .cta-box p { margin: 0 0 16px; font-size: 14px; color: rgba(244,239,227,0.8); }
+  .cta-box a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Nano Banana Pro + Midjourney + ChatGPT — Is the Three-Tool Render Workflow Actually Worth It?",
+  "description": "A new wave of YouTube tutorials is selling architects a three-tool AI render workflow: Nano Banana Pro for geometry, Midjourney for atmosphere, ChatGPT to orchestrate. We ran it on real concept work and report back.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "mainEntityOfPage": "https://archigenai.com/nano-banana-pro-midjourney-architecture-workflow-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["Nano Banana Pro architecture", "Midjourney architecture workflow", "ChatGPT architecture renders", "AI render workflow 2026", "multi-tool AI render"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow &middot; 23 May 2026</span>
+      <span class="tag">&middot; 9 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Multi-tool workflow &middot; tested
+    </div>
+    <h1>The three-tool render workflow &mdash; <em>does</em> stitching Nano Banana Pro, Midjourney and ChatGPT beat a single geometry-aware renderer?</h1>
+    <p class="lede">A new wave of YouTube tutorials is selling architects a three-model workflow: Nano Banana Pro holds the geometry, Midjourney supplies the atmosphere, ChatGPT orchestrates the prompts. The thumbnails are seductive. The runtime is two hours. We ran it on a real concept package for a week and report back &mdash; what the stack actually delivers, where it falls apart, and which projects it earns a slot on.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair &mdash; Vista Studios</div>
+        <div class="detail">9 min read &middot; May 2026 &middot; Tested on three live concept packages</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>If you searched for an AI render tutorial on YouTube any time in the last six weeks, you have seen a version of the same thumbnail. A photo of a building, an arrow, an LLM logo, an arrow, a Midjourney logo, an arrow, a heroic glass facade at sunset. The voiceover is always some variant of "the best AI render workflow for architects, no plugins needed." The recipe under the thumbnail is almost always the same: feed your reference to <strong>Nano Banana Pro</strong> (Google's image model, formerly Gemini 2.5 Flash Image, rebranded and beefed up), bring the result into <strong>Midjourney V8</strong> for an aesthetic pass, and use <strong>ChatGPT</strong> to write the prompts that move you between the two.</p>
+
+    <p>It is the kind of workflow that goes viral on YouTube because the steps look legible. Each tool does a thing. You can screenshot the prompts. You can post the final render. The watch-time is good. What the videos do not show is the hour and a half between the third Nano Banana iteration and the second Midjourney pass, when the geometry you locked in step two has quietly drifted, and the only way to recover is to back up to step one and start again with a colder prompt.</p>
+
+    <p>We spent a week running this stack on three real concept-stage projects &mdash; a 6,500 sf adaptive-reuse studio, a four-unit infill housing scheme, and a small civic pavilion &mdash; against our normal workflow, which is a single geometry-aware renderer (Veras or D5) plus one occasional Midjourney mood pass. Here is what the three-tool stack is actually doing for you, where it stops working, and whether the YouTube version is selling you on a workflow or selling you a watch-time hook.</p>
+
+    <h2>What the three tools are <em>each really doing</em></h2>
+
+    <p>The first thing to fix is the marketing language. The videos describe each tool as if it is taking a discrete responsibility. In practice, the responsibilities overlap, and that overlap is where the workflow gets expensive in time.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Nano Banana Pro</div>
+        <div class="tc-rating">Geometry &amp; reference fidelity</div>
+      </div>
+      <p class="tc-pricing">Google &middot; pay-as-you-go through Gemini API or AI Studio</p>
+      <p>The honest job is "image-to-image with a stronger sense of structural intent than a 2024-era diffusion model." Nano Banana Pro is unusually good at preserving the silhouette and the rough massing of a reference photo or sketch, and it follows multi-step textual edits ("keep the roofline, change the cladding to standing-seam zinc, push the glazing to the south face") better than Midjourney does. It is not a geometry-aware renderer in the Veras sense &mdash; it is not reading a 3D model &mdash; but it is closer to one than the previous generation of image models was.</p>
+      <div class="tc-tags">
+        <span>Strength: edit fidelity</span>
+        <span>Weakness: lighting realism</span>
+        <span>Weakness: scale drift over iterations</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Midjourney V8</div>
+        <div class="tc-rating">Atmosphere &amp; finish</div>
+      </div>
+      <p class="tc-pricing">Subscription &middot; native 2K, faster than V7</p>
+      <p>Midjourney's role in this stack is to take a Nano Banana output and make it look like a render, not an AI image. The V8 engine is genuinely better at material specificity than the V7 it replaced, and the speed makes it cheap to throw twenty stylistic variants at a frame. But Midjourney does not respect geometry &mdash; it never has &mdash; so anything you ask it to "polish" risks giving you a new building. The discipline is to constrain it tightly enough that it touches lighting and material but not form. That discipline is hard.</p>
+      <div class="tc-tags">
+        <span>Strength: atmosphere</span>
+        <span>Strength: material believability</span>
+        <span>Weakness: invents geometry</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">ChatGPT (or Claude)</div>
+        <div class="tc-rating">Prompt orchestration</div>
+      </div>
+      <p class="tc-pricing">Subscription &middot; tutorial assumes GPT-5 / GPT-5 Pro tier</p>
+      <p>The third tool's only honest job is to translate your design intent into prompts that the other two models will not misread. The tutorials over-sell this. Asking ChatGPT to "write me a Midjourney prompt for a Brutalist civic pavilion at golden hour" produces a slightly above-average paragraph of prompt language. It does not understand your project. It does not know that the cladding is precast and tinted, or that the south face cannot have that much glazing because the client cannot afford the shading package. The LLM is doing prose engineering, not architectural reasoning. Treat it accordingly.</p>
+      <div class="tc-tags">
+        <span>Strength: prompt fluency</span>
+        <span>Weakness: no project context</span>
+        <span>Weakness: confident wrongness</span>
+      </div>
+    </div>
+
+    <h2>The actual workflow &mdash; <em>cleaned of the tutorial-video gloss</em></h2>
+
+    <p>If you strip the recipe down to the steps that survived contact with our three projects, this is what is left. We are listing it as we ran it, not as the videos sell it.</p>
+
+    <ol class="step-list">
+      <li><strong>Start with a real reference, not a text prompt.</strong><p>Photograph the site, the precedent, or screenshot a SketchUp view. The single biggest cause of the workflow falling apart is starting in Midjourney with a text prompt, then trying to retrofit geometry later. The stack only works if Nano Banana has a real image to anchor to from step one.</p></li>
+      <li><strong>Run Nano Banana Pro for two passes maximum.</strong><p>First pass: cladding, glazing, massing edits. Second pass: lighting and time of day. Stop there. By the third pass the model has started drifting on proportions in ways you will not catch until Midjourney exaggerates them.</p></li>
+      <li><strong>Hand the result to Midjourney with a constraint-heavy prompt.</strong><p>Use <code>--sref</code> on the Nano Banana output. Lock weight high (0.6&ndash;0.8). Use Midjourney for material finish and atmosphere only. Anything that asks Midjourney to "improve the design" will give you a different building.</p></li>
+      <li><strong>Compare the Midjourney output to the Nano Banana reference, not the original photo.</strong><p>If the silhouette has moved, throw the Midjourney output out and tighten the constraint. Do not try to fix it in another Midjourney pass.</p></li>
+      <li><strong>Use ChatGPT only at the boundaries.</strong><p>Use it to write the initial Midjourney prompt from your design brief, and to clean up the final image's caption for the client deck. Do not use it as a planner that decides what each tool should do &mdash; that is your job.</p></li>
+    </ol>
+
+    <p>Notice what is not in that list. There is no "let ChatGPT pick the best of 16 variants" step, because the LLM cannot meaningfully judge the renders. There is no "feed the Midjourney result back into Nano Banana for fidelity recovery" loop, because that loop introduces more drift than it removes. The actual workflow is leaner than the tutorial version, and most of the cleaning came from cutting steps that exist to extend video runtime, not because they improve the output.</p>
+
+    <h2>Where the three-tool stack <em>actually beats</em> a single renderer</h2>
+
+    <p>It beats a single tool in three specific cases. Outside these cases, it loses on time and consistency.</p>
+
+    <h3>1. Pre-design and unbuilt references</h3>
+
+    <p>When you do not have a 3D model yet &mdash; competition stage, feasibility study, RFP response &mdash; the geometry-aware renderers have nothing to lock to. Veras needs a Revit or SketchUp model. D5 needs a scene. The three-tool stack works from a photograph or a sketch, which is what you actually have at week one of a project. For pre-design, Nano Banana plus a Midjourney atmosphere pass produces something usable in twenty minutes that a Veras workflow cannot start producing until you have built a model.</p>
+
+    <h3>2. Aesthetic exploration on a fixed massing</h3>
+
+    <p>You have a massing you like. The question is "what does this look like in zinc versus brick versus charred timber, in three lighting conditions." Geometry-aware renderers are slow for this kind of fan-out because they want to re-render the scene each time. The three-tool stack &mdash; with a tight Nano Banana edit per material and a Midjourney pass for finish &mdash; is faster and cheaper for pure aesthetic variation.</p>
+
+    <h3>3. Mood and atmosphere passes for client-facing storytelling</h3>
+
+    <p>The video version of the workflow is honest about one thing: client decks live and die on atmosphere. Veras renders look correct. Midjourney renders feel cinematic. For the cover slide of a client presentation &mdash; the one image that has to make the client lean forward &mdash; the three-tool stack outperforms a single geometry-aware renderer almost every time. It is a tool for the front cover, not the documentation set.</p>
+
+    <h2>Where it <em>breaks</em></h2>
+
+    <p>Three places we hit walls, on real projects, repeatedly.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Iteration count beyond three</div>
+        <div class="tc-rating warn">&times; Drift compounds</div>
+      </div>
+      <p>Each pass through Nano Banana subtly shifts proportions. Each Midjourney pass invents detail. By the third round-trip your "iterative refinement" is producing a building that no longer matches the brief. A geometry-aware renderer does not have this failure mode &mdash; the model is the model. If your concept needs more than two or three loops, the multi-tool stack is the wrong stack.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Consistent series across views</div>
+        <div class="tc-rating warn">&times; Continuity is fragile</div>
+      </div>
+      <p>Producing a north, east and south elevation of the same building, recognizably the same building, is the hardest thing this stack does. Midjourney's seed and style-reference features help, but you cannot rely on continuity the way you can with a Revit model. If the client deliverable is a coordinated set of three or more views, get the model into a geometry-aware renderer and stop fighting the stack.</p>
+    </div>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Anything that gets close to a deliverable</div>
+        <div class="tc-rating warn">&times; Not a documentation tool</div>
+      </div>
+      <p>This is the line every junior in a studio needs to hear once. A Midjourney-finished render, however convincing, is not a record drawing. It is not a planning document. It is not a contract image. The geometry has moved &mdash; even when it looks like it has not &mdash; and a contractor pricing off it will price the wrong building. The three-tool stack is a concept-and-mood tool. The render that goes to the planning department does not come out of it.</p>
+    </div>
+
+    <h2>The honest comparison &mdash; <em>against the single-renderer alternative</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Use case</th>
+          <th>Three-tool stack</th>
+          <th>Single geometry-aware renderer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pre-design / no model yet</td>
+          <td class="winner">&check; Wins &mdash; works from photos &amp; sketches</td>
+          <td>&mdash; Cannot start</td>
+        </tr>
+        <tr>
+          <td>Material &amp; lighting fan-out on fixed massing</td>
+          <td class="winner">&check; Wins on speed &amp; cost</td>
+          <td>Slower, more correct</td>
+        </tr>
+        <tr>
+          <td>Hero image for a client deck cover</td>
+          <td class="winner">&check; Wins on atmosphere</td>
+          <td>Correct but less cinematic</td>
+        </tr>
+        <tr>
+          <td>Two-to-three iterations of design refinement</td>
+          <td>Acceptable</td>
+          <td class="winner">&check; Wins &mdash; no drift</td>
+        </tr>
+        <tr>
+          <td>Coordinated multi-view set (N/E/S/W)</td>
+          <td class="warn">&times; Fragile continuity</td>
+          <td class="winner">&check; Wins decisively</td>
+        </tr>
+        <tr>
+          <td>Anything heading to a deliverable or DD set</td>
+          <td class="warn">&times; Wrong tool</td>
+          <td class="winner">&check; Right tool</td>
+        </tr>
+        <tr>
+          <td>Total time per usable image (week-one project)</td>
+          <td>~20 min</td>
+          <td>~75 min (build model first)</td>
+        </tr>
+        <tr>
+          <td>Total time per usable image (week-eight project)</td>
+          <td>~45 min (continuity work)</td>
+          <td class="winner">~10 min</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <blockquote>The three-tool stack wins early in a project, when you have references but no model. The geometry-aware renderer wins later, when the model is the source of truth and continuity matters. The mistake is treating one as a replacement for the other.</blockquote>
+
+    <h2>The prompt mistakes <em>we kept making</em></h2>
+
+    <p>Five specific things kept costing us iterations until we changed our prompting habits.</p>
+
+    <ol>
+      <li><strong>Asking Midjourney to "render" a Nano Banana output</strong> &mdash; Midjourney does not render. It restyles. The word "render" in the prompt encourages it to invent depth and reflection that has nothing to do with your massing. Use "photograph," "stylize," or "finish" instead.</li>
+      <li><strong>Letting ChatGPT write multi-clause Midjourney prompts unchecked</strong> &mdash; the LLM defaults to overloaded prompts. Midjourney V8 is better with five short, weighted clauses than one long descriptive sentence. Edit the prompt down.</li>
+      <li><strong>Mixing time-of-day instructions inside Nano Banana edits</strong> &mdash; treat geometry edits and lighting edits as separate passes. Combining them is the fastest way to lose massing.</li>
+      <li><strong>Forgetting to lock the aspect ratio</strong> &mdash; Nano Banana and Midjourney will both drift aspect ratio if you do not pin it. Pin it explicitly on every prompt. The cropping you lose to a drifted aspect ratio is often the part of the elevation you needed most.</li>
+      <li><strong>Reading the YouTube tutorial as a method</strong> &mdash; it is a hook. The video has to fill seven minutes; your project does not. Most of the steps in the long-form version exist to extend the runtime, not the result.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h4>We test multi-tool AI workflows on real architecture projects.</h4>
+      <p>If a YouTube workflow is making the rounds in your office, we will run it against live work and report what survives a real deadline.</p>
+      <a href="journal.html">Read more workflow audits &rarr;</a>
+    </div>
+
+    <h2>Our take</h2>
+
+    <p>The three-tool stack is real, and on a narrow set of project moments it is the best tool for the job. For week-one concept work &mdash; when you have a reference photo, a fee that does not justify a model, and a deck due Friday &mdash; Nano Banana Pro plus a constrained Midjourney pass is genuinely faster than building a model just so a geometry-aware renderer has something to chew on. For the cover slide of a client presentation, the cinematic quality of the stack outperforms a Veras render of the same building. Those are real wins. The YouTube tutorials are not wrong that the workflow exists.</p>
+
+    <p>They are wrong in three other ways. They oversell ChatGPT's role &mdash; the LLM is doing prose, not planning, and treating it as a planner is the fastest way to ship a prompt that produces the wrong building. They undersell the drift problem &mdash; the stack is a one-or-two-iteration tool, not an iterative-refinement tool, and the videos that show beautiful sixth-pass results are showing you survivorship bias from the runs that did not collapse. And they let the viewer assume the output is closer to a deliverable than it is. A finished Midjourney image is a mood image. It is not a coordinated view, it is not dimensionally honest, and the contractor pricing off it will get a different building than your geometry-aware renderer would have shown.</p>
+
+    <p>If the question is "should I learn this workflow," yes. It is the right tool for a specific phase of work, and the phase &mdash; week one of a project &mdash; is the phase where most studios are weakest at AI right now. If the question is "should I replace my geometry-aware renderer with this stack," no. They are doing different jobs, on different parts of the project, and the studios that get the most out of AI in 2026 are the ones that own both and switch between them with discipline.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on three live concept-stage projects between 13&ndash;20 May 2026. Tools: Nano Banana Pro via Google AI Studio, Midjourney V8 / V8.1, ChatGPT GPT-5. No affiliate or business relationship with any vendor named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="midjourney-v8-architects-renders-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; 2026</div>
+          <div class="rc-title">Midjourney V8 for architects &mdash; what the 2026 release actually changes</div>
+        </a>
+        <a href="geometry-aware-ai-renderers-architects-2026.html" class="related-card">
+          <div class="rc-tag">Comparison &middot; 2026</div>
+          <div class="rc-title">Geometry-aware AI rendering in 2026 &mdash; the four tools that lock to your model</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

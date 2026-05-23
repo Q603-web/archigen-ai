@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Alpaca / Chroma — Is the Best Free AI Render Tool Actually Usable for Architecture? — ArchiGen AI</title>
+<meta name="description" content="Pixels to Plans calls Chroma by AlpacaML the best free AI rendering tool for architecture in 2026. We installed it, ran it against real concept work for a week, and report back. Here is what free actually buys you, where it breaks, and whether it deserves a slot in your stack." />
+<link rel="canonical" href="https://archigenai.com/alpaca-chroma-free-ai-render-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/alpaca-chroma-free-ai-render-architects-2026.html" />
+<meta property="og:title" content="Alpaca / Chroma — Is the Best Free AI Render Tool Actually Usable for Architecture? — ArchiGen AI" />
+<meta property="og:description" content="Pixels to Plans calls Chroma by AlpacaML the best free AI rendering tool for architecture in 2026. We tested it. Here is what free actually buys you and where it breaks." />
+<meta property="og:image" content="https://archigenai.com/og-image.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Alpaca / Chroma — Is the Best Free AI Render Tool Actually Usable for Architecture? — ArchiGen AI" />
+<meta name="twitter:description" content="Pixels to Plans calls Chroma by AlpacaML the best free AI rendering tool for architecture in 2026. We tested it. Here is what free actually buys you and where it breaks." />
+<meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .cta-box { border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 48px 0; background: var(--forest); color: var(--cream); }
+  .cta-box h4 { font-family: var(--f-display); font-weight: 400; font-size: 24px; margin: 0 0 8px; color: var(--cream); }
+  .cta-box p { margin: 0 0 16px; font-size: 14px; color: rgba(244,239,227,0.8); }
+  .cta-box a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Alpaca / Chroma — Is the Best Free AI Render Tool Actually Usable for Architecture?",
+  "description": "Pixels to Plans calls Chroma by AlpacaML the best free AI rendering tool for architecture in 2026. We installed it, ran it against real concept work for a week, and report back. Here is what free actually buys you, where it breaks, and whether it deserves a slot in your stack.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-23",
+  "dateModified": "2026-05-23",
+  "mainEntityOfPage": "https://archigenai.com/alpaca-chroma-free-ai-render-architects-2026.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Alpaca AI", "Chroma AlpacaML", "free AI rendering architecture", "AI render tools 2026", "free architecture AI"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Review &middot; 23 May 2026</span>
+      <span class="tag">&middot; 8 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
+      Alpaca / Chroma &middot; tested
+    </div>
+    <h1>Chroma by AlpacaML &mdash; is the &ldquo;best free&rdquo; AI render <em>actually</em> usable?</h1>
+    <p class="lede">Pixels to Plans declared Chroma by AlpacaML the best free AI rendering tool for architecture this spring. We installed the open-access build, ran it against real concept work for a week, and report back. Here is what free actually buys you in 2026, where Chroma breaks, and whether it earns a slot next to the paid tools.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair &mdash; Vista Studios</div>
+        <div class="detail">8 min read &middot; May 2026 &middot; Tested on a residential concept set</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>The phrase "free AI rendering tool for architects" is one of the more dangerous Google searches in this category. Most results are either a SaaS trial wearing the word "free," a generic image generator no architect would actually use, or a ComfyUI tutorial that takes a weekend to set up before it produces anything you would show a client. So when Pixels to Plans called <strong>Chroma by AlpacaML</strong> &mdash; the open-access model branded as <strong>Alpaca</strong> in some surfaces &mdash; the best free AI rendering tool for architecture, that was worth checking.</p>
+
+    <p>We spent a week running Chroma against a live residential concept set: two exterior elevations, a single interior, and a courtyard study. The brief was the one the free-tool question really asks. <em>If a student, a junior, or a small firm wanted to do real concept rendering without a Veras seat or a Midjourney subscription, would Chroma do the job?</em> The answer is more interesting than yes or no.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Chroma by AlpacaML (Alpaca)</div>
+        <div class="tc-rating">&star; 3.5 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Free in open access &middot; Web app, no install &middot; Paid tiers expected post-beta</div>
+      <p>A general-purpose AI image generator with a strong architectural lean. Sketch-to-render, image-to-image, prompt-to-image. Genuinely free in 2026 with usable output for concept-phase work &mdash; but no geometry lock, no model integration, and a queue that gets long when the West Coast wakes up.</p>
+      <div class="tc-tags">
+        <span>Free</span><span>Web-based</span><span>Sketch-to-render</span><span>Image-to-image</span><span>No model integration</span><span>Concept-only</span>
+      </div>
+    </div>
+
+    <h2>What Chroma actually <em>is</em></h2>
+
+    <p>Alpaca started life in 2023 as a Photoshop plugin built on Stable Diffusion &mdash; an early entrant in the "AI rendering inside the tools designers already use" race. Two years on, AlpacaML rebuilt and rebranded the model as <strong>Chroma</strong>, a web-based generator now in open access. The architecture-tool corners of the internet noticed because Chroma's training pulls heavily on built-environment imagery and its sketch-to-render path produces output that does not look like the usual AI render slop &mdash; less plastic, less over-saturated, less <em>obviously</em> machine-made.</p>
+
+    <p>The interface is the part Alpaca got right. You drop a sketch or a viewport screenshot, type a prompt, pick a style preset, and Chroma returns four variants in roughly 25&ndash;40 seconds. There is no token system to budget, no credit balance ticking down, no upsell modal. In 2026 that combination is rare enough to be worth a paragraph by itself.</p>
+
+    <h2>What free <em>actually buys you</em></h2>
+
+    <p>On the residential exterior, with a SketchUp viewport line drawing as the seed and a three-line prompt describing materials, time of day and weather, Chroma produced a pair of usable images on the second run. By usable, we mean: defensible on a client call as an early concept direction, with material reading and atmospheric feel that matched the prompt's intent. That is the same bar Midjourney, Veras and D5 clear. It is not the bar most "free" tools clear.</p>
+
+    <p>Three behaviors stood out. First, Chroma <strong>respects line work</strong> more than most general-purpose models &mdash; if your sketch shows a flat roof, Chroma is less likely than Midjourney or Leonardo to add a gable. Second, the <strong>material handling on natural surfaces</strong> &mdash; brick, board-formed concrete, weathered timber &mdash; is unusually competent for a free model. Third, the <strong>output does not have the chrome-and-gloss sheen</strong> that betrays AI provenance in client review. People did not immediately read the renders as AI, which we cannot say about most of the free-tier alternatives we tested this year.</p>
+
+    <h2>Where it breaks &mdash; <em>be honest about the ceiling</em></h2>
+
+    <p>Chroma is a general-purpose image model. It is not a renderer in the sense Veras and D5 are renderers. Three failures repeat:</p>
+
+    <p><strong>Geometry drift.</strong> On the courtyard study, with a four-bay arcade in the seed sketch, Chroma returned a five-bay arcade. Twice. This is the same ceiling as Midjourney V8, and the same caveat applies &mdash; a text-and-image model cannot hold geometry it never had. If the building must match the drawing, Chroma is not the tool.</p>
+
+    <p><strong>Interior consistency.</strong> The single interior we ran went well on furniture and surface read, badly on perspective. Vanishing points wandered, ceiling planes warped. A junior designer would not catch the drift on a thumbnail; a client looking at a printed boardroom A1 would.</p>
+
+    <p><strong>Queue latency.</strong> Open access means open queue. Morning Pacific generated in 12&ndash;15 seconds. Evening UTC ran 90&ndash;180 seconds with occasional 5xx timeouts. For a paid tool, queue jitter is a complaint. For a free tool, it is the price of admission &mdash; but plan around it.</p>
+
+    <blockquote>Free is not the same as cheap. The price you pay for Chroma is not money. It is queue time, geometry drift, and a ceiling you cannot pay your way past.</blockquote>
+
+    <h2>Chroma vs the paid <em>concept-phase tools</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Chroma (free)</th>
+          <th>Midjourney V8 ($)</th>
+          <th>Veras 4.3 ($$)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concept image quality</td>
+          <td class="improved">Good</td>
+          <td class="winner">Excellent</td>
+          <td class="winner">Excellent</td>
+        </tr>
+        <tr>
+          <td>Sketch-to-render fidelity</td>
+          <td class="improved">Decent &mdash; respects line work</td>
+          <td>Weak &mdash; ignores structure</td>
+          <td class="winner">Excellent &mdash; reads geometry</td>
+        </tr>
+        <tr>
+          <td>Holds your building's geometry</td>
+          <td>No</td>
+          <td>No</td>
+          <td class="winner">Yes (Revit/SketchUp link)</td>
+        </tr>
+        <tr>
+          <td>Speed (Pacific morning)</td>
+          <td>~15s</td>
+          <td class="winner">~8s</td>
+          <td>~20s</td>
+        </tr>
+        <tr>
+          <td>Speed (evening peak)</td>
+          <td>90&ndash;180s</td>
+          <td class="winner">~10s</td>
+          <td>~25s</td>
+        </tr>
+        <tr>
+          <td>Material believability</td>
+          <td class="improved">Strong for natural surfaces</td>
+          <td class="winner">Best in class</td>
+          <td class="winner">Best in class</td>
+        </tr>
+        <tr>
+          <td>Cost</td>
+          <td class="winner">$0</td>
+          <td>$10&ndash;$60/mo</td>
+          <td>$50&ndash;$100/mo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Who Chroma <em>is actually for</em></h2>
+
+    <p>Three groups will get real value out of Chroma in 2026, and a fourth should not bother.</p>
+
+    <p><strong>Architecture students.</strong> Studio reviews want atmospheric concept boards more than they want photoreal renders, and a student's tool budget is whatever the school subscribes to plus zero. Chroma is the best free option for studio crit deliverables we have tested. It will not replace the school's Revit-to-Twinmotion pipeline for final boards, but for the speculative directions you generate to find the one worth modelling, it is right-sized.</p>
+
+    <p><strong>Solo practitioners testing whether AI rendering belongs in their stack.</strong> If you are not yet willing to commit $50&ndash;$100 a month to Veras or D5, Chroma is a credible way to spend a fortnight finding out whether AI concept rendering changes how your projects feel. If it does, upgrade. If it does not, you spent zero.</p>
+
+    <p><strong>Small firms in markets where the AI render tools are priced for a different economy.</strong> Veras pricing makes sense in London or San Francisco. It does not always make sense in S&atilde;o Paulo or Manila. Chroma plus a SketchUp viewport is a viable concept-phase stack at the cost of nothing.</p>
+
+    <p>The group it is <em>not</em> for: mid-size firms with paid Revit seats and recurring CD work. The hourly rate on the staff you are running Chroma's queue against is higher than the Veras or D5 subscription you are avoiding. Pay the money.</p>
+
+    <h2>How we would put Chroma in <em>a 2026 stack</em></h2>
+
+    <p>Used well, Chroma is a concept-phase ideation tool that sits before any paid rendering work begins. Three uses earned their place in our workflow during the week:</p>
+
+    <ol>
+      <li><strong>Style explorations before committing to a Veras direction.</strong> Generate 20 atmospheres on Chroma, pick the two that feel right, then take the winner into Veras with the actual model. The exploration is free; the deliverable is paid.</li>
+      <li><strong>Junior staff training.</strong> Chroma is a low-stakes sandbox for staff learning how to prompt for architecture. No credit budget to overspend, no client meeting on the line.</li>
+      <li><strong>Personal work, competitions and pro bono.</strong> The projects with no rendering budget are the projects where free actually matters. Chroma makes them possible.</li>
+    </ol>
+
+    <p>The two uses we would not endorse: documentation imagery (geometry drift will embarrass you) and client-facing hero shots for paying work (a $50 Veras seat does it better and faster, and the staff time you save covers the cost).</p>
+
+    <div class="cta-box">
+      <h4>We test free and paid tools on the same brief.</h4>
+      <p>The ArchiGen AI journal runs every new AI render tool through the same residential concept set and reports back. No affiliate links, no sponsored placements &mdash; just whether it ships work or wastes time.</p>
+      <a href="journal.html">Read the journal &rarr;</a>
+    </div>
+
+    <h2>Our take</h2>
+
+    <p>Pixels to Plans was right on the headline. In May 2026, Chroma by AlpacaML is the best free AI rendering tool we have tested for architectural concept work &mdash; meaningfully ahead of the free-tier Leonardo and free-tier Midjourney options it competes with. It clears the bar a tool needs to clear to be a real part of a working stack.</p>
+
+    <p>But the headline buries the qualifier. Chroma is the best free tool, not the best tool. The geometry drift and queue latency are real, and they are the costs the price tag does not show. The right way to read the recommendation is this: if you are not paying for an AI renderer in 2026, Chroma is what you should be using. If you <em>are</em> paying, Chroma is what you should add to the front of your workflow for ideation &mdash; not what you should replace your paid stack with. The right time to start charging for Chroma is the day Alpaca lets us. Until then, take what the open access gives you and put it to work.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios across one week of concept work on a live residential set. No affiliate relationship with AlpacaML. Chroma run in open-access browser build, results compared against Midjourney V8 and Veras 4.3 on the same seed images.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-rendering-small-firms-budget-tiers.html" class="related-card">
+          <div class="rc-tag">Comparison &middot; 2026</div>
+          <div class="rc-title">AI rendering for small firms &mdash; what each budget tier actually buys you in 2026</div>
+        </a>
+        <a href="ai-tools-architecture-students-budget-2026.html" class="related-card">
+          <div class="rc-tag">Guide &middot; 2026</div>
+          <div class="rc-title">AI tools for architecture students &mdash; the honest free and cheap stack for studio</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
