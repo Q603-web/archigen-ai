@@ -10,18 +10,18 @@
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script>
-<title>ComfyUI Sketch-to-Photoreal for Architecture — A Workflow That Actually Holds Geometry — ArchiGen AI</title>
+<title>ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI</title>
 <meta name="description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
 <link rel="canonical" href="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" />
-<meta property="og:title" content="ComfyUI Sketch-to-Photoreal for Architecture — A Workflow That Actually Holds Geometry — ArchiGen AI" />
+<meta property="og:title" content="ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI" />
 <meta property="og:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
 <meta property="og:image" content="https://archigenai.com/og-image.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI Sketch-to-Photoreal for Architecture — A Workflow That Actually Holds Geometry — ArchiGen AI" />
+<meta name="twitter:title" content="ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI" />
 <meta name="twitter:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
 <meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
 
@@ -161,7 +161,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "ComfyUI Sketch-to-Photoreal for Architecture — A Workflow That Actually Holds Geometry",
+  "headline": "ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry",
   "description": "Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
   "publisher": { "@id": "https://archigenai.com/#organization" },
@@ -192,7 +192,7 @@
       "name": "Do I need a powerful GPU to run architectural ComfyUI workflows?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For FLUX.1 Dev at full quality you want at least 16GB of VRAM (RTX 4080 or better). You can run quantized versions on 12GB cards (RTX 4070 Ti) with quality tradeoffs. For 8GB cards, drop to SDXL with an architectural fine-tune — quality is lower but the workflow runs."
+        "text": "For FLUX.1 Dev at full quality you want at least 16GB of VRAM (RTX 4080 or better). You can run quantized versions on 12GB cards (RTX 4070 Ti) with quality tradeoffs. For 8GB cards, drop to SDXL with an architectural fine-tune, quality is lower but the workflow runs."
       }
     },
     {
@@ -233,6 +233,7 @@
       <a href="journal.html" class="active">Journal</a>
       <a href="tools.html">Tools</a>
       <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
@@ -253,10 +254,10 @@
       Hand Sketch → Photoreal
     </div>
     <h1>Sketch <em>to photoreal</em></h1>
-    <p class="lede">An architecture student posted on r/comfyui this week asking how to turn hand sketches into realistic renders. Most replies were wrong. Here's the workflow that actually works — what nodes you need, what numbers to set, and why most tutorials get this wrong.</p>
+    <p class="lede">An architecture student posted on r/comfyui this week asking how to turn hand sketches into realistic renders. Most replies were wrong. Here's the workflow that actually works, what nodes you need, what numbers to set, and why most tutorials get this wrong.</p>
     <div class="byline">
       <div class="byline-info">
-        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="name">Nora Sinclair, Vista Studios</div>
         <div class="detail">9 min read · May 2026 · Tested on FLUX.1 Dev + RTX 4080</div>
       </div>
     </div>
@@ -266,19 +267,19 @@
 <div class="wrap">
   <div class="article-body">
 
-    <p>Every few weeks a familiar Reddit post appears on r/comfyui. An architecture student has been generating images for months — they have the tool installed, they've watched the tutorials — and they still can't turn their hand sketches into renders that look like their actual building. The replies they get are mostly wrong, often from people who haven't actually tried to do this work.</p>
+    <p>Every few weeks a familiar Reddit post appears on r/comfyui. An architecture student has been generating images for months, they have the tool installed, they've watched the tutorials, and they still can't turn their hand sketches into renders that look like their actual building. The replies they get are mostly wrong, often from people who haven't actually tried to do this work.</p>
 
     <p>This article is the workflow Vista Studios uses for sketch-to-photoreal conversion. It's been running stable since FLUX.1 Dev landed last year and it gets us reliable architectural output from hand-drawn input. It's also the workflow we'd point that student to.</p>
 
-    <p>Two things up front. First, this is the local-ComfyUI workflow — you're not paying per render. Second, if you have access to <a href="nano-banana-2-architecture-rendering-explained.html">Nano Banana 2 through Veras or the Chaos API</a>, you'll get better results. NB2 is genuinely better at this. But it's not free, and if you're a student or a small practice running on what you already have, this workflow gets you 80% of the way for $0 of inference cost.</p>
+    <p>Two things up front. First, this is the local-ComfyUI workflow, you're not paying per render. Second, if you have access to <a href="nano-banana-2-architecture-rendering-explained.html">Nano Banana 2 through Veras or the Chaos API</a>, you'll get better results. NB2 is genuinely better at this. But it's not free, and if you're a student or a small practice running on what you already have, this workflow gets you 80% of the way for $0 of inference cost.</p>
 
     <h2>What you <em>need</em> first</h2>
 
-    <p><strong>Hardware:</strong> 16GB+ VRAM is comfortable (RTX 4080 / 4090 / 5080). 12GB works with quantized FLUX. 8GB cards should run SDXL instead — same workflow logic, weaker output.</p>
+    <p><strong>Hardware:</strong> 16GB+ VRAM is comfortable (RTX 4080 / 4090 / 5080). 12GB works with quantized FLUX. 8GB cards should run SDXL instead, same workflow logic, weaker output.</p>
 
     <p><strong>Models:</strong></p>
     <ul>
-      <li><strong>FLUX.1 Dev</strong> as the base checkpoint. The Dev release is the right balance of quality and license — you can use it for personal and most commercial work.</li>
+      <li><strong>FLUX.1 Dev</strong> as the base checkpoint. The Dev release is the right balance of quality and license, you can use it for personal and most commercial work.</li>
       <li><strong>An architectural LoRA.</strong> We use a custom-trained one but several decent ones are available on Civitai. Look for LoRAs trained on contemporary architecture rather than "fantasy castle" or "cyberpunk" variants.</li>
       <li><strong>ControlNet for FLUX:</strong> the Scribble model and the Canny model. You're going to use both.</li>
     </ul>
@@ -289,27 +290,27 @@
 
     <p>Most tutorials show a single chain: sketch in, render out. That's the source of most failures. The workflow that actually works has four distinct stages, each with a job.</p>
 
-    <p><strong>Stage 1 — Pre-process the sketch.</strong> Run your hand sketch (or rough digital sketch) through both the Scribble and the Canny preprocessors. This gives you two control signals: Scribble captures the loose intent of your line work, Canny captures the hard structural lines. Save both as image outputs.</p>
+    <p><strong>Stage 1, Pre-process the sketch.</strong> Run your hand sketch (or rough digital sketch) through both the Scribble and the Canny preprocessors. This gives you two control signals: Scribble captures the loose intent of your line work, Canny captures the hard structural lines. Save both as image outputs.</p>
 
-    <p><strong>Stage 2 — Stacked ControlNet conditioning.</strong> Feed both control signals into your conditioning chain at moderate strength. This is the step most tutorials skip or do wrong.</p>
+    <p><strong>Stage 2, Stacked ControlNet conditioning.</strong> Feed both control signals into your conditioning chain at moderate strength. This is the step most tutorials skip or do wrong.</p>
 
-    <p><strong>Stage 3 — Sampling with the architectural LoRA.</strong> Run a standard FLUX KSampler with the LoRA loaded. Specific numbers below.</p>
+    <p><strong>Stage 3, Sampling with the architectural LoRA.</strong> Run a standard FLUX KSampler with the LoRA loaded. Specific numbers below.</p>
 
-    <p><strong>Stage 4 — Detail upscale and post.</strong> A second pass through an upscaler (we use 4x-UltraSharp through ComfyUI's standard upscale node), then optional latent re-encoding for final detail.</p>
+    <p><strong>Stage 4, Detail upscale and post.</strong> A second pass through an upscaler (we use 4x-UltraSharp through ComfyUI's standard upscale node), then optional latent re-encoding for final detail.</p>
 
     <p>Each stage has settings that matter. Let's go through them.</p>
 
     <h2>Stage 1: <em>Sketch preprocessing</em></h2>
 
-    <p>Start with a clean sketch. Resolution doesn't need to be high — 1024x1024 is plenty. Pen-and-paper sketches scanned at 300dpi work fine. The model wants to see your line logic; it does not want to see the texture of your paper.</p>
+    <p>Start with a clean sketch. Resolution doesn't need to be high, 1024x1024 is plenty. Pen-and-paper sketches scanned at 300dpi work fine. The model wants to see your line logic; it does not want to see the texture of your paper.</p>
 
-    <p>Pre-clean the sketch. Threshold it in Photoshop or similar so you have black lines on white, no shading, no texture. If your hand sketch has shading, lose the shading — Scribble will read it as additional structural intent and confuse the output. We've seen students keep their pencil shading in and then wonder why the AI rendered a building with a giant gray cloud over it. The cloud was their shadow.</p>
+    <p>Pre-clean the sketch. Threshold it in Photoshop or similar so you have black lines on white, no shading, no texture. If your hand sketch has shading, lose the shading, Scribble will read it as additional structural intent and confuse the output. We've seen students keep their pencil shading in and then wonder why the AI rendered a building with a giant gray cloud over it. The cloud was their shadow.</p>
 
     <p>Run the cleaned sketch through both:</p>
 
     <ul>
-      <li><strong>Scribble preprocessor</strong> — produces a thin-line map that captures intent loosely. This is your "atmosphere" control signal.</li>
-      <li><strong>Canny preprocessor</strong> — produces a hard-edge map. Set the low threshold around 100 and the high around 200 for typical line work.</li>
+      <li><strong>Scribble preprocessor</strong>, produces a thin-line map that captures intent loosely. This is your "atmosphere" control signal.</li>
+      <li><strong>Canny preprocessor</strong>, produces a hard-edge map. Set the low threshold around 100 and the high around 200 for typical line work.</li>
     </ul>
 
     <h2>Stage 2: <em>Stacked ControlNet</em></h2>
@@ -359,7 +360,7 @@ Prompt structure:
 
     <p>FLUX outputs at 1024x1024 read fine on screen but lack detail at print size. The final stage adds resolution.</p>
 
-    <p>Standard pattern: <strong>4x-UltraSharp</strong> upscaler through ComfyUI's <code>Upscale Image (using Model)</code> node. Then optionally re-encode to latent and run a low-denoise pass (around 0.25) through FLUX again at the upscaled resolution. This second pass adds material micro-detail — the grain in concrete, the texture of brick mortar, the irregularity of weathered metal — that wasn't visible at 1024.</p>
+    <p>Standard pattern: <strong>4x-UltraSharp</strong> upscaler through ComfyUI's <code>Upscale Image (using Model)</code> node. Then optionally re-encode to latent and run a low-denoise pass (around 0.25) through FLUX again at the upscaled resolution. This second pass adds material micro-detail, the grain in concrete, the texture of brick mortar, the irregularity of weathered metal, that wasn't visible at 1024.</p>
 
     <p>Don't denoise above 0.35 in this second pass or you'll start re-interpreting the building. Stay low, let it polish.</p>
 
@@ -388,15 +389,15 @@ FLUX Model + VAE ─────────────────┴→ KSamp
 
     <p><strong>Output ignores the building entirely.</strong> Your CFG is too high (above 5.0) or your ControlNet strengths are too low (below 0.5). Increase ControlNet strengths first; lower CFG second.</p>
 
-    <p><strong>Output looks like a sketch with color filled in.</strong> Your end_percent values are too high — you're holding the ControlNets through the entire sampling process. Drop them to 0.6/0.7. Let the model actually render the late steps.</p>
+    <p><strong>Output looks like a sketch with color filled in.</strong> Your end_percent values are too high, you're holding the ControlNets through the entire sampling process. Drop them to 0.6/0.7. Let the model actually render the late steps.</p>
 
     <p><strong>Output is photorealistic but the building changed.</strong> Your sketch is too loose for what you're asking. Add a Canny pass with cleaner line input. Or accept that the model needed more structural information than you gave it and tighten the sketch.</p>
 
-    <p><strong>Materials look wrong.</strong> Your prompt isn't specific enough about materiality, or your architectural LoRA was trained on a different style. Be explicit in the prompt about exact materials. If a LoRA keeps pulling outputs toward "sleek modernist glass house" regardless of what you ask for, that LoRA is overpowered for general use — drop it to 0.4 strength or swap it.</p>
+    <p><strong>Materials look wrong.</strong> Your prompt isn't specific enough about materiality, or your architectural LoRA was trained on a different style. Be explicit in the prompt about exact materials. If a LoRA keeps pulling outputs toward "sleek modernist glass house" regardless of what you ask for, that LoRA is overpowered for general use, drop it to 0.4 strength or swap it.</p>
 
     <h2>When <em>not</em> to use this workflow</h2>
 
-    <p>This is the right tool for: turning hand sketches into client-presentable visualization, exploring design directions in early SD, generating quick atmosphere shots from rough massing studies, and doing what students and small practices need most — getting from concept to image without paying per render.</p>
+    <p>This is the right tool for: turning hand sketches into client-presentable visualization, exploring design directions in early SD, generating quick atmosphere shots from rough massing studies, and doing what students and small practices need most, getting from concept to image without paying per render.</p>
 
     <p>It's the wrong tool for: rendering an actual developed BIM model (use Veras), doing client-final hero shots that need to be defensible to scrutiny (still use Veras or a real renderer), or for projects where the building has to be exactly correct and the AI output will be measured against drawings (don't use any AI tool for this; use V-Ray or similar).</p>
 
@@ -404,9 +405,9 @@ FLUX Model + VAE ─────────────────┴→ KSamp
 
     <h2>What's <em>next</em></h2>
 
-    <p>Two things to watch this year. First, FLUX.2 if it ships — Black Forest Labs has hinted at architectural fine-tunes in the roadmap, which could collapse the need for community LoRAs. Second, the ControlNet ecosystem itself is consolidating; expect a unified architectural ControlNet from one of the major labs by end of year that does what Scribble + Canny + custom training do today.</p>
+    <p>Two things to watch this year. First, FLUX.2 if it ships, Black Forest Labs has hinted at architectural fine-tunes in the roadmap, which could collapse the need for community LoRAs. Second, the ControlNet ecosystem itself is consolidating; expect a unified architectural ControlNet from one of the major labs by end of year that does what Scribble + Canny + custom training do today.</p>
 
-    <p>The workflow above will keep working through both transitions. The principles — stack ControlNets at moderate strength, keep CFG low, let the model interpret your sketch in the late steps — translate to whatever model you swap in. That's the whole point of working in ComfyUI rather than in a closed product. The graph is the asset.</p>
+    <p>The workflow above will keep working through both transitions. The principles, stack ControlNets at moderate strength, keep CFG low, let the model interpret your sketch in the late steps, translate to whatever model you swap in. That's the whole point of working in ComfyUI rather than in a closed product. The graph is the asset.</p>
 
     <hr>
 
@@ -417,7 +418,7 @@ FLUX Model + VAE ─────────────────┴→ KSamp
       <div class="related-grid">
         <a href="comfyui-advanced-tutorial.html" class="related-card">
           <div class="rc-tag">Workflow · Apr 2026</div>
-          <div class="rc-title">ComfyUI advanced — exterior workflows that actually work</div>
+          <div class="rc-title">ComfyUI advanced, exterior workflows that actually work</div>
         </a>
         <a href="prompt-engineering-architectural-exteriors.html" class="related-card">
           <div class="rc-tag">Workflow · Apr 2026</div>

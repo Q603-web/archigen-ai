@@ -10,18 +10,18 @@
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script>
-<title>An Honest Guide to AI Rendering in Architecture â€” ArchiGen AI</title>
+<title>An Honest Guide to AI Rendering in Architecture, ArchiGen AI</title>
 <meta name="description" content="A practitioner's guide to AI rendering for architects. What actually works, what still fails, tool-by-tool assessments of Midjourney, FLUX, ComfyUI and Leonardo, and when not to use AI rendering at all." />
 <link rel="canonical" href="https://archigenai.com/honest-guide-ai-rendering-architecture.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/honest-guide-ai-rendering-architecture.html" />
-<meta property="og:title" content="An Honest Guide to AI Rendering in Architecture â€” ArchiGen AI" />
+<meta property="og:title" content="An Honest Guide to AI Rendering in Architecture, ArchiGen AI" />
 <meta property="og:description" content="A practitioner's guide to AI rendering for architects. What actually works, what still fails, tool-by-tool assessments of Midjourney, FLUX, ComfyUI and Leonardo, and when not to use AI rendering at all." />
 <meta property="og:image" content="https://archigenai.com/og-image.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="An Honest Guide to AI Rendering in Architecture â€” ArchiGen AI" />
+<meta name="twitter:title" content="An Honest Guide to AI Rendering in Architecture, ArchiGen AI" />
 <meta name="twitter:description" content="A practitioner's guide to AI rendering for architects. What actually works, what still fails, tool-by-tool assessments of Midjourney, FLUX, ComfyUI and Leonardo, and when not to use AI rendering at all." />
 <meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
 
@@ -140,7 +140,7 @@
       "name": "When should architects NOT use AI rendering?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "AI rendering should not be used for planning submissions where geometric accuracy is material, construction documentation, environmental and daylight studies requiring physically accurate simulation, anything in a legally binding document, or client sign-off on specific material selections. AI rendering is a communication tool, not a documentation tool — anywhere your output carries technical or legal weight, it is the wrong instrument."
+        "text": "AI rendering should not be used for planning submissions where geometric accuracy is material, construction documentation, environmental and daylight studies requiring physically accurate simulation, anything in a legally binding document, or client sign-off on specific material selections. AI rendering is a communication tool, not a documentation tool, anywhere your output carries technical or legal weight, it is the wrong instrument."
       }
     },
     {
@@ -164,7 +164,7 @@
       "name": "How does Midjourney compare to FLUX for architectural rendering?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Midjourney has no equal for atmosphere and mood at concept stage but lacks parametric control — you cannot lock a camera angle or reliably reproduce a view. FLUX (Black Forest Labs) has the strongest material surface quality of any open-weights model and higher prompt fidelity for spatial descriptions, but requires a wrapper (ComfyUI, fal.ai, or a hosted interface) to use productively. The gap between them on atmosphere has closed considerably with FLUX 1.1 Pro."
+        "text": "Midjourney has no equal for atmosphere and mood at concept stage but lacks parametric control, you cannot lock a camera angle or reliably reproduce a view. FLUX (Black Forest Labs) has the strongest material surface quality of any open-weights model and higher prompt fidelity for spatial descriptions, but requires a wrapper (ComfyUI, fal.ai, or a hosted interface) to use productively. The gap between them on atmosphere has closed considerably with FLUX 1.1 Pro."
       }
     }
   ]
@@ -197,11 +197,12 @@
       <a href="journal.html" class="active">Journal</a>
       <a href="tools.html">Tools</a>
       <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
       <a href="#signin" class="btn">Sign in</a>
-      <a href="#newsletter" class="btn dark">Join the studio â†’</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
     </div>
   </div>
 </nav>
@@ -213,10 +214,10 @@
       <span class="tag">Â· 11 min read</span>
     </div>
     <h1>An Honest Guide to AI Rendering in <em>Architecture</em></h1>
-    <p class="lede">What actually works, what doesn't, and when the whole category is the wrong tool for the job. Written after two years of running these pipelines on real projects â€” not demos.</p>
+    <p class="lede">What actually works, what doesn't, and when the whole category is the wrong tool for the job. Written after two years of running these pipelines on real projects, not demos.</p>
     <div class="byline">
       <div class="byline-info">
-        <div class=”name”>Nora Sinclair — Vista Studios</div>
+        <div class=”name”>Nora Sinclair, Vista Studios</div>
         <div class="detail">11 min read Â· Last updated Apr 2026 Â· Vista Studios tested</div>
       </div>
     </div>
@@ -228,7 +229,7 @@
 
     <p>Let me tell you how this guide came to exist. A project architect at our studio spent three days fighting Midjourney to produce a consistent exterior view across eight facade options. She got six of them looking right, two that were unusable, and a set of screen-time logs that would embarrass her in front of any serious production team. The work was good. The process was not.</p>
 
-    <p>That experience is common. AI rendering tools have been marketed to architects with a kind of breathless optimism that papers over the real operational picture. They are genuinely useful â€” in some contexts, dramatically so â€” but the conditions under which they are useful are specific, and the costs of deploying them outside those conditions are real. This guide is the briefing I wish we had at the start.</p>
+    <p>That experience is common. AI rendering tools have been marketed to architects with a kind of breathless optimism that papers over the real operational picture. They are genuinely useful, in some contexts, dramatically so, but the conditions under which they are useful are specific, and the costs of deploying them outside those conditions are real. This guide is the briefing I wish we had at the start.</p>
 
     <hr>
 
@@ -236,9 +237,9 @@
 
     <p>Start with what the tools can do before worrying about what they can't. There are three areas where AI rendering earns its place in the workflow without serious qualification.</p>
 
-    <p><strong>Speed at ideation stage.</strong> Nothing touches AI rendering when the goal is to generate a range of formal or material possibilities before the design is locked. Where a traditional render pipeline requires a reasonably resolved model before you get useful output, a good AI tool can work from a rough massing sketch, a section diagram, or even a text description of spatial intent. That is a qualitative difference in how early the visualization can inform the design. We have used Midjourney to produce forty exterior mood studies in an afternoon â€” not forty good ones, but enough signal to make clear decisions about orientation, materiality, and scale register.</p>
+    <p><strong>Speed at ideation stage.</strong> Nothing touches AI rendering when the goal is to generate a range of formal or material possibilities before the design is locked. Where a traditional render pipeline requires a reasonably resolved model before you get useful output, a good AI tool can work from a rough massing sketch, a section diagram, or even a text description of spatial intent. That is a qualitative difference in how early the visualization can inform the design. We have used Midjourney to produce forty exterior mood studies in an afternoon, not forty good ones, but enough signal to make clear decisions about orientation, materiality, and scale register.</p>
 
-    <p><strong>Client communication in early stages.</strong> The jump in render quality that AI tools bring to concept-level presentations is significant. Clients used to receive hand-drawn sketches or basic SketchUp stills at early design presentations; they now receive images that read as near-photographic. That is useful when the design direction is still being negotiated, because it closes the imagination gap between architect and client without committing to geometry. The caveat â€” and it is important â€” is that you have to be precise in how you label these images. "AI concept render â€” geometry to be confirmed" is not optional small print. It is the difference between managing client expectations and setting yourself up for a dispute.</p>
+    <p><strong>Client communication in early stages.</strong> The jump in render quality that AI tools bring to concept-level presentations is significant. Clients used to receive hand-drawn sketches or basic SketchUp stills at early design presentations; they now receive images that read as near-photographic. That is useful when the design direction is still being negotiated, because it closes the imagination gap between architect and client without committing to geometry. The caveat, and it is important, is that you have to be precise in how you label these images. "AI concept render, geometry to be confirmed" is not optional small print. It is the difference between managing client expectations and setting yourself up for a dispute.</p>
 
     <p><strong>Variation generation for approved schemes.</strong> Once a scheme is resolved, AI tools can produce material and lighting variations from a base render faster than any traditional pipeline. Feed a V-Ray or Corona output into an img2img workflow and you can generate a dozen material studies in the time it would previously have taken to set up three. This is the application where the tools look most like a genuine production accelerant rather than a creative shortcut.</p>
 
@@ -248,15 +249,15 @@
 
     <h2>Where they <em>fail</em></h2>
 
-    <p>The failure modes are consistent and worth understanding precisely, because they tend to show up at the worst possible moments â€” in front of planning committees, on a laptop screen in a client boardroom, in the last twelve hours before a competition submission deadline.</p>
+    <p>The failure modes are consistent and worth understanding precisely, because they tend to show up at the worst possible moments, in front of planning committees, on a laptop screen in a client boardroom, in the last twelve hours before a competition submission deadline.</p>
 
-    <p><strong>Structural and geometric accuracy.</strong> AI rendering models are trained on photographs, not blueprints. They have no internal representation of structural logic. When you ask a model to render a cantilevered roof overhang, it will produce something that looks like a cantilevered roof overhang â€” until you look at the connection detail, or the column spacing, or the way the slab thickness resolves at the edge. The geometry will be plausible at arm's length and wrong up close. This matters less for mood work and enormously for anything a structural engineer or planning officer will scrutinize.</p>
+    <p><strong>Structural and geometric accuracy.</strong> AI rendering models are trained on photographs, not blueprints. They have no internal representation of structural logic. When you ask a model to render a cantilevered roof overhang, it will produce something that looks like a cantilevered roof overhang, until you look at the connection detail, or the column spacing, or the way the slab thickness resolves at the edge. The geometry will be plausible at arm's length and wrong up close. This matters less for mood work and enormously for anything a structural engineer or planning officer will scrutinize.</p>
 
-    <p><strong>Material realism at close range.</strong> AI-generated materials look excellent at the scale where you're reading a whole facade. Zoom in on the brick coursing, the window gasket detail, or the coping joint, and the model is confabulating. It has learned what brickwork looks like in aggregate, not the dimensional logic of a particular bond pattern at a particular scale. For material specification work â€” the kind where a client is deciding between two stone finishes â€” close-up AI renders are actively misleading.</p>
+    <p><strong>Material realism at close range.</strong> AI-generated materials look excellent at the scale where you're reading a whole facade. Zoom in on the brick coursing, the window gasket detail, or the coping joint, and the model is confabulating. It has learned what brickwork looks like in aggregate, not the dimensional logic of a particular bond pattern at a particular scale. For material specification work, the kind where a client is deciding between two stone finishes, close-up AI renders are actively misleading.</p>
 
-    <p><strong>Complex, controlled lighting.</strong> Asking an AI model to light a space in a specific way â€” to show how light from a north-facing clerestory falls across a concrete wall at 3pm on the winter solstice â€” requires a level of parametric control that most AI tools do not expose. You can get good daylight renders. You cannot currently get accurate daylight renders. There is a difference, and it becomes critical when a building's light performance is part of its environmental credentials or its planning justification.</p>
+    <p><strong>Complex, controlled lighting.</strong> Asking an AI model to light a space in a specific way, to show how light from a north-facing clerestory falls across a concrete wall at 3pm on the winter solstice, requires a level of parametric control that most AI tools do not expose. You can get good daylight renders. You cannot currently get accurate daylight renders. There is a difference, and it becomes critical when a building's light performance is part of its environmental credentials or its planning justification.</p>
 
-    <p><strong>Consistency across a project.</strong> A related and underreported problem: AI rendering tools have weak scene memory. Getting the same building to look like itself across a site plan, five exterior views, four interior views, and a detail study requires a level of prompt discipline and reference-image management that negates a significant portion of the speed advantage. Practices that have successfully addressed this problem have generally done so by building elaborate ControlNet pipelines â€” which brings its own overhead.</p>
+    <p><strong>Consistency across a project.</strong> A related and underreported problem: AI rendering tools have weak scene memory. Getting the same building to look like itself across a site plan, five exterior views, four interior views, and a detail study requires a level of prompt discipline and reference-image management that negates a significant portion of the speed advantage. Practices that have successfully addressed this problem have generally done so by building elaborate ControlNet pipelines, which brings its own overhead.</p>
 
     <hr>
 
@@ -264,11 +265,11 @@
 
     <p>The practices getting the most value from AI rendering are not the ones that have replaced their traditional pipeline. They are the ones that run both in parallel, with a clear handoff point between them.</p>
 
-    <p>The structure that works is roughly this: AI rendering owns everything from project inception to design development sign-off. It handles concept mood work, early client presentations, option studies, and material exploration. Traditional rendering â€” whether that is V-Ray, Corona, Enscape, or an external visualization studio â€” takes over once the scheme is frozen and the deliverables are formally committed.</p>
+    <p>The structure that works is roughly this: AI rendering owns everything from project inception to design development sign-off. It handles concept mood work, early client presentations, option studies, and material exploration. Traditional rendering, whether that is V-Ray, Corona, Enscape, or an external visualization studio, takes over once the scheme is frozen and the deliverables are formally committed.</p>
 
-    <p>In practice, the handoff usually happens around RIBA Stage 3. Before that point, the speed and visual quality of AI rendering creates real value. After that point, the accuracy requirements â€” for planning submissions, for contractor packages, for building regulations â€” exceed what AI rendering can reliably deliver without manual correction.</p>
+    <p>In practice, the handoff usually happens around RIBA Stage 3. Before that point, the speed and visual quality of AI rendering creates real value. After that point, the accuracy requirements, for planning submissions, for contractor packages, for building regulations, exceed what AI rendering can reliably deliver without manual correction.</p>
 
-    <p>One specific workflow pattern that has become standard at Vista Studios: we use AI rendering to produce the "book cover" â€” the single hero image that leads a planning submission or competition entry â€” and traditional rendering for the technical views that accompany it. The hero image benefits from the atmosphere and visual weight that AI tools deliver naturally. The technical views need to be defensible.</p>
+    <p>One specific workflow pattern that has become standard at Vista Studios: we use AI rendering to produce the "book cover", the single hero image that leads a planning submission or competition entry, and traditional rendering for the technical views that accompany it. The hero image benefits from the atmosphere and visual weight that AI tools deliver naturally. The technical views need to be defensible.</p>
 
     <div class="callout">
       <div class="callout-label">Workflow checklist</div>
@@ -284,15 +285,15 @@
 
     <h2>Tool by tool: the honest take</h2>
 
-    <p>Four tools dominate the serious end of AI rendering for architecture. Each has a genuine use case and genuine limitations. Here is what we have found after sustained project use â€” not benchmarks, not PR demos.</p>
+    <p>Four tools dominate the serious end of AI rendering for architecture. Each has a genuine use case and genuine limitations. Here is what we have found after sustained project use, not benchmarks, not PR demos.</p>
 
     <div class="tool-card">
       <div class="tc-head">
         <div class="tc-name">Midjourney v7</div>
         <div class="tc-verdict">Best atmosphere</div>
       </div>
-      <div class="tc-pricing">$10â€“$120/mo Â· Web + Discord</div>
-      <p>Midjourney is the best tool in this group at producing images that feel like architecture, in the way a great architectural photograph feels like architecture â€” light, weight, material, sequence, mood. That quality is real and hard to replicate. The limitation is equally real: Midjourney has almost no parametric control. You cannot tell it to match a specific geometry. You cannot lock a camera angle. You cannot reliably reproduce a view across a session. For concept work and for hero images where you have freedom over the composition, it has no equal at this price point. For anything requiring geometric consistency or repeatable views, it will cost you more in post-correction than it saves in generation speed. Use it at the front of the project. Do not use it to document the back of the project.</p>
+      <div class="tc-pricing">$10–$120/mo Â· Web + Discord</div>
+      <p>Midjourney is the best tool in this group at producing images that feel like architecture, in the way a great architectural photograph feels like architecture, light, weight, material, sequence, mood. That quality is real and hard to replicate. The limitation is equally real: Midjourney has almost no parametric control. You cannot tell it to match a specific geometry. You cannot lock a camera angle. You cannot reliably reproduce a view across a session. For concept work and for hero images where you have freedom over the composition, it has no equal at this price point. For anything requiring geometric consistency or repeatable views, it will cost you more in post-correction than it saves in generation speed. Use it at the front of the project. Do not use it to document the back of the project.</p>
       <div class="tc-tags">
         <span>Ideation</span><span>Hero renders</span><span>Mood work</span><span class="warn">No geometry lock</span><span class="warn">No scene memory</span>
       </div>
@@ -304,7 +305,7 @@
         <div class="tc-verdict">Best base model</div>
       </div>
       <div class="tc-pricing">Open weights Â· Self-host or API via fal.ai, Replicate</div>
-      <p>FLUX is the strongest open-weights base model currently available for architectural work. Its understanding of material surfaces â€” concrete texture, stone grain, weathered steel â€” is noticeably better than Stable Diffusion in our testing, and its prompt fidelity is high enough that you can describe a specific spatial condition and get something architecturally coherent back. The gap between FLUX and Midjourney on atmosphere has closed considerably with FLUX 1.1 Pro. The limitation is operational: you need a wrapper to use it effectively. FLUX on its own is a model, not a tool. Running it productively requires either a ComfyUI pipeline, a fal.ai API integration, or a hosted interface like Krea or Freepik â€” each of which adds its own overhead and constraints. The ceiling is the highest in this group. The setup time is also the highest.</p>
+      <p>FLUX is the strongest open-weights base model currently available for architectural work. Its understanding of material surfaces, concrete texture, stone grain, weathered steel, is noticeably better than Stable Diffusion in our testing, and its prompt fidelity is high enough that you can describe a specific spatial condition and get something architecturally coherent back. The gap between FLUX and Midjourney on atmosphere has closed considerably with FLUX 1.1 Pro. The limitation is operational: you need a wrapper to use it effectively. FLUX on its own is a model, not a tool. Running it productively requires either a ComfyUI pipeline, a fal.ai API integration, or a hosted interface like Krea or Freepik, each of which adds its own overhead and constraints. The ceiling is the highest in this group. The setup time is also the highest.</p>
       <div class="tc-tags">
         <span>Open weights</span><span>Material quality</span><span>Flexible</span><span class="warn">Needs wrapper</span><span class="warn">Setup overhead</span>
       </div>
@@ -316,7 +317,7 @@
         <div class="tc-verdict">Maximum control</div>
       </div>
       <div class="tc-pricing">Free (self-hosted) Â· GPU via RunPod from ~$0.44/hr</div>
-      <p>ComfyUI is not a tool for practices that want a quick result. It is a node-based pipeline builder that requires a meaningful technical investment before it pays off â€” our estimate for getting a production-quality ComfyUI architecture workflow running from scratch is a week of focused work by someone with reasonable technical aptitude. What you get for that investment is the most controllable AI rendering pipeline available: ControlNet depth conditioning lets you drive outputs from actual model geometry; LoRA fine-tunes can be trained on your studio's reference imagery to enforce visual consistency; inpainting workflows let you fix specific regions without rerunning the whole image. We use ComfyUI for every project where volume, consistency, or cost is a material concern. At scale â€” fifty images across a competition entry, say â€” the economics are materially better than any hosted tool. But if your practice runs at lower volume or lacks technical staff, the setup cost is prohibitive.</p>
+      <p>ComfyUI is not a tool for practices that want a quick result. It is a node-based pipeline builder that requires a meaningful technical investment before it pays off, our estimate for getting a production-quality ComfyUI architecture workflow running from scratch is a week of focused work by someone with reasonable technical aptitude. What you get for that investment is the most controllable AI rendering pipeline available: ControlNet depth conditioning lets you drive outputs from actual model geometry; LoRA fine-tunes can be trained on your studio's reference imagery to enforce visual consistency; inpainting workflows let you fix specific regions without rerunning the whole image. We use ComfyUI for every project where volume, consistency, or cost is a material concern. At scale, fifty images across a competition entry, say, the economics are materially better than any hosted tool. But if your practice runs at lower volume or lacks technical staff, the setup cost is prohibitive.</p>
       <div class="tc-tags">
         <span>ControlNet</span><span>LoRA fine-tuning</span><span>Batch processing</span><span>Cost efficient</span><span class="warn">High setup cost</span><span class="warn">Requires technical staff</span>
       </div>
@@ -327,8 +328,8 @@
         <div class="tc-name">Leonardo AI</div>
         <div class="tc-verdict">Best entry point</div>
       </div>
-      <div class="tc-pricing">Free tier available Â· $12â€“$48/mo paid plans</div>
-      <p>Leonardo is the most accessible serious tool in this group, and that is a genuine recommendation, not damning with faint praise. The free tier is not crippled. The architecture-specific fine-tuned models â€” particularly the ones trained on exterior renders and interior photography â€” produce results that are meaningfully better than a generic base model for building-scale work. The canvas and inpainting tools are functional and learnable in an afternoon. Where Leonardo falls short of the other tools is at the professional ceiling: it lacks the parametric depth of ComfyUI and the atmospheric quality of Midjourney, and at the paid tiers it competes poorly on value against FLUX-based alternatives. For a sole practitioner, a small studio getting started, or a practice doing a proof of concept before committing budget, Leonardo is the right first tool. It is not where you land permanently once the workflow matures.</p>
+      <div class="tc-pricing">Free tier available Â· $12–$48/mo paid plans</div>
+      <p>Leonardo is the most accessible serious tool in this group, and that is a genuine recommendation, not damning with faint praise. The free tier is not crippled. The architecture-specific fine-tuned models, particularly the ones trained on exterior renders and interior photography, produce results that are meaningfully better than a generic base model for building-scale work. The canvas and inpainting tools are functional and learnable in an afternoon. Where Leonardo falls short of the other tools is at the professional ceiling: it lacks the parametric depth of ComfyUI and the atmospheric quality of Midjourney, and at the paid tiers it competes poorly on value against FLUX-based alternatives. For a sole practitioner, a small studio getting started, or a practice doing a proof of concept before committing budget, Leonardo is the right first tool. It is not where you land permanently once the workflow matures.</p>
       <div class="tc-tags">
         <span>Beginner-friendly</span><span>Free tier</span><span>Arch fine-tunes</span><span class="warn">Lower ceiling</span>
       </div>
@@ -346,7 +347,7 @@
         <li><strong>Planning submissions where geometric accuracy is material.</strong> Planning officers are increasingly sophisticated about identifying AI renders. More importantly, an AI render that misrepresents setback, massing, or daylight impact can create liability that extends well beyond the submission.</li>
         <li><strong>Construction documentation.</strong> This should be obvious but is worth stating: no AI tool produces output that is reliable enough to inform a contractor's understanding of what they are building.</li>
         <li><strong>Environmental and daylight studies.</strong> Daylight, sunlight, and overshadowing analyses require physically accurate simulation, not visually convincing approximation. These are legally meaningful technical assessments in most planning jurisdictions.</li>
-        <li><strong>Anything in a legally binding document.</strong> Contracts, warranties, building regulations submissions, listed building consents, heritage assessments â€” none of these should contain AI-generated imagery as technical evidence. Atmospheric mood renders in supporting design statements are a grey area; technical views asserting geometric or material accuracy are not.</li>
+        <li><strong>Anything in a legally binding document.</strong> Contracts, warranties, building regulations submissions, listed building consents, heritage assessments, none of these should contain AI-generated imagery as technical evidence. Atmospheric mood renders in supporting design statements are a grey area; technical views asserting geometric or material accuracy are not.</li>
         <li><strong>Client sign-off on specific material selections.</strong> If a client is approving a stone selection based on an AI render, they are approving a confabulation. The real stone will look different. Close-up AI renders for material specification are a route to post-completion disputes.</li>
       </ul>
     </div>
@@ -361,7 +362,7 @@
 
     <p>For most practices, the answer to that question covers a meaningful range of work: concept presentations, early client engagement, option studies, competition entries, and high-volume variation generation. For most practices, the answer does not cover planning submissions, contractor-facing documentation, or anything a lawyer might one day be asked to interpret.</p>
 
-    <p>The tools are improving fast. Consistency across a project â€” currently the biggest operational headache â€” is getting better with every generation. Geometric fidelity is improving as model architectures incorporate 3D priors. The zone of legitimate application is expanding. But the boundary between communication and documentation is not moving, and it is that boundary, more than any capability ceiling, that should govern how and when you deploy these tools in your practice.</p>
+    <p>The tools are improving fast. Consistency across a project, currently the biggest operational headache, is getting better with every generation. Geometric fidelity is improving as model architectures incorporate 3D priors. The zone of legitimate application is expanding. But the boundary between communication and documentation is not moving, and it is that boundary, more than any capability ceiling, that should govern how and when you deploy these tools in your practice.</p>
 
     <p>Get the workflow right and AI rendering is genuinely valuable. Treat it as a shortcut past the parts of the job that require precision, and it will cost you more than it saves.</p>
 

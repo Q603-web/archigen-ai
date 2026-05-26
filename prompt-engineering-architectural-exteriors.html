@@ -10,18 +10,18 @@
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script>
-<title>Prompt Engineering for Architectural Exteriors — ArchiGen AI</title>
+<title>Prompt Engineering for Architectural Exteriors, ArchiGen AI</title>
 <meta name="description" content="A structured method for writing prompts that produce consistent, client-ready architectural exterior renders. Seven parameters, one framework." />
 <link rel="canonical" href="https://archigenai.com/prompt-engineering-architectural-exteriors.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/prompt-engineering-architectural-exteriors.html" />
-<meta property="og:title" content="Prompt Engineering for Architectural Exteriors — ArchiGen AI" />
+<meta property="og:title" content="Prompt Engineering for Architectural Exteriors, ArchiGen AI" />
 <meta property="og:description" content="A structured method for writing prompts that produce consistent, client-ready architectural exterior renders. Seven parameters, one framework." />
 <meta property="og:image" content="https://archigenai.com/og-image.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="Prompt Engineering for Architectural Exteriors — ArchiGen AI" />
+<meta name="twitter:title" content="Prompt Engineering for Architectural Exteriors, ArchiGen AI" />
 <meta name="twitter:description" content="A structured method for writing prompts that produce consistent, client-ready architectural exterior renders. Seven parameters, one framework." />
 <meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
 
@@ -178,7 +178,7 @@
       "name": "What are the most common prompt mistakes when rendering architectural exteriors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The most common mistakes are: stacking conflicting styles in one prompt, using vague atmosphere words instead of specific conditions, not specifying a camera position or focal length, and leaving the surroundings undefined (which causes the AI to invent context that clashes with the building). Also avoid naming famous architects as style references — models often generate their signature building rather than interpreting the style."
+        "text": "The most common mistakes are: stacking conflicting styles in one prompt, using vague atmosphere words instead of specific conditions, not specifying a camera position or focal length, and leaving the surroundings undefined (which causes the AI to invent context that clashes with the building). Also avoid naming famous architects as style references, models often generate their signature building rather than interpreting the style."
       }
     }
   ]
@@ -211,6 +211,7 @@
       <a href="journal.html" class="active">Journal</a>
       <a href="tools.html">Tools</a>
       <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
@@ -230,7 +231,7 @@
     <p class="lede">Most exterior renders fail because the prompt is vague. Seven parameters separate a useful render from a generic one. Here's how to use all seven.</p>
     <div class="byline">
       <div class="byline-info">
-        <div class="name">Nora Sinclair — Vista Studios</div>
+        <div class="name">Nora Sinclair, Vista Studios</div>
         <div class="detail">9 min read · Apr 2026 · Vista Studios workflow</div>
       </div>
     </div>
@@ -240,7 +241,7 @@
 <div class="wrap">
   <div class="article-body">
 
-    <p>The most common mistake in AI exterior rendering is treating the prompt like a search query. "Modern residential building, daytime, photorealistic" will give you something that looks like a real building — but not your building. The difference between a generic render and a project-specific render is in the parameters, and most practitioners are using three when they need seven.</p>
+    <p>The most common mistake in AI exterior rendering is treating the prompt like a search query. "Modern residential building, daytime, photorealistic" will give you something that looks like a real building, but not your building. The difference between a generic render and a project-specific render is in the parameters, and most practitioners are using three when they need seven.</p>
 
     <p>This is the framework we've developed at Vista Studios over the past year of live project use. We use it across Midjourney, Veras, and Stable Diffusion/ComfyUI. The parameters change the specific syntax slightly by tool, but the structure stays the same.</p>
 
@@ -249,19 +250,19 @@
     <div class="param-card">
       <div class="num">01</div>
       <div class="name">Building type + programme</div>
-      <p>Not just "residential" — be specific. "Four-storey mixed-use residential over retail ground floor" produces fundamentally different results than "apartment building." Include occupancy density cues where relevant ("boutique 12-unit," "high-density 80-unit").</p>
+      <p>Not just "residential", be specific. "Four-storey mixed-use residential over retail ground floor" produces fundamentally different results than "apartment building." Include occupancy density cues where relevant ("boutique 12-unit," "high-density 80-unit").</p>
     </div>
 
     <div class="param-card">
       <div class="num">02</div>
       <div class="name">Material system</div>
-      <p>Name materials at the finish level, not the category level. "Weathered Corten steel cladding with exposed concrete base" is useful. "Metal and concrete" is not. Include aging and patina cues ("new," "weathered 5 years," "oxidized") — the model knows what these look like.</p>
+      <p>Name materials at the finish level, not the category level. "Weathered Corten steel cladding with exposed concrete base" is useful. "Metal and concrete" is not. Include aging and patina cues ("new," "weathered 5 years," "oxidized"), the model knows what these look like.</p>
     </div>
 
     <div class="param-card">
       <div class="num">03</div>
       <div class="name">Site context</div>
-      <p>Urban, suburban, rural, coastal, alpine, desert — but also the specific texture: "dense urban streetscape with existing masonry neighbours," "open suburban lot with mature oak trees and lawn." The context tells the model what's around the building, which determines scale reading and shadow cast.</p>
+      <p>Urban, suburban, rural, coastal, alpine, desert, but also the specific texture: "dense urban streetscape with existing masonry neighbours," "open suburban lot with mature oak trees and lawn." The context tells the model what's around the building, which determines scale reading and shadow cast.</p>
     </div>
 
     <div class="param-card">
@@ -279,21 +280,21 @@
     <div class="param-card">
       <div class="num">06</div>
       <div class="name">Rendering style reference</div>
-      <p>Not just "photorealistic" — point the model toward a specific photographic tradition. "Architectural photography in the tradition of Julius Shulman," "editorial real estate photography," "construction site documentation," "Herzog de Meuron monograph photography." Each activates a different visual language.</p>
+      <p>Not just "photorealistic", point the model toward a specific photographic tradition. "Architectural photography in the tradition of Julius Shulman," "editorial real estate photography," "construction site documentation," "Herzog de Meuron monograph photography." Each activates a different visual language.</p>
     </div>
 
     <div class="param-card">
       <div class="num">07</div>
       <div class="name">Negative space / exclusions</div>
-      <p>What you don't want is as important as what you do. Consistently remove: "no people," "no cars," "no lens flare," "no digital artifacts," "no unrealistic saturation." For Midjourney use the --no parameter. For ComfyUI, negative prompts in CFG. For Veras, the exclusion panel. Every tool supports this — use it every time.</p>
+      <p>What you don't want is as important as what you do. Consistently remove: "no people," "no cars," "no lens flare," "no digital artifacts," "no unrealistic saturation." For Midjourney use the --no parameter. For ComfyUI, negative prompts in CFG. For Veras, the exclusion panel. Every tool supports this, use it every time.</p>
     </div>
 
     <h2>A <em>complete</em> prompt, assembled</h2>
 
-    <p>Here's an actual prompt from a recent project — a residential building in Boston, brick masonry, urban infill:</p>
+    <p>Here's an actual prompt from a recent project, a residential building in Boston, brick masonry, urban infill:</p>
 
     <div class="prompt-block">
-      <div class="label">Prompt — Midjourney v6.1</div>
+      <div class="label">Prompt, Midjourney v6.1</div>
       <span class="value">Four-storey residential building, red brick masonry with cast stone base and lintels, punched window openings with dark painted steel frames, urban Boston infill streetscape with attached masonry neighbours and mature street trees, late afternoon golden hour light, late September, warm low sun from the southwest casting long shadows across the facade, 35mm wide angle lens, street-level view from across the narrow one-way street, slight upward angle, building fills 70% of frame, architectural photography editorial quality, crisp focus, muted natural colour grade</span>
       <br><br>
       <span class="neg">--no people cars lens flare digital artifacts oversaturation HDR tone mapping floating elements</span>
@@ -309,7 +310,7 @@
 
     <p><strong>Over-specifying the architectural concept</strong> and under-specifying the physical conditions. "Deconstructivist angular massing with cantilevers and void" is a concept description, not a rendering brief. The model doesn't know what your cantilever looks like. Start with the physical and material, not the conceptual.</p>
 
-    <p><strong>Using mood words as substitutes for lighting parameters.</strong> "Dramatic" is not a lighting condition. "West-facing facade in strong direct late afternoon light with deep reveals creating hard shadow lines" is a lighting condition. The model renders physics, not mood — give it physics.</p>
+    <p><strong>Using mood words as substitutes for lighting parameters.</strong> "Dramatic" is not a lighting condition. "West-facing facade in strong direct late afternoon light with deep reveals creating hard shadow lines" is a lighting condition. The model renders physics, not mood, give it physics.</p>
 
     <p><strong>Forgetting the camera.</strong> The same building from a different angle at a different height reads completely differently. Most practitioners generate at eye-level and never try an aerial or a compressed telephoto pass. The client almost always responds to the view they haven't seen yet.</p>
 

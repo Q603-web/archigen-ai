@@ -182,7 +182,7 @@
       "name": "Why use three tools instead of one?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Each tool is best at a different stage. ChatGPT writes the prompt and the brief. Midjourney finds the look — atmosphere, mood, time of day, material language — faster than any other tool. Nano Banana Pro then locks the look onto your actual building geometry without the hallucination problem Midjourney has at this stage. Trying to do all three in one tool means accepting whatever it is worst at."
+        "text": "Each tool is best at a different stage. ChatGPT writes the prompt and the brief. Midjourney finds the look, atmosphere, mood, time of day, material language, faster than any other tool. Nano Banana Pro then locks the look onto your actual building geometry without the hallucination problem Midjourney has at this stage. Trying to do all three in one tool means accepting whatever it is worst at."
       }
     },
     {
@@ -239,6 +239,7 @@
       <a href="journal.html" class="active">Journal</a>
       <a href="tools.html">Tools</a>
       <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
@@ -278,7 +279,7 @@
         <div class="tc-rating">★ 4.6 / 5.0 · Recommended</div>
       </div>
       <div class="tc-pricing">Total monthly cost: ~$70–80 for one architect · Per-image cost: pennies</div>
-      <p>ChatGPT for the brief and the prompt scaffold. Midjourney for the look — atmosphere, mood, time of day, material language. Nano Banana Pro for the geometry-locked final pass. Three tools, three stages, three handoffs. Under ninety minutes of total wall time per finished image, including iteration.</p>
+      <p>ChatGPT for the brief and the prompt scaffold. Midjourney for the look, atmosphere, mood, time of day, material language. Nano Banana Pro for the geometry-locked final pass. Three tools, three stages, three handoffs. Under ninety minutes of total wall time per finished image, including iteration.</p>
       <div class="tc-tags">
         <span>Concept stage</span><span>Competition</span><span>Mood boards</span><span>Hybrid workflow</span><span>Three tools</span><span>SD-DD friendly</span>
       </div>
@@ -288,7 +289,7 @@
 
     <p>The first mistake most architects make is opening Midjourney with a one-line prompt. "Modern residential, golden hour, Pacific Northwest." The output is generic because the prompt is generic, the iterations sprawl across forty images that all look like AI architecture, and the practitioner ends up with a hundred renders that resemble nothing in particular. The fix is to start in ChatGPT, not in Midjourney.</p>
 
-    <p>Open a new ChatGPT conversation. Paste in the project brief. Three sentences are enough — siting, building type, materiality, intended atmosphere. Then ask for a structured prompt scaffold for Midjourney that includes camera angle, lens length, time of day, light quality, material list, foreground composition, and parametric mood descriptors. ChatGPT will return a six-block prompt that is two paragraphs long and reads like something an art director wrote, because in effect that is what you just asked for.</p>
+    <p>Open a new ChatGPT conversation. Paste in the project brief. Three sentences are enough, siting, building type, materiality, intended atmosphere. Then ask for a structured prompt scaffold for Midjourney that includes camera angle, lens length, time of day, light quality, material list, foreground composition, and parametric mood descriptors. ChatGPT will return a six-block prompt that is two paragraphs long and reads like something an art director wrote, because in effect that is what you just asked for.</p>
 
     <p>The reason this works is that GPT-5 (or whichever model your ChatGPT subscription is currently routing to) has read every architectural rendering prompt anyone has ever published on Reddit, X, and the Midjourney Discord. It knows what works. It knows that "raking afternoon light across textured surfaces" produces better output than "good lighting." It knows that specifying lens length forces Midjourney to commit to a focal compression that reads as photography rather than as illustration. You do not need to be an expert prompt engineer to use Midjourney well. You need to ask the model that already is one to write your prompt for you.</p>
 
@@ -299,7 +300,7 @@
       <li>Time of day with sun angle, not just "golden hour" but "low sun, southwest, raking across the cedar siding."</li>
       <li>Three to five material specifications, in the building order from foreground to background.</li>
       <li>Two atmospheric descriptors and one negative ("not stylized, not painterly").</li>
-      <li>An aspect ratio matched to the deliverable — 3:2 for board layouts, 16:9 for slide decks.</li>
+      <li>An aspect ratio matched to the deliverable, 3:2 for board layouts, 16:9 for slide decks.</li>
     </ul>
 
     <p>Time spent in ChatGPT: five to eight minutes per view. Output: a prompt that will land closer to the desired image on first generation than any one-line prompt ever does. This stage is the cheapest part of the pipeline and the one most often skipped, which is why it produces the largest delta in final image quality.</p>
@@ -308,7 +309,7 @@
 
     <h2>Stage two: Midjourney finds the <em>look</em></h2>
 
-    <p>Take the ChatGPT prompt and run it in Midjourney. Generate four images. Pick the one closest to the desired atmosphere, vary it three times to land on the strongest single image, then upscale. Total wall time: about ten minutes. What you have at the end of stage two is not a render of your building. What you have is the look of your building — the atmosphere, the time of day, the material language, the photographic mood.</p>
+    <p>Take the ChatGPT prompt and run it in Midjourney. Generate four images. Pick the one closest to the desired atmosphere, vary it three times to land on the strongest single image, then upscale. Total wall time: about ten minutes. What you have at the end of stage two is not a render of your building. What you have is the look of your building, the atmosphere, the time of day, the material language, the photographic mood.</p>
 
     <p>This is where the hybrid pipeline gets its leverage. Midjourney is the best tool in the world at finding a look. It is the worst tool in the world at respecting your geometry. The roof pitch will be wrong. The window count will drift. The trellis you carefully drew in SketchUp will be replaced by something Midjourney finds more aesthetically interesting. None of this matters at stage two, because stage two is not the finished image. Stage two is the mood reference. We are using Midjourney for what it is best at, and we are about to ignore everything it is bad at.</p>
 
@@ -320,11 +321,11 @@
 
     <h2>Stage three: Nano Banana Pro locks the <em>building</em></h2>
 
-    <p>Now the actual building enters the workflow. Take a viewport screenshot from your CAD model — SketchUp, Revit, Archicad, Rhino, all work. Open <a href="nano-banana-2-architecture-rendering-explained.html">Nano Banana Pro</a> through Google AI Studio. Upload two images: the Midjourney mood reference, and the CAD viewport. Write a short prompt that says, in plain English, "render the building geometry from image two using the atmosphere, materials, and lighting from image one." Run.</p>
+    <p>Now the actual building enters the workflow. Take a viewport screenshot from your CAD model, SketchUp, Revit, Archicad, Rhino, all work. Open <a href="nano-banana-2-architecture-rendering-explained.html">Nano Banana Pro</a> through Google AI Studio. Upload two images: the Midjourney mood reference, and the CAD viewport. Write a short prompt that says, in plain English, "render the building geometry from image two using the atmosphere, materials, and lighting from image one." Run.</p>
 
     <p>Nano Banana Pro is doing something neither Midjourney nor a traditional renderer can do, which is multi-image conditional rendering with strong geometric fidelity. The image one reference tells the model what the project should look like. The image two reference tells the model what shape it must hold. The prompt tells the model how to combine them. The output, when this works, is the Midjourney atmosphere wrapped onto the actual building you drew, with the windows in the right places and the roof pitch holding.</p>
 
-    <p>When it does not work, it usually fails in one of three predictable ways. The model can ignore the geometry image and over-fit to the mood reference (fix: bump up the geometry weight in the prompt and explicitly call out window count). The model can ignore the mood reference and produce a flat default render of the geometry (fix: bump up the style weight and reference materials by name in the prompt). The model can hallucinate a feature that exists in neither input but lives somewhere in its training set — a tree the building does not have, a porch that was never drawn (fix: add an explicit negative). All three failure modes are recoverable with one re-prompt.</p>
+    <p>When it does not work, it usually fails in one of three predictable ways. The model can ignore the geometry image and over-fit to the mood reference (fix: bump up the geometry weight in the prompt and explicitly call out window count). The model can ignore the mood reference and produce a flat default render of the geometry (fix: bump up the style weight and reference materials by name in the prompt). The model can hallucinate a feature that exists in neither input but lives somewhere in its training set, a tree the building does not have, a porch that was never drawn (fix: add an explicit negative). All three failure modes are recoverable with one re-prompt.</p>
 
     <p>Wall time per pass: about thirty seconds. Wall time to a usable image, including the typical two re-prompts: three to four minutes. Compare that to a traditional V-Ray render at any decent resolution, which takes longer to set up than the entire hybrid pipeline takes to deliver. This is the math that makes the workflow worth learning.</p>
 
@@ -419,7 +420,7 @@
 
     <p>You will have one finished image in roughly thirty minutes, including the time spent figuring out the tools. Every subsequent image on the same project will take twelve to fifteen minutes because stages one and two are reused. The first project's hour-long fumble pays for itself by the third image.</p>
 
-    <p>The reason this workflow has spread fast in 2026 is not because the tools are dramatically better than they were in 2025 — they are, but only incrementally. The change is that working architects figured out the handoffs. The pipeline existed in pieces a year ago. What changed is that the pieces are now boring, dependable, and worth stitching together. That is what made it the default workflow for everyone except people who have not yet tried it.</p>
+    <p>The reason this workflow has spread fast in 2026 is not because the tools are dramatically better than they were in 2025, they are, but only incrementally. The change is that working architects figured out the handoffs. The pipeline existed in pieces a year ago. What changed is that the pieces are now boring, dependable, and worth stitching together. That is what made it the default workflow for everyone except people who have not yet tried it.</p>
 
     <hr>
 

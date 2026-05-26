@@ -7,3 +7,4 @@ node_modules/
 .claude/
 .vercel/
 next-env.d.ts
+publish-herenow.mjs

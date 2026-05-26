@@ -10,19 +10,19 @@
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
 </script>
-<title>ComfyUI Advanced: Exterior Workflows That Actually Work — ArchiGen AI</title>
-<meta name="description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control — with the gotchas." />
+<title>ComfyUI Advanced: Exterior Workflows That Actually Work, ArchiGen AI</title>
+<meta name="description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
 <link rel="canonical" href="https://archigenai.com/comfyui-advanced-tutorial.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-advanced-tutorial.html" />
-<meta property="og:title" content="ComfyUI Advanced: Exterior Workflows That Actually Work — ArchiGen AI" />
-<meta property="og:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control — with the gotchas." />
+<meta property="og:title" content="ComfyUI Advanced: Exterior Workflows That Actually Work, ArchiGen AI" />
+<meta property="og:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
 <meta property="og:image" content="https://archigenai.com/og-image.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI Advanced: Exterior Workflows That Actually Work — ArchiGen AI" />
-<meta name="twitter:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control — with the gotchas." />
+<meta name="twitter:title" content="ComfyUI Advanced: Exterior Workflows That Actually Work, ArchiGen AI" />
+<meta name="twitter:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
 <meta name="twitter:image" content="https://archigenai.com/og-image.svg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,7 +171,7 @@
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "ComfyUI Advanced: Exterior Workflows That Actually Work",
-  "description": "A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control — with the gotchas.",
+  "description": "A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas.",
   "author": {
     "@type": "Organization",
     "name": "ArchiGen AI Editorial",
@@ -196,7 +196,7 @@
       "name": "How do you use ComfyUI to render architectural exteriors?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Vista Studios ComfyUI exterior pipeline uses four sequential passes: geometry (ControlNet Depth from your SketchUp Z-depth output), material (img2img at 0.45 denoise per material region), site context (IPAdapter at 0.55 weight with a real Street View reference), and lighting (img2img at 0.30 denoise with a time-of-day prompt). Each pass is separate — trying to do all four in one run is the most common reason ComfyUI exterior workflows fail."
+        "text": "The Vista Studios ComfyUI exterior pipeline uses four sequential passes: geometry (ControlNet Depth from your SketchUp Z-depth output), material (img2img at 0.45 denoise per material region), site context (IPAdapter at 0.55 weight with a real Street View reference), and lighting (img2img at 0.30 denoise with a time-of-day prompt). Each pass is separate, trying to do all four in one run is the most common reason ComfyUI exterior workflows fail."
       }
     },
     {
@@ -204,7 +204,7 @@
       "name": "What ControlNet settings work best for architectural renders in ComfyUI?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For architectural exteriors, set ControlNet Depth strength to 0.8 with start at 0.0 and end at 0.7. Releasing the ControlNet at 0.7 (rather than 1.0) lets the last few denoising steps refine materials without forcing geometry, avoiding the stiff CGI look. Use depth passes generated directly from your 3D software — not MiDaS, which gets architectural geometry wrong about 30% of the time."
+        "text": "For architectural exteriors, set ControlNet Depth strength to 0.8 with start at 0.0 and end at 0.7. Releasing the ControlNet at 0.7 (rather than 1.0) lets the last few denoising steps refine materials without forcing geometry, avoiding the stiff CGI look. Use depth passes generated directly from your 3D software, not MiDaS, which gets architectural geometry wrong about 30% of the time."
       }
     },
     {
@@ -253,6 +253,7 @@
       <a href="journal.html" class="active">Journal</a>
       <a href="tools.html">Tools</a>
       <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
@@ -269,7 +270,7 @@
       <span class="tag">· 11 min read</span>
     </div>
     <h1>ComfyUI advanced: <em>exterior workflows</em> that actually work</h1>
-    <p class="lede">A working ComfyUI exterior pipeline for architecture — depth ControlNet, material passes, site context inpainting, and lighting control. Assumes you can already install nodes.</p>
+    <p class="lede">A working ComfyUI exterior pipeline for architecture, depth ControlNet, material passes, site context inpainting, and lighting control. Assumes you can already install nodes.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name">ArchiGen AI Editorial</div>
@@ -290,7 +291,7 @@
 
     <p>Interior renders are forgiving. The room is contained. Light is controlled. Materials are limited. Mistakes hide in the shadows.</p>
 
-    <p>Exteriors are unforgiving. You have to handle weather, sky, ground cover, vegetation, surrounding buildings, time of day, atmospheric perspective, and entourage — all of which the model wants to invent freely if you let it. The whole job of the workflow is constraining the model to your geometry while still letting it do the things it's good at.</p>
+    <p>Exteriors are unforgiving. You have to handle weather, sky, ground cover, vegetation, surrounding buildings, time of day, atmospheric perspective, and entourage, all of which the model wants to invent freely if you let it. The whole job of the workflow is constraining the model to your geometry while still letting it do the things it's good at.</p>
 
     <p>The pipeline below has four passes. Geometry. Material. Context. Light. Each one is a separate run. Trying to do them all in one pass is the most common reason ComfyUI exterior workflows fail.</p>
 
@@ -315,7 +316,7 @@
 
     <div class="gotcha">
       <div class="label">Gotcha</div>
-      <p>Generate the depth pass directly from your 3D software. Don't let ComfyUI's MiDaS depth estimator handle it — MiDaS guesses depth from the rendered image and gets architectural geometry wrong about 30% of the time. SketchUp's Z-Depth render output is free and accurate.</p>
+      <p>Generate the depth pass directly from your 3D software. Don't let ComfyUI's MiDaS depth estimator handle it, MiDaS guesses depth from the rendered image and gets architectural geometry wrong about 30% of the time. SketchUp's Z-Depth render output is free and accurate.</p>
     </div>
 
     <h2>The material <em>pass</em></h2>
@@ -334,7 +335,7 @@
 
     <p>Denoise at 0.45 is the sweet spot. Below 0.35 the material change is invisible. Above 0.6 the geometry starts drifting. We've tested every value in between for two years. 0.45 is the answer for exteriors.</p>
 
-    <p>Run this pass once per material region. If you have a brick base, concrete middle, and zinc roof, that's three runs with three masks. Don't try to prompt all three materials in one pass — Flux will average them and you'll get something halfway between, which is exactly the AI slop look we're trying to avoid.</p>
+    <p>Run this pass once per material region. If you have a brick base, concrete middle, and zinc roof, that's three runs with three masks. Don't try to prompt all three materials in one pass, Flux will average them and you'll get something halfway between, which is exactly the AI slop look we're trying to avoid.</p>
 
     <p>Specific material prompts that work for us, after extensive testing:</p>
 
@@ -373,7 +374,7 @@
 
     <h2>The lighting <em>pass</em></h2>
 
-    <p>Last pass. Now you have a building with the right materials in the right context. The final job is lighting — establishing time of day, sun angle, weather, and atmosphere.</p>
+    <p>Last pass. Now you have a building with the right materials in the right context. The final job is lighting, establishing time of day, sun angle, weather, and atmosphere.</p>
 
     <p>Use img2img one more time, with a low denoise and a heavy lighting prompt:</p>
 
@@ -384,7 +385,7 @@
       <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → final_pass.png</span>
     </div>
 
-    <p>Denoise stays low here — 0.30 — because you don't want the building or context changing, just the light treatment. The cfg goes up to 5.5 because the lighting prompt needs to be heard loud over the existing image.</p>
+    <p>Denoise stays low here, 0.30, because you don't want the building or context changing, just the light treatment. The cfg goes up to 5.5 because the lighting prompt needs to be heard loud over the existing image.</p>
 
     <p>For multiple time-of-day passes (the brief that asks for "morning, midday, dusk, night"), just re-run the lighting pass with a different prompt and the same input image. Forty seconds per variant. The whole set takes three minutes.</p>
 
@@ -405,20 +406,20 @@
     <p>Install these from the Manager. They're the only ones we use regularly enough to mention.</p>
 
     <ul>
-      <li><strong>ComfyUI-Advanced-ControlNet</strong> — better timing controls, including the start/end values used above.</li>
-      <li><strong>ComfyUI_IPAdapter_plus</strong> — required for the context pass. The site-reference workflow won't work without it.</li>
-      <li><strong>ComfyUI-Impact-Pack</strong> — better sampler nodes, mask handling, detailer for fixing facade details after the main render.</li>
-      <li><strong>ComfyUI-AnimateDiff</strong> — only if you want to do video walkthroughs from your stills. Not strictly architectural, but useful.</li>
-      <li><strong>rgthree-comfy</strong> — quality-of-life nodes for managing complex graphs. You'll want this by your fifth workflow.</li>
+      <li><strong>ComfyUI-Advanced-ControlNet</strong>, better timing controls, including the start/end values used above.</li>
+      <li><strong>ComfyUI_IPAdapter_plus</strong>, required for the context pass. The site-reference workflow won't work without it.</li>
+      <li><strong>ComfyUI-Impact-Pack</strong>, better sampler nodes, mask handling, detailer for fixing facade details after the main render.</li>
+      <li><strong>ComfyUI-AnimateDiff</strong>, only if you want to do video walkthroughs from your stills. Not strictly architectural, but useful.</li>
+      <li><strong>rgthree-comfy</strong>, quality-of-life nodes for managing complex graphs. You'll want this by your fifth workflow.</li>
     </ul>
 
     <p>Skip the rest. The temptation in ComfyUI is to install everything you see on Reddit. Don't. A clean install with these five packs will handle 95% of architecture work, and your workflows won't break every Sunday.</p>
 
     <h2>What to do <em>next</em></h2>
 
-    <p>Build the base workflow first. Get a single exterior render through the full four-pass pipeline. Don't worry about quality — worry about completing the chain. Once you've done that, every subsequent project is a matter of swapping the depth pass and the prompts.</p>
+    <p>Build the base workflow first. Get a single exterior render through the full four-pass pipeline. Don't worry about quality, worry about completing the chain. Once you've done that, every subsequent project is a matter of swapping the depth pass and the prompts.</p>
 
-    <p>The whole pipeline takes about 25 to 35 minutes of compute on a decent GPU, plus 10 minutes of human time choosing prompts and masking. That's faster than V-Ray for the same quality on a non-trivial scheme. It's also more flexible — try four lighting variants in three minutes, instead of re-rendering the scene.</p>
+    <p>The whole pipeline takes about 25 to 35 minutes of compute on a decent GPU, plus 10 minutes of human time choosing prompts and masking. That's faster than V-Ray for the same quality on a non-trivial scheme. It's also more flexible, try four lighting variants in three minutes, instead of re-rendering the scene.</p>
 
     <p>If your firm hasn't moved on ComfyUI yet, this is the workflow worth starting with. It'll feel slow for the first three projects. By the fifth, you won't go back.</p>
 
