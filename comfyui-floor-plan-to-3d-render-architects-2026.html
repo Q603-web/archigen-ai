@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders, ArchiGen AI</title>
+<meta name="description" content="The 2026 demand we keep seeing: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and we are honest about where ComfyUI holds your geometry and where it quietly invents a wall." />
+<link rel="canonical" href="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" />
+<meta property="og:title" content="ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders, ArchiGen AI" />
+<meta property="og:description" content="Take a flat 2D plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet, depth, a tiled 4K upscale — and where it holds geometry vs invents it." />
+<meta property="og:image" content="https://archigenai.com/assets/render-interior.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders, ArchiGen AI" />
+<meta name="twitter:description" content="Take a flat 2D plan and get a coloured, furnished, lit render out of ComfyUI. The honest workflow — ControlNet, depth, tiled 4K upscale — and where it holds geometry vs invents it." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-interior.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .cta-box { border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 48px 0; background: var(--forest); color: var(--cream); }
+  .cta-box h4 { font-family: var(--f-display); font-weight: 400; font-size: 24px; margin: 0 0 8px; color: var(--cream); }
+  .cta-box p { margin: 0 0 16px; font-size: 14px; color: rgba(244,239,227,0.8); }
+  .cta-box a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600; }
+
+  .gallery-full { margin: 8px 0 40px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 10px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-interior.jpg",
+    "width": 1200,
+    "height": 800,
+    "caption": "A 2D apartment plan rendered into a furnished, lit interior view / ComfyUI"
+  },
+  "headline": "ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders",
+  "description": "The 2026 demand we keep seeing: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and we are honest about where ComfyUI holds your geometry and where it quietly invents a wall.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "mainEntityOfPage": "https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html",
+  "articleSection": "Workflows",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["ComfyUI floor plan render", "2D plan to 3D AI", "ComfyUI architecture workflow", "ControlNet floor plan", "AI rendered floor plan 2026", "Flux architecture render"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow &middot; 28 May 2026</span>
+      <span class="tag">&middot; 9 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
+      ComfyUI &middot; floor plan workflow
+    </div>
+    <h1>ComfyUI in 2026 &mdash; turning a flat floor plan into a render <em>that holds its walls</em></h1>
+    <p class="lede">The tutorial title is everywhere this year: "2D floor plan to photoreal 3D, auto-coloured, textured, lit, upscaled to 4K." The promise is seductive and the demos are cherry-picked. We built the workflow from scratch in ComfyUI on a real one-bedroom apartment plan &mdash; ControlNet to lock the walls, a depth pass for the perspective, Flux for the render, a tiled upscale for the resolution. Here is the graph that actually works, the node where most people lose their geometry, and the honest line between "rendered plan" and "AI invented a hallway."</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair &mdash; Vista Studios</div>
+        <div class="detail">9 min read &middot; May 2026 &middot; Built on a real one-bed apartment plan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-interior.jpg" alt="A furnished, lit interior render generated from a 2D apartment floor plan" loading="lazy" />
+        <figcaption>From a flat one-bed plan to a furnished, lit interior view / ComfyUI + Flux / ArchiGen AI</figcaption>
+      </figure>
+    </div>
+
+    <p>There is a tutorial that keeps recirculating in the architecture corners of YouTube and Reddit this year, and the title is always some version of the same promise: <em>turn your 2D floor plan into a photorealistic 3D render &mdash; auto-coloured, textured, lit, upscaled to 4K &mdash; with AI.</em> The demos are gorgeous. They are also, almost without exception, cherry-picked, and they skip the one step that decides whether the output is a usable drawing or a confident hallucination.</p>
+
+    <p>So we built the workflow ourselves, in ComfyUI, on a real one-bedroom apartment plan from a live fit-out job &mdash; not a stock plan chosen because it renders well. The question was the practical one: can you actually hand a flat plan to a diffusion model and get back something that respects where you put the walls? The short answer is yes, with one large asterisk. The long answer is the graph below, and the node where most people quietly lose their geometry.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The stack we used</div>
+        <div class="tc-rating">&star; Free &middot; local</div>
+      </div>
+      <div class="tc-pricing">ComfyUI (current build) &middot; Flux.1 dev &middot; ControlNet (MLSD + Depth) &middot; Ultimate SD Upscale</div>
+      <p>All of this runs locally and costs nothing but a GPU and an afternoon. We ran on a 12&nbsp;GB card; Flux is heavy but workable with the fp8 weights. SDXL with the architectural ControlNets is the lighter-weight alternative and most of this transfers to it directly.</p>
+      <div class="tc-tags">
+        <span>ComfyUI</span><span>Flux.1</span><span>ControlNet MLSD</span><span>Depth Anything</span><span>img2img</span><span>Tiled upscale</span>
+      </div>
+    </div>
+
+    <h2>What "2D plan to 3D" <em>actually means</em></h2>
+
+    <p>The phrase hides two completely different jobs, and the demos blur them on purpose because one is reliable and one is hard.</p>
+
+    <p><strong>Job one: the rendered plan.</strong> Take the orthographic plan and dress it &mdash; colour the rooms, drop in furniture and flooring textures, add soft shadows, make it a presentation drawing instead of a CAD export. This is genuinely reliable. You are still looking straight down (or at a gentle axonometric), so the model never has to guess at the third dimension. ControlNet holds your walls, the diffusion model paints inside them, and the output is a coloured, furnished plan you could put in front of a client tomorrow.</p>
+
+    <p><strong>Job two: the true perspective.</strong> Take the same flat plan and produce an eye-level interior or a dollhouse 3D view. This is where the seductive demos live and where the honesty usually stops. A flat plan contains <em>no depth information</em>. There is nothing in a top-down line drawing that tells a model how tall the walls are, where the ceiling sits, or how the window heads line up. Ask for a perspective off a flat plan and the model will happily invent all of it &mdash; and it will invent differently every seed.</p>
+
+    <h2>The graph, <em>node by node</em></h2>
+
+    <h3>ControlNet &mdash; the part that holds your walls</h3>
+
+    <p>Load the plan as an image, run it through a preprocessor, and feed it to an Apply ControlNet node. The preprocessor choice matters more than anything else in the graph. For architectural line work, <strong>MLSD</strong> is the one to reach for &mdash; it detects straight line segments and is purpose-built for the kind of clean orthogonal geometry a plan is made of. LineArt is the fallback for plans with curves and annotation you want preserved; Canny is the blunt instrument that also traces every dimension string and door swing you forgot to hide.</p>
+
+    <p>Clean your plan before it ever touches ComfyUI. Strip dimensions, text, hatching and title-block clutter in CAD first. The model treats every line as a real edge, so a leader line pointing at a radiator becomes, with depressing reliability, a radiator-shaped object floating in the room.</p>
+
+    <h3>The depth pass &mdash; the step the demos skip</h3>
+
+    <p>This is the asterisk. If you want a trustworthy perspective rather than a coloured plan, you have to give the model depth, and a flat plan cannot. The fix is unglamorous and takes five minutes: extrude the plan into rough massing in SketchUp or Blender &mdash; walls up to ceiling height, no detail &mdash; set a camera, and export both a viewport line image and a depth map. Now you feed <strong>Depth Anything V2</strong> (or Zoe) as a second ControlNet alongside the line control, and the model finally has a third dimension to respect instead of fabricate.</p>
+
+    <p>Yes, this means the "2D plan to 3D, no modelling" pitch is a half-truth. The five-minute extrude is the difference between a render that matches your building and a beautiful image of a building that does not exist. We would rather tell you that than sell you the demo.</p>
+
+    <h3>The render and the 4K upscale</h3>
+
+    <p>With the controls wired in, the KSampler does the work. Two levers decide the outcome: <strong>denoise</strong> and <strong>ControlNet strength</strong>. Run img2img off your plan at a denoise around 0.45&ndash;0.55 and the output stays close but can look flat; push past 0.7 and it turns beautiful and starts drifting from your layout. ControlNet strength is the counterweight &mdash; keep MLSD up around 0.8&ndash;1.0 and you can afford a higher denoise without the walls wandering. Prompt for the materials and light you actually want ("warm oak floor, matte white walls, north light, soft contact shadows"), not for "photorealistic 8k masterpiece," which buys you nothing but contrast.</p>
+
+    <p>The "4K" everyone advertises is just a tiled upscale on the back end. <strong>Ultimate SD Upscale</strong> splits the image into tiles, re-renders each at higher resolution with a low denoise, and stitches them back. It is what turns a sharp 1024px render into a 4096px deliverable without melting the detail. It is also the slowest node in the graph &mdash; budget for it.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Outcome</th>
+          <th>Rendered plan (top-down / axo)</th>
+          <th>True perspective view</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Control inputs needed</td>
+          <td class="winner">MLSD / LineArt from the plan</td>
+          <td>Line + depth from a rough 3D extrude</td>
+        </tr>
+        <tr>
+          <td>Modelling required</td>
+          <td class="winner">None</td>
+          <td>~5 min massing extrude</td>
+        </tr>
+        <tr>
+          <td>Geometry reliability</td>
+          <td class="winner">High &mdash; walls hold</td>
+          <td>Good with depth, poor without</td>
+        </tr>
+        <tr>
+          <td>Risk of invented detail</td>
+          <td class="winner">Low</td>
+          <td>High if depth is skipped</td>
+        </tr>
+        <tr>
+          <td>Best use</td>
+          <td>Coloured presentation plans, furnished layouts</td>
+          <td>Concept interiors, marketing dollhouse views</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Where it <em>quietly invents a wall</em></h2>
+
+    <p><strong>Scale drift.</strong> Diffusion models have no sense of metric scale. A doorway will render at a believable height in one room and slightly off in the next, because the model is matching <em>look</em>, not dimension. For a presentation image this is invisible; for anything a contractor might read off, it is a trap.</p>
+
+    <p><strong>Symmetry and repetition collapse.</strong> A row of identical windows or a run of repeated structural bays is where the model gets bored and starts improvising &mdash; one window wider, one mullion missing. The tighter your ControlNet, the less this happens, but it never fully goes away on a busy facade.</p>
+
+    <p><strong>The flat-plan perspective.</strong> Worth repeating because it is the single most common failure: a perspective generated from a plan with no depth control is fiction. It will look spectacular and it will not be your building. If a client could mistake it for a measured view, you are one step from a very awkward meeting.</p>
+
+    <blockquote>ComfyUI does not read your plan the way you do. It sees a field of edges and fills it with the most plausible image &mdash; and "plausible" and "correct" only overlap when you force them to with control inputs.</blockquote>
+
+    <h2>Who this workflow <em>is actually for</em></h2>
+
+    <p><strong>Anyone who needs coloured, furnished presentation plans fast.</strong> This is the strongest, most reliable use, and it is genuinely a time-saver over hand-rendering a plan in Photoshop. Residential architects and interior designers will get the most mileage here.</p>
+
+    <p><strong>Concept-stage teams who can spare a five-minute extrude.</strong> Once you accept the depth pass, the perspective workflow is a fast, cheap way to test material and light directions before committing render time in a heavyweight engine.</p>
+
+    <p>It is <em>not</em> for anyone hoping to delete modelling from their process, and it is not a documentation tool. Nothing it produces is dimensionally trustworthy. Treat the output as a picture, never as a drawing.</p>
+
+    <div class="cta-box">
+      <h4>We build the graph, then tell you where it breaks.</h4>
+      <p>The ArchiGen AI journal runs the workflows architects are actually being sold &mdash; node by node, on real projects &mdash; and reports the step the tutorial skipped. No affiliate links, no sponsored placements.</p>
+      <a href="journal.html">Read the journal &rarr;</a>
+    </div>
+
+    <h2>Our take</h2>
+
+    <p>The "2D floor plan to photoreal 3D" workflow is real, useful, and oversold in roughly equal measure. Split into its two jobs, the verdict is clear: as a way to turn a flat plan into a coloured, furnished, beautifully lit <em>presentation plan</em>, ComfyUI is excellent and the geometry holds. As a one-click route from flat plan to trustworthy perspective, it does not exist &mdash; and the tutorials that imply it does are quietly leaning on a 3D model they did not mention.</p>
+
+    <p>Build the graph once, clean your plans before they go in, and never skip the depth pass when you need a perspective. Do that and ComfyUI earns a permanent slot in the presentation toolkit. Believe the demo at face value and you will ship a gorgeous render of a building nobody designed. The tool is honest about what it is the moment you stop asking it to be magic.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Built by Vista Studios in ComfyUI on a live one-bed apartment plan. Outputs treated as presentation imagery, not measured drawings. No affiliate relationship with any model or node author.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="comfyui-sketch-to-photoreal-architecture.html" class="related-card">
+          <div class="rc-tag">Workflow &middot; 2026</div>
+          <div class="rc-title">ComfyUI sketch-to-photoreal &mdash; a workflow that actually holds geometry</div>
+        </a>
+        <a href="comfyui-rhino-architects-workflow-2026.html" class="related-card">
+          <div class="rc-tag">Workflow &middot; 2026</div>
+          <div class="rc-title">ComfyUI for Rhino users &mdash; the workflow architects keep asking for and not finding</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

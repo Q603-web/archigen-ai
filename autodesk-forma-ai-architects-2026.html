@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Autodesk Forma in 2026 — Is the AI Actually Doing Architecture Yet?, ArchiGen AI</title>
+<meta name="description" content="Autodesk Forma turns up on every best-AI-tools-for-architects list of 2026. We spent a week in the pre-design platform on a live mixed-use site — running massing studies, sun and wind analysis, and the Revit handoff. Here is what Forma's AI actually does, where it stalls, and whether it belongs in your early-stage stack." />
+<link rel="canonical" href="https://archigenai.com/autodesk-forma-ai-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/autodesk-forma-ai-architects-2026.html" />
+<meta property="og:title" content="Autodesk Forma in 2026 — Is the AI Actually Doing Architecture Yet?, ArchiGen AI" />
+<meta property="og:description" content="Forma is on every best-AI-tools list of 2026. We tested it on a live mixed-use site — massing, sun, wind, and the Revit handoff. Here is what its AI actually does and where it stalls." />
+<meta property="og:image" content="https://archigenai.com/assets/render-concept.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Autodesk Forma in 2026 — Is the AI Actually Doing Architecture Yet?, ArchiGen AI" />
+<meta name="twitter:description" content="Forma is on every best-AI-tools list of 2026. We tested it on a live mixed-use site. Here is what its AI actually does and where it stalls." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-concept.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .cta-box { border: 1px solid var(--rule); border-radius: 12px; padding: 28px; margin: 48px 0; background: var(--forest); color: var(--cream); }
+  .cta-box h4 { font-family: var(--f-display); font-weight: 400; font-size: 24px; margin: 0 0 8px; color: var(--cream); }
+  .cta-box p { margin: 0 0 16px; font-size: 14px; color: rgba(244,239,227,0.8); }
+  .cta-box a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; background: var(--cream); color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 600; }
+
+  .gallery-full { margin: 8px 0 40px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 10px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-concept.jpg",
+    "width": 1200,
+    "height": 800,
+    "caption": "Early-stage massing study on a mixed-use site / Autodesk Forma"
+  },
+  "headline": "Autodesk Forma in 2026 — Is the AI Actually Doing Architecture Yet?",
+  "description": "Autodesk Forma turns up on every best-AI-tools-for-architects list of 2026. We spent a week in the pre-design platform on a live mixed-use site — running massing studies, sun and wind analysis, and the Revit handoff. Here is what Forma's AI actually does, where it stalls, and whether it belongs in your early-stage stack.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-28",
+  "dateModified": "2026-05-28",
+  "mainEntityOfPage": "https://archigenai.com/autodesk-forma-ai-architects-2026.html",
+  "articleSection": "Tool Reviews",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Autodesk Forma", "Forma AI architects", "pre-design AI tools", "generative design 2026", "Spacemaker", "environmental analysis architecture"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio &rarr;</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool Review &middot; 28 May 2026</span>
+      <span class="tag">&middot; 8 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
+      Autodesk Forma &middot; tested
+    </div>
+    <h1>Autodesk Forma in 2026 &mdash; is the AI <em>actually</em> doing architecture yet?</h1>
+    <p class="lede">Forma turns up on every "best AI tools for architects" list published this year &mdash; usually at number two, usually with no explanation of what it does past the first phase. We spent a week in the pre-design platform on a live mixed-use site, running massing options, sun and wind studies, and the Revit handoff. Here is what Forma's AI is genuinely good at, where it quietly stalls, and whether it earns the seat the listicles keep giving it.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair &mdash; Vista Studios</div>
+        <div class="detail">8 min read &middot; May 2026 &middot; Tested on a live mixed-use feasibility study</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-concept.jpg" alt="Early-stage massing study of a mixed-use block in an urban context" loading="lazy" />
+        <figcaption>Early-stage massing study on a mixed-use site / Autodesk Forma context / ArchiGen AI</figcaption>
+      </figure>
+    </div>
+
+    <p>Autodesk Forma has a strange place in the AI-for-architecture conversation. It is on every list &mdash; Rendair ranks it second in their 2026 student guide, Coursiv folds it into their seventeen, the xpressrendering top-ten gives it a slot &mdash; and almost none of them say what it is. The shorthand "AI tool for architects" does Forma no favours, because Forma is not a render tool and the AI is not the headline. It is a cloud platform for the phase most rendering coverage ignores entirely: the feasibility and concept stage, before there is a model worth rendering.</p>
+
+    <p>We ran Forma for a week against a real mixed-use feasibility study &mdash; a four-storey residential block over ground-floor retail on a constrained urban site. The brief was the one the listicles never test: not "can it make a pretty image," but "does the AI change the decisions you make in week one of a project?" That is a harder question, and a more interesting one.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Autodesk Forma</div>
+        <div class="tc-rating">&star; 4.0 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included in the AEC Collection &middot; standalone subscription available &middot; free trial</div>
+      <p>A cloud-based pre-design and early-stage planning platform, evolved from the Spacemaker acquisition and rebranded by Autodesk. Site context import, conceptual massing, and a stack of real-time environmental analyses &mdash; sun hours, daylight, wind, noise, operational energy &mdash; with a Revit interop path. The "AI" is mostly fast predictive analysis, not generative form-making.</p>
+      <div class="tc-tags">
+        <span>Pre-design</span><span>Cloud-based</span><span>Environmental analysis</span><span>Massing</span><span>Revit interop</span><span>Site context</span>
+      </div>
+    </div>
+
+    <h2>What Forma actually <em>is</em></h2>
+
+    <p>Forma is the product Autodesk built out of <strong>Spacemaker</strong>, the Norwegian early-stage design startup it acquired in 2020. The rebrand to Forma landed in 2023, and by 2026 it sits inside the Autodesk AEC Collection alongside Revit, Civil 3D and the rest. Strip the branding and Forma is a browser-based environment for the first two weeks of a project: pull in real site context, sketch massing volumes, and immediately see how those volumes perform against sun, wind, noise and energy.</p>
+
+    <p>The part that earns the "AI" label is the analysis engine. Traditional environmental analysis &mdash; a proper wind study, a daylight-hours calculation &mdash; is a specialist task that takes hours or days and usually happens too late to change anything. Forma runs trained predictive models that return those results in seconds, live, as you push and pull the massing. That is the actual pitch, and it is a good one: the analysis moves to the moment the decision is being made instead of arriving as a post-rationalisation after it.</p>
+
+    <h2>What the AI <em>does well</em></h2>
+
+    <p>Three things genuinely worked on our feasibility study, and each one changed a decision.</p>
+
+    <p><strong>Real-time sun and daylight.</strong> Dragging the residential bar from five storeys to four and watching the courtyard's winter sun-hours update instantly is the single most useful thing Forma does. We caught an overshadowing problem on the neighbouring property in the first afternoon &mdash; the kind of thing that, on a normal job, surfaces in planning consultation three months later and forces a redesign. That alone is a defensible reason to have Forma in the stack.</p>
+
+    <p><strong>Rapid wind and noise screening.</strong> Forma's wind analysis is a screening tool, not a CFD replacement, and it is honest about that. But for a concept-stage gut check &mdash; is this gap between buildings going to create a wind tunnel, is the road-facing facade going to need acoustic glazing &mdash; the speed matters more than the precision. We made two massing moves on the noise read alone.</p>
+
+    <p><strong>Site context, done for you.</strong> Forma imports surrounding buildings, terrain and street data for most urban sites automatically. On a normal feasibility study that context model is a half-day of someone's time. In Forma it is a search box and a thirty-second wait. The time saved here is unglamorous and completely real.</p>
+
+    <h2>Where it <em>quietly stalls</em></h2>
+
+    <p>Forma's ceiling is the same one every honest review hits: it is brilliant at <em>evaluating</em> form and weak at <em>making</em> it.</p>
+
+    <p><strong>The generative side is thinner than the marketing.</strong> If you expect Forma to propose schemes &mdash; to do the generative-design thing where you set constraints and it returns options &mdash; you will be underwhelmed in 2026. The form-making is still you, pushing volumes. The AI grades your homework fast; it does not write the essay. That is fine once you know it, but it is not what "AI tool for architects" implies to a first-time user.</p>
+
+    <p><strong>It is a feasibility tool, and it ends at feasibility.</strong> Forma takes you from empty site to a defensible massing with performance data behind it. Then you leave. The detailed design, the documentation, the rendering &mdash; none of that happens here. The Revit interoperability is real but it is a handoff, not a round-trip you will want to lean on repeatedly. Treat Forma as the front porch of the project, not the house.</p>
+
+    <p><strong>The analysis is screening-grade.</strong> The wind, noise and energy numbers are directional. They are right for choosing between two massing options; they are not right for a planning submission or a building-physics sign-off. Architects who read the fast number as a final number will get burned, and that is a discipline problem the tool cannot solve for you.</p>
+
+    <blockquote>Forma does not design the building. It tells you, in seconds, whether the building you just drew is a good idea &mdash; and that turns out to be most of the value in week one.</blockquote>
+
+    <h2>Forma vs the other <em>early-stage tools</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>Autodesk Forma</th>
+          <th>TestFit</th>
+          <th>Generic massing in Revit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Real-time environmental analysis</td>
+          <td class="winner">Excellent &mdash; sun, wind, noise, energy</td>
+          <td>Limited</td>
+          <td>None native</td>
+        </tr>
+        <tr>
+          <td>Automatic site context</td>
+          <td class="winner">Yes &mdash; one search</td>
+          <td>Partial</td>
+          <td>Manual</td>
+        </tr>
+        <tr>
+          <td>Generative scheme options</td>
+          <td>Weak</td>
+          <td class="winner">Strong &mdash; unit/yield solving</td>
+          <td>None</td>
+        </tr>
+        <tr>
+          <td>Speed to first informed massing</td>
+          <td class="winner">Fast</td>
+          <td class="winner">Fast</td>
+          <td>Slow</td>
+        </tr>
+        <tr>
+          <td>Path to documentation</td>
+          <td>Revit handoff</td>
+          <td>Revit/export</td>
+          <td class="winner">Native</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td>Performance-driven concepts</td>
+          <td>Yield &amp; feasibility math</td>
+          <td>Firms standardised on Revit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The honest read is that Forma and TestFit are complements, not competitors. TestFit solves the yield-and-units math; Forma solves the environmental-performance and context math. A firm doing serious feasibility work in 2026 could justify both, and the overlap is small.</p>
+
+    <h2>Who Forma <em>is actually for</em></h2>
+
+    <p><strong>Firms that do real feasibility work.</strong> If your projects start with a site, a brief and a question about what is even possible, Forma earns its seat. Developers' architects, urban-scale practices, anyone whose week one is massing-and-performance rather than concept-sketching will get the most from it.</p>
+
+    <p><strong>Practices already inside the Autodesk AEC Collection.</strong> If you are paying for the Collection, Forma is included, and not using it is leaving money on the table. The Revit handoff is most valuable to firms already standardised on Revit downstream.</p>
+
+    <p><strong>Sustainability-led design teams.</strong> The real-time environmental feedback is the strongest argument for Forma, and the teams who care most about that feedback &mdash; passive design, daylight optimisation, energy-conscious massing &mdash; are the ones who will change the most decisions because of it.</p>
+
+    <p>The group it is <em>not</em> for: small residential and interiors practices looking for a render tool. Forma does not render, and the feasibility machinery is overkill for a single-house job. If your question is "how do I make a beautiful image of this," Forma is the wrong aisle entirely &mdash; look at the rendering tools instead.</p>
+
+    <h2>How we would put Forma in <em>a 2026 stack</em></h2>
+
+    <ol>
+      <li><strong>Week one, every site-driven project.</strong> Pull context, test three or four massing options against sun and noise, kill the bad ones before anyone falls in love with them. This is Forma's home turf.</li>
+      <li><strong>As an argument-maker in client and planning meetings.</strong> "Here is the overshadowing data behind why the block steps down on the north edge" is a far stronger position than "it felt right." Forma makes that case visually and fast.</li>
+      <li><strong>As the front of a Forma-to-Revit-to-render pipeline.</strong> Forma decides the massing, Revit documents it, your render tool of choice sells it. Three tools, three jobs, clean handoffs.</li>
+    </ol>
+
+    <div class="cta-box">
+      <h4>We test the whole pipeline, not just the render.</h4>
+      <p>The ArchiGen AI journal runs the tools architects actually string together &mdash; from feasibility to documentation to the final image &mdash; and reports where each one earns its keep. No affiliate links, no sponsored placements.</p>
+      <a href="journal.html">Read the journal &rarr;</a>
+    </div>
+
+    <h2>Our take</h2>
+
+    <p>Forma is the most misrepresented tool on the 2026 AI-for-architects lists, and the misrepresentation cuts both ways. It is not the generative-design magic the "AI tool" framing promises &mdash; you still make the form. But it is a genuinely excellent feasibility platform whose real-time environmental analysis changes decisions in the exact window where changing them is cheap. That is worth more than another render engine, and almost nobody writes about it because it does not produce a screenshot you can post.</p>
+
+    <p>Our recommendation is narrow and confident. If your work starts with a site and a feasibility question, and especially if you are already paying for the AEC Collection, Forma should be open on day one of every project. If your work is rendering, interiors or single-house residential, skip it without guilt &mdash; it is not built for you. The four-star rating is for what Forma is, not what the listicles pretend it is: the best fast-feedback pre-design tool we tested this year, with a generative ceiling it has not yet broken through.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios across one week on a live mixed-use feasibility study. No affiliate relationship with Autodesk. Analysis results treated as screening-grade; not a substitute for specialist building-physics consultation.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="pre-design-ai-stack-rayon-spacio-forma-2026.html" class="related-card">
+          <div class="rc-tag">Guide &middot; 2026</div>
+          <div class="rc-title">The pre-design AI stack &mdash; Rayon, Spacio and Forma for the first two weeks of a project</div>
+        </a>
+        <a href="testfit-feasibility-generative-design-review-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review &middot; 2026</div>
+          <div class="rc-title">TestFit &mdash; does generative feasibility design actually pencil out for architects?</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter &middot; Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
