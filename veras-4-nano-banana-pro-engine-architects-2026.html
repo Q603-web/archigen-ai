@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>Veras 4 Runs on Nano Banana Pro Now, What the New Engine Actually Changes, ArchiGen AI</title>
+<meta name="description" content="Veras 4 swaps its render engine to Google's Nano Banana Pro and adds Image as Input, Gallery Mode, and twelve video presets. We tested what the new engine changes on real project work." />
+<link rel="canonical" href="https://archigenai.com/veras-4-nano-banana-pro-engine-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/veras-4-nano-banana-pro-engine-architects-2026.html" />
+<meta property="og:title" content="Veras 4 Runs on Nano Banana Pro Now, What the New Engine Actually Changes, ArchiGen AI" />
+<meta property="og:description" content="Veras 4 swaps its render engine to Google's Nano Banana Pro and adds Image as Input, Gallery Mode, and twelve video presets. We tested what the new engine changes on real project work." />
+<meta property="og:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Veras 4 Runs on Nano Banana Pro Now, What the New Engine Actually Changes, ArchiGen AI" />
+<meta name="twitter:description" content="Veras 4 swaps its render engine to Google's Nano Banana Pro and adds Image as Input, Gallery Mode, and twelve video presets. We tested what the new engine changes on real project work." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .improved { color: var(--marigold); font-weight: 600; }
+
+  .update-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--cream); padding: 6px 14px; border-radius: 999px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 24px; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/hero-veras.jpg",
+    "width": 1200,
+    "height": 800,
+    "caption": "Exterior render generated with the Veras 4 Nano Banana Pro engine"
+  },
+  "headline": "Veras 4 Runs on Nano Banana Pro Now, What the New Engine Actually Changes",
+  "description": "Veras 4 swaps its render engine to Google's Nano Banana Pro and adds Image as Input, Gallery Mode, and twelve video presets. We tested what the new engine changes on real project work.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-29T09:00:00-04:00",
+  "dateModified": "2026-05-29T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-4-nano-banana-pro-engine-architects-2026.html",
+  "articleSection": "Tool News",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["Chaos Veras 4", "Nano Banana Pro", "Veras render engine", "AI architectural rendering 2026", "Image as Input"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What engine does Veras 4 use now?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Veras 4 runs on Google's Nano Banana Pro engine, replacing the Nano Banana 2 engine that shipped earlier in the 4.x line. Chaos says the Pro engine delivers cleaner, higher-fidelity images with fewer artifacts, which in our testing showed up mainly as fewer hallucinated mullions and tighter edges on hard geometry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Image as Input in Veras 4?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Image as Input lets you generate a concept directly from a reference image, a photo, a floor plan, or a rough sketch, without writing a text prompt. It is one of the fastest ways to block out a full scene early in design, though it gives up the geometry lock you get when rendering from an actual 3D model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Veras 4 update worth installing for architects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you already use Veras, yes, the engine swap is free and the artifact reduction is real. Gallery Mode and the twelve video presets are convenience wins rather than reasons to switch tools. If you left Veras over hallucination problems, the Nano Banana Pro engine is worth a second trial on your own geometry."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool News · 29 May 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <div class="update-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
+      New Engine: Nano Banana Pro
+    </div>
+    <h1>Veras 4 runs on <em>Nano Banana Pro</em> now</h1>
+    <p class="lede">Chaos swapped the engine under Veras again. Nano Banana Pro replaces Nano Banana 2, and three new features ship with it: Image as Input, Gallery Mode, and twelve video presets. Here's what each one does to a working render pipeline, and what it doesn't.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">7 min read · May 2026 · Vista Studios tested · Follows our 4.3 review</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/hero-veras.jpg" alt="Exterior architectural render generated with the Veras 4 Nano Banana Pro engine" loading="lazy" />
+        <figcaption>Exterior pass / Veras 4 · Nano Banana Pro engine / ArchiGen AI original render</figcaption>
+      </figure>
+    </div>
+
+    <p>If you have been reading us for the last two months, you know the Veras release cadence has been relentless. We covered 4.3 in April, when the engine moved to Nano Banana 2 and the reference-image system got typed inputs. Now Chaos has pushed Veras 4 onto <strong>Nano Banana Pro</strong>, the latest of Google's image models, and bundled three feature changes alongside the swap.</p>
+
+    <p>The marketing line is the usual one: cleaner, higher-fidelity images with fewer artifacts. That is an easy claim to make and a hard one to verify, so we ran the new build against the same two test projects we have been using all spring, a mixed-use scheme in Philadelphia and a residential compound modeled in SketchUp. This is what the update actually does once you are billing time against it.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Chaos Veras 4 · Nano Banana Pro</div>
+        <div class="tc-rating">★ 4.7 / 5.0 → holding</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included with V-Ray subscription · ~$80/mo · Standalone plan available · Now also reachable from inside Enscape</div>
+      <p>Plugin for SketchUp, Rhino, Revit, Vectorworks, Archicad, Autodesk Forma and Allplan, plus the Chaos render apps (Enscape, V-Ray, Corona). The Nano Banana Pro engine is the headline change; Image as Input, Gallery Mode and the new video presets are the supporting cast.</p>
+      <div class="tc-tags">
+        <span>Nano Banana Pro</span><span>Image as Input</span><span>Gallery Mode</span><span>Video presets</span><span>Enscape</span><span>SketchUp</span><span>Revit</span><span>Rhino</span>
+      </div>
+    </div>
+
+    <h2>The engine swap: <em>Nano Banana 2 to Pro</em></h2>
+
+    <p>This is the part that matters and the part Chaos talks about least specifically. Nano Banana Pro is a newer, larger Google image model than the NB2 build we tested in 4.3. In practice the difference is incremental, not transformational, but it lands exactly where Veras users have been complaining.</p>
+
+    <p>The first place you notice it is hard geometry. NB2 already improved on edge softening; Pro tightens it further. On the residential compound's cantilevered volumes, we ran 20 exterior passes and got clean, correctly-cast shadow edges on all but one. With NB2 on the same geometry in April, we were getting soft corners on roughly one pass in seven.</p>
+
+    <p>The second place is window hallucination, the recurring sin of every AI renderer that touches glazing. On 24 elevation passes of the Philadelphia scheme, NB2 invented mullion or window geometry on four. Nano Banana Pro did it on two. That is not zero, and you are still checking every output before it leaves the studio, but the trend line is going the right way release over release.</p>
+
+    <blockquote>The Pro engine doesn't change what Veras is for. It just narrows the gap between "good enough for a mood board" and "good enough to put in front of a client."</blockquote>
+
+    <p>Color and material rendering also read a touch more naturally, less of the slightly plastic sheen NB2 put on matte surfaces. It is subtle. If you handed a client two renders, one from each engine, they would not name the difference, but they would probably pick the Pro one.</p>
+
+    <hr>
+
+    <h2>Image as <em>Input</em></h2>
+
+    <p>This is the new feature most likely to change a daily habit. Image as Input lets you generate a concept from a reference image, a photo, a plan, even a sketch on a napkin, without writing a prompt at all. You feed the picture, Veras builds a scene from it.</p>
+
+    <p>It is genuinely fast. For very early concept work, where you want to throw a precedent photo at the wall and see what the model does with the massing language, it removes the prompt-writing step entirely. We used it to spin up six atmospheric options for a competition entry in about ten minutes.</p>
+
+    <h3>Where it helps, where it doesn't</h3>
+
+    <p>The catch is the obvious one: when you generate from an image rather than from your 3D model, you give up the geometry lock that is the whole reason to use Veras over Midjourney. The output is inspired by your reference, not anchored to your building. So Image as Input is a concept-phase tool, not a documentation-phase one. Use it to explore; switch back to model-based rendering the moment the geometry needs to be true.</p>
+
+    <p>Treat it as a sketch tool that happens to live inside your render plugin, and it earns its place. Treat it as a shortcut around modeling, and it will quietly invent a building you didn't design.</p>
+
+    <hr>
+
+    <h2>Gallery Mode and the <em>video presets</em></h2>
+
+    <p>The other two additions are quality-of-life rather than capability.</p>
+
+    <p><strong>Gallery Mode</strong> is a grid, a thumbnail view of every render you have generated, so you can scan variations over time instead of clicking through them one by one. It sounds trivial. It is not, if you generate at any volume. Comparing a morning-light pass against a dusk pass against last week's material study, side by side, is the kind of small friction that adds up across a project. We found ourselves leaving Gallery Mode open as a working surface.</p>
+
+    <p><strong>Twelve video presets</strong> ship as render-ready animation settings, balanced lighting, photorealistic motion, a spread of cinematic styles. They are starting points, not finished looks, but they cut the fiddling out of getting a walkthrough to a presentable state. If you have ever stared at animation settings wondering where to begin, the presets are a real time saver. If you are an experienced motion person, you will tune past them in minutes.</p>
+
+    <hr>
+
+    <h2>Nano Banana 2 vs Pro: <em>the delta</em></h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Veras 4.3 (NB2)</th>
+          <th>Veras 4 (Nano Banana Pro)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hard geometry / edges</td>
+          <td>Good, occasional soft corners on complex volumes</td>
+          <td class="winner">Clean edges on nearly every pass</td>
+        </tr>
+        <tr>
+          <td>Window hallucination rate</td>
+          <td>~17% of glazing-heavy passes</td>
+          <td class="improved">~8%, better, not solved</td>
+        </tr>
+        <tr>
+          <td>Material realism</td>
+          <td>Slight plastic sheen on matte surfaces</td>
+          <td class="improved">More natural matte rendering</td>
+        </tr>
+        <tr>
+          <td>Concept-from-image</td>
+          <td>Not available</td>
+          <td class="winner">Image as Input (no prompt required)</td>
+        </tr>
+        <tr>
+          <td>Render comparison</td>
+          <td>Click through one at a time</td>
+          <td class="winner">Gallery Mode grid</td>
+        </tr>
+        <tr>
+          <td>Animation setup</td>
+          <td>Manual settings</td>
+          <td class="improved">Twelve render-ready video presets</td>
+        </tr>
+        <tr>
+          <td>Pricing</td>
+          <td>Included with V-Ray</td>
+          <td>Unchanged</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Our <em>take</em></h2>
+
+    <p>Veras is now updating faster than most firms can re-learn it, and that is a double-edged thing. The good news is the trajectory: every release since 4.0 has chipped away at the two failures that kept Veras off final deliverables, soft geometry and invented windows. Nano Banana Pro continues that, and the artifact reduction is real enough that the band of "client-ready on the first pass" keeps widening.</p>
+
+    <p>The honest caveat is that none of this changes the tool's fundamental shape. Veras is still a photorealistic finisher of geometry that already exists. Image as Input flirts with concept work, but it does so by abandoning the geometry lock, so it is a side door, not a new room. If you need loose, exploratory massing studies, Midjourney or a ComfyUI setup is still the faster, freer path.</p>
+
+    <p>For existing Veras users the decision is trivial: the engine swap costs nothing and the output is cleaner, so take it. For firms that bounced off Veras months ago because of hallucination, this is a reasonable moment to re-trial it on your own geometry, the failure rate you remember is roughly half what it was.</p>
+
+    <hr>
+
+    <p>If you are weighing Veras against the field rather than against its own past, read our <a href="chaos-veras-vs-rendair-ai.html" style="color:var(--terracotta);">Veras vs Rendair AI head-to-head</a> and our <a href="best-ai-tools-architectural-visualization-2026.html" style="color:var(--terracotta);">full ranking of AI visualization tools</a> next, then trial the new build on one real elevation before you commit a project to it. The only test that matters is whether it holds <em>your</em> geometry.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on live project work. No affiliate relationship with Chaos. All renders generated from production SketchUp models.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="veras-4-3-update.html" class="related-card">
+          <div class="rc-tag">Tool Update · Apr 2026</div>
+          <div class="rc-title">Chaos Veras 4.3, what's actually new and whether it matters</div>
+        </a>
+        <a href="veras-nano-banana-2-engine-architects-2026.html" class="related-card">
+          <div class="rc-tag">Tool News · May 2026</div>
+          <div class="rc-title">Veras moves to the Nano Banana 2 engine, the first impressions</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
