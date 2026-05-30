@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<title>SketchUp Diffusion Goes Native in SketchUp 2026.1, What It Means for Render-Plugin Holdouts, ArchiGen AI</title>
+<meta name="description" content="SketchUp Diffusion is now built into the SketchUp 2026.1 viewport, with text-prompt rendering and eight style presets. We look at what native AI rendering changes for firms that never installed a render plugin." />
+<link rel="canonical" href="https://archigenai.com/sketchup-diffusion-native-ai-render-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/sketchup-diffusion-native-ai-render-2026.html" />
+<meta property="og:title" content="SketchUp Diffusion Goes Native in SketchUp 2026.1, ArchiGen AI" />
+<meta property="og:description" content="SketchUp Diffusion is now built into the SketchUp 2026.1 viewport, with text-prompt rendering and eight style presets. What native AI rendering changes for render-plugin holdouts." />
+<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="SketchUp Diffusion Goes Native in SketchUp 2026.1, ArchiGen AI" />
+<meta name="twitter:description" content="Text-prompt AI rendering with eight style presets, now inside the SketchUp viewport. What it changes for plugin holdouts." />
+<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/og-image.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "SketchUp Diffusion native rendering / ArchiGen AI"
+  },
+  "headline": "SketchUp Diffusion Goes Native in SketchUp 2026.1, What It Means for Render-Plugin Holdouts",
+  "description": "SketchUp Diffusion is now built into the SketchUp 2026.1 viewport, with text-prompt rendering and eight style presets. We look at what native AI rendering changes for firms that never installed a render plugin.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-30T09:00:00-04:00",
+  "dateModified": "2026-05-30T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/sketchup-diffusion-native-ai-render-2026.html",
+  "articleSection": "Tool News",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["SketchUp Diffusion", "SketchUp 2026.1 AI render", "native AI rendering SketchUp", "AI rendering for architects", "SketchUp style presets"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SketchUp Diffusion and what changed in SketchUp 2026.1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SketchUp Diffusion is Trimble's built-in AI image generator for SketchUp. In SketchUp 2026.1 it runs natively inside the modeling viewport rather than as a separate extension or web step. You frame a view, type a prompt, pick one of eight style presets, and it returns a rendered image based on your model's geometry and the active camera. The shift in 2026.1 is that it ships with the application, so there is no plugin to install or external app to switch to."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does SketchUp Diffusion respect my actual model geometry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It uses your current camera view and depth information as the structural base, so massing, proportions, and major openings carry through reasonably well. It is not a model-locked renderer in the way Veras is, however. Expect it to reinterpret materials and fine detail, and to occasionally invent geometry in low-information areas like blank facades or empty foreground. For concept and mood images it is dependable; for client-facing accuracy you still want a model-aware tool or a human pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SketchUp Diffusion free, and how much does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SketchUp Diffusion is included with SketchUp subscriptions rather than sold separately, with generation governed by a credit allowance tied to your plan tier. For most concept-phase use the included allowance is workable; high-volume image generation will push heavier users toward managing credits or supplementing with another tool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should architects switch from a render plugin to SketchUp Diffusion?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on what you render for. If you only ever needed quick conceptual images and never installed Enscape, V-Ray, or Veras, native Diffusion likely covers you with zero setup. If you produce final client deliverables that must match the model exactly, Diffusion is a fast front-end for ideation, not a replacement for a model-locked renderer. The realistic 2026 stack is Diffusion for speed and a model-aware tool for accuracy."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool news for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool news for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool News · 30 May 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>SketchUp Diffusion goes <em>native</em></h1>
+    <p class="lede">AI rendering is now built into the SketchUp 2026.1 viewport, eight style presets, one prompt box, no plugin to install. For the millions of architects who never set up a render engine, that's a bigger deal than it sounds.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">7 min read · May 2026 · Vista Studios tested · Tool news</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>For years the dividing line in architectural visualization wasn't talent, it was setup. The architects producing slick concept images had taken the time to install a render plugin, learn its quirks, and build a material library. Everyone else exported a flat SketchUp screenshot and apologized for it in the meeting. SketchUp Diffusion, now shipping natively in <strong>SketchUp 2026.1</strong>, quietly erases that line.</p>
+
+    <p>The feature isn't new in concept, Trimble has offered AI image generation in SketchUp for over a year. What changed in 2026.1 is where it lives. It's no longer an extension you hunt down in the Warehouse or a web step you bounce out to. It's in the viewport, next to the tools you already use, available the moment you open the application. We've spent the last two weeks running it against live concept work to see whether "native" is a meaningful upgrade or just a packaging change.</p>
+
+    <hr>
+
+    <h2>What "native" actually <em>changes</em></h2>
+
+    <p>The mechanics are deliberately simple. You orbit to the view you want, open the Diffusion panel, type a prompt describing the atmosphere and materials you're after, choose one of eight style presets, and generate. A few seconds later you get an image rendered from your current camera, using your model's geometry as the structural skeleton. You can regenerate, nudge the prompt, or change preset without leaving the modeling window.</p>
+
+    <p>That tight loop is the whole point. The old friction wasn't the rendering, it was the context-switch, exporting a view, opening another app, re-establishing the camera, waiting, importing back. Collapsing all of that into a side panel means you generate concept images <em>while you're still designing</em>, not as a separate production phase at the end of the week. The cognitive distance between "I wonder how this reads in warm evening light" and seeing it is now about ten seconds.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">SketchUp Diffusion (2026.1, native)</div>
+        <div class="tc-rating">★ 3.9 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included with SketchUp subscriptions · Generation governed by plan credit allowance</div>
+      <p>In-viewport AI image generation for SketchUp. Text-prompt input, eight style presets, renders from your active camera and model geometry. Built for fast concept and mood imagery rather than model-locked final deliverables. Zero setup, no separate install.</p>
+      <div class="tc-tags">
+        <span>SketchUp 2026.1</span><span>Native</span><span>Text-to-image</span><span>Style presets</span><span>Concept phase</span>
+      </div>
+    </div>
+
+    <h3>The eight presets, and what they're good for</h3>
+
+    <p>The style presets do most of the heavy lifting for people who don't want to write long prompts. They span the predictable range, photoreal exterior, photoreal interior, a couple of sketch and illustrative looks, a clay/whitebox study mode, and a few atmospheric treatments. The clay and sketch presets are the underrated ones for architects: they let you produce a presentable conceptual image that's honestly <em>readable as a study</em>, instead of an over-finished photoreal render that implies decisions you haven't made yet.</p>
+
+    <p>That matters more than it seems. One recurring problem with AI rendering at the concept stage is that photorealism oversells the idea, clients see a glossy image and assume the design is locked. Having a native sketch preset on hand makes it easy to keep the visual register honest about where the project actually is.</p>
+
+    <h3>Where the geometry holds, and where it drifts</h3>
+
+    <p>Because Diffusion works from your camera view and depth, massing and major openings come through dependably. Run it on a clean massing model and the silhouette, floor lines, and window rhythm are faithful. The drift shows up in two places: large blank surfaces, where the model gives the AI little to anchor to and it sometimes invents paneling or reflections you didn't model, and the foreground, where empty ground plane gets populated with whatever the preset thinks belongs there.</p>
+
+    <blockquote>Diffusion respects your building. It improvises everything around it. Knowing which is which is the whole skill.</blockquote>
+
+    <p>The practical workaround is the same discipline good archviz has always rewarded: give the model enough information to constrain the result. Block in context massing, drop in rough entourage, set a real camera height. The more you model, the less the AI guesses, and the closer the output stays to your intent.</p>
+
+    <hr>
+
+    <h2>How it stacks up against the model-aware <em>tools</em></h2>
+
+    <p>The obvious comparison is Veras and the in-viewport renderers like Rendair that read your geometry more tightly. Native Diffusion isn't trying to win that fight. It's competing for the architect who was never going to install any of them.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>SketchUp Diffusion (native)</th>
+          <th>Model-aware renderer (e.g. Veras)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Setup</td>
+          <td class="winner">None, ships with SketchUp 2026.1</td>
+          <td>Install, license, learn the panel</td>
+        </tr>
+        <tr>
+          <td>Geometry fidelity</td>
+          <td>Good on massing, drifts on blank/foreground</td>
+          <td class="winner">Tight, locks to the actual model</td>
+        </tr>
+        <tr>
+          <td>Speed to first image</td>
+          <td class="winner">Seconds, in the same window</td>
+          <td>Fast, but a separate workflow step</td>
+        </tr>
+        <tr>
+          <td>Best phase</td>
+          <td class="winner">Ideation and concept imagery</td>
+          <td>Concept through client-facing deliverables</td>
+        </tr>
+        <tr>
+          <td>Cross-platform</td>
+          <td>SketchUp only</td>
+          <td class="winner">Reads 7 BIM/CAD platforms</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The honest read: Diffusion lowers the floor, it makes competent concept imagery available to everyone in SketchUp with no barrier. The model-aware tools still own the ceiling, the renders that have to match the project exactly because a client is about to sign off on them.</p>
+
+    <h2>Our take: a floor-raiser, not a <em>ceiling-raiser</em></h2>
+
+    <p>The interesting story in 2026.1 isn't that SketchUp got better AI. It's that AI rendering stopped being a thing you opt into and became a default capability of the modeler. That's a structural shift. When a feature is bundled and one click away, usage isn't driven by enthusiasts anymore, it's driven by everyone. Expect a wave of perfectly decent concept imagery from firms that have never thought of themselves as "doing archviz."</p>
+
+    <p>For studios already running a proper render pipeline, native Diffusion doesn't replace anything, but it does change the early loop. It's now the fastest way to test a lighting mood or material direction before committing it to the real render. We've started using it as a disposable sketch tool: generate five quick atmospheres in the viewport, pick a direction, then take that direction into the model-locked renderer for the deliverable. The two tools aren't competitors, they're different gears.</p>
+
+    <p>What we'd watch for next is whether Trimble extends the geometry-locking, the single biggest gap between Diffusion and the model-aware tools. If a future point release tightens how strictly it honors the model, the line between "concept tool" and "deliverable tool" gets blurry fast.</p>
+
+    <h3>If you're deciding what to do this week</h3>
+
+    <p>Update to 2026.1 and spend twenty minutes running your current project through all eight presets, it costs you nothing and recalibrates your sense of what a fast concept image looks like now. If you produce final renders, fold Diffusion into the front of your pipeline as the ideation step, not the output step. And if you've been meaning to evaluate a model-aware renderer, this is the moment to A/B it against native Diffusion on the same view and see exactly what the extra fidelity buys you.</p>
+
+    <p><strong>Want the practitioner's-eye breakdown as new tools ship?</strong> We test this stuff on live project work and publish the unglossed version. <a href="#newsletter">Join the studio newsletter</a> for the weekly field notes, or browse the full <a href="tools.html">AI tools directory</a> to see where Diffusion sits against the rest of the stack.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios in SketchUp 2026.1 on live concept-phase project work. No affiliate relationship with Trimble or SketchUp. Outputs evaluated against massing and schematic models with real camera setups.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="sketchup-diffusion-vs-veras-architects-2026.html" class="related-card">
+          <div class="rc-tag">Comparison · May 2026</div>
+          <div class="rc-title">SketchUp Diffusion vs Veras, Which Belongs in Your SketchUp Workflow</div>
+        </a>
+        <a href="sketchup-ai-render-tools-architects-2026.html" class="related-card">
+          <div class="rc-tag">Roundup · May 2026</div>
+          <div class="rc-title">The Best SketchUp AI Render Tools for Architects in 2026</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
