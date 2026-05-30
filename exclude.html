@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<title>Internal Traffic Exclusion, ArchiGen AI</title>
+<meta name="description" content="Opt this device out of ArchiGen AI analytics. For team use only." />
+
+<style>
+  :root{
+    --f-display:'Fraunces',serif;
+    --f-sans:'Inter',system-ui,sans-serif;
+    --f-mono:'JetBrains Mono',ui-monospace,monospace;
+    --paper:#F2EFE8;
+    --ink:#1A1915;
+    --muted:#706A5C;
+    --rule:#1A19151A;
+    --forest:#2F4A3A;
+    --terracotta:#C96F4A;
+    --coral:#E36A52;
+    --cream:#F4EFE3;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--f-sans);line-height:1.6;
+    display:flex;align-items:center;justify-content:center;
+    min-height:100vh;padding:24px;
+  }
+  .card{
+    max-width:560px;width:100%;background:var(--cream);
+    border:1px solid var(--rule);border-radius:14px;
+    padding:40px 38px;box-shadow:0 1px 0 rgba(0,0,0,.02);
+  }
+  .eyebrow{
+    font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--terracotta);margin:0 0 14px;
+  }
+  h1{
+    font-family:var(--f-display);font-weight:500;font-size:30px;
+    line-height:1.15;margin:0 0 14px;
+  }
+  p{color:var(--muted);font-size:15.5px;margin:0 0 18px}
+  .status{
+    font-family:var(--f-mono);font-size:14px;font-weight:500;
+    padding:14px 16px;border-radius:9px;margin:22px 0;
+    border:1px solid var(--rule);
+  }
+  .status.on{background:#2F4A3A12;color:var(--forest);border-color:#2F4A3A33}
+  .status.off{background:#C96F4A12;color:var(--terracotta);border-color:#C96F4A33}
+  .btn{
+    font-family:var(--f-sans);font-weight:600;font-size:15px;
+    border:none;border-radius:9px;padding:13px 22px;cursor:pointer;
+    transition:transform .08s ease,opacity .15s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--forest);color:var(--cream)}
+  .btn-secondary{background:transparent;color:var(--muted);border:1px solid var(--rule);margin-left:10px}
+  .note{font-size:13px;color:var(--muted);margin-top:24px;border-top:1px solid var(--rule);padding-top:18px}
+  code{font-family:var(--f-mono);font-size:13px;background:#1A19150D;padding:2px 6px;border-radius:5px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="eyebrow">ArchiGen AI · Internal</p>
+    <h1>Analytics exclusion</h1>
+    <p>Use this page to keep your own visits out of the ArchiGen AI traffic numbers. This is a per-device, per-browser setting, so run it once on every device and browser you and the team use to view the site.</p>
+
+    <div id="status" class="status">Checking this device&hellip;</div>
+
+    <button id="toggle" class="btn btn-primary">Exclude this device</button>
+    <button id="reload" class="btn btn-secondary" onclick="location.reload()">Refresh status</button>
+
+    <p class="note">How it works: this sets a <code>plausible_ignore</code> flag in your browser's local storage. While it's on, the site loads but never sends a pageview from this browser. Clearing your browser data resets it, so just revisit this page to turn it back on.</p>
+  </div>
+
+<script>
+  var KEY = 'plausible_ignore';
+  var statusEl = document.getElementById('status');
+  var btn = document.getElementById('toggle');
+
+  function render(){
+    var excluded = false;
+    try { excluded = localStorage.getItem(KEY) === 'true'; } catch(e){}
+    if(excluded){
+      statusEl.className = 'status on';
+      statusEl.textContent = '✓ This device is EXCLUDED. Your visits are not counted.';
+      btn.textContent = 'Start counting this device again';
+    } else {
+      statusEl.className = 'status off';
+      statusEl.textContent = '○ This device is COUNTED. Your visits show up in analytics.';
+      btn.textContent = 'Exclude this device';
+    }
+  }
+
+  btn.addEventListener('click', function(){
+    try {
+      if(localStorage.getItem(KEY) === 'true'){
+        localStorage.removeItem(KEY);
+      } else {
+        localStorage.setItem(KEY, 'true');
+      }
+    } catch(e){
+      statusEl.className = 'status off';
+      statusEl.textContent = 'Local storage is blocked in this browser, so exclusion cannot be set here.';
+      return;
+    }
+    render();
+  });
+
+  render();
+</script>
+</body>
+</html>

@@ -7,7 +7,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Veras now runs on Nano Banana 2. What it changes for architects, ArchiGen AI</title>
 <meta name="description" content="The Chaos product page added a single new line of copy: Powered by Nano Banana 2. The plugin architects already run inside Revit, SketchUp, and Rhino just swapped engines under the hood. Here is what that means in practice." />

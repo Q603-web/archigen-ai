@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>The BIM-First AI Stack for 2026, What Actually Works Inside Revit and Archicad, ArchiGen AI</title>
 <meta name="description" content="Most 'top AI tools' lists ignore that BIM-native firms have different constraints. Here's the AI stack we'd actually deploy inside a Revit or Archicad practice in 2026, and what to skip." />

@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>ArchiLabs Studio Mode Review, AI-Native Parametric CAD, Tested on Real Project Work, ArchiGen AI</title>
 <meta name="description" content="ArchiLabs Studio Mode promises 10x faster drafting with natural-language prompts on top of a code-first parametric core. We tested it on actual project geometry, and on the data center workflow it is pitched against." />

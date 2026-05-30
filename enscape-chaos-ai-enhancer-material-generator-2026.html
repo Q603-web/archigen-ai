@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Enscape's Chaos AI Enhancer and AI Material Generator, The Real-Time Renderer Gets Smart, ArchiGen AI</title>
 <meta name="description" content="Enscape now ships a Chaos AI Enhancer that refines vegetation and people without a re-render, plus an AI Material Generator that turns photos into PBR materials. We tested both on live project scenes." />

@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>The Render-Rescue Workflow. Rough 3D Viewport Exports to Client-Ready Frames | ArchiGen AI</title>
 <meta name="description" content="You already have the model. The viewport export just looks flat and dead. The 2026 render-rescue workflow, taking a rough Rhino, SketchUp, or Revit viewport to a client-ready frame, tested across ComfyUI and cloud img2img tools." />

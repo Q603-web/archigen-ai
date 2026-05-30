@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Chaos Vantage for Architects, Real-Time Photorealism on Live Client Meetings, ArchiGen AI</title>
 <meta name="description" content="Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up." />

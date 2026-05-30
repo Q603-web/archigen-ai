@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Chaos's End-to-End Pipeline, Enscape, Veras, Envision in One Workflow, ArchiGen AI</title>
 <meta name="description" content="Chaos is bundling Enscape, Veras, and Envision into a single connected pipeline. We tested the handoffs on a live project, here's what works and what still leaks." />

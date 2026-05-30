@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>AI Rendering for Interior Designers, Spacely.ai and the Interior-First Stack, ArchiGen AI</title>
 <meta name="description" content="Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do." />

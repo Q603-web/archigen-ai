@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>The 2026 Sketch-to-Photoreal Field Test. Which AI Tools Actually Preserve Your Drawing | ArchiGen AI</title>
 <meta name="description" content="Every AI render tool now ships a sketch-to-photoreal mode. Most generate something pretty and ignore your drawing. We tested mnml.ai, ArchiVinci, Veras, ComfyUI, and Krea on the same hand sketches to see which ones respect what you actually drew." />

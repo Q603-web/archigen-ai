@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>ComfyUI for Rhino users in 2026. The workflow architects actually need | ArchiGen AI</title>
 <meta name="description" content="The most-asked question on r/FluxAI from architects right now is some version of: how do I get a real ComfyUI workflow that works with my Rhino model. The video tutorials skip the Rhino-specific steps. The Reddit threads stall at the depth map. We built and shipped a working Rhino-to-ComfyUI pipeline on a live project, and this is the workflow architects keep asking for and not finding." />

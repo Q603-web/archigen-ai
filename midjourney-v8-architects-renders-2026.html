@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Midjourney V8 for Architects, What the 2026 Release Actually Changes, ArchiGen AI</title>
 <meta name="description" content="Midjourney V8 and V8.1 shipped in spring 2026, native 2K, 5x faster, a rebuilt engine. We ran both against live concept work. Here is what improved, what still breaks, and whether it belongs in your stack." />

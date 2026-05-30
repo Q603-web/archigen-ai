@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI</title>
 <meta name="description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />

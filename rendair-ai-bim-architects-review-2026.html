@@ -8,7 +8,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Rendair AI for BIM Architects, Hands-On Review (2026), ArchiGen AI</title>
 <meta name="description" content="Rendair AI is repositioning as a BIM-friendly renderer. We tested the Revit and Archicad workflow on a live SD project to see whether the BIM pitch holds up." />

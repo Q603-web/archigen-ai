@@ -7,7 +7,7 @@
 <script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  plausible.init()
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
 </script>
 <title>Rendershop, the AI render tool architects keep posting about: a week-long test, ArchiGen AI</title>
 <meta name="description" content="Rendershop sits at the top of every recent Reddit list of AI rendering tools for architects. We ran it for a week against Veras and Rendair on real project work. Here is what it actually does and what it does not." />
