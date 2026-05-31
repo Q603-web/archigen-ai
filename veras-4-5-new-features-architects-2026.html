@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>What's New in Veras 4.4 and 4.5, The Workflow Features That Add Up, ArchiGen AI</title>
+<meta name="description" content="Veras 4.4 and 4.5 don't reinvent the engine, they fix the workflow around it: Rotate Image, Modify and Replace selection modes, Smart Selection, Remove Background, shareable galleries and more. We read Chaos's release notes and mapped them to a billable day." />
+<link rel="canonical" href="https://archigenai.com/veras-4-5-new-features-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/veras-4-5-new-features-architects-2026.html" />
+<meta property="og:title" content="What's New in Veras 4.4 and 4.5, ArchiGen AI" />
+<meta property="og:description" content="Veras 4.4 and 4.5 are workflow releases: Rotate Image, Modify/Replace selection, Smart Selection, Remove Background, shareable galleries. What changes for architects day to day." />
+<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="What's New in Veras 4.4 and 4.5, ArchiGen AI" />
+<meta name="twitter:description" content="The Veras 4.4 and 4.5 releases are about workflow, not a new engine: selection modes, smart selection, rotate image, remove background, shareable galleries." />
+<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/og-image.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "What's new in Veras 4.4 and 4.5 / ArchiGen AI"
+  },
+  "headline": "What's New in Veras 4.4 and 4.5, The Workflow Features That Add Up",
+  "description": "Veras 4.4 and 4.5 are workflow releases, not a new engine: Rotate Image, Modify and Replace selection modes, Smart Selection, Remove Background, shareable galleries and more. What they change for architects day to day.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-05-31T10:00:00-04:00",
+  "dateModified": "2026-05-31T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-4-5-new-features-architects-2026.html",
+  "articleSection": "Tool News",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["Veras 4.5", "Veras 4.4", "Chaos Veras update", "Veras Smart Selection", "Veras Rotate Image", "Modify Replace selection modes", "AI rendering architects 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is new in Veras 4.4 and 4.5?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Veras 4.4 and 4.5 are workflow-focused releases rather than a new render engine. Chaos describes additions including Rotate Image for reorienting a source image in 3D space before rendering, two Render Selection Modes for the Nano Banana engine called Modify and Replace, an AI-driven Smart Selection workflow, Remove Background for transparent PNG export, shareable Gallery items with analytics, new Sketch Tools, Upload History, a Describe Source Image feature, and cloud storage usage reporting. Most build on the Veras 4 foundation instead of replacing it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Modify and Replace in Veras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Modify and Replace are the two Render Selection Modes Chaos added for the Nano Banana engine. Chaos describes Modify as preserving the underlying geometry and better understanding what needs to be edited, so you use it to adjust a dimension, material, or finish on a selected area. Replace discards the selection and comes up with a fresh new idea, so you use it to reimagine an area entirely. In practice Modify is the surgical edit and Replace is the do-over."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Veras 4.5 work inside Revit, SketchUp and Rhino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Chaos lists the Smart Selection workflow as available across Enscape, Revit, Rhino, SketchUp, Vectorworks, Archicad, Forma, and the web app, so the newer selection tooling is not web-only. Veras has historically shipped as a plugin across major BIM and modeling hosts, and these releases continue that pattern. Always confirm a specific feature is live in your host build, since some features can land on the web app first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is upgrading to Veras 4.5 worth it for architects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you already use Veras, the 4.4 and 4.5 updates arrive as part of the product rather than as a separate purchase, so the question is whether the workflow features fit your day. The selection modes, Smart Selection, Remove Background, and shareable galleries each remove a small piece of manual work that recurs on real projects, so the value compounds across a billable week rather than appearing in any single render. They do not change render quality, which is already strong, they reduce the friction around it."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool News · 31 May 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>Veras 4.4 and 4.5 fix the <em>workflow, not the engine</em></h1>
+    <p class="lede">No new model, no headline render quality jump. Instead Chaos has spent these two releases on the unglamorous stuff: selecting, editing, rotating, sharing. We read the release notes against an actual billable day to see which ones earn their place.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">7 min read · May 2026 · Vista Studios tested · Tool news</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Veras 4 was the loud release. The engine moved to the Nano Banana 2 generation, <a href="veras-4-design-lock-image-input-architects-2026.html">Design Lock and Image as Input</a> landed, and the demos got noticeably cleaner. The 4.4 and 4.5 updates that followed are the quiet ones, and they're easy to skim past, because nothing in them changes how a finished render looks. What they change is everything around the render: how you select a part of the scene, how you edit just that part, how you reorient a source image, how you hand the result to a client. Chaos has spent these releases on workflow, and for a practice that runs Veras every week, that's arguably the more useful place to spend.</p>
+
+    <p>We went through the release notes and mapped each addition to where it would actually show up in a working day. Most of them aren't features you'll talk about. They're features you'll stop noticing the absence of, which is its own kind of win.</p>
+
+    <hr>
+
+    <h2>Selection grew up: <em>Modify, Replace, and Smart Selection</em></h2>
+
+    <p>The most consequential changes here are about selection, the act of telling Veras <em>which part</em> of the image you want it to touch. In earlier workflows, editing one element without disturbing the rest was the fiddly part. These releases attack that directly.</p>
+
+    <p>Chaos added two <strong>Render Selection Modes</strong> for the Nano Banana engine. The company describes <strong>Modify</strong> as a mode that "preserves the underlying geometry and better understands what needs to be edited," which is the one you reach for when you want to change a dimension, a material, or a finish on a selected area without redrawing it. <strong>Replace</strong>, by contrast, "discards the selection and comes up with a fresh new idea" — the do-over, for when you want to reimagine an area entirely. The mental model is clean: Modify is the scalpel, Replace is the blank slate.</p>
+
+    <p>Sitting on top of that is <strong>Smart Selection</strong>, an AI-driven workflow that lets you select by category, by object, by material, or with a custom prompt. Chaos notes that "recent prompts are saved with thumbnails so you can re-use selections across renders," which is the kind of small persistence detail that matters when you're running the same edit across a set. Notably, Chaos lists Smart Selection as available across Enscape, Revit, Rhino, SketchUp, Vectorworks, Archicad, Forma, and the web app — not a web-only feature.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Veras 4.5, Selection Modes + Smart Selection</div>
+        <div class="tc-rating">★ 4.5 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included in Veras subscription · Runs on the Nano Banana engine</div>
+      <p>Modify edits a selected area while preserving geometry; Replace discards it for a fresh idea. Smart Selection picks by category, object, material, or prompt and saves recent selections with thumbnails. Listed across Enscape, Revit, Rhino, SketchUp, Vectorworks, Archicad, Forma, and web.</p>
+      <div class="tc-tags">
+        <span>Veras 4.5</span><span>Modify</span><span>Replace</span><span>Smart Selection</span><span>Local edits</span>
+      </div>
+    </div>
+
+    <h3>Where it earns its keep</h3>
+
+    <p>This is the part of the release that touches the most billable hours. Client review almost always comes back as targeted asks: change that cladding, warm up that one room, swap the paving. Modify means you can act on those without re-rolling the whole image and re-checking everything else for drift. Replace means when a reviewer says "this corner isn't working, try something else," you can isolate the corner and explore it without losing the rest. That's a genuine reduction in the per-edit overhead that used to make iterative client work tedious in prompt-driven tools.</p>
+
+    <blockquote>The win isn't a better render. It's editing one thing and trusting that the other ninety-nine didn't move.</blockquote>
+
+    <hr>
+
+    <h2>The supporting cast that <em>quietly saves time</em></h2>
+
+    <p>Beyond selection, 4.4 and 4.5 add a cluster of smaller features. None is a headline on its own; together they smooth a lot of the friction that surrounds a render.</p>
+
+    <p><strong>Rotate Image</strong> lets you reorient a source image in 3D space by adjusting pitch, yaw, and roll, then "generate a fresh render from the rotated viewpoint." Chaos frames it as a way to create video from multiple frames without needing a 3D model — useful when your input is a single image rather than live geometry. <strong>Remove Background</strong> "replaces the background of any source image with transparency," exporting a transparent PNG for compositing, which is a real time-saver if you drop renders into boards or marketing layouts. <strong>New Sketch Tools</strong> overhaul the drawing toolbar with dedicated Freehand, Line, and Curve buttons, full undo/redo, and per-pixel selection precision. And <strong>Upload History</strong> lets you cycle through manually-uploaded images with prev/next arrows instead of re-importing each time.</p>
+
+    <p>There are convenience touches too: <strong>Describe Source Image</strong> (powered by the Florence 2 model) generates Short, Medium, or Long image descriptions, and a <strong>Cloud Storage Usage</strong> bar shows consumption in real time with warning states. Individually minor. Collectively, they're the difference between a tool that fights you and one that gets out of the way.</p>
+
+    <h2>Sharing got real: <em>galleries you can actually hand over</em></h2>
+
+    <p>The feature most likely to change how you collaborate is <strong>Share Gallery Items</strong>. Chaos describes shareable links that require no account to view, where "recipients can clone shared items into their own gallery in one click," plus a Shares panel for managing links, revoking access, and tracking analytics. For anyone who has emailed a zip of renders and lost the thread, an account-free, revocable, trackable share link is a small piece of infrastructure that matters more than it sounds.</p>
+
+    <p>It's also a quiet signal about where Veras sees itself: not just a render generator, but a place where review and handoff happen. The analytics piece in particular suggests Chaos wants the gallery to be where the conversation with a client lives, not a dead end you export out of.</p>
+
+    <h2>How the two releases stack up against Veras 4</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Veras 4 (the engine release)</th>
+          <th>Veras 4.4 / 4.5 (these releases)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Headline</td>
+          <td class="winner">New engine, Design Lock, Image as Input</td>
+          <td class="winner">Selection, editing, sharing</td>
+        </tr>
+        <tr>
+          <td>Changes render quality?</td>
+          <td>Yes, noticeably cleaner output</td>
+          <td class="note">No, quality is unchanged</td>
+        </tr>
+        <tr>
+          <td>Changes daily workflow?</td>
+          <td>Somewhat, via control features</td>
+          <td class="winner">Substantially, via friction removal</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td>Trusting AI near a client</td>
+          <td>Iterating fast once you do</td>
+        </tr>
+        <tr>
+          <td>Marketing volume</td>
+          <td class="note">Loud</td>
+          <td>Quiet</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The honest framing is that Veras 4 made AI rendering trustworthy enough to put in front of a client, and 4.4 plus 4.5 make it faster to <em>work</em> once it's there. If Design Lock was about defending the design, these releases are about defending your time. Read together with our take on <a href="veras-4-design-lock-image-input-architects-2026.html">Design Lock and Image as Input</a>, the arc is clear: Chaos is filling in the workflow around a control story it already established.</p>
+
+    <h2>Our take: boring releases are <em>the good kind</em></h2>
+
+    <p>We're usually wary of incremental point releases dressed up as news, and on paper that's exactly what this is. But there's a version of "boring" that's actually the most valuable thing a mature tool can ship: removing the small, repeated friction that a power user hits forty times a day. Modify versus Replace is a genuinely good design decision. Smart Selection with saved, thumbnailed prompts is the kind of detail that only comes from watching real users. Account-free, revocable share links solve a problem every studio has. None of it will make a sizzle reel, and that's the point.</p>
+
+    <p>The caveat we'd flag: these are reported from Chaos's own release notes, and rollout across every host plugin isn't always simultaneous. Chaos lists Smart Selection broadly across Revit, SketchUp, Rhino and the rest, but if a specific feature is load-bearing for your pipeline, confirm it's live in your exact build before you plan a deadline around it. Features can land on the web app ahead of the plugins.</p>
+
+    <p>So: not a release you need to read a thread about. A release you'll feel the first week you use it, in the form of edits that used to take three rolls and now take one, and renders you hand off with a link instead of an attachment. That's a fair trade for "nothing new to look at."</p>
+
+    <h3>If you run Veras this week</h3>
+
+    <p>Pick a render with one element a client flagged, and edit only that element using <strong>Modify</strong> — then check whether the rest of the scene held. That single test tells you most of what these releases are worth on your work. Try <strong>Replace</strong> on an area you've been unhappy with rather than re-rolling the whole image, and use <strong>Smart Selection</strong> to grab by material the next time you want to swap a finish everywhere it appears. Then share a set with a client over a gallery link instead of a zip and see whether the cloning and analytics change the conversation.</p>
+
+    <p><strong>We test new AI rendering features on real project work and publish the honest version, including the boring releases that actually matter.</strong> <a href="#newsletter">Join the studio newsletter</a> for weekly field notes, or read our take on <a href="veras-4-design-lock-image-input-architects-2026.html">Veras 4's Design Lock and Image as Input</a> for the control story these releases build on.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Reported from Chaos's published Veras 4.4 and 4.5 release notes, with feature names and quoted descriptions drawn from that source. Workflow framing reflects Vista Studios' experience running Veras on live projects; we have not independently benchmarked every listed feature across all host plugins. No affiliate relationship with Chaos or Veras.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="veras-4-design-lock-image-input-architects-2026.html" class="related-card">
+          <div class="rc-tag">Tool Review · 30 May 2026</div>
+          <div class="rc-title">Veras 4's Design Lock and Image as Input, The Control Features That Keep Renders On-Design</div>
+        </a>
+        <a href="veras-4-nano-banana-pro-engine-architects-2026.html" class="related-card">
+          <div class="rc-tag">Tool News · 29 May 2026</div>
+          <div class="rc-title">Veras 4 Runs on Nano Banana Pro Now, What the New Engine Actually Changes</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
