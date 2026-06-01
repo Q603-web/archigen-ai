@@ -612,4 +612,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-01 Articles -->
+  <url>
+    <loc>https://archigenai.com/qwen-flux-zimage-comfyui-architecture-render-2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/maquete-ai-top-10-sketchup-render-plugins-audited-2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/chaos-top-20-ai-tools-architects-list-audited-2026.html</loc>
+    <lastmod>2026-06-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
