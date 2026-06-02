@@ -634,4 +634,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-02 Articles -->
+  <url>
+    <loc>https://archigenai.com/veras-4-image-to-video-walkthroughs-architects-2026.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/chaos-2026-product-line-update-architects.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/bim-integrated-ai-rendering-vs-midjourney-architects-2026.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Veras 4 Turns a Still Into a Walkthrough, What Image-to-Video Means for Architects, ArchiGen AI</title>
+<meta name="description" content="Veras 4 now ships image-to-video, twelve video presets, Rotate Image and Gallery Mode. We read what Chaos added against how a studio actually produces a client walkthrough, and where AI motion still falls down." />
+<link rel="canonical" href="https://archigenai.com/veras-4-image-to-video-walkthroughs-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/veras-4-image-to-video-walkthroughs-architects-2026.html" />
+<meta property="og:title" content="Veras 4 Turns a Still Into a Walkthrough, ArchiGen AI" />
+<meta property="og:description" content="Image-to-video, twelve video presets, Rotate Image and Gallery Mode. What Veras 4's motion features change for architects, and where they don't." />
+<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Veras 4 Turns a Still Into a Walkthrough, ArchiGen AI" />
+<meta name="twitter:description" content="Veras 4 adds image-to-video, twelve video presets and Rotate Image. We map the motion features to a real client deliverable." />
+<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/og-image.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "Veras 4 image-to-video for architects / ArchiGen AI"
+  },
+  "headline": "Veras 4 Turns a Still Into a Walkthrough, What Image-to-Video Means for Architects",
+  "description": "Veras 4 now ships image-to-video, twelve video presets, Rotate Image and Gallery Mode. We read what Chaos added against how a studio actually produces a client walkthrough, and where AI motion still falls down.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-02T10:00:00-04:00",
+  "dateModified": "2026-06-02T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-4-image-to-video-walkthroughs-architects-2026.html",
+  "articleSection": "Tool News",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["Veras image to video", "Veras video presets", "Veras Rotate Image", "Veras Gallery Mode", "AI walkthrough architects", "Chaos Veras 4", "AI rendering architects 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Veras 4 turn a still render into a video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Veras 4 adds image-to-video functionality that transforms a still render into a short walkthrough-style animation, along with twelve video presets that provide render-ready motion settings. Chaos also added Rotate Image, which lets you reorient a source image in 3D space and generate fresh frames from multiple viewpoints, so you can build motion even when your input is a single image rather than live geometry. The output is short clip length suited to concept and presentation use rather than a full animated film."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Veras video presets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaos describes twelve video presets in Veras as render-ready animation settings for smooth, photorealistic motion. Rather than hand-keying a camera path, you pick a preset that defines the movement, which lowers the skill floor for producing a presentable clip. Presets trade fine control for speed and consistency, which fits concept-phase and client-update work more than final cinematic deliverables."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Veras image-to-video good enough for client deliverables?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For concept walkthroughs, marketing teasers, and design-development updates, short AI-generated motion from Veras is a fast way to add movement to work that would otherwise be static. For contractual deliverables that demand geometric accuracy across a continuous camera move, traditional engines such as Enscape, Chaos Vantage, or a V-Ray animation still hold the edge, because AI motion can drift on detail between frames. The practical pattern is to use Veras motion early and switch to a model-driven pipeline when accuracy is the deliverable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Gallery Mode in Veras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gallery Mode is a grid-based, thumbnail view of past renders that makes it easier to compare iterations over time. Combined with shareable gallery links, it turns Veras from a single-shot generator into a place where review and comparison happen, which matters more for motion work where you are choosing between several short clips rather than a single frame."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool News · 2 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>Veras 4 turns a still into a <em>walkthrough</em> now</h1>
+    <p class="lede">Image-to-video, twelve video presets, Rotate Image, Gallery Mode. Chaos has quietly added motion to a tool most architects only ever asked for stills from. We mapped the new features to a real client deliverable, and marked the line where AI motion still hands the job back to your render engine.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios tested · Tool news</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>For most of its life, Veras has been a still-image tool. You fed it geometry or a source image, it gave you a frame, and if you wanted that frame to move, you took it somewhere else — Enscape for a real-time fly-through, Vantage for the polished pass, an animation render if the client was paying for it. The newest Veras 4 features change that quietly but meaningfully: there's now <strong>image-to-video</strong> built in, a set of <strong>twelve video presets</strong>, a <strong>Rotate Image</strong> tool that manufactures viewpoints from a single image, and a <strong>Gallery Mode</strong> for comparing all of it. Motion has arrived in a tool nobody was using for motion.</p>
+
+    <p>That's worth slowing down on, because "AI rendering tool adds video" is the kind of headline that's either a genuine workflow change or a checkbox feature that demos well and dies in practice. We went through what Chaos actually shipped and tested it against the question that matters: when a client asks to <em>see the building move</em>, does this change which tool you open?</p>
+
+    <hr>
+
+    <h2>What Chaos actually added</h2>
+
+    <p>The motion story in Veras 4 is really three features that stack. <strong>Image-to-video</strong> is the headline: it transforms a still render into a short walkthrough-style animation, so an image you already generated can become a moving clip without you building a camera path by hand. <strong>Twelve video presets</strong> sit underneath that, described by Chaos as render-ready animation settings for smooth, photorealistic motion — you choose the movement rather than author it. And <strong>Rotate Image</strong>, which arrived alongside the recent workflow releases, lets you reorient a source image in 3D space by pitch, yaw, and roll, then generate a fresh render from the new viewpoint. Chaos explicitly frames Rotate Image as a way to build video from multiple frames <em>without needing a 3D model</em>.</p>
+
+    <p>That last detail is the interesting one. Taken together, these features mean you can produce motion from inputs that have no underlying geometry at all — a single rendered frame, a photograph, even a sketch that's been through the engine. For a profession where the source material is often a 2D image rather than a live model, that lowers the floor for "make it move" dramatically.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Veras 4, Motion Stack (Image-to-Video + Presets + Rotate Image)</div>
+        <div class="tc-rating">★ 4.0 / 5.0</div>
+      </div>
+      <div class="tc-pricing">Pricing: Included in Veras subscription · Runs on the Nano Banana Pro engine</div>
+      <p>Image-to-video converts a still into a short walkthrough clip; twelve presets supply ready-made motion; Rotate Image manufactures new viewpoints from a single image with pitch/yaw/roll. Gallery Mode compares the results. Strong for concept and presentation motion, weaker where continuous geometric accuracy is the deliverable.</p>
+      <div class="tc-tags">
+        <span>Image to video</span><span>Video presets</span><span>Rotate Image</span><span>Gallery Mode</span><span>Concept motion</span>
+      </div>
+    </div>
+
+    <h2>Where it earns its keep: <em>the concept walkthrough</em></h2>
+
+    <p>The deliverable this changes is the early-stage walkthrough — the thing you make when a client wants more than a board of stills but you're nowhere near committing to a paid animation. Previously that meant either standing up an Enscape session and screen-recording a path, or telling the client "stills only at this stage." Now you can take three or four hero renders you already produced, run image-to-video with a preset, and hand back a set of short moving clips the same afternoon.</p>
+
+    <p>Rotate Image is the quiet enabler here. If your input was a single competition-style image with no model behind it, you couldn't orbit it before. Now you can nudge the viewpoint, generate the in-between frames, and assemble motion that reads as a camera move rather than a slideshow. It won't survive frame-by-frame scrutiny, but for a concept teaser or a social clip, the audience isn't scrutinizing — they're getting a feeling for the space.</p>
+
+    <blockquote>The value isn't a film. It's motion at the concept stage, when nobody has approved the budget for one yet.</blockquote>
+
+    <p>Gallery Mode matters more than it looks once motion enters the picture. With stills, you compare two frames side by side and pick one. With short clips, you're judging movement, pacing, and how cleanly each preset handles your scene — and that's exactly the kind of comparison a grid-of-thumbnails view is built for. Pair it with the account-free <a href="veras-4-5-new-features-architects-2026.html">shareable gallery links from the 4.4 and 4.5 releases</a> and the client can review a set of motion options without you exporting a single file.</p>
+
+    <h2>Where it hands the job back to your engine</h2>
+
+    <p>Here's the honest limit, and it's the same limit every AI-motion tool hits in 2026. Image-to-video infers the frames it doesn't have. That's fine when the camera move is short and the eye is moving with it, but it means detail can drift between frames — a mullion pattern that subtly reorganizes, a reflection that behaves like no real glass, a material that shimmers because the model re-imagined it slightly on each pass. On a five-second concept teaser, nobody notices. On a thirty-second contractual walkthrough that a planning committee will scrub frame by frame, those artifacts are exactly what gets flagged.</p>
+
+    <p>So the line is about accuracy-as-deliverable. If the motion exists to <em>communicate an idea</em>, Veras now does that fast and in-house. If the motion exists to <em>prove the building</em> — accurate geometry, consistent materials, a camera path you can reproduce — you still want a model-driven pipeline. Enscape and Chaos Vantage produce continuous motion from real geometry, which is why they remain the right tool when the deliverable is precision rather than vibe. It's telling that all three live under the same Chaos roof; the company isn't replacing its animation engines with Veras, it's giving you a fast on-ramp to motion that the heavier tools then take over when stakes rise.</p>
+
+    <h2>How Veras motion compares to the alternatives</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Need</th>
+          <th>Veras 4 image-to-video</th>
+          <th>Enscape / Vantage animation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Input required</td>
+          <td class="winner">A single image — no model needed</td>
+          <td>Live geometry / full scene</td>
+        </tr>
+        <tr>
+          <td>Time to a clip</td>
+          <td class="winner">Minutes, in-house</td>
+          <td>Setup + render time</td>
+        </tr>
+        <tr>
+          <td>Geometric accuracy across frames</td>
+          <td class="note">Can drift — inferred frames</td>
+          <td class="winner">Accurate — real camera path</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td>Concept teasers, social, early review</td>
+          <td>Contractual walkthroughs, planning</td>
+        </tr>
+        <tr>
+          <td>Skill floor</td>
+          <td class="winner">Low — pick a preset</td>
+          <td>Higher — author the path</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Read that table as a workflow, not a competition. The point of Veras motion isn't to beat Vantage on a fly-through; it's to fill the gap before a fly-through is justified. Used that way, it's additive to a Chaos stack rather than redundant with it, and it slots neatly beside the kind of <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html">end-to-end Enscape-to-Veras pipeline</a> a lot of studios already run.</p>
+
+    <h2>Our take: <em>the right feature at the right altitude</em></h2>
+
+    <p>We're often skeptical when a tool reaches for video, because motion is where AI's frame-to-frame weaknesses are most visible and the temptation to overclaim is highest. Veras mostly avoids that trap by aiming low and honest. Twelve presets instead of a keyframe editor is a tell: Chaos is targeting the architect who wants a presentable clip in minutes, not the visualization specialist who'll author every camera move. That's the right altitude. The architect who needed Vantage was never going to switch, and the architect who never made motion at all now can.</p>
+
+    <p>The feature we'd actually build a habit around is Rotate Image feeding the motion stack. Manufacturing viewpoints from a single source image is the genuinely new capability — it means your back catalogue of flat hero renders is now raw material for motion, not a dead end. That's the kind of thing that quietly changes what you say yes to in a client meeting.</p>
+
+    <p>The caveat, as always: these features are reported from Chaos's own materials, and rollout across every host plugin and the web app isn't always simultaneous. If a moving deliverable is load-bearing for a deadline, confirm image-to-video and the presets are live in your exact build, and run one real test clip before you promise a client motion by Friday. AI video is improving fast, but "improving fast" and "reproducible on this project today" are different claims.</p>
+
+    <h3>If you run Veras this week</h3>
+
+    <p>Take one hero render you're proud of and run it through <strong>image-to-video</strong> with two different presets, then watch the clips at full size and look specifically for detail drift in repeating elements — glazing, brick, louvers. That tells you which of your scenes survive motion and which don't. Then try <strong>Rotate Image</strong> on a flat image with no model behind it and see whether the manufactured viewpoints hold up. The answer to those two tests tells you exactly where, in your pipeline, Veras motion belongs and where you'll still reach for the render engine.</p>
+
+    <p><strong>We test new AI rendering features on real project work and publish the honest version — including where the shiny new thing quietly hands the job back to the old tool.</strong> <a href="#newsletter">Join the studio newsletter</a> for weekly field notes, or read our take on <a href="veras-4-5-new-features-architects-2026.html">the Veras 4.4 and 4.5 workflow releases</a> that set up the gallery and sharing this motion work depends on.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Reported from Chaos's published Veras feature materials, with feature names and descriptions drawn from that source. Workflow framing and the accuracy caveats reflect Vista Studios' experience producing client motion on live projects; we have not independently benchmarked image-to-video across all host plugins. No affiliate relationship with Chaos or Veras.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="veras-4-5-new-features-architects-2026.html" class="related-card">
+          <div class="rc-tag">Tool News · 31 May 2026</div>
+          <div class="rc-title">Veras 4.4 and 4.5 Fix the Workflow, Not the Engine</div>
+        </a>
+        <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · May 2026</div>
+          <div class="rc-title">The Chaos End-to-End Pipeline, Enscape, Veras and Envision in One Stack</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

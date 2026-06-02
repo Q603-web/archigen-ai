@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Architects Are Quietly Leaving Midjourney for Tools That Live in Their CAD, ArchiGen AI</title>
+<meta name="description" content="Midjourney still makes the prettiest concept image, but in 2026 the renderers winning real architectural work are the ones that live inside Revit, SketchUp and Rhino. We map why integration is beating polish, and where the standalone generator still wins." />
+<link rel="canonical" href="https://archigenai.com/bim-integrated-ai-rendering-vs-midjourney-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/bim-integrated-ai-rendering-vs-midjourney-architects-2026.html" />
+<meta property="og:title" content="Architects Are Leaving Midjourney for Tools That Live in Their CAD, ArchiGen AI" />
+<meta property="og:description" content="In 2026 the AI renderers winning architectural work live inside the model. We map why integration is beating polish, and where Midjourney still wins." />
+<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Architects Are Leaving Midjourney for Tools That Live in Their CAD" />
+<meta name="twitter:description" content="Why BIM/CAD-integrated AI renderers are quietly winning the work standalone generators used to own." />
+<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/og-image.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "BIM-integrated AI rendering vs Midjourney for architects / ArchiGen AI"
+  },
+  "headline": "Architects Are Quietly Leaving Midjourney for Tools That Live in Their CAD",
+  "description": "Midjourney still makes the prettiest concept image, but in 2026 the renderers winning real architectural work are the ones that live inside Revit, SketchUp and Rhino. We map why integration is beating polish, and where the standalone generator still wins.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-02T10:00:00-04:00",
+  "dateModified": "2026-06-02T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/bim-integrated-ai-rendering-vs-midjourney-architects-2026.html",
+  "articleSection": "Field Notes",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["BIM integrated AI rendering", "Midjourney alternatives architects", "Veras CAD integration", "AI rendering Revit SketchUp Rhino", "AI rendering workflow 2026", "standalone AI image generator architecture"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why are architects moving away from Midjourney?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not because the images got worse — Midjourney still produces some of the most striking concept imagery available. Architects are moving because Midjourney sits outside the model. It cannot see your geometry, it does not honour your massing or window placement, and getting a usable result means describing in words a building you have already drawn. Tools that integrate directly with CAD and BIM — generating from your actual Revit, SketchUp or Rhino view — remove that round-trip and keep the render tied to the design, which matters more as the work moves from mood-setting to design development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a BIM-integrated AI renderer actually do differently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A BIM- or CAD-integrated renderer takes your live model view as the input rather than a text prompt. Because it starts from real geometry, the output preserves proportions, openings and spatial relationships you have already committed to, and a design change in the model flows straight back into the render. Veras, for example, integrates with several CAD and BIM platforms so the architect renders from inside the tool they already model in, instead of exporting an image and re-describing it elsewhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Midjourney still worth using for architecture in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for the right job. Midjourney remains excellent for early mood, atmosphere, competition imagery and exploring a visual language before any geometry exists, because it is unconstrained by a model and produces highly polished results out of the box. Its weakness is fidelity to a specific design: it will happily invent a beautiful building that is not yours. The practical pattern in 2026 is to use Midjourney upstream for feeling and reference, then switch to a model-integrated renderer once the design has to be honoured accurately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI rendering tools integrate with Revit, SketchUp and Rhino?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Several do, with different depths of integration. Veras runs as a plugin across a range of CAD and BIM hosts including Revit, SketchUp, Rhino, Archicad and others; SketchUp Diffusion runs natively inside SketchUp; D5 Render and Enscape bridge real-time rendering with AI enhancement from live scenes. The key distinction is whether the tool reads your actual geometry or only an exported image — the former keeps the render anchored to the design, the latter does not."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Field Notes · 2 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Architects are leaving Midjourney for tools that live in their <em>CAD</em></h1>
+    <p class="lede">Midjourney still makes the prettiest image in the room. But the AI renderers winning actual architectural work in 2026 aren't the ones that draw the best building — they're the ones that draw <em>your</em> building, from inside Revit, SketchUp and Rhino. We mapped why integration is quietly beating polish, and marked the place where the standalone generator still wins outright.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios tested · Field notes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>There's a line doing the rounds in the architecture-tool blogs this month, and it's worth taking seriously: architects are drifting away from Midjourney, and the reason isn't image quality. A <a href="midjourney-alternatives-architects-2026.html">Rendair piece on Midjourney alternatives</a> put it bluntly — the Discord-based interface and the limited control over a specific design are pushing architects toward BIM-integrated tools instead, with Veras singled out for integrating across roughly seven CAD and BIM platforms. Strip away the vendor framing and there's a real pattern underneath, one we've watched play out in our own studio over the last year.</p>
+
+    <p>The shift is easy to misread as "Midjourney got worse." It didn't. Midjourney V8 still produces some of the most arresting architectural imagery you can generate from a sentence. What changed is what architects are asking the render to <em>do</em>. A year ago the demand was atmosphere — give me a feeling, a mood, a competition cover. Increasingly the demand is fidelity — render <em>this</em> scheme, the one I've already modelled, without quietly redesigning it. And that's a job a tool living outside your model simply can't do well.</p>
+
+    <hr>
+
+    <h2>The round-trip is the whole problem</h2>
+
+    <p>Think about what it actually takes to render a real project in Midjourney. You've drawn the building. Now you leave your modelling software, open Discord, and try to describe in words a thing you have already described precisely in geometry. The massing, the fenestration rhythm, the way the roof meets the parapet — all of it has to be re-encoded as prose, and the model will honour roughly none of it. You get back something beautiful and adjacent, a building that rhymes with yours but isn't it. For a mood board, adjacent is fine. For design development, adjacent is a liability, because the client remembers the render and not the caveat.</p>
+
+    <p>A model-integrated renderer collapses that round-trip. It reads your live view — your actual geometry, your camera, your openings — and generates from that. The proportions hold because they were never re-described; they were inherited. Change a window in the model and the next render reflects it. That single property, <strong>the render staying tied to the design</strong>, is the thing pulling work away from standalone generators, and it's why the integration list matters more than the leaderboard of who makes the prettiest pixel.</p>
+
+    <blockquote>Midjourney draws a beautiful building. The integrated tools draw <em>your</em> building. As the work moves downstream, that difference stops being cosmetic.</blockquote>
+
+    <h2>What "integrated" actually buys you</h2>
+
+    <p>"Integration" gets used loosely, so it's worth being precise about the gradient, because not all of it is equal. There's a real difference between a tool that reads your geometry and one that just opens a browser tab next to it.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The integration gradient, from deepest to shallowest</div>
+        <div class="tc-rating">FIELD NOTE</div>
+      </div>
+      <div class="tc-pricing">What counts as "lives in your CAD" — and what only looks like it</div>
+      <p><strong>Native</strong> tools run inside the host as a first-party feature (SketchUp Diffusion is the cleanest example — it generates from your SketchUp view without ever leaving the application). <strong>Plugin</strong> tools install into the host and read its live geometry (Veras across Revit, SketchUp, Rhino, Archicad and more; Enscape and D5 bridging real-time scenes into AI enhancement). <strong>Round-trip</strong> tools — including Midjourney and most web generators — take an exported image or a text prompt and have no awareness of your model at all. The first two preserve the design; the third re-imagines it.</p>
+      <div class="tc-tags">
+        <span>Native</span><span>Plugin</span><span>Round-trip</span><span>Geometry-aware</span><span>Workflow fit</span>
+      </div>
+    </div>
+
+    <p>The practical payoff of staying in the first two tiers is mostly invisible until you've lost it. You keep your scene state. You iterate at the speed of a model tweak rather than a re-prompt. You can hand a junior the same view and get a consistent result. And critically, the render survives a design review, because when the client points at the third window and asks to see it taller, you change the model and re-render the <em>actual</em> change — you don't go back to Discord and gamble on an adjective.</p>
+
+    <h2>Where the market is actually moving</h2>
+
+    <p>You can read the direction of travel in what the big vendors are shipping. Chaos has spent 2026 tightening Veras into the rest of its stack — surfacing it inside Enscape, pushing AI features across Enscape, Vantage and V-Ray together — so the generative step lives next to the real-time and production engines instead of in a separate app. SketchUp made diffusion a native menu item rather than a third-party errand. D5 keeps folding AI relight and generative assets into a real-time pipeline that starts from your scene. None of these companies is chasing "better than Midjourney on a single hero shot." They're all chasing the same thing: keep the architect inside the model and bring the AI to the geometry, not the other way around.</p>
+
+    <p>That's the tell. When every serious vendor independently bets on integration over standalone polish, they're reading the same demand we are — that the centre of gravity for AI rendering has moved from the concept image to the working drawing-set companion, and the tools that sit closest to the model win the recurring use.</p>
+
+    <h2>Where Midjourney still wins outright</h2>
+
+    <p>Here's the honest counterweight, because the integration story gets oversold too. There is a phase of every project where you have no geometry worth rendering, and that phase belongs to Midjourney. Early atmosphere, material language, a competition image that needs to sell a feeling rather than prove a plan, reference imagery to align a team before anyone opens Revit — this is where being unconstrained by a model is the feature, not the bug. Midjourney's out-of-the-box polish, its handling of light and mood, its sheer range of look, are still ahead of what a geometry-locked tool will give you, precisely because it isn't tethered to your massing.</p>
+
+    <p>So the framing of "leaving Midjourney" is too clean. What's actually happening is that Midjourney is being pushed up the timeline, not out of it. It's becoming an <em>upstream</em> tool — for feeling and exploration before commitment — while the integrated renderers take over the moment the design has to be honoured. Architects aren't dropping the generator; they're demoting it to the stage where its weakness doesn't matter.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>The job</th>
+          <th>Standalone generator (Midjourney)</th>
+          <th>Model-integrated renderer (Veras / SketchUp Diffusion / D5)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Early mood &amp; atmosphere</td>
+          <td class="winner">Wins — unconstrained, highly polished</td>
+          <td>Overkill before geometry exists</td>
+        </tr>
+        <tr>
+          <td>Rendering a specific design</td>
+          <td class="note">Re-imagines it — fidelity not guaranteed</td>
+          <td class="winner">Wins — reads your actual geometry</td>
+        </tr>
+        <tr>
+          <td>Iterating after a design change</td>
+          <td>Re-prompt and gamble</td>
+          <td class="winner">Change model, re-render the real change</td>
+        </tr>
+        <tr>
+          <td>Consistency across a team</td>
+          <td>Prompt-dependent, drifts</td>
+          <td class="winner">Anchored to the shared model</td>
+        </tr>
+        <tr>
+          <td>Competition / cover imagery</td>
+          <td class="winner">Wins — range and look out of the box</td>
+          <td>Capable but more constrained</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Our take: <em>integration is a workflow argument, not an image argument</em></h2>
+
+    <p>The mistake we see architects make is comparing these tools on output quality, side by side, hero shot against hero shot. On that axis Midjourney often wins, and the comparison tells you almost nothing useful, because output quality was never the reason the work moved. The reason is workflow economics. A render that's born inside your model costs you nothing to keep in sync with the design; a render that lives outside it costs you a re-description every single time the design moves — and projects move constantly. Multiply that friction across a real job and the integrated tool wins on total effort even when it loses on any single frame.</p>
+
+    <p>That's also the lens we'd apply to the "seven platforms" marketing. The number itself is a vendor talking point — what actually matters is whether the integration reads your geometry or just bolts a panel onto the host. Depth of integration beats breadth of logos. A tool that's genuinely native in the one host you live in will serve you better than one that lists ten hosts and reads the model shallowly in all of them. Before you switch, test the integration on a real view from your actual project, not a demo scene, and watch specifically for whether your geometry survives the render unchanged.</p>
+
+    <h3>If you're rethinking your render stack this week</h3>
+
+    <p>Run one honest experiment. Take a project you've already modelled and render the same view three ways: in Midjourney from a text description, in a plugin renderer like Veras reading your live geometry, and natively if your host supports it. Don't judge them on which looks prettiest. Judge them on which one you'd be willing to put in front of the client and then <em>change</em> when they ask for a taller window. That test tells you where each tool belongs in your pipeline far better than any roundup — and it usually ends with Midjourney upstream for mood and an integrated tool doing the work that has to stay true to the drawing.</p>
+
+    <p><strong>We test these tools on live project work and publish the version with the friction left in.</strong> <a href="#newsletter">Join the studio newsletter</a> for weekly field notes, or read our breakdown of <a href="ai-native-vs-plugin-renderers-2026.html">AI-native versus plugin renderers</a> and why <a href="sketchup-diffusion-native-ai-render-2026.html">SketchUp making diffusion native</a> is part of the same shift.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Framing drawn from industry coverage of Midjourney alternatives and BIM-integrated rendering, including Rendair's published comparison, alongside Vista Studios' own experience running these tools on live projects. Platform and integration claims reflect vendor materials current at publication; verify exact host support in your build before switching. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="midjourney-alternatives-architects-2026.html" class="related-card">
+          <div class="rc-tag">Comparison · 2026</div>
+          <div class="rc-title">Midjourney Alternatives for Architects, Tested</div>
+        </a>
+        <a href="ai-native-vs-plugin-renderers-2026.html" class="related-card">
+          <div class="rc-tag">Field Notes · 2026</div>
+          <div class="rc-title">AI-Native vs Plugin Renderers, Which Architecture Wins</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
