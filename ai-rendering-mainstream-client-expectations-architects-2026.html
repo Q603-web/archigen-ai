@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>AI Rendering Just Went Mainstream, Now the Problem Is Client Expectations, ArchiGen AI</title>
+<meta name="description" content="44% of architects now use AI for concept images and structured workflows are reclaiming 14+ hours a week. The story isn't speed anymore — it's what mainstream adoption does to client expectations, turnaround pressure and your fees." />
+<link rel="canonical" href="https://archigenai.com/ai-rendering-mainstream-client-expectations-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-rendering-mainstream-client-expectations-architects-2026.html" />
+<meta property="og:title" content="AI Rendering Went Mainstream, Now the Problem Is Client Expectations, ArchiGen AI" />
+<meta property="og:description" content="When 44% of architects use AI for concept images, fast renders stop being a differentiator. Here's what that does to expectations and fees." />
+<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="AI Rendering Went Mainstream, Now the Problem Is Client Expectations, ArchiGen AI" />
+<meta name="twitter:description" content="AI rendering crossed the majority line. The new bottleneck isn't your render time — it's the expectations it sets." />
+<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/og-image.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "AI rendering mainstream adoption and client expectations / ArchiGen AI"
+  },
+  "headline": "AI Rendering Just Went Mainstream, Now the Problem Is Client Expectations",
+  "description": "44% of architects now use AI for concept images and structured workflows are reclaiming 14+ hours a week. The story isn't speed anymore — it's what mainstream adoption does to client expectations, turnaround pressure and your fees.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-03T10:00:00-04:00",
+  "dateModified": "2026-06-03T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-rendering-mainstream-client-expectations-architects-2026.html",
+  "articleSection": "Essay",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI rendering adoption architects", "44 percent architects AI", "client expectations AI rendering", "architecture fees AI", "AI render workflow time savings", "AI rendering commoditization", "architects AI 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many architects use AI for rendering in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Industry reporting in 2026 puts the figure at around 44% of architects using AI for concept images, which crosses AI rendering from an experimental edge tool into mainstream practice. At that level of adoption, a fast AI render is no longer a differentiator a client notices — it's the baseline most firms already meet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does AI rendering actually save architects time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, when it's targeted. Architects using a structured AI render workflow report reclaiming 14 or more hours per week by applying AI to concept visualization, client iteration rounds and documentation rather than across the board. The savings are real but conditional: they come from compressing specific, repetitive stages, not from replacing design judgment, and they evaporate if AI output is carried into phases that demand accuracy without checking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does mainstream AI rendering do to architecture fees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When clients learn that a presentable concept image takes minutes, the implicit value of that image falls and turnaround expectations compress. Firms that billed for visualization as a discrete deliverable face downward pressure on that line item. The durable response is to reprice around judgment — curation, design reasoning, accuracy and accountability — rather than around the render itself, which has become cheap and abundant."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Essay · 3 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>AI rendering won. Now it's <em>everyone's</em> baseline</h1>
+    <p class="lede">Around 44% of architects now use AI for concept images, and structured workflows are clawing back 14-plus hours a week. That's the good news. The complication is what happens to a skill the moment it stops being special — your fast render is no longer a flex, it's the new floor, and the client knows it.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios tested · Essay</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>There's a moment in every technology's life when it stops being an advantage and becomes an expectation. AI rendering hit it this year. When roughly <strong>44% of architects are using AI for concept images</strong>, you're no longer looking at early adopters — you're looking at the middle of the profession. The render that won you a pitch in 2024 because it arrived overnight now arrives from three of your competitors by lunch. The capability didn't get less useful. It got less <em>yours</em>.</p>
+
+    <p>The productivity numbers are genuinely good, and worth saying plainly. Firms running a structured AI workflow report reclaiming <strong>14 or more hours a week</strong> by aiming AI at the right stages — concept visualization, client iteration rounds, documentation — rather than spraying it across everything. A single exterior that once took four to eight hours of V-Ray or Lumion setup now lands as a concept image in minutes. That's real time, real money, real evenings back. But the same forces that hand you those hours hand them to everyone, and that's the part the productivity headlines skip.</p>
+
+    <hr>
+
+    <h2>What commoditization actually changes</h2>
+
+    <p>When a deliverable gets cheap and abundant, three things move at once, and none of them are about the software.</p>
+
+    <h3>Turnaround expectations compress</h3>
+    <p>The first casualty is time. Once a client somewhere learns that a presentable concept image takes minutes, that knowledge spreads, and "can you show me a version with the brick warmer and the roofline lower?" stops being a next-meeting request and becomes a before-you-leave one. Speed you didn't advertise becomes speed you're assumed to have. The 14 hours you saved get quietly reabsorbed by a client who now expects four iterations where they used to accept one.</p>
+
+    <h3>The render stops carrying the value</h3>
+    <p>The second shift is about worth. If you billed visualization as a discrete deliverable — a line item, a per-image fee, a viz package — that line is under pressure the moment the client suspects it's nearly free to produce. You can resent that or you can move the value to where it actually lives now. Nobody is paying for the pixels anymore. They're paying for which pixels you chose to show them, and why.</p>
+
+    <h3>Volume hides judgment</h3>
+    <p>The third, subtlest change: when you can generate forty options, you're tempted to show forty options. That's not service, it's abdication. A client handed forty renders is being asked to do the editing you were hired to do. Abundance makes curation look lazy and dumping look generous, when the truth is exactly reversed.</p>
+
+    <blockquote>The render became free. The judgment about which render to trust, and why, became the entire job.</blockquote>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The mainstream-adoption squeeze, summarized</div>
+        <div class="tc-rating">Practice note</div>
+      </div>
+      <div class="tc-pricing">For principals and project leads · 2026</div>
+      <p>At ~44% adoption, fast AI rendering is table stakes, not a differentiator. The hours you save get partly reabsorbed by faster iteration cycles, the render loses its standalone billable value, and abundance tempts you to substitute volume for editing. The firms that win the next phase reprice and reposition around judgment — curation, accuracy, accountability — not around render speed.</p>
+      <div class="tc-tags">
+        <span>Commoditization</span><span>Client expectations</span><span>Fees</span><span>Curation</span><span>Positioning</span>
+      </div>
+    </div>
+
+    <h2>Where the 14 hours are real — and where they're a trap</h2>
+
+    <p>The time savings aren't a myth, but they're conditional, and the condition is discipline about <em>where</em> you apply AI. The reclaimed hours come from compressing genuinely repetitive, low-judgment stages. The trap is letting the speed seduce you into using AI where judgment was the point.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Stage</th>
+          <th>AI time-saving</th>
+          <th>Verdict</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concept-phase mood &amp; massing images</td>
+          <td class="winner">High — minutes vs hours</td>
+          <td>Real saving</td>
+        </tr>
+        <tr>
+          <td>Client iteration rounds (variants)</td>
+          <td class="winner">High — fast turnaround</td>
+          <td>Real, if you curate</td>
+        </tr>
+        <tr>
+          <td>Documentation &amp; repetitive prep</td>
+          <td class="winner">Moderate–high</td>
+          <td>Real saving</td>
+        </tr>
+        <tr>
+          <td>Accuracy-critical client deliverables</td>
+          <td class="note">Tempting but risky</td>
+          <td>Verify or don't ship</td>
+        </tr>
+        <tr>
+          <td>Design decisions themselves</td>
+          <td class="note">No saving — that's the job</td>
+          <td>Don't outsource</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The pattern is consistent with what we've argued in our <a href="ai-render-time-savings-reality-check-2026.html">time-savings reality check</a>: AI gives back hours at the front of the process and quietly bills them back if you let it leak into stages that demand verification. The 14 hours are real for the firm that draws a hard line; they're imaginary for the firm that uses AI to skip thinking.</p>
+
+    <h2>Our take: <em>reprice the judgment, not the picture</em></h2>
+
+    <p>If your value proposition to a client in 2026 is "we make nice renders fast," you've described a commodity, and commodities compete on price until nobody's happy. The repositioning isn't complicated, but it requires saying out loud what you actually do that AI can't. You decide which image tells the truth about the building. You catch the render that looks gorgeous and lies about the structure. You stand behind the picture when a contractor builds from it. You edit forty options down to the three that move the project forward. None of that is rendering. All of it is what the client is actually buying, and none of it got cheaper this year — if anything, in a world drowning in plausible images, judgment got rarer and more valuable.</p>
+
+    <p>Practically, that means stop selling visualization as a line item and start selling it as evidence of design reasoning. Show fewer images, not more, and narrate why each one exists. When a client marvels that the render came back in an afternoon, don't undersell the speed — but anchor the conversation on the decision the image represents, not the minutes it took. The firms that thrive past the 44% threshold won't be the ones with the fastest tool. They'll be the ones who made it obvious that the tool was never the point.</p>
+
+    <h3>If you lead a studio this week</h3>
+
+    <p>Pull your last three proposals and find the visualization line. Ask one question: if the client knew this image took twenty minutes to make, would they still pay this for it? If the answer is no, you're billing for the render. Rewrite that line to bill for the judgment — the curation, the accuracy, the accountability — and watch how differently the conversation goes. The capability is mainstream now. Your defensibility has to live somewhere the tool can't reach.</p>
+
+    <p><strong>We track how AI is reshaping not just the tools but the economics of practice, and publish the version with the uncomfortable parts left in.</strong> <a href="#newsletter">Join the studio newsletter</a> for weekly field notes, or read our <a href="ai-render-time-savings-reality-check-2026.html">reality check on where AI rendering time savings actually come from</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Adoption and time-saving figures (≈44% of architects using AI for concept images; 14+ hours/week reclaimed via structured workflows) are drawn from 2026 industry reporting cited in our daily intel sweep. The pricing and positioning argument is Vista Studios' editorial view based on work with practising firms; it is commentary, not financial advice. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-render-time-savings-reality-check-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">The AI Render Time-Savings Reality Check</div>
+        </a>
+        <a href="ai-design-thinking-not-just-rendering-2026.html" class="related-card">
+          <div class="rc-tag">Essay · 2026</div>
+          <div class="rc-title">AI as Design Thinking, Not Just Rendering</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

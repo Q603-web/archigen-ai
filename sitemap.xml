@@ -656,4 +656,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-03 Articles -->
+  <url>
+    <loc>https://archigenai.com/purpose-built-architectural-ai-vs-image-generators-2026.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/ai-rendering-mainstream-client-expectations-architects-2026.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/midjourney-v8-1-architects-reference-workflow-2026.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
