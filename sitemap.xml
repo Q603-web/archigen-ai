@@ -678,4 +678,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-04 Articles -->
+  <url>
+    <loc>https://archigenai.com/veras-corona-archviz-workflow-architects-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/maxon-archviz-software-guide-2026-audited.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/architect-magazine-ai-design-thinking-reality-check-2026.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

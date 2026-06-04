@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Maxon's 2026 "Best Archviz Software" Guide, Audited, ArchiGen AI</title>
+<meta name="description" content="Maxon publishes an expert guide ranking the best architectural visualization software for 2026 — while selling Redshift and Cinema 4D. We audit what the guide gets right about real-time vs production, and what a render-engine vendor quietly leaves out." />
+<link rel="canonical" href="https://archigenai.com/maxon-archviz-software-guide-2026-audited.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/maxon-archviz-software-guide-2026-audited.html" />
+<meta property="og:title" content="Maxon's 2026 'Best Archviz Software' Guide, Audited, ArchiGen AI" />
+<meta property="og:description" content="When the company that makes Redshift tells you which renderer is best, read the incentives. A practitioner audit of Maxon's 2026 archviz guide." />
+<meta property="og:image" content="https://archigenai.com/assets/render-night.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Maxon's 2026 'Best Archviz Software' Guide, Audited, ArchiGen AI" />
+<meta name="twitter:description" content="The real-time vs production split is right. The omissions are the interesting part. Auditing Maxon's 2026 archviz software guide." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-night.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .gallery-full { margin: 0 0 8px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-night.jpg",
+    "width": 1200,
+    "height": 800,
+    "caption": "Night-lit production render of a contemporary residential exterior"
+  },
+  "headline": "Maxon's 2026 'Best Archviz Software' Guide, Audited",
+  "description": "Maxon publishes an expert guide ranking the best architectural visualization software for 2026 — while selling Redshift and Cinema 4D. We audit what the guide gets right about real-time vs production, and what a render-engine vendor quietly leaves out.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-04T09:00:00-04:00",
+  "dateModified": "2026-06-04T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/maxon-archviz-software-guide-2026-audited.html",
+  "articleSection": "Audit",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Maxon archviz guide 2026", "best architectural visualization software 2026", "Redshift architecture", "V-Ray vs real-time", "Enscape Lumion Twinmotion D5", "render engine vendor guide", "AI rendering architects 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Maxon's 'Best Architectural Visualization Software' guide trustworthy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is genuinely useful on the mechanics — the real-time versus production split, GPU behaviour, Mac support — and broadly fair within that frame. But Maxon makes Redshift and owns Cinema 4D through Maxon One, so the guide is not a neutral referee. Read it for the engineering, not for the verdict, and notice which categories it under-weights: architecture-specific tools and AI features that don't run through a traditional render engine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the guide get right about real-time vs production rendering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The core claim holds up in practice: Enscape, Lumion, Twinmotion and D5 are strongest as real-time presentation layers, while V-Ray remains the reference for controlled, production-grade output. Most studios in 2026 run a real-time engine for client meetings and iteration and reach for a production renderer when a final image has to be defensible. The guide describes that division accurately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Maxon's guide leave out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two things matter most. First, architecture-specific AI tools — Chaos Veras, Autodesk Forma, the geometry-anchored renderers — barely feature, because they don't slot into a renderer-versus-renderer comparison. Second, the guide treats AI as a feature bullet rather than the axis reorganising the whole category. For architects, the 2026 question isn't only speed versus realism; it's how well a tool reasons about the building it is drawing."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Audit · 4 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>When the company that makes Redshift tells you <em>which renderer wins</em></h1>
+    <p class="lede">Maxon's 2026 expert guide to the best architectural visualization software is one of the more honest vendor explainers out there — clear on the real-time versus production split, clear on GPU behaviour. It's also written by the company that sells Redshift and owns Cinema 4D. We read it the way you should read any vendor's ranking: for the engineering, not the verdict — and we mapped what a render-engine maker quietly leaves off the list.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios tested · Audit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-night.jpg" alt="Night-lit production render of a contemporary residential exterior" />
+        <figcaption>Production-grade output is still where V-Ray earns its keep / ArchiGen AI Curation</figcaption>
+      </figure>
+    </div>
+
+    <p>There's a genre of content that's quietly become one of the most influential forces in how architects choose software: the vendor "expert guide." Maxon's 2026 entries — <em>Best Architectural Visualization Software</em> and a companion piece framed around <em>speed vs realism</em> — are a polished example. They're well written, technically literate, and they describe the market accurately enough that a junior architect could read one and walk away genuinely better informed. That's exactly why they're worth auditing. A guide that's 80% useful and 20% self-interested is more persuasive than an obvious advertisement, and the 20% is where the steering happens.</p>
+
+    <p>To be clear about the incentive structure: Maxon makes <strong>Redshift</strong>, bundles <strong>Cinema 4D</strong> and Redshift through Maxon One, and competes — directly and indirectly — with several of the tools any honest "best archviz software" list has to include. None of that makes the guide wrong. It makes it a document with a point of view, and the job here is to separate the parts that are true regardless of who wrote them from the parts that are shaped by who wrote them.</p>
+
+    <hr>
+
+    <h2>What the guide gets right</h2>
+
+    <p>Start with the credit, because there's a lot of it. The central organising claim — that <strong>Enscape, Lumion, Twinmotion and D5 are strongest as real-time presentation layers, while V-Ray remains the reference for controlled production output</strong> — is correct, and it's the single most useful thing a working architect needs to internalise about this category. It maps cleanly onto how studios actually operate in 2026.</p>
+
+    <p>In practice the division looks like this. You spend most of a project inside a real-time engine because iteration speed is the whole game: walk the client through a massing option live, change the glazing while they watch, export a flythrough the same afternoon. Then, near the end, when a single hero image has to survive a board presentation or a planning submission, you move it into a production renderer where you can control every bounce of light and defend every reflection. The guide names that workflow plainly, and it doesn't oversell real-time as a replacement for production. That restraint is rarer than it should be.</p>
+
+    <p>It's also good on the unglamorous mechanics that decide real projects: GPU versus CPU rendering, VRAM ceilings, Mac support (still a live question for a lot of studios), and where real-time previews stop being previews and start being deliverable. These are the things that actually bite you on a deadline, and the guide treats them seriously instead of hiding them behind marketing adjectives.</p>
+
+    <blockquote>A guide that's 80% useful and 20% self-interested is more persuasive than an advert. The 20% is where the steering happens.</blockquote>
+
+    <h2>Where the incentives show</h2>
+
+    <p>Now the audit. The tells aren't in what the guide says — they're in emphasis and omission.</p>
+
+    <h3>1. Production rendering is framed as the serious end of the market</h3>
+    <p>The guide's whole spine is "speed vs realism," with realism positioned as the higher, more professional aspiration. That framing happens to flatter exactly the kind of GPU-accelerated production rendering Maxon sells. It's not false — final realism does matter — but it subtly demotes the real-time engines to "fast but lesser," when for most architects, most of the time, the real-time engine is the tool doing the actual work of communicating a design. A guide written by Enscape's maker would have drawn the importance line in a very different place.</p>
+
+    <h3>2. The architecture-specific AI layer is nearly invisible</h3>
+    <p>This is the big one. The guide is a <em>render-engine</em> comparison, so it evaluates tools on render-engine terms. That quietly excludes the most important shift of 2026: tools like <strong>Chaos Veras</strong> and <strong>Autodesk Forma</strong> that don't fit the renderer-versus-renderer frame at all, because they're not competing on bounce light — they're competing on whether the AI understands the building. When your comparison axis is "speed vs realism," a geometry-anchored AI tool has nowhere to sit, so it simply doesn't appear. The omission isn't a lie; it's a category boundary drawn in a way that keeps the conversation on familiar ground.</p>
+
+    <h3>3. AI is a feature bullet, not the storyline</h3>
+    <p>Where AI does show up, it's a line item — "now with AI enhancement," "AI denoising," "AI material tools." That's accurate as far as it goes, but it undersells what's happening. For architects, AI isn't a faster path to the same render; it's reorganising which tool you trust and at which phase. Treating it as an accelerant bolted onto the existing engine hierarchy is exactly the framing a renderer vendor would prefer, because it keeps the engine at the centre of the universe.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">How to read any vendor "best software" guide</div>
+        <div class="tc-rating">Editorial read</div>
+      </div>
+      <div class="tc-pricing">Not a product · A reading method</div>
+      <p>Find out what the publisher sells before you read a word of the ranking. Then watch three things: which category is framed as the "serious" one, which competing categories are defined out of scope, and where AI is positioned — as the story or as a feature. Maxon's guide passes the engineering test and tilts on all three of those. Useful, not neutral.</p>
+      <div class="tc-tags">
+        <span>Read the incentives</span><span>Emphasis ≠ truth</span><span>Watch the omissions</span><span>Engineering vs verdict</span>
+      </div>
+    </div>
+
+    <h2>The scorecard</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Claim / Section</th>
+          <th>Verdict</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Real-time engines = presentation layers (Enscape, Lumion, Twinmotion, D5)</td>
+          <td class="winner">Holds up</td>
+          <td>Matches how studios actually split iteration vs final output</td>
+        </tr>
+        <tr>
+          <td>V-Ray as the production reference</td>
+          <td class="winner">Holds up</td>
+          <td>Still the control-and-defensibility benchmark in 2026</td>
+        </tr>
+        <tr>
+          <td>GPU / VRAM / Mac mechanics</td>
+          <td class="winner">Genuinely useful</td>
+          <td>The stuff that bites on deadline, treated honestly</td>
+        </tr>
+        <tr>
+          <td>"Realism" framed as the serious tier</td>
+          <td class="note">Tilted</td>
+          <td>Flatters GPU production rendering; demotes real-time's real role</td>
+        </tr>
+        <tr>
+          <td>Architecture-specific AI (Veras, Forma)</td>
+          <td class="note">Missing</td>
+          <td>Defined out of scope by a renderer-only comparison frame</td>
+        </tr>
+        <tr>
+          <td>AI as a feature, not the axis</td>
+          <td class="note">Understated</td>
+          <td>Keeps the render engine at the centre; misses the 2026 shift</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Our take: <em>read it, then read past it</em></h2>
+
+    <p>Maxon's guide is one of the better vendor explainers in this space, and an architect who absorbs its real-time-versus-production logic is ahead of most. Keep it. Use it to understand the engineering. But treat its hierarchy of importance as a vendor's hierarchy, not the profession's, and supply the missing axis yourself: <strong>does the tool understand the building, or just paint it?</strong> That question doesn't fit inside a renderer comparison, which is precisely why a renderer maker's guide won't ask it for you.</p>
+
+    <p>The studios that get the most out of guides like this are the ones who read them as primary sources to be cross-examined, not verdicts to be followed. A render-engine company telling you production realism is the summit is a bit like a typeface foundry telling you the most important thing about a book is its kerning. True, useful, and quietly the part they're selling.</p>
+
+    <h3>If you're choosing your archviz stack this quarter</h3>
+
+    <p>Do two passes. First, use Maxon's guide (and the equivalents from D5, Chaos and the rest) to get the mechanics straight — what runs on your hardware, what your team can actually drive, where real-time stops and production begins. Second, ignore all of it and ask the question none of them lead with: at which phase of <em>your</em> work does accuracy become the deliverable, and which tool stays locked to your model when it does. The first pass tells you what's possible. The second tells you what to buy.</p>
+
+    <p><strong>We audit the guides, listicles and vendor rankings that quietly shape how architects buy software — and publish the version with the incentives marked.</strong> <a href="#newsletter">Join the studio newsletter</a> for the weekly audit, or read our companion teardown of <a href="best-ai-tools-architects-listicles-audited-2026.html">the 2026 "best AI tools for architects" listicle flood</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Audited from Maxon's publicly published 2026 architectural visualization and rendering guides. Characterisation of Maxon's product portfolio (Redshift, Cinema 4D, Maxon One) reflects public information. The critique is editorial and reflects Vista Studios' experience choosing and running archviz stacks on live projects. No affiliate relationship with Maxon or any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="best-ai-tools-architects-listicles-audited-2026.html" class="related-card">
+          <div class="rc-tag">Audit · 2026</div>
+          <div class="rc-title">The 2026 "Best AI Tools for Architects" Listicle Flood, Audited</div>
+        </a>
+        <a href="chaos-top-20-ai-tools-architects-list-audited-2026.html" class="related-card">
+          <div class="rc-tag">Audit · 2026</div>
+          <div class="rc-title">When the Renderer Ranks the Tools: Auditing Chaos's Top 20</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

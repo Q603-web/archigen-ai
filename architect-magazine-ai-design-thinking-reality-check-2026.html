@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Architect Magazine Says AI Is "Design Thinking" Now. A Reality Check, ArchiGen AI</title>
+<meta name="description" content="Architect Magazine argues AI is redefining archviz workflows from concept to delivery — visualization as an integrated tool for design thinking, not just rendering. We pressure-test that thesis against what actually happens in a working studio in 2026." />
+<link rel="canonical" href="https://archigenai.com/architect-magazine-ai-design-thinking-reality-check-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/architect-magazine-ai-design-thinking-reality-check-2026.html" />
+<meta property="og:title" content="Architect Magazine Says AI Is 'Design Thinking' Now. A Reality Check, ArchiGen AI" />
+<meta property="og:description" content="The integrated-design-thinking thesis is mostly right and quietly optimistic. Where the magazine's framing meets a real studio's deadline." />
+<meta property="og:image" content="https://archigenai.com/assets/render-detail.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Architect Magazine Says AI Is 'Design Thinking' Now. A Reality Check, ArchiGen AI" />
+<meta name="twitter:description" content="Visualization as design thinking is the right direction and an incomplete picture. A practitioner's pressure test of the 2026 thesis." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-detail.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .gallery-full { margin: 0 0 8px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-detail.jpg",
+    "width": 1200,
+    "height": 800,
+    "caption": "Close detail of a materials-and-light study render"
+  },
+  "headline": "Architect Magazine Says AI Is 'Design Thinking' Now. A Reality Check",
+  "description": "Architect Magazine argues AI is redefining archviz workflows from concept to delivery — visualization as an integrated tool for design thinking, not just rendering. We pressure-test that thesis against what actually happens in a working studio in 2026.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-04T10:00:00-04:00",
+  "dateModified": "2026-06-04T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/architect-magazine-ai-design-thinking-reality-check-2026.html",
+  "articleSection": "Analysis",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["AI design thinking architecture", "archviz workflows 2026", "Architect Magazine AI", "visualization as design tool", "AI rendering reality check", "integrated design AI architects"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Architect Magazine's claim about AI and visualization in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Architect Magazine argues that AI is reshaping archviz workflows from concept to final delivery, turning visualization from a late-stage rendering task into an integrated tool for design thinking that runs through the whole process. The thesis is that AI lets architects explore and reason about design earlier, using imagery as a way to think rather than just a way to present."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the 'visualization as design thinking' thesis correct?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Directionally yes, and it's the most useful frame in the discourse. But it describes the best-case studio, not the median one. In practice most firms still use AI as a faster render at the end of the process, because integrating it into early design requires geometry-anchored tools, disciplined workflows and trust that the imagery won't mislead. The thesis is a destination, not a current state."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should a studio actually move visualization upstream?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with tools that stay locked to your geometry so early images remain consistent across iterations, keep a clear line between exploratory imagery and anything client-facing, and treat AI output as a question to interrogate rather than an answer to present. The shift is less about buying a tool and more about changing when in the process you let the machine into the room."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Analysis · 4 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>"Design thinking, not just rendering" — <em>true, and quietly optimistic</em></h1>
+    <p class="lede">Architect Magazine's 2026 read on AI is that visualization has stopped being a late-stage chore and become an integrated tool for design thinking, running from concept to delivery. It's the smartest framing in the discourse and we mostly agree with it. We also think it describes the studio you want to be, not the one most firms actually are — and the gap between those two is the whole story.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios tested · Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-detail.jpg" alt="Close detail of a materials-and-light study render" />
+        <figcaption>When imagery becomes a way to think, the early studies matter more than the final hero / ArchiGen AI Curation</figcaption>
+      </figure>
+    </div>
+
+    <p>Every so often a piece of industry writing names the shift you've been feeling but hadn't put words to. Architect Magazine's 2026 framing does that: AI is redefining archviz workflows <em>from concept to final delivery</em>, turning visualization into an integrated tool for design thinking rather than just rendering. Read that twice. The claim isn't "renders are faster now." It's that the picture has moved from the end of the process — where you present a decision — to the middle of it, where you make one. That's a real and important distinction, and the magazine is right to lead with it.</p>
+
+    <p>We've argued a version of this ourselves, in <a href="ai-design-thinking-not-just-rendering-2026.html">AI is moving upstream</a>. So this isn't a takedown. It's a reality check, because there's a difference between a thesis being <strong>true</strong> and a thesis being <strong>true for you, this quarter, on this project</strong>. Architect Magazine describes the destination beautifully. The part worth adding is how far most studios actually are from it, and what closes the distance.</p>
+
+    <hr>
+
+    <h2>What the thesis gets exactly right</h2>
+
+    <p>The core insight is sound: when generating an image costs minutes instead of days, the economics of <em>when</em> you visualize change completely. You no longer save rendering for the moment a scheme is locked. You render to think — to find out whether a massing move reads, whether a material reads warm or cold, whether the light does what you hoped at 4pm in November. The image becomes an instrument of inquiry, and that genuinely changes how design happens. Architect Magazine names this cleanly, and it's the right thing to be excited about.</p>
+
+    <p>It's also right that this is an <em>integration</em> story, not a tool story. The value isn't any single generator; it's AI woven through the workflow so that exploration, iteration and presentation stop being separate phases with separate software. When it works, the studio stops thinking of "doing the renders" as a discrete task at all. That's a meaningful cultural shift, and the magazine is correct to frame it as one.</p>
+
+    <blockquote>There's a difference between a thesis being true and it being true for you, this quarter, on this project.</blockquote>
+
+    <h2>Where the reality check comes in</h2>
+
+    <p>Here's the friction. The "visualization as design thinking" studio is real — we've worked alongside it — but it is not the median firm in 2026. For most practices, three things stand between the thesis and the Tuesday-afternoon reality.</p>
+
+    <h3>1. Most firms still bolt AI onto the end</h3>
+    <p>The honest pattern in the majority of studios is unchanged in shape and only faster in speed: design the thing the old way, then use AI to produce the pretty picture at the end. That's not design thinking — it's the same late-stage rendering with a quicker engine. Moving the image upstream is a <em>behavioural</em> change, and behaviour is stickier than software. A faster renderer doesn't automatically become a thinking tool; someone has to decide to use it before the decisions are made, which most teams, under deadline, don't.</p>
+
+    <h3>2. Early-stage AI only thinks if the tool holds your geometry</h3>
+    <p>You can't reason with an image that reinvents the building every time you nudge a prompt. To use visualization as design thinking, the imagery has to stay consistent across iterations — change one variable, hold everything else — and that only happens with geometry-anchored tools, not free-running image generators. The magazine's thesis quietly assumes this capability; in practice, whether a studio can think with AI depends entirely on whether its tools stay locked to the model. Use the wrong tool and "design thinking" becomes "generating four different buildings and pretending it's iteration."</p>
+
+    <h3>3. Thinking imagery and client imagery are not the same thing</h3>
+    <p>The most dangerous failure mode of moving visualization upstream is letting an exploratory, half-true study image walk into a client meeting as if it were a proposal. A render made to <em>think</em> with — loose, suggestive, deliberately unfinished — is a liability the moment it's mistaken for a render made to <em>commit</em> to. Studios that move upstream well keep a hard line between the two. The magazine's framing, in its enthusiasm, doesn't dwell on this seam, and it's exactly where careless adoption goes wrong.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Thesis vs. Tuesday</div>
+        <div class="tc-rating">Editorial read</div>
+      </div>
+      <div class="tc-pricing">Not a product · A gut check</div>
+      <p>Architect Magazine describes the studio AI <em>can</em> produce: visualization threaded through design as a way to think. Most firms are still living in the studio AI <em>has</em> produced: the same process, faster at the end. The thesis is a target worth aiming at — just don't mistake the aspiration for your current address. The work is behavioural, not just technological.</p>
+      <div class="tc-tags">
+        <span>Move it upstream</span><span>Hold the geometry</span><span>Separate think from commit</span><span>Behaviour &gt; software</span>
+      </div>
+    </div>
+
+    <h2>The honest scorecard</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>The thesis</th>
+          <th>Verdict</th>
+          <th>The reality check</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI makes visualization a design-thinking tool</td>
+          <td class="winner">Right direction</td>
+          <td>Describes the best studio, not the median one</td>
+        </tr>
+        <tr>
+          <td>It runs concept to delivery, integrated</td>
+          <td class="winner">True when it works</td>
+          <td>Most firms still bolt it on at the end</td>
+        </tr>
+        <tr>
+          <td>Architects can explore earlier with AI</td>
+          <td class="note">Conditional</td>
+          <td>Only if the tool holds geometry across iterations</td>
+        </tr>
+        <tr>
+          <td>Visualization is no longer "just rendering"</td>
+          <td class="note">Aspirational</td>
+          <td>Requires separating think-images from commit-images</td>
+        </tr>
+        <tr>
+          <td>This is an integration shift, not a tool</td>
+          <td class="winner">Exactly right</td>
+          <td>Which is why it's behavioural and therefore slow</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Our take: <em>the thesis is a map, not a mirror</em></h2>
+
+    <p>Read Architect Magazine's framing as a map of where the profession is going, and it's excellent — clarifying, ambitious, correct about the shape of the change. Read it as a mirror of where your studio is today, and it'll flatter you into thinking you've already arrived. The studios that benefit most from this thesis are the ones who treat it as a to-do list: <em>are we actually using imagery to make decisions, or just to dress them up afterward?</em> For most, the honest answer is still the latter, and that's fine — as long as you know it, and know what closing the gap requires.</p>
+
+    <p>What closes it isn't a bigger software budget. It's three habits: choosing tools that stay anchored to your model so early imagery is trustworthy, moving the first render forward to <em>before</em> the scheme is decided, and policing the line between the images you think with and the images you commit to. Do those, and the magazine's thesis stops being a description of someone else's studio and becomes a description of yours.</p>
+
+    <h3>One test for whether you've actually moved upstream</h3>
+
+    <p>Look at your last project's image history. If the first AI render appeared after the design was essentially settled, you're using AI as a faster end-stage renderer — which is valuable, but it isn't design thinking. If renders show up early, scrappy, and clearly shaping decisions that hadn't been made yet, you've crossed the line the magazine is describing. That timeline, not the polish of the final image, is the real measure of whether AI has become a way you think or just a way you present.</p>
+
+    <p><strong>We test where the discourse meets the deadline — and publish the version with the gap marked.</strong> <a href="#newsletter">Join the studio newsletter</a> for weekly field notes, or read our own argument for moving AI upstream in <a href="ai-design-thinking-not-just-rendering-2026.html">AI is moving upstream: design thinking, not just rendering</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Responds to Architect Magazine's publicly published 2026 coverage of how AI is reshaping architectural visualization workflows. Characterisation of that thesis is our paraphrase; the reality check reflects Vista Studios' experience adopting AI across early and late design phases on live projects. No affiliation with Architect Magazine.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-design-thinking-not-just-rendering-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">AI Is Moving Upstream: Design Thinking, Not Just Rendering</div>
+        </a>
+        <a href="geometry-aware-ai-renderers-architects-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">Geometry-Aware AI Renderers: The Tools That Hold Your Building</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

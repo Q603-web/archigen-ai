@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Veras Is Now Inside Corona: AI Rendering Reaches the Production Pipeline, ArchiGen AI</title>
+<meta name="description" content="Chaos has embedded Veras directly into Corona Renderer — the same AI visualization layer now lives where 3ds Max archviz studios already work. We walk the workflow and mark exactly where it earns its place and where it hands the job back to your render engine." />
+<link rel="canonical" href="https://archigenai.com/veras-corona-archviz-workflow-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/veras-corona-archviz-workflow-architects-2026.html" />
+<meta property="og:title" content="Veras Is Now Inside Corona: AI Rendering Reaches the Production Pipeline, ArchiGen AI" />
+<meta property="og:description" content="Veras AI now lives inside Corona Renderer. Here's the production-pipeline workflow for 3ds Max studios — and where it still hands off to V-Ray-grade output." />
+<meta property="og:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Veras Is Now Inside Corona: AI Rendering Reaches the Production Pipeline, ArchiGen AI" />
+<meta name="twitter:description" content="Chaos put Veras inside Corona. What it means when the AI layer moves into the production renderer 3ds Max studios already use." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .gallery-full { margin: 0 0 8px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+  .article-body code { font-family: var(--f-mono); font-size: 13px; background: var(--paper-2); padding: 2px 6px; border-radius: 4px; color: var(--ink); }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/hero-veras.jpg",
+    "width": 1200,
+    "height": 630,
+    "caption": "Veras AI now inside Corona Renderer / ArchiGen AI"
+  },
+  "headline": "Veras Is Now Inside Corona: AI Rendering Reaches the Production Pipeline",
+  "description": "Chaos has embedded Veras directly into Corona Renderer — the AI visualization layer now lives where 3ds Max archviz studios already work. We walk the workflow and mark where it earns its place and where it hands the job back to your render engine.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-04T09:00:00-04:00",
+  "dateModified": "2026-06-04T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-corona-archviz-workflow-architects-2026.html",
+  "articleSection": "Tool News",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Veras Corona integration", "Veras AI Corona Renderer", "Chaos Veras 3ds Max", "AI archviz workflow 2026", "Corona AI rendering", "Veras Nano Banana 2", "production renderer AI", "architectural visualization AI"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Veras inside Corona actually add to a 3ds Max workflow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It puts Chaos's AI visualization layer in the same window where Corona artists already work, so you can take a clay or work-in-progress Corona frame and push it through Veras for fast material, lighting and mood exploration without exporting to a separate app. The geometry, camera and composition come from your actual 3ds Max scene, and Veras treats that frame as a structured starting point rather than a blank prompt. The practical win is concept iteration speed early in a project, when you want ten looks before you commit to a single production render."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Veras replace a full Corona or V-Ray render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Veras is an AI enhancement and ideation layer, not a physically based render engine. It is excellent for early-phase exploration and client-facing mood imagery, but it does not give you the deterministic, scene-accurate light transport, render elements and post control that a final Corona or V-Ray frame delivers. The intended pattern is Veras upstream for speed and options, then your production engine downstream once the design is locked and the deliverable has to be exact and consistent across views."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Veras engine powers the latest version?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaos has been moving Veras onto stronger image engines, with recent versions positioned around the Nano Banana 2 generation for improved prompt adherence and output quality. For architects the relevant change is fidelity to the input geometry and material intent rather than the engine name: newer engines drift less from your massing and fenestration when you give them a clean Corona frame to work from, which is exactly what makes the in-Corona placement useful instead of gimmicky."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool News · 4 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Veras moved into the room where the <em>real</em> renders happen</h1>
+    <p class="lede">For two years the AI visualization layer lived in the early-design tools — SketchUp, Revit, the concept end of the pipeline. Now Chaos has put Veras directly inside Corona, the engine high-end archviz studios use for final frames. That's a different statement about where AI belongs in production work — and it deserves a sober look.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios tested · Tool News</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/hero-veras.jpg" alt="AI-assisted Veras visualization of a contemporary architectural exterior anchored to a Corona scene" />
+        <figcaption>Veras now lives inside Corona — the AI layer moves into the production renderer / ArchiGen AI</figcaption>
+      </figure>
+    </div>
+
+    <p>Veras has spent its life at the front of the pipeline. It started as an add-in for the tools architects use while a building is still an argument — SketchUp, Revit, Rhino — turning massing models into atmospheric concepts in seconds. That placement told you everything about how Chaos saw it: a thinking tool, used before anyone cared whether the materials were physically accurate. The newest move changes the address. Veras is now built into <strong>Corona</strong>, the production renderer that 3ds Max archviz studios reach for when the deliverable has to be photoreal and signed off. The AI layer just walked from the concept room into the finishing room.</p>
+
+    <p>That migration is worth more than a feature note, because Corona's users are a different audience with different standards. A SketchUp user trying Veras is exploring. A Corona artist has a scene with calibrated light, layered materials and a camera they fought for — and a client who expects a final image to match the last one. Putting an AI generation layer in <em>that</em> window is a bolder claim: that AI exploration belongs inside the production toolchain, not parked in a separate app you alt-tab to. The interesting question isn't whether it's impressive. It's where, exactly, it earns its keep — and where it quietly doesn't.</p>
+
+    <hr>
+
+    <h2>What actually changed</h2>
+
+    <p>The mechanics are the headline. Instead of exporting a frame, opening a browser or a separate plugin, and re-establishing your composition there, you stay in the Corona-driven 3ds Max environment and send your current frame to Veras in place. Your geometry, your camera, your composition — all of it carries over as the structural basis for the AI pass. Veras then does what it has always done well: rapid material, lighting, vegetation and mood variation, driven by a short text prompt and your scene as the anchor.</p>
+
+    <p>The reason this matters more here than it did in SketchUp is the quality of the input. Veras is only as faithful as the frame you feed it, and a Corona work-in-progress frame — even an untextured clay pass — carries honest perspective, real shadow direction and clean massing. That gives the AI engine far less room to invent. Chaos has been moving Veras onto stronger image engines through its recent releases, positioned around the Nano Banana 2 generation, and the gain that matters to architects isn't the model's name — it's that a better engine fed a clean Corona frame drifts less from your building.</p>
+
+    <blockquote>The closer the AI layer sits to the production renderer, the cleaner the geometry it's handed — and the less it has to guess.</blockquote>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Veras in Corona — what it is, plainly</div>
+        <div class="tc-rating">Tool news</div>
+      </div>
+      <div class="tc-pricing">Chaos Veras · subscription add-in · now surfaced inside the Corona / 3ds Max workflow</div>
+      <p>An AI visualization layer that uses your live Corona scene — geometry, camera, composition — as the substrate for fast material, lighting and mood exploration. It is an ideation and enhancement step that lives next to your production engine, not a replacement for a physically based Corona or V-Ray final render.</p>
+      <div class="tc-tags">
+        <span>In-pipeline</span><span>Scene-anchored</span><span>Concept speed</span><span>Nano Banana 2 era</span><span>Not a final renderer</span>
+      </div>
+    </div>
+
+    <h2>The workflow we'd actually run</h2>
+
+    <p>Here's how this slots into real production rather than a demo. The value is concentrated at two moments, and it's close to zero everywhere else.</p>
+
+    <h3>1. Early massing, before materials exist</h3>
+    <p>You've blocked the scene in 3ds Max, set a hero camera, and you're staring at grey clay. This is the expensive moment in a traditional pipeline — you'd assign provisional materials and kick a test render just to feel the space. With Veras in place, you push the clay frame through a few prompts: <em>warm travertine and bronze, low evening sun, soft haze</em>; <em>board-formed concrete, overcast, restrained</em>. In a minute you have a wall of directions to put in front of the client or principal, all sharing your exact geometry and camera. That's the strongest use, and it's genuinely faster than the old loop.</p>
+
+    <h3>2. Mood and atmosphere passes on a near-final frame</h3>
+    <p>Later, with a textured scene, Veras becomes a fast way to test atmosphere — time of day, weather, the emotional register of an image — without re-rendering the production frame for every variation. You're not shipping these as finals; you're using them to decide what the final should feel like before you commit Corona's render time to it.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Stage of the job</th>
+          <th>Veras-in-Corona</th>
+          <th>Production Corona render</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Concept / massing options</td>
+          <td class="winner">Fast, scene-anchored, ideal</td>
+          <td class="note">Overkill — slow for exploration</td>
+        </tr>
+        <tr>
+          <td>Material direction</td>
+          <td class="winner">Ten looks in minutes</td>
+          <td>Accurate but one at a time</td>
+        </tr>
+        <tr>
+          <td>Mood / time-of-day study</td>
+          <td class="winner">Quick, expressive</td>
+          <td>Re-render per variation</td>
+        </tr>
+        <tr>
+          <td>Final, sign-off-grade frame</td>
+          <td class="note">Not deterministic enough</td>
+          <td class="winner">The job it's built for</td>
+        </tr>
+        <tr>
+          <td>Consistency across a set of views</td>
+          <td class="note">Drifts view to view</td>
+          <td class="winner">Locked, repeatable</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Where it still hands the job back</h2>
+
+    <p>Be clear-eyed about the boundary, because the in-pipeline placement makes it easy to forget. Veras is an AI image layer, not a render engine. It does not give you Corona's deterministic light transport, its render elements, its physically accurate reflections and refractions, or the per-pass control your compositor needs. Run the same Veras prompt twice and you'll get two cousins, not the same image — fine for a mood board, fatal for a six-image set that has to read as one building photographed on one afternoon.</p>
+
+    <p>So the moment the deliverable becomes a coordinated set of finals — the board, the competition panel, the marketing suite — you're back in Corona proper, and you should be. The honest framing is the one we keep arriving at across these tools: AI is now a superb <em>front half</em> of the archviz pipeline and a poor <em>back half</em>. Chaos putting Veras inside Corona doesn't move that line; it just removes the friction of crossing it. That's the actual improvement here — not that AI got more accurate, but that the handoff got shorter.</p>
+
+    <h2>Our take: <em>placement is the product</em></h2>
+
+    <p>The temptation with a release like this is to argue about image quality. That's the wrong axis. Veras's quality has been climbing release over release; what changed is its <em>location</em>, and location is the real feature. By embedding the AI layer inside the production renderer instead of a sidecar app, Chaos shortened the loop between "I have a modelled scene" and "I have ten directions to react to" — and a shorter loop is what actually changes how a studio works day to day. This is the same consolidation story we flagged when <a href="chaos-2026-product-line-update-architects.html">Chaos updated its whole product line in lockstep</a>: one vendor steadily knitting Veras, Enscape, Vantage and V-Ray into a single graph.</p>
+
+    <p>The thing to watch is the same thing to watch with any all-in-one stack — leverage. The more your concept, exploration and final-frame steps all live inside one vendor's ecosystem, the more convenient your day and the thinner your negotiating position at renewal. Use the in-Corona Veras for exactly what it's good at, keep your final-render discipline intact, and don't let a smoother handoff talk you out of knowing where the AI stops and the engine starts.</p>
+
+    <h3>If you're trying it this week</h3>
+    <p>Take one real scene. Send a clay frame through Veras for material options, pick a direction, then build that direction properly in Corona and render it for real. Lay the AI concept next to the production final. You'll see precisely what the AI bought you — speed and breadth at the front — and precisely what it couldn't give you — the locked, accurate, repeatable frame at the end. That side-by-side is the whole argument for using both, and it's the habit that keeps the tool in its lane.</p>
+
+    <p><strong>We test AI rendering tools on real project work and publish the honest version — including which stage of the pipeline each one actually belongs in.</strong> <a href="#newsletter">Join the studio newsletter</a> for weekly field notes, or read our companion on <a href="bim-integrated-ai-rendering-vs-midjourney-architects-2026.html">why integrated renderers are beating standalone generators</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Reported from public Chaos product information on Veras and its Corona integration, current as of June 2026, plus Vista Studios' own testing of Veras as a concept and mood layer against production Corona output. Engine and feature details reflect publicly described releases and may change. No affiliate relationship with Chaos.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="chaos-2026-product-line-update-architects.html" class="related-card">
+          <div class="rc-tag">Analysis · 2 Jun 2026</div>
+          <div class="rc-title">Chaos Updated Its Whole Line at Once: What It Means When One Vendor Owns Your Stack</div>
+        </a>
+        <a href="bim-integrated-ai-rendering-vs-midjourney-architects-2026.html" class="related-card">
+          <div class="rc-tag">Field Notes · 2 Jun 2026</div>
+          <div class="rc-title">Why Integrated Renderers Are Beating Standalone Generators</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
