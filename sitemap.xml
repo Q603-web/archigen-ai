@@ -700,4 +700,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-05 Articles -->
+  <url>
+    <loc>https://archigenai.com/archfine-ai-cloud-render-first-look-architects-2026.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/architectural-visualization-trends-2026-survey-audited.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/archicad-ai-visualizer-free-vs-veras-2026.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
