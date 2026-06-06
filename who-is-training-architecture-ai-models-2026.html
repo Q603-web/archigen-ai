@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Who's Actually Training the Architecture AI? Owned Models vs Rented Ones, ArchiGen AI</title>
+<meta name="description" content="Every 2026 roundup now claims Autodesk, Chaos and Adobe are building AI models trained on architectural data — codes, construction logic, materials. Meanwhile Veras 4 runs on Google's Nano Banana Pro, a borrowed general model. So who is genuinely training a domain model, and who is renting Google or OpenAI and putting a skin on it? A read-the-incentives analysis for architects choosing a stack." />
+<link rel="canonical" href="https://archigenai.com/who-is-training-architecture-ai-models-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/who-is-training-architecture-ai-models-2026.html" />
+<meta property="og:title" content="Who's Actually Training the Architecture AI? Owned Models vs Rented Ones" />
+<meta property="og:description" content="Vendors keep claiming purpose-built architectural AI. Veras runs on Google's model. We read the incentives: who owns a domain model, who rents a general one, and why it matters for your stack." />
+<meta property="og:image" content="https://archigenai.com/assets/render-detail.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Who's Actually Training the Architecture AI?" />
+<meta name="twitter:description" content="Owned domain model or rented general one? The roundups blur the line. We read the incentives behind the 2026 architecture-AI stack." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-detail.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .gallery-full { margin: 0 0 8px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-detail.jpg",
+    "width": 1280,
+    "height": 1920,
+    "caption": "Material and construction detail — the kind of domain knowledge a purpose-trained architectural model would need to learn"
+  },
+  "headline": "Who's Actually Training the Architecture AI? Owned Models vs Rented Ones",
+  "description": "An analysis of which architecture-AI vendors are genuinely training domain models on codes, construction logic and materials, and which are renting a general foundation model from Google or OpenAI. What the distinction means for the tools architects buy in 2026.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-06T11:00:00-04:00",
+  "dateModified": "2026-06-06T11:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/who-is-training-architecture-ai-models-2026.html",
+  "articleSection": "Analysis",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["architecture AI models", "domain-trained AI", "Veras Nano Banana Pro", "Autodesk Forma AI", "Chaos AI", "vendor AI architecture 2026", "purpose-built vs general model"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it mean for an architecture tool to train its own AI model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Training your own model means assembling a dataset and teaching a neural network from it, so the model's knowledge reflects that data — for architecture, things like building codes, construction logic and material behaviour. Renting a model means calling someone else's general foundation model (such as Google's or OpenAI's) through an API and shaping its output with prompts, references and post-processing. Most tools that market 'AI for architecture' are doing the second, not the first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Veras train its own model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Veras 4 runs on Google's Nano Banana Pro engine — a general foundation model — rather than a model Chaos trained from scratch on architectural data. That is not a criticism; renting a strong general model and pairing it with reference-image input and BIM/CAD integration is a legitimate and often superior strategy. But it means Veras's domain advantage comes from its product layer and integrations, not from owning the underlying model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should architects prefer a purpose-trained model over a rented one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. A rented general model can outperform a small purpose-trained one simply because it was trained on vastly more data and improves every time the provider ships an upgrade. What matters more than owned-versus-rented is whether the tool actually understands your geometry and integrates with your workflow. Judge the output and the integration, and treat 'purpose-built' marketing as a claim to verify, not a feature to trust."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Analysis · 6 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Who's actually <em>training</em> the architecture AI?</h1>
+    <p class="lede">Open any 2026 roundup and you'll read the same confident line: Autodesk, Chaos and Adobe are building AI models trained on architectural data — codes, construction logic, materials — while agentic systems plan multi-step pipelines on top. It's a tidy story. It's also worth interrogating, because in the same breath the most celebrated tool of the year, Veras 4, runs on Google's Nano Banana Pro — a borrowed, general model. So who is genuinely training a domain model, who is renting one and styling the output, and why should an architect choosing a stack care about the difference at all?</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios · Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-detail.jpg" alt="Close material and construction detail of a building — the kind of domain knowledge a purpose-trained architectural AI model would need to internalise" />
+        <figcaption>The marketing promise is a model that understands materials and construction. The reality is more rented than owned / ArchiGen AI Curation</figcaption>
+      </figure>
+    </div>
+
+    <p>There's a phrase doing a lot of unearned work in the architecture-AI conversation right now: <em>purpose-built</em>. Every vendor roundup gestures at it. The major platforms, we're told, are training specialized models on architectural data — building codes, construction sequences, material libraries — so their AI doesn't just make pretty pictures but understands the discipline. Layer in "agentic" systems that chain steps together, and the implication is clear: the era of architecture AI being a general image generator with an arch-viz prompt is over.</p>
+
+    <p>Maybe. But the most important counter-example is sitting in plain sight. Veras 4, the tool every comparison crowns for image quality, runs on Google's Nano Banana Pro — a general foundation model Chaos did not train. So before we accept the "everyone's training domain models" narrative, it's worth doing what we always do here: read the incentives, separate the claim from the architecture, and ask what's actually true under the marketing.</p>
+
+    <hr>
+
+    <h2>Two very different things called "AI"</h2>
+
+    <p>The whole confusion comes from one word covering two completely different engineering decisions. When a vendor says it has "AI for architecture," it is doing one of these:</p>
+
+    <p><strong>Training a model</strong> means assembling a dataset and teaching a neural network from it. The model's knowledge <em>is</em> that data. To genuinely train an architectural model, a vendor needs an enormous, well-labelled corpus — drawings, codes, built outcomes, materials — plus the compute and the talent to train on it and keep training. It is slow, expensive, and the moat, if you can build it, is deep.</p>
+
+    <p><strong>Renting a model</strong> means calling someone else's foundation model — Google's, OpenAI's, a strong open-weights model — through an API, and shaping the result with prompts, reference images, fine-tuning on a smaller dataset, and post-processing. It is fast, comparatively cheap, and it inherits every improvement the provider ships. The moat here isn't the model; it's everything you wrap around it.</p>
+
+    <blockquote>"AI for architecture" hides two opposite bets: own the model and carry the cost, or rent the model and compete on everything else.</blockquote>
+
+    <p>Neither is cheating. But they produce different companies, different risks, and different reasons to trust — or distrust — the result. And a roundup that lumps them together as "vendors building architectural AI" is flattening the single most important distinction in the category.</p>
+
+    <h2>Reading the incentives</h2>
+
+    <p>Why does almost everyone, when you look closely, turn out to be renting? Because the incentives point that way with brutal consistency.</p>
+
+    <p>A general foundation model from Google or OpenAI has been trained on a scale no architecture vendor can match — budgets in the billions, data in the petabytes. A purpose-built model trained on a comparatively tiny architectural corpus starts from behind on raw capability and has to claw back the gap with domain specificity. Worse, the rented model gets <em>better on someone else's dime</em>: when Google ships the next engine, the tool renting it inherits the upgrade for free, while the vendor who trained its own model has to fund the next training run itself.</p>
+
+    <p>That's exactly the logic visible in Veras. Rather than try to out-train Google at image generation, Chaos rented Google's best image model and spent its effort on the things Google will never build: reference-image input from a plan or sketch, no-prompt scene generation, and — the real moat — integration into BIM and CAD across multiple platforms. Veras's advantage is its <em>product</em>, not its model. Read cynically that sounds like a knock. Read honestly it's the smarter bet, and the roundups have the story backwards when they file Veras under "purpose-built architectural AI."</p>
+
+    <h2>So who, if anyone, is actually training?</h2>
+
+    <p>The vendors with a credible path to a genuinely owned domain model are the ones who already own the <em>data</em> — and that's a much shorter list than the roundups imply.</p>
+
+    <ul>
+      <li><strong>Autodesk</strong> sits on an enormous corpus of real project data through Revit, AutoCAD and Forma, plus the context and site-analysis intelligence already shipping inside Forma. If anyone can train models on construction logic and code, it's the company that hosts the construction logic and code. The capability claim here is the most believable.</li>
+      <li><strong>Chaos</strong> has deep rendering and physical-light expertise and a clear AEC-specific positioning — but its flagship visual tool rents Google's model. Its domain training, where it exists, is more plausibly in the physics-and-pipeline layer than in the image model itself.</li>
+      <li><strong>Adobe</strong> has the model-training muscle and the creative install base, but "trained on architectural data" specifically is the weakest-supported of the three claims; Adobe's strength is general creative AI that architects use, not an architecture model per se.</li>
+    </ul>
+
+    <p>Notice the pattern: the believable "training" stories belong to whoever controls a proprietary dataset, not to whoever markets the loudest. Domain data is the actual moat. Everything else is a wrapper around a rented engine — and there is nothing wrong with a good wrapper, as long as you know that's what you're buying.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The honest taxonomy</div>
+        <div class="tc-rating">Analysis · Framework</div>
+      </div>
+      <div class="tc-pricing">How to file any "AI for architecture" tool you're evaluating</div>
+      <p>Owns the model and the data (rare, data-rich incumbents) · Rents a general model but owns deep integration and a workflow moat (the strongest tools, e.g. the Veras pattern) · Rents a general model with a thin prompt-and-skin layer (most new entrants) · Markets "purpose-built" with nothing verifiable underneath (the category to discount). Where a tool sits tells you how durable its advantage is — and how much of its quality will quietly come from Google's next upgrade rather than its own work.</p>
+      <div class="tc-tags">
+        <span>Owned model</span><span>Rented + moat</span><span>Rented + skin</span><span>Marketing only</span>
+      </div>
+    </div>
+
+    <h2>Why this matters to your stack</h2>
+
+    <p>This isn't a philosophy-of-AI exercise. Where a tool sits on the owned-versus-rented spectrum changes three things you actually care about.</p>
+
+    <h3>Durability</h3>
+    <p>A tool whose quality is mostly its rented model is hostage to that relationship. If the provider changes pricing, terms or availability — or if a competitor rents the same engine — the advantage can evaporate overnight. A tool whose advantage is deep integration or proprietary data is far harder to dislodge. When you standardize a studio on a tool, you're betting on the durability of its moat, not this quarter's image quality.</p>
+
+    <h3>Trajectory</h3>
+    <p>Renting has a delightful property: the tool gets better when Google or OpenAI ships, with no effort from the vendor. That's why a thin wrapper can leap forward overnight. But it cuts both ways — improvement isn't in the vendor's control, and "we're on the latest foundation model" is a promise about someone else's roadmap, not their own.</p>
+
+    <h3>Data exposure</h3>
+    <p>Renting a model means your inputs may travel to the foundation provider as well as the vendor. "Trained on architectural data" should also make you ask <em>whose</em> data, and whether yours becomes part of the next training set. The owned-versus-rented question and the confidentiality question are the same question wearing two hats — which is exactly why we keep pulling that thread.</p>
+
+    <h2>Our take: <em>discount "purpose-built," judge the moat</em></h2>
+
+    <p>The "everyone is training architectural AI" narrative is mostly marketing collapsing two different things into one flattering word. The truth in 2026 is that almost everyone is renting a general model from Google or OpenAI, and the best tools — Veras among them — win not by owning the model but by owning the integration and the workflow around it. The genuinely owned-model stories belong to the handful of incumbents who already control proprietary project data, with Autodesk the most credible of them.</p>
+
+    <p>For a practitioner, the lesson is liberating rather than cynical: stop treating "purpose-built" as a feature and start asking the only questions that survive contact with reality. Does the tool actually hold my geometry and understand my workflow? What is its moat — proprietary data, deep integration, or just a prompt and a logo? And where does my model go when I use it? Answer those and the owned-versus-rented label sorts itself out. Ignore them, and you'll keep buying the loudest claim instead of the most durable tool.</p>
+
+    <p><strong>We read the incentives behind the tools so you can choose a stack that's still standing next year.</strong> <a href="#newsletter">Join the studio newsletter</a> for the analysis, or read our companion piece on <a href="ai-native-vs-plugin-renderers-2026.html">AI-native versus plugin renderers</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Analysis based on publicly described vendor capabilities and product architectures as surfaced in 2026 industry coverage. Claims about which vendors train versus rent models reflect public positioning and should be confirmed against vendor documentation. No affiliate relationship with any tool or platform named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-native-vs-plugin-renderers-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">AI-Native vs Plugin Renderers: Where the Real Advantage Lives</div>
+        </a>
+        <a href="bim-integrated-ai-rendering-vs-midjourney-architects-2026.html" class="related-card">
+          <div class="rc-tag">Comparison · 2026</div>
+          <div class="rc-title">BIM-Integrated AI Rendering vs Midjourney: The Integration Moat</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

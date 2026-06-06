@@ -722,4 +722,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-06 Articles -->
+  <url>
+    <loc>https://archigenai.com/archrender-ai-3d-model-import-first-look-architects-2026.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/who-is-training-architecture-ai-models-2026.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/cloud-ai-rendering-client-confidentiality-architects-2026.html</loc>
+    <lastmod>2026-06-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

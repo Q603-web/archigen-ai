@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Who Sees Your Model? Cloud AI Rendering and Client Confidentiality, ArchiGen AI</title>
+<meta name="description" content="Every cloud AI renderer — Archfine, ArchRender, Vibe3D, web Veras — means your model leaves your machine and lands on someone else's server. Local tools like ComfyUI are pitched explicitly as the alternative where projects never leave your network. Almost nobody is reading the data terms: retention, training use, NDA and public-sector exposure. A practitioner's guide to the confidentiality question architects keep skipping." />
+<link rel="canonical" href="https://archigenai.com/cloud-ai-rendering-client-confidentiality-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/cloud-ai-rendering-client-confidentiality-architects-2026.html" />
+<meta property="og:title" content="Who Sees Your Model? Cloud AI Rendering and Client Confidentiality" />
+<meta property="og:description" content="Cloud rendering means your client's unbuilt scheme is on someone else's server. We walk the data terms architects keep skipping — retention, training use, NDA and public-sector exposure — and how to render without breaking confidence." />
+<meta property="og:image" content="https://archigenai.com/assets/render-interior.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Who Sees Your Model? Cloud AI Rendering and Confidentiality" />
+<meta name="twitter:description" content="Your model leaves your machine every time you use a cloud renderer. Here's the confidentiality question architects keep skipping — and how to answer it." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-interior.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .gallery-full { margin: 0 0 8px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-interior.jpg",
+    "width": 2304,
+    "height": 1856,
+    "caption": "An interior render — the kind of unbuilt, confidential project imagery that leaves your machine the moment you use a cloud tool"
+  },
+  "headline": "Who Sees Your Model? Cloud AI Rendering and Client Confidentiality",
+  "description": "A practitioner guide to the data-confidentiality question behind cloud AI renderers. What leaves your machine, what the terms say about retention and training use, where NDA and public-sector work draws the line, and how to render without breaking client confidence.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-06T13:00:00-04:00",
+  "dateModified": "2026-06-06T13:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/cloud-ai-rendering-client-confidentiality-architects-2026.html",
+  "articleSection": "Practice Risk",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["cloud AI rendering confidentiality", "architect client data privacy", "AI render data retention", "ComfyUI local rendering privacy", "NDA AI tools architecture", "model upload terms of service"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does using a cloud AI renderer expose my client's project?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Using a cloud renderer means your model, image or massing leaves your machine and is processed on the provider's servers, and often on a third-party foundation model's servers as well. Whether that counts as an exposure depends entirely on the provider's terms — how long files are retained, whether they can be used to train models, and who can access them. For routine concept work it is usually a manageable risk; for NDA, competition, or public-sector projects it can be a genuine breach of confidence if you have not checked the terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is local rendering like ComfyUI actually more private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, materially. Running Stable Diffusion locally through a tool like ComfyUI means the project files never leave your network — there is no upload, no retention question and no third-party training exposure. The trade-off is setup complexity, hardware requirements and a steeper learning curve. For confidential or regulated work, that trade-off is often worth it precisely because the confidentiality guarantee is structural rather than contractual."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I check before uploading a project to an AI rendering tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check four things in the terms of service and privacy policy: data retention (how long they keep your uploads and whether you can delete them), training use (whether your files can be used to improve their models), sub-processors (which third parties, including foundation-model providers, receive your data), and jurisdiction (which country's law governs and whether that satisfies your client's or your public-sector obligations). If any of these conflict with an NDA or a client requirement, use a local tool or get explicit written consent first."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Practice Risk · 6 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Who sees your model when it <em>leaves your machine?</em></h1>
+    <p class="lede">Every cloud AI renderer on the 2026 lists — Archfine, ArchRender, Vibe3D, web Veras — shares one fact the marketing never leads with: the moment you click render, your client's unbuilt scheme is sitting on someone else's server. Local tools like ComfyUI make the opposite pitch their whole identity — projects never leave your network. Between those two poles is a confidentiality question almost nobody in the rush to adopt is actually reading the terms on. So let's read them.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios · Practice Risk</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-interior.jpg" alt="A detailed interior render of an unbuilt space — the kind of confidential project imagery that leaves your machine the instant you use a cloud rendering tool" />
+        <figcaption>An unbuilt interior is exactly the kind of confidential asset a cloud upload quietly exposes / ArchiGen AI Curation</figcaption>
+      </figure>
+    </div>
+
+    <p>Here's a sentence that should give any practice pause, written plainly: <strong>"it runs in the cloud"</strong> and <strong>"your client's unbuilt scheme is now on a company's server you've never audited"</strong> are the same sentence. We don't usually say it that way because the first half sounds like a feature and the second half sounds like a problem, but they describe one event. Every cloud renderer trades local compute for a data transfer, and the data being transferred is, very often, a client's confidential project.</p>
+
+    <p>This isn't a reason to avoid cloud tools. It's a reason to do the one thing the adoption rush keeps skipping: read what happens to your files after you upload them. The architecture press is full of speed-and-fidelity comparisons and almost empty of anyone auditing the data terms. That gap is the whole subject of this piece — because the confidentiality question doesn't go away when you ignore it; it just waits for the wrong project.</p>
+
+    <hr>
+
+    <h2>What actually leaves your machine</h2>
+
+    <p>Start with the mechanics, because "the cloud" hides them. When you use a hosted AI renderer, some combination of the following leaves your network:</p>
+
+    <ul>
+      <li><strong>Your geometry or image</strong> — the massing, the plan, the sketch, the screenshot. For a model-import tool, that's the building itself.</li>
+      <li><strong>Your prompts and references</strong> — which can describe the program, the client, the site, the brief in plain language.</li>
+      <li><strong>Metadata</strong> — account identity, timestamps, sometimes file names that carry the project or client name right in the string.</li>
+    </ul>
+
+    <p>And it frequently doesn't stop at the vendor. Many renderers are, as we've written elsewhere, wrappers around a foundation model from Google or OpenAI. That means your upload may pass to a <em>second</em> company's infrastructure — the model provider — under <em>their</em> terms, not just the vendor's. The chain of custody for your client's confidential scheme can be two or three companies long before the first image comes back, and most architects couldn't name the second link.</p>
+
+    <blockquote>The chain of custody for a confidential scheme can be three companies long before the first render comes back. Most architects can't name the second link.</blockquote>
+
+    <h2>The four terms that actually matter</h2>
+
+    <p>You don't need to become a privacy lawyer. You need to find four answers in the terms of service and privacy policy, and they're usually findable in fifteen minutes.</p>
+
+    <h3>1. Retention</h3>
+    <p>How long does the provider keep your uploads, and can you delete them? "Processed and discarded" is a very different posture from "retained indefinitely to improve the service." The good actors let you delete projects and say so plainly. The vague ones go quiet exactly here — and silence on retention should read as "indefinitely" until proven otherwise.</p>
+
+    <h3>2. Training use</h3>
+    <p>Can your files be used to train or improve the provider's models? This is the one that bites. If your client's unbuilt, competition-sensitive tower becomes training data, fragments of its form can in principle resurface in someone else's render. Look for an explicit "we do not train on customer content," and treat its absence as a yes.</p>
+
+    <h3>3. Sub-processors</h3>
+    <p>Who else receives your data? This is where the foundation-model provider hides. A vendor can have impeccable terms and still pass your upload to a third party whose terms you never agreed to. A serious provider publishes a sub-processor list. If you can't find one, you don't actually know where your model goes.</p>
+
+    <h3>4. Jurisdiction</h3>
+    <p>Which country's law governs, and where do the servers sit? For public-sector work, data-sovereignty requirements may rule out a tool outright regardless of how good its terms otherwise are. For private work under an NDA, the governing jurisdiction determines what recourse you'd actually have if something went wrong.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The 15-minute pre-upload audit</div>
+        <div class="tc-rating">Checklist · Before you trust it</div>
+      </div>
+      <div class="tc-pricing">Run this once per tool, before the first confidential project — not after</div>
+      <p>Find the retention policy and confirm you can delete · Find an explicit "we don't train on your content" statement · Find the sub-processor list and note the foundation-model provider · Confirm the governing jurisdiction satisfies your client and any public-sector rules · Match the result against the specific project's NDA. If any answer is missing rather than reassuring, treat the tool as cloud-public and keep confidential work off it.</p>
+      <div class="tc-tags">
+        <span>Retention</span><span>Training use</span><span>Sub-processors</span><span>Jurisdiction</span><span>NDA match</span>
+      </div>
+    </div>
+
+    <h2>Where the line actually falls</h2>
+
+    <p>Not every project carries the same risk, and treating them all the same is its own mistake — either you needlessly avoid useful tools, or you needlessly expose sensitive ones. A practical tiering:</p>
+
+    <ul>
+      <li><strong>Low stakes — cloud is fine.</strong> Speculative concepts, internal studies, marketing imagery for a built and published project, personal experiments. The confidentiality cost is near zero; use the fastest tool.</li>
+      <li><strong>Medium stakes — read the terms first.</strong> Live private commissions under a standard contract. Cloud is usually fine <em>if</em> the four answers check out, and a real risk if you never looked.</li>
+      <li><strong>High stakes — local or explicit consent only.</strong> Anything under a specific NDA, competition entries, public-sector and defence work, high-profile clients who'd be damaged by a leak. Here the structural guarantee of local rendering is worth its inconvenience, or you get written client consent for the specific tool before a single file leaves your machine.</li>
+    </ul>
+
+    <h2>The local alternative, honestly</h2>
+
+    <p>This is exactly the gap local tools are built for. ComfyUI running Stable Diffusion on your own hardware is pitched — accurately — as the option where projects never leave your network. There's no upload, so there's no retention question, no training-use exposure, no sub-processor chain. The confidentiality guarantee is <em>structural</em>: it holds because the data physically never moved, not because a company promised in a document you hope they honour.</p>
+
+    <p>The honest trade-off is real, though. Local means setup complexity, a capable GPU, and a steeper learning curve than a website you log into. For a solo practitioner doing occasional concept work, that cost may not be worth it. For a practice that regularly handles confidential or regulated projects, it increasingly is — and the calculus is shifting as the work gets more sensitive and the tools get easier. The point isn't that everyone should render locally. It's that for high-stakes work, "the data never left" is a guarantee no terms-of-service can match.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Cloud renderer</th>
+          <th>Local (ComfyUI-type)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Data leaves your network</td>
+          <td class="note">Yes — vendor + maybe model provider</td>
+          <td class="winner">No — stays local</td>
+        </tr>
+        <tr>
+          <td>Confidentiality guarantee</td>
+          <td>Contractual — only as good as the terms</td>
+          <td class="winner">Structural — data never moved</td>
+        </tr>
+        <tr>
+          <td>Setup &amp; hardware</td>
+          <td class="winner">Log in, no GPU</td>
+          <td class="note">Real setup, capable GPU</td>
+        </tr>
+        <tr>
+          <td>Best for</td>
+          <td class="winner">Low/medium-stakes, speed-first work</td>
+          <td class="winner">NDA, competition, public-sector work</td>
+        </tr>
+        <tr>
+          <td>Effort to verify safety</td>
+          <td class="note">Read four sets of terms</td>
+          <td class="winner">Nothing left your machine</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Our take: <em>render fast, but know what you uploaded</em></h2>
+
+    <p>The confidentiality question isn't an argument against cloud rendering — it's an argument against using it unconsciously. The speed is genuine and the tools are good, and for the large share of architectural imagery that carries no real secret, the fastest cloud tool is the right answer and the terms barely matter. The failure mode is uniform thoughtlessness: treating an NDA-bound competition scheme exactly like a throwaway concept sketch because both go through the same convenient website.</p>
+
+    <p>So make it a habit, not a crisis. Run the fifteen-minute audit once per tool before its first confidential project. Tier your work honestly into low, medium and high stakes. Keep a local option in your back pocket for the high end, and get written consent when local isn't practical and the project is sensitive. Do that and you get the speed without the exposure. Skip it, and you're one wrong upload away from explaining to a client why their unbuilt building was training data — a conversation no render time saved will ever buy back.</p>
+
+    <p><strong>We audit the parts of AI tools the speed comparisons skip — including where your data goes.</strong> <a href="#newsletter">Join the studio newsletter</a> for the practice-risk notes, or read our companion analysis on <a href="who-is-training-architecture-ai-models-2026.html">who's actually training the architecture AI</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">General practice guidance, not legal advice. Data-handling terms vary by provider and change over time; verify each tool's current terms of service, privacy policy and sub-processor list, and consult your own counsel for NDA, public-sector or data-sovereignty obligations. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="who-is-training-architecture-ai-models-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">Who's Actually Training the Architecture AI? Owned Models vs Rented Ones</div>
+        </a>
+        <a href="comfyui-rhino-architects-workflow-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">ComfyUI for Architects: A Local, Private Rendering Workflow</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
