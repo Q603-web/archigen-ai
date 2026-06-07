@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>The Geometry-Hallucination QA Checklist: What to Catch Before the Client Sees It, ArchiGen AI</title>
+<meta name="description" content="Every honest AI-rendering guide repeats the same warning — review the output for geometry hallucinations before you present it. Almost none tell you how. This is the practitioner checklist: the specific failure modes AI renderers introduce, where to look, and a repeatable pre-presentation pass that keeps a hallucinated column out of your stakeholder deck." />
+<link rel="canonical" href="https://archigenai.com/ai-render-geometry-hallucination-qa-checklist-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-geometry-hallucination-qa-checklist-architects-2026.html" />
+<meta property="og:title" content="The Geometry-Hallucination QA Checklist: What to Catch Before the Client Sees It" />
+<meta property="og:description" content="'Review for geometry hallucinations before presenting' is the advice everyone gives and nobody explains. Here's the actual pre-presentation QA pass for AI architectural renders." />
+<meta property="og:image" content="https://archigenai.com/assets/render-detail.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The Geometry-Hallucination QA Checklist for AI Renders" />
+<meta name="twitter:description" content="The specific failure modes AI renderers introduce, where to look, and a repeatable pass that keeps a hallucinated column out of your client deck." />
+<meta name="twitter:image" content="https://archigenai.com/assets/render-detail.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .gallery-full { margin: 0 0 8px; }
+  .gallery-full figure { margin: 0; }
+  .gallery-full img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  .gallery-full figcaption { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/render-detail.jpg",
+    "width": 1280,
+    "height": 1920,
+    "caption": "Close inspection of a render detail — the level of scrutiny a pre-presentation QA pass demands"
+  },
+  "headline": "The Geometry-Hallucination QA Checklist: What to Catch Before the Client Sees It",
+  "description": "A practitioner's pre-presentation QA pass for AI architectural renders: the specific geometry-hallucination failure modes diffusion renderers introduce, where to look for them, and a repeatable checklist that keeps invented structure out of stakeholder decks.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-07T08:00:00-04:00",
+  "dateModified": "2026-06-07T08:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-geometry-hallucination-qa-checklist-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI render QA", "geometry hallucination", "architectural rendering review", "AI render checklist", "client presentation render", "Veras ComfyUI accuracy", "AI rendering errors 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a geometry hallucination in an AI render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A geometry hallucination is any structural element an AI renderer invents, removes or distorts that was not in your source model — a column that isn't load-bearing in reality, a window that drifted off the structural grid, a railing that stops short of code height, or a roofline that no longer matches your section. Diffusion-based renderers generate pixels that look plausible rather than reading your geometry as ground truth, so they routinely 'improve' a scene in ways that are architecturally wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I stop AI renderers from changing my geometry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You reduce hallucinations by raising model adherence — using a low departure or geometry-override setting, feeding a clean source image with strong edges, and leaning on tools with ControlNet or direct BIM/CAD integration that constrain output to your geometry. But no setting eliminates the risk entirely, which is why a deliberate pre-presentation QA pass remains the only reliable safeguard before a render reaches a client."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does AI render QA matter more before client presentations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because a hallucinated element shown to a client becomes a promise. If the AI added a cantilever, a glazing run or a material that can't be built or wasn't designed, the client anchors on it, and walking it back later costs trust and sometimes fees. Catching it in a five-minute QA pass before the deck goes out is far cheaper than explaining in a meeting why the building no longer looks like the picture."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 7 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The geometry-hallucination <em>QA checklist</em></h1>
+    <p class="lede">Every honest guide to AI rendering ends on the same sentence: the output always needs human revision — check it for geometry hallucinations before you put it in front of a stakeholder. It's good advice. It's also where almost every article stops, as if "review it carefully" were a method rather than a shrug. So here is the part nobody writes down: the specific ways AI renderers break your building, exactly where to look for each one, and a repeatable pass you can run in five minutes before the deck leaves your hands.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/render-detail.jpg" alt="Close-up of an architectural render detail under inspection — the level of scrutiny a pre-presentation QA pass demands" />
+        <figcaption>The image looks finished. Whether it's correct is a different question entirely / ArchiGen AI Curation</figcaption>
+      </figure>
+    </div>
+
+    <p>There's a quiet asymmetry at the heart of AI rendering. The tools have gotten extraordinary at making images that <em>look</em> right — atmospheric light, convincing materials, a sky that sells the mood — and they remain fundamentally indifferent to whether the building in the image is the building you designed. A diffusion model generates pixels that are statistically plausible. It does not read your geometry as ground truth. It reads it as a suggestion.</p>
+
+    <p>That gap is invisible until a client points at a render in a meeting and says, "I love that glass corner." If you designed a glass corner, wonderful. If the AI invented it, you now own a decision you never made — and unwinding it costs you credibility, sometimes fees, and always time. The fix isn't more caution in the abstract. It's a checklist specific enough that you catch the invented corner before anyone else falls in love with it.</p>
+
+    <hr>
+
+    <h2>Why renderers hallucinate geometry at all</h2>
+
+    <p>It helps to know what you're fighting. A diffusion renderer takes your source — a viewport capture, a massing model, a line drawing — and uses it as a conditioning signal while it generates an image from noise. The strength of that conditioning is a dial, not a guarantee. Turn adherence down and the model takes liberties: it smooths, it embellishes, it fills ambiguity with whatever it has seen most often in training. Turn adherence up and you constrain it, but you also fight its instinct to "fix" anything that looks unresolved.</p>
+
+    <p>The practical consequence is that hallucinations cluster in predictable places — wherever your source was ambiguous, low-contrast, or unusual. A clean, high-contrast model with crisp edges hallucinates less. A murky screenshot of a complex façade hallucinates more. Knowing the failure surface tells you where to aim your attention, which is the whole point of a checklist: not to look harder at everything, but to look hardest where the model is most likely to lie.</p>
+
+    <blockquote>The renderer isn't trying to depict your building. It's trying to produce a convincing image — and those are not the same job.</blockquote>
+
+    <h2>The five failure modes that actually bite</h2>
+
+    <p>After enough renders go out and come back with red ink, the errors sort themselves into a short list. These five account for the overwhelming majority of the geometry problems that survive into a presentation.</p>
+
+    <h3>1. Invented or deleted structure</h3>
+    <p>The headline failure. The AI adds a column, a beam, a canopy, a mullion run — or quietly removes one. Watch the load path: any vertical support that appears, vanishes, or relocates is a hallucination until proven otherwise. Cantilevers are a special hazard; renderers love to extend a slab into a dramatic overhang you never drew, because dramatic overhangs are well represented in their training data.</p>
+
+    <h3>2. Drifted openings and grid breaks</h3>
+    <p>Windows and doors migrate. A renderer will subtly re-space a fenestration pattern to make it "balanced," breaking your structural grid in the process. Count openings against your elevation. Check that sill and head heights line up across a bay. A window that has slid half a metre off-grid reads as fine in the image and as a problem in coordination.</p>
+
+    <h3>3. Scale and proportion slips</h3>
+    <p>The most insidious, because nothing looks broken. Floor-to-floor heights compress, a door grows to a storey-and-a-half, a handrail sits at hip height on a child. Drop a known dimension into the scene mentally — a standard door is ~2.1 m, a guardrail ~1.1 m — and sanity-check everything against it. If the people in the render look wrong, the building is wrong.</p>
+
+    <h3>4. Material and assembly fiction</h3>
+    <p>The AI specifies a building you can't build: frameless glass spanning impossible distances, masonry that floats, a roof-to-wall junction with no plausible detail. These aren't always your problem to solve in a concept image — but if the material reads as a commitment, treat it as one. A client who is sold a seamless travertine monolith will not enjoy learning about expansion joints later.</p>
+
+    <h3>5. Context and site invention</h3>
+    <p>Renderers fabricate neighbours, trees, slopes and skylines with abandon. Usually harmless, occasionally not: an invented adjacent building can imply a setback or a right-to-light condition that doesn't exist, and a flattened slope can erase the very site constraint your design responds to. If the site is part of the argument, the site needs checking too.</p>
+
+    <h2>The pre-presentation pass</h2>
+
+    <p>Here's the routine. It's deliberately fast — if QA takes longer than the render, nobody runs it. Put the AI output beside your source model and go in this order, because it moves from most-expensive-error to least.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The five-minute QA pass</div>
+        <div class="tc-rating">Workflow · Checklist</div>
+      </div>
+      <div class="tc-pricing">Run before any AI render enters a client-facing deck</div>
+      <p><strong>1. Load path</strong> — trace every vertical support top to bottom; flag anything added, moved or missing. <strong>2. Openings</strong> — count and align windows/doors against the elevation; confirm the grid holds. <strong>3. Scale</strong> — drop a known dimension (door, guardrail, person) and check proportions against it. <strong>4. Buildability</strong> — ask of each hero material and junction, "could we detail this?" Flag anything that reads as a promise you can't keep. <strong>5. Site</strong> — verify neighbours, levels and orientation aren't inventing or erasing a real constraint. Anything flagged gets fixed, re-rendered, or annotated as indicative before the file is shared.</p>
+      <div class="tc-tags">
+        <span>Load path</span><span>Openings</span><span>Scale</span><span>Buildability</span><span>Site</span>
+      </div>
+    </div>
+
+    <p>Two habits make the pass dramatically more effective. First, <strong>always keep the source visible.</strong> Hallucinations are obvious in comparison and nearly invisible in isolation; the brain accepts a coherent image far too readily on its own. Second, <strong>fix upstream when you can.</strong> If a particular element hallucinates every time, the answer usually isn't more retouching — it's a cleaner source, higher contrast on the offending area, or a higher adherence setting. QA tells you <em>what</em> is breaking; your render settings are where you stop it breaking.</p>
+
+    <h2>Build the guardrails into the tool, not just the review</h2>
+
+    <p>A checklist is the last line of defence, not the only one. The same diligence applies upstream, in how you set the render up. Tools with strong model-adherence controls — a geometry-override or departure slider, or a ControlNet stage constraining output to your edges — let you trade a little image flair for a lot of fidelity, and for client work that trade is almost always worth it. Renderers with direct BIM/CAD integration start from your actual geometry rather than a screenshot of it, which removes a whole class of ambiguity before the model ever runs.</p>
+
+    <p>None of that makes the QA pass optional. Higher adherence lowers the hallucination rate; it does not zero it. The discipline that separates a studio that uses AI well from one that gets embarrassed by it isn't access to better tools — both have the same tools now. It's the unglamorous habit of looking, in a fixed order, every single time, before the image becomes someone else's expectation.</p>
+
+    <h2>Our take: <em>treat every render as a claim until you've checked it</em></h2>
+
+    <p>The industry has accepted the warning — "AI needs human revision" — and skipped the method, which is how hallucinated buildings keep ending up in real presentations. The reframe that fixes it is small and ruthless: a render is not a picture, it's a claim about your building, and an unchecked claim is a liability with good lighting. Run the five-point pass. Keep the source open beside it. Fix the recurring failures at the settings level, not the retouch level. Do that and AI rendering stops being a thing you apologise for in meetings and becomes what it should be — the fastest way to show a client something true.</p>
+
+    <p><strong>We pressure-test the workflow so your renders survive contact with a real client.</strong> <a href="#newsletter">Join the studio newsletter</a> for the field notes, or read our companion piece on <a href="honest-guide-ai-rendering-architecture.html">the honest guide to AI rendering for architects</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Guidance based on common failure modes observed across diffusion-based architectural renderers and 2026 industry coverage. Specific tool behaviour varies by version and settings; verify against your own workflow. No affiliate relationship with any tool or platform named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="honest-guide-ai-rendering-architecture.html" class="related-card">
+          <div class="rc-tag">Guide · 2026</div>
+          <div class="rc-title">The Honest Guide to AI Rendering for Architecture</div>
+        </a>
+        <a href="ai-rendering-mainstream-client-expectations-architects-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">AI Rendering Is Mainstream Now — and Clients Expect It</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

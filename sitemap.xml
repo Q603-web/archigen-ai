@@ -744,4 +744,25 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://archigenai.com/ai-rendering-model-adherence-controls-architects-2026.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/ai-render-geometry-hallucination-qa-checklist-architects-2026.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/architect-ai-instant-exterior-render-first-look-2026.html</loc>
+    <lastmod>2026-06-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
