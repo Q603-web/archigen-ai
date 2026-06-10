@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Domain-Aware AI: The Race to Render Tools That Understand Building Codes, ArchiGen AI</title>
+<meta name="description" content="Autodesk, Chaos and Adobe are quietly building AI that understands building codes, construction logic and material properties — not just image generators dressed up for architects. We unpack what domain-aware AI actually means, why it's the next moat, and what it changes for how you work." />
+<link rel="canonical" href="https://archigenai.com/domain-aware-ai-building-codes-construction-logic-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/domain-aware-ai-building-codes-construction-logic-architects-2026.html" />
+<meta property="og:title" content="Domain-Aware AI: The Race to Render Tools That Understand Building Codes" />
+<meta property="og:description" content="The next moat in architecture AI isn't prettier images — it's models that grasp codes, construction logic and material properties. Here's what's coming and what it changes." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Domain-Aware AI: Tools That Understand Building Codes" />
+<meta name="twitter:description" content="Why the race in architecture AI is shifting from image quality to genuine domain understanding — codes, construction logic, materials." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Domain-Aware AI: The Race to Render Tools That Understand Building Codes",
+  "description": "Autodesk, Chaos and Adobe are building AI that understands building codes, construction logic and material properties rather than acting as image generators dressed up for architects. An analysis of what domain-aware AI means, why it is the next competitive moat, and what it changes for practice.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-10T08:30:00-04:00",
+  "dateModified": "2026-06-10T08:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/domain-aware-ai-building-codes-construction-logic-architects-2026.html",
+  "articleSection": "Analysis",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["domain-aware AI", "building codes AI", "construction logic", "Autodesk Forma AI", "Chaos AI", "Adobe architecture AI", "material properties AI", "architecture AI 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is domain-aware AI in architecture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Domain-aware AI describes models that carry real knowledge of how buildings work — code constraints, construction sequences, material behaviour and structural logic — rather than only knowing what buildings look like. A generic image generator can produce a convincing facade with a stair that lands in a wall; a domain-aware system is built to understand that the stair has to reach the floor, that an egress door has minimum dimensions, and that a cantilever has limits. The knowledge is embedded in the tool, not supplied by the architect after the fact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which companies are building domain-aware architecture AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The clearest signals in 2026 come from the incumbents who already own the data and the workflow: Autodesk through Forma and its Revit ecosystem, Chaos across its rendering and real-time portfolio, and Adobe in the material and texture layer. Their advantage is access to structured project data — codes, BIM models, construction documents — that a pure image startup cannot easily replicate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will domain-aware AI replace architects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Domain-aware AI shifts where judgment is spent rather than removing it. A model that flags a code conflict or refuses to render an impossible detail is a faster check, not a substitute for the architect who decides what the building should be. The risk is the opposite of replacement: trusting a tool's domain knowledge further than it has earned, and skipping verification because the output looked authoritative."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Analysis · 10 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>The next moat isn't prettier — it's <em>smarter</em></h1>
+    <p class="lede">For two years the architecture AI race has been a beauty contest: whose renders look most cinematic, whose engine is fastest, whose gallery is most seductive. Quietly, the contest is changing. Autodesk, Chaos and Adobe are building models that don't just know what a building looks like — they're being taught how a building works: the codes it must satisfy, the way it's actually constructed, how its materials behave. That shift, from image generation to domain understanding, is the most important thing happening in this field, and almost nobody is marketing it loudly yet.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios · Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>There's a particular kind of AI render that looks flawless until an architect glances at it. The light is gorgeous, the materials read as real, the composition is magazine-ready — and the egress stair lands halfway up a blank wall, the curtain wall has no discernible structure, and a five-storey brief has somehow become seven. The image is beautiful and the building is impossible. That gap, between looking right and being right, is the whole story of where architecture AI is going next.</p>
+
+    <p>Today's tools are, overwhelmingly, image models. They learned from photographs and renders what buildings tend to look like, and they're astonishingly good at reproducing that surface. What they have never learned is what holds a building up, what a code allows, or how a wall is actually assembled. The frontier in 2026 isn't a better-looking image. It's a model that carries some of that knowledge inside it — what the industry is starting to call <strong>domain-aware AI</strong>.</p>
+
+    <h2>What "domain-aware" actually means</h2>
+
+    <p>Strip away the marketing and a domain-aware system is one whose training and architecture encode the rules of the field, not just its appearance. In our world that means three layers of knowledge a generic image generator simply doesn't have.</p>
+
+    <h3>Codes and regulation</h3>
+    <p>A code-aware model treats minimum egress widths, fire separations, accessibility clearances and setback rules as constraints rather than suggestions. The promise isn't a render that happens to comply — it's a tool that can tell you when a move breaks a rule, or that won't propose a corridor narrower than code allows in the first place. The knowledge lives in the system, so it travels with every output instead of waiting for a human to catch the violation.</p>
+
+    <h3>Construction logic</h3>
+    <p>Buildings are assembled in a sequence, from materials with real tolerances, by trades with real constraints. A construction-aware model understands that a slab needs support, that a cantilever has limits, that a detail has to be buildable. This is the difference between a picture of a junction and a junction that could be drawn, specified and built.</p>
+
+    <h3>Material properties</h3>
+    <p>Beyond how a material looks, a domain-aware model carries how it behaves — weight, span, weathering, thermal performance, how it meets other materials. Adobe's long investment in materials and substance is the obvious place this knowledge enters the pipeline, turning "make it look like concrete" into "treat this as concrete, with what concrete implies."</p>
+
+    <blockquote>An image model knows what a building looks like. A domain-aware model is being taught what a building is. Those are not the same product, and the second one is much harder to copy.</blockquote>
+
+    <h2>Why the incumbents are positioned to win this</h2>
+
+    <p>Here's the uncomfortable part for the wave of render startups: domain knowledge is a data problem, and the incumbents own the data. Autodesk, Chaos and Adobe aren't ahead because their image quality is unbeatable — in raw aesthetics, plenty of smaller tools match them. They're ahead because they sit on the structured project information that domain awareness is built from.</p>
+
+    <p>Autodesk has Revit, Forma and decades of BIM models that encode real construction data. Chaos has the rendering and real-time portfolio plus deep integration into the platforms architects already model in. Adobe owns the material and texture layer the whole industry leans on. A startup can scrape millions of pretty images; it cannot easily reconstruct millions of coordinated, code-checked, fully-detailed building models. That asymmetry is why the next moat is domain understanding, and why it favours the companies that already live inside your workflow.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Who's building what</div>
+        <div class="tc-rating">Analysis · Landscape</div>
+      </div>
+      <div class="tc-pricing">The 2026 domain-aware signals worth tracking</div>
+      <p><strong>Autodesk</strong> — Forma and the Revit ecosystem as the path to code- and construction-aware AI, built on structured BIM data. <strong>Chaos</strong> — domain knowledge entering through integrated rendering and real-time tools that already read your model geometry. <strong>Adobe</strong> — material and substance intelligence as the layer where "looks like" becomes "behaves like." Different entry points, one direction: AI that understands the building, not just the picture of it.</p>
+      <div class="tc-tags">
+        <span>Autodesk Forma</span><span>Chaos</span><span>Adobe</span><span>BIM data</span><span>Codes</span>
+      </div>
+    </div>
+
+    <h2>Why this is bigger than geometry adherence</h2>
+
+    <p>It's tempting to file domain awareness next to the geometry-control conversation, but they solve different problems. <a href="ai-rendering-model-adherence-controls-architects-2026.html">Model-adherence controls</a> keep an AI faithful to geometry you've already drawn — they stop the tool from inventing a different building. Domain awareness is upstream of that: it concerns whether the tool understands what a valid building <em>is</em>, before you've even committed the geometry.</p>
+
+    <p>Adherence asks "did it draw my building?" Domain awareness asks "does it know my building has to obey gravity and code?" You can have perfect adherence to a non-compliant scheme, or a code-aware model that still needs you to lock its geometry. The two are complementary, and the most capable tools of the next eighteen months will pair them: faithful to your model <em>and</em> literate in the rules your model has to live by.</p>
+
+    <h2>The honest caveats</h2>
+
+    <p>None of this is shipping as a finished, trustworthy product yet, and architects should hold the marketing at arm's length. Three cautions matter.</p>
+
+    <p><strong>Codes are local, fragmented and political.</strong> A model trained on one jurisdiction's rules is dangerous in another. "Code-aware" will mean code-aware-somewhere long before it means code-aware-everywhere, and a confident wrong answer about egress is worse than no answer at all.</p>
+
+    <p><strong>Authoritative output invites over-trust.</strong> The better these tools sound, the more tempting it is to skip the check. A render that "knows the code" can lull a team into not verifying — which is exactly when the expensive miss slips through. Domain awareness should shorten your <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">verification pass</a>, never replace it.</p>
+
+    <p><strong>The data moat cuts both ways.</strong> The same incumbent data advantage that makes this possible also concentrates it. If domain knowledge lives inside Autodesk's and Adobe's stacks, the price of leaving those ecosystems goes up. Capability and lock-in arrive together.</p>
+
+    <h2>Our take: <em>buy understanding, but verify it</em></h2>
+
+    <p>Domain-aware AI is the most consequential shift in this field since renderers learned to read your geometry, and it will quietly redraw the competitive map: the winners won't be whoever makes the prettiest image, but whoever's model best understands the thing being imaged. For practitioners, the move is to start asking vendors a sharper question than "how good does it look?" Ask what the tool actually knows — which codes, which construction assumptions, which material behaviours — and where that knowledge stops. The tools that can answer precisely are the ones worth building a workflow around. The ones that wave at "AI that understands architecture" without specifics are still selling you a beautiful, possibly impossible, picture.</p>
+
+    <p><strong>We test what these tools know, not just what they show.</strong> <a href="#newsletter">Join the studio newsletter</a> for the analysis, or read our companion pieces on <a href="agentic-ai-render-pipeline-walkthrough-architects-2026.html">agentic AI render pipelines</a> and <a href="autodesk-forma-ai-architects-2026.html">where Autodesk Forma's AI actually helps</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Analysis based on publicly described product directions and 2026 industry coverage. Capabilities described are emerging and vary by version and jurisdiction; confirm specifics against current vendor documentation and local code. No affiliate relationship with any tool or platform named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="agentic-ai-render-pipeline-walkthrough-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Inside the Agentic AI Render Pipeline: What Coordinating the Whole Workflow Looks Like</div>
+        </a>
+        <a href="ai-rendering-model-adherence-controls-architects-2026.html" class="related-card">
+          <div class="rc-tag">Explainer · 2026</div>
+          <div class="rc-title">Model Adherence: The One AI Rendering Control That Actually Matters</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

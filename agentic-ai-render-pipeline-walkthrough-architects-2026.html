@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+</script>
+<title>Inside the Agentic AI Render Pipeline: What Coordinating the Whole Workflow Looks Like, ArchiGen AI</title>
+<meta name="description" content="Everyone agrees agentic AI is the 2026 headline for architecture. Almost nobody shows the pipeline. We walk one concept through a multi-step agentic render workflow — model export, prompt assembly, variation, QA, packaging — and mark exactly where the agent helps and where a human still has to stand." />
+<link rel="canonical" href="https://archigenai.com/agentic-ai-render-pipeline-walkthrough-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/agentic-ai-render-pipeline-walkthrough-architects-2026.html" />
+<meta property="og:title" content="Inside the Agentic AI Render Pipeline" />
+<meta property="og:description" content="A concrete, practitioner walkthrough of a multi-step agentic render pipeline — and the moments where the agent earns its keep versus where it quietly needs a human." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Inside the Agentic AI Render Pipeline" />
+<meta name="twitter:description" content="What it actually looks like when an AI agent coordinates the whole visualization workflow — stage by stage, with the human checkpoints marked." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Inside the Agentic AI Render Pipeline: What Coordinating the Whole Workflow Looks Like",
+  "description": "A concrete practitioner walkthrough of a multi-step agentic AI render pipeline for architecture — model export, prompt assembly, variation, QA and packaging — marking where the agent earns its keep and where a human still has to stand.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-10T09:00:00-04:00",
+  "dateModified": "2026-06-10T09:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/agentic-ai-render-pipeline-walkthrough-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT9M",
+  "inLanguage": "en",
+  "keywords": ["agentic AI", "AI render pipeline", "architecture visualization workflow", "multi-step AI", "render automation", "agentic workflow architects", "AI rendering 2026"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is an agentic AI render pipeline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An agentic render pipeline is a workflow where an AI agent plans and executes the multiple steps of producing a render — exporting views from your model, assembling prompts, generating variations, running quality checks and packaging output — and recovers from errors along the way, rather than each step being triggered by hand. The architect sets intent and reviews results; the agent coordinates the hand-offs in between that a person would otherwise do manually."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is agentic AI different from a normal AI renderer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A normal AI renderer does one step well: image in, image out. Agentic AI is about orchestration across many steps. Instead of you manually exporting a viewport, pasting it into a render tool, writing a prompt, generating, exporting, and starting again for the next view, an agent chains those steps, repeats them across views, checks its own output and retries failures. The rendering model is a component; the agent is the coordinator around it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I trust an agentic pipeline to run unattended?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not fully, and not yet. Agentic pipelines are good at the mechanical coordination between steps and at catching obvious failures. They are not reliable judges of design intent or geometry accuracy. The sound pattern is supervised autonomy: let the agent run the repetitive chain, but keep human checkpoints at prompt approval and at final geometry and quality review before anything reaches a client."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="#signin" class="btn">Sign in</a>
+      <a href="#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 10 Jun 2026</span>
+      <span class="tag">· 9 min read</span>
+    </div>
+    <h1>What an agentic pipeline <em>actually</em> does</h1>
+    <p class="lede">Agentic AI is the headline category for architecture in 2026 — systems that plan multi-step work, recover from errors and coordinate a whole visualization pipeline without manual hand-offs. The pitch is everywhere. The pipeline is almost nowhere. So let's do the unglamorous thing and walk one concept image through an agentic render workflow, step by step, marking precisely where the agent earns its keep and where a human still has to stand.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name">Nora Sinclair, Vista Studios</div>
+        <div class="detail">9 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>"Agentic AI" tops every 2026 tool roundup for architecture, usually described in the same vague terms: systems that plan multi-step workflows, use tools autonomously, recover from errors, and coordinate an entire visualization pipeline without manual hand-offs. It sounds great and explains nothing. What does that look like when you're sitting in front of a model that needs eight presentable views by Thursday?</p>
+
+    <p>The honest answer is that an agent doesn't render better than the model underneath it. It renders <em>around</em> better — it removes the dozens of small manual hand-offs that eat an afternoon when you produce a set of images by hand. To see where that actually helps, follow a single design concept through the pipeline as an agent would run it.</p>
+
+    <h2>The manual workflow the agent is replacing</h2>
+
+    <p>Producing a set of AI renders by hand is a loop you run once per view: frame a viewport, export the capture, open the render tool, write or paste a prompt, set the controls, generate, judge the result, regenerate if it's wrong, export, file it, and start over for the next angle. None of those steps is hard. The cost is the orchestration — the constant context-switching, the copy-paste, the remembering which of fourteen images was the keeper. That coordination overhead is exactly the territory an agent is built to take.</p>
+
+    <blockquote>The agent doesn't make the render better. It makes the forty small hand-offs between renders disappear.</blockquote>
+
+    <h2>The pipeline, stage by stage</h2>
+
+    <p>Here's the same job run as an agentic pipeline. At each stage, watch for the marker: <strong class="mono" style="color:var(--sage)">[agent]</strong> where the system runs autonomously, <strong class="mono" style="color:var(--terracotta)">[human]</strong> where you still have to decide.</p>
+
+    <h3>1. Intent and brief — [human]</h3>
+    <p>You set the job: this scheme, these views, this mood, for this audience. "Five exterior angles and two interiors, late-afternoon light, warm and lived-in, for a client review." This is irreducibly human. The agent can execute a brief; it cannot decide what the building is trying to say. Get this wrong and the agent will faithfully produce the wrong thing, faster.</p>
+
+    <h3>2. View export from the model — [agent]</h3>
+    <p>The agent drives the model or its export, capturing the specified viewports as conditioning inputs — ideally pulling real geometry rather than flat screenshots where the toolchain allows. This is pure coordination work and the agent does it tirelessly: consistent framing, consistent resolution, no fat-fingered exports. A clear win.</p>
+
+    <h3>3. Prompt assembly — [agent], approved by [human]</h3>
+    <p>The agent composes prompts from your brief plus per-view context — material palette, time of day, perspective type. This is where good pipelines insert a checkpoint: the agent proposes the prompt set, you scan and approve. It's a five-second review that prevents the agent from running an expensive batch on a misread instruction. Skip it and you're debugging the output instead of the input.</p>
+
+    <h3>4. Generation and variation — [agent]</h3>
+    <p>Now the agent runs the rendering model across every view, generating variations at your chosen <a href="ai-rendering-model-adherence-controls-architects-2026.html">adherence setting</a>, retrying failed generations, and keeping the outputs organised by view. This is the volume work — the part that turns an afternoon into a coffee break. The agent's value here is throughput and consistency, not taste.</p>
+
+    <h3>5. Self-check and QA — [agent], verified by [human]</h3>
+    <p>The most interesting stage. A capable agent runs a first-pass quality screen: flagging obvious failures, low-confidence outputs, or images that drifted from the conditioning. What it cannot reliably do is catch the subtle geometry hallucinations that matter most — the invented mullion, the floor that gained a storey. The agent narrows the pile; the human still runs the real <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry QA pass</a> on what survives. Treating the agent's self-check as sufficient is the single most dangerous shortcut in the whole pipeline.</p>
+
+    <h3>6. Packaging and delivery — [agent]</h3>
+    <p>Finally the agent assembles the approved set — naming, organising, exporting to the format and layout you need. Mechanical, repetitive, perfect agent work.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">Where the agent helps vs where you stand</div>
+        <div class="tc-rating">Workflow · Map</div>
+      </div>
+      <div class="tc-pricing">Six stages, two human checkpoints that aren't optional</div>
+      <p><strong>Agent-owned:</strong> view export, generation and variation, packaging — the high-volume, low-judgment coordination. <strong>Human-owned:</strong> the brief at the start, prompt approval before the batch runs, and geometry QA before anything ships. The pattern that works is supervised autonomy: let the agent own the chain, keep a human on the two gates where a wrong call gets expensive.</p>
+      <div class="tc-tags">
+        <span>Intent</span><span>Prompt approval</span><span>Geometry QA</span><span>Supervised autonomy</span>
+      </div>
+    </div>
+
+    <h2>What changes — and what doesn't</h2>
+
+    <p>Run this way, the agent collapses the part of archviz that was never craft: the file-shuffling, the repetition, the keeping-track. The illustrarch figure of reclaiming fourteen-plus hours a week from AI render workflows isn't magic — it's mostly this, the orchestration overhead disappearing. That time goes back into the two stages that were always the point: deciding what the images should say, and verifying they're true to the building.</p>
+
+    <p>What doesn't change is responsibility. An agentic pipeline produces more images with less friction, which means more output to stand behind, not less. Every render that reaches a client is still a claim about the project, and "the agent made it" is not a defence when the stair is wrong. Volume without verification is just a faster way to ship mistakes.</p>
+
+    <h2>How to adopt it without getting burned</h2>
+
+    <p>If you're moving toward an agentic pipeline, three rules keep it honest. First, <strong>never remove the prompt-approval gate</strong> — it's cheap insurance against expensive batches. Second, <strong>treat the agent's self-QA as a filter, not a verdict</strong>; the human geometry check stays. Third, <strong>start with one repeatable job type</strong> — a standard set of presentation views — before trusting the agent with bespoke or high-stakes work. Earn the autonomy in low-risk territory.</p>
+
+    <h2>Our take: <em>automate the hand-offs, not the judgment</em></h2>
+
+    <p>Agentic AI is being sold as the moment rendering becomes hands-off. It isn't, and you shouldn't want it to be. What it genuinely delivers is the removal of the mechanical coordination that made producing a render set tedious — and that's a real, immediate gain worth adopting now. The trap is mistaking coordination for cognition. The agent is extraordinary at running the pipeline and unreliable at the two things that were always yours: what the building should communicate, and whether the image tells the truth about it. Keep those two checkpoints staffed and an agentic pipeline is one of the best productivity upgrades available to a studio this year. Drop them and it's an efficient mistake-multiplier.</p>
+
+    <p><strong>We map workflows by where judgment actually lives.</strong> <a href="#newsletter">Join the studio newsletter</a> for the analysis, or read our companion pieces on <a href="domain-aware-ai-building-codes-construction-logic-architects-2026.html">domain-aware AI</a> and the <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry-hallucination QA checklist</a> that anchors stage five.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Workflow analysis based on publicly described agentic-AI capabilities and 2026 industry coverage. Pipeline stages are a practitioner model, not a single product's feature list; specifics vary by tool. No affiliate relationship with any tool or platform named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="domain-aware-ai-building-codes-construction-logic-architects-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">Domain-Aware AI: The Race to Render Tools That Understand Building Codes</div>
+        </a>
+        <a href="how-to-choose-ai-render-tool-buyers-framework-architects-2026.html" class="related-card">
+          <div class="rc-tag">Framework · 2026</div>
+          <div class="rc-title">How to Actually Choose an AI Render Tool: The 4-Axis Buyer's Framework</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
