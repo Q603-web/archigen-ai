@@ -148,7 +148,6 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn">Sign in</a>
       <a href="index.html#newsletter" class="btn dark">Join the studio &rarr;</a>
     </div>
   </div>
@@ -178,6 +177,11 @@
       <h2>Studio <em>— $12/month or $108/year.</em></h2>
       <p>For practitioners. Members get the source files for the workflows we publish, ComfyUI graphs, prompt sets, render presets, post-processing actions, plus full case-study writeups, the comparison datasets, and a private members-only feed.</p>
       <p>Group plans for studios of three or more are available. Email us with your team size and we will send a quote that does not require a sales call.</p>
+      <div class="actions" style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;">
+        <a id="join-monthly" href="mailto:hello@archigenai.com?subject=Studio%20membership%20%2412%2Fmo" class="btn dark">Join Studio · $12/mo →</a>
+        <a id="join-annual" href="mailto:hello@archigenai.com?subject=Studio%20membership%20annual%20%24108" class="btn">Annual · $108/yr</a>
+        <a id="join-founders" href="mailto:hello@archigenai.com?subject=Founders%20lifetime%20membership" class="btn">Founders · lifetime</a>
+      </div>
     </div>
   </div>
 </section>
@@ -239,6 +243,29 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // ============================================================
+  // STRIPE CONFIG — the ONLY thing to edit when Payment Links exist.
+  // Create Payment Links in the Stripe dashboard (set the success
+  // redirect to https://archigenai.com/welcome.html) and paste them
+  // below. The CTAs upgrade from mailto to checkout automatically.
+  // Group plans stay on email by design (quote path).
+  // ============================================================
+  var STRIPE_LINKS = {
+    monthly: '',  // ← BLOCKER: Payment Link for Studio $12/mo
+    annual: '',   // ← BLOCKER: Payment Link for Studio $108/yr
+    founders: ''  // ← BLOCKER: Payment Link for Founders lifetime (one-time)
+  };
+
+  (function () {
+    var map = { monthly: 'join-monthly', annual: 'join-annual', founders: 'join-founders' };
+    Object.keys(map).forEach(function (k) {
+      var el = document.getElementById(map[k]);
+      if (el && STRIPE_LINKS[k]) el.href = STRIPE_LINKS[k];
+    });
+  })();
+</script>
 
 </body>
 </html>
