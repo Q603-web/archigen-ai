@@ -1146,10 +1146,11 @@
         </div>
       </div>
       <div>
-        <form class="news-form" onsubmit="event.preventDefault()">
+        <form class="news-form" id="newsletter-form">
           <input type="email" name="email" placeholder="you@studio.com" required />
-          <button>Subscribe →</button>
+          <button type="submit">Subscribe →</button>
         </form>
+        <div class="news-status" id="newsletter-status" role="status" style="font-family:var(--f-mono); font-size:11px; letter-spacing:0.06em; color:var(--marigold); margin-top:12px; display:none;"></div>
         <div style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,239,227,0.4); margin-top:14px">
           No drip campaigns. No AI-generated newsletters.
         </div>
@@ -1207,6 +1208,47 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // ============================================================
+  // NEWSLETTER CONFIG — the ONLY thing to edit when Beehiiv is ready.
+  // Paste the publication's embed URL (https://embeds.beehiiv.com/...)
+  // and the form swaps to the live Beehiiv embed automatically.
+  // Until then the form opens a pre-filled subscribe email (no silent
+  // failures, no fake success).
+  // ============================================================
+  var BEEHIIV_EMBED_URL = ''; // ← BLOCKER: paste Beehiiv embed URL here
+
+  (function () {
+    var form = document.getElementById('newsletter-form');
+    if (!form) return;
+    var status = document.getElementById('newsletter-status');
+
+    if (BEEHIIV_EMBED_URL) {
+      var frame = document.createElement('iframe');
+      frame.src = BEEHIIV_EMBED_URL;
+      frame.title = 'Subscribe to the ArchiGen Sunday letter';
+      frame.setAttribute('data-test-id', 'beehiiv-embed');
+      frame.style.cssText = 'width:100%; height:52px; border:0; border-radius:999px; background:transparent;';
+      frame.scrolling = 'no';
+      form.replaceWith(frame);
+      return;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[name="email"]').value.trim();
+      if (!email) return;
+      var subject = encodeURIComponent('Subscribe me to the Sunday letter');
+      var body = encodeURIComponent('Please add ' + email + ' to the ArchiGen Sunday letter.');
+      window.location.href = 'mailto:hello@archigenai.com?subject=' + subject + '&body=' + body;
+      if (status) {
+        status.style.display = 'block';
+        status.textContent = 'Your email app should open — send the message and we\'ll add you by hand. The human way, for now.';
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
