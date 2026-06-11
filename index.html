@@ -170,7 +170,7 @@
   .hero-headline {
     font-family: var(--f-display);
     font-weight: 400;
-    font-size: 104px;
+    font-size: clamp(48px, 9.5vw, 104px);
     line-height: 0.95;
     letter-spacing: -0.035em;
     color: var(--ink);
@@ -656,6 +656,13 @@
     color: var(--muted);
   }
 
+  /* ── Tablet: single-column hero before things start clipping ── */
+  @media (max-width: 900px) {
+    .hero-split { grid-template-columns: 1fr; gap: 40px; }
+    .nav-right .btn { white-space: nowrap; }
+    .tools-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   /* ── Mobile: collapse grids to single column at 480px ── */
   @media (max-width: 480px) {
     .wrap { padding: 0 16px; }
@@ -668,6 +675,7 @@
     .render-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; }
     .foot-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
     .hero-split { grid-template-columns: 1fr !important; }
+    .feat-card { aspect-ratio: 4/5; }
     .toc { grid-template-columns: 1fr 1fr !important; }
   }
 </style>
