@@ -364,6 +364,39 @@
   /* ── Hidden sections for filtering ── */
   .cat-section[data-cat] { display: block; }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "alternateName": "ArchiGen",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vista Studios"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://archigenai.com/workflows.html#webpage",
+      "url": "https://archigenai.com/workflows.html",
+      "name": "Workflows, ArchiGen AI",
+      "description": "ComfyUI and Stable Diffusion workflows for architects. Tested in-studio by Vista Studios.",
+      "isPartOf": {
+        "@id": "https://archigenai.com/#website"
+      },
+      "publisher": {
+        "@id": "https://archigenai.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
