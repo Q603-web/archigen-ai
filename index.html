@@ -199,7 +199,9 @@
     position: relative;
     aspect-ratio: 5/4.2;
     border-radius: 18px;
-    background: var(--forest);
+    background:
+      linear-gradient(180deg, rgba(22,34,27,0.78) 0%, rgba(22,34,27,0.42) 45%, rgba(22,34,27,0.82) 100%),
+      var(--forest) url('assets/hero-architects-in-charge.jpg') center/cover no-repeat;
     color: var(--cream);
     padding: 30px;
     overflow: hidden;
@@ -267,85 +269,6 @@
     color: #C9D3C7;
   }
   .feat-card .chapter b { color: var(--cream); font-weight: 500; display: block; }
-
-  /* Full-bleed hero variant */
-  .hero-bleed {
-    position: relative;
-    aspect-ratio: 16/8;
-    border-radius: 18px;
-    overflow: hidden;
-    background:
-      linear-gradient(180deg, rgba(20,18,13,0.05) 0%, rgba(20,18,13,0.55) 70%, rgba(20,18,13,0.75) 100%),
-      repeating-linear-gradient(135deg, #8a7458 0 3px, #7a6750 3px 6px),
-      #8a7458;
-  }
-  .hero-bleed::after {
-    /* fake skyline silhouette */
-    content: '';
-    position: absolute; inset: auto 0 0 0; height: 45%;
-    background:
-      linear-gradient(180deg, transparent 0%, rgba(20,18,13,0.85) 100%);
-  }
-  .hero-bleed .placeholder-tag {
-    position: absolute; top: 20px; left: 24px;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(244,239,227,0.75);
-    background: rgba(20,18,13,0.45);
-    padding: 6px 10px; border-radius: 4px;
-    backdrop-filter: blur(8px);
-  }
-  .hero-bleed .content {
-    position: absolute; inset: auto 0 0 0; padding: 56px;
-    color: var(--cream);
-  }
-  .hero-bleed h1, .hero-bleed .hero-h1 {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 92px; line-height: 0.95; letter-spacing: -0.035em;
-    margin: 0; max-width: 980px;
-  }
-  .hero-bleed h1 em, .hero-bleed .hero-h1 em { font-style: italic; font-weight: 300; }
-  .hero-bleed .sub {
-    max-width: 520px;
-    margin-top: 24px; font-size: 16px; line-height: 1.5;
-    color: rgba(244,239,227,0.82);
-  }
-  .hero-bleed .cta { margin-top: 28px; display: flex; gap: 12px; }
-  .hero-bleed .cta .btn { background: transparent; border-color: rgba(244,239,227,0.35); color: var(--cream); }
-  .hero-bleed .cta .btn:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
-  .hero-bleed .cta .btn.dark { background: var(--cream); color: var(--ink); border-color: var(--cream); }
-
-  /* Magazine cover hero */
-  .hero-cover {
-    display: grid; grid-template-columns: 1fr 320px;
-    gap: 48px; align-items: end;
-  }
-  .hero-cover .cover-meta {
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-  .hero-cover h1, .hero-cover .hero-h1 {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 142px; line-height: 0.88; letter-spacing: -0.045em;
-    margin: 0;
-  }
-  .hero-cover h1 em, .hero-cover .hero-h1 em { font-style: italic; font-weight: 300; }
-  .hero-cover .inset {
-    aspect-ratio: 4/5;
-    border-radius: 8px;
-    background:
-      repeating-linear-gradient(135deg, #8a7458 0 2px, #7a6750 2px 4px);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-cover .inset .tag {
-    position: absolute; bottom: 12px; left: 12px; right: 12px;
-    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--cream);
-    background: rgba(20,18,13,0.5);
-    padding: 8px 10px; border-radius: 4px;
-    backdrop-filter: blur(6px);
-  }
 
   /* ============ Positioning statement ============ */
   .positioning {
@@ -502,14 +425,17 @@
   .tool-card.feature .render-strip {
     aspect-ratio: 16/7;
     border-radius: 8px;
-    background: repeating-linear-gradient(135deg, #3f5e4c 0 2px, #375446 2px 5px);
+    background: #375446 url('images/render-interior.jpg') center/cover no-repeat;
     position: relative;
     overflow: hidden;
   }
   .tool-card.feature .render-strip .tag {
     position: absolute; top: 10px; left: 12px;
     font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(244,239,227,0.8);
+    color: rgba(244,239,227,0.9);
+    background: rgba(20,18,13,0.45);
+    padding: 4px 8px; border-radius: 4px;
+    backdrop-filter: blur(6px);
   }
 
   /* ============ Bento articles ============ */
@@ -618,7 +544,7 @@
   .art-card.render { grid-column: span 3; padding: 0; overflow: hidden; border-color: transparent; background: #6b7a5a; }
   .art-card.render .inner {
     position: absolute; inset: 0;
-    background: repeating-linear-gradient(135deg, #6b7a5a 0 2px, #5f6d50 2px 5px);
+    background: #5f6d50 url('images/render-exterior.jpg') center/cover no-repeat;
   }
   .art-card.render .inner::after {
     content: ''; position: absolute; inset: 0;
@@ -730,78 +656,6 @@
     color: var(--muted);
   }
 
-  /* ============ Tweaks panel ============ */
-  .tweaks {
-    position: fixed; right: 24px; bottom: 24px;
-    width: 300px;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 14px;
-    box-shadow: 0 24px 48px rgba(26,25,21,0.16);
-    padding: 18px;
-    z-index: 100;
-    display: none;
-  }
-  .tweaks.open { display: block; }
-  .tweaks h4 {
-    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink); margin: 0 0 6px;
-  }
-  .tweaks .title {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--rule);
-  }
-  .tweaks .title strong { font-family: var(--f-display); font-weight: 500; font-size: 20px; }
-  .tweaks .close { cursor: pointer; color: var(--muted); background: transparent; border: 0; font-size: 18px; }
-  .tweaks .group { margin-bottom: 14px; }
-  .tweaks .group > label {
-    display: block;
-    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 8px;
-  }
-  .seg { display: flex; gap: 4px; background: var(--paper-2); padding: 3px; border-radius: 999px; }
-  .seg button {
-    flex: 1; border: 0; background: transparent;
-    padding: 7px 10px; border-radius: 999px;
-    font-family: var(--f-sans); font-size: 12px; font-weight: 500; color: var(--ink-2);
-    cursor: pointer;
-  }
-  .seg button.on { background: var(--ink); color: var(--paper); }
-
-  /* Hide everything except chosen hero variant */
-  body[data-hero="split"] .hero-bleed, body[data-hero="split"] .hero-cover { display: none; }
-  body[data-hero="bleed"] .hero-split, body[data-hero="bleed"] .hero-cover { display: none; }
-  body[data-hero="cover"] .hero-split, body[data-hero="cover"] .hero-bleed { display: none; }
-
-  /* Palettes */
-  body[data-palette="warm"] { --paper: #F2EFE8; --paper-2: #EAE5D9; --accent-1: #2F4A3A; --accent-2: #C96F4A; --accent-3: #D9C89E; }
-  body[data-palette="editorial"] { --paper: #F4EFE3; --paper-2: #EDE6D4; }
-  body[data-palette="mono"] {
-    --paper: #EFEBE4; --paper-2: #E5DFD4;
-    --forest: #3A3A32; --terracotta: #C48A3E; --marigold: #C48A3E;
-    --coral: #B8693F; --sage: #6B6860; --rose: #D4CAB8;
-  }
-
-  /* Type pairings */
-  body[data-type="editorial"] { --f-display: 'Fraunces', serif; --f-sans: 'Inter', sans-serif; }
-  body[data-type="contemporary"] { --f-display: 'Instrument Serif', serif; --f-sans: 'Geist', sans-serif; }
-  body[data-type="magazine"] { --f-display: 'Old Standard TT', serif; --f-sans: 'Inter', sans-serif; }
-
-  /* Edit mode FAB */
-  .edit-fab {
-    position: fixed; right: 24px; bottom: 24px;
-    width: 48px; height: 48px; border-radius: 50%;
-    background: var(--ink); color: var(--paper);
-    border: 0; cursor: pointer;
-    display: none;
-    z-index: 99;
-    box-shadow: 0 8px 24px rgba(26,25,21,0.2);
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em;
-  }
-  .edit-fab.show { display: grid; place-items: center; }
-
   /* ── Mobile: collapse grids to single column at 480px ── */
   @media (max-width: 480px) {
     .wrap { padding: 0 16px; }
@@ -814,7 +668,6 @@
     .render-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; }
     .foot-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
     .hero-split { grid-template-columns: 1fr !important; }
-    .hero-bleed { grid-template-columns: 1fr !important; }
     .toc { grid-template-columns: 1fr 1fr !important; }
   }
 </style>
@@ -854,7 +707,7 @@
 }
 </script>
 </head>
-<body data-hero="split" data-palette="warm" data-type="editorial">
+<body>
 
 <!-- ============ Marquee strip ============ -->
 <div class="topstrip">
@@ -972,34 +825,6 @@
       </div>
     </div>
 
-    <!-- BLEED variant -->
-    <div class="hero-bleed">
-      <div class="placeholder-tag">[ RENDER · CONCRETE READING ROOM · NORTH LIGHT, 4096×2160 ]</div>
-      <div class="content">
-        <p class="hero-h1">What does AI <em>build</em> when architects are in charge?</p>
-        <p class="sub">Six studios spent a week letting the models draft. We went through every frame to find what's worth keeping, and the five prompts that changed how we work.</p>
-        <div class="cta">
-          <a href="architects-in-charge.html" class="btn dark">Read the essay →</a>
-          <a href="journal.html" class="btn">Browse the archive</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- COVER variant -->
-    <div class="hero-cover">
-      <div>
-        <div class="cover-meta">Issue № 047 · Vol. 04 · 26 May 2026, The Volume Issue</div>
-        <p class="hero-h1">What does<br>AI <em>build</em> when<br>architects are<br>in charge?</p>
-        <div style="display:flex; gap:12px; margin-top:32px">
-          <a href="architects-in-charge.html" class="btn dark">Read the essay →</a>
-          <a href="journal.html" class="btn">Browse the archive</a>
-        </div>
-      </div>
-      <div class="inset">
-        <div class="tag">[ COVER RENDER · Reading Room · North Light ]</div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1114,7 +939,7 @@
         </div>
 
         <div class="render-strip">
-          <div class="tag">[ OUTPUT · NORTH-LIGHT · 03/12 ]</div>
+          <div class="tag">Output · North-light · 03/12</div>
         </div>
 
         <div class="tool-foot">
@@ -1288,7 +1113,7 @@
 
       <div class="art-card render">
         <div class="inner"></div>
-        <div class="tag">[ RENDER · Elev · 04 ]</div>
+        <div class="tag">Render · Elevation · 04</div>
         <div class="cap">The case for showing your seed.</div>
       </div>
 
@@ -1383,97 +1208,6 @@
     </div>
   </div>
 </footer>
-
-<!-- ============ Tweaks ============ -->
-<button class="edit-fab" id="editFab" title="Open Tweaks">TWK</button>
-<div class="tweaks" id="tweaksPanel">
-  <div class="title">
-    <strong>Tweaks</strong>
-    <button class="close" id="tweaksClose">×</button>
-  </div>
-
-  <div class="group">
-    <label>Hero layout</label>
-    <div class="seg" data-key="hero">
-      <button data-val="split">Split</button>
-      <button data-val="bleed">Full-bleed</button>
-      <button data-val="cover">Cover</button>
-    </div>
-  </div>
-
-  <div class="group">
-    <label>Palette</label>
-    <div class="seg" data-key="palette">
-      <button data-val="warm">Warm</button>
-      <button data-val="editorial">Editorial</button>
-      <button data-val="mono">Mono</button>
-    </div>
-  </div>
-
-  <div class="group">
-    <label>Typography</label>
-    <div class="seg" data-key="type">
-      <button data-val="editorial">Editorial</button>
-      <button data-val="contemporary">Contemp.</button>
-      <button data-val="magazine">Magazine</button>
-    </div>
-  </div>
-
-  <div class="mono" style="color:var(--muted); padding-top:12px; border-top:1px solid var(--rule); margin-top:4px">
-    Toggle from the toolbar above, tweaks persist to disk.
-  </div>
-</div>
-
-<script>
-  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "hero": "split",
-    "palette": "warm",
-    "type": "editorial"
-  }/*EDITMODE-END*/;
-
-  const state = { ...TWEAK_DEFAULTS };
-
-  function apply() {
-    document.body.dataset.hero = state.hero;
-    document.body.dataset.palette = state.palette;
-    document.body.dataset.type = state.type;
-    document.querySelectorAll('.seg').forEach(seg => {
-      const key = seg.dataset.key;
-      seg.querySelectorAll('button').forEach(b => {
-        b.classList.toggle('on', b.dataset.val === state[key]);
-      });
-    });
-  }
-
-  document.querySelectorAll('.seg').forEach(seg => {
-    seg.addEventListener('click', (e) => {
-      const btn = e.target.closest('button'); if (!btn) return;
-      const key = seg.dataset.key;
-      state[key] = btn.dataset.val;
-      apply();
-      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: btn.dataset.val } }, '*'); } catch(e) {}
-    });
-  });
-
-  // Edit mode plumbing, register listener BEFORE announcing
-  window.addEventListener('message', (ev) => {
-    const d = ev.data || {};
-    if (d.type === '__activate_edit_mode') {
-      document.getElementById('tweaksPanel').classList.add('open');
-      document.getElementById('editFab').classList.remove('show');
-    } else if (d.type === '__deactivate_edit_mode') {
-      document.getElementById('tweaksPanel').classList.remove('open');
-      document.getElementById('editFab').classList.remove('show');
-    }
-  });
-  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
-
-  document.getElementById('tweaksClose').addEventListener('click', () => {
-    document.getElementById('tweaksPanel').classList.remove('open');
-  });
-
-  apply();
-</script>
 
 </body>
 </html>
