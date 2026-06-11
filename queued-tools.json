@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Flux",
+    "slug": "flux",
+    "category": "Image",
+    "take": "Black Forest Labs' open-weights model. Strong prompt adherence, runs locally in ComfyUI. Architect favorite.",
+    "vendor": "Black Forest Labs"
+  },
+  {
+    "name": "Adobe Firefly",
+    "slug": "adobe-firefly",
+    "category": "Image",
+    "take": "Adobe's commercially-safe model. Weaker output, but the IP indemnification matters for client deliverables.",
+    "vendor": "Adobe"
+  },
+  {
+    "name": "Krea AI",
+    "slug": "krea-ai",
+    "category": "Image",
+    "take": "Real-time generation canvas. Strong for live concept sessions. Architects use it for client-room ideation.",
+    "vendor": "Krea"
+  },
+  {
+    "name": "ArchitectGPT",
+    "slug": "architectgpt",
+    "category": "Image",
+    "take": "Architecture-marketed AI render. Strong SEO presence, mid-tier output quality. The naming-positioning competitor.",
+    "vendor": "ArchitectGPT"
+  },
+  {
+    "name": "PromeAI",
+    "slug": "promeai",
+    "category": "Image",
+    "take": "Generic creative platform with architecture vertical. Wide tool surface, shallow architecture-specific depth.",
+    "vendor": "PromeAI"
+  },
+  {
+    "name": "Gemini Omni",
+    "slug": "gemini-omni",
+    "category": "Image",
+    "take": "Google's image-plus-video native model from I/O 2026. First-look review in production. Worth watching.",
+    "vendor": "Google"
+  },
+  {
+    "name": "Topaz Photo AI",
+    "slug": "topaz-photo-ai",
+    "category": "Pipeline",
+    "take": "Upscaling and detail enhancement. The standard final-polish tool for taking AI output to print resolution.",
+    "vendor": "Topaz Labs"
+  },
+  {
+    "name": "Magnific AI",
+    "slug": "magnific-ai",
+    "category": "Pipeline",
+    "take": "Detail-aware upscaler. Aggressive on hallucination, but the texture and material recovery can be exceptional.",
+    "vendor": "Magnific"
+  },
+  {
+    "name": "Krea Enhancer",
+    "slug": "krea-enhancer",
+    "category": "Pipeline",
+    "take": "Krea's upscale and enhance flow. Less aggressive than Magnific, more controllable on architectural surfaces.",
+    "vendor": "Krea"
+  },
+  {
+    "name": "Photoshop Generative Fill",
+    "slug": "photoshop-generative-fill",
+    "category": "Pipeline",
+    "take": "Adobe's in-app generative fill. The fastest path to a clean inpaint or extend on a near-final image.",
+    "vendor": "Adobe"
+  },
+  {
+    "name": "Kling 2.6",
+    "slug": "kling-2-6",
+    "category": "Motion",
+    "take": "The current bar for image-to-video. Strong on smooth camera motion, holds architectural geometry well.",
+    "vendor": "Kuaishou"
+  },
+  {
+    "name": "Google Veo 3",
+    "slug": "google-veo-3",
+    "category": "Motion",
+    "take": "Google's native video model, now bundled into Gemini Omni. First architectural test piece in production.",
+    "vendor": "Google"
+  },
+  {
+    "name": "Runway Gen-3",
+    "slug": "runway-gen-3",
+    "category": "Motion",
+    "take": "Industry favorite for filmmakers, mid-tier for architectural walkthroughs. Strong stylization, weaker geometry hold.",
+    "vendor": "Runway"
+  },
+  {
+    "name": "Luma Dream Machine",
+    "slug": "luma-dream-machine",
+    "category": "Motion",
+    "take": "Fast image-to-video with usable camera control. Solid second option when Kling is rate-limited.",
+    "vendor": "Luma Labs"
+  },
+  {
+    "name": "Pika 2.0",
+    "slug": "pika-2-0",
+    "category": "Motion",
+    "take": "Strong on stylized motion, weaker on photoreal architecture. Useful for marketing reels and stylized loops.",
+    "vendor": "Pika Labs"
+  },
+  {
+    "name": "Sora 2",
+    "slug": "sora-2",
+    "category": "Motion",
+    "take": "OpenAI's native video model. Long clips, strong physical consistency. Architecture testing in progress.",
+    "vendor": "OpenAI"
+  }
+]
