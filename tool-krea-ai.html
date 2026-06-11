@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Krea AI review — coming soon, ArchiGen AI</title>
+<meta name="description" content="The ArchiGen Krea AI review is in the queue. Get notified when it drops." />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://archigenai.com/tool-krea-ai.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8; --paper-2: #EAE5D9;
+    --ink: #1A1915; --ink-2: #3A3830;
+    --muted: #706A5C; --rule: #1A19151A;
+    --forest: #2F4A3A; --terracotta: #C96F4A;
+    --marigold: #E2A13B; --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark:hover { background: var(--forest); border-color: var(--forest); }
+  .page-hero { padding: 110px 40px 80px; max-width: 840px; margin: 0 auto; }
+  .page-hero .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+  .page-hero .badge { font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; background: var(--marigold); color: var(--ink); }
+  .page-hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(44px, 5.5vw, 84px); line-height: 0.95; letter-spacing: -0.04em; margin: 0 0 32px; }
+  .page-hero h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .page-hero p { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0 0 16px; max-width: 60ch; }
+  .page-hero .meta { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .notify { max-width: 840px; margin: 0 auto; padding: 0 40px 100px; }
+  .notify .box { background: var(--ink); color: var(--cream); border-radius: 18px; padding: 40px; }
+  .notify h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 0 0 10px; }
+  .notify h2 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .notify p { color: rgba(244,239,227,0.7); margin: 0 0 22px; max-width: 52ch; }
+  .news-form { display: flex; gap: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; padding: 6px; max-width: 460px; }
+  .news-form input { flex: 1; border: 0; background: transparent; color: var(--cream); padding: 12px 16px; outline: none; font-family: var(--f-sans); font-size: 14px; }
+  .news-form input::placeholder { color: rgba(244,239,227,0.4); }
+  .news-form button { background: var(--cream); color: var(--ink); border: 0; padding: 12px 20px; border-radius: 999px; font-family: var(--f-sans); font-size: 13px; font-weight: 500; cursor: pointer; }
+  .news-form button:hover { background: var(--marigold); }
+  .notify .status { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--marigold); margin-top: 12px; display: none; }
+  .related { max-width: 840px; margin: 0 auto; padding: 0 40px 100px; }
+  .related .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .related a { display: block; padding: 16px 0; border-bottom: 1px solid var(--rule); color: var(--ink); text-decoration: none; font-family: var(--f-display); font-size: 20px; letter-spacing: -0.01em; }
+  .related a:hover { color: var(--terracotta); }
+  @media (max-width: 640px) { .nav-links { display: none; } .nav-inner { padding: 14px 20px; } .page-hero { padding: 64px 20px 48px; } .notify, .related { padding-left: 20px; padding-right: 20px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="journal.html">Journal</a>
+      <a href="tools.html" class="active">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="tag"><span class="badge">Review queued</span> <span>Image · Krea</span></div>
+  <h1>Krea AI —<br><em>review coming soon.</em></h1>
+  <p class="meta">Our one-line take so far</p>
+  <p>Real-time generation canvas. Strong for live concept sessions. Architects use it for client-room ideation.</p>
+  <p>The full review follows the same testbench as everything else in the directory: real project files, repeat runs, and a verdict you can take to a partner meeting. No vendor demo footage.</p>
+</section>
+
+<section class="notify">
+  <div class="box">
+    <h2>Get notified <em>when it drops.</em></h2>
+    <p>One email when the Krea AI review publishes. Or join the Sunday letter and catch every review.</p>
+    <form class="news-form" data-tool="Krea AI">
+      <input type="email" name="email" placeholder="you@studio.com" required />
+      <button type="submit">Notify me →</button>
+    </form>
+    <div class="status" role="status"></div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="label">While you wait</div>
+  <a href="tools.html">Browse the full tool directory →</a>
+  <a href="journal.html">Read published reviews in the journal →</a>
+  <a href="index.html#newsletter">Join the Sunday letter →</a>
+</section>
+
+<script>
+  // Same single-edit config as index.html: paste the Beehiiv embed URL
+  // here (or regenerate stubs via scripts/generate-queued-stubs.mjs once
+  // the constant is set there) and the capture swaps to the live embed.
+  var BEEHIIV_EMBED_URL = ''; // ← BLOCKER: paste Beehiiv embed URL here
+
+  (function () {
+    var form = document.querySelector('.news-form');
+    if (!form) return;
+    var status = document.querySelector('.notify .status');
+    if (BEEHIIV_EMBED_URL) {
+      var frame = document.createElement('iframe');
+      frame.src = BEEHIIV_EMBED_URL;
+      frame.title = 'Get notified';
+      frame.style.cssText = 'width:100%; max-width:460px; height:52px; border:0; border-radius:999px; background:transparent;';
+      frame.scrolling = 'no';
+      form.replaceWith(frame);
+      return;
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[name="email"]').value.trim();
+      if (!email) return;
+      var tool = form.getAttribute('data-tool') || 'this tool';
+      var subject = encodeURIComponent('Notify me: ' + tool + ' review');
+      var body = encodeURIComponent('Email ' + email + ' when the ' + tool + ' review publishes.');
+      window.location.href = 'mailto:hello@archigenai.com?subject=' + subject + '&body=' + body;
+      if (status) {
+        status.style.display = 'block';
+        status.textContent = 'Your email app should open — send the message and you\'re on the list.';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

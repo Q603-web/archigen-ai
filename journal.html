@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -192,6 +192,15 @@
     cursor: pointer;
   }
   .view-toggle button.on { background: var(--ink); color: var(--paper); }
+
+  /* ======= Filtering, list view & live pager ======= */
+  button.sort { border: 0; background: transparent; padding: 0; cursor: pointer; }
+  .jorno-grid > .hidden-card { display: none !important; }
+  .jorno-grid.is-list { grid-template-columns: 1fr; }
+  .jorno-grid.is-list .card { min-height: 170px; }
+  .jorno-grid.is-list .card h3 { font-size: 24px; max-width: 64ch; }
+  .jorno-grid.is-list .card.date .big-date { font-size: 56px; margin: 10px 0; }
+  .pager .pages button:disabled { cursor: default; color: var(--muted); border-color: transparent; }
 
   /* ======= Main editorial strip (feature + hero) ======= */
   .jorno-hero { padding: 40px 0 8px; }
@@ -580,8 +589,7 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="#signin" class="btn">Sign in</a>
-      <a href="#newsletter" class="btn dark">Join the studio →</a>
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
     </div>
   </div>
 </nav>
@@ -628,9 +636,9 @@
       <button class="chip">Reading list <span class="c">12</span></button>
     </div>
     <div class="filter-right">
-      <span class="sort">Sort: <b>Newest</b>
+      <button class="sort" id="sort-toggle" type="button">Sort: <b>Newest</b>
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </span>
+      </button>
       <div class="view-toggle">
         <button class="on">Grid</button>
         <button>List</button>
@@ -2122,7 +2130,7 @@
       </article>
       </a>
 
-      <a href="/veras-4-3-update.html" style="text-decoration:none;color:inherit;">
+      <a href="veras-4-3-update.html" style="text-decoration:none;color:inherit;">
       <article class="card render" style="background:#2a3a52;cursor:pointer;">
         <div class="inner" style="background: repeating-linear-gradient(135deg, #2a3a52 0 2px, #1e2d42 2px 5px);"></div>
         <div class="content">
@@ -2324,19 +2332,12 @@
     <!-- pager -->
     <div class="pager">
       <div class="left">
-        <span>Showing <b>1 – 14</b> of <b>214</b></span>
+        <span id="pager-summary">Showing <b>1 – 15</b> of <b>93</b></span>
         <span>·</span>
-        <span>Page 1 of 16</span>
+        <span id="pager-page">Page 1 of 7</span>
       </div>
-      <div class="pages">
+      <div class="pages" id="pager-pages">
         <button class="on">1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
-        <button>…</button>
-        <button>16</button>
-        <button>→</button>
       </div>
     </div>
 
@@ -2370,7 +2371,7 @@
       </div>
       <div>
         <h4>Follow</h4>
-        <a href="#newsletter">Newsletter</a>
+        <a href="index.html#newsletter">Newsletter</a>
         <a href="mailto:hello@archigenai.com">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
         <a href="masthead.html">Masthead</a>
@@ -2382,6 +2383,176 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function () {
+  var grid = document.querySelector('.jorno-grid');
+  if (!grid) return;
+
+  var BUCKETS = {
+    'field notes': ['field notes', 'field note', 'founder note'],
+    'workflows': ['workflow', 'pipeline', 'tutorial', 'guide', 'field guide', 'framework', 'explainer'],
+    'essays': ['essay', 'editorial', 'analysis', 'career', 'practice risk'],
+    'tool reviews': ['tool review', 'first look', 'tool news'],
+    'comparisons': ['comparison', 'roundup', 'audit'],
+    'case studies': ['case study', 'case studies'],
+    'reading list': ['reading list']
+  };
+  var CAT_TO_BUCKET = {};
+  Object.keys(BUCKETS).forEach(function (b) {
+    BUCKETS[b].forEach(function (c) { CAT_TO_BUCKET[c] = b; });
+  });
+
+  var items = Array.prototype.slice.call(grid.children).map(function (el, i) {
+    var cat = el.querySelector('.cat');
+    var text = cat ? cat.textContent : '';
+    var raw = text.split('·')[0].trim().toLowerCase();
+    var dateMatch = text.match(/(\d{1,2})\s+([A-Za-z]{3,})\s+(\d{4})/);
+    var time = dateMatch ? (Date.parse(dateMatch[0]) || 0) : 0;
+    return { el: el, bucket: CAT_TO_BUCKET[raw] || null, time: time, idx: i };
+  });
+
+  var PER_PAGE = 15;
+  var state = { bucket: 'all', page: 1, dir: 'newest' };
+
+  var summary = document.getElementById('pager-summary');
+  var pageLabel = document.getElementById('pager-page');
+  var pagesBox = document.getElementById('pager-pages');
+  var filterBar = document.querySelector('.filter-bar');
+
+  function visibleItems() {
+    var list = items.filter(function (it) {
+      return state.bucket === 'all' || it.bucket === state.bucket;
+    });
+    list.sort(function (a, b) {
+      var d = (b.time - a.time) || (a.idx - b.idx);
+      return state.dir === 'newest' ? d : -d;
+    });
+    return list;
+  }
+
+  function pageList(cur, n) {
+    if (n <= 7) {
+      var all = [];
+      for (var i = 1; i <= n; i++) all.push(i);
+      return all;
+    }
+    var keep = [1, 2, cur - 1, cur, cur + 1, n - 1, n].filter(function (p) {
+      return p >= 1 && p <= n;
+    });
+    keep = keep.filter(function (p, i) { return keep.indexOf(p) === i; })
+               .sort(function (a, b) { return a - b; });
+    var out = [];
+    keep.forEach(function (p, i) {
+      if (i && p - keep[i - 1] > 1) out.push('gap');
+      out.push(p);
+    });
+    return out;
+  }
+
+  function render(scrollTo) {
+    var vis = visibleItems();
+    var total = vis.length;
+    var pageCount = Math.max(1, Math.ceil(total / PER_PAGE));
+    if (state.page > pageCount) state.page = pageCount;
+    var start = (state.page - 1) * PER_PAGE;
+    var slice = vis.slice(start, start + PER_PAGE);
+
+    items.forEach(function (it) { it.el.classList.add('hidden-card'); });
+    slice.forEach(function (it) {
+      it.el.classList.remove('hidden-card');
+      grid.appendChild(it.el);
+    });
+
+    if (summary) {
+      summary.innerHTML = total === 0
+        ? 'No pieces in this category yet'
+        : 'Showing <b>' + (start + 1) + ' – ' + (start + slice.length) + '</b> of <b>' + total + '</b>';
+    }
+    if (pageLabel) pageLabel.textContent = 'Page ' + state.page + ' of ' + pageCount;
+
+    if (pagesBox) {
+      pagesBox.innerHTML = '';
+      pageList(state.page, pageCount).forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        if (p === 'gap') {
+          b.textContent = '…';
+          b.disabled = true;
+        } else {
+          b.textContent = p;
+          if (p === state.page) b.className = 'on';
+          b.addEventListener('click', function () {
+            if (p === state.page) return;
+            state.page = p;
+            render(true);
+          });
+        }
+        pagesBox.appendChild(b);
+      });
+      if (pageCount > 1) {
+        var next = document.createElement('button');
+        next.type = 'button';
+        next.textContent = '→';
+        next.disabled = state.page >= pageCount;
+        next.addEventListener('click', function () {
+          if (state.page >= pageCount) return;
+          state.page += 1;
+          render(true);
+        });
+        pagesBox.appendChild(next);
+      }
+    }
+
+    if (scrollTo && filterBar) {
+      var top = filterBar.getBoundingClientRect().top + window.pageYOffset - 12;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  }
+
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chips .chip'));
+  chips.forEach(function (chip) {
+    var label = (chip.childNodes[0] ? chip.childNodes[0].textContent : chip.textContent).trim().toLowerCase();
+    var key = label === 'all pieces' ? 'all' : label;
+    var n = key === 'all' ? items.length : items.filter(function (it) { return it.bucket === key; }).length;
+    var c = chip.querySelector('.c');
+    if (c) c.textContent = n;
+    if (key !== 'all' && n === 0) {
+      chip.style.display = 'none';
+      return;
+    }
+    chip.addEventListener('click', function () {
+      chips.forEach(function (x) { x.classList.remove('on'); });
+      chip.classList.add('on');
+      state.bucket = key;
+      state.page = 1;
+      render(false);
+    });
+  });
+
+  var toggles = Array.prototype.slice.call(document.querySelectorAll('.view-toggle button'));
+  toggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      toggles.forEach(function (x) { x.classList.remove('on'); });
+      btn.classList.add('on');
+      grid.classList.toggle('is-list', btn.textContent.trim() === 'List');
+    });
+  });
+
+  var sortBtn = document.getElementById('sort-toggle');
+  var sortLabel = sortBtn ? sortBtn.querySelector('b') : null;
+  if (sortBtn) {
+    sortBtn.addEventListener('click', function () {
+      state.dir = state.dir === 'newest' ? 'oldest' : 'newest';
+      if (sortLabel) sortLabel.textContent = state.dir === 'newest' ? 'Newest' : 'Oldest';
+      state.page = 1;
+      render(false);
+    });
+  }
+
+  render(false);
+})();
+</script>
 
 </body>
 </html>

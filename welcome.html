@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Welcome to the Studio, ArchiGen AI</title>
+<meta name="description" content="You're in. How to access your ArchiGen Studio membership." />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://archigenai.com/welcome.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8; --paper-2: #EAE5D9;
+    --ink: #1A1915; --ink-2: #3A3830;
+    --muted: #706A5C; --rule: #1A19151A;
+    --forest: #2F4A3A; --terracotta: #C96F4A;
+    --marigold: #E2A13B; --coral: #E36A52;
+    --sage: #6B7A5A; --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--f-sans); font-size: 15px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark:hover { background: var(--forest); border-color: var(--forest); }
+
+  .page-hero { padding: 120px 0 80px; max-width: 840px; margin: 0 auto; }
+  .page-hero .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+  .page-hero .tag::after { content: ''; flex: 0 0 40px; height: 1px; background: var(--muted); }
+  .page-hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(48px, 6vw, 96px); line-height: 0.95; letter-spacing: -0.04em; margin: 0 0 40px; }
+  .page-hero h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .page-hero p { font-size: 18px; line-height: 1.6; color: var(--ink-2); margin: 0 0 20px; max-width: 60ch; }
+  .page-hero .actions { display: flex; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+
+  .page-list { padding: 0 0 100px; max-width: 840px; margin: 0 auto; }
+  .page-list .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
+  .page-list ul { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--rule); }
+  .page-list ul li { padding: 24px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 200px 1fr; gap: 32px; align-items: baseline; }
+  .page-list ul li .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .page-list ul li .v { font-size: 16px; color: var(--ink-2); line-height: 1.5; }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+    .nav-inner { padding: 14px 20px; gap: 16px; }
+    .nav-links { display: none; }
+    .page-hero { padding: 64px 0 56px; }
+    .page-list ul li { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="journal.html">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding: 0 40px;">
+  <div class="page-hero">
+    <div class="tag">Membership · Confirmed</div>
+    <h1>You're in.<br><em>Welcome to the Studio.</em></h1>
+    <p>Your payment went through — Stripe will email you a receipt in the next few minutes. Here's how access works while we finish building the members' area.</p>
+  </div>
+</section>
+
+<section style="padding: 0 40px;">
+  <div class="page-list">
+    <div class="label">What happens next</div>
+    <ul>
+      <li><span class="k">Within 24 hours</span><span class="v">We add you to the members' feed by email. Workflow source files, full case studies, and comparison datasets arrive in your inbox — same address you used at checkout.</span></li>
+      <li><span class="k">Every Sunday</span><span class="v">The letter, with the members-only section included.</span></li>
+      <li><span class="k">Coming soon</span><span class="v">A signed-in members' area on the site. When it ships, your membership transfers automatically — nothing to do.</span></li>
+      <li><span class="k">Anything off?</span><span class="v">Reply to any email from us, or write <a href="mailto:hello@archigenai.com" style="color:var(--ink)">hello@archigenai.com</a>. A person answers.</span></li>
+    </ul>
+    <div class="actions" style="display:flex; gap:12px; margin-top:40px; flex-wrap:wrap;">
+      <a href="journal.html" class="btn dark">Start reading →</a>
+      <a href="index.html" class="btn">Back to the front page</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

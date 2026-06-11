@@ -118,6 +118,39 @@
     .page-hero { padding: 64px 0 56px; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "alternateName": "ArchiGen",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vista Studios"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://archigenai.com/comparisons.html#webpage",
+      "url": "https://archigenai.com/comparisons.html",
+      "name": "Comparisons, ArchiGen AI",
+      "description": "Head-to-head AI tool comparisons for architectural visualization. Same brief, same site, same constraints, different tools.",
+      "isPartOf": {
+        "@id": "https://archigenai.com/#website"
+      },
+      "publisher": {
+        "@id": "https://archigenai.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -148,7 +181,6 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn">Sign in</a>
       <a href="index.html#newsletter" class="btn dark">Join the studio &rarr;</a>
     </div>
   </div>

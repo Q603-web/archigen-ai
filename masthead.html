@@ -118,6 +118,39 @@
     .page-hero { padding: 64px 0 56px; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "alternateName": "ArchiGen",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vista Studios"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://archigenai.com/masthead.html#webpage",
+      "url": "https://archigenai.com/masthead.html",
+      "name": "Masthead, ArchiGen AI",
+      "description": "The people behind ArchiGen AI. A small editorial team of architects and archviz practitioners.",
+      "isPartOf": {
+        "@id": "https://archigenai.com/#website"
+      },
+      "publisher": {
+        "@id": "https://archigenai.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -148,7 +181,6 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn">Sign in</a>
       <a href="index.html#newsletter" class="btn dark">Join the studio &rarr;</a>
     </div>
   </div>
@@ -169,9 +201,9 @@
 
 <section class="page-body" style="padding-left: 40px; padding-right: 40px;">
   <div class="inner">
-    <div>
+    <div id="nora-sinclair">
       <h2>Editorial <em>leadership.</em></h2>
-      <p>Editor-in-chief and founder runs commissioning, the comparison testbench, and the Sunday letter. Background in practice and archviz, over a decade of project work before this publication started.</p>
+      <p><strong>Nora Sinclair</strong> — editor-in-chief, founder and lead reviewer, writing under the Vista Studios roof. Runs commissioning, the comparison testbench, and the Sunday letter. Background in practice and archviz, over a decade of project work before this publication started. Every byline on the site resolves here.</p>
       <p>The masthead expands as the publication grows. We publish the names; we do not publish home addresses.</p>
     </div>
     <div>

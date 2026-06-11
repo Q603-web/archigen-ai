@@ -199,6 +199,39 @@
     .foot-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "alternateName": "ArchiGen",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Vista Studios"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://archigenai.com/about.html#webpage",
+      "url": "https://archigenai.com/about.html",
+      "name": "About, ArchiGen AI",
+      "description": "ArchiGen AI is a curated editorial platform for architects and archviz artists figuring out where AI fits into the drawing set.",
+      "isPartOf": {
+        "@id": "https://archigenai.com/#website"
+      },
+      "publisher": {
+        "@id": "https://archigenai.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -232,7 +265,6 @@
       <a href="about.html" class="active">About</a>
     </div>
     <div class="nav-right">
-      <a href="#signin" class="btn">Sign in</a>
       <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
     </div>
   </div>
@@ -299,7 +331,7 @@
       </div>
       <div>
         <h4>Follow</h4>
-        <a href="#newsletter">Newsletter</a>
+        <a href="index.html#newsletter">Newsletter</a>
         <a href="mailto:hello@archigenai.com">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
         <a href="masthead.html">Masthead</a>
