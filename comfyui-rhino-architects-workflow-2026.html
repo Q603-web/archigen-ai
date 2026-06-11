@@ -4,11 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>ComfyUI for Rhino users in 2026. The workflow architects actually need | ArchiGen AI</title>
 <meta name="description" content="The most-asked question on r/FluxAI from architects right now is some version of: how do I get a real ComfyUI workflow that works with my Rhino model. The video tutorials skip the Rhino-specific steps. The Reddit threads stall at the depth map. We built and shipped a working Rhino-to-ComfyUI pipeline on a live project, and this is the workflow architects keep asking for and not finding." />

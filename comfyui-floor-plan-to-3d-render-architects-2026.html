@@ -4,11 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders, ArchiGen AI</title>
 <meta name="description" content="The 2026 demand we keep seeing: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and we are honest about where ComfyUI holds your geometry and where it quietly invents a wall." />

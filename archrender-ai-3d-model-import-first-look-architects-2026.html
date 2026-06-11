@@ -4,11 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>ArchRender.ai, First Look: The One That Imports Real 3D, ArchiGen AI</title>
 <meta name="description" content="Most AI renderers eat a flat screenshot and guess at the rest. ArchRender.ai's pitch is different: import a true 3D model — OBJ, FBX, GLB — once, then render unlimited angles from inside the platform. We take a practitioner's first look at what that buys you, where the format gaps bite, and whether 3D-native is the feature that finally makes a web renderer worth a slot in the workflow." />

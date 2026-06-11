@@ -4,11 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-kdwJ16hmFoN_O_2sa3vxm.js"></script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
 <script>
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){plausible.init()}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>Who Sees Your Model? Cloud AI Rendering and Client Confidentiality, ArchiGen AI</title>
 <meta name="description" content="Every cloud AI renderer — Archfine, ArchRender, Vibe3D, web Veras — means your model leaves your machine and lands on someone else's server. Local tools like ComfyUI are pitched explicitly as the alternative where projects never leave your network. Almost nobody is reading the data terms: retention, training use, NDA and public-sector exposure. A practitioner's guide to the confidentiality question architects keep skipping." />
