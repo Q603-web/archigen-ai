@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Veras Is Back on BIM After Dark: What the Chaos Era of Veras Means for Architects, ArchiGen AI</title>
+<meta name="description" content="Veras showed up everywhere in this week's sweep: a BIM After Dark Live session with Chaos's Bill Allen, EvolveLAB's site rebranded into the Chaos ecosystem, and 'best AI for architecture' lists crowning it by default. We read the media blitz for what it actually signals about Chaos's AI roadmap — and what architects should ask before buying the story." />
+<link rel="canonical" href="https://archigenai.com/veras-bim-after-dark-live-chaos-roadmap-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/veras-bim-after-dark-live-chaos-roadmap-2026.html" />
+<meta property="og:title" content="Veras Is Back on BIM After Dark: What the Chaos Era of Veras Means" />
+<meta property="og:description" content="A live show appearance, an absorbed company, and a default spot on every 2026 list. Reading the Veras media blitz for the actual roadmap underneath." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The Chaos Era of Veras, Decoded" />
+<meta name="twitter:description" content="Veras is suddenly everywhere — BIM After Dark Live, the EvolveLAB absorption, every 2026 list. What the saturation campaign signals about Chaos's AI roadmap." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Veras Is Back on BIM After Dark: What the Chaos Era of Veras Actually Means",
+  "description": "Veras saturated this week's intel sweep: a BIM After Dark Live appearance with Chaos's Bill Allen, EvolveLAB's site rebranded into the Chaos ecosystem, and default top placement on 2026 tool lists. What the media blitz signals about Chaos's AI roadmap, and the questions architects should ask before buying the story.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-12T09:30:00-04:00",
+  "dateModified": "2026-06-12T09:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-bim-after-dark-live-chaos-roadmap-2026.html",
+  "articleSection": "Tool News",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Veras BIM After Dark", "Bill Allen Chaos", "EvolveLAB Chaos acquisition", "Veras AI rendering Revit", "Chaos AI roadmap 2026", "Veras updates 2026", "AI rendering architects"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happened to EvolveLAB, the company that built Veras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EvolveLAB, the Colorado studio that originally built Veras along with Glyph and Morphis, is now part of the Chaos ecosystem. Its own website leads with the line 'EvolveLAB is now part of the Chaos ecosystem: a new era for AI-driven design.' In practice that means Veras is no longer a scrappy plugin from a small developer — it is the AI rendering arm of the company behind V-Ray, Enscape, Corona and Vantage, with the marketing budget and distribution that implies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Veras still a Revit plugin or a standalone tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. Veras ships as a plugin inside Revit, SketchUp, Rhino, Vectorworks, Archicad and Forma, alongside a web app, and recent releases have kept the major features available across hosts. The BIM After Dark Live session was framed around 'AI rendering tools inside Revit and beyond,' which reflects where Chaos sees the product: living inside the BIM workflow rather than as a separate destination app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should architects trust the current wave of Veras coverage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treat it as marketing-era coverage, which is neither a reason to dismiss the tool nor a reason to buy the whole story. Veras is a genuinely strong product — our own testing rates its control features and selection workflow highly. But a saturation campaign means most of what you read this month originates from one vendor's push. The useful questions remain the practical ones: does it hold your geometry, does it fit your host platform, and does the per-seat price make sense for how often you render."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Chaos owning Veras mean for pricing and bundling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaos has been assembling an end-to-end pipeline — Enscape for real-time, Veras for AI rendering, Envision for animation, V-Ray and Corona for offline quality. The obvious commercial direction is bundling, where Veras becomes a line item inside a larger Chaos subscription rather than a standalone purchase. That can be good value for firms already inside the Chaos stack and a lock-in risk for everyone else. Watch whether standalone pricing survives the integration."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Tool News · 12 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Veras is suddenly everywhere. <em>That's the story.</em></h1>
+    <p class="lede">This week's sweep came back wall-to-wall Veras: a BIM After Dark Live session with Chaos's Bill Allen, EvolveLAB's website rebranded into "the Chaos ecosystem," and the usual 2026 tool lists crowning it best-in-class almost by reflex. None of those items is news on its own. Together they describe something worth reading properly: the moment a small developer's plugin finishes becoming a big company's flagship.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios · Tool News</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Run a daily crawl of AI-and-architecture coverage for long enough and you develop a feel for its background rhythm: a new tool surfaces, a couple of listicles shuffle their rankings, a Reddit thread argues about accuracy. This week the rhythm broke. Our trending-tools sweep returned five results and every one of them was Veras — the Chaos product page, a "Veras Is Back" live show appearance, a Veras 4.0 explainer from a reseller, the EvolveLAB site, and a Reddit thread. When one product saturates the feed like that, the individual items matter less than the pattern. Somebody is spending to make Veras the default answer, and it's working.</p>
+
+    <p>The most interesting artifact in the pile is the live session: <strong>BIM After Dark Live</strong>, the long-running Revit-community show, hosting <strong>Bill Allen from Chaos</strong> to walk through "all the newest updates to Veras AI." The framing — "Veras is back," "inside Revit and beyond" — is doing a lot of quiet work, and it's worth unpacking what's actually changed for the people who'd be relying on the tool.</p>
+
+    <h2>From EvolveLAB to Chaos: <em>the absorption is complete</em></h2>
+
+    <p>Veras didn't start life as a Chaos product. It was built by EvolveLAB, the Colorado computational-design studio that also made Glyph and Morphis, and for its first couple of years it had the texture of a founder-led tool: fast releases, scrappy distribution, features that tracked what BIM users actually asked for. Chaos — the company behind V-Ray, Corona, Enscape and Vantage — acquired EvolveLAB, and for a while the branding floated in between: Veras "by EvolveLAB, a Chaos company."</p>
+
+    <p>That in-between period is over. EvolveLAB's own website now leads with "EvolveLAB is now part of the Chaos ecosystem: a new era for AI-driven design." The product page lives at chaos.com/veras. And the person walking the Revit community through the updates on BIM After Dark is introduced as Bill Allen <em>from Chaos</em>. The small-developer era of Veras is formally closed, and the question that matters to practitioners is what the big-company era does differently.</p>
+
+    <p>Based on what's shipped since the acquisition, the honest answer so far is: mostly good things. The <a href="veras-4-nano-banana-pro-engine-architects-2026.html">Veras 4 engine move to Nano Banana Pro</a> was a real quality jump, and the <a href="veras-4-5-new-features-architects-2026.html">4.4 and 4.5 workflow releases</a> — selection modes, Smart Selection, shareable galleries — are exactly the unglamorous, user-facing investment that small teams rarely have the headcount to make. Chaos money is visibly being spent on the product, not just the marketing.</p>
+
+    <blockquote>When one product saturates the feed, the individual items matter less than the pattern. Somebody is spending to make Veras the default answer.</blockquote>
+
+    <h2>Why the Revit community is <em>the target audience</em></h2>
+
+    <p>The venue choice is the tell. BIM After Dark is not an AI-art channel; it's a Revit show, watched by production architects and BIM managers — people who care about families, worksets and deliverables, and who historically treat AI rendering as a toy that breaks geometry. Showing up there, rather than on a generative-AI podcast, says Chaos knows exactly which audience still needs converting: the documentation-driven practice that won't adopt anything it can't run inside its host platform.</p>
+
+    <p>That's also where Veras's actual moat is. Plenty of tools make pretty pictures from prompts; very few live natively inside Revit, SketchUp, Rhino, Vectorworks, Archicad and Forma the way Veras does, reading the live model rather than a screenshot. We've argued before that <a href="bim-integrated-ai-rendering-vs-midjourney-architects-2026.html">BIM-integrated AI rendering beats generic image generators</a> for project work precisely because of that connection, and the "inside Revit and beyond" pitch leans on it hard. The roadmap story Chaos wants to tell isn't "our AI makes nicer images" — it's "our AI lives where your work lives."</p>
+
+    <h2>The skepticism worth keeping</h2>
+
+    <p>The fifth item in our sweep was a useful corrective: an r/archviz thread from a user who tried Veras on a real project and posted the results with the caption "it lacks accuracy." That thread is from the tool's early days, and the accuracy story has genuinely improved since — Design Lock and the newer selection modes exist precisely because geometry drift was the number-one complaint. But the thread survives in search results for a reason. It describes the gap every practitioner eventually finds between a demo reel and a Tuesday deadline.</p>
+
+    <p>So here's the calibration we'd suggest while the media wave rolls through:</p>
+
+    <ul>
+      <li><strong>The product is real.</strong> Our own testing across the Veras 4.x line rates it among the best-controlled AI renderers an architect can buy. The praise in this month's coverage isn't fabricated; it's just amplified.</li>
+      <li><strong>The coverage is coordinated.</strong> A product page, a reseller explainer, a community live show and a rebranded acquisition site all surfacing in one sweep is a campaign, not a coincidence. Read each piece knowing it originates, directly or indirectly, from one vendor's push.</li>
+      <li><strong>The lists are lazy.</strong> "Best overall AI companion for architects: Veras" is now the stock answer in 2026 roundups — Monograph's list this week being one more example. It may even be right, but as we keep saying about <a href="best-ai-tools-architects-listicles-audited-2026.html">tool listicles</a>, a default answer is not an evaluated one. Veras winning every category it's entered in should make you more curious about the categories, not less.</li>
+    </ul>
+
+    <h2>What the Chaos era likely means next</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Signal</th>
+          <th>What Chaos is doing</th>
+          <th>What it means for you</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BIM After Dark appearance</td>
+          <td>Courting production Revit users directly</td>
+          <td class="winner">Expect deeper Revit-native features, not just web-app ones</td>
+        </tr>
+        <tr>
+          <td>EvolveLAB folded into "the Chaos ecosystem"</td>
+          <td>Consolidating its AI story under one brand</td>
+          <td class="note">Standalone identity — and possibly standalone pricing — fades</td>
+        </tr>
+        <tr>
+          <td>Enscape + Veras + Envision pipeline</td>
+          <td>Building an end-to-end visualization stack</td>
+          <td>Bundles get attractive; switching costs rise</td>
+        </tr>
+        <tr>
+          <td>Saturation marketing</td>
+          <td>Making Veras the category default before rivals mature</td>
+          <td class="note">Evaluate on your model, not on this month's coverage</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The bundling row is the one to watch. Chaos has spent two years assembling a complete pipeline — Enscape for real-time, Veras for AI, Envision for animation, V-Ray and Corona for offline quality — and we mapped that arc in our <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html">end-to-end Chaos pipeline piece</a>. A flagship media push for the AI layer is exactly what you'd do right before making that layer a reason to buy the whole stack. If you're already an Enscape or V-Ray shop, the integration will probably be good news. If you're not, be aware that adopting Veras in 2026 increasingly means adopting Chaos.</p>
+
+    <h2>Our take: <em>watch the session, ignore the weather</em></h2>
+
+    <p>There's a failure mode on both sides of a marketing wave. The credulous one is buying a seat because everything you read this month says Veras is the answer. The cynical one is dismissing a genuinely strong tool because its owner got loud. Neither serves a practice.</p>
+
+    <p>The boring, correct move is the one we recommend for every tool: take your own model — the awkward one with the cantilever and the half-finished site context, not the vendor's demo — and run it through a trial. Check whether Design Lock holds your geometry where the old Reddit thread says it didn't. Check the per-seat math against how many renders your studio actually produces in a month. A BIM After Dark session with the person who built the thing is genuinely worth your hour; Bill Allen demoing selection workflows to a skeptical Revit audience will teach you more about the tool's real state than any listicle. Just remember that the hour exists because a marketing calendar says it should.</p>
+
+    <p>Veras in 2026 is a good product having a loud month. Buy the product if it earns it. Don't buy the month.</p>
+
+    <h3>If you're evaluating Veras this week</h3>
+
+    <p>Trial it inside your actual host platform, not the web app, and test the two things the campaign won't show you: a geometry-heavy model under Design Lock, and an iterative client-edit loop using Modify and Smart Selection. Our <a href="veras-revit-bim-render-workflow-2026.html">Revit BIM render workflow guide</a> covers the setup, and our <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry-hallucination QA checklist</a> is the fastest way to find out whether the accuracy complaints still apply to your kind of work.</p>
+
+    <p><strong>We track tool-vendor campaigns so you can separate the product from the push.</strong> <a href="index.html#newsletter">Join the studio newsletter</a> for weekly field notes, or read our <a href="chaos-2026-product-line-update-architects.html">Chaos 2026 product line update</a> for the wider context behind this one.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Reported from publicly available sources surfaced in our 12 June 2026 intel sweep: the Chaos Veras product page, the BIM After Dark Live session listing featuring Bill Allen of Chaos, EvolveLAB's website, reseller release coverage, and community discussion threads. We have not viewed the live session in full; characterizations of its content reflect its published framing. Product assessments draw on Vista Studios' prior hands-on testing of the Veras 4.x line. No affiliate relationship with Chaos, Veras, or EvolveLAB.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="veras-4-5-new-features-architects-2026.html" class="related-card">
+          <div class="rc-tag">Tool News · 31 May 2026</div>
+          <div class="rc-title">What's New in Veras 4.4 and 4.5, The Workflow Features That Add Up</div>
+        </a>
+        <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · May 2026</div>
+          <div class="rc-title">Chaos Is Building an End-to-End Pipeline: Enscape, Veras, Envision</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -786,4 +786,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-12 Daily Articles -->
+  <url>
+    <loc>https://archigenai.com/veras-bim-after-dark-live-chaos-roadmap-2026.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/nano-banana-floor-plan-rendering-workflow-2026.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/comfyui-cloud-architects-render-without-gpu-2026.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
