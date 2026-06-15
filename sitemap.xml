@@ -808,4 +808,33 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-15 Recovered Articles -->
+  <url>
+    <loc>https://archigenai.com/ai-render-enhancers-compared-magnific-d5-krea-chaos-2026.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/render-farm-vs-ai-rendering-when-each-wins-2026.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/archeyes-30-best-ai-tools-architects-audited-2026.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://archigenai.com/moldaspace-ai-archviz-first-look-architects-2026.html</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
