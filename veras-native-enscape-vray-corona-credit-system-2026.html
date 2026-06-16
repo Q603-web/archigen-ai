@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Veras Goes Native in Enscape, V-Ray and Corona: What the Bundle Changes, ArchiGen AI</title>
+<meta name="description" content="Chaos has embedded Veras AI directly into Enscape, V-Ray and Corona, with a unified credit system for AI runs. If you pay for any of the three, you may already own Veras. Here's what the bundle changes for your render stack, and what the credits really cost you." />
+<link rel="canonical" href="https://archigenai.com/veras-native-enscape-vray-corona-credit-system-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/veras-native-enscape-vray-corona-credit-system-2026.html" />
+<meta property="og:title" content="Veras Goes Native in Enscape, V-Ray and Corona" />
+<meta property="og:description" content="Chaos folded Veras AI into Enscape, V-Ray and Corona and switched on a unified credit system. What the bundle changes for architects, and what the credits really cost." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Veras Goes Native in Enscape, V-Ray and Corona" />
+<meta name="twitter:description" content="The standalone AI add-in is now inside the renderers you already pay for, on a new credit meter. Who gains, who pays more, and what to check before you rely on it." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Veras Goes Native in Enscape, V-Ray and Corona: What the Bundle Changes",
+  "description": "Chaos has embedded Veras AI directly into Enscape, V-Ray and Corona and switched on a unified credit system for AI runs. What the bundle changes for an architect's render stack, who gains, who quietly pays more, and what to confirm before you rely on it.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-16T07:30:00-04:00",
+  "dateModified": "2026-06-16T07:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/veras-native-enscape-vray-corona-credit-system-2026.html",
+  "articleSection": "Analysis",
+  "timeRequired": "PT8M",
+  "inLanguage": "en",
+  "keywords": ["Veras Enscape V-Ray Corona", "Chaos Veras integration 2026", "Veras credit system", "AI rendering Enscape", "Chaos AI visualization", "Veras Nano Banana Pro", "architecture AI render stack"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Veras now included with Enscape, V-Ray and Corona?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Chaos has embedded Veras AI directly inside Enscape, V-Ray and Corona, and says Veras access is included across the major tiers of all three. If your practice already subscribes to one of them, you likely have Veras available without a separate add-in license. The standalone Veras plug-in and web app continue to exist for people on tools outside the Chaos renderers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do the Veras AI credits work inside Chaos tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaos has moved AI features onto a unified credit system. Generating an AI image or animation spends credits from a shared pool tied to your subscription, rather than running on a flat unlimited allowance. The exact per-run cost, monthly allotment and top-up pricing vary by plan and change often, so confirm the current numbers on the Chaos site before you build the credit cost into a fee proposal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the bundle replace standalone Veras?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not entirely. The native integration is aimed at people already inside Enscape, V-Ray or Corona. Architects who drive Veras from Revit, SketchUp or Rhino without those renderers, or who prefer the browser app, still have the standalone product. The strategic direction, though, is clear: Chaos is making AI ideation a default feature of its renderers rather than a separate purchase."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Tool reviews for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Analysis · 16 Jun 2026</span>
+      <span class="tag">· 8 min read</span>
+    </div>
+    <h1>Veras stopped being a <em>plug-in.</em></h1>
+    <p class="lede">Chaos has folded its AI visualization tool directly into Enscape, V-Ray and Corona. The add-in you used to buy on the side is now a feature of the renderers most studios already pay for, switched on by default and metered by a new shared credit system. The interesting part is not that AI arrived. It is who just started paying for it without choosing to.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">8 min read · Jun 2026 · Vista Studios · Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>For three years the pitch for Veras was the pitch for any add-in. You bought your renderer, then you bought Veras on top, installed it into Revit or SketchUp or Rhino, and treated AI ideation as a separate line item with its own login and its own bill. That arrangement is over. Chaos has embedded Veras straight into Enscape, V-Ray and Corona, and says the AI tooling is now included across the major tiers of all three. If you renew an Enscape seat next month, you are renewing into Veras whether or not you ever asked for it.</p>
+
+    <p>This is a quieter announcement than a new model drop, and a more consequential one. A model gets better renders to the people already chasing them. A bundle changes the default for everyone who was not. Overnight, the AI render button moves from a thing enthusiasts sought out to a thing that sits in the toolbar of half the visualization market.</p>
+
+    <h2>What actually shipped</h2>
+
+    <p>Strip the marketing and three concrete things changed at once.</p>
+
+    <div class="tool-card">
+      <div class="tc-head">
+        <div class="tc-name">The Chaos AI bundle, in plain terms</div>
+        <div class="tc-rating">Native · Included</div>
+      </div>
+      <div class="tc-pricing">Veras access folded into major Enscape, V-Ray and Corona tiers</div>
+      <p><strong>Integration:</strong> Veras runs inside Enscape, V-Ray and Corona, not as a separate add-in you launch on the side. <strong>Engine:</strong> the current Veras builds lean on the Nano Banana Pro image engine, the same one we covered when it replaced the older render backbone. <strong>Billing:</strong> AI features now draw from a unified credit pool tied to your subscription, replacing the old standalone Veras plan for people inside these renderers. <strong>Scope:</strong> 3D models, 2D drawings and rough concepts in, styled stills and short animations out, without leaving the host application.</p>
+      <div class="tc-tags">
+        <span>Enscape</span><span>V-Ray</span><span>Corona</span><span>Credit-Based</span><span>Nano Banana Pro</span>
+      </div>
+    </div>
+
+    <p>The headline most coverage led with was convenience, and it is real. No second install, no juggling a separate window, no exporting a view just to feed it to the AI. You frame the shot in the renderer you already know, and the AI pass happens in the same place. For a SketchUp user who never wanted a second tool, that friction reduction is the whole story. We walked through the older version of this stitched workflow in our look at the <a href="chaos-end-to-end-pipeline-enscape-veras-envision-2026.html">Chaos end-to-end pipeline</a>, and the native version is simply that pipeline with the seams removed.</p>
+
+    <h2>The credit system is the real news</h2>
+
+    <p>Here is the part that deserves more attention than the convenience. Chaos paired the integration with a unified, credit-based approach to its AI features. Generating an image or an animation now spends credits from a pool attached to your plan, rather than running on a flat, unmetered allowance. That is a different cost shape than a fixed monthly Veras subscription, and architects should understand which way it cuts before they cheer.</p>
+
+    <p>A meter rewards light and occasional users. If you make a handful of AI ideation passes a month, bundled credits you did not pay extra for are a clear win. A meter punishes heavy, exploratory users, the exact people who treat AI as a brainstorming surface and fire off forty variations to find one. The studio that uses AI most is the studio most exposed to running the pool dry and buying top-ups. The pricing logic quietly shifts the cost onto your most enthusiastic team members, and it does so inside a renderer subscription where the AI line is no longer broken out for you to see.</p>
+
+    <blockquote>A flat subscription told you what AI cost each month. A credit pool tells you only after you have spent it.</blockquote>
+
+    <p>None of this makes the change bad. It makes it worth modeling. Before you fold AI passes into a client fee, confirm the current credit allotment on your tier, the per-run cost for the resolution you actually deliver, and the price of a top-up when a competition week burns through the month's pool in three days. Those numbers move often, which is reason enough to check them against the Chaos site rather than against this article.</p>
+
+    <h2>Who gains, who pays more</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Your situation</th><th>Net effect</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Enscape or V-Ray seat, never bought Veras</strong></td>
+          <td class="winner">Clear gain</td>
+          <td>AI ideation you were not paying for is now included on your existing seat.</td>
+        </tr>
+        <tr>
+          <td><strong>Light AI user, occasional passes</strong></td>
+          <td class="winner">Gain</td>
+          <td>Bundled credits comfortably cover low volume at no extra cost.</td>
+        </tr>
+        <tr>
+          <td><strong>Heavy exploratory AI user</strong></td>
+          <td class="note">Watch closely</td>
+          <td>High variation counts can drain the pool; top-ups become a recurring cost.</td>
+        </tr>
+        <tr>
+          <td><strong>Standalone Veras from Revit or Rhino, no Chaos renderer</strong></td>
+          <td>Unchanged</td>
+          <td>The separate plug-in and web app remain; the bundle is aimed elsewhere.</td>
+        </tr>
+        <tr>
+          <td><strong>Confidential or competition work</strong></td>
+          <td class="note">Unchanged caution</td>
+          <td>Native or not, AI passes still send views to a cloud service. Check client terms.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>That last row matters more now precisely because the tool is harder to avoid. When Veras was a deliberate purchase, using it was a deliberate act. When it is a default button in Enscape, a junior can send an unreleased competition view through an AI pass without thinking of it as sending anything anywhere. The confidentiality calculus we set out in our piece on <a href="cloud-ai-rendering-client-confidentiality-architects-2026.html">cloud rendering and client confidentiality</a> does not change because the button moved. It just needs saying out loud to the whole team again.</p>
+
+    <h2>The strategic read</h2>
+
+    <p>Bundling is how a category leader ends a debate. By putting Veras inside the renderers, Chaos is betting that AI ideation should be a standard feature of visualization software, not a specialist add-on, and it is using its installed base to make that the default for the whole profession at once. It is a strong move. The standalone AI render plug-in as a business looks a lot more fragile the day the dominant renderers start giving the capability away inside the subscription.</p>
+
+    <p>For the smaller AI rendering tools that sell themselves as a layer on top of your existing stack, this is a warning shot. Their pitch has been speed and control that a generic renderer lacks. Now the generic renderer ships the AI in the box. Those tools will have to be genuinely better at something specific, tighter geometry control, a sharper interface, a workflow Chaos does not bother to serve, rather than simply being the only AI option a SketchUp user can reach. We will be watching which ones still have an answer to "why not just use the one already in V-Ray."</p>
+
+    <h2>Our take: <em>convenience is never free</em></h2>
+
+    <p>Treat the bundle as a gift with a meter attached. If you were a non-buyer, accept the win, switch it on, and enjoy AI ideation you did not used to have. If you were a heavy Veras user on a flat plan, do the arithmetic before you assume this is an upgrade, because a credit pool can cost a power user more than the subscription it replaced. And whatever your usage, brief the team that the convenient new button is still a cloud round trip, not a local filter.</p>
+
+    <p>The deeper shift is the one to keep in mind for the rest of the year. AI rendering just stopped being a tool you choose and started being a feature you receive. That is good for adoption and slightly dangerous for cost discipline, and the studios that come out ahead will be the ones that kept reading the bill after the choice was made for them.</p>
+
+    <p><strong>We rate tools on fit, not hype.</strong> <a href="index.html#newsletter">Join the studio newsletter</a> for our follow-up once we have run the credit meter through a real project cycle, or start with our breakdown of the <a href="veras-4-nano-banana-pro-engine-architects-2026.html">Nano Banana Pro engine inside Veras</a>.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on Chaos announcements and trade coverage of the Veras integration into Enscape, V-Ray and Corona as of June 2026. Tier inclusion, credit allotments and AI pricing change frequently; confirm current terms at chaos.com before committing client work. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="veras-bim-after-dark-live-chaos-roadmap-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">Veras, BIM After Dark and the Chaos Roadmap: Where This Is Headed</div>
+        </a>
+        <a href="cloud-ai-rendering-client-confidentiality-architects-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">Cloud AI Rendering and Client Confidentiality: What Leaves Your Office</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
