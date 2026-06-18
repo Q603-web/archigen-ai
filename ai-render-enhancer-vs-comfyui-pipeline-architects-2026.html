@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Enhancer or Pipeline? The Choice Before You Learn ComfyUI, ArchiGen AI</title>
+<meta name="description" content="Every week an architect on Reddit asks the same thing: should I learn a ComfyUI pipeline to enhance my renders, or just run them through a one-click enhancer like Magnific, Krea or Veras? A decision guide for people whose real job is buildings, not nodes." />
+<link rel="canonical" href="https://archigenai.com/ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html" />
+<meta property="og:title" content="Enhancer or Pipeline? The Choice Before You Learn ComfyUI" />
+<meta property="og:description" content="One-click enhancer or a hand-built ComfyUI pipeline? A decision guide for architects who want better renders without becoming node engineers." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Enhancer or Pipeline? The Choice Before You Learn ComfyUI" />
+<meta name="twitter:description" content="The recurring Reddit question, answered honestly: when a one-click enhancer is enough, when a ComfyUI pipeline pays off, and how to tell which one you are." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Enhancer or Pipeline? The Choice Every Architect Faces Before Learning ComfyUI",
+  "description": "Every week an architect asks the same thing on Reddit: learn a ComfyUI pipeline to enhance renders, or just run them through a one-click enhancer like Magnific, Krea or Veras? A decision guide for people whose real job is buildings, not nodes.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-18T13:30:00-04:00",
+  "dateModified": "2026-06-18T13:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html",
+  "articleSection": "Comparison",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI render enhancer vs ComfyUI", "ComfyUI for architects 2026", "Magnific Krea Veras enhancer", "ControlNet architectural render", "one-click render enhancer", "archviz AI workflow decision", "enhance architectural renders AI"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should an architect learn ComfyUI or use a one-click render enhancer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on volume and control. If you finish a handful of images a week and mostly want them to look sharper, a one-click enhancer like Magnific, Krea or Veras gives you ninety percent of the result for a fraction of the effort. If you process renders by the dozen, need the same look every time, or have to keep the AI tightly locked to your geometry, a ComfyUI pipeline with ControlNet pays back the steep learning curve. Most architects should start with an enhancer and only graduate to a pipeline when a specific limit forces it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a ComfyUI pipeline keep renders more faithful to the 3D model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can, because ComfyUI lets you stack ControlNet conditioning on depth, edges and segmentation so the generated image is pinned to your geometry rather than reinventing it. One-click enhancers expose far fewer of those controls, so they are more likely to drift, thicken a mullion or invent a reflection. The catch is that the control is only as good as the setup, and a badly tuned pipeline drifts too. Control is available in a pipeline; it is not automatic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to learn ComfyUI well enough to be useful?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan on a weekend to get a borrowed workflow running and a few weeks of real projects before you can tune it confidently. The node graph itself is learnable in a day; the time goes into understanding which models, ControlNet types and settings hold your architecture together. If you cannot spare that, an enhancer is the honest choice, not a compromise."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Comparison · 18 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>Enhancer or pipeline? <em>Decide before the deadline.</em></h1>
+    <p class="lede">Scroll the architecture and archviz forums on any given week and the same question keeps surfacing. Someone has a Rhino or SketchUp viewport and a render that looks flat, and they want to know: do I learn one of those ComfyUI workflows everyone posts, or do I just drop the image into Magnific and move on? It is a fair question with a real answer, and the answer is not the same for everyone.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Comparison</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>The thread always plays out the same way. An architect posts a viewport capture and asks how to make it photoreal. Half the replies say just use an enhancer, it takes ten seconds. The other half post a screenshot of a ComfyUI graph with forty nodes and say this is the only way to keep it accurate. Both camps are right, for different people, and nobody in the thread ever asks the question that actually decides it: how many of these images do you make, and how much do they have to obey your model?</p>
+
+    <p>That is the whole call. Volume and control. Get those two answers straight and the choice between a one-click enhancer and a hand-built pipeline stops being a matter of taste and becomes a matter of arithmetic.</p>
+
+    <h2>What each path actually is</h2>
+
+    <p>A one-click enhancer is a hosted tool. You upload a render to Magnific, Krea, Veras or a similar service, push a slider or two, and it returns a sharper, more detailed, more photoreal version. There is almost nothing to learn. You pay per image or per month, the work happens on someone else's machine, and you get a result in under a minute. We put the main contenders head to head in our <a href="ai-render-enhancers-compared-magnific-d5-krea-chaos-2026.html">enhancer comparison</a> if you want the per-tool detail.</p>
+
+    <p>A ComfyUI pipeline is something you build. ComfyUI is a node-based interface for running open image models locally or on rented GPU, where you wire together a model, ControlNet conditioning, prompts and post steps into a graph you control end to end. With ControlNet pinned to depth and edges, it can hold your geometry far tighter than an enhancer will. The cost is real: a learning curve measured in weekends, a machine that can run it, and ongoing fiddling. Our <a href="comfyui-rhino-architects-workflow-2026.html">Rhino-to-ComfyUI walkthrough</a> shows what a working architectural graph looks like.</p>
+
+    <blockquote>The forum fight is never really enhancer versus pipeline. It is low volume versus high volume, and loose control versus tight control. Answer those and the tool picks itself.</blockquote>
+
+    <h2>The honest comparison</h2>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Factor</th><th>One-click enhancer</th><th>ComfyUI pipeline</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Time to first result</strong></td>
+          <td class="winner">Minutes</td>
+          <td class="note">A weekend, then weeks to tune</td>
+        </tr>
+        <tr>
+          <td><strong>Control over geometry</strong></td>
+          <td class="note">Limited, drift is common</td>
+          <td class="winner">High, with ControlNet set up well</td>
+        </tr>
+        <tr>
+          <td><strong>Consistency across a set</strong></td>
+          <td>Varies shot to shot</td>
+          <td class="winner">Repeatable once locked</td>
+        </tr>
+        <tr>
+          <td><strong>Cost shape</strong></td>
+          <td>Subscription or per image</td>
+          <td>Hardware or rented GPU, your time</td>
+        </tr>
+        <tr>
+          <td><strong>Confidentiality</strong></td>
+          <td class="note">Uploads leave your machine</td>
+          <td class="winner">Can run fully local</td>
+        </tr>
+        <tr>
+          <td><strong>Who it suits</strong></td>
+          <td class="winner">Low volume, concept work</td>
+          <td class="winner">High volume, locked house style</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Read that table as two profiles, not a scoreboard. The enhancer wins decisively on getting started and on not having to think. The pipeline wins decisively on control, repeatability and keeping the image on your own hardware. Neither column is better in the abstract. The right one is whichever matches the row that matters most to your week.</p>
+
+    <h2>The volume test</h2>
+
+    <p>Count the renders you actually enhance in a normal month. If it is five or ten concept images for client conversations, the time you would spend learning ComfyUI will never be repaid by those ten images, and an enhancer is plainly the right tool. The maths only flips when the count climbs. At fifty or a hundred images a month, the per-image friction of an enhancer adds up, the lack of a locked look starts to show, and the weekend you spent building a graph starts paying a dividend on every render after it.</p>
+
+    <p>This is the same logic that governs any tooling decision. A capability that costs a fixed amount to acquire and saves a little per use only wins above a break-even volume. Below it, the simpler tool is not a compromise, it is the correct answer. Architects talk themselves into the complex path because the forum makes the pipeline look like the serious choice. Serious is whatever fits your actual output.</p>
+
+    <p>Put rough numbers on the break-even. Say an enhancer subscription runs you a fixed monthly fee and a few seconds of attention per image, while a pipeline costs you two solid weekends to learn plus a capable GPU you may already own. If you render ten images a month, those two weekends are spread across a hundred and twenty images a year, and most of them would have been perfectly fine straight out of the enhancer. If you render a hundred a month, the same two weekends amortise across more than a thousand images, the consistency starts saving you redo time, and the local run keeps confidential work off a third-party server. Same tools, opposite verdict, and the only thing that moved was the count.</p>
+
+    <h2>The control test</h2>
+
+    <p>The second question is how tightly the output has to track your model. For a mood image where the building is roughly right and the feeling carries the shot, an enhancer's tendency to invent a little detail is harmless, even helpful. For a render that has to show the exact facade you are permitting, every invented mullion is a problem, and the fine ControlNet grip of a pipeline is worth the trouble. We have written before about why generated detail <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">drifts from your geometry</a>, and the short version applies here: more control is available in a pipeline, but it is earned, not given.</p>
+
+    <p>There is a quiet middle ground worth naming. Several enhancers now expose a structure or fidelity setting that nudges them toward the original image, and used carefully that closes part of the gap for accuracy-sensitive work without sending you into a node graph. It will not match a properly conditioned pipeline, but it can be enough to keep an enhancer in play for shots you assumed needed the full build. Test that slider before you conclude you have outgrown the simple tool.</p>
+
+    <h3>A quick way to place yourself</h3>
+
+    <ul>
+      <li><strong>Few images, loose accuracy, want it now.</strong> Use an enhancer. Stop reading forum threads about nodes.</li>
+      <li><strong>Many images, strict house style, geometry must hold.</strong> Build the pipeline. The curve pays back.</li>
+      <li><strong>Confidential projects that cannot leave your machine.</strong> Lean toward a local pipeline regardless of volume, or an enhancer with a clear data agreement.</li>
+      <li><strong>Not sure yet.</strong> Start with the enhancer. You will learn exactly which limit pushes you to a pipeline, and that beats guessing.</li>
+    </ul>
+
+    <h2>Our take: <em>earn the complexity</em></h2>
+
+    <p>The pipeline crowd is not wrong that ComfyUI gives you more. It does. It is wrong to imply that more is what most architects need. A node graph is a tool for a particular shape of problem: high volume, tight control, work that stays in house. If that is your problem, the learning curve is one of the better investments you can make this year. If it is not, the same hours buy you nothing the enhancer was not already giving you, and they come out of the time you owe to the actual building.</p>
+
+    <p>So do not start with the tool. Start with two numbers, how many and how tightly, and let them point. The architect who picks the enhancer because that is all the job needs is making a better decision than the one who learns ComfyUI to enhance ten images a month. The graph is impressive. The deadline does not care.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on recurring architecture and archviz community threads, vendor materials for the named enhancers, and Vista Studios hands-on use of both one-click tools and ComfyUI pipelines. Capabilities, models and pricing change fast; test on your own renders before committing a workflow. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-render-enhancers-compared-magnific-d5-krea-chaos-2026.html" class="related-card">
+          <div class="rc-tag">Comparison · 2026</div>
+          <div class="rc-title">AI Render Enhancers Compared: Magnific, D5, Krea, Chaos</div>
+        </a>
+        <a href="comfyui-rhino-architects-workflow-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">The Rhino-to-ComfyUI Workflow for Architects</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
