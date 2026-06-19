@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>The Last Ten Percent: Finishing an AI Render by Hand, ArchiGen AI</title>
+<meta name="description" content="The recurring archviz forum verdict is that AI helps most at the end, not the start: fixing detail, adding people, cleaning up what the model fudged. A practical pass for taking a 90-percent AI render to something that looks decided, and where the hand-finishing pass backfires." />
+<link rel="canonical" href="https://archigenai.com/finishing-ai-render-by-hand-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/finishing-ai-render-by-hand-architects-2026.html" />
+<meta property="og:title" content="The Last Ten Percent: Finishing an AI Render by Hand" />
+<meta property="og:description" content="A 90-percent AI render is the easy part. The pass that makes it look decided, entourage, light, fixes, and knowing what to leave out, is the part most people skip." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The Last Ten Percent: Finishing an AI Render by Hand" />
+<meta name="twitter:description" content="Architects on the forums agree AI helps most at the finish. Here is the post-generation pass that earns its hour, and where over-finishing wrecks the image." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Last Ten Percent: Finishing an AI Render by Hand",
+  "description": "The recurring archviz forum verdict is that AI helps most at the end, not the start: fixing detail, adding people, cleaning up what the model fudged. A practical pass for taking a 90-percent AI render to something that looks decided, and where the hand-finishing pass backfires.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-19T14:00:00-04:00",
+  "dateModified": "2026-06-19T14:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/finishing-ai-render-by-hand-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["finishing AI render", "AI render post-processing architects", "generative fill architectural render", "add entourage AI render", "fix AI render artifacts", "archviz finishing pass 2026", "post-render editing architects"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do architects say AI is most useful for finishing a render rather than making it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the base render is already the easy part for either a traditional engine or an AI tool, while the finish is where time and judgement actually go. Forum threads keep landing on the same point: AI earns its keep adding people and detail, cleaning up small problems and adjusting atmosphere on an image that is already mostly right. Used that way it speeds up the tedious part of a known good image rather than gambling the whole render on a generation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should a finishing pass on an AI render actually include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A tight pass covers five things: remove the obvious AI artifacts, add or fix entourage so the scene has believable life, correct the light so the eye goes where you want, repair materials the model fudged, and cut anything that distracts. Most of it is small, local editing rather than regeneration, and it is the difference between an image that looks generated and one that looks decided."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does hand-finishing an AI render backfire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When you over-finish. Inventing detail the project does not have, stacking enhancers until the surfaces turn plastic, or letting a generative fix quietly redraw geometry you are responsible for. The finishing pass is for polishing a truthful image, not for adding a level of resolution the design has not earned. If an edit changes what the building is, stop and fix it in the model instead."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 19 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The last ten percent, <em>done by hand.</em></h1>
+    <p class="lede">Ask the archviz forums where AI actually helps and you get a consistent answer that has nothing to do with the headline use. People do not rave about generating a render from nothing. They talk about the finish: adding the figures, fixing the bit the model got wrong, nudging the light. The base image is the easy ninety percent. The last ten is the part that takes a render from generated to decided, and it is the part most people skip.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Read enough archviz threads and one comment turns up again and again, usually buried under the tool wars. Someone will say the most useful thing AI does for them is not making the picture, it is finishing it: dropping in people, adding a little motion, cleaning detail, fixing the one corner that looks off. They are not describing a workflow they read about. They are describing what survives contact with a real deadline.</p>
+
+    <p>That is worth taking seriously, because it inverts how these tools get sold. The pitch is always the big leap, sketch to photoreal in one click. The practice is smaller and more honest. You get an image that is almost right, and then you spend a focused half hour making it actually right. This is a guide to that half hour: what the finishing pass should contain, what it should not, and how to keep it from quietly wrecking the render.</p>
+
+    <h2>Why the finish is the work</h2>
+
+    <p>A base render, from an engine or an AI tool, gets you a competent image fast. Competent is now cheap. What is still expensive is the judgement that makes an image read as a specific place at a specific moment, and that judgement lives almost entirely in the finishing pass. This is a different job from rescuing a rough viewport export, which we covered in the <a href="render-rescue-3d-viewport-to-client-ready-2026.html">render-rescue workflow</a>. There you are doing the big transform. Here the image is already good. You are spending your time on the last increment, where small moves carry the most weight.</p>
+
+    <p>The reason AI fits this stage so well is that the edits are local and bounded. You are not asking a model to invent a building. You are asking it to fill a small selection, match a texture, or remove an object, on an image you already trust. The blast radius is tiny, the iteration is fast, and you stay in control of the result. That is the opposite of betting the whole render on one generation and hoping.</p>
+
+    <blockquote>The base render answers what the building is. The finishing pass answers what the picture is about. Skip it and you ship the first answer and never give the second.</blockquote>
+
+    <h2>The five fixes that earn their time</h2>
+
+    <p>A good pass is short and repeatable. Five moves cover most of what separates a generated image from a finished one, in roughly the order I work them.</p>
+
+    <h3>1. Kill the obvious tells</h3>
+    <p>Every AI image carries giveaways: a railing that melts into the slab, a window mullion that wanders, lettering that turns to soup, a tree fused to a wall. These are the first thing a trained eye catches and the cheapest thing to fix. Select the offending patch, regenerate it locally or paint it out, and the image stops announcing how it was made. Do this before anything else, because a single melted detail undermines everything you add afterward.</p>
+
+    <h3>2. Give the scene believable life</h3>
+    <p>Entourage is where the forum comments concentrate, and for good reason. The right people, at the right scale, doing plausible things, turn a sterile box into a place. The wrong ones, floating, duplicated, lit from the wrong side, do more damage than an empty scene. Add figures and planting deliberately, match their light to the render, and keep the count honest. A calm plaza with three real-feeling people beats a crowd the model hallucinated.</p>
+
+    <h3>3. Steer the light</h3>
+    <p>The base render lights everything evenly because it has no idea what the image is about. You do. Darken the corners that do not matter, lift the threshold or the move you want read first, add a little warmth where the eye should land. This is ordinary photographic dodging and burning, and it is the best-spent minute in the pass. It is also how you escape the default golden-hour look that makes every AI render rhyme with every other one.</p>
+
+    <h3>4. Repair what the model fudged</h3>
+    <p>Generation engines have materials they fake well and materials they fake badly. Brick at distance, fine metal, specific glazing, anything with exact repetition. If a surface matters to the scheme and the model softened it, that is a targeted fix, not a reason to regenerate the frame. A structure or fidelity setting in a good enhancer can help here, but the manual patch is often faster and always more precise.</p>
+
+    <h3>5. Cut what distracts</h3>
+    <p>The last move is subtraction, and it is the one people forget. Remove the stray object, the over-bright reflection, the second focal point fighting the first. A finished image is as much about what you took out as what you added. If everything in the frame is competing for attention, nothing in it is making your argument.</p>
+
+    <h2>The tools, kept in their place</h2>
+
+    <p>You do not need a specific product for this, and the choice matters less than the discipline. A generative fill or inpainting tool handles the local fixes and the entourage. A capable enhancer with a fidelity control can lift detail without redrawing the image, and we put the main ones side by side in our <a href="ai-render-enhancers-compared-magnific-d5-krea-chaos-2026.html">enhancer comparison</a>. A plain image editor still does dodging, burning and subtraction better than any prompt. Most finishing passes use two of these and never touch the third. Pick the lightest tool that does the move in front of you.</p>
+
+    <h2>Where the pass backfires</h2>
+
+    <p>The failure mode is not skipping the finish. It is over-finishing. There are three ways it goes wrong, and all of them come from the same instinct to keep pushing.</p>
+
+    <p><strong>Inventing what the project does not have.</strong> A finishing pass should make a truthful image read better, not add a level of polish the design has not earned. If you are generating detail the building does not actually contain, you have stopped finishing and started fictionalising, and the client will eventually stand in the gap between the render and the result.</p>
+
+    <p><strong>Stacking until it turns plastic.</strong> Run an enhancer twice, sharpen the sharpening, and surfaces go waxy and the image acquires that over-rendered sheen everyone now recognises. The pass has a stopping point. The render looked finished one move ago; the move you are about to make is the one that ruins it.</p>
+
+    <p><strong>Letting a fix redraw the geometry.</strong> The quiet danger of generative editing is that a local fill can change a line you are responsible for, thickening a frame or moving an edge. We keep a fuller list in the <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry hallucination checklist</a>, and the rule is simple: if an edit changes what the building is rather than how it looks, throw it out and fix it upstream in the model.</p>
+
+    <h3>A two-minute checklist before you send</h3>
+    <ul>
+      <li><strong>Zoom to 100 percent and scan the edges.</strong> Melted railings, wandering mullions and soup lettering hide at full size.</li>
+      <li><strong>Check every figure's feet and shadow.</strong> Floating or wrong-lit people are the loudest tell in the frame.</li>
+      <li><strong>Squint at the image.</strong> If your eye does not land where the design wants it, fix the light, not the geometry.</li>
+      <li><strong>Compare against the model.</strong> Anything the finishing pass changed about the actual building goes back upstream.</li>
+    </ul>
+
+    <h2>Our take: <em>spend the hour you keep skipping</em></h2>
+
+    <p>The forums are right, and they are right about something the marketing keeps quiet. The value is not in the generation, which everyone now has. It is in the finish, which almost nobody does well, because it is unglamorous and it happens when you are tired and the file is technically done. That hour is exactly where your judgement is worth more than the model's, and it is the cheapest edge left in a workflow where the base image has become a commodity.</p>
+
+    <p>So treat the render as a draft, not a delivery. Generate fast, then slow down for the last ten percent and make the small decisions the tool will never make for you. The image that looks like a place someone chose to show you is almost always the one someone bothered to finish.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on recurring architecture and archviz community threads on post-render editing, vendor materials for the tools referenced, and Vista Studios hands-on finishing of AI and engine renders. Tools and models change fast; test any fix on your own image before trusting it on a deliverable. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="render-rescue-3d-viewport-to-client-ready-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">The Render-Rescue Workflow: Viewport to Client-Ready</div>
+        </a>
+        <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html" class="related-card">
+          <div class="rc-tag">QA · 2026</div>
+          <div class="rc-title">The Geometry Hallucination QA Checklist</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
