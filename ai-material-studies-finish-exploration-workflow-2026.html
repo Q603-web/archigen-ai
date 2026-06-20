@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Material Studies, Fast: AI Finish Exploration Before You Commit, ArchiGen AI</title>
+<meta name="description" content="AI can spin a dozen finish options from one model in the time a single hand render used to take. The speed is the trap. A controlled pass for using AI material studies as a decision tool, not a mood board: hold the variables, generate few, and present finishes you can actually deliver." />
+<link rel="canonical" href="https://archigenai.com/ai-material-studies-finish-exploration-workflow-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-material-studies-finish-exploration-workflow-2026.html" />
+<meta property="og:title" content="Material Studies, Fast: AI Finish Exploration Before You Commit" />
+<meta property="og:description" content="AI made generating finish options almost free. The job is still narrowing them. A controlled material-study pass that holds the camera and light steady, varies only the finish, and presents options you can build." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Material Studies, Fast: AI Finish Exploration Before You Commit" />
+<meta name="twitter:description" content="Generating finish options is now cheap. Choosing between them is the work. Here is the disciplined AI material-study pass we use, and where it quietly misleads the client." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Material Studies, Fast: AI Finish Exploration Before You Commit",
+  "description": "AI can spin a dozen finish options from one model in the time a single hand render used to take. The speed is the trap. A controlled pass for using AI material studies as a decision tool, not a mood board: hold the variables, generate few, and present finishes you can actually deliver.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-20T10:00:00-04:00",
+  "dateModified": "2026-06-20T10:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-material-studies-finish-exploration-workflow-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI material studies architects", "finish exploration AI render", "material board AI workflow", "AI render material options", "controlled variables material study", "client material presentation 2026", "archviz finish selection AI"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you use AI to run a material study without misleading the client?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treat the study as a decision tool, not a mood board. Lock the camera, the light and the entourage so they are identical across every option, and vary only the finish. Generate a small, controlled set rather than dozens, and only include materials you can actually source and budget. The client should be comparing finishes on equal terms, looking at the same room at the same hour, so the choice is about the material and nothing else."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why generate only a few material options instead of many?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because generating options is now almost free, but choosing is still the work, and too many options stalls a decision rather than informing it. Three to five well-chosen finishes give a client a real comparison they can act on. Thirty give them paralysis and give you a presentation that looks like indecision. The skill has moved from making the options to killing the weak ones before anyone sees them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What goes wrong with AI material renders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things. The model flatters a finish with reflections or sheen the real material does not have, so the render sells something you cannot build. The variables drift, with the light or angle changing between options, so the comparison is not honest. Or you present a finish that is gorgeous and unbudgeted, and spend the next meeting walking the client back. Hold the variables, check each finish against a real sample, and only show what you can deliver."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 20 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>Material studies, <em>fast.</em></h1>
+    <p class="lede">A finish study used to be slow on purpose. You requested samples, you set up a render for each option, you waited. The slowness did some of the thinking for you, because nobody generates fifteen versions of anything by hand. AI removed the wait. From one model you can now produce a dozen finish options in the time the first one used to take. That sounds like a gift, and the speed is exactly where it goes wrong.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>The material study is one of the oldest moves in practice. Same room, same light, different finish, so a client can see what oak does next to what terrazzo does, and choose. The render was always the slow part, which meant the set stayed small and considered. You showed three options because three was what you had time to make, and three is also about how many a person can actually weigh at once.</p>
+
+    <p>AI broke the cost of generating, and left the rest of the job untouched. The newer tools will hold a view and swap finishes on it for almost nothing, pulling materials from a reference image or a prompt. That is genuinely useful. It is also a quiet invitation to confuse motion with progress, to put thirty finishes on a board and call it thorough. This is a guide to running the fast study so it still does the thing a material study is for, which is helping someone decide.</p>
+
+    <h2>A study is a decision, not a mood board</h2>
+
+    <p>Start from what the deliverable is for. A mood board gathers feeling. A material study forces a choice between options that are each buildable, so the client can commit and you can specify. The two get confused constantly, and AI makes the confusion worse, because it is very good at producing beautiful, atmospheric, completely unactionable images. If the output of your study is a vibe rather than a decision, you have made the wrong thing quickly.</p>
+
+    <p>So the test for every option you include is plain: could we build this, this season, on this budget. A finish that fails that test does not belong in the set, no matter how well it renders. The AI does not know your budget or your supplier lead times. You do, and that knowledge is most of what you are being paid for.</p>
+
+    <blockquote>Generating the option is now free. Choosing between options is still the entire job. The tool got faster at the part that was never the bottleneck.</blockquote>
+
+    <h2>The fast pass, done honestly</h2>
+
+    <p>The discipline that made the slow study good is the same discipline that makes the fast one trustworthy. Control your variables. A material study only means anything if the finish is the only thing that changed between images.</p>
+
+    <h3>1. Lock the frame first</h3>
+    <p>Set the camera, the time of day and the light, and then do not touch them again. Pick a view that shows the materials doing real work, where they meet, in shadow and in light, at the scale a person would actually see them. Once that frame is right, it is fixed for the whole set. Every option is the same photograph with one thing swapped.</p>
+
+    <h3>2. Vary one thing</h3>
+    <p>Change the finish and only the finish. If you are pulling materials from reference images, keep everything else in the prompt or the scene identical between runs. The moment the light shifts or the angle drifts, you are no longer comparing finishes, you are comparing pictures, and the client will read the prettier light as the better material. Tools with a design-lock or model-input control, which we covered in our look at <a href="veras-4-design-lock-image-input-architects-2026.html">holding architectural intent across variations</a>, exist precisely to stop this drift. Use them.</p>
+
+    <h3>3. Generate few, on purpose</h3>
+    <p>Resist the count. Three to five finishes is a study. Fifteen is a stall. The point of the small set is not that you ran out of time, it is that you did the narrowing yourself, before the meeting, which is the expert judgement the client is paying for. Generate widely if it helps you think, then cut hard, and only the survivors reach the wall.</p>
+
+    <h3>4. Check every finish against the real thing</h3>
+    <p>Before an option goes in front of anyone, hold it against a physical sample or a known spec. AI loves to add a little extra gloss, a reflection a matte surface would never throw, a richness the real material lacks. We keep a longer version of this watchfulness in the <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry hallucination checklist</a>, and the material version is the same instinct: the render is allowed to show the finish, not to improve it.</p>
+
+    <h2>Where the fast study misleads</h2>
+
+    <p>Three failures recur, and all of them come from trusting the speed over the judgement.</p>
+
+    <p><strong>The flattered finish.</strong> The model renders a material better than it behaves. The client falls for the version with the impossible reflection, you build the real thing, and the gap between render and result becomes your problem at handover. If a sample in your hand does not do what the image does, the image is wrong, and you fix the image.</p>
+
+    <p><strong>The drifting variable.</strong> Two options, two slightly different light setups, and the comparison is now meaningless dressed up as rigorous. This is the most common and least noticed error in a fast pass, because the tool will happily re-light a scene you thought you had locked. Compare your set side by side before presenting and throw out anything where more than the finish moved.</p>
+
+    <p><strong>The unbudgeted star.</strong> The most beautiful option is the one the project cannot afford, and now it is on the board setting the client's expectation. You will spend the next meeting walking them down from it. Either cost the finishes before you show them, or do not show the one you already know is out. A study that creates a longing you cannot satisfy is worse than no study.</p>
+
+    <h3>A short check before the set goes out</h3>
+    <ul>
+      <li><strong>Same frame everywhere?</strong> Flick between the options. Only the finish should change. If the light moved, regenerate.</li>
+      <li><strong>Each finish buildable?</strong> Sourced, speccable, inside budget. If not, it is a mood board image, not a study option.</li>
+      <li><strong>Sample-checked?</strong> Every material matched against a real sample or spec, with the AI's extra sheen removed.</li>
+      <li><strong>Five or fewer?</strong> If the set is bigger, you have not finished thinking. Cut it down.</li>
+    </ul>
+
+    <h2>Our take: <em>generate wide, present narrow</em></h2>
+
+    <p>The honest use of fast material studies is private. Generate as widely as you like while you are deciding, because exploring options cheaply is a real gain and a good way to surprise yourself. Then do the part that did not get easier, which is killing the weak options, and bring a small, equal, buildable set to the client. The work moved from making the pictures to choosing among them, and choosing is where you were always worth more than the tool.</p>
+
+    <p>Speed is not the deliverable. A client who can decide in one meeting because you showed them four real finishes under one honest light is the deliverable, and that takes more judgement now, not less. <a href="tools.html">Pick one renderer or enhancer that lets you lock the frame and swap finishes cleanly</a>, learn its controls, and let the count stay small on purpose.</p>
+
+    <p>Make fifteen if it helps you think. Show four. The wall was never the place for the other eleven.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on recurring archviz community practice on finish presentation, vendor materials for the AI rendering and material-input tools referenced, and Vista Studios hands-on use of AI material studies on live projects. Tools and material behaviour vary; check every finish against a real sample before specifying. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="finishing-ai-render-by-hand-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">The Last Ten Percent: Finishing an AI Render by Hand</div>
+        </a>
+        <a href="ai-rendering-model-adherence-controls-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Model-Adherence Controls: Keeping AI Renders On-Design</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
