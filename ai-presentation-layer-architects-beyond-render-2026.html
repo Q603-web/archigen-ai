@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>After the Render: AI for the Presentation You Actually Hand Over, ArchiGen AI</title>
+<meta name="description" content="Every 2026 AI tool list is about making the render. The render was never the part that won the room. A look at the AI that helps after the image is made: the narrative, the board, the walkthrough, and where it quietly makes your presentation forgettable." />
+<link rel="canonical" href="https://archigenai.com/ai-presentation-layer-architects-beyond-render-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-presentation-layer-architects-beyond-render-2026.html" />
+<meta property="og:title" content="After the Render: AI for the Presentation You Actually Hand Over" />
+<meta property="og:description" content="The render is one slide in an argument. AI made that slide cheap and left the argument untouched. Where AI helps after the image, and where it makes the room forget you." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="After the Render: AI for the Presentation You Actually Hand Over" />
+<meta name="twitter:description" content="Tool lists obsess over making the render. The room is won after it. The AI worth using on the narrative, the board and the walkthrough, and where it flattens you." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "After the Render: AI for the Presentation You Actually Hand Over",
+  "description": "Every 2026 AI tool list is about making the render. The render was never the part that won the room. A look at the AI that helps after the image is made: the narrative, the board, the walkthrough, and where it quietly makes your presentation forgettable.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-21T08:00:00-04:00",
+  "dateModified": "2026-06-21T08:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-presentation-layer-architects-beyond-render-2026.html",
+  "articleSection": "Opinion",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI architecture presentation", "AI client presentation architects", "AI project narrative architecture", "AI pitch deck architects", "presentation board AI 2026", "beyond rendering AI architects", "AI design statement writing"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can AI write an architectural project narrative or design statement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can draft one, and a draft is worth having when the alternative is a blank page the night before a pin-up. A language model will turn your bullet points about site, brief and intent into clean prose in a minute. What it cannot do is know which one idea the project is actually about, so it writes evenly, giving every point the same weight. Use it to get words on the page, then cut it down to the single argument and put your own voice back into the parts the client will remember."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI tools help build an architecture client presentation, not just the render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The work splits into three jobs. For the narrative and board copy, a general language model drafts and tightens text. For the deck and board layout, tools like Gamma, Tome, Canva and Adobe Express assemble pages from your assets quickly. For motion, the real-time engines that already hold your model, such as D5, Twinmotion and Enscape, plus AI video tools, can cut a flythrough into a short client sequence. None of them decide what the presentation argues. That part is still yours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does AI get wrong in a client presentation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It defaults to even, and even is forgettable. AI narrative gives every point equal weight, AI layout spaces every slide the same, and the result is a presentation with no shape, where the one drawing that should stop the room is the same size as the parking diagram. A presentation is an argument with emphasis. The machine is good at the assembly and bad at the emphasis, so the editing, the sequencing and the single loud moment have to come from you."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Opinion · 21 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>After the <em>render.</em></h1>
+    <p class="lede">No client has ever approved a building because one render was beautiful. They approve because they understood the project, and the render is one slide inside that understanding. This week's AI tool lists are, almost without exception, about making that one slide. The slide was never the part that won the room, and AI has now made it the cheapest thing in the presentation.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Opinion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Watch a Friday pin-up and you can see where the hours went. The hero render is gorgeous, lit to the minute, color graded twice. The board it sits on was thrown together at midnight, the project narrative is three sentences nobody edited, and the walkthrough is a raw flythrough with the camera still bumping into a wall at second forty. The most expensive image in the room is carrying a presentation that was assembled in the last hour, and the partners wonder why the client went quiet.</p>
+
+    <p>Scroll any current roundup of AI tools for architects and the imbalance gets worse, not better. The lists are wall to wall renderers, enhancers and sketch-to-image engines. One video in this week's sweep stood out for even naming the problem, promising a tool that helps "not just with rendering, but with developing and presenting." Almost nothing else does. The image is the part the market sells you tools for, because the image is easy to demo. The presentation is the part that decides whether the project moves, and it has been left to whatever you can manage after the render is finally done.</p>
+
+    <h2>The render is not the deliverable</h2>
+
+    <p>A render is bait. It buys you a few seconds of attention and a held breath. What you do with those seconds is the actual work, and that work is an argument: this is the site, this is the move, this is why it is right, here is the one thing you should remember when you leave. The render is one piece of evidence in that argument. It is not the argument.</p>
+
+    <p>This matters more now because the render stopped being a differentiator. When every firm down the street can produce a clean image, and the tools have <a href="ai-renders-look-the-same-tool-convergence-2026.html">converged so the outputs increasingly look alike</a>, the picture quality is table stakes. Nobody loses the job on render quality anymore, and almost nobody wins it there either. The win moved downstream, to the part of the presentation that AI tool lists ignore, which is the part where you make a person believe.</p>
+
+    <blockquote>The render got cheap. The argument it is supposed to support did not. Tool lists keep optimizing the part that was already solved.</blockquote>
+
+    <h2>Where AI actually helps after the image</h2>
+
+    <p>This is not an argument against AI. It is an argument for pointing it at the right stage. Three jobs sit between a finished render and a client decision, and AI is genuinely useful in each, as long as you keep your hand on the wheel.</p>
+
+    <h3>The narrative</h3>
+    <p>The project narrative, the design statement, the board copy, the email that goes with the deck. This is where most architects bleed time and most presentations go flat, because writing under deadline is hard and nobody trained for it. A language model will take your notes on site, brief and intent and return clean prose in a minute. That is a real gain on a blank page. The catch is that it writes evenly, giving the structural concept the same weight as the bike storage, because it does not know which idea the building is about. So you use it for the draft and then you do the thing it cannot: cut to the single argument, and put a human sentence back where the client will remember one.</p>
+
+    <h3>The board and the deck</h3>
+    <p>Assembling pages, sizing images, keeping type consistent across forty slides. Tools like Gamma, Tome, Canva and Adobe Express now build a presentable deck from your assets in the time it used to take to fix the margins on slide one. For an internal review or a fast first pass, that speed is worth a lot. Treat the output as a starting grid, not a finished layout. The machine spaces everything the same, and a presentation that is evenly spaced is a presentation with no emphasis, which is the next problem.</p>
+
+    <h3>The walkthrough</h3>
+    <p>The real-time engines you already use, D5, Twinmotion, Enscape, the same ones absorbing AI features this year, will turn a model into a moving sequence, and AI video tools can clean and cut it. The temptation is to show all four minutes because you have them. Do not. A client remembers a tight forty-five second sequence that arrives somewhere. They endure the four minute version and forget it. The editing is the value, and editing is a decision about what to leave out, which no tool will make for you.</p>
+
+    <h2>What AI gets wrong in the room</h2>
+
+    <p>The failure is always the same shape, across all three jobs. AI defaults to even, and even is forgettable. The narrative gives every point equal airtime. The layout gives every slide equal space. The video gives every space equal screen time. You end up with a smooth, professional, completely flat presentation, where the one drawing that should stop the room is the same size as the parking diagram, and the idea that should land arrives in the same tone as the fire egress note.</p>
+
+    <p>A presentation is an argument with a shape. It builds, it has a loud moment, it resolves. That shape is made of emphasis, and emphasis is a series of choices about what matters most, made by someone who knows the project and knows the audience in the chair. The machine is excellent at the assembly and blind to the emphasis. If you let it do both, you get a deck that looks like every other deck a model has ever produced, and the client feels the sameness even if they cannot name it.</p>
+
+    <h3>A short check before the deck goes out</h3>
+    <ul>
+      <li><strong>One argument?</strong> Say what the project is about in a sentence. If the deck does not build toward that sentence, it has no spine, and the AI draft will not give it one.</li>
+      <li><strong>One loud moment?</strong> There should be a single slide that is bigger, slower, or quieter than the rest. If everything has the same weight, nothing does.</li>
+      <li><strong>Your voice in the open and close?</strong> Let the model draft the middle. The first line and the last line are where a person decides you are worth listening to, so write those yourself.</li>
+      <li><strong>Cut for time?</strong> If the walkthrough is over a minute or the deck is over the slides you can defend out loud, you have not finished editing.</li>
+    </ul>
+
+    <h2>Our take: <em>spend the saved hours on the argument</em></h2>
+
+    <p>The honest read on this wave of tools is that it gave back real hours at the render and the layout, and those hours are now yours to reinvest. The mistake is reinvesting them in a prettier render. Put them into the part the tools cannot touch: the sequence, the one-line why, the objection you already know is coming and the slide that answers it before it is asked. That is where presentations are won, and it is exactly the work that does not show up on a tool list because nobody can sell you a button for it.</p>
+
+    <p>So use the machine. Let it draft the narrative, frame the deck, cut the flythrough, and hand you back the evening you used to lose. Then do the work that earns the room. <a href="ai-design-thinking-not-just-rendering-2026.html">Design thinking did not move into the render</a>, and neither did persuasion. The render gets the gasp. The argument gets the signature.</p>
+
+    <p>The best render in the room loses to the worst render with the better story. Build the story, and let the picture do the small job it was always there to do.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on this week's intel sweep of 2026 AI tool roundups for architects, vendor materials for the presentation and rendering tools named, and Vista Studios hands-on use of language, deck and real-time tools on live client presentations. Tool features change; verify current capabilities before relying on any one. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-design-thinking-not-just-rendering-2026.html" class="related-card">
+          <div class="rc-tag">Opinion · 2026</div>
+          <div class="rc-title">Design Thinking, Not Just Rendering: Where AI Stops</div>
+        </a>
+        <a href="ai-renders-look-the-same-tool-convergence-2026.html" class="related-card">
+          <div class="rc-tag">Opinion · 2026</div>
+          <div class="rc-title">Why AI Renders Are Starting to Look the Same</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
