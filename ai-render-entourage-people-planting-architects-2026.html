@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>The Crowd in the Render: Fixing AI Entourage for Architects, ArchiGen AI</title>
+<meta name="description" content="The building in your AI render holds up. The people in it do not. A practical look at entourage in 2026: why AI puts the same beige crowd in every image, where it breaks under a client's zoom, and how to direct a crowd that actually belongs in your project." />
+<link rel="canonical" href="https://archigenai.com/ai-render-entourage-people-planting-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-entourage-people-planting-architects-2026.html" />
+<meta property="og:title" content="The Crowd in the Render: Fixing AI Entourage for Architects" />
+<meta property="og:description" content="AI fills your render with people, planting and cars, and most of them are wrong for the project. Where the crowd breaks, and how to direct one that belongs." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="The Crowd in the Render: Fixing AI Entourage for Architects" />
+<meta name="twitter:description" content="Entourage is the cheapest tell of an AI render. The same beige crowd, the broken hands, the people who do not match your program, and the fixes that hold up." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Crowd in the Render: Fixing AI Entourage for Architects",
+  "description": "The building in your AI render holds up. The people in it do not. A practical look at entourage in 2026: why AI puts the same beige crowd in every image, where it breaks under a client's zoom, and how to direct a crowd that actually belongs in your project.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-21T12:00:00-04:00",
+  "dateModified": "2026-06-21T12:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-entourage-people-planting-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI render entourage", "people in architecture renders AI", "AI staffage architects", "fix AI render people", "architectural render entourage 2026", "believable people AI render", "entourage assets vs AI render"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why do the people in AI architecture renders look wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two reasons. First, the model was trained to make a plausible image at a glance, not a correct one under a zoom, so faces, hands and feet fall apart the moment a client enlarges the picture. Second, the model has no idea who your building is for, so it reaches for the average person in its training data, which is why the same well-dressed, idle figures turn up in a daycare, a clinic and a luxury lobby. The architecture is generated from your geometry. The crowd is generated from a stereotype."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best way to add people to an AI render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Match the method to the distance. For figures in the deep background, the AI-generated crowd is fine because nobody will look closely. For anyone near the camera, replace the hallucinated figure with a real photo-cutout or a 3D entourage asset from your render engine, where you control scale, pose and placement and the detail survives a zoom. The fast middle path is to mask just the people and regenerate or inpaint that region, leaving the building you already approved untouched."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should architects use AI-generated entourage or 3D entourage assets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both, by zone. 3D and photo-cutout entourage libraries from Enscape, Twinmotion, D5 and stock providers give you placement control and hold up in the foreground of a hero shot. AI-generated people are quick and free and good enough for distant or blurred figures and for early concept passes where the crowd only sets mood. The mistake is letting one method carry the whole image: AI everywhere reads as uncanny up close, hand-placed assets everywhere is slow and often stiff in the background."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 21 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The crowd in the <em>render.</em></h1>
+    <p class="lede">The building in an AI render is generated from your model, so it mostly behaves. The people are generated from a stereotype, so they mostly do not. They are the same beige figures in every project, they break the instant a client zooms in, and they are doing nothing that belongs in the room you designed. Entourage is the cheapest tell of an AI image, and almost nobody spends the ten minutes to fix it.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Open a fresh AI exterior on a thirty-inch monitor and the first pass looks great. Then the principal leans in and points the cursor at the plaza, and there it is: a woman with a coffee cup fused to her wrist, a man whose far leg ends at the ankle, two figures sharing the same face thirty feet apart, and a child scaled to the height of the door handle. The building is fine. The crowd is a horror show, and that is the part the client zoomed into.</p>
+
+    <p>Entourage is the oldest trick in architectural drawing. The little figures Schinkel and the Beaux-Arts draftsmen tucked into their elevations were never decoration. They told you how big the building was, who it was for, and what kind of day it was. AI renderers inherited the habit and dropped the intent. They will populate any scene on command, instantly and for free, and they will do it without knowing a single thing about your project. That gap, between a crowd that is present and a crowd that belongs, is where most AI renders give themselves away.</p>
+
+    <h2>Entourage was never just <em>scale figures</em></h2>
+
+    <p>A figure in a render does three jobs at once. It sets scale, so the eye reads the ceiling height and the width of the stair. It declares program, because a teenager with a skateboard says public plaza and a man in a suit checking his watch says corporate lobby, and you cannot show both in the same picture without confusing the client about what they are buying. And it sets mood, the difference between a building that feels used and loved and one that feels like an empty render of a building.</p>
+
+    <p>Get the people right and the client pictures themselves inside. Get them wrong and the whole image tips into the uncanny, even when the architecture is flawless, because a person looks at a person before they look at a wall. This is the quiet reason a technically perfect render can still land flat. The geometry was solved and the crowd was an afterthought, and the human eye weights the crowd more heavily than the wall behind it.</p>
+
+    <h2>What AI gets wrong about the crowd</h2>
+
+    <p>The failures cluster into three, and once you can name them you cannot stop seeing them.</p>
+
+    <h3>The same beige people everywhere</h3>
+    <p>Image models reach for the center of their training data, so they hand you the same handful of figures over and over: a couple in neutral coats, a lone woman with a tote, a businessman mid-stride. They show up in your community library, your clinic and your penthouse with equal confidence, because the model has no program to match them to. As the tools <a href="ai-renders-look-the-same-tool-convergence-2026.html">converge on the same look</a>, the crowd converges too, and an experienced reviewer starts to recognize the cast. A render full of stock-model strangers reads, correctly, as a render nobody directed.</p>
+
+    <h3>The uncanny zoom</h3>
+    <p>A model optimizes for a convincing thumbnail, not a correct enlargement. At fit-to-screen the people pass. At one hundred percent, the zoom every serious client uses, the hands grow a sixth finger, the faces smear, the feet melt into the paving and the shadows do not match the body that casts them. It is the same hallucination problem that afflicts the architecture, just harder to catch because we forgive geometry faster than we forgive a broken face. Run the <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">same zoom-level QA you use on the building</a> on the people, and you will find more there.</p>
+
+    <h3>The wrong program, doing nothing</h3>
+    <p>Even when a figure is clean, it is often inert, or worse, busy with the wrong activity. Renders fill up with people standing and facing the camera like extras waiting for a cue, when the building is supposed to be full of people using it. A library wants someone reading, a kid on the floor with a book, a librarian at a desk. A transit hall wants movement and luggage. The model gives you mannequins in motion-capture neutral, and a client cannot imagine living in a building whose occupants have nothing to do.</p>
+
+    <blockquote>The architecture is generated from your geometry. The crowd is generated from a stereotype. One of those you reviewed. The other you let the machine cast.</blockquote>
+
+    <h2>How to actually fix the crowd</h2>
+
+    <p>The fix is not to ban AI people. It is to stop letting one method carry the whole image, and to spend your attention where the client's will go. The governing rule is distance.</p>
+
+    <h3>Match the method to the distance</h3>
+    <p>For figures in the deep background, soft and small, the AI-generated crowd is fine. Nobody zooms a blur, and the people there are doing the mood job, not the detail job. For anyone in the foreground or middle ground, where a face is readable, swap the hallucinated figure for a real photo-cutout or a 3D entourage asset. The libraries built into Enscape, Twinmotion and D5, plus stock cutout packs, give you posed, scaled, programme-appropriate people that hold up at full zoom because they are photographs of actual humans, not a model's guess at one. You place them, so you control where they look and what they are doing.</p>
+
+    <h3>Mask the people, keep the building</h3>
+    <p>The fast middle path, and the one worth learning, is targeted regeneration. Mask only the figure that is broken and inpaint or regenerate that region in ComfyUI, or paint over it with generative fill in Photoshop, leaving the architecture you already approved untouched. This is the same hand-finishing discipline that separates a usable AI render from a raw one, applied to the crowd: <a href="finishing-ai-render-by-hand-architects-2026.html">the last mile is done by hand</a>, and the people are most of that last mile. A five-minute pass replacing two foreground figures and deleting a melted one will do more for credibility than another hour on the lighting.</p>
+
+    <h3>Direct, do not just generate</h3>
+    <p>If you are prompting the crowd, prompt it like a director, not a headcount. Name the program, the activity and the time of day. Ask for fewer people doing specific things rather than a plaza full of extras. The planting follows the same logic: AI loves to drop generic shrubs and impossible trees at the building's base, so treat greenery as something you specify and check, not something you accept. A bench with one person eating lunch under a tree that could grow in that climate beats a packed atrium of strangers every time.</p>
+
+    <h3>A short entourage check before the render goes out</h3>
+    <ul>
+      <li><strong>Zoom to one hundred percent.</strong> Count fingers, check faces, look at where feet meet the ground. Fix or delete anything that breaks. The client will run this check, so run it first.</li>
+      <li><strong>Scale pass.</strong> Heads should sit near a consistent eye-line on flat ground. A figure too tall or too short rereads the whole building's size and undoes your proportions.</li>
+      <li><strong>Program match.</strong> Ask out loud who these people are and whether they belong in this building. If the same figure would fit a bank and a skate park, it is wrong for both.</li>
+      <li><strong>Repetition.</strong> Scan for the same face or outfit appearing twice. One duplicate is all it takes to announce the image was machine-cast.</li>
+      <li><strong>Doing something.</strong> Every readable figure should have a believable activity tied to the program. Standing and facing out is the tell of an empty render wearing a crowd.</li>
+    </ul>
+
+    <h2>Our take: <em>cast the room you designed</em></h2>
+
+    <p>The people are not garnish. They are the fastest signal a client reads about whether your building works, and they are the single easiest thing to get visibly, embarrassingly wrong with AI. The good news is that the fix is cheap. You do not need a new tool or a bigger model. You need to treat the crowd as a thing you direct, the way you already direct the camera and the light, and to spend on the foreground figures the same care you would never skip on a hand drawing.</p>
+
+    <p>So let the machine fill the far edges of the plaza. Then go cast the front of the room yourself: a few real people, scaled right, doing the thing your building exists to let them do. It is ten minutes, and it is the difference between a render the client lives inside and one they squint at, looking for the mistake they can already feel.</p>
+
+    <p>A building is judged by who you put in it. Stop letting a stranger do the casting.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on this week's intel sweep of 2026 AI rendering discussion for architects, including community threads on enhancing renders and adding detail in ComfyUI and Photoshop, vendor entourage libraries in the real-time engines named, and Vista Studios hands-on use of AI and asset-based entourage on live client renders. Tool features change; verify current capabilities before relying on any one. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-renders-look-the-same-tool-convergence-2026.html" class="related-card">
+          <div class="rc-tag">Opinion · 2026</div>
+          <div class="rc-title">Why AI Renders Are Starting to Look the Same</div>
+        </a>
+        <a href="finishing-ai-render-by-hand-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Finishing an AI Render by Hand: The Last Mile</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
