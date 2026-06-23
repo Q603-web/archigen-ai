@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>AI Rendering for Landscape Architects: Why the Building Tools Fall Short in 2026, ArchiGen AI</title>
+<meta name="description" content="Most AI render tools were trained on buildings, not planting plans. They invent tree species, flatten your grading, and ignore the slope. What actually works for landscape architects in 2026, and where to stop trusting the model." />
+<link rel="canonical" href="https://archigenai.com/ai-rendering-landscape-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-rendering-landscape-architects-2026.html" />
+<meta property="og:title" content="AI Rendering for Landscape Architects: Why the Building Tools Fall Short" />
+<meta property="og:description" content="AI render tools invent species, flatten grading, and ignore slope. What works for planting plans, terrain and masterplans in 2026, and where to stop trusting the model." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="AI Rendering for Landscape Architects in 2026" />
+<meta name="twitter:description" content="The render tools were trained on facades, not planting. What actually serves site plans, terrain and masterplans, and where the model quietly lies." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Rendering for Landscape Architects: Why the Building Tools Fall Short in 2026",
+  "description": "Most AI render tools were trained on buildings, not planting plans. They invent tree species, flatten your grading, and ignore the slope. What actually works for landscape architects in 2026, and where to stop trusting the model.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-23T08:30:00-04:00",
+  "dateModified": "2026-06-23T08:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-rendering-landscape-architects-2026.html",
+  "articleSection": "Practice",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI rendering landscape architects 2026", "AI render planting plan accuracy", "landscape architecture AI visualization", "Lumion vegetation AI", "D5 Render landscape", "Veras planting render", "AI masterplan rendering"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can AI render tools handle planting plans accurately for landscape architects?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for species accuracy. AI render tools generate plausible foliage, but they do not read a planting schedule, so they invent species, sizes and seasons. The trees in the output are decorative, not the ones you specified. For a render that has to match a real planting plan, the reliable path is a tool with a curated species library, Lumion or D5 Render, where the plant is a placed asset rather than a guess. AI is best used to enhance the mood and light of those renders, not to decide what is growing in them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do AI renders flatten terrain and grading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because most image models were trained on photographs of buildings, where the ground is a flat plane, so they treat slope as a texture rather than geometry. Feed an image tool a graded site and it will often return a level lawn with the retaining wall removed. The fix is to keep the render anchored to your actual model: drive the AI from a geometry-aware tool that respects the surveyed surface, and treat any free-form image generator as a final-pass enhancer on a view that already has the correct levels baked in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best AI workflow for a landscape masterplan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep the plan accurate and let AI handle the eye-level. A masterplan is a measured document, so the layout, areas and circulation should come from your CAD or GIS base, not a generative model that will redraw paths it does not understand. Use AI rendering where it earns its keep: turning a single key view, an entry plaza or a waterfront edge, into a photoreal image that communicates atmosphere. The masterplan stays a drawing; the hero shots become renders."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Practice · 23 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>AI rendering for <em>landscape architects.</em></h1>
+    <p class="lede">A landscape architect feeds a carefully resolved planting plan into the AI render tool the whole office swears by, and gets back a gorgeous park. Lush, golden hour, full of trees. None of them are the species on the schedule, the gentle three percent slope has become a billiard table, and the retaining wall has quietly vanished. The image is beautiful and useless, and that gap is the whole story.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Practice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Almost every AI rendering tool architects use was trained, fine-tuned and demoed on buildings. Facades, interiors, the occasional streetscape. The marketing reel is a glass tower at dusk, not a planted courtyard, and that bias runs deeper than the demos. The models learned what a convincing image looks like from millions of photographs where the ground is a flat plane and the greenery is set dressing. Hand that same model the work of a landscape architect, where the ground is the project and the planting is the brief, and the cracks show fast.</p>
+
+    <p>This is not a small niche complaint. Threads on the landscape architecture forums keep landing on the same frustration: the tools that wow building architects produce renders that a landscape office cannot put in front of a client without an apology. The problem is real, but it is specific, and once you name the three places these tools fail you can build a workflow that uses AI for what it is good at and keeps it away from the decisions it gets wrong.</p>
+
+    <h2>Three things the model gets <em>wrong</em></h2>
+
+    <p>Start with the failures, because pretending they are not there is how a studio ships a render that contradicts its own construction set.</p>
+
+    <p><strong>It invents the planting.</strong> An AI image tool does not read a planting schedule. It has no concept of <em>Quercus palustris</em> versus a generic round tree, no sense that you specified a multi-stem birch and got back a single-trunk oak. It generates plausible foliage, which is exactly the problem, because plausible is not specified. For a concept board that is fine. For a render that a contractor or a planning officer reads as a commitment, an invented species list is a liability, not a flourish.</p>
+
+    <p><strong>It flattens the ground.</strong> Grading is the heart of landscape work and the thing image models understand least. Feed a free-form generator a sloped site and it will often hand back a level lawn, soften the steps into a ramp it imagined, and delete the retaining wall because nothing in its training said the wall had to be there. The model treats slope as a texture, a bit of shading, rather than as geometry with rules. A render that gets the levels wrong is worse than no render, because someone downstream will trust it.</p>
+
+    <p><strong>It cannot hold a season or a year.</strong> Landscape is the one discipline where time is part of the drawing. You design for the canopy at fifteen years, the perennials in their second summer, the deciduous edge in winter when the screening drops away. AI tools default to a single peak-summer fantasy, every tree mature, every bed in flower, every day cloudless. That single happy season oversells the scheme and hides the months a client actually needs to understand.</p>
+
+    <blockquote>The building tools render a moment. Landscape design is the argument that the moment changes.</blockquote>
+
+    <h2>Where AI actually <em>earns</em> its place</h2>
+
+    <p>None of that means landscape architects should sit the tools out. It means using them as a finishing layer over geometry you control, not as the source of truth. The reliable pattern in 2026 looks like this: build the scene in a tool that treats plants as placed assets, then let AI do the light, the atmosphere and the polish.</p>
+
+    <p><strong>Lumion and D5 Render</strong> remain the workhorses here for a reason that has nothing to do with hype. Both ship large, curated vegetation libraries where a tree is an object you choose and place, not a phrase the model interprets. You get species you can name, growth states you can set, and seasonal variants you can switch. Their AI features sit on top of that, enhancing materials and sky and reflections, while the planting stays exactly where you put it. That division of labour, accurate assets underneath, AI enhancement on top, is the one that survives contact with a real client. We covered the broader version of this split in our <a href="ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html">enhancer versus pipeline breakdown</a>.</p>
+
+    <p><strong>Veras</strong>, driven from SketchUp or Rhino, is the option for offices that model their own context. Because it uses your geometry as the substrate and renders from it rather than from a text prompt, the massing, the levels and the hard landscape hold. You will still want to place key trees as real geometry rather than trusting the generation to invent them, but the bones of the site stay true. The same logic that makes <a href="veras-nano-banana-2-engine-architects-2026.html">geometry-anchored rendering</a> trustworthy for buildings applies doubly to sites, where the geometry is the design.</p>
+
+    <p><strong>ComfyUI and Stable Diffusion</strong> are the right tool for one specific job: detailing foliage and ground texture on a view that is already correct. If you have a render with the right levels and the right tree positions but the planting reads flat or plasticky, a controlled diffusion pass can add depth, dappled light and the kind of textural richness that a real-time engine struggles with. Used that way, on a locked composition, it enhances. Used as the generator, it hallucinates. The difference is whether you hand it a finished frame or a blank prompt, and you can read the full version of that argument in our notes on <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">catching geometry hallucination before it ships</a>.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Job</th><th>Trust the AI?</th><th>What to do instead</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Species-accurate planting</td><td class="note">No</td><td>Place real assets in Lumion or D5, label them</td></tr>
+        <tr><td>Site grading and levels</td><td class="note">No</td><td>Render from surveyed geometry, never from a flat prompt</td></tr>
+        <tr><td>Masterplan layout</td><td class="note">No</td><td>Keep it a measured drawing from CAD or GIS</td></tr>
+        <tr><td>Eye-level atmosphere and light</td><td class="winner">Yes</td><td>AI enhancement over a correct base render</td></tr>
+        <tr><td>Foliage texture and depth</td><td class="winner">Yes, on a locked view</td><td>ComfyUI pass on a finished composition</td></tr>
+        <tr><td>Mood and concept boards</td><td class="winner">Yes</td><td>Free-form generation, labelled as concept</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The masterplan trap</h2>
+
+    <p>The most expensive mistake is asking AI to render a masterplan. A masterplan is a measured document: areas, circulation, drainage zones, phasing. A generative model will happily redraw it, prettier and wrong, moving a path it did not understand and merging two zones it could not tell apart. Keep the plan as a drawing that comes from your CAD or GIS base, where every line means something, and aim the AI at the places it helps. Turn the entry plaza into a photoreal eye-level image. Render the waterfront edge at the hour that sells the scheme. Let the masterplan stay a plan and let the hero views become renders. That separation keeps the accuracy where accuracy is contractual and the atmosphere where atmosphere is persuasive.</p>
+
+    <p>There is a quieter benefit to working this way. When the plan is a drawing and the renders are clearly renders, nobody confuses the two. The client reads the masterplan as the binding layout and the perspectives as the feeling, which is exactly how a landscape proposal is supposed to land. The trouble starts only when a single AI image tries to be both at once, and ends up trusted as neither.</p>
+
+    <h2>Our take: <em>borrow the building tools, refuse their defaults</em></h2>
+
+    <p>Landscape architects are not badly served by AI rendering. They are served by tools that were tuned for a different problem and then handed over without a manual. The fix is not to wait for a planting-aware model that may never arrive at scale; it is to invert the trust. Let the AI touch light, mood, weather and texture, the things it is genuinely good at, and never let it decide what is planted, how the ground falls, or where a path goes. Those belong to the survey, the schedule and the plan, the documents that carry your name when the thing gets built.</p>
+
+    <p>Do that, and the same tools the building architects rave about become quietly useful to you, not because they finally understood landscape, but because you stopped asking them to. The render is for the feeling. The drawing is still the design.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Based on this week's intel sweep of 2026 AI rendering coverage for architects, including landscape architecture community discussion of tool accuracy, current vegetation-library and AI-enhancement features in real-time renderers, and Vista Studios hands-on use of geometry-anchored render workflows. Tool features change; verify a renderer's current planting and terrain handling before standardising on it. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-render-entourage-people-planting-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Entourage, People and Planting in AI Renders</div>
+        </a>
+        <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Catching Geometry Hallucination Before It Ships</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
