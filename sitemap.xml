@@ -993,4 +993,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-06-27 Workflow -->
+  <url>
+    <loc>https://archigenai.com/comfyui-interior-visualization-architects-2026.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
