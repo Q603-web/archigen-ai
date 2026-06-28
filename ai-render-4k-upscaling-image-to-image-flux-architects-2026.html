@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Getting AI Architecture Renders to 4K Without Wrecking the Geometry | ArchiGen AI</title>
+<meta name="description" content="A single diffusion pass cannot give you a clean 4K architectural render. Push the resolution and the model duplicates windows and bends straight lines. The tiled image-to-image method, the denoise setting that preserves structure, and how to upscale a Flux or ComfyUI render for print without losing the building." />
+<link rel="canonical" href="https://archigenai.com/ai-render-4k-upscaling-image-to-image-flux-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-4k-upscaling-image-to-image-flux-architects-2026.html" />
+<meta property="og:title" content="Getting AI Renders to 4K Without Wrecking the Geometry" />
+<meta property="og:description" content="One diffusion pass cannot reach a clean 4K. The tiled image-to-image method, the denoise dial that keeps your building straight, and how to upscale a Flux or ComfyUI render for print." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="AI Renders to 4K Without Wrecking the Geometry, 2026" />
+<meta name="twitter:description" content="Push a render straight to 4K and the model invents extra windows and wobbles every straight line. Tiled image-to-image, low denoise, and structure control are the fix. The settings architects get wrong." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Getting AI Architecture Renders to 4K Without Wrecking the Geometry",
+  "description": "A single diffusion pass cannot produce a clean 4K architectural render. Push the resolution and the model duplicates windows and bends straight lines. The tiled image-to-image method, the denoise setting that preserves structure, and how to upscale a Flux or ComfyUI render for print without losing the building.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-28T15:00:00-04:00",
+  "dateModified": "2026-06-28T15:00:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-4k-upscaling-image-to-image-flux-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI render 4K upscaling architects", "Flux ComfyUI image to image architecture", "tiled diffusion upscale render", "denoise strength architecture render", "ControlNet tile upscale", "upscale AI render for print"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does pushing an AI render straight to 4K break the image?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diffusion models are trained around one or two megapixels. Ask one to generate a 3840 pixel image in a single pass and it has no idea what to put in the extra space, so it repeats. You get duplicated windows, a second set of balconies, doubled people, and brick coursing that drifts out of alignment. The fix is not a bigger single render. It is to generate at the model's native resolution where the composition holds, then enlarge that good image through a separate upscaling pass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What denoise strength keeps the building accurate when upscaling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For architecture, keep the denoise on the upscale pass low, roughly 0.2 to 0.35. That gives the model enough freedom to sharpen and add fine grain without licence to reinvent the structure. Above about 0.45 each tile starts redesigning what it sees, so window mullions shift, edges wobble, and details stop matching across tile boundaries. Low denoise plus a structure-locking control input is the combination that adds resolution while leaving the geometry alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you upscale a render in tools other than ComfyUI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Dedicated enhancers such as Magnific, Krea, and the upscalers built into D5 and the Chaos tools run the same tiled approach behind a simpler interface, trading control for speed. ComfyUI gives you the dials directly, which matters when straight lines and accurate openings are non-negotiable. For most client stills a one-click enhancer is fine; for a print-scale hero or anything a planner will scrutinise, the manual tiled pipeline earns its time."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Workflows for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Workflows for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 28 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The render that <em>fell apart</em> at 4K.</h1>
+    <p class="lede">It looks immaculate at screen size. Then the client wants it at A1 for the boardroom wall, you push the same prompt to 3840 pixels, and the model hands back a building with one window too many, a phantom balcony, and brick that ripples like it is underwater. The image did not get bigger. It got confused. This is the most common ask in the ComfyUI and Flux threads right now, and the answer is not a bigger render. It is a different pass.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Two of the busiest community threads this week were the same question worded twice: how do I take a Flux or ComfyUI architecture render up to 4K, and why does it keep breaking when I try. One was a beginner asking about image-to-image at 4K for renders, the other a longer workflow thread on enhancing exterior images with reflections, vegetation, and material detail. Both run into the same wall, and it is worth understanding the wall before reaching for a node.</p>
+
+    <p>The short version: a diffusion model is not an enlarger. It is a generator with a comfortable working size, and architecture is the worst possible subject to push past that size carelessly, because architecture is made of the two things these models are weakest at, repeating elements and dead straight lines.</p>
+
+    <h2>Why one pass cannot give you <em>4K</em></h2>
+
+    <p>Every diffusion model has a resolution it was trained around. For the SDXL generation that was roughly a megapixel, near 1024 pixels square. The Flux models work comfortably higher, into the one-to-two megapixel range, which is part of why they took over archviz pipelines this year. But none of them were trained to compose a single coherent image at 3840 pixels wide. Ask for that in one shot and the model fills the unfamiliar canvas the only way it knows, by tiling its own training patterns. On a portrait it adds a second nose. On a facade it adds a second row of windows, because it has no model of "this building has exactly nine bays" and every reason to think more windows means more building.</p>
+
+    <p>So the rule is simple and it does not change between tools. Generate the composition at the resolution the model is good at, where the bay count is right and the massing reads true, and treat reaching 4K as a separate problem solved by a separate pass. Get the picture right small. Make it big second. Never ask one render to do both.</p>
+
+    <h2>The move: upscale in <em>tiles, not in one shot</em></h2>
+
+    <p>The working method is tiled image-to-image. You take your good base render, enlarge it with a conventional upscaler first so the pixels exist, then run diffusion back over it in overlapping tiles, refining each patch at a size the model can actually handle. The whole image never goes through the model at 4K. A 768 or 1024 pixel tile does, many times, and the tiles are stitched with overlap so the grain stays consistent. In ComfyUI this is the Ultimate SD Upscale node or a tiled-diffusion setup. The Flux ecosystem has its own tile and upscale controls, and the one-click enhancers wrap exactly this process behind a slider.</p>
+
+    <p>That alone fixes the duplicate-window problem, because no single tile ever sees enough of the building to decide it needs more of it. Each tile only sharpens the patch in front of it. But tiling introduces its own two risks, and both are decided by settings most people never touch.</p>
+
+    <h3>The denoise dial decides everything</h3>
+
+    <p>Denoise strength is how much licence each tile gets to change what it sees. This is the single setting that separates a clean upscale from a quietly redesigned building. Set it high, above 0.45 or so, and every tile treats its patch as an invitation to improve, so a mullion shifts here, a transom appears there, and across a tile boundary two halves of the same window no longer agree. Set it low, around 0.2 to 0.35 for architecture, and the model adds grain, sharpens reflections, and resolves material texture without rewriting the structure underneath. Low denoise is not the timid choice. It is the correct one for any image where the geometry has to survive.</p>
+
+    <h3>Lock the structure with control</h3>
+
+    <p>Low denoise alone still drifts on long runs of brick and glass. The fix is a control input that pins each tile to the source. A tile-type ControlNet, fed the base image, tells every patch to stay faithful to what was already there, which is exactly what you want when the answer is "more detail, same building." For edges specifically, a lineart or depth control holds the straight lines that diffusion loves to bend. Flux has its own depth and edge tools that do the same job. Stack a tile control with low denoise and the upscale becomes what the client thinks a render already is, the same image with more truth in it, not a remix.</p>
+
+    <h2>The failures that are <em>specific to buildings</em></h2>
+
+    <p>Portraits forgive a lot. Buildings do not, and three failure modes show up again and again once you start pushing resolution.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>What goes wrong</th><th>The cause</th><th>The fix</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Extra windows or balconies</td><td class="note">One-pass generation at oversize resolution</td><td class="winner">Compose at native res, upscale separately in tiles.</td></tr>
+        <tr><td>Wavy straight lines, rippling brick</td><td class="note">High denoise, no edge control</td><td class="winner">Drop denoise to ~0.3, add lineart or depth control.</td></tr>
+        <tr><td>Mismatched detail across the image</td><td class="note">Tiles refined with too much freedom</td><td class="winner">Tile-type ControlNet plus tile overlap and a fixed seed.</td></tr>
+      </tbody>
+    </table>
+
+    <p>The third one is the giveaway that an image was machine-enlarged without care, and it is the one clients notice without knowing why. Detail that is sharp in one corner and soft in another, brick that is convincing on the left return and mushy on the right, reads as cheap even to someone who could not name the problem. Overlapping tiles and a single fixed seed across the run keep the texture telling one story instead of forty.</p>
+
+    <h2>A pass order that <em>holds up</em></h2>
+
+    <p>None of this is hard once the order is right. The mistake is treating upscaling as a rescue for a render that was never right to begin with. Upscaling amplifies whatever is in the image, including the lies, so a hallucinated corner only gets a sharper, more convincing hallucinated corner. Fix the building first, then make it big.</p>
+
+    <ol>
+      <li><strong>Get the base render correct.</strong> Right bay count, right massing, geometry you would sign off, at the model's native resolution. Nothing downstream improves a wrong base.</li>
+      <li><strong>Upscale the pixels conventionally.</strong> A standard image upscaler brings the file up to target size so the tiles have something to work on.</li>
+      <li><strong>Refine in overlapping tiles at low denoise.</strong> Around 0.3, with a tile control fed from the base, so each patch sharpens without redesigning.</li>
+      <li><strong>Hold the edges.</strong> Add lineart or depth control where straight runs of facade need to stay straight.</li>
+      <li><strong>Check it against the model.</strong> Before it leaves the studio, confirm the 4K still matches the building you designed, the same discipline we set out in the geometry check.</li>
+    </ol>
+
+    <p>That last step is not optional, because a 4K image is the one most likely to go to print, to a wall, or to a planner, and the resolution that makes it impressive is the same resolution that makes a mistake unmissable. We wrote the full checking routine in <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">the geometry hallucination QA checklist</a>, and the upscale pass is exactly where you run it.</p>
+
+    <h2>Our take: resolution is the <em>last step, not the first</em></h2>
+
+    <p>The reason these threads keep filling up is that 4K feels like a setting you should be able to type in, and the tools encourage that belief by putting a resolution box right next to the prompt. It is not a setting. It is a second craft that sits on top of a finished image, and the firms producing clean print-scale renders are not the ones who found a magic upscaler. They are the ones who stopped asking a single pass to do two jobs.</p>
+
+    <p>If your work is mostly client stills at screen size, the one-click enhancers handle this well enough and the manual pipeline is overkill, a trade we weighed in <a href="ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html">the enhancer versus ComfyUI pipeline comparison</a>. The moment the deliverable is a hero at print size, or anything where a doubled window ends up on a boardroom wall, the tiled pass with low denoise and a structure control is the difference between a render and an enlarged guess.</p>
+
+    <blockquote>An upscaler cannot fix a building. It can only make whatever is already there harder to argue with.</blockquote>
+
+    <p>So compose small, where the model is honest. Enlarge in tiles, where it cannot get ambitious. Keep the denoise low and the edges pinned, and check the result against the thing you actually designed. Do that and 4K stops being the step where the render falls apart, and becomes the step where it finally looks like the building.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Drawn from this week's intel sweep of 2026 architectural visualization coverage, where community threads on r/StableDiffusion and r/FluxAI returned repeatedly to the same problem: taking Flux and ComfyUI architecture renders up to 4K with image-to-image, and the duplication and edge artifacts that follow. ArchiGen AI runs no sponsored placements and has no affiliate relationship with any tool named here.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html" class="related-card">
+          <div class="rc-tag">Comparison · 2026</div>
+          <div class="rc-title">AI Render Enhancer vs the ComfyUI Pipeline</div>
+        </a>
+        <a href="comfyui-advanced-tutorial.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">ComfyUI for Architects: The Advanced Tutorial</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
