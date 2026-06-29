@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Glass That Reflects the Wrong Sky: Reflections in AI Renders | ArchiGen AI</title>
+<meta name="description" content="The AI gives your glass tower a sparkling skyline that isn't on the site. Reflections are painted, not traced, so the model invents context, over-mirrors the glazing, and breaks across a set. How to make the glass show what is actually there." />
+<link rel="canonical" href="https://archigenai.com/ai-render-glass-reflections-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-glass-reflections-architects-2026.html" />
+<meta property="og:title" content="Glass That Reflects the Wrong Sky: Reflections in AI Renders" />
+<meta property="og:description" content="AI glass reflects a city that isn't on the site. Reflections are painted, not traced. How to make the glazing show the real context, at the right brightness, consistent across the set." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Fixing Reflections in AI Architectural Renders, 2026" />
+<meta name="twitter:description" content="The model defaults to mirror glass plus a fake skyline because it cannot trace what is actually around your building. Feed it the real context, mask the glazing, hold the brightness. The reflection tells." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Glass That Reflects the Wrong Sky: Reflections in AI Renders",
+  "description": "AI renders give glass facades reflections that are painted, not traced, so the model invents a skyline, over-mirrors the glazing, and breaks across a set. How to feed the real context, hold the reflectivity, and check the reflection against the site.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-29T09:15:00-04:00",
+  "dateModified": "2026-06-29T09:15:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-glass-reflections-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI render glass reflections", "architectural render reflective facade", "fix reflections AI render", "glazing render context", "HDRI reflection architecture render", "mask glass image-to-image"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does AI give a glass building reflections of a city that isn't on the site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diffusion models paint reflections as a learned texture, they do not trace what is actually around your building. The training data is full of glass towers downtown, so the model fills the glazing with a generic skyline because that is what reflective glass usually shows in the images it learned from. It has no way to know your site is a quiet street or open countryside unless you give it that context directly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you get correct reflections in an AI architectural render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you still hold the 3D model, render a reflection or environment pass against an HDRI of the real site so the glass mirrors the true surroundings, then style on top at low denoise. If you only have the flat image, mask the glazing and run a separate controlled pass on the glass alone, with a structure control holding the mullion grid and a prompt that names exactly what the glass should reflect, the overcast sky and the low building opposite rather than a generic city."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does AI glass look too much like a mirror?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The model defaults to maximum reflectivity because mirror-bright glass reads as premium in the marketing images it trained on. Real vision glass is partly transparent, showing the floor plates, mullions and interior behind it, while spandrel panels read differently again. If the prompt does not specify the interior should be faintly visible, the AI flattens the facade into a chrome sheet and loses the depth that tells a viewer it is a real building."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Workflows for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Workflows for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 29 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The glass is reflecting a city that <em>isn't there</em>.</h1>
+    <p class="lede">Your scheme is a four-storey infill on a tight residential street, brick on three sides, a glazed stair on the corner. You send the geometry through the render tool, ask for a clean afternoon view, and what comes back looks expensive. Too expensive. The stair glass is mirroring a glittering downtown skyline, glass towers and a low sun off water, none of which exists within ten miles of the actual corner. The building is right. The world reflected in it is fiction, and anyone who knows the street will see it in a second.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>This sits in the same family of complaints that filled the archviz and Flux threads this week, the ones asking for a pass that adds lighting, textures and reflections to a finished render without wrecking the building underneath. Lighting and texture get most of the attention. Reflections get the least, and they are the part most likely to embarrass you in front of a planning panel, because a wrong reflection is not a vague off feeling. It is a specific, checkable claim about the site that happens to be untrue.</p>
+
+    <p>The cause is the same one behind every other AI render tell, and it is worth saying flatly. The model does not trace reflections. It paints them. A real renderer follows rays out from the glass, bounces them off whatever is actually in the scene, and brings back the true surroundings. A diffusion model has no scene to bounce off. It has only a learned habit: glass usually looks like this. And in the images it learned from, glass usually means a downtown tower at sunset, so that is what it reaches for, whatever your site actually is.</p>
+
+    <h2>The three ways reflections <em>go wrong</em></h2>
+
+    <p>They fail in three distinct ways, and naming them is half the cure, because each one has a different fix and you will usually have more than one in the same frame.</p>
+
+    <h3>1. Invented context</h3>
+
+    <p>This is the headline failure. The glass reflects a skyline, a row of trees, a body of water that is nowhere near the project. It is most damaging on exactly the projects where context matters most: a sensitive infill, a conservation-area frontage, a rural house where the whole argument is how the building sits in an empty field. The AI reflects a generic city into the windows of a barn, and the image now contradicts the planning case it was meant to support.</p>
+
+    <h3>2. Wrong reflectivity</h3>
+
+    <p>The model defaults to mirror. Bright, total, chrome. Real vision glass is only partly reflective, and the rest of it is transparent, showing the floor plates, the mullions, the lit interior behind. That partial transparency is what makes a facade read as a building rather than a polished object. When the AI cranks the glass to full mirror it flattens the elevation into a single shining plane, and any distinction you designed between vision glass and spandrel panels disappears into one bright sheet.</p>
+
+    <h3>3. Inconsistency across the set</h3>
+
+    <p>Generate the corner from three angles and the same glazed stair will reflect three unrelated skies and three different invented streets. Each image painted its reflections independently, so they do not agree. A single hero shot can hide this. A board of elevations and perspectives cannot, and the moment two views of the same glass disagree about what is opposite it, the set stops reading as one consistent building.</p>
+
+    <h2>Make the glass show what is <em>actually there</em></h2>
+
+    <p>The fix follows the same hierarchy as every other careful render job. Stand on the highest rung you can still reach with the assets you have, and in every case the principle is identical: stop letting the model guess the reflected world, and feed it the real one.</p>
+
+    <h3>Render the reflection, then style it</h3>
+
+    <p>If you still hold the 3D model, this is not an AI problem at all. Build the real surroundings as simple massing, even grey boxes for the neighbours, wrap the scene in an HDRI that matches the actual sky condition you want, and render a reflection or environment pass. Now the glass mirrors the true context, the dull sky and the low brick building opposite, because it is tracing a scene that contains them. Let the AI styling sit on top at low denoise. The reflection is correct before the model ever touches it, and the model is only allowed to make it prettier, not to invent it.</p>
+
+    <h3>Mask the glazing and pass it alone</h3>
+
+    <p>When all you have is the flat image, the move is to treat the glass as its own region. Mask the glazing, run a separate image-to-image pass on that selection only, keep the denoise low, roughly 0.3, and feed a structure control so the mullion grid and frame edges hold. Then write a prompt that describes the reflected content exactly, "reflecting an overcast grey sky and a low brick terrace opposite, faint warm interior visible through the glass." You are not asking the whole frame for reflections. You are telling one masked region precisely what to show. Everything outside the mask, the brick, the roof, the street, stays untouched.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Reflection route</th><th>Context fidelity</th><th>When it wins</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Reflection pass against site HDRI</td><td class="winner">True, the real surroundings are traced</td><td>You kept the model and the context matters to the case.</td></tr>
+        <tr><td>Masked glass, controlled pass</td><td class="winner">Good, you dictate exactly what reflects</td><td>Flat image, glazing is a clean region to select.</td></tr>
+        <tr><td>Whole-frame "reflective glass" prompt</td><td class="note">None, it paints a stock skyline</td><td>Never on a real site. Fine only for an abstract mood frame.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Hold the brightness, check the <em>tells</em></h2>
+
+    <p>Two disciplines turn a passable reflection into one that survives scrutiny, and both are about restraint rather than effort.</p>
+
+    <p><strong>Specify the reflectivity, do not accept the default.</strong> Tell the model the glass is vision glazing with the interior faintly visible, not a mirror. Ask for the floor plates and mullions to read through it. A facade that shows a little of its own inside is doing the one thing a chrome sheet cannot, which is convincing a viewer that there is a building behind the glass and not just a rendered surface.</p>
+
+    <p><strong>Then check the reflection against everything else in the frame.</strong> This is the QA step almost nobody runs, and it catches the failures the eye glosses over. Does the reflected sky match the sky you used for the rest of the render? A dusk view with a bright noon-blue reflection in the windows is a giveaway that the glass was painted separately and never reconciled. Does the reflected context actually exist on the site? Are the reflections consistent from view to view across the set? Three questions, thirty seconds, and they separate a render that holds up at the meeting from one that gets quietly doubted.</p>
+
+    <p>There is a wider point hiding in all this, and it is mostly about taste. The mirror-glass tower throwing back a golden skyline is the single most over-produced cliché in AI archviz, precisely because it is the model's path of least resistance. It looks premium and says nothing true. A client or a planner who knows the corner will trust the duller, accurate image far more than the sparkling one, because the accurate glass tells them you actually looked at the site. Restraint reads as competence. The fiction reads as a render that is hiding something.</p>
+
+    <blockquote>A reflection is a claim about the site. Paint it instead of tracing it and you have put a city that does not exist into a window and asked the client to believe it.</blockquote>
+
+    <p>So before you admire the shine, look at what the glass is showing you. If it is reflecting a world that is not on the site, the render is lying in the most checkable way an image can. Feed it the real context, hold the glass to the brightness real glass has, and check the windows against the sky and the street they are supposed to be standing in. Get that right and the reflection stops being the part that gives the render away and becomes the part that proves you were paying attention.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Drawn from this week's intel sweep of 2026 architectural visualization coverage, where community threads on r/FluxAI and r/comfyui kept returning to the same enhancement requests on finished renders, lighting, textures and reflections, while keeping the original geometry intact. ArchiGen AI runs no sponsored placements and has no affiliate relationship with any tool named here.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-render-relighting-change-light-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Relighting an AI Render: Change the Light, Keep the Building</div>
+        </a>
+        <a href="ai-render-set-consistency-across-views-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Holding an AI Render Consistent Across a Set of Views</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
