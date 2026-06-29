@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Relighting an AI Render: Change the Light, Keep the Building | ArchiGen AI</title>
+<meta name="description" content="The client approved the massing at noon and now wants to see it at dusk for the planning committee. Re-prompting hands you a different building. The three ways to relight an architectural render, the denoise and control settings that hold the geometry, and why shadows are the part the model gets wrong." />
+<link rel="canonical" href="https://archigenai.com/ai-render-relighting-change-light-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-render-relighting-change-light-architects-2026.html" />
+<meta property="og:title" content="Relighting an AI Render: Change the Light, Keep the Building" />
+<meta property="og:description" content="Re-prompting for golden hour gives you a different building. The three ways to relight a render, the settings that hold the structure, and why shadows are where it goes wrong." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Relighting an AI Render Without Rebuilding It, 2026" />
+<meta name="twitter:description" content="Change a noon render to dusk and the model quietly redesigns the facade. Relight as a separate low-denoise pass with structure control. The settings architects get wrong, and the shadow trap." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Relighting an AI Render: Change the Light, Keep the Building",
+  "description": "Re-prompting an approved render for a different time of day hands you a different building. Relighting is its own pass. The three ways to do it, the denoise and structure-control settings that preserve the geometry, and why shadows are the part the model gets wrong.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-06-29T08:30:00-04:00",
+  "dateModified": "2026-06-29T08:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-render-relighting-change-light-architects-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["relight AI render architecture", "change time of day render", "golden hour dusk architecture render", "denoise structure control relight", "AI render lighting workflow", "preserve geometry relighting"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does re-prompting a render for a different time of day change the building?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A fresh prompt is a fresh generation. The model has no memory of the approved image, so when you ask for the same facade at dusk it composes a new building that merely resembles the old one. Bay counts drift, a parapet detail vanishes, the entrance moves. Relighting has to be a pass over the existing image, not a new request, so the structure is held while only the light changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the safest way to relight an architectural render?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you still hold the 3D model, re-rendering at a new sun position is the most accurate option because the shadows are computed, not guessed. When you only have the flat image, run a low-denoise image-to-image pass, roughly 0.25 to 0.4, with a structure control fed from the original and a prompt that describes only the light. That changes the mood while keeping the geometry the client already signed off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do AI relit renders get the shadows wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diffusion models paint plausible shadows, they do not cast them. So a dusk relight will often add a warm glow and longer shadows that point in inconsistent directions, fall on the wrong side of a recess, or ignore an overhang entirely. The fix is to give the model a real cue, a re-rendered shadow pass or a depth map from the model, so the dark areas land where the sun would actually put them."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Workflows for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Workflows for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 29 Jun 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The render they loved, now at <em>dusk</em>.</h1>
+    <p class="lede">The committee approved the scheme at noon, clear sky, flat light, every line of the facade legible. Then someone on the panel asks to see it in the evening, warmer, with the windows lit, the way the street will actually feel when people walk home past it. So you type "golden hour" into the same prompt, hit generate, and the model hands back a building that is almost yours. Almost. One bay too few, a different cornice, the entrance shifted half a metre left. You did not relight the render. You replaced it.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jun 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>This is one of the quieter recurring asks in the archviz and Flux threads this week, sitting underneath the louder questions about photorealism and 4K. People want to take a render the client already accepted and show it under different light, dusk, overcast, a low winter sun, the windows glowing for an evening view. They reach for the prompt box because that is where the light words live, and the prompt box betrays them every time.</p>
+
+    <p>The reason is worth stating plainly, because it governs everything that follows. A new prompt is a new generation. The model holds no memory of the image it made an hour ago, so asking for "the same building at dusk" is asking it to invent a fresh building that happens to match a description. It will get the description right and the building wrong. Relighting, done properly, never goes back to the prompt box for the structure. It treats the approved image as fixed and changes only the one variable you actually want to move.</p>
+
+    <h2>Three ways to move the <em>light</em>, ranked</h2>
+
+    <p>There is a clean hierarchy here, and it runs from most accurate to most convenient. Pick the highest rung you can still reach with the assets you have.</p>
+
+    <h3>1. Back in the 3D model, if you still hold it</h3>
+
+    <p>If the render started life in a real model, in SketchUp, Revit, Rhino, or a real-time engine, the correct relight is not an AI job at all. Move the sun, change the time of day, and re-render. The shadows are computed from actual geometry, so they fall exactly where the building would cast them, and the AI styling pass goes back on top of a base that is already lit correctly. This is slower and it assumes you kept the scene, but it is the only route where the light is true rather than plausible. When the deliverable is going to a planner who will check sun paths, this is the rung to stand on.</p>
+
+    <h3>2. In the rendering tool's own lighting controls</h3>
+
+    <p>The in-model AI tools have been adding lighting presets and environment controls precisely because this request is so common. Veras and its peers let you hold the geometry input and swap the lighting condition or HDRI, which keeps the building locked because the model is still feeding it the structure. This is the middle rung: faster than a full re-render, more faithful than a flat-image pass, and the natural choice when the render lives inside a plugin you are already paying for.</p>
+
+    <h3>3. A diffusion pass over the flat image</h3>
+
+    <p>Often all you have is the final PNG. No scene, no plugin, just the picture. This is the rung most people are actually standing on when they ask the question, and it works, but only if you stop treating it like a prompt and start treating it like a controlled pass. The method is image-to-image at low denoise with a structure control fed from the original. The next section is the whole game.</p>
+
+    <h2>The settings that keep the <em>building</em></h2>
+
+    <p>A flat-image relight lives or dies on two dials, and they are the same two that govern every careful image-to-image job in architecture: how much freedom you give the model, and how hard you pin it to the source.</p>
+
+    <p><strong>Denoise.</strong> Keep it low, roughly 0.25 to 0.4 for a lighting change. Low enough that the walls, openings and massing survive untouched; high enough that the model can actually repaint the light, lengthen the shadows, warm the palette, and bring up the window glow. Push past 0.45 and the relight starts redesigning, because every region now has licence to reinterpret, and a "dusk" instruction at high denoise will happily move a balcony while it is at it.</p>
+
+    <p><strong>Structure control.</strong> Low denoise alone is not enough on a large facade, so feed the original image into a structure-holding control, a depth or lineart input, so every part of the frame is told to stay where it is. With the geometry pinned by control and the freedom capped by denoise, the only thing left for the model to change is the thing you asked for. Your prompt then describes light and nothing else: "warm evening sun, long shadows, interior lights on, deep blue sky." No architecture words. The architecture is already decided.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr><th>Relight route</th><th>Geometry fidelity</th><th>When it wins</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Re-render in the 3D model</td><td class="winner">Exact, shadows computed</td><td>Planning views, sun-path scrutiny, you kept the scene.</td></tr>
+        <tr><td>Plugin lighting controls</td><td class="winner">High, geometry held by the model</td><td>Render lives in Veras or a real-time engine you own.</td></tr>
+        <tr><td>Flat-image diffusion pass</td><td class="note">Good, if denoise stays ~0.3 with control</td><td>All you have is the PNG and the clock is running.</td></tr>
+        <tr><td>Re-prompting "same building, dusk"</td><td class="note">None, it builds a new one</td><td>Never. This is the move that started the problem.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The part it gets wrong: <em>shadows</em></h2>
+
+    <p>Here is the failure that separates a relight that holds from one that quietly falls apart, and almost nobody checks it before sending the image out. Diffusion models do not cast shadows. They paint shadows that look right at a glance, which is a very different thing. Ask for a low evening sun and the model will add long, warm shadows, and it will add them in the wrong places. They point in two directions in the same image. They fall on the sunny side of a recess. An overhang that should throw a hard band across the entrance throws nothing, while a blank wall grows a shadow with no object to cast it.</p>
+
+    <p>A casual viewer may not name the problem, but they feel that the image is off, and a reviewer who knows the site will spot a shadow pointing the wrong way immediately. The defence is to give the model a real cue instead of letting it guess. A depth map from the original tells it where surfaces sit in space, which constrains where dark should land. Better still, if you took the 3D route for even a quick grey-box pass, drop the computed shadows in as a layer and let the diffusion styling sit on top of shadows that are actually correct. Plausible is the enemy here. The whole value of a relit render is that it reads as the same true building under different light, and a shadow pointing east at sunset throws that away in one glance.</p>
+
+    <h2>One pass, one variable</h2>
+
+    <p>The discipline that makes all of this work is the same one that makes upscaling work, and it is the opposite of how the prompt box invites you to think. The tools put light, structure and style in the same text field and imply you can stir them together in one shot. You cannot, not without losing the building. So you separate the jobs. The geometry was decided when the scheme was approved and it does not move again. The light is a second, narrow pass laid over a frozen base, changing one thing on purpose. The moment your relight prompt mentions a window, a floor count, or a material, you have left the relight and started a redesign.</p>
+
+    <blockquote>A relit render is a promise that nothing changed except the hour. Break that quietly and you have shown the client a different building and called it the same one.</blockquote>
+
+    <p>So before you reach for the prompt, find the highest rung you can stand on. Still have the model? Move the sun and re-render. Render lives in the plugin? Swap the lighting input and keep the geometry feeding in. Down to a flat PNG? Image-to-image at a third denoise, a depth or line control pinning every edge, and a prompt that talks about light and only light. Then check the shadows against the sun you claimed, because that is the one tell that survives a beautiful image and tells a reviewer the truth. Get that right and the committee sees their building at dusk, warm and lit and exactly as approved, which is the only version worth showing them.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Drawn from this week's intel sweep of 2026 architectural visualization coverage, where community threads on r/FluxAI and r/comfyui kept returning to the same enhancement requests on finished renders, lighting, shadows, and reflections, while keeping the original geometry intact. ArchiGen AI runs no sponsored placements and has no affiliate relationship with any tool named here.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="ai-render-4k-upscaling-image-to-image-flux-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">Getting AI Renders to 4K Without Wrecking the Geometry</div>
+        </a>
+        <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html" class="related-card">
+          <div class="rc-tag">Workflow · 2026</div>
+          <div class="rc-title">The Geometry Hallucination QA Checklist</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
