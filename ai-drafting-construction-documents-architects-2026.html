@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>AI Drafting and Construction Documents in 2026: Show Me the Wall Section, ArchiGen AI</title>
+<meta name="description" content="Every 2026 tool list now includes '2D drafting' as an AI category, and the demos show door tags, not wall sections. What is actually for sale behind the claim: annotation automation, full-set services, model-first platforms and CAD assistants, and why the stamp changes the trust math." />
+<link rel="canonical" href="https://archigenai.com/ai-drafting-construction-documents-architects-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-drafting-construction-documents-architects-2026.html" />
+<meta property="og:title" content="AI Drafting and Construction Documents in 2026: Show Me the Wall Section" />
+<meta property="og:description" content="The lists say AI does 2D drafting now. The demos show door tags. A map of the four products actually behind the claim, and the one test that tells you the truth about each." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="AI Drafting in 2026: Show Me the Wall Section" />
+<meta name="twitter:description" content="CDs are where the hours live, so 'AI drafting' is the biggest claim on any 2026 tool list. What actually ships behind it, and why drawings under a stamp raise the bar." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .tool-card { border: 1px solid var(--rule); border-radius: 12px; padding: 24px; margin: 32px 0; background: var(--paper-2); }
+  .tool-card .tc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .tool-card .tc-name { font-weight: 700; font-size: 18px; }
+  .tool-card .tc-rating { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sage); background: rgba(107,122,90,0.12); padding: 4px 10px; border-radius: 999px; }
+  .tool-card .tc-pricing { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .tool-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+  .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI Drafting and Construction Documents in 2026: Show Me the Wall Section",
+  "description": "Every 2026 tool list now includes '2D drafting' as an AI category, and the demos show door tags, not wall sections. What is actually for sale behind the claim: annotation automation, full-set services, model-first platforms and CAD assistants, and why the stamp changes the trust math.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-07-02T04:10:00-04:00",
+  "dateModified": "2026-07-02T04:10:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-drafting-construction-documents-architects-2026.html",
+  "articleSection": "Analysis",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["AI drafting architects 2026", "AI construction documents", "AI 2D drafting tools architecture", "Revit annotation automation AI", "AI CD set architecture firms", "AI drawing automation liability", "construction documentation AI reality"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can AI produce a full construction document set in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not unattended, and no serious vendor claims otherwise once you read past the headline. What ships today splits into four categories: annotation and sheet automation inside BIM tools, service companies that combine automation with human documenters for repeatable building types, model-first platforms that generate documentation as a byproduct of a disciplined model, and CAD assistants that speed up individual drafting operations. All of them still assume an architect reviews and owns every sheet. The technical judgment inside a wall section is not what any of them sell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does AI actually save drafting time for architecture firms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the checkable layer: tagging, dimensioning, view and sheet setup, naming standards, schedule coordination and drawing checks. These tasks are high-volume, rule-bound and fast to verify at a glance, which means the review cost does not eat the savings. Detail design is the opposite: low-volume, judgment-heavy and slow to verify, so automating it saves less than checking it costs. Firms getting real hours back in 2026 are automating annotation, not wall sections."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is liable if an AI-generated drawing contains an error?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The architect whose stamp is on the sheet. Construction documents are instruments of service issued under professional registration, and no tool vendor's terms transfer that responsibility. A hallucination in a render is an embarrassment; a hallucination in a flashing detail is a claim. That is why the trust bar for AI drafting is categorically higher than for AI rendering, and why sensible firms pilot these tools by re-producing an already-issued project and diffing the output against the set they know is right."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Analysis · 02 Jul 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>Show me the <em>wall section.</em></h1>
+    <p class="lede">Four minutes into this week's "ten AI tools architects are missing" video, the category flips from rendering to 2D drafting, and every architect who has ever issued a CD set leans in. Drafting is where the hours live. Then the demo runs: the tool places some sheets, tags a corridor of doors, and cuts to the next product. The wall section, the drawing the fee actually pays for, never appears. It never does. Here is what is really for sale behind the phrase "AI drafting" in 2026, and how to tell the four very different products apart.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jul 2026 · Vista Studios · Analysis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>Rendering owns the AI conversation in architecture for a simple reason: it demos in thirty seconds and the output is a picture anyone can judge. Drafting is the opposite. The output is hundreds of interdependent sheets that only a professional can evaluate, produced over months, wrong in ways that surface a year later on site. So the tool lists, the ones we <a href="archeyes-30-best-ai-tools-architects-audited-2026.html">audit</a> regularly, handle it with a category label and a hopeful sentence. But documentation is commonly the largest single phase of an architect's fee. If AI actually moved the needle there, it would matter more than every render tool on the list combined. So it is worth being precise about what exists.</p>
+
+    <h2>Four products wearing <em>one label</em></h2>
+
+    <p>Read past any "AI drafting" claim and you find one of four things underneath.</p>
+
+    <h3>1. Annotation and sheet automation inside BIM</h3>
+
+    <p>Tagging, dimensioning, view creation, sheet setup, naming standards, the mechanical crust on top of a model that eats junior hours by the hundred. This is the most real category in 2026 and the least glamorous. We reviewed <a href="archilabs-studio-mode-ai-cad-review-2026.html">ArchiLabs</a> doing exactly this work inside Revit, and the honest summary holds: it automates the part of documentation that a checker can verify at a glance, which is precisely why it works. A wrong door tag announces itself. Nothing here draws a detail, and the vendors, to their credit, mostly do not pretend otherwise.</p>
+
+    <h3>2. The full-set service</h3>
+
+    <p>A second group sells documentation as an outcome rather than a tool: send the model and the requirements, receive a coordinated set, with automation doing the bulk work and humans doing the judgment. This model can genuinely compress schedules, but read the fine print on building type. It thrives on repeatable typologies, multifamily floors, fit-outs, the projects where sheet forty resembles sheet twelve. Hand it a bespoke cultural building and the automation share drops toward zero while the human share, and the price, climbs back to what documentation always cost.</p>
+
+    <h3>3. The model-first platforms</h3>
+
+    <p>Tools like <a href="snaptrude-ai-bim-review-architects-2026.html">Snaptrude</a> and the design-to-BIM crowd promise documentation as a byproduct: keep the model disciplined from day one and the drawings fall out of it. There is truth here, but it is the oldest truth in BIM wearing a new badge. Drawings fall out of a disciplined model in Revit too; the discipline was always the expensive part. The AI contribution is real but upstream, in getting a usable model faster. The sheets at the end are only as good as the modeling habits, which are still yours.</p>
+
+    <h3>4. The CAD assistants</h3>
+
+    <p>Autocomplete for drafting: block suggestions, markup conversion, drawing cleanup, the small ML features that have been quietly accumulating inside mainstream CAD for years. Smallest claims, most shipped, and the category most likely to be running in your office already without anyone calling it AI.</p>
+
+    <h2>The stamp changes <em>the math</em></h2>
+
+    <p>Here is why drafting is not rendering with different geometry. When a render invents a skyline in the glazing, you get an awkward client question, which is why we keep a <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">hallucination QA checklist</a> for images. When a drawing invents a flashing condition, you get a claim. Construction documents are instruments of service issued under a registration, and there is no version of "the AI drew it" that moves the liability anywhere but the stamp. Every vendor's terms of service agree on this point with remarkable unanimity.</p>
+
+    <p>That asymmetry sets the trust bar, and it also explains the shape of what works. The economics of any automation are the hours saved minus the hours spent checking. A generated door schedule is fast to verify, so the savings survive. A generated detail is slow to verify, slower in some offices than drawing it fresh, because checking someone else's technical reasoning is harder than doing your own. This is not a temporary limitation waiting on a better model. It is why the winning products all cluster in the checkable layer, and why "AI that drafts your details" remains a demo genre rather than a product category.</p>
+
+    <blockquote>A wrong tag announces itself. A wrong detail waits for the rain.</blockquote>
+
+    <h2>The re-issue test</h2>
+
+    <p>If a drafting tool makes it to a pilot, there is one honest way to run it. Take a project you already issued, feed the tool the same inputs your team had, and diff its output against the set you know is right, because you answered the RFIs on it. Count three things: what it got wrong that a glance catches, what it got wrong that only a senior catches, and how long the checking took. That last number is the one the demo never shows, and it is the number that decides whether the tool pays. Run the pilot the way we suggested for <a href="ai-architecture-back-office-profitability-2026.html">back-office AI</a> generally: one project, one month, hours logged, no vibes.</p>
+
+    <p>Ask the vendor two questions while you are at it. Which building types does the automation percentage actually hold for, and can you speak to a firm that issued a permit set with it. The first answer is usually narrower than the marketing. The second is where the category's youth shows.</p>
+
+    <h2>Our take: <em>boring is the tell</em></h2>
+
+    <p>The pattern across every category that AI has actually improved for architects is the same: the wins are boring. Denoise settings, tagging passes, schedule checks, sheet setup. The demos that look like magic, a wall section assembling itself, a permit set from a prompt, are consistently the ones that do not survive contact with a real project. So when a tool list puts "2D drafting" between rendering and site analysis as if the categories were equally solved, that is not information, it is optimism with a thumbnail.</p>
+
+    <p>But do not let the skepticism curdle into dismissal. Documentation is the largest pile of hours in the building, and the checkable layer of it, plausibly a third of those hours in a standards-heavy office, is automating right now, quietly, while everyone watches the render tools. The firms that will feel this first are not buying a magic drafter. They are shaving the crust off CD phase one unglamorous automation at a time, and rebidding their fees before their competitors notice what happened.</p>
+
+    <p>The render was never the deliverable. The set is. Point the machine at the set, and keep your hand on the pen that matters.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Drawn from this week's intel sweep, where "2D drafting" appeared as a category in the circulating ten-tools video and the 30-plus tool guides alongside rendering and site analysis, plus prior ArchiGen reviews of Revit and BIM automation tools. Vendor capabilities and building-type coverage change quickly in this category; the checkable-layer economics are the durable part. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="archilabs-studio-mode-ai-cad-review-2026.html" class="related-card">
+          <div class="rc-tag">Review · 2026</div>
+          <div class="rc-title">ArchiLabs Studio Mode: AI CAD Automation Inside Revit, Reviewed</div>
+        </a>
+        <a href="ai-architecture-back-office-profitability-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">The AI Your Margin Actually Needs Is in the Back Office</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
