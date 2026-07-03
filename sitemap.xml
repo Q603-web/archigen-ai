@@ -1097,4 +1097,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-07-03 Workflow -->
+  <url>
+    <loc>https://archigenai.com/ai-post-production-stack-archviz-2026.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
