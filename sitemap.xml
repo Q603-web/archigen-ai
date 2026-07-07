@@ -1121,4 +1121,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-07-07 Technique -->
+  <url>
+    <loc>https://archigenai.com/reference-images-steer-ai-renders-architects-2026.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
