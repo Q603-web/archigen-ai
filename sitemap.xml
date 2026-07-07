@@ -1129,4 +1129,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-07-07 Workflow -->
+  <url>
+    <loc>https://archigenai.com/photoshop-generative-fill-archviz-workhorse-2026.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
