@@ -1137,6 +1137,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-07-09 Analysis -->
+  <url>
+    <loc>https://archigenai.com/ai-rendering-mid-2026-report-card-architects.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 2026-07-08 Workflow -->
   <url>
     <loc>https://archigenai.com/comfyui-workflow-hunting-trap-architects-2026.html</loc>
