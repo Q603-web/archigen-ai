@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>Gendo's Top 10 AI Rendering List, Audited: The House Ranks First, ArchiGen AI</title>
+<meta name="description" content="Gendo published a Top 10 AI rendering software list for architects and ranked Gendo first, in an article written by its own Head of Growth. We audited all ten entries: the pricing checks out, the cons are surprisingly honest, and the winner was decided by the criteria before a single tool was scored." />
+<link rel="canonical" href="https://archigenai.com/gendo-top-10-ai-rendering-list-audited-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/gendo-top-10-ai-rendering-list-audited-2026.html" />
+<meta property="og:title" content="Gendo's Top 10 AI Rendering List, Audited: The House Ranks First" />
+<meta property="og:description" content="A vendor top-10 where the vendor wins. We fact-checked all ten entries. Most facts hold. The ranking was over before it started." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="Gendo's Top 10 AI Rendering List, Audited: The House Ranks First" />
+<meta name="twitter:description" content="Gendo ranked ten AI rendering tools and came first. The audit: honest pricing, honest cons, and criteria that picked the winner in advance." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gendo's Top 10 AI Rendering List, Audited: The House Ranks First",
+  "description": "Gendo published a Top 10 AI rendering software list for architects and ranked Gendo first, in an article written by its own Head of Growth. We audited all ten entries: the pricing checks out, the cons are surprisingly honest, and the winner was decided by the criteria before a single tool was scored.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-07-10T03:30:00-04:00",
+  "dateModified": "2026-07-10T03:30:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/gendo-top-10-ai-rendering-list-audited-2026.html",
+  "articleSection": "Audited",
+  "timeRequired": "PT7M",
+  "inLanguage": "en",
+  "keywords": ["Gendo top 10 AI rendering software", "best AI rendering tools architects 2026", "Gendo review architects", "vendor comparison audit", "Veras vs Gendo", "AI rendering software ranking 2026", "Gendo AI canvas", "AI render tool listicle audit"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Audited · 10 Jul 2026</span>
+      <span class="tag">· 7 min read</span>
+    </div>
+    <h1>The house ranks <em>first.</em></h1>
+    <p class="lede">Gendo's blog is carrying a "Top 10 AI Rendering Software for Architects in 2026" list. Gendo is number one, "Best Overall," and the byline belongs to Joe Sherman, Gendo's Head of Growth. It is the second vendor-scored comparison to cross our desk in a month, after Chaos published a six-tool test that Veras happened to win. So we did what we did last time: checked every claim, every price, and every name on the guest list.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">7 min read · Jul 2026 · Vista Studios · Audited</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>The list, published June 11 and surfacing in this week's search results for nearly every rendering query we track, runs: Gendo, <a href="veras-4-5-new-features-architects-2026.html">Veras</a>, <a href="d5-render-ai-features-architects-2026.html">D5 Render</a>, Lumion, <a href="mnml-ai-review-architects-2026.html">mnml.ai</a>, PromeAI, <a href="midjourney-architecture-review.html">Midjourney</a>, LookX, Visoid, and <a href="xfigura-archsynth-ai-render-tested-2026.html">xFigura</a>. That is a defensible set of names. It is also a list where the publisher takes the podium, which means it earns the same treatment we gave <a href="chaos-veras-ai-rendering-comparison-audited-2026.html">the Chaos comparison</a>: assume nothing is false, and ask instead who set the rules.</p>
+
+    <h2>What <em>checks out</em></h2>
+
+    <p>Credit first, because there is real credit due. The factual layer of this list is in better shape than most independent listicles we have audited. The pricing is current and honest: Gendo's Studio plan at £66 a month billed annually, Veras at roughly $30 to $60 per named user, D5 Pro around $38 a month, PromeAI's Standard plan near $29, Midjourney from $10. Nobody buries a price behind "contact sales" that we could find published elsewhere.</p>
+
+    <p>More surprising: the cons column on Gendo's own entry is genuinely useful. The article concedes that Gendo is not a modelling or drafting tool, that it works best from an existing base image rather than a blank page, and that it cannot produce dimension-accurate construction documentation. That is three more honest limitations than most vendors print about themselves, and each one matches what we found in <a href="gendo-ai-design-canvas-first-look-architects-2026.html">our own first look at Gendo's design canvas</a>. The knocks on competitors are fair too. D5 really is Windows-only and hardware-hungry. Midjourney really does hallucinate structure and really should be treated as a reference generator, not a design representation. Veras really is the deepest BIM integration in the field. When a growth marketer writes "our competitor has excellent geometry and material override controls," you can at least trust the facts survived the marketing pass.</p>
+
+    <h2>The criteria picked the <em>winner</em></h2>
+
+    <p>Here is where the audit turns. The article's stated evaluation factors include workflow alignment, collaboration needs, BIM integration, and hardware constraints. Reasonable list. Now notice what happens when you weight them differently.</p>
+
+    <p>If BIM integration leads, Veras wins. It ships native plugins for Revit, SketchUp, Rhino, Archicad, Vectorworks, and Forma, and this list itself calls that integration the deepest available. If output quality per dollar leads, D5 or Lumion wins. If price leads, mnml or Visoid wins. The only weighting under which a browser-based, CAD-agnostic canvas that accepts PNG uploads takes first place is one where real-time collaboration and zero-install access sit at the top of the stack. Those happen to be Gendo's two differentiators. The ranking is not dishonest. It is downstream of a criteria sheet that was written in the same building as the product roadmap.</p>
+
+    <blockquote>Nothing in the list is false. The verdict was just written before the trial.</blockquote>
+
+    <p>This is the identical structure to the Chaos comparison from last week, where Veras "won" a lineup that excluded every tool with a BIM plugin. The vendor listicle has become a genre with fixed rules: real facts, real prices, honest-sounding cons, and a rubric reverse-engineered from the author's paycheck. We wrote about <a href="best-ai-render-tool-lists-architects-2026.html">how to read the listicle flood</a> as a category; this entry is the cleanest specimen yet, because it is so close to being a good document.</p>
+
+    <h2>The <em>guest list</em></h2>
+
+    <p>The second lever, as always, is who gets invited. Enscape is missing, despite being the renderer an enormous share of firms already own, and despite Veras now shipping inside Enscape subscriptions, a fact this list itself mentions. Twinmotion is missing. SketchUp Diffusion, the free native option sitting inside the most-used modeler in small practice, is missing. So is the entire question of <a href="native-ai-rendering-by-bim-platform-2026.html">what your BIM platform already gives you</a> before you spend a pound.</p>
+
+    <p>Their places are filled by LookX, Visoid, and xFigura at ranks eight through ten. All three are real tools, and we have <a href="xfigura-archsynth-ai-render-tested-2026.html">tested xFigura ourselves</a>, but their function here is arithmetic: they make ten. A nine-item list reads as an essay; a ten-item list reads as research. None of the three threatens Gendo's positioning, because none of them is the incumbent a reader would actually weigh Gendo against. The tools that would force that comparison, the ones already installed on the reader's machine, did not make the cut.</p>
+
+    <h2>How to actually <em>use this list</em></h2>
+
+    <p>Strip the ranks and the list becomes worth your time. Read every cons column and trust it, because vendor legal teams check the negative claims about competitors harder than anything else on the page. Treat the pricing table as accurate as of June. Note that the author byline is disclosed, Head of Growth, in plain text, which is more than some publications manage, and then do the reweighting yourself: put your own workflow first, your file formats second, your seat count third, and re-rank the ten against that. We keep <a href="how-to-choose-ai-render-tool-buyers-framework-architects-2026.html">a buyer's framework</a> for exactly this exercise, and Gendo's own data slots into it fine. Under a Revit-first weighting, the list's own facts put Veras on top. Under a solo-practitioner budget weighting, they put mnml or Visoid there. That is the tell that the document is a brochure with a very good appendix.</p>
+
+    <h2>Our take</h2>
+
+    <p>The vendor top-10 is not going away, because it works: it ranks for the exact queries architects type, it reads as neutral, and it costs a growth team a week. The correct response is not outrage, it is literacy. Gendo has built a genuinely interesting product and then wrapped it in the genre's standard costume, and the costume is the least interesting thing about it. A collaborative canvas with honest limits, priced flat, no install: that case could stand on its own without borrowing the authority of a leaderboard.</p>
+
+    <p>Ten tools, one author, one employer, one winner. You already knew the score before kickoff. Read it anyway, just sit in the away stand.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Written from the July 10, 2026 intel sweep: Gendo's "Top 10 AI Rendering Software for Architects in 2026" (gendo.ai/blog, published June 11, byline Joe Sherman, Head of Growth). Claims and pricing verified against the published article and prior ArchiGen AI testing. No affiliate relationship with any tool named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="chaos-veras-ai-rendering-comparison-audited-2026.html" class="related-card">
+          <div class="rc-tag">Audited · 2026</div>
+          <div class="rc-title">Chaos Compared Six AI Render Tools. Veras Won.</div>
+        </a>
+        <a href="best-ai-render-tool-lists-architects-2026.html" class="related-card">
+          <div class="rc-tag">Opinion · 2026</div>
+          <div class="rc-title">How to Read the "Best AI Render Tool" Listicle Flood</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
