@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
+</script>
+<title>What the Demo Video Cut Out: Verifying an AI Render Tool in Ten Minutes, ArchiGen AI</title>
+<meta name="description" content="A sketch becomes a photoreal dusk exterior in eleven seconds of screen time. The edit removed the input model, the rerolls, the clock and the price. Four things every AI render demo cuts, the ten-minute test that reproduces any demo claim on your own model, and the one video format actually worth watching." />
+<link rel="canonical" href="https://archigenai.com/ai-tool-demo-videos-architects-verify-2026.html" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="ArchiGen AI" />
+<meta property="og:url" content="https://archigenai.com/ai-tool-demo-videos-architects-verify-2026.html" />
+<meta property="og:title" content="What the Demo Video Cut Out" />
+<meta property="og:description" content="Every AI render demo removes the same four things. The ten-minute test that puts them back, using your own worst model." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@archigenai" />
+<meta name="twitter:title" content="What the Demo Video Cut Out" />
+<meta name="twitter:description" content="The input, the rerolls, the clock, the price. A reproducible ten-minute protocol for testing any AI rendering claim before you buy." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --f-display: 'Fraunces', serif;
+    --f-sans: 'Inter', system-ui, sans-serif;
+    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --paper: #F2EFE8;
+    --paper-2: #EAE5D9;
+    --ink: #1A1915;
+    --ink-2: #3A3830;
+    --muted: #706A5C;
+    --rule: #1A19151A;
+    --rule-2: #1A19150F;
+    --forest: #2F4A3A;
+    --terracotta: #C96F4A;
+    --sand: #D9C89E;
+    --slate: #4A5A6A;
+    --marigold: #E2A13B;
+    --coral: #E36A52;
+    --sage: #6B7A5A;
+    --cream: #F4EFE3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .topstrip { border-bottom: 1px solid var(--rule); background: var(--ink); color: var(--paper); overflow: hidden; }
+  .marquee { display: flex; gap: 56px; white-space: nowrap; animation: marquee 60s linear infinite; padding: 9px 0; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  .marquee span { opacity: 0.85; }
+  .marquee .dot { opacity: 0.4; }
+
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 1px solid var(--rule); }
+  .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 18px 40px; gap: 32px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: 12px; }
+  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
+  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
+  .nav-links a { padding: 8px 16px; border-radius: 999px; color: var(--paper); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; }
+  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
+  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
+  .btn { padding: 9px 18px; border-radius: 999px; font-size: 13px; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink); text-decoration: none; cursor: pointer; transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .article-header { padding: 64px 0 48px; border-bottom: 1px solid var(--rule); }
+  .article-header .meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .article-header .tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .article-header h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(40px, 6vw, 80px); line-height: 1.0; letter-spacing: -0.03em; margin: 0 0 24px; max-width: 18ch; }
+  .article-header h1 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
+  .article-header .lede { font-size: 20px; line-height: 1.5; color: var(--ink-2); max-width: 60ch; margin: 0 0 32px; }
+  .article-header .byline { display: flex; gap: 24px; align-items: center; }
+  .article-header .byline-info .name { font-weight: 600; font-size: 14px; }
+  .article-header .byline-info .detail { font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; }
+
+  .article-body { max-width: 720px; padding: 56px 0 80px; }
+  .article-body h2 { font-family: var(--f-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 56px 0 16px; line-height: 1.1; }
+  .article-body h2 em { font-style: italic; font-weight: 300; }
+  .article-body h3 { font-size: 18px; font-weight: 600; margin: 40px 0 12px; }
+  .article-body p { margin: 0 0 20px; color: var(--ink-2); }
+  .article-body p strong { color: var(--ink); }
+  .article-body ul, .article-body ol { padding-left: 24px; margin: 0 0 20px; color: var(--ink-2); }
+  .article-body li { margin-bottom: 8px; }
+  .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
+  .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .compare-table .winner { color: var(--sage); font-weight: 600; }
+  .compare-table .note { color: var(--marigold); font-weight: 600; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+
+  footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+  .foot h3 { font-family: var(--f-display); font-weight: 400; font-size: 36px; line-height: 1; letter-spacing: -0.025em; margin: 16px 0; color: var(--paper); max-width: 18ch; }
+  .foot h3 em { font-style: italic; font-weight: 300; color: var(--marigold); }
+  .foot h4 { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,239,227,0.5); margin: 0 0 14px; }
+  .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
+  .foot a:hover { color: var(--marigold); opacity: 1; }
+  .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://archigenai.com/#organization",
+      "name": "ArchiGen AI",
+      "url": "https://archigenai.com/",
+      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"],
+      "publisher": { "@type": "Organization", "name": "Vista Studios" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://archigenai.com/#nora-sinclair",
+      "name": "Nora Sinclair",
+      "url": "https://archigenai.com/about.html",
+      "jobTitle": "Lead Reviewer, ArchiGen AI",
+      "worksFor": { "@id": "https://archigenai.com/#organization" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What the Demo Video Cut Out: Verifying an AI Render Tool in Ten Minutes",
+  "description": "Every AI render demo removes the same four things: the input model, the discarded rerolls, the real clock, and the price of the tier being shown. A ten-minute protocol for reproducing any demo claim on your own model, and the one video format worth your time.",
+  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
+  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "datePublished": "2026-07-13T04:10:00-04:00",
+  "dateModified": "2026-07-13T04:10:00-04:00",
+  "mainEntityOfPage": "https://archigenai.com/ai-tool-demo-videos-architects-verify-2026.html",
+  "articleSection": "Workflow",
+  "timeRequired": "PT6M",
+  "inLanguage": "en",
+  "keywords": ["AI render demo video", "evaluate AI tools architects", "YouTube AI rendering review", "test AI render tool trial", "AI rendering claims verify", "architecture software demo", "Veras demo", "AI tool trial protocol 2026"]
+}
+</script>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="marquee">
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+    <span>ArchiGen AI</span><span class="dot">/</span>
+    <span>Comparisons for people who actually build</span><span class="dot">/</span>
+    <span>No sponsored placements</span><span class="dot">/</span>
+    <span>Vista Studios tested</span><span class="dot">/</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">AG</div>
+      <span>ArchiGen<em>/AI</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="tools.html">Tools</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="vista-studios-positioning.html">Vista Studios</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="article-header">
+  <div class="wrap">
+    <div class="meta">
+      <span class="tag">Workflow · 13 Jul 2026</span>
+      <span class="tag">· 6 min read</span>
+    </div>
+    <h1>The eleven-second <em>render</em> took an afternoon.</h1>
+    <p class="lede">A massing model appears. A prompt is typed at a speed no human types. Eleven seconds later, a dusk exterior with wet paving and a warm interior glow, and the presenter says "that is it, first try." Half of today's sweep results were videos, which means video is now where most architects meet a render tool for the first time. A screen recording cannot fake a workflow the way prose can, and that is exactly what makes the cut so effective. Four things get removed in the edit, every time, and all four are the ones that decide whether the tool works on your project.</p>
+    <div class="byline">
+      <div class="byline-info">
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair, Vista Studios</a></div>
+        <div class="detail">6 min read · Jul 2026 · Vista Studios · Workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="article-body">
+
+    <p>To be fair to the format: the good demonstrators are not lying. The render really did come out of that tool. The problem is that a demo is a performance of a best case, edited by someone who knows which take to keep, and a best case is not a claim you can plan a deadline around. Here is what the cut takes out, and how to put it back in about ten minutes.</p>
+
+    <h2>The four <em>cuts</em></h2>
+
+    <h3>1. The input model</h3>
+    <p>Watch the geometry that goes in, not the image that comes out. Demo models are clean: correct scale, sane materials, no stray layers, glazing that is actually glazing and not a face with a glass name. Your live project model at 4pm on a Thursday is none of those things. The single biggest difference between a demo result and your result is almost never the model weights, it is the model, and geometry-aware renderers are the ones most sensitive to this, because <a href="geometry-aware-ai-renderers-architects-2026.html">they read what you gave them</a>. A tool that turns a tidy massing study into a beautiful dusk shot may do something very different with a real Revit file carrying six consultants' worth of history.</p>
+
+    <h3>2. The rerolls</h3>
+    <p>"First try" is a claim about editing, not about the tool. Generation is stochastic, and the honest number is not one, it is how many outputs the presenter looked at before choosing. In our own testing the realistic figure for a client-ready image is several attempts plus a pass of repair work, which is why the whole <a href="ai-post-production-stack-archviz-2026.html">post-production stack</a> exists in the first place. When a video shows one generation and one result, it is showing you the survivor, not the batch.</p>
+
+    <h3>3. The clock</h3>
+    <p>Screen recordings are cut for pace, and cloud renders are queued. The eleven seconds you watched may have been ninety, and the ninety may have been ninety on a Tuesday morning when nobody else was rendering. Queue time is a real production risk on a shared cloud service, and it is the first thing to move when a tool gets popular, which is one more reason the <a href="ai-rendering-cloud-dependency-architects-2026.html">rented-renderer question</a> matters more than the speed claim.</p>
+
+    <h3>4. The tier</h3>
+    <p>The account in the demo is almost never the account you would buy. It is a vendor seat, a press seat, or the top tier, with the resolution ceiling, the credit balance, and the priority queue that go with it. The features you just watched may exist on a plan you were not shown the price of.</p>
+
+    <blockquote>A demo answers "can this tool do that?" The only question worth money is "can this tool do that, to my model, on a Thursday, at the tier I would actually pay for?"</blockquote>
+
+    <h2>The ten-minute <em>reproduction</em></h2>
+
+    <p>Almost every tool in this category has a free trial or a small credit grant, which means any demo claim is testable before you spend anything. The trap is testing it the way the demo did. Do the opposite.</p>
+
+    <ol>
+      <li><strong>Bring your worst model, not your best.</strong> Pick a real project file, mid-stage, with the messy layers still in it. The demo already proved the tool works on clean input. That question is answered. The open question is what it does with yours.</li>
+      <li><strong>Reproduce the exact claim, once.</strong> Same view type, same prompt intent, no cherry-picking. Look at the first output honestly. This is your true first try.</li>
+      <li><strong>Then count to a keeper.</strong> Keep generating until you get an image you would actually send to a client. Write down the number. That number, not the demo's, is the tool's real cost per usable image, in credits and in minutes.</li>
+      <li><strong>Break one thing on purpose.</strong> Give it the condition that always breaks renders in your work: a tricky glass corner, a courtyard in shade, a material that has to stay exactly what the client approved. Failure modes are the product. Success is just the brochure.</li>
+      <li><strong>Check the receipt.</strong> Open the credit balance before and after. Multiply by the number from step three, then by your monthly image volume. That is the real monthly bill, and it usually is not the sticker price.</li>
+    </ol>
+
+    <p>Ten minutes, and you now know more than any list of thirty tools can tell you, because you tested the only case that matters, which is yours.</p>
+
+    <h2>Which videos are worth <em>watching</em></h2>
+
+    <p>Not all of the format is marketing. Today's sweep held both kinds side by side, and the difference is visible in the runtime.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>What it actually is</th>
+          <th>Worth your time?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>"Is THIS the most powerful tool?"</strong></td>
+          <td>A title that withholds the product name to sell the click. The answer is always yes, or there is no video.</td>
+          <td class="note">No. Read the description for the affiliate link and you have read the review.</td>
+        </tr>
+        <tr>
+          <td><strong>"10 tools you are missing"</strong></td>
+          <td>A listicle read aloud over stock footage, usually the same ten names as the written lists.</td>
+          <td class="note">No. Same content, slower, and you cannot skim it.</td>
+        </tr>
+        <tr>
+          <td><strong>Launch review of a new version</strong></td>
+          <td>Real information about real features, made by someone who wants the next early access.</td>
+          <td class="note">Yes, for the feature list. Ignore the verdict.</td>
+        </tr>
+        <tr>
+          <td><strong>Full uncut workflow walkthrough</strong></td>
+          <td>Forty minutes, one project, someone's actual screen, mistakes left in.</td>
+          <td class="winner">Yes. This is the only format where the boring parts survive, and the boring parts are the job.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>The long unedited recording is where the useful stuff hides: the settings panel someone forgets to close, the seed that comes out wrong and gets fixed live, the moment the presenter mutters that this part is always fiddly. Nobody optimises those clips for retention, which is precisely why they are honest. If you only ever watch one video before buying a tool, make it the longest one you can find, not the slickest.</p>
+
+    <h2>Our take</h2>
+
+    <p>Video deserves more credit than the written listicle, and we say that having spent months <a href="who-profits-from-ai-render-reviews-architects-2026.html">auditing who writes those lists</a>. A screen recording carries evidence that prose cannot: you can see the interface, the click count, the panel the presenter avoids. The trouble is not that demos deceive, it is that architects treat watching as evaluating, and those are different activities separated by about ten minutes of work.</p>
+
+    <p>So watch the long one, at 1.5x, with your own model open in the other window. Then go break the tool yourself. A vendor gets to choose the demo. You get to choose the test, and the test is the only one of the two that has your project in it.</p>
+
+    <p>The tool passed its audition. It has not passed yours.</p>
+
+    <hr>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Written from the July 13, 2026 intel sweep, in which four of the surfaced results were YouTube videos: a "most powerful AI tool" teaser, a ten-tool roundup, a Veras Revit and SketchUp launch review, and a full ComfyUI archviz workflow walkthrough from Rhino. Reroll counts and trial behaviour from Vista Studios testing on our own project files. No affiliate relationship with any tool, channel, or publisher named.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="who-profits-from-ai-render-reviews-architects-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">Who Profits From the AI Render Review You Are Reading</div>
+        </a>
+        <a href="ai-render-time-savings-reality-check-2026.html" class="related-card">
+          <div class="rc-tag">Analysis · 2026</div>
+          <div class="rc-title">The AI Render Time-Savings Reality Check</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="brand" style="text-decoration:none;">
+          <div class="brand-mark" style="background:var(--paper);color:var(--ink);">AG</div>
+          <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
+        </a>
+        <h3>A publication for architects designing <em>with the machine.</em></h3>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+      </div>
+      <div>
+        <h4>Read</h4>
+        <a href="journal.html">Journal</a>
+        <a href="journal.html">Field notes</a>
+        <a href="journal.html">Essays</a>
+        <a href="workflows.html">Workflows</a>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <a href="tools.html">Directory</a>
+        <a href="comparisons.html">Comparisons</a>
+        <a href="tools.html">Stack builder</a>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="mailto:hello@archigenai.com">Contact</a>
+        <a href="sitemap.xml">Sitemap</a>
+        <a href="masthead.html">Masthead</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ArchiGen AI</span>
+      <span>Set in Fraunces &amp; Inter · Printed nowhere</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
