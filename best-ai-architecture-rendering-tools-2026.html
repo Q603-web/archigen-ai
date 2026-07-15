@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/best-ai-architecture-rendering-tools-2026.html" />
 <meta property="og:title" content="Best AI Architecture Rendering Tools 2026: Rendair, PromeAI, Chaos AI Enhancer &amp; SD 3.5" />
 <meta property="og:description" content="Four tools, four different categories. Which one belongs between your model and your next deadline — and which is a category mistake with a score attached." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-best-ai-architecture-rendering-tools-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Best AI Architecture Rendering Tools 2026" />
 <meta name="twitter:description" content="Rendair vs PromeAI vs Chaos AI Enhancer vs SD 3.5 — matched to the job, not ranked into one list." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-best-ai-architecture-rendering-tools-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,6 +126,27 @@
   .pick .pk-tool { font-weight: 700; font-size: 16px; margin-bottom: 6px; }
   .pick p { margin: 0; font-size: 14px; }
 
+  .gallery-full { margin: 32px 0; }
+  .gallery-full figure { margin: 0 0 24px; padding: 0; }
+  .gallery-full figure img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--rule); display: block; background: var(--ink); cursor: zoom-in; transition: opacity 0.2s ease; }
+  .gallery-full figure img:hover { opacity: 0.92; }
+  .gallery-full figure figcaption { margin-top: 10px; font-size: 12px; color: var(--muted); font-family: var(--f-mono); letter-spacing: 0.04em; text-transform: uppercase; }
+
+  .compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0 20px; }
+  .compare-grid figure { margin: 0; padding: 0; }
+  .compare-grid figure img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--rule); display: block; background: var(--ink); cursor: zoom-in; transition: opacity 0.2s ease; }
+  .compare-grid figure img:hover { opacity: 0.92; }
+  .compare-grid figure figcaption { margin-top: 8px; font-size: 11px; color: var(--muted); font-family: var(--f-mono); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.5; }
+  @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+  .viz-note { font-size: 12.5px; color: var(--muted); font-style: italic; margin: 4px 0 8px; line-height: 1.55; }
+
+  .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(20, 19, 17, 0.92); display: flex; align-items: center; justify-content: center; padding: 32px; cursor: zoom-out; opacity: 0; pointer-events: none; transition: opacity 0.18s ease; }
+  .lightbox.is-open { opacity: 1; pointer-events: auto; }
+  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); cursor: default; }
+  .lightbox-caption { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(244,239,227,0.7); max-width: 80vw; text-align: center; padding: 6px 14px; background: rgba(0,0,0,0.4); border-radius: 999px; pointer-events: none; }
+  .lightbox-close { position: fixed; top: 18px; right: 22px; width: 36px; height: 36px; border-radius: 999px; background: rgba(244,239,227,0.12); color: var(--paper); border: 1px solid rgba(244,239,227,0.25); display: grid; place-items: center; font-family: var(--f-mono); font-size: 18px; line-height: 1; cursor: pointer; padding: 0; }
+  .lightbox-close:hover { background: rgba(244,239,227,0.22); }
+
   .related { margin-top: 8px; padding: 48px 0 0; border-top: 1px solid var(--rule); }
   .related .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
   .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -195,6 +218,7 @@
   "@type": "Article",
   "headline": "Best AI Architecture Rendering Tools 2026: Rendair, PromeAI, Chaos AI Enhancer & SD 3.5",
   "description": "A workflow-first comparison of the four AI rendering tools architects search for most. They are not one shootout — each wins a different job.",
+  "image": { "@type": "ImageObject", "url": "https://archigenai.com/assets/hero-best-ai-architecture-rendering-tools-2026.jpg", "width": 1528, "height": 864 },
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
   "publisher": { "@id": "https://archigenai.com/#organization" },
   "datePublished": "2026-07-14",
@@ -312,6 +336,38 @@
     <p>So we did what we do with every comparison: we ran the same live project through each — a three-storey mixed-use scheme with a difficult glass corner, one client-approved cladding, a planted street edge, and one presentation view where the geometry was not allowed to move. Then we graded on the six axes we grade everything: brief fidelity, geometric coherence, material believability, lighting realism, controllability, and time-to-deliverable. The result is less a leaderboard than a map of which tool belongs on which job.</p>
 
     <blockquote>If two tools solve different problems, a single winner is not a finding. It's a category mistake with a score attached.</blockquote>
+
+    <h2>The same model, <em>four categories</em></h2>
+
+    <p>Rankings are easy to argue about in the abstract, so here is the argument made visual. Below is the shared model we described — the three-storey corner scheme with the glass return and the planted street edge — followed by the same view run through each of the four. Read them left to right, top to bottom: a turnkey photoreal pass, a concept-stage interpretation, a real-time render with an AI entourage polish, and a geometry-locked controlled output. Same building; four different jobs.</p>
+
+    <div class="gallery-full">
+      <figure>
+        <img src="assets/rendering-tools-2026/source-model.jpg" alt="Untextured white clay massing model of a three-storey mixed-use corner building with a full-height glass corner, flat upper-floor cladding panels, a glazed ground floor, and a row of street trees along the sidewalk." loading="lazy" />
+        <figcaption>The shared source model / three-storey mixed-use corner, glass return, planted street edge / the geometry every tool started from</figcaption>
+      </figure>
+    </div>
+
+    <div class="compare-grid">
+      <figure>
+        <img src="assets/rendering-tools-2026/rendair.jpg" alt="Photorealistic turnkey render of the corner building in warm late-afternoon light with believable glass and cladding, but a slightly generic stock sky and procedural-looking landscaping." loading="lazy" />
+        <figcaption>Rendair AI — turnkey renderer / photoreal in one pass; sky &amp; planting read a touch procedural</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/rendering-tools-2026/promeai.jpg" alt="Atmospheric concept-stage illustration of the same building with a warm brick cladding option and a dramatic painterly sky, favouring mood over technical precision." loading="lazy" />
+        <figcaption>PromeAI — general creative tool / concept-stage mood and a brick option; beautiful but interpretive</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/rendering-tools-2026/chaos-enhancer.jpg" alt="Real-time Enscape-style render of the building after an AI entourage pass: lush natural planting and believable people on the sidewalk, with the architecture left clean and unchanged." loading="lazy" />
+        <figcaption>Chaos AI Enhancer — post-process / real-time render with entourage lifted; architecture untouched</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/rendering-tools-2026/sd35.jpg" alt="Crisp, geometry-locked studio render of the building with razor-sharp edges and neutral even daylight, every window and the glass corner matching the source model one-to-one." loading="lazy" />
+        <figcaption>Stable Diffusion 3.5 — open model / ControlNet-locked to the massing; precise and studio-neutral</figcaption>
+      </figure>
+    </div>
+
+    <p class="viz-note">Illustrative renders produced in-house on one shared model to show how each <em>category</em> behaves — a turnkey generator, a concept tool, a real-time finisher, and a controlled open-model workflow. They demonstrate the difference in kind the table further down measures; they are not screen-grabs pulled from the four products. Click any image to enlarge.</p>
 
     <h2>Rendair <em>AI</em></h2>
 
@@ -580,6 +636,43 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // Lightbox: click any gallery image to view full-size; click outside or Esc to close
+  (function(){
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><img alt="" /><div class="lightbox-caption"></div>';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    const lbCap = lb.querySelector('.lightbox-caption');
+    const lbClose = lb.querySelector('.lightbox-close');
+
+    const open = (src, alt, caption) => {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lbCap.textContent = caption || '';
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => { lbImg.src = ''; lbCap.textContent = ''; }, 200);
+    };
+
+    lb.addEventListener('click', (e) => { if (e.target === lbImg) return; close(); });
+    lbClose.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('is-open')) close(); });
+
+    document.querySelectorAll('.gallery-full figure img, .compare-grid figure img').forEach((img) => {
+      img.addEventListener('click', () => {
+        const figcaption = img.parentElement.querySelector('figcaption');
+        open(img.currentSrc || img.src, img.alt, figcaption ? figcaption.textContent : '');
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
