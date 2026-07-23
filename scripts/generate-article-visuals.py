@@ -33,10 +33,13 @@ HERO_WIDTH, INLINE_WIDTH = 1600, 1200
 STYLE_GUIDE = (
     "Editorial architectural imagery for a print-quality design magazine. "
     "Photoreal rendering or archviz-style photography, warm paper-toned grading "
-    "(cream, bone, ink, muted terracotta accents), soft directional daylight, "
-    "considered composition with generous negative space. Absolutely no text, "
-    "no logos, no watermarks, no UI chrome, no people's faces. Subtle film grain, "
-    "magazine cover quality."
+    "(cream, bone, ink, muted terracotta accents), magazine cover quality, subtle film grain. "
+    "Every scene must feel ALIVE and inhabited: architecture in use, human presence and "
+    "motion (silhouettes, motion blur, figures at distance — never identifiable faces), "
+    "dramatic natural light (golden hour, dusk glow, rain-washed reflections, sun shafts), "
+    "atmosphere and weather, depth and activity. NEVER sterile still-life compositions, "
+    "empty desks, or lifeless product shots. Absolutely no text, no logos, no watermarks, "
+    "no UI chrome."
 )
 
 
