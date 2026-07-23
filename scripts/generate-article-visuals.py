@@ -65,6 +65,9 @@ Derive image briefs for this article. Return STRICT JSON only:
 
 Rules: exactly 1 hero + {inline_count} inline briefs. Prompts must be concrete visual scenes
 (architecture, renders, workflows made physical — never abstract concepts, never screenshots with text).
+The images in one article must be visually DISTINCT from each other: vary the time of day, color
+palette (at least one image bold and vibrant in color), setting (studio / street / building / landscape)
+and composition. Never two dusk scenes, never two of the same recipe.
 Each prompt must embed this style guide: "{STYLE_GUIDE}"
 alt = one factual sentence. caption = under 12 words, wry editorial tone matching the article.
 
