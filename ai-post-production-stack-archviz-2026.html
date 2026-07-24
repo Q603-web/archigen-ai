@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-post-production-stack-archviz-2026.html" />
 <meta property="og:title" content="The AI Post-Production Stack for Archviz: Learn Passes, Not Tools" />
 <meta property="og:description" content="The archviz post-production course everyone asks for does not exist, because it would be obsolete in a quarter. The pass structure is what lasts: six passes, a fixed order, AI and hand routes for each." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-post-production-stack-archviz-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="AI Post-Production for Archviz: Passes, Not Tools" />
 <meta name="twitter:description" content="Repair, enhance, relight, entourage, grade, upscale. The order matters more than the tools, and the tools will change by winter anyway." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-post-production-stack-archviz-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-post-production-stack-archviz-2026.jpg",
   "headline": "The AI Post-Production Stack for Archviz in 2026: Learn Passes, Not Tools",
   "description": "Every week someone asks Reddit for an archviz AI post-production course and gets six tool names and no method. The course does not exist because the tools churn quarterly. What lasts is the pass structure: repair, enhance, relight, entourage, grade, upscale, in that order.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -248,12 +258,25 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-post-production-stack-archviz-2026.jpg" alt="A wide golden-hour view of a multi-tiered terracotta museum plaza filled with walking visitors." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Tools change monthly; the need for believable light never does.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
     <p>Three threads in this week's sweep alone: one asking for a post-production course, one hunting a ComfyUI graph to "enhance architectural renders," one just asking where the tutorials are. The demand is obvious and the supply is garbage, because everyone selling education in this space teaches their tool, and the tools keep dying. The archviz veterans in those threads know something the tool tutorials skip: post-production was never about the software. Photoshop post had a pass structure (cleanup, entourage, atmosphere, grade, output sharpening) that outlived every plugin fad for twenty years. AI post-production has one too. The passes even come in the same order. Only the labor inside each pass changed.</p>
 
-    <h2>Six passes, <em>one order</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-post-production-stack-archviz-2026-1.jpg" alt="A street-level nighttime photo of a lit glass skyscraper atrium reflected on rain-soaked asphalt." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Relighting an unenhanced render only amplifies the digital noise.</span></figcaption>
+</figure>
+
+        <h2>Six passes, <em>one order</em></h2>
 
     <p>Run them in this sequence. The order is not a style preference; each pass exists to hand clean input to the next, and two of the positions (first and last) are load-bearing.</p>
 
@@ -283,7 +306,12 @@
 
     <blockquote>The tools will not survive the year. The order of operations will survive your career.</blockquote>
 
-    <h2>What stays <em>with the hand</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-post-production-stack-archviz-2026-2.jpg" alt="Architects stand over printed floor plans on an oak table inside a sunlit concrete pavilion overlooking a foggy valley." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>At some point, an actual human still places the tree.</span></figcaption>
+</figure>
+
+        <h2>What stays <em>with the hand</em></h2>
 
     <p>Three things do not go in the graph. The geometry QA pass, checking that no AI pass quietly redrew a mullion or thickened a slab edge, runs on human eyes against the <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">hallucination checklist</a>, because the tool that made the error cannot be the tool that catches it. The grade stays deterministic, as above. And the final five percent, the judgment finish we described in <a href="finishing-ai-render-by-hand-architects-2026.html">finishing by hand</a>, is still what separates an image with an author from an image with a pipeline.</p>
 

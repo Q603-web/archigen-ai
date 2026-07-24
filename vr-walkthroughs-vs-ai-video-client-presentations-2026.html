@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/vr-walkthroughs-vs-ai-video-client-presentations-2026.html" />
 <meta property="og:title" content="VR Walkthroughs vs AI Video: What Clients Actually Watch" />
 <meta property="og:description" content="The headset demo sells the subscription. The 60-second clip sells the building. Choosing the motion format for client presentations in 2026." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-vr-walkthroughs-vs-ai-video-client-presentations-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="VR Walkthroughs vs AI Video: What Clients Actually Watch" />
 <meta name="twitter:description" content="VR walkthroughs, real-time navigation, and AI video each win a different client moment. Most firms are picking by demo instead of by decision." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-vr-walkthroughs-vs-ai-video-client-presentations-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -118,6 +120,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -147,7 +157,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-vr-walkthroughs-vs-ai-video-client-presentations-2026.jpg",
   "headline": "VR Walkthroughs vs AI Video: What Clients Actually Watch",
   "description": "Enscape still leads its pitch with instant VR walkthroughs while Veras and the video models sell 60-second clips. One format gets experienced by a single person in a headset; the other gets forwarded to every stakeholder who was not in the room. How to pick the motion format for a client presentation in 2026.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -214,6 +224,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-vr-walkthroughs-vs-ai-video-client-presentations-2026.jpg" alt="A sunlit architectural conference room with clients and designers gathered around a physical scale model." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The best presentation format is the one that survives the meeting.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -221,7 +239,12 @@
 
     <p>Here is the part the feature list omits. VR is a one-person format. One headset, one client, one experience nobody else in the room shares and nobody outside the room receives. It demands logistics: a charged device, a prepared scene that survives free navigation in every direction, and a client willing to put a screen on their face in a business meeting, which a reliable fraction will decline, and a smaller fraction should, because motion discomfort is real. And it produces no artifact. When the headset comes off, the experience evaporates. The committee member who missed the meeting gets a verbal summary of a spatial argument.</p>
 
-    <h2>The clip is the <em>new deliverable</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-vr-walkthroughs-vs-ai-video-client-presentations-2026-1.jpg" alt="A rain-washed city street at dusk in front of a glowing modern glass building." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Twenty seconds of camera movement beats a twenty-page deck.</span></figcaption>
+</figure>
+
+        <h2>The clip is the <em>new deliverable</em></h2>
 
     <p>Meanwhile the other motion format got absurdly cheap. What used to be a rendered animation, a four-figure line item with a two-week lead time, is now <a href="veras-4-image-to-video-walkthroughs-architects-2026.html">a still render pushed through image-to-video</a> in minutes. Veras 4 does it natively, and the general video models, <a href="tool-kling-2-6.html">Kling</a> and <a href="tool-google-veo-3.html">Veo</a> among them, will animate a camera move through any render you hand them. The output is a 20-to-60-second clip. Vertical if you want it. Plays on a phone.</p>
 
@@ -233,7 +256,12 @@
 
     <p>The honesty caveat cuts the other way, though. A clip is a curated path. The camera goes where the architect sends it, which means it can glide past exactly the corners a free-roaming client would have found, and with AI-generated motion there is a second problem underneath: the frames in between are synthesized, so <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry can wobble in motion</a> in ways a still never reveals. A mullion that swims between frames will be noticed by precisely the client you least want noticing it, and the <a href="why-ai-renders-look-fake-physical-tells-architects-2026.html">physical tells that make stills read as fake</a> get a time axis to fail on. QA the clip like a deliverable, because it is one.</p>
 
-    <h2>Most of VR's value is <em>not the headset</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-vr-walkthroughs-vs-ai-video-client-presentations-2026-2.jpg" alt="An expansive modern building atrium bathed in golden hour light with a person testing a VR headset on an upper deck." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Immersive for one person, completely invisible to everyone else.</span></figcaption>
+</figure>
+
+        <h2>Most of VR's value is <em>not the headset</em></h2>
 
     <p>The dirty secret of the VR walkthrough era is that the majority of its practical value was never the goggles. It was real-time navigation, and that works fine on a laptop plugged into the meeting-room screen. A designer driving <a href="chaos-vantage-real-time-architecture-review-2026.html">Vantage</a>, <a href="twinmotion-2026-1-real-time-vs-ai-render-architects.html">Twinmotion</a>, or Enscape on a flat screen gives the whole room the thing VR promised, walk anywhere, answer "what if we stood here" instantly, without the logistics, without the nausea, and with every stakeholder watching the same pixels at once. It also keeps the architect in the role of guide rather than technician fussing with a strap. For working design reviews, this is the format that wins, and it is the one nobody markets, because it stopped being novel in 2021.</p>
 

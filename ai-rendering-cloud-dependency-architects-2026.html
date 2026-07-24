@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-rendering-cloud-dependency-architects-2026.html" />
 <meta property="og:title" content="Your AI Renderer Is Rented: What Chaos Just Confirmed About Cloud Rendering" />
 <meta property="og:description" content="Nearly every AI renderer an architect touches in 2026 runs on someone else's servers. The vendor said so themselves. Here is what that dependency costs, and how to work with it deliberately." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-rendering-cloud-dependency-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Your AI Renderer Is Rented" />
 <meta name="twitter:description" content="Chaos confirmed it in their own FAQ: the render button is a network request. Four dependencies you signed without reading, and the one local path worth keeping proven." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-rendering-cloud-dependency-architects-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -118,6 +120,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -147,7 +157,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-rendering-cloud-dependency-architects-2026.jpg",
   "headline": "Your AI Renderer Is Rented: What Chaos Just Confirmed About Cloud Rendering",
   "description": "Chaos's new six-tool comparison states plainly that Veras, Midjourney, Rendair AI, and Archsynth all process renders on remote servers. What renting your renderer means for project consistency, pricing, deadlines, and the short list of tools that still run on your own machine.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -214,6 +224,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-rendering-cloud-dependency-architects-2026.jpg" alt="An expansive architectural studio with architects moving among large-scale physical models under bright afternoon light." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Your local workstations are ready, but the server cloud isn't listening.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -221,7 +239,12 @@
 
     <p>AI rendering quietly deleted that arrangement, and this week a vendor finally said so in writing. The model weights that turn your massing into a photograph live on servers you will never see. The plugin in Revit or SketchUp is a thin client, a well-dressed upload form. This is not an accusation, it is the published architecture of nearly every tool in the category, confirmed by the company that sells the most prominent one.</p>
 
-    <h2>Four dependencies you signed <em>without reading</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-cloud-dependency-architects-2026-1.jpg" alt="Pedestrians with umbrellas walk past a wet urban plaza with vibrant terracotta and cobalt modern facades." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The rendering look shifted overnight, but the client presentation is today.</span></figcaption>
+</figure>
+
+        <h2>Four dependencies you signed <em>without reading</em></h2>
 
     <h3>1. The engine can change under your project</h3>
     <p>When the model behind your renderer is server-side, the vendor can swap it whenever they choose, and they do. Veras has already <a href="veras-nano-banana-2-engine-architects-2026.html">replaced its underlying engine</a> more than once this year, and output character shifted with it. Better on average, yes. But if you are eleven images into a fourteen-image planning set and the engine changes on a Tuesday, your remaining three images will not match the first eleven, and no setting brings the old behavior back. We wrote about <a href="ai-render-set-consistency-across-views-architects-2026.html">set consistency</a> as a craft problem; cloud engine swaps make it a scheduling problem too. Finish sets in tight windows. Do not let a presentation series straddle a vendor's release cycle if you can help it.</p>
@@ -243,7 +266,12 @@
 
     <p>This is not an argument for moving your practice to ComfyUI. We have been clear about <a href="ai-rendering-hardware-reality-gpu-cloud-mac-architects-2026.html">the hardware reality</a>: the cloud tools exist because most firms do not want to own GPUs, and for day-to-day concept work the convenience trade is worth it. The argument is narrower. Keep one local path proven and current, the way you keep a fire extinguisher inspected. You are not planning to use it. You are planning to have it.</p>
 
-    <h2>The playbook</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-cloud-dependency-architects-2026-2.jpg" alt="A modern cantilevered pavilion atop a misty mountain ridge illuminated by golden hour light." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Keep an offline fallback ready before the subscription price moves again.</span></figcaption>
+</figure>
+
+        <h2>The playbook</h2>
 
     <ul>
       <li><strong>Archive outputs the day they are accepted.</strong> The render your client approved may be unreproducible after the next engine swap. Save the image, the prompt, the settings, and the source view together, locally, same day.</li>

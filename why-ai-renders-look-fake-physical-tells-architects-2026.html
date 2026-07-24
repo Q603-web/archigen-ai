@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/why-ai-renders-look-fake-physical-tells-architects-2026.html" />
 <meta property="og:title" content="Why Your AI Render Looks Fake: Five Physical Tells and How to Fix Them" />
 <meta property="og:description" content="The geometry checks out and it still looks wrong. The tell is physics: light from nowhere, mis-scaled materials, lying reflections, cloned trees, and plastic surfaces. Five diagnostics and five cheap fixes." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-why-ai-renders-look-fake-physical-tells-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Why Your AI Render Looks Fake" />
 <meta name="twitter:description" content="Correct geometry, still fake. The five physical tells a trained eye catches, and how to fix each with a mask instead of a re-render." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-why-ai-renders-look-fake-physical-tells-architects-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -127,6 +129,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -156,7 +166,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-why-ai-renders-look-fake-physical-tells-architects-2026.jpg",
   "headline": "Why Your AI Render Looks Fake: Five Physical Tells and How to Fix Them",
   "description": "On correctly-built AI renders the giveaway is physics, not structure: light with no source, materials at the wrong scale, reflections that lie, cloned entourage, and surfaces too clean to be real. A diagnostic for each tell and a fix that costs a mask instead of a full re-render.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -247,6 +257,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-why-ai-renders-look-fake-physical-tells-architects-2026.jpg" alt="Pedestrians cross a light-filled concrete gallery space illuminated by overhead sunbeams." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Your brain catches the physics mistake long before your eyes do.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -264,7 +282,12 @@
 
     <p><strong>The fix.</strong> Anchor scale with something the eye trusts. A door, a step, a handrail at known height gives the model and the viewer a ruler. When a surface comes back mis-scaled, mask it and regenerate that region with a prompt that states the module ("standard 215mm brick, three courses visible per metre"), or fix it in a targeted inpaint rather than re-rolling the camera. Material scale is where the <a href="ai-material-studies-finish-exploration-workflow-2026.html">material study workflow</a> earns its place: get the finish right in isolation first, then bring it into the scene.</p>
 
-    <h2>Tell three: <em>reflections that lie</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-why-ai-renders-look-fake-physical-tells-architects-2026-1.jpg" alt="A rain-slicked city plaza reflects vibrant storefront lights and passing pedestrians at dusk." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When reflections guess the background, the illusion collapses instantly.</span></figcaption>
+</figure>
+
+        <h2>Tell three: <em>reflections that lie</em></h2>
 
     <p>Glass and polished floors are where diffusion models are caught most often, because a correct reflection is a physics computation and the model is doing a plausibility guess. So the curtain wall reflects a sky that is not in the frame, the shopfront mirrors a street that does not match the one in front of it, and a wet plaza reflects buildings at the wrong angle. On a hero shot with a lot of glazing, this is the tell a fellow architect spots first, because reading facades is the job.</p>
 
@@ -276,7 +299,12 @@
 
     <p><strong>The fix.</strong> Break the pattern. Vary species, rotation, and size in planting, remove the duplicate that reads first, and hand-place a few real cut-outs where the crowd matters. Entourage is the cheapest part of the image to fix and the one most worth the ten minutes, because a viewer forgives a plain surface long before they forgive the same tree twice. Our <a href="ai-render-entourage-people-planting-architects-2026.html">entourage guide</a> goes through people and planting without the clone problem.</p>
 
-    <h2>Tell five: <em>too clean to be real</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-why-ai-renders-look-fake-physical-tells-architects-2026-2.jpg" alt="A golden-hour close-up shows weathered brick texture and fine architectural details along a residential courtyard." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Perfection is artificial; real buildings carry mud, wear, and history.</span></figcaption>
+</figure>
+
+        <h2>Tell five: <em>too clean to be real</em></h2>
 
     <p>The subtlest one, and the last to fix. AI surfaces are often uniformly perfect. Everything is equally sharp, equally lit, equally new. No dust settles in the corner, no wear marks the threshold, no rain streaks the concrete, and the whole frame sits at one crisp focus with no falloff. Real cameras and real buildings both carry imperfection, and its absence makes an image feel like a product shot of a model rather than a photograph of a place.</p>
 

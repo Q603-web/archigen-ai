@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-drafting-construction-documents-architects-2026.html" />
 <meta property="og:title" content="AI Drafting and Construction Documents in 2026: Show Me the Wall Section" />
 <meta property="og:description" content="The lists say AI does 2D drafting now. The demos show door tags. A map of the four products actually behind the claim, and the one test that tells you the truth about each." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-drafting-construction-documents-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="AI Drafting in 2026: Show Me the Wall Section" />
 <meta name="twitter:description" content="CDs are where the hours live, so 'AI drafting' is the biggest claim on any 2026 tool list. What actually ships behind it, and why drawings under a stamp raise the bar." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-drafting-construction-documents-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-drafting-construction-documents-architects-2026.jpg",
   "headline": "AI Drafting and Construction Documents in 2026: Show Me the Wall Section",
   "description": "Every 2026 tool list now includes '2D drafting' as an AI category, and the demos show door tags, not wall sections. What is actually for sale behind the claim: annotation automation, full-set services, model-first platforms and CAD assistants, and why the stamp changes the trust math.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,12 +266,25 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-drafting-construction-documents-architects-2026.jpg" alt="Architects review a large physical facade model inside a sunlit architectural workshop." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The thirty-second demo rarely survives contact with a real wall section.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
     <p>Rendering owns the AI conversation in architecture for a simple reason: it demos in thirty seconds and the output is a picture anyone can judge. Drafting is the opposite. The output is hundreds of interdependent sheets that only a professional can evaluate, produced over months, wrong in ways that surface a year later on site. So the tool lists, the ones we <a href="archeyes-30-best-ai-tools-architects-audited-2026.html">audit</a> regularly, handle it with a category label and a hopeful sentence. But documentation is commonly the largest single phase of an architect's fee. If AI actually moved the needle there, it would matter more than every render tool on the list combined. So it is worth being precise about what exists.</p>
 
-    <h2>Four products wearing <em>one label</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-drafting-construction-documents-architects-2026-1.jpg" alt="A modern residential building exterior with bright terracotta balcony tiles under direct midday sun." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Four distinct product categories currently share a single marketing label.</span></figcaption>
+</figure>
+
+        <h2>Four products wearing <em>one label</em></h2>
 
     <p>Read past any "AI drafting" claim and you find one of four things underneath.</p>
 
@@ -289,7 +312,12 @@
 
     <blockquote>A wrong tag announces itself. A wrong detail waits for the rain.</blockquote>
 
-    <h2>The re-issue test</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-drafting-construction-documents-architects-2026-2.jpg" alt="A rain-slicked concrete courtyard viewed through glass inside a building under construction." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Site re-issues inevitably reveal which drawings were actually coordinated.</span></figcaption>
+</figure>
+
+        <h2>The re-issue test</h2>
 
     <p>If a drafting tool makes it to a pilot, there is one honest way to run it. Take a project you already issued, feed the tool the same inputs your team had, and diff its output against the set you know is right, because you answered the RFIs on it. Count three things: what it got wrong that a glance catches, what it got wrong that only a senior catches, and how long the checking took. That last number is the one the demo never shows, and it is the number that decides whether the tool pays. Run the pilot the way we suggested for <a href="ai-architecture-back-office-profitability-2026.html">back-office AI</a> generally: one project, one month, hours logged, no vibes.</p>
 

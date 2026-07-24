@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/comfyui-workflow-hunting-trap-architects-2026.html" />
 <meta property="og:title" content="The ComfyUI Workflow-Hunting Trap" />
 <meta property="og:description" content="Downloaded workflow JSONs break on arrival, run on someone else's taste, and teach you nothing. Build the five-node graph instead, or admit you want a product and buy one." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-workflow-hunting-trap-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="The ComfyUI Workflow-Hunting Trap" />
 <meta name="twitter:description" content="Why the perfect downloadable ComfyUI workflow for archviz doesn't exist, what rots first when you grab one anyway, and the small graph that actually pays off." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-workflow-hunting-trap-architects-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -118,6 +120,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -147,7 +157,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-workflow-hunting-trap-architects-2026.jpg",
   "headline": "The ComfyUI Workflow-Hunting Trap: Stop Downloading, Start Building Small",
   "description": "Every week another archviz thread asks for the perfect ComfyUI workflow to enhance architectural renders. Downloaded workflow JSONs rot on arrival: custom nodes drift, models churn, and the graph encodes someone else's intent. The five-node graph worth building yourself, and the signal that you actually want a product.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -238,6 +248,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-workflow-hunting-trap-architects-2026.jpg" alt="Architects move through a brightly lit modern studio at dusk while reviewing a physical scale model." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Importing forty custom nodes won't make the building stand up.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -245,7 +263,12 @@
 
     <p>So the first-run experience is a wall of red. Missing custom nodes. A manager download that pulls newer versions whose inputs no longer match the graph. A checkpoint you have to chase across model sites because it was renamed or superseded. The threads are full of people who got this far and concluded they were not technical enough. They were plenty technical. They were just handed a fossil and told it was a tool.</p>
 
-    <h2>Workflows <em>rot</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-workflow-hunting-trap-architects-2026-1.jpg" alt="Pedestrians walk along concrete ramps in a sunlit, plant-draped architectural courtyard under a blue sky." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Your downloaded graph was built for last quarter's software update.</span></figcaption>
+</figure>
+
+        <h2>Workflows <em>rot</em></h2>
 
     <p>It is worth being precise about why, because the rot is structural, not bad luck. ComfyUI's ecosystem moves on three independent clocks. Custom nodes update weekly and freely change their sockets. Base models churn quarterly; the SDXL workflows of 2024 gave way to FLUX, and the current wave of <a href="qwen-flux-zimage-comfyui-architecture-render-2026.html">Qwen and Z-Image graphs</a> will date just as fast. And the sharing culture itself rewards complexity: the workflows that get upvotes are the forty-node showpieces with face fixers, double upscalers, and six LoRA stacks, which is to say the ones with forty places to break. A downloaded graph is where those three clocks happened to align for its author. On your machine, six months later, they don't.</p>
 
@@ -253,7 +276,12 @@
 
     <blockquote>A downloaded workflow is not a tool. It is a stranger's studio, frozen on the afternoon everything happened to work.</blockquote>
 
-    <h2>Build five nodes <em>you understand</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-workflow-hunting-trap-architects-2026-2.jpg" alt="A person stands on a cantilevered wooden deck overlooking a misty coastline at sunrise." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Five simple components beat an imported maze you cannot debug.</span></figcaption>
+</figure>
+
+        <h2>Build five nodes <em>you understand</em></h2>
 
     <p>Here is the alternative, and it is smaller than the hunt assumes. For the job both Reddit threads describe, enhancing a render you already made while keeping the design intact, the useful graph is about five stages, and you can assemble it from ComfyUI's default template in an evening.</p>
 
