@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-tool-demo-videos-architects-verify-2026.html" />
 <meta property="og:title" content="What the Demo Video Cut Out" />
 <meta property="og:description" content="Every AI render demo removes the same four things. The ten-minute test that puts them back, using your own worst model." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-tool-demo-videos-architects-verify-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="What the Demo Video Cut Out" />
 <meta name="twitter:description" content="The input, the rerolls, the clock, the price. A reproducible ten-minute protocol for testing any AI rendering claim before you buy." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-tool-demo-videos-architects-verify-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -118,6 +120,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -147,7 +157,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-tool-demo-videos-architects-verify-2026.jpg",
   "headline": "What the Demo Video Cut Out: Verifying an AI Render Tool in Ten Minutes",
   "description": "Every AI render demo removes the same four things: the input model, the discarded rerolls, the real clock, and the price of the tier being shown. A ten-minute protocol for reproducing any demo claim on your own model, and the one video format worth your time.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -214,12 +224,25 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-tool-demo-videos-architects-verify-2026.jpg" alt="A modern cantilevered glass and concrete building at dusk with rain-washed reflections on the plaza." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>First takes look flawless when you edit out the other twenty.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
     <p>To be fair to the format: the good demonstrators are not lying. The render really did come out of that tool. The problem is that a demo is a performance of a best case, edited by someone who knows which take to keep, and a best case is not a claim you can plan a deadline around. Here is what the cut takes out, and how to put it back in about ten minutes.</p>
 
-    <h2>The four <em>cuts</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-tool-demo-videos-architects-verify-2026-1.jpg" alt="An overhead view of a sunlit architecture studio with architects working around vibrant tables." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Clean demo geometry rarely survives contact with a real Thursday deadline.</span></figcaption>
+</figure>
+
+        <h2>The four <em>cuts</em></h2>
 
     <h3>1. The input model</h3>
     <p>Watch the geometry that goes in, not the image that comes out. Demo models are clean: correct scale, sane materials, no stray layers, glazing that is actually glazing and not a face with a glass name. Your live project model at 4pm on a Thursday is none of those things. The single biggest difference between a demo result and your result is almost never the model weights, it is the model, and geometry-aware renderers are the ones most sensitive to this, because <a href="geometry-aware-ai-renderers-architects-2026.html">they read what you gave them</a>. A tool that turns a tidy massing study into a beautiful dusk shot may do something very different with a real Revit file carrying six consultants' worth of history.</p>
@@ -235,7 +258,12 @@
 
     <blockquote>A demo answers "can this tool do that?" The only question worth money is "can this tool do that, to my model, on a Thursday, at the tier I would actually pay for?"</blockquote>
 
-    <h2>The ten-minute <em>reproduction</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-tool-demo-videos-architects-verify-2026-2.jpg" alt="A modern timber and brick pavilion set in a wet forest during golden hour." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Ten minutes in a live model reveals what the video skipped.</span></figcaption>
+</figure>
+
+        <h2>The ten-minute <em>reproduction</em></h2>
 
     <p>Almost every tool in this category has a free trial or a small credit grant, which means any demo claim is testable before you spend anything. The trap is testing it the way the demo did. Do the opposite.</p>
 
