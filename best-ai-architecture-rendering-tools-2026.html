@@ -172,6 +172,14 @@
     .foot-grid { grid-template-columns: 1fr 1fr; }
     .lead-stat { flex-direction: column; gap: 8px; }
   }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -215,7 +223,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-best-ai-architecture-rendering-tools-2026.jpg",
   "headline": "Best AI Architecture Rendering Tools 2026: Rendair, PromeAI, Chaos AI Enhancer & SD 3.5",
   "description": "A workflow-first comparison of the four AI rendering tools architects search for most. They are not one shootout — each wins a different job.",
   "image": { "@type": "ImageObject", "url": "https://archigenai.com/assets/hero-best-ai-architecture-rendering-tools-2026.jpg", "width": 1528, "height": 864 },
@@ -323,6 +331,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-best-ai-architecture-rendering-tools-2026.jpg" alt="Architects inspect a scale model of a glass-corner building inside a sunlit studio." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Four different tools, all claiming to solve the exact same drawing.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -369,7 +385,12 @@
 
     <p class="viz-note">Illustrative renders produced in-house on one shared model to show how each <em>category</em> behaves — a turnkey generator, a concept tool, a real-time finisher, and a controlled open-model workflow. They demonstrate the difference in kind the table further down measures; they are not screen-grabs pulled from the four products. Click any image to enlarge.</p>
 
-    <h2>Rendair <em>AI</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-best-ai-architecture-rendering-tools-2026-1.jpg" alt="A rain-washed city street accents the glass corner of a modern three-storey building." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Turnkey photorealism handles rain reflections better than your client handles feedback.</span></figcaption>
+</figure>
+
+        <h2>Rendair <em>AI</em></h2>
 
     <div class="tool-card">
       <div class="tc-head">
@@ -438,7 +459,12 @@
 
     <hr>
 
-    <h2>Stable Diffusion <em>3.5</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-best-ai-architecture-rendering-tools-2026-2.jpg" alt="Sunlight pours through timber-framed floor-to-ceiling glass windows into a modern pavilion interior." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Maximum control requires setting up every timber slat yourself.</span></figcaption>
+</figure>
+
+        <h2>Stable Diffusion <em>3.5</em></h2>
 
     <div class="tool-card">
       <div class="tc-head">
