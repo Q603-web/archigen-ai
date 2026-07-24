@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-render-prompt-library-architects-2026.html" />
 <meta property="og:title" content="Build a Prompt Library: Stop Rewriting the Same AI Render From Scratch" />
 <meta property="og:description" content="The most expensive habit in an AI render practice is starting from a blank prompt box every time. How to turn your best renders into a versioned, reusable prompt library." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-render-prompt-library-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Build a Prompt Library for AI Renders, 2026" />
 <meta name="twitter:description" content="Your render prompt is institutional knowledge, not a throwaway query. How to build a versioned prompt library from your own best work, in layers you can swap one at a time." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-render-prompt-library-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-render-prompt-library-architects-2026.jpg",
   "headline": "Build a Prompt Library: Stop Rewriting the Same AI Render From Scratch",
   "description": "Most firms start every AI render from a blank prompt box and wonder why nothing is consistent. A prompt library treats the prompt as a versioned, reusable asset built in layers: house style, project block, shot block, negatives, and seeds.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-render-prompt-library-architects-2026.jpg" alt="Architects examine physical scale models and layered trace paper in a sunlit studio." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Starting from scratch every Monday morning is a choice, not a law.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -269,7 +287,12 @@
 
     <p>The unit that matters is not the perfect one-off prompt. It is the reusable block: a piece of text proven on real projects, written down once, and pulled forward into the next job with small edits. A firm with even three good blocks renders more consistently than a firm of brilliant individuals each guessing fresh every morning.</p>
 
-    <h2>Build it in layers you can swap <em>one at a time</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-prompt-library-architects-2026-1.jpg" alt="A modern glass building facade lights up a rain-washed city street at dusk as pedestrians walk past." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Swap the lighting layer and the entire evening transforms instantly.</span></figcaption>
+</figure>
+
+        <h2>Build it in layers you can swap <em>one at a time</em></h2>
 
     <p>The trap with prompts is that everything ends up tangled in one paragraph, so changing the time of day means rewriting the whole thing and breaking the parts that were working. A reusable prompt is built in separate layers, and the separation is the entire trick.</p>
 
@@ -301,7 +324,12 @@
 
     <blockquote>A prompt you cannot repeat is not a method. It is a lucky throw you are calling a style.</blockquote>
 
-    <h2>Seeds and references: the other half of <em>repeatable</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-prompt-library-architects-2026-2.jpg" alt="A concrete and timber residence sits atop a ocean cliffside wrapped in morning golden hour mist." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Consistency looks effortless right up until someone loses the seed number.</span></figcaption>
+</figure>
+
+        <h2>Seeds and references: the other half of <em>repeatable</em></h2>
 
     <p>The text is only half of reproducibility. The seed is the rest. If your tool exposes a seed, record it next to the prompt, because the same prompt with the same seed lands close to the same image. That is what lets you change one material without the entire render reshuffling into a different composition, the same problem we worked through for <a href="ai-render-set-consistency-across-views-architects-2026.html">consistency across a set of views</a>.</p>
 

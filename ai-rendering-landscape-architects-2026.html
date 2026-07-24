@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-rendering-landscape-architects-2026.html" />
 <meta property="og:title" content="AI Rendering for Landscape Architects: Why the Building Tools Fall Short" />
 <meta property="og:description" content="AI render tools invent species, flatten grading, and ignore slope. What works for planting plans, terrain and masterplans in 2026, and where to stop trusting the model." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-rendering-landscape-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="AI Rendering for Landscape Architects in 2026" />
 <meta name="twitter:description" content="The render tools were trained on facades, not planting. What actually serves site plans, terrain and masterplans, and where the model quietly lies." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-rendering-landscape-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-rendering-landscape-architects-2026.jpg",
   "headline": "AI Rendering for Landscape Architects: Why the Building Tools Fall Short in 2026",
   "description": "Most AI render tools were trained on buildings, not planting plans. They invent tree species, flatten your grading, and ignore the slope. What actually works for landscape architects in 2026, and where to stop trusting the model.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-rendering-landscape-architects-2026.jpg" alt="A multi-level terraced hillside park featuring concrete retaining walls, stone steps, and tall grasses under morning sunlight." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Pretty pictures rarely survive contact with the local grading plan.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -263,7 +281,12 @@
 
     <p>This is not a small niche complaint. Threads on the landscape architecture forums keep landing on the same frustration: the tools that wow building architects produce renders that a landscape office cannot put in front of a client without an apology. The problem is real, but it is specific, and once you name the three places these tools fail you can build a workflow that uses AI for what it is good at and keeps it away from the decisions it gets wrong.</p>
 
-    <h2>Three things the model gets <em>wrong</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-landscape-architects-2026-1.jpg" alt="An urban courtyard filled with bright red and copper autumn foliage reflected in a dark water feature at twilight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The generator promises perpetual foliage; the nursery delivers bare twigs.</span></figcaption>
+</figure>
+
+        <h2>Three things the model gets <em>wrong</em></h2>
 
     <p>Start with the failures, because pretending they are not there is how a studio ships a render that contradicts its own construction set.</p>
 
@@ -299,7 +322,12 @@
       </tbody>
     </table>
 
-    <h2>The masterplan trap</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-landscape-architects-2026-2.jpg" alt="An elevated aerial view of wooden walkways traversing coastal sand dunes under a cloudy sky." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Masterplans look convincing right up until the site levels apply.</span></figcaption>
+</figure>
+
+        <h2>The masterplan trap</h2>
 
     <p>The most expensive mistake is asking AI to render a masterplan. A masterplan is a measured document: areas, circulation, drainage zones, phasing. A generative model will happily redraw it, prettier and wrong, moving a path it did not understand and merging two zones it could not tell apart. Keep the plan as a drawing that comes from your CAD or GIS base, where every line means something, and aim the AI at the places it helps. Turn the entry plaza into a photoreal eye-level image. Render the waterfront edge at the hour that sells the scheme. Let the masterplan stay a plan and let the hero views become renders. That separation keeps the accuracy where accuracy is contractual and the atmosphere where atmosphere is persuasive.</p>
 

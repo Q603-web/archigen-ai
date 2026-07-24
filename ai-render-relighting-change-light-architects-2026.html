@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-render-relighting-change-light-architects-2026.html" />
 <meta property="og:title" content="Relighting an AI Render: Change the Light, Keep the Building" />
 <meta property="og:description" content="Re-prompting for golden hour gives you a different building. The three ways to relight a render, the settings that hold the structure, and why shadows are where it goes wrong." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-render-relighting-change-light-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Relighting an AI Render Without Rebuilding It, 2026" />
 <meta name="twitter:description" content="Change a noon render to dusk and the model quietly redesigns the facade. Relight as a separate low-denoise pass with structure control. The settings architects get wrong, and the shadow trap." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-render-relighting-change-light-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +121,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -148,7 +158,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-render-relighting-change-light-architects-2026.jpg",
   "headline": "Relighting an AI Render: Change the Light, Keep the Building",
   "description": "Re-prompting an approved render for a different time of day hands you a different building. Relighting is its own pass. The three ways to do it, the denoise and structure-control settings that preserve the geometry, and why shadows are the part the model gets wrong.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -247,6 +257,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-render-relighting-change-light-architects-2026.jpg" alt="A multi-story civic building illuminated at dusk with warm window lights reflecting on rain-soaked city asphalt." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The committee loved the facade, right until they asked for dusk.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -254,7 +272,12 @@
 
     <p>The reason is worth stating plainly, because it governs everything that follows. A new prompt is a new generation. The model holds no memory of the image it made an hour ago, so asking for "the same building at dusk" is asking it to invent a fresh building that happens to match a description. It will get the description right and the building wrong. Relighting, done properly, never goes back to the prompt box for the structure. It treats the approved image as fixed and changes only the one variable you actually want to move.</p>
 
-    <h2>Three ways to move the <em>light</em>, ranked</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-relighting-change-light-architects-2026-1.jpg" alt="A sunlit architectural atrium with long geometric shadows cast by skylights onto limestone floors." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Midday sun keeps geometry honest, but clients rarely buy at noon.</span></figcaption>
+</figure>
+
+        <h2>Three ways to move the <em>light</em>, ranked</h2>
 
     <p>There is a clean hierarchy here, and it runs from most accurate to most convenient. Pick the highest rung you can still reach with the assets you have.</p>
 
@@ -290,7 +313,12 @@
       </tbody>
     </table>
 
-    <h2>The part it gets wrong: <em>shadows</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-relighting-change-light-architects-2026-2.jpg" alt="A concrete pavilion on a foggy hilltop with golden hour sun shafts slicing through the structure." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Prompt-generated shadows answer to artistic mood, never solar geometry.</span></figcaption>
+</figure>
+
+        <h2>The part it gets wrong: <em>shadows</em></h2>
 
     <p>Here is the failure that separates a relight that holds from one that quietly falls apart, and almost nobody checks it before sending the image out. Diffusion models do not cast shadows. They paint shadows that look right at a glance, which is a very different thing. Ask for a low evening sun and the model will add long, warm shadows, and it will add them in the wrong places. They point in two directions in the same image. They fall on the sunny side of a recess. An overhang that should throw a hard band across the entrance throws nothing, while a blank wall grows a shadow with no object to cast it.</p>
 
