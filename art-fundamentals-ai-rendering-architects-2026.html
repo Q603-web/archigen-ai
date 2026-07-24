@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/art-fundamentals-ai-rendering-architects-2026.html" />
 <meta property="og:title" content="AI Didn't Retire Art Fundamentals. It Promoted Them." />
 <meta property="og:description" content="Execution got cheap. Selection got expensive. The archviz artists getting the best AI output are the ones who could art-direct a render before AI existed, and the gap is widening." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-art-fundamentals-ai-rendering-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="AI Didn't Retire Art Fundamentals. It Promoted Them." />
 <meta name="twitter:description" content="Thirty renders an hour means nothing if you can't tell which one is good. Why composition, value, and light logic now decide AI output quality." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-art-fundamentals-ai-rendering-architects-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -118,6 +120,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -147,7 +157,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-art-fundamentals-ai-rendering-architects-2026.jpg",
   "headline": "AI Didn't Retire Art Fundamentals. It Promoted Them.",
   "description": "A working archviz artist said it plainly this week: AI tools don't clash with studying art fundamentals, they depend on them. Composition, value structure, light logic, and staging moved from execution skills to judgment skills, and the tools punish anyone who skipped them.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -238,6 +248,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-art-fundamentals-ai-rendering-architects-2026.jpg" alt="Architects examine a large wooden scale model inside a sunlit architectural studio space." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Faster rendering just means thirty ways to be subtly wrong.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -257,7 +275,12 @@
 
     <p>Notice that none of these is a rendering skill in the software sense. No item on the list mentions samples, caustics, or a node graph. That is exactly why they survived the tool change.</p>
 
-    <h2>Execution got cheap. <em>Selection got expensive.</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-art-fundamentals-ai-rendering-architects-2026-1.jpg" alt="A modern building clad in glossy blue ceramic tiles stands over a wet city street." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Generating thirty options an hour doesn't teach you which one works.</span></figcaption>
+</figure>
+
+        <h2>Execution got cheap. <em>Selection got expensive.</em></h2>
 
     <p>Here is the economic shift underneath the whole argument. The old workflow priced execution high: a full V-Ray scene took days, so a firm needed someone whose hands could produce the image. AI collapsed that price to minutes. But every produced image still needs someone to judge it, and judgment did not get cheaper. It got more expensive, because there is now thirty times more output to judge and the errors are subtler. A blown render in 2019 looked blown. A blown AI render in 2026 looks plausible and is wrong about the shadow direction.</p>
 
@@ -278,7 +301,12 @@
 
     <p>Read the right column top to bottom and a pattern appears: every fundamental now expresses itself as a choice rather than a construction. Choosing the frame, choosing the variant, choosing the reference, deleting the excess. The <a href="reference-images-steer-ai-renders-architects-2026.html">reference image piece</a> from yesterday made the point that the steering wheel moved to precedent images. This is the same point one level up. Steering by precedent only works if you can tell a good precedent from a pretty one, and that discrimination is the fundamentals, wearing a new interface.</p>
 
-    <h2>The floor rose. The ceiling <em>went quiet.</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-art-fundamentals-ai-rendering-architects-2026-2.jpg" alt="A concrete cliffside pavilion overlooks a foggy coastline as warm light glows from inside." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The software handles the output, but discrimination remains strictly manual.</span></figcaption>
+</figure>
+
+        <h2>The floor rose. The ceiling <em>went quiet.</em></h2>
 
     <p>The honest complication: AI raised the floor dramatically. A student with no training now produces images that would have taken a junior artist a year to reach. This is real, and it is why the flattening prediction felt true for a while. But the floor rising is precisely what makes the ceiling invisible. When every portfolio contains competent-looking AI images, competence stops differentiating anyone. What differentiates is the image that reads correctly in grayscale, holds one light source, and stages a room like a photographer instead of a prop department. Clients can't name those qualities. They just point at that image and say "this one." Every archviz artist knows which colleague's work gets pointed at, and it isn't random.</p>
 
