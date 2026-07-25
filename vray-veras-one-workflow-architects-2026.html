@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/vray-veras-one-workflow-architects-2026.html" />
 <meta property="og:title" content="V-Ray + Veras, One Workflow: No More Plugin Juggle" />
 <meta property="og:description" content="Veras now runs inside V-Ray across 3ds Max, SketchUp and Rhino. The real one-window workflow, what it saves, and where a separate pipeline still wins." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-vray-veras-one-workflow-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="V-Ray + Veras, One Workflow: No More Plugin Juggle" />
 <meta name="twitter:description" content="The AI pass now lives inside the renderer. How the combined V-Ray and Veras workflow actually runs, and when to step outside it." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-vray-veras-one-workflow-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-vray-veras-one-workflow-architects-2026.jpg",
   "headline": "V-Ray + Veras, One Workflow: AI Rendering Without the Plugin Juggle",
   "description": "Chaos has folded Veras into V-Ray, so the AI ideation pass now lives inside the renderer you already drive in 3ds Max, SketchUp and Rhino. The one-window workflow in practice, what it removes from your day, and where a separate ComfyUI pipeline still earns its place.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-vray-veras-one-workflow-architects-2026.jpg" alt="A low-angle view of a wet mid-rise residential building during a storm clearing with sun shafts reflecting off the wet street." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The geometry stayed intact, even if the sky decided otherwise.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -293,7 +311,12 @@
 
     <blockquote>The old workflow charged you a tab switch for every idea. The new one charges you almost nothing, and that changes how many ideas you bother to have.</blockquote>
 
-    <h2>What the integration actually removes</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-vray-veras-one-workflow-architects-2026-1.jpg" alt="A view through reeded glass into an architectural studio during a foggy dawn." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Fewer open windows on screen, slightly more perspective in the room.</span></figcaption>
+</figure>
+
+        <h2>What the integration actually removes</h2>
 
     <table class="compare-table">
       <thead>
@@ -342,7 +365,12 @@
 
     <p>The realistic studio answer is both, used for what each is good at. Veras inside V-Ray for the rapid in-context passes that used to cost you a tab switch, and a dedicated ComfyUI graph for hero frames that need a look you have tuned by hand. Treating them as rivals is a category error. One is for thinking fast, the other is for finishing exactly.</p>
 
-    <h2>Our take: <em>friction was the feature nobody priced</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-vray-veras-one-workflow-architects-2026-2.jpg" alt="An overhead drone view of an urban plaza with sharp shadows and terraced landscaping." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When iteration becomes effortless, knowing when to stop becomes work.</span></figcaption>
+</figure>
+
+        <h2>Our take: <em>friction was the feature nobody priced</em></h2>
 
     <p>The interesting thing about this release is not the AI. The engine underneath is the same Nano Banana generation Chaos already shipped, and the option quality is roughly what you would expect from it. The interesting thing is the deletion of a round trip. For years the AI ideation step was theoretically available and practically annoying, and annoying steps do not get used, no matter how good they are in a demo. Putting Veras where the work already happens is a smaller technical change than it looks and a larger behavioral one, because the tool you reach for without thinking is the tool that actually shapes the building.</p>
 

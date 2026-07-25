@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/finishing-ai-render-by-hand-architects-2026.html" />
 <meta property="og:title" content="The Last Ten Percent: Finishing an AI Render by Hand" />
 <meta property="og:description" content="A 90-percent AI render is the easy part. The pass that makes it look decided, entourage, light, fixes, and knowing what to leave out, is the part most people skip." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-finishing-ai-render-by-hand-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="The Last Ten Percent: Finishing an AI Render by Hand" />
 <meta name="twitter:description" content="Architects on the forums agree AI helps most at the finish. Here is the post-generation pass that earns its hour, and where over-finishing wrecks the image." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-finishing-ai-render-by-hand-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-finishing-ai-render-by-hand-architects-2026.jpg",
   "headline": "The Last Ten Percent: Finishing an AI Render by Hand",
   "description": "The recurring archviz forum verdict is that AI helps most at the end, not the start: fixing detail, adding people, cleaning up what the model fudged. A practical pass for taking a 90-percent AI render to something that looks decided, and where the hand-finishing pass backfires.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-finishing-ai-render-by-hand-architects-2026.jpg" alt="A rain-soaked architectural plaza reflecting warm orange lights under a clearing storm sky as seen through glass." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>A ninety percent render leaves the plaza dry; the rest takes rain.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -271,7 +289,12 @@
 
     <blockquote>The base render answers what the building is. The finishing pass answers what the picture is about. Skip it and you ship the first answer and never give the second.</blockquote>
 
-    <h2>The five fixes that earn their time</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-finishing-ai-render-by-hand-architects-2026-1.jpg" alt="A top-down aerial view of a rooftop swimming pool with vibrant blue water and crisp geometric shadows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Five localized tweaks separate a raw export from an intentional scene.</span></figcaption>
+</figure>
+
+        <h2>The five fixes that earn their time</h2>
 
     <p>A good pass is short and repeatable. Five moves cover most of what separates a generated image from a finished one, in roughly the order I work them.</p>
 
@@ -312,7 +335,12 @@
       <li><strong>Compare against the model.</strong> Anything the finishing pass changed about the actual building goes back upstream.</li>
     </ul>
 
-    <h2>Our take: <em>spend the hour you keep skipping</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-finishing-ai-render-by-hand-architects-2026-2.jpg" alt="A ground-level view looking up at a multi-story concrete atrium enveloped in dawn fog with warm lit interiors." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Don't skip the final hour that turns a render into architecture.</span></figcaption>
+</figure>
+
+        <h2>Our take: <em>spend the hour you keep skipping</em></h2>
 
     <p>The forums are right, and they are right about something the marketing keeps quiet. The value is not in the generation, which everyone now has. It is in the finish, which almost nobody does well, because it is unglamorous and it happens when you are tired and the file is technically done. That hour is exactly where your judgement is worth more than the model's, and it is the cheapest edge left in a workflow where the base image has become a commodity.</p>
 

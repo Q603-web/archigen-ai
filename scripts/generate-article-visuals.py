@@ -16,6 +16,7 @@ Idempotent: articles already carrying data-agvis markup are skipped.
 
 import io
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -29,6 +30,30 @@ BRIEF_MODEL = "gemini-flash-latest"  # rolling alias — survives model retireme
 SITE = "https://archigenai.com"
 MAX_BYTES = 200_000
 HERO_WIDTH, INLINE_WIDTH = 1600, 1200
+
+# Escalation ladder: AGV_EDGE env var (1-5). Each backfill batch runs one level
+# higher than the last so the site's visual language keeps advancing instead of
+# converging on a house average. Directives are cumulative.
+EDGE = max(1, min(5, int(os.environ.get("AGV_EDGE", "1"))))
+EDGE_DIRECTIVES = {
+    2: "ESCALATION LEVEL 2 — cutting edge: at least one image per article must use an "
+       "unconventional camera (drone top-down, worm's-eye from the ground, or shot through "
+       "foreground objects or glass); push one image to an extreme weather or light moment "
+       "(storm clearing, dense fog dawn, monsoon glow); favor bold crops and asymmetry over "
+       "safe establishing shots.",
+    3: "ESCALATION LEVEL 3 — experimental: build one composition around reflection or "
+       "mirroring (water, glass, polished stone); allow one night scene with artificial "
+       "color (neon spill, projection-mapped facade, light streaks); include one "
+       "near-abstract architectural macro (raking light on texture, pattern rhythm). The "
+       "safest image in the set must still be bolder than a stock photo.",
+    4: "ESCALATION LEVEL 4 — avant-garde: permitted moves include double-exposure feel, "
+       "architecture dissolving into wireframe or point-cloud at one edge of frame, "
+       "impossible-but-believable vantage points, hard color-grade experiments. Keep one "
+       "grounded image per article so the set stays credible.",
+    5: "ESCALATION LEVEL 5 — no safe images: every frame must do something a stock library "
+       "cannot; treat each image as a magazine-cover attempt.",
+}
+EDGE_TEXT = " ".join(v for k, v in EDGE_DIRECTIVES.items() if EDGE >= k)
 
 STYLE_GUIDE = (
     "Editorial architectural imagery for a print-quality design magazine. "
@@ -68,6 +93,7 @@ Rules: exactly 1 hero + {inline_count} inline briefs. Prompts must be concrete v
 The images in one article must be visually DISTINCT from each other: vary the time of day, color
 palette (at least one image bold and vibrant in color), setting (studio / street / building / landscape)
 and composition. Never two dusk scenes, never two of the same recipe.
+{EDGE_TEXT}
 Each prompt must embed this style guide: "{STYLE_GUIDE}"
 alt = one factual sentence. caption = under 12 words, wry editorial tone matching the article.
 

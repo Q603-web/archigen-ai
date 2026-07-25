@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/comfyui-cloud-architects-render-without-gpu-2026.html" />
 <meta property="og:title" content="ComfyUI Cloud for Architects: The GPU Excuse Is Gone" />
 <meta property="og:description" content="Browser-based ComfyUI on 96GB Blackwell GPUs, custom nodes pre-installed, commercial use cleared. What Comfy Cloud changes for architectural rendering — and the fine print." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-cloud-architects-render-without-gpu-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="ComfyUI Cloud: The GPU Excuse Is Gone" />
 <meta name="twitter:description" content="The most powerful free render path in architecture no longer needs a gaming rig. What Comfy Cloud delivers for architects, who should switch, and who shouldn't." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-cloud-architects-render-without-gpu-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-cloud-architects-render-without-gpu-2026.jpg",
   "headline": "ComfyUI Cloud for Architects: The GPU Excuse Is Gone",
   "description": "Comfy Cloud puts the most powerful free render path in architecture into a browser — 96GB Blackwell GPUs, popular custom nodes pre-installed, every model cleared for commercial use. What it changes for architectural rendering, what the credit system really costs, and who should still run local.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-cloud-architects-render-without-gpu-2026.jpg" alt="A low worm's-eye view of a modern timber facade reflecting golden sunlight and storm clouds in rain puddles." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Your GPU fan can finally stop sounding like a jet engine.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -281,7 +299,12 @@
 
     <p>The pricing model deserves a careful read, because it's genuinely architect-friendly in one specific way: <strong>you only burn credits while the GPU is executing.</strong> Building, rewiring and debugging a workflow — which is where ComfyUI beginners spend ninety percent of their time — costs nothing. You pay for renders, not for fumbling. Compare that with per-seat subscriptions you pay for whether you render daily or twice a month, and the fit for a small practice's lumpy workload is obvious.</p>
 
-    <h2>Why this lands differently for architecture</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-cloud-architects-render-without-gpu-2026-1.jpg" alt="View through a reeded glass partition showing architects moving across a sunlit design studio filled with physical models." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Complex node stacks no longer require a liquid-cooled rig under your desk.</span></figcaption>
+</figure>
+
+        <h2>Why this lands differently for architecture</h2>
 
     <h3>The 96GB number is not marketing</h3>
     <p>Architectural AI work is unusually memory-hungry. The workflows that actually hold geometry — ControlNet stacks on top of Flux-class models, plus an upscaler, plus a detailer pass for vegetation and glazing — are exactly the graphs that crash a 12GB consumer card. On 96GB you can run the full chain at competition-board resolution without the model-juggling and tiling tricks that make local tutorials twice as long as they should be. The ceiling on workflow ambition just moved, substantially.</p>
@@ -300,7 +323,12 @@
 
     <p>And one caution that isn't in any feature table: <strong>confidentiality.</strong> Every image and model view you enhance in the cloud leaves your machine. For competition work and unreleased designs, that's a client-agreement question, not a technical one — the same calculus we walked through in <a href="cloud-ai-rendering-client-confidentiality-architects-2026.html">our piece on cloud rendering and client confidentiality</a>. Nothing about Comfy Cloud changes the rule: if the design can't leave the office, neither can the render job.</p>
 
-    <h2>Cloud or local: the honest split</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-cloud-architects-render-without-gpu-2026-2.jpg" alt="Aerial top-down view of a modern concrete courtyard surrounded by pine trees shrouded in morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Pay for the compute you burn, not the hardware sitting idle.</span></figcaption>
+</figure>
+
+        <h2>Cloud or local: the honest split</h2>
 
     <table class="compare-table">
       <thead>
