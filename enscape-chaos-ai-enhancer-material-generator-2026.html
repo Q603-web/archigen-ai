@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/enscape-chaos-ai-enhancer-material-generator-2026.html" />
 <meta property="og:title" content="Enscape's Chaos AI Enhancer and AI Material Generator, ArchiGen AI" />
 <meta property="og:description" content="Enscape now ships a Chaos AI Enhancer that refines assets without a re-render, plus an AI Material Generator that turns photos into PBR materials. We tested both." />
-<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-enscape-chaos-ai-enhancer-material-generator-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Enscape's Chaos AI Enhancer and AI Material Generator, ArchiGen AI" />
 <meta name="twitter:description" content="The real-time renderer gets two AI features: asset refinement without a re-render, and photo-to-PBR materials. We tested both." />
-<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-enscape-chaos-ai-enhancer-material-generator-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-enscape-chaos-ai-enhancer-material-generator-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/og-image.jpg",
@@ -273,6 +281,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-enscape-chaos-ai-enhancer-material-generator-2026.jpg" alt="A night view of a glowing modern pavilion reflecting neon light across a wet urban plaza seen through rain-streaked glass." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Real-time rendering finally learns to read the room.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -282,7 +298,12 @@
 
     <hr>
 
-    <h2>The Chaos AI Enhancer: <em>fixing the fake parts</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-enscape-chaos-ai-enhancer-material-generator-2026-1.jpg" alt="A low-angle view looking up at a foggy architectural courtyard filled with sunbeams and lush plants." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Foliage and entourage no longer look like cardboard cutouts.</span></figcaption>
+</figure>
+
+        <h2>The Chaos AI Enhancer: <em>fixing the fake parts</em></h2>
 
     <p>The Enhancer is a post-process pass. You render your view as normal, then apply it, and the AI refines specific scene elements, primarily vegetation, people, and environmental detail, so they sit more naturally in the frame. Crucially, it does this <strong>without a full re-render</strong>. You're not waiting for the scene to recompute; you're applying an intelligent finishing layer to the image you already have.</p>
 
@@ -312,7 +333,12 @@
 
     <hr>
 
-    <h2>The AI Material Generator: <em>photo to PBR</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-enscape-chaos-ai-enhancer-material-generator-2026-2.jpg" alt="A close-up photograph of textured terracotta tile catching low golden-hour light alongside a glass reflection." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>From smartphone photo to tactile, light-responsive surface material.</span></figcaption>
+</figure>
+
+        <h2>The AI Material Generator: <em>photo to PBR</em></h2>
 
     <p>The second feature is the one we expected to be a gimmick and came away respecting. The AI Material Generator takes a real-world photograph, a sample of brick, timber, stone, fabric, and generates a full render-ready PBR material from it: albedo, roughness, normal, and the supporting maps, tileable and ready to apply in Enscape.</p>
 

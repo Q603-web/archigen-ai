@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-cloud-ai-rendering-client-confidentiality-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-cloud-ai-rendering-client-confidentiality-architects-2026.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-cloud-ai-rendering-client-confidentiality-architects-2026.jpg" alt="A low-angle view looking up at twin glass skyscrapers illuminated by bright neon light at night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Cloud servers don't care about your non-disclosure agreement.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -300,7 +316,12 @@
 
     <blockquote>The chain of custody for a confidential scheme can be three companies long before the first render comes back. Most architects can't name the second link.</blockquote>
 
-    <h2>The four terms that actually matter</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-cloud-ai-rendering-client-confidentiality-architects-2026-1.jpg" alt="A close-up photograph of textured terracotta building panels illuminated by sharp morning sunlight piercing through fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Terms of service hide in fine print; your renders shouldn't.</span></figcaption>
+</figure>
+
+        <h2>The four terms that actually matter</h2>
 
     <p>You don't need to become a privacy lawyer. You need to find four answers in the terms of service and privacy policy, and they're usually findable in fifteen minutes.</p>
 
@@ -338,7 +359,12 @@
       <li><strong>High stakes — local or explicit consent only.</strong> Anything under a specific NDA, competition entries, public-sector and defence work, high-profile clients who'd be damaged by a leak. Here the structural guarantee of local rendering is worth its inconvenience, or you get written client consent for the specific tool before a single file leaves your machine.</li>
     </ul>
 
-    <h2>The local alternative, honestly</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-cloud-ai-rendering-client-confidentiality-architects-2026-2.jpg" alt="An aerial top-down view of a modern timber pavilion reflecting off a dark water pool at golden hour." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Air-gapped workstations offer complete control, assuming you can afford the hardware.</span></figcaption>
+</figure>
+
+        <h2>The local alternative, honestly</h2>
 
     <p>This is exactly the gap local tools are built for. ComfyUI running Stable Diffusion on your own hardware is pitched — accurately — as the option where projects never leave your network. There's no upload, so there's no retention question, no training-use exposure, no sub-processor chain. The confidentiality guarantee is <em>structural</em>: it holds because the data physically never moved, not because a company promised in a document you hope they honour.</p>
 

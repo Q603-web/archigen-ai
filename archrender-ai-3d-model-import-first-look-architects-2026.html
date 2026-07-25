@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-archrender-ai-3d-model-import-first-look-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-archrender-ai-3d-model-import-first-look-architects-2026.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-archrender-ai-3d-model-import-first-look-architects-2026.jpg" alt="A low-angle view of a modern library reflecting in a rain-soaked plaza after a storm." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Finally, a renderer that remembers your building has three dimensions.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -288,7 +304,12 @@
 
     <hr>
 
-    <h2>Why "3D import" is a bigger deal than it sounds</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-archrender-ai-3d-model-import-first-look-architects-2026-1.jpg" alt="A night photograph of an illuminated concrete building seen through a wet glass foreground." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>One true mesh saves you from eight rounds of prompt bingo.</span></figcaption>
+</figure>
+
+        <h2>Why "3D import" is a bigger deal than it sounds</h2>
 
     <p>On a spec sheet, "imports 3D models" reads like a checkbox. In practice it quietly fixes the two problems that make screenshot-based renderers frustrating for real project work.</p>
 
@@ -325,7 +346,12 @@
       </div>
     </div>
 
-    <h2>The format gap is the catch</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-archrender-ai-3d-model-import-first-look-architects-2026-2.jpg" alt="A top-down drone photograph of a slatted timber building emerging from morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Beautiful geometry means nothing if your OBJ export strips the textures.</span></figcaption>
+</figure>
+
+        <h2>The format gap is the catch</h2>
 
     <p>Here's the part a roundup will gloss over and a working architect will hit on day one: ArchRender takes OBJ, FBX and GLB <em>directly</em>, but native SketchUp <code>.skp</code> needs converting first, a SketchUp extension is described as still in development, and direct Revit and Rhino integration isn't confirmed. For a tool whose entire pitch is "we hold your real model," the on-ramp from the two or three apps most architects actually model in is not yet paved.</p>
 

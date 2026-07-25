@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-rendering-mainstream-client-expectations-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-ai-rendering-mainstream-client-expectations-architects-2026.jpg",
@@ -272,6 +280,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-rendering-mainstream-client-expectations-architects-2026.jpg" alt="A low-angle view of a modern concrete building seen through rain-covered glass during a storm clearing." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When renders take seconds, everyone expects sunlight on demand.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -288,7 +304,12 @@
 
     <hr>
 
-    <h2>What commoditization actually changes</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-mainstream-client-expectations-architects-2026-1.jpg" alt="A top-down aerial view of an illuminated glass architectural pavilion surrounded by night traffic light trails." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Speed is a commodity; taste remains remarkably expensive.</span></figcaption>
+</figure>
+
+        <h2>What commoditization actually changes</h2>
 
     <p>When a deliverable gets cheap and abundant, three things move at once, and none of them are about the software.</p>
 
@@ -315,7 +336,12 @@
       </div>
     </div>
 
-    <h2>Where the 14 hours are real — and where they're a trap</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-mainstream-client-expectations-architects-2026-2.jpg" alt="A close-up shot of ribbed terracotta architectural panels in harsh morning sunlight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Reclaiming fourteen hours just means four more client revisions.</span></figcaption>
+</figure>
+
+        <h2>Where the 14 hours are real — and where they're a trap</h2>
 
     <p>The time savings aren't a myth, but they're conditional, and the condition is discipline about <em>where</em> you apply AI. The reclaimed hours come from compressing genuinely repetitive, low-judgment stages. The trap is letting the speed seduce you into using AI where judgment was the point.</p>
 

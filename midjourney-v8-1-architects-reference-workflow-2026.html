@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/midjourney-v8-1-architects-reference-workflow-2026.html" />
 <meta property="og:title" content="Midjourney V8.1 for Architects: the Reference-Image Workflow, ArchiGen AI" />
 <meta property="og:description" content="The field-tested --iw 1.5 workflow for pushing SketchUp and Rhino exports through Midjourney V8.1 without the model reinventing your building." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-midjourney.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-midjourney-v8-1-architects-reference-workflow-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Midjourney V8.1 for Architects: the Reference-Image Workflow, ArchiGen AI" />
 <meta name="twitter:description" content="V8.1 fixed the over-smoothing. Here's how to feed it your geometry so it enhances the render instead of replacing it." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-midjourney.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-midjourney-v8-1-architects-reference-workflow-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,6 +131,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -160,7 +168,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-midjourney-v8-1-architects-reference-workflow-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-midjourney.jpg",
@@ -273,6 +281,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-midjourney-v8-1-architects-reference-workflow-2026.jpg" alt="A low-angle night photograph of a rain-soaked plaza reflecting red and blue light against a cantilevered concrete building." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Finally, an update that doesn't melt your brutalist cantilevers into toothpaste.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -289,7 +305,12 @@
 
     <hr>
 
-    <h2>The only setting that matters: <em>image weight</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-midjourney-v8-1-architects-reference-workflow-2026-1.jpg" alt="A close-up photograph of foggy dawn light hitting a textured concrete and bronze window frame." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>At image weight 1.5, concrete retains its grain instead of turning plastic.</span></figcaption>
+</figure>
+
+        <h2>The only setting that matters: <em>image weight</em></h2>
 
     <p>Speed and resolution are nice, but they're not why this release changes the workflow. The reason is that V8.1, fed a strong image reference, finally holds your geometry well enough to be useful as a finishing pass on a model export rather than a slot machine for vibes. The control that unlocks it is <code>--iw</code>, the image-weight parameter, and after a few hundred test generations on live project models we keep landing on the same number.</p>
 
@@ -356,7 +377,12 @@
       </tbody>
     </table>
 
-    <h2>Where this workflow still breaks</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-midjourney-v8-1-architects-reference-workflow-2026-2.jpg" alt="A top-down aerial photograph of a timber pavilion complex on wet granite during a storm clearing." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Complex geometries will still gamble with your rooflines if pushed too far.</span></figcaption>
+</figure>
+
+        <h2>Where this workflow still breaks</h2>
 
     <p>Be honest about the ceiling. Even at <code>--iw 1.5</code> with a pristine export, V8.1 is a general image generator wearing your building as a costume. It has no model of construction; it will still quietly redraw a parapet detail or merge two mullions when it thinks the composition wants it to. Run four iterations and you'll get four <em>very similar</em> buildings rather than four treatments of one — better than V8, but a long way from the geometry-locked behaviour of a renderer that operates on your actual model. We pulled at that thread in our piece on <a href="purpose-built-architectural-ai-vs-image-generators-2026.html">purpose-built architectural AI versus the image generators</a>, and the conclusion holds here: Midjourney is a brilliant painter that doesn't know it's looking at a building.</p>
 

@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/veras-4-5-new-features-architects-2026.html" />
 <meta property="og:title" content="What's New in Veras 4.4 and 4.5, ArchiGen AI" />
 <meta property="og:description" content="Veras 4.4 and 4.5 are workflow releases: Rotate Image, Modify/Replace selection, Smart Selection, Remove Background, shareable galleries. What changes for architects day to day." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-veras-4-5-new-features-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="What's New in Veras 4.4 and 4.5, ArchiGen AI" />
 <meta name="twitter:description" content="The Veras 4.4 and 4.5 releases are about workflow, not a new engine: selection modes, smart selection, rotate image, remove background, shareable galleries." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-veras-4-5-new-features-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-veras-4-5-new-features-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-veras.jpg",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-veras-4-5-new-features-architects-2026.jpg" alt="Worm's-eye view of a wet timber building during a clearing storm with dramatic light shafts." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When the underlying engine stays put, dramatic atmosphere does the heavy lifting.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -296,7 +312,12 @@
 
     <hr>
 
-    <h2>Selection grew up: <em>Modify, Replace, and Smart Selection</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-veras-4-5-new-features-architects-2026-1.jpg" alt="Extreme macro view of bright cobalt blue and terracotta architectural facade materials." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Precision selection matters most when editing intricate material transitions on tight deadlines.</span></figcaption>
+</figure>
+
+        <h2>Selection grew up: <em>Modify, Replace, and Smart Selection</em></h2>
 
     <p>The most consequential changes here are about selection, the act of telling Veras <em>which part</em> of the image you want it to touch. In earlier workflows, editing one element without disturbing the rest was the fiddly part. These releases attack that directly.</p>
 
@@ -332,7 +353,12 @@
 
     <p>There are convenience touches too: <strong>Describe Source Image</strong> (powered by the Florence 2 model) generates Short, Medium, or Long image descriptions, and a <strong>Cloud Storage Usage</strong> bar shows consumption in real time with warning states. Individually minor. Collectively, they're the difference between a tool that fights you and one that gets out of the way.</p>
 
-    <h2>Sharing got real: <em>galleries you can actually hand over</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-veras-4-5-new-features-architects-2026-2.jpg" alt="Night view looking through an illuminated architecture studio glass exterior with neon reflections." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Client handoffs look substantially better when wrapped in polished presentation galleries.</span></figcaption>
+</figure>
+
+        <h2>Sharing got real: <em>galleries you can actually hand over</em></h2>
 
     <p>The feature most likely to change how you collaborate is <strong>Share Gallery Items</strong>. Chaos describes shareable links that require no account to view, where "recipients can clone shared items into their own gallery in one click," plus a Shares panel for managing links, revoking access, and tracking analytics. For anyone who has emailed a zip of renders and lost the thread, an account-free, revocable, trackable share link is a small piece of infrastructure that matters more than it sounds.</p>
 

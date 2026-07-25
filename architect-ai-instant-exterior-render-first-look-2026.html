@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-architect-ai-instant-exterior-render-first-look-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-architect-ai-instant-exterior-render-first-look-2026.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-architect-ai-instant-exterior-render-first-look-2026.jpg" alt="A low-angle photograph shows a modern glass and concrete facade reflecting off rain-soaked plaza pavers at night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Speed is intoxicating right up until the geometry starts sliding around.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -294,7 +310,12 @@
 
     <blockquote>At ten seconds an image, rendering stops being a deliverable and becomes a way of thinking.</blockquote>
 
-    <h2>Where it quietly breaks</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architect-ai-instant-exterior-render-first-look-2026-1.jpg" alt="A close-up architectural macro shot displays raking morning light across textured terracotta wall panels." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The model loves a curve even when your CAD file explicitly didn't.</span></figcaption>
+</figure>
+
+        <h2>Where it quietly breaks</h2>
 
     <p>Now the other half of the trade, because the speed is not free — it's paid for in control, and the bill comes due exactly when the work gets serious.</p>
 
@@ -332,7 +353,12 @@
 
     <p>The failure mode isn't using these tools; it's using them <em>past their stage</em>. The instant render that won the early meeting becomes a problem the moment someone screenshots it into a planning document or treats it as the design. Know where the handoff is — from "exploring a feeling" to "representing the building" — and switch tools at that line.</p>
 
-    <h2>Our take: <em>a sketch tool, not a render engine</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architect-ai-instant-exterior-render-first-look-2026-2.jpg" alt="An aerial top-down photo captures a modern courtyard house nestled in a wet pine forest after a storm." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Best used when you need to feel an idea, not sign a contract.</span></figcaption>
+</figure>
+
+        <h2>Our take: <em>a sketch tool, not a render engine</em></h2>
 
     <p>The most useful reframe is to stop thinking of one-click renderers as fast render engines and start thinking of them as fast <em>sketching</em> tools that happen to output photorealism. A trace-paper sketch is fast, suggestive, and nobody mistakes it for a construction document. Architect AI and its category siblings are the photoreal equivalent: brilliant for thinking out loud, dangerous the moment someone reads them literally. The ten-second render isn't competing with Veras or a tuned ComfyUI graph any more than a marker sketch competes with a measured drawing — they're tools for different ends of the same project.</p>
 

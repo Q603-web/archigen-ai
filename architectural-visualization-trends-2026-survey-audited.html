@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-architectural-visualization-trends-2026-survey-audited.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-architectural-visualization-trends-2026-survey-audited.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-architectural-visualization-trends-2026-survey-audited.jpg" alt="An urban studio facade at night wet with rain while electric streetlights reflect across polished granite." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Four out of ten architects were surveyed here. The rest stayed home.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -294,7 +310,12 @@
 
     <blockquote>A statistic becomes load-bearing the moment people stop checking it. The believable ones are the most dangerous, because nobody does.</blockquote>
 
-    <h2>The four things that quietly shape a survey like this</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architectural-visualization-trends-2026-survey-audited-1.jpg" alt="A top-down drone photograph of a wet terracotta public plaza reflecting sunlight after a storm." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Every data point casts a shadow if you look close enough.</span></figcaption>
+</figure>
+
+        <h2>The four things that quietly shape a survey like this</h2>
 
     <h3>1. Who actually answered</h3>
     <p>Sampling is the whole game. A thousand responses sounds robust, but the number that matters is <em>who</em> those thousand are and how they were reached. A survey recruited through an archviz newsletter, a rendering tool's user list, or an AI-focused community will skew toward people already interested in AI — and people interested in AI adopt AI. That doesn't make the result fake; it makes it a measure of "AI adoption among the AI-curious," which is a higher number than "AI adoption across the whole profession." If the methodology doesn't tell you the recruitment channel, the headline is missing its most important footnote.</p>
@@ -367,7 +388,12 @@
 
     <p>What it can't do is settle an argument on its own. If you're about to justify a fee change, a hiring plan, or a software purchase to people who'll hold you to it, a survey headline is the start of the case, not the case. Pair it with something you can defend: your own utilisation data, a controlled before-and-after on a real project, a client's own feedback. The survey tells you you're not crazy to move; your own numbers tell you how far.</p>
 
-    <h2>Our take: <em>quote the trend, not the decimal</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architectural-visualization-trends-2026-survey-audited-2.jpg" alt="A macro photograph of ribbed concrete building fins catching sharp morning raking light in heavy dawn fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Precision down to the decimal point rarely survives actual concrete.</span></figcaption>
+</figure>
+
+        <h2>Our take: <em>quote the trend, not the decimal</em></h2>
 
     <p>The "1,000 architects" survey is a useful artefact and probably an honest one, and the world it describes — AI concept rendering as standard practice in 2026 — is the real one. Keep it in your back pocket. But when you repeat it, repeat it at the resolution it actually supports: "most architects now use AI for concept imagery, and the people who do say it's saving them serious time." That sentence is true, defensible, and survives an audit. "44% of architects save 14 hours a week" is a marketing artefact wearing the costume of a measurement — fine as a hook, dangerous as a fact.</p>
 

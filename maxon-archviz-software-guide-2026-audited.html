@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-maxon-archviz-software-guide-2026-audited.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-maxon-archviz-software-guide-2026-audited.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-maxon-archviz-software-guide-2026-audited.jpg" alt="A worm's-eye view looking up at a vibrant, projection-lit glass skybridge between two dark towers at night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Vendor software guides always feature the flashiest lighting passes first.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -286,7 +302,12 @@
 
     <hr>
 
-    <h2>What the guide gets right</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-maxon-archviz-software-guide-2026-audited-1.jpg" alt="An architectural studio viewed through rain-streaked glass as golden sunlight breaks through dark storm clouds." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Real-time rendering shines brightest when deadlines and weather turn chaotic.</span></figcaption>
+</figure>
+
+        <h2>What the guide gets right</h2>
 
     <p>Start with the credit, because there's a lot of it. The central organising claim — that <strong>Enscape, Lumion, Twinmotion and D5 are strongest as real-time presentation layers, while V-Ray remains the reference for controlled production output</strong> — is correct, and it's the single most useful thing a working architect needs to internalise about this category. It maps cleanly onto how studios actually operate in 2026.</p>
 
@@ -321,7 +342,12 @@
       </div>
     </div>
 
-    <h2>The scorecard</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-maxon-archviz-software-guide-2026-audited-2.jpg" alt="A close-up architectural macro shot of fluted concrete cladding under sharp morning raking light." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Under scrutiny, every render engine eventually reveals its underlying geometry.</span></figcaption>
+</figure>
+
+        <h2>The scorecard</h2>
 
     <table class="compare-table">
       <thead>

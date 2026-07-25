@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/qwen-flux-zimage-comfyui-architecture-render-2026.html" />
 <meta property="og:title" content="Qwen, Flux and Z-Image: The License-Safe ComfyUI Stack, ArchiGen AI" />
 <meta property="og:description" content="Why architects are running Flux, Qwen-Image and Z-Image locally in ComfyUI instead of subscribing to Midjourney: licensing clarity, cost, control and client privacy. An honest model-by-model comparison for archviz." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-qwenflux.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-qwen-flux-zimage-comfyui-architecture-render-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Qwen, Flux and Z-Image: The License-Safe ComfyUI Stack, ArchiGen AI" />
 <meta name="twitter:description" content="Open-weight diffusion models in ComfyUI as a license-clear, free alternative to Midjourney for architectural rendering. Flux vs Qwen-Image vs Z-Image, compared honestly." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-qwenflux.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-qwen-flux-zimage-comfyui-architecture-render-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-qwen-flux-zimage-comfyui-architecture-render-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-qwenflux.png",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-qwen-flux-zimage-comfyui-architecture-render-2026.jpg" alt="A low-angle view of a modern concrete and terracotta building reflected in wet plaza pavement under foggy dawn light." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Buying hardware once beats paying rent on your renders every month.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -312,7 +328,12 @@
 
     <hr>
 
-    <h2>The three contenders, <em>honestly compared</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-qwen-flux-zimage-comfyui-architecture-render-2026-1.jpg" alt="A night view through wet glass showing a projection-mapped facade in vibrant colors and architects inside a studio." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Nothing says local control quite like burning midnight oil in peace.</span></figcaption>
+</figure>
+
+        <h2>The three contenders, <em>honestly compared</em></h2>
 
     <p>Flux, Qwen-Image and Z-Image are three different model families with three different temperaments. Here's how the community generally characterizes each for architectural work. A note before the specifics: these models iterate fast and exact version strings and benchmark numbers move week to week, so we're describing reputations and tendencies, not quoting spec sheets. Check the current model card before you commit a pipeline.</p>
 
@@ -393,7 +414,12 @@
 
     <hr>
 
-    <h2>The workflow that makes it work: <em>sketch to render via ControlNet</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-qwen-flux-zimage-comfyui-architecture-render-2026-2.jpg" alt="A close-up texture shot of a carved limestone and timber facade illuminated by low morning sunlight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Precise edge detection hits differently when your license permits commercial use.</span></figcaption>
+</figure>
+
+        <h2>The workflow that makes it work: <em>sketch to render via ControlNet</em></h2>
 
     <p>None of this matters for architecture if the model invents a different building than the one you designed. The thing that makes local diffusion genuinely useful for us, and the reason that r/comfyui student was pointed at it, is <strong>structural conditioning</strong>. In ComfyUI you don't just prompt a base model; you pair it with a ControlNet (or equivalent) that constrains the output to a structure you provide.</p>
 

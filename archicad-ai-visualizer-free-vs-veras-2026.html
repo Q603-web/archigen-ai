@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-archicad-ai-visualizer-free-vs-veras-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-archicad-ai-visualizer-free-vs-veras-2026.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-archicad-ai-visualizer-free-vs-veras-2026.jpg" alt="A low-angle shot looking up at a glass architectural building reflected in rain-soaked plaza paving under a vibrant sunset storm sky." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Built-in tools get you surprisingly far before requiring a single extra dime.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -296,7 +312,12 @@
 
     <blockquote>The free tool that ships inside your BIM app isn't competing with the paid one. It's competing with you doing nothing at all — and on that contest it wins easily.</blockquote>
 
-    <h2>What a Veras subscription actually buys</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-archicad-ai-visualizer-free-vs-veras-2026-1.jpg" alt="A street-level night photograph of a contemporary building facade illuminated by vibrant violet and amber artificial lights." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Subscriptions buy fine-grained material control when night renders demand precision.</span></figcaption>
+</figure>
+
+        <h2>What a Veras subscription actually buys</h2>
 
     <p>Veras, now running on its 2026 engine, plays a different game. Where the native Archicad tool is a text-prompt instrument bolted to one application, Veras is built as a cross-platform AI visualization layer with a few capabilities that matter once you move past pure exploration.</p>
 
@@ -371,7 +392,12 @@
 
     <p>Read the table as a map, not a scoreboard. The free column wins on cost, setup and immediacy; the paid column wins on control, consistency and reach. Nothing wins everything, and any roundup that ranks one strictly above the other is collapsing two different jobs into one number.</p>
 
-    <h2>When the free native tool is genuinely enough</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-archicad-ai-visualizer-free-vs-veras-2026-2.jpg" alt="A close-up architectural photograph showing raking morning sunlight highlighting textures on a fluted wall facade in dense fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>For early massing and atmospheric concept prompts, free natively already delivers.</span></figcaption>
+</figure>
+
+        <h2>When the free native tool is genuinely enough</h2>
 
     <p>Be honest about how most AI imagery actually gets used in a small or mid-size practice, and the free tool covers more ground than its footnote status suggests. Reach for the native Visualizer when:</p>
 
