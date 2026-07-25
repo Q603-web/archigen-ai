@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-native-vs-plugin-renderers-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-ai-native-vs-plugin-renderers-2026.jpg",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-native-vs-plugin-renderers-2026.jpg" alt="A worm's-eye view of a modern residence at dusk where concrete facade on one side dissolves into a glowing wireframe point-cloud on the other." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Where math ends and diffusion begins: the quiet shift in archviz.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -263,7 +279,12 @@
 
     <p>The strengths are the strengths the path tracer always had. Geometry is exact. Materials are physically based. Reflections are real reflections, not approximated. The downside is the entire downside of path tracing: longer render times, more setup, and a higher floor for the skill to produce decent output. The AI plugins shave hours off particular steps. They do not replace the engine.</p>
 
-    <h2>The same project through both pipelines</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-native-vs-plugin-renderers-2026-1.jpg" alt="A view through a condensation-dusted glass panel into an architectural studio bathed in golden morning light shafts." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Same brief, two pipelines, and a very different afternoon for the team.</span></figcaption>
+</figure>
+
+        <h2>The same project through both pipelines</h2>
 
     <h3>Pipeline A. AI-native, Veras + Nano Banana 2</h3>
 
@@ -367,7 +388,12 @@
 
     <blockquote>The 2026 question is not AI-native or traditional. It is which pipeline is the right pipeline for the deliverable in front of you this afternoon, and the answer is rarely the same one twice in a week.</blockquote>
 
-    <h2>Where each pipeline breaks</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-native-vs-plugin-renderers-2026-2.jpg" alt="A top-down drone photograph of a wet rooftop terrace at night with vibrant neon light reflections in rain pools." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When light calculation breaks down, the artificial details start leaking.</span></figcaption>
+</figure>
+
+        <h2>Where each pipeline breaks</h2>
 
     <p><strong>AI-native breaks on accuracy.</strong> When the client zooms in on a corner detail and asks why the reflection is wrong, or when the construction team asks why the railing has six balusters in the render and twelve in the drawing, the model invented something the architect now has to explain. The fix is to never use an AI-native render as the source of truth for anything dimensional. Use it for feeling and for permission. Use a path-traced render for proof.</p>
 

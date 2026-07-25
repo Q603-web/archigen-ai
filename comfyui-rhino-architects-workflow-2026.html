@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/comfyui-rhino-architects-workflow-2026.html" />
 <meta property="og:title" content="ComfyUI for Rhino users in 2026. The workflow architects actually need | ArchiGen AI" />
 <meta property="og:description" content="The most-asked question on r/FluxAI from architects right now is some version of: how do I get a real ComfyUI workflow that works with my Rhino model. The video tutorials skip the Rhino-specific steps. The Reddit threads stall at the depth map. We built and shipped a working Rhino-to-ComfyUI pipeline on a live project, and this is the workflow architects keep asking for and not finding." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-gpt-lower.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-rhino-architects-workflow-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="ComfyUI for Rhino users in 2026. The workflow architects actually need | ArchiGen AI" />
 <meta name="twitter:description" content="A working Rhino-to-ComfyUI pipeline tested on a live project. The workflow architects keep asking for and not finding." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-gpt-lower.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-rhino-architects-workflow-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-rhino-architects-workflow-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/villa-gpt-lower.png",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-rhino-architects-workflow-2026.jpg" alt="A low-angle photograph of a mixed-use building's glass storefronts and upper balconies reflected on a wet street after rain." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Clean depth maps keep rain reflections where they actually belong.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -251,7 +267,12 @@
 
     <p>We took a 14,000-square-foot mixed-use project, three retail bays at grade and twelve apartments above, modeled in Rhino 8 with VisualARQ for the unit layouts. The brief was four exterior hero shots for a permit-cycle community engagement deck, due in five days, in the studio's house style, which is moody, restrained, and lightly photographic. The shots had to be recognizable as the building we drew. The ComfyUI side of the workflow had to honor the massing. The Reddit-popular workflows do not. This one does.</p>
 
-    <h2>The export from Rhino, <em>and why most architects get this wrong</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-rhino-architects-workflow-2026-1.jpg" alt="An architectural facade showing concrete balconies transitioning into a digital wireframe mesh at night under artificial neon lights." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The moment raw geometry converts to lineart without losing its mind.</span></figcaption>
+</figure>
+
+        <h2>The export from Rhino, <em>and why most architects get this wrong</em></h2>
 
     <p>The ComfyUI workflow does not start in ComfyUI. It starts in Rhino with the right export. If your depth map is wrong, your ControlNet will lie about the building, and the output image will be a beautiful render of a different building. We export three image passes from Rhino, all from the same camera, at 2048 pixels on the long side, with the model in shaded display mode and the linework turned off.</p>
 
@@ -369,7 +390,12 @@
       </tbody>
     </table>
 
-    <h2>The three problems most Rhino-to-ComfyUI workflows hit</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-rhino-architects-workflow-2026-2.jpg" alt="A close-up shot of brick texture and dark window frames showing strong diagonal morning shadows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Default ControlNet settings routinely delete window mullions like these.</span></figcaption>
+</figure>
+
+        <h2>The three problems most Rhino-to-ComfyUI workflows hit</h2>
 
     <p><strong>The depth pass is too steep.</strong> If your depth gradient compresses everything into the same value range, the ControlNet cannot tell foreground from background and the model invents depth. Solution: in Rhino, set the depth clipping to a bounded range around the building, not from camera to infinity. The depth pass should use the full grayscale range.</p>
 

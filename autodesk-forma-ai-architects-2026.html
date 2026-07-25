@@ -142,6 +142,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -169,7 +177,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-autodesk-forma-ai-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-autodesk-forma-ai-architects-2026.jpg",
@@ -247,6 +255,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-autodesk-forma-ai-architects-2026.jpg" alt="A top-down aerial view of a mixed-use urban site in a rainstorm showing a building massing dissolving into a digital point-cloud." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Massing studies look remarkably convincing right up until the weather hits.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -279,7 +295,12 @@
 
     <p>The part that earns the "AI" label is the analysis engine. Traditional environmental analysis &mdash; a proper wind study, a daylight-hours calculation &mdash; is a specialist task that takes hours or days and usually happens too late to change anything. Forma runs trained predictive models that return those results in seconds, live, as you push and pull the massing. That is the actual pitch, and it is a good one: the analysis moves to the moment the decision is being made instead of arriving as a post-rationalisation after it.</p>
 
-    <h2>What the AI <em>does well</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-autodesk-forma-ai-architects-2026-1.jpg" alt="A worm's-eye view looking up at a terracotta facade reflecting morning light through clearing fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Real-time solar studies feel magical until you try daylighting the basement.</span></figcaption>
+</figure>
+
+        <h2>What the AI <em>does well</em></h2>
 
     <p>Three things genuinely worked on our feasibility study, and each one changed a decision.</p>
 
@@ -289,7 +310,12 @@
 
     <p><strong>Site context, done for you.</strong> Forma imports surrounding buildings, terrain and street data for most urban sites automatically. On a normal feasibility study that context model is a half-day of someone's time. In Forma it is a search box and a thirty-second wait. The time saved here is unglamorous and completely real.</p>
 
-    <h2>Where it <em>quietly stalls</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-autodesk-forma-ai-architects-2026-2.jpg" alt="A view through a rain-streaked window into an illuminated architecture studio at dusk." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The handoff to Revit is where the speed advantage usually dies.</span></figcaption>
+</figure>
+
+        <h2>Where it <em>quietly stalls</em></h2>
 
     <p>Forma's ceiling is the same one every honest review hits: it is brilliant at <em>evaluating</em> form and weak at <em>making</em> it.</p>
 

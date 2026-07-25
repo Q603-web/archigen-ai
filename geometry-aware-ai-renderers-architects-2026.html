@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/geometry-aware-ai-renderers-architects-2026.html" />
 <meta property="og:title" content="Geometry-Aware AI Renderers, The Tools That Hold Your Building, ArchiGen AI" />
 <meta property="og:description" content="Architects leave Midjourney over geometry, not image quality, it invents a floor or moves a column. The fix is a different class of tool. We compare the four model-aware renderers that lock to your actual building." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-seedream-lower.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-geometry-aware-ai-renderers-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Geometry-Aware AI Renderers, The Tools That Hold Your Building, ArchiGen AI" />
 <meta name="twitter:description" content="Architects leave Midjourney over geometry, not image quality, it invents a floor or moves a column. The fix is a different class of tool. We compare the four model-aware renderers that lock to your actual building." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-seedream-lower.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-geometry-aware-ai-renderers-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,6 +137,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-geometry-aware-ai-renderers-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/villa-seedream-lower.png",
@@ -238,6 +246,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-geometry-aware-ai-renderers-architects-2026.jpg" alt="Low-angle photo of a modern glass skyscraper dissolving into a digital point-cloud grid during a rainstorm." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>It turns out your client actually expected the fourth floor to exist.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -258,7 +274,12 @@
 
     <p>So the model is not disobeying you. It is doing exactly what it was built to do: producing a plausible building. "Plausible" and "yours" are different targets, and no amount of prompt engineering closes that gap, because the gap is missing information, not a misunderstanding. The tools in this guide all solve it the same way conceptually and differently in practice &mdash; they inject your geometry into the pipeline as a hard constraint: a live model, an uploaded viewport, a depth map, a line drawing. The diffusion step then decorates your building instead of dreaming a new one. The differences between the four come down to <em>where</em> that geometry lives and <em>how much</em> control you get over the constraint.</p>
 
-    <h2>The four tools that actually hold your model</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-geometry-aware-ai-renderers-architects-2026-1.jpg" alt="Overhead drone perspective of an architectural scale model sitting on a terrace in late afternoon light." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When geometry is locked, the computer stops guessing where columns go.</span></figcaption>
+</figure>
+
+        <h2>The four tools that actually hold your model</h2>
 
     <h3>1. Veras 4 &mdash; the BIM-native default</h3>
 
@@ -387,7 +408,12 @@
       <li><strong>You have a tech artist and want a license-free, maximally precise pipeline.</strong> Use ComfyUI with ControlNet. Nothing else matches it on control &mdash; provided someone on the team genuinely wants to own it.</li>
     </ul>
 
-    <h2>What none of them <em>fix</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-geometry-aware-ai-renderers-architects-2026-2.jpg" alt="Close-up textural photo of fog-covered concrete building fins lit by sharp sunrise light." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>A tight constraint won't fix poor spatial planning on its own.</span></figcaption>
+</figure>
+
+        <h2>What none of them <em>fix</em></h2>
 
     <p>Geometry-aware is not judgement-aware. Every tool here will still need a real prompt &mdash; or a real renderer's hand &mdash; for material, light, atmosphere and mood. They hold the building; they do not supply the taste. They are also, all four, slower to a first image than typing a Midjourney prompt. You are trading setup time for trust, and that is almost always the right trade for project work &mdash; but it is a trade, and it is worth saying out loud.</p>
 
