@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/synaps-ai-floor-plan-render-canvas-first-look-2026.html" />
 <meta property="og:title" content="Synaps First Look: The AI Canvas for Architecture" />
 <meta property="og:description" content="Trace a plan from pixels, branch options on a node graph, push 2D to 3D without modeling. What Synaps claims, what holds up, and who it actually fits." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-synaps-ai-floor-plan-render-canvas-first-look-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Synaps First Look: The AI Canvas for Architecture" />
 <meta name="twitter:description" content="A node-based AI canvas with a floor plan tracer and one-step 2D to 3D. The interesting idea, the loud speed claims, and the questions to ask before you trust it." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-synaps-ai-floor-plan-render-canvas-first-look-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-synaps-ai-floor-plan-render-canvas-first-look-2026.jpg",
   "headline": "Synaps First Look: The AI Canvas That Traces Floor Plans and Renders Them",
   "description": "Synaps pitches an AI canvas for architecture: trace a floor plan from an image, branch design options on a node graph, and push 2D to 3D without modeling. A first look at the claims, what is verifiable from public materials, and where a working architect should stay skeptical.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-synaps-ai-floor-plan-render-canvas-first-look-2026.jpg" alt="A low-angle photograph looking up through hanging architectural plans inside a foggy concrete atrium." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Branching ideas look elegant until reality requires real structural support.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -281,7 +299,12 @@
 
     <p>The tracer and the 2D-to-3D step are the parts that go viral, but the node canvas is the part worth your attention. Most AI tools in this market are one-shot: prompt in, image out, and if you want a different option you start over and lose the last one. A node graph keeps the whole exploration alive on one surface. You can fork a layout, try two circulation ideas side by side, and walk back to a branch you abandoned an hour ago. Anyone who has built in Grasshopper will recognize the instinct. Applying it to AI ideation, where the failure mode is usually a pile of disconnected JPEGs with no history, is a real design decision, not a gimmick.</p>
 
-    <h2>The speed numbers, in context</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-synaps-ai-floor-plan-render-canvas-first-look-2026-1.jpg" alt="A street-level photo of a glass pavilion reflecting vibrant city lights on rain-washed pavement after a storm." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Speed claims rarely factor in the messy realities of site conditions.</span></figcaption>
+</figure>
+
+        <h2>The speed numbers, in context</h2>
 
     <p>Synaps marketing leans hard on figures like a plan generated in roughly three seconds and a 2D-to-3D render in under ten. Take those for what they are: vendor demonstrations on inputs chosen to look good. They are a ceiling under ideal conditions, not a benchmark you should plan a deadline around. We have audited enough of these claims to know the pattern. The clock starts on a clean, orthogonal, well-lit sample plan, and it conveniently stops before the part where you fix what the AI guessed wrong.</p>
 
@@ -299,7 +322,12 @@
       <li><strong>Client-facing massing.</strong> A quick, ugly-proof 2D-to-3D view is often enough to align a client at the concept meeting, where a polished render would be premature and a bare plan would lose them.</li>
     </ul>
 
-    <h2>Where to stay skeptical</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-synaps-ai-floor-plan-render-canvas-first-look-2026-2.jpg" alt="A top-down aerial photograph of an angular stone courtyard filled with long shadows at golden hour." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Non-orthogonal plans always reveal where automated tools struggle most.</span></figcaption>
+</figure>
+
+        <h2>Where to stay skeptical</h2>
 
     <table class="compare-table">
       <thead>
