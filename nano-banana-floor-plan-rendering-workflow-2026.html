@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/nano-banana-floor-plan-rendering-workflow-2026.html" />
 <meta property="og:title" content="Realistic Floor Plan Rendering with Nano Banana + Photoshop, Without the Course" />
 <meta property="og:description" content="The 'exclusive' rendered-floor-plan technique being sold on Gumroad, explained free: plan prep, prompting, the Photoshop pass, and the geometry QA that decides whether you can ship it." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-nano-banana-floor-plan-rendering-workflow-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Rendered Floor Plans with Nano Banana, The Free Version" />
 <meta name="twitter:description" content="The whole Nano Banana + Photoshop floor plan rendering workflow in one article — prep, prompts, retouch, QA — including the failure modes the course ads don't mention." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-nano-banana-floor-plan-rendering-workflow-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-nano-banana-floor-plan-rendering-workflow-2026.jpg",
   "headline": "Realistic Floor Plan Rendering with Nano Banana + Photoshop, The Workflow Behind the Paywall",
   "description": "The 'exclusive' rendered-floor-plan technique being sold as a course, explained in full: preparing a clean plan export, prompting Nano Banana for a top-down furnished render, the Photoshop pass that restores linework and labels, and the geometry QA that decides whether you can ship it.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -264,6 +274,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-nano-banana-floor-plan-rendering-workflow-2026.jpg" alt="An architect leans over a large physical floor plan spread across a timber table in a sunlit design studio." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Ten percent off courses won’t clean up your messy CAD exports.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -284,7 +302,12 @@
 
     <p>This step is fifteen minutes in Revit, AutoCAD or even Illustrator, and it buys you more output quality than any prompt wording will.</p>
 
-    <h2>Step 2: <em>the prompt</em> — lock the camera, describe the world</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-nano-banana-floor-plan-rendering-workflow-2026-1.jpg" alt="A top-down aerial view of a modern villa featuring a bright blue terrazzo pool deck and lush greenery." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Lock the camera top-down, or enjoy your accidental isometric dreamscape.</span></figcaption>
+</figure>
+
+        <h2>Step 2: <em>the prompt</em> — lock the camera, describe the world</h2>
 
     <p>Every failed rendered-plan attempt we've seen dies the same way: the model drifts into a perspective or isometric view because nothing told it not to. The prompt has two jobs — pin the camera, then set the design language. A working pattern:</p>
 
@@ -302,7 +325,12 @@
 
     <p><strong>Build it layered.</strong> Furniture corrections, material swaps, alternate palettes — keep them as layers. When the client asks for the warm scheme versus the cool one, you toggle a group instead of re-prompting and re-checking the entire plan.</p>
 
-    <h2>Step 4: the step the ads skip — <em>geometry QA</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-nano-banana-floor-plan-rendering-workflow-2026-2.jpg" alt="A modern glass and timber pavilion glowing with light on a rainy street at dusk." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The client will notice when your AI relocates the bathroom door.</span></figcaption>
+</figure>
+
+        <h2>Step 4: the step the ads skip — <em>geometry QA</em></h2>
 
     <p>A rendered plan looks authoritative, and that's exactly the danger. The render is a probabilistic redrawing of your plan, not a projection of it. Before it leaves the studio, run the overlay check properly: original plan on top at 50% opacity, and walk it — every wall line, every door swing direction, every window position, every fixture. Our <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry-hallucination QA checklist</a> formalizes this; the floor-plan-specific items that fail most often are door swings (silently flipped), plumbing fixtures (migrated along a wall), and closet/storage subdivisions (simplified away).</p>
 
