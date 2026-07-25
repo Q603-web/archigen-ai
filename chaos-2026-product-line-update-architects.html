@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-chaos-2026-product-line-update-architects.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-chaos-2026-product-line-update-architects.jpg",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-chaos-2026-product-line-update-architects.jpg" alt="Low-angle shot of a glass and timber atrium plaza reflectively wet after a dawn storm with sun shafts." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When every tool updates simultaneously, the horizon changes fast.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -296,7 +312,12 @@
 
     <hr>
 
-    <h2>What's actually in the line, and how it connects</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-chaos-2026-product-line-update-architects-1.jpg" alt="View through wet street-level glass into an illuminated architectural studio at night." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Four renderers, one umbilical cord—and a seamless handoff between them.</span></figcaption>
+</figure>
+
+        <h2>What's actually in the line, and how it connects</h2>
 
     <p>The pieces are designed to hand work to each other. You model, you light a scene in Enscape in real time, you reach for Veras when you want a generative concept pass, you push to Vantage when you need real-time ray tracing for a review, and you render final frames in V-Ray when the deliverable demands production quality. Each step used to involve some friction — export here, re-import there, reconcile materials. The 2026 updates are largely about sanding those seams down, so the AI Material Generator's output behaves predictably downstream and Veras can be invoked without leaving the real-time tool you're already in.</p>
 
@@ -322,7 +343,12 @@
 
     <blockquote>Integration is a real feature. It's also the most effective lock-in mechanism ever invented, precisely because it doesn't feel like one.</blockquote>
 
-    <h2>And what it quietly costs</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-chaos-2026-product-line-update-architects-2.jpg" alt="Macro detail shot of textured bronze facade panels reflecting a human silhouette in glass." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Convenience feels weightless right up until you try to leave.</span></figcaption>
+</figure>
+
+        <h2>And what it quietly costs</h2>
 
     <p>The cost isn't a line item. It's leverage, and it accrues slowly. Once your pipeline assumes one vendor's formats, plugins, and conventions, three things shift. <strong>Pricing power moves to them.</strong> A coordinated line is easier to move onto bundled subscriptions, and bundles are easier to raise than individual SKUs because unpicking one tool means unpicking your workflow. <strong>You inherit their roadmap and their outages.</strong> If they deprioritize a feature you depend on, or a release regresses, your whole stack feels it at once — the flip side of coordination. And <strong>switching cost compounds.</strong> Every project that runs end-to-end on the stack is another project's worth of assets, templates, and muscle memory you'd have to migrate later.</p>
 

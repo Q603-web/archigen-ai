@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-best-ai-tools-architects-listicles-audited-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-best-ai-tools-architects-listicles-audited-2026.jpg",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-best-ai-tools-architects-listicles-audited-2026.jpg" alt="Sunlight breaks through storm clouds over a modern pavilion courtyard, reflecting architectural geometries on wet concrete." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Stormy skies clear faster than any AI listicle audit.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -298,7 +314,12 @@
 
     <hr>
 
-    <h2>The tell: <em>nobody tested anything</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-best-ai-tools-architects-listicles-audited-2026-1.jpg" alt="A low-angle macro view shows the rhythmic ribbed texture of a bright terracotta facade through morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Testing geometry requires getting closer than an SEO aggregator ever will.</span></figcaption>
+</figure>
+
+        <h2>The tell: <em>nobody tested anything</em></h2>
 
     <p>The honest ones admit it. Coursiv's 17-tool guide, to its credit, flags that several featured products are too new for verdicts, "it only came out in early 2026, so there aren't any independent reviews yet" for one, "almost no independent reviews" for three others. The pros and cons read as summarized user sentiment, not firsthand use. Chaos's Top 20 is descriptive throughout: each tool gets a tidy paragraph of what it claims to do, with no evidence anyone ran it on a real project. To be fair to Chaos, that list lives on the blog of the company that makes Veras and Enscape, so its enthusiasm has a commercial gravity worth keeping in mind.</p>
 
@@ -379,7 +400,12 @@
 
     <hr>
 
-    <h2>Why the same names <em>keep winning</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-best-ai-tools-architects-listicles-audited-2026-2.jpg" alt="Neon light spill and light streaks reflect off an urban architectural studio's glass facade at night." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The same names keep winning because echo chambers light up bright.</span></figcaption>
+</figure>
+
+        <h2>Why the same names <em>keep winning</em></h2>
 
     <p>It's worth understanding the machinery, because it explains what to ignore. These articles compete for one of the most valuable queries in the AEC software space. Whoever ranks captures a stream of architects shopping for tools, and many of these lists monetize that traffic through affiliate links, lead capture, or, in Chaos's case, by sitting on the vendor's own blog. The incentive is to rank, and the fastest way to rank is to look comprehensive and match what's already ranking.</p>
 

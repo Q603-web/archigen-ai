@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-render-geometry-hallucination-qa-checklist-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-ai-render-geometry-hallucination-qa-checklist-architects-2026.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-render-geometry-hallucination-qa-checklist-architects-2026.jpg" alt="A modern glass skyscraper cantilever illuminates a wet city plaza with vibrant neon lighting at night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The AI loved this floating glass corner enough to invent it entirely.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -294,7 +310,12 @@
 
     <blockquote>The renderer isn't trying to depict your building. It's trying to produce a convincing image — and those are not the same job.</blockquote>
 
-    <h2>The five failure modes that actually bite</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-geometry-hallucination-qa-checklist-architects-2026-1.jpg" alt="A macro photograph shows warm terracotta ribbed wall panels lit by sharp golden hour shadows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Count the mullions twice before committing them to the client deck.</span></figcaption>
+</figure>
+
+        <h2>The five failure modes that actually bite</h2>
 
     <p>After enough renders go out and come back with red ink, the errors sort themselves into a short list. These five account for the overwhelming majority of the geometry problems that survive into a presentation.</p>
 
@@ -331,7 +352,12 @@
 
     <p>Two habits make the pass dramatically more effective. First, <strong>always keep the source visible.</strong> Hallucinations are obvious in comparison and nearly invisible in isolation; the brain accepts a coherent image far too readily on its own. Second, <strong>fix upstream when you can.</strong> If a particular element hallucinates every time, the answer usually isn't more retouching — it's a cleaner source, higher contrast on the offending area, or a higher adherence setting. QA tells you <em>what</em> is breaking; your render settings are where you stop it breaking.</p>
 
-    <h2>Build the guardrails into the tool, not just the review</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-geometry-hallucination-qa-checklist-architects-2026-2.jpg" alt="A top-down aerial view depicts a concrete pavilion pool amidst dawn mist and clearing fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Structural guardrails prevent your diffusion model from redesigning gravity.</span></figcaption>
+</figure>
+
+        <h2>Build the guardrails into the tool, not just the review</h2>
 
     <p>A checklist is the last line of defence, not the only one. The same diligence applies upstream, in how you set the render up. Tools with strong model-adherence controls — a geometry-override or departure slider, or a ControlNet stage constraining output to your edges — let you trade a little image flair for a lot of fidelity, and for client work that trade is almost always worth it. Renderers with direct BIM/CAD integration start from your actual geometry rather than a screenshot of it, which removes a whole class of ambiguity before the model ever runs.</p>
 

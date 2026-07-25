@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-design-thinking-not-just-rendering-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-ai-design-thinking-not-just-rendering-2026.jpg",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-design-thinking-not-just-rendering-2026.jpg" alt="An aerial top-down view of a modern urban plaza covered in rain reflections during a dramatic storm clearing." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Upstream decisions hit the ground long before the renders do.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -304,7 +320,12 @@
 
     <blockquote>The renderer makes the answer look good. The interesting tools help you find a better answer.</blockquote>
 
-    <h2>What design-stage AI <em>actually does</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-design-thinking-not-just-rendering-2026-1.jpg" alt="A modern glass building at night lit by magenta neon, perfectly mirrored in a still reflection pool." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Optimization feels clever until it meets late-night client notes.</span></figcaption>
+</figure>
+
+        <h2>What design-stage AI <em>actually does</em></h2>
 
     <p>The category that lives upstream is different in kind, not degree. These tools operate on the design itself rather than its image. Three names anchor the conversation, and they're worth separating because they're not interchangeable.</p>
 
@@ -389,7 +410,12 @@
 
     <p>That last point is the real reframe. The render-only studio uses AI to do less drawing at the end. The upstream studio uses AI to do more <em>exploring</em> at the start, and then still reaches for a renderer to communicate the chosen scheme. The renderer doesn't go away. It just stops being the only place the machine shows up.</p>
 
-    <h2>What's real, and what's <em>hype</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-design-thinking-not-just-rendering-2026-2.jpg" alt="A close-up worm's-eye view of a ribbed terracotta facade catching raking golden morning light." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The texture is convincing, provided you don't look too closely.</span></figcaption>
+</figure>
+
+        <h2>What's real, and what's <em>hype</em></h2>
 
     <p>Honesty demands separating the two, because the vendor framing flattens them. The real part: feasibility and analysis tools genuinely do work that used to take days, and on constrained, quantifiable sites, especially housing, that work directly shapes the design. That's not a demo trick. Yield, daylight, and layout are numbers, and software is good at numbers.</p>
 

@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-architect-magazine-ai-design-thinking-reality-check-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-architect-magazine-ai-design-thinking-reality-check-2026.jpg",
@@ -270,6 +278,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-architect-magazine-ai-design-thinking-reality-check-2026.jpg" alt="Raindrops cling to a glass window looking into a dimly lit architectural studio where glowing neon light maps onto physical models." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Moving visualization upstream sounds great until deadline day hits.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -294,7 +310,12 @@
 
     <blockquote>There's a difference between a thesis being true and it being true for you, this quarter, on this project.</blockquote>
 
-    <h2>Where the reality check comes in</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architect-magazine-ai-design-thinking-reality-check-2026-1.jpg" alt="A low-angle view looking up a textured concrete building facade disappearing into thick morning fog as a silhouette walks past." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The theory is seamless integration; the reality is still panic-rendering.</span></figcaption>
+</figure>
+
+        <h2>Where the reality check comes in</h2>
 
     <p>Here's the friction. The "visualization as design thinking" studio is real — we've worked alongside it — but it is not the median firm in 2026. For most practices, three things stand between the thesis and the Tuesday-afternoon reality.</p>
 
@@ -358,7 +379,12 @@
       </tbody>
     </table>
 
-    <h2>Our take: <em>the thesis is a map, not a mirror</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architect-magazine-ai-design-thinking-reality-check-2026-2.jpg" alt="An overhead drone perspective shows a timber pavilion set within a plaza filled with rain puddles reflecting the sky." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>A beautiful map for the future, assuming you know where you stand.</span></figcaption>
+</figure>
+
+        <h2>Our take: <em>the thesis is a map, not a mirror</em></h2>
 
     <p>Read Architect Magazine's framing as a map of where the profession is going, and it's excellent — clarifying, ambitious, correct about the shape of the change. Read it as a mirror of where your studio is today, and it'll flatter you into thinking you've already arrived. The studios that benefit most from this thesis are the ones who treat it as a to-do list: <em>are we actually using imagery to make decisions, or just to dress them up afterward?</em> For most, the honest answer is still the latter, and that's fine — as long as you know it, and know what closing the gap requires.</p>
 

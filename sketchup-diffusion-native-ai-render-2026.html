@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/sketchup-diffusion-native-ai-render-2026.html" />
 <meta property="og:title" content="SketchUp Diffusion Goes Native in SketchUp 2026.1, ArchiGen AI" />
 <meta property="og:description" content="SketchUp Diffusion is now built into the SketchUp 2026.1 viewport, with text-prompt rendering and eight style presets. What native AI rendering changes for render-plugin holdouts." />
-<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-sketchup-diffusion-native-ai-render-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="SketchUp Diffusion Goes Native in SketchUp 2026.1, ArchiGen AI" />
 <meta name="twitter:description" content="Text-prompt AI rendering with eight style presets, now inside the SketchUp viewport. What it changes for plugin holdouts." />
-<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-sketchup-diffusion-native-ai-render-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-sketchup-diffusion-native-ai-render-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/og-image.jpg",
@@ -273,6 +281,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-sketchup-diffusion-native-ai-render-2026.jpg" alt="A low-angle view looking up at a glass and timber building reflected in wet plaza pavement during a storm clearing." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>No plugin search required: instant atmosphere built straight into the viewport.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -282,7 +298,12 @@
 
     <hr>
 
-    <h2>What "native" actually <em>changes</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-sketchup-diffusion-native-ai-render-2026-1.jpg" alt="An overhead drone perspective of a terraced limestone pavilion built into a foggy coastal cliffside." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Instant atmosphere beats wrestling with lighting settings in an external engine.</span></figcaption>
+</figure>
+
+        <h2>What "native" actually <em>changes</em></h2>
 
     <p>The mechanics are deliberately simple. You orbit to the view you want, open the Diffusion panel, type a prompt describing the atmosphere and materials you're after, choose one of eight style presets, and generate. A few seconds later you get an image rendered from your current camera, using your model's geometry as the structural skeleton. You can regenerate, nudge the prompt, or change preset without leaving the modeling window.</p>
 
@@ -359,7 +380,12 @@
 
     <p>The honest read: Diffusion lowers the floor, it makes competent concept imagery available to everyone in SketchUp with no barrier. The model-aware tools still own the ceiling, the renders that have to match the project exactly because a client is about to sign off on them.</p>
 
-    <h2>Our take: a floor-raiser, not a <em>ceiling-raiser</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-sketchup-diffusion-native-ai-render-2026-2.jpg" alt="A close-up architectural photograph of terracotta building louvers under strong golden hour light." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Better default visuals elevate early studies without faking finished client work.</span></figcaption>
+</figure>
+
+        <h2>Our take: a floor-raiser, not a <em>ceiling-raiser</em></h2>
 
     <p>The interesting story in 2026.1 isn't that SketchUp got better AI. It's that AI rendering stopped being a thing you opt into and became a default capability of the modeler. That's a structural shift. When a feature is bundled and one click away, usage isn't driven by enthusiasts anymore, it's driven by everyone. Expect a wave of perfectly decent concept imagery from firms that have never thought of themselves as "doing archviz."</p>
 

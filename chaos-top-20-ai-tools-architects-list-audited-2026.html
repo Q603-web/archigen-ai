@@ -130,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-chaos-top-20-ai-tools-architects-list-audited-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-chaos-top-20-ai-tools-architects-list-audited-2026.jpg",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-chaos-top-20-ai-tools-architects-list-audited-2026.jpg" alt="A rain-beaded window looks out onto a glass atrium illuminated by vibrant neon projection mapping reflecting on wet floors." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When the demo lighting is optimized to obscure the fine print.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -304,7 +320,12 @@
 
     <blockquote>A vendor's roundup is not a lie. It is a true map drawn by someone who owns the most valuable building on it.</blockquote>
 
-    <h2>The self-serving part: <em>who sits in the middle</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-chaos-top-20-ai-tools-architects-list-audited-2026-1.jpg" alt="A low-angle macro view up a textured terracotta skyscraper in heavy dawn fog with golden light striking the material ridges." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Looking closely at materials always reveals who tailored the benchmark.</span></figcaption>
+</figure>
+
+        <h2>The self-serving part: <em>who sits in the middle</em></h2>
 
     <p>Here is the tell. In the rendering comparison, the lineup is Veras, Midjourney, Rendair AI, Archsynth, xFigura, and Artlist. Five of those six are competitors. One of them is the house brand. Read the comparison and notice whose strengths set the axes: control, fidelity to the source model, integration with a BIM and rendering pipeline. Those are real evaluation criteria, and they also happen to be exactly where a tool from the maker of Enscape and V-Ray is strongest. Midjourney, a general image generator, will always look "less controllable" on a rubric written by a company that sells controllability.</p>
 
@@ -371,7 +392,12 @@
 
     <p>Run Chaos's posts through that grid and they land in the middle, which is honest of us to say. The capability claims are mostly checkable and specific, the AI Material Generator's "photos into materials" being a good example. The framing of rivals and the choice of criteria lean toward the house. That mix is typical of <em>good</em> vendor content, the kind worth reading, as long as you read it with the grid running.</p>
 
-    <h2>The vendor-neutral reading protocol</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-chaos-top-20-ai-tools-architects-list-audited-2026-2.jpg" alt="Top-down aerial view of a geometric travertine plaza with rainwater reflecting pools and long shadows after a storm." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>A bird’s-eye view makes even biased rubrics look neatly structured.</span></figcaption>
+</figure>
+
+        <h2>The vendor-neutral reading protocol</h2>
 
     <p>This is the part you can reuse on any tool-maker's roundup, Chaos's or anyone else's. Five questions, in order:</p>
 
