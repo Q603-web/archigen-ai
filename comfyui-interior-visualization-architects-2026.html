@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/comfyui-interior-visualization-architects-2026.html" />
 <meta property="og:title" content="ComfyUI for Interiors: Why the Exterior Workflow Breaks Indoors" />
 <meta property="og:description" content="Interiors are a different problem than exteriors. Light has nowhere to enter, denoise erases the room, and tight framing shows every material up close. The interior ComfyUI workflow that actually holds." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-interior-visualization-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="ComfyUI for Interiors, Done Right" />
 <meta name="twitter:description" content="Why the depth control, denoise, and material settings that work outdoors break the moment you point ComfyUI at a room, and how to fix each one." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-interior-visualization-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-interior-visualization-architects-2026.jpg",
   "headline": "ComfyUI for Interiors: Why the Exterior Workflow Breaks Indoors",
   "description": "The ComfyUI graph that nails an exterior falls apart on an interior. Enclosed rooms have nowhere for light to enter, the model rebuilds your furniture, and tight framing exposes every fake material. The settings architects get wrong, and the interior workflow that holds.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-interior-visualization-architects-2026.jpg" alt="A sunlit double-height loft living room with a motion-blurred figure walking across oak wood floors." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Interiors demand tight geometry and light that actually makes physics sense.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -267,7 +285,12 @@
 
     <p>The fix is to stop asking the model to invent the lighting and start giving it a base that already has the lighting roughly right. If your input render has the windows where they are, the lamps reading as lit, and the shadows falling in believable directions, the model refines what is there instead of guessing. A flat, evenly lit clay render is the worst possible interior input, because it hands the model a blank room and full permission to light it however it likes. Spend the extra few minutes getting a rough light setup into the base image. The model is a finisher here, not a lighting designer.</p>
 
-    <h2>Lock the room before <em>you light it</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-interior-visualization-architects-2026-1.jpg" alt="An active architecture studio at dusk with bold blue rain reflections and vibrant warm interior lighting." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Holding structural edges in place before touching the lighting dial.</span></figcaption>
+</figure>
+
+        <h2>Lock the room before <em>you light it</em></h2>
 
     <p>The single biggest interior failure is the model redesigning your space. Furniture slides, a kitchen island grows, a doorway shifts a foot to the left. This is not a prompt problem and you cannot write your way out of it. The prompt describes style; it does not pin geometry. Geometry is held by control inputs, and interiors need more of them than exteriors do because there is more structure packed into a tight frame.</p>
 
@@ -279,7 +302,12 @@
 
     <p>There is an honest trade here, not a free setting. Low denoise protects your geometry but inherits the flaws of your base image, so a weak input stays weak. The better your starting render, the higher you can safely climb. The workflow that holds is iterative: start low, confirm the room survives, then nudge denoise up in small steps until you see the first sign of the model taking liberties, and back off one notch. Treat the dial as a leash, not a quality slider.</p>
 
-    <h2>Materials read <em>up close</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-interior-visualization-architects-2026-2.jpg" alt="A close-up shot of travertine stone textures and walnut cabinetry under bright direct sunlight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>At close range, plastic textures ruin the illusion immediately.</span></figcaption>
+</figure>
+
+        <h2>Materials read <em>up close</em></h2>
 
     <p>An exterior hides its material sins in distance. A facade two hundred feet away can be approximate and nobody minds. An interior puts the camera three feet from a countertop, and now the model has to render a convincing stone, a believable wood grain, a fabric weave that does not look sprayed on. This is where generic checkpoints fall down and where an interior-trained model or a material-specific reference earns its place. The close framing that makes interiors hard is also what makes them rewarding, because a room that reads right at arm's length is genuinely persuasive in a way an exterior rarely needs to be.</p>
 

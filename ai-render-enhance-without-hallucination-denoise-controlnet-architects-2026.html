@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026.html" />
 <meta property="og:title" content="Enhance a Render Without Hallucinating It: Denoise and ControlNet Settings" />
 <meta property="og:description" content="Add realism to a finished render without the model redrawing the building. The denoise ceiling that protects the geometry, the structure control that pins it, and the masking that pushes detail only where it belongs." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Enhance a Render Without Hallucinating the Building, 2026" />
 <meta name="twitter:description" content="The polish pass that adds materials, planting and atmosphere while keeping the facade frozen. Denoise low, structure control on, and a mask so realism lands on the foreground, not the mullions." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +121,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -148,7 +158,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026.jpg",
   "headline": "Enhance a Render Without Hallucinating It: The Denoise and ControlNet Settings",
   "description": "Adding photorealistic lighting, materials and planting to a finished render without the model redrawing the building. The denoise ceiling that protects the geometry, the structure control that pins it, and the masking that pushes realism where it belongs.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -247,6 +257,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026.jpg" alt="A rain-washed multi-story timber and glass architectural pavilion reflected on wet city pavement with pedestrians in motion." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Photorealism is great until the AI relocates your front door.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -260,7 +278,12 @@
 
     <p>For a full realism polish, keep it between 0.2 and 0.35. That is genuinely enough. In that band the model can lay in material grain, warm the light, deepen contact shadows where surfaces meet, add the faint atmosphere that separates a render from a flat export. It cannot, at that strength, restructure a facade, because there is not enough freedom in the budget to move geometry and improve materials at once. Push to 0.45 or 0.5 chasing a bigger jump and you cross the line where the pass stops enhancing and starts reinterpreting, and reinterpreting a building means new windows and bent lines. If a third of a denoise does not get you the detail you want, the answer is never to raise the global value. The answer is to mask, which is the second half of this.</p>
 
-    <h2>Structure control is the leash that <em>holds</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026-1.jpg" alt="A bright midday exterior frame of a modern building showing vivid orange structural steel framing against a deep blue sky." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Structural integrity is easy when the control net locks every joint.</span></figcaption>
+</figure>
+
+        <h2>Structure control is the leash that <em>holds</em></h2>
 
     <p>Low denoise alone protects a small image. On a large facade with a lot of repeating elements, even 0.3 leaves enough room for the model to drift a window line over a wide span, because each region is making its own local decision and they do not have to agree. So you give the model a map it has to follow. Generate a depth pass and a soft-edge or lineart pass from the original image and feed them in as controls. Now every part of the frame is told where it sits and where its edges are, before the styling starts. The geometry is pinned by the control and the freedom is capped by the denoise, and between the two there is no room left to redraw the building. The only thing the model can still change is surface: how a material reads, how light sits on it, how the foreground fills in.</p>
 
@@ -268,7 +291,12 @@
 
     <p>One caution on the controls themselves. Strength matters here too, and the failure runs in the other direction. Crank a lineart control to full weight across the whole frame and the model traces every edge so literally that the render comes back stiff, the materials flattened back to the look you were trying to fix. Hold the structure controls firm on the building, where you want the edges respected, and ease them off over the foreground, where you want the model to improvise planting and reflection. The controls are there to protect the geometry, not to freeze the realism you are paying the pass to add.</p>
 
-    <h2>Mask the realism where it actually <em>belongs</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026-2.jpg" alt="A foggy morning view from inside a concrete building looking into an overgrown atrium garden." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Selective enhancement lets greenery bloom without altering concrete boundaries.</span></figcaption>
+</figure>
+
+        <h2>Mask the realism where it actually <em>belongs</em></h2>
 
     <p>Here is the move that solves the tension in the original request. The building wants almost no change. The foreground planting, the ground plane, the glazing reflections, the sky, those want a lot. A single global denoise cannot serve both, so stop trying to make it. Mask.</p>
 

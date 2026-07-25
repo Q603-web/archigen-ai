@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-pbr-material-maps-from-photo-architects-2026.html" />
 <meta property="og:title" content="Shoot the Material, Generate the Maps: AI PBR Texture Sets for Architects" />
 <meta property="og:description" content="Turning a phone photo of a real surface into a full PBR material set. Which AI tools do it well, where they break, and the QA pass that matters." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-pbr-material-maps-from-photo-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="AI PBR Material Maps From a Photo, 2026" />
 <meta name="twitter:description" content="The material your library is missing is the one in front of you. How AI turns a single photo into albedo, normal and roughness maps, and how to check the result." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-pbr-material-maps-from-photo-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-pbr-material-maps-from-photo-architects-2026.jpg",
   "headline": "Shoot the Material, Generate the Maps: AI PBR Texture Sets for Architects in 2026",
   "description": "Your render dies on the one material your library does not have. AI now turns a phone photo of a real surface into a full PBR set. Which tools do it well, where they break, and the QA pass that keeps the result from looking like wallpaper.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,12 +266,25 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-pbr-material-maps-from-photo-architects-2026.jpg" alt="An architect captures a close-up photo of a weathered terracotta brick wall on a sunlit renovation site." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Your smartphone camera is now the fastest texture scanner in the office.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
     <p>Most of the attention in AI rendering goes to the big move: a model that turns a massing study into a photoreal street view. The quieter win, the one architects mention in passing on the archviz forums, is smaller and more useful day to day. It is the ability to take one photograph of a real surface and get back a full material out of it, ready to apply to geometry. A recent thread on r/archviz put it plainly: the most practical AI in the pipeline was not the headline render generator, it was the bit that turned a low-quality material sample into usable maps. That is the workflow worth knowing, because it removes a real bottleneck without asking you to rebuild how you work.</p>
 
-    <h2>What a material actually <em>is</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-pbr-material-maps-from-photo-architects-2026-1.jpg" alt="Architects review raw stone and timber material samples on a large studio table near rain-streaked windows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Before software maps it, someone still touches the raw sample.</span></figcaption>
+</figure>
+
+        <h2>What a material actually <em>is</em></h2>
 
     <p>If your rendering lives entirely inside SketchUp or a quick real-time view, you may have only ever touched a single image stretched over a face. A production material is more than that, and the difference is why AI generation matters. A physically based, or PBR, material is a small stack of images that each tell the engine something different about the surface.</p>
 
@@ -344,7 +367,12 @@
     <h3>Save it once, reuse it forever</h3>
     <p>The quiet payoff is the library. Every material you generate and correct is one you keep. A practice that does this for a season ends up with a set of bespoke, project-specific materials that no stock library could sell them, built from the actual surfaces of actual buildings they have worked on.</p>
 
-    <h2>Our take: <em>this is the AI feature that pays for itself quietly</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-pbr-material-maps-from-photo-architects-2026-2.jpg" alt="Pedestrians cross a sunlit urban plaza outside a modern brick museum extension." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The best render trick is the one the client never notices.</span></figcaption>
+</figure>
+
+        <h2>Our take: <em>this is the AI feature that pays for itself quietly</em></h2>
 
     <p>Nobody is going to write a breathless launch post about material map generation. It does not produce a hero image, it does not turn a sketch into a city. What it does is delete a specific, recurring half day of work and remove the reason architects substituted a near-enough material instead of the right one. That is a better trade than most of the splashier features, because it improves the unglamorous middle of the render, the surfaces, where believability actually lives. It also sits comfortably alongside the rest of the pipeline rather than replacing any of it, which is why we have argued the durable wins are the ones that <a href="geometry-aware-ai-renderers-architects-2026.html">respect the work you already do</a> rather than rerouting around it.</p>
 

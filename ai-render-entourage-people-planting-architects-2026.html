@@ -20,10 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-render-entourage-people-planting-architects-2026.html" />
 <meta property="og:title" content="The Crowd in the Render: Fixing AI Entourage for Architects" />
 <meta property="og:description" content="AI fills your render with people, planting and cars, and most of them are wrong for the project. Where the crowd breaks, and how to direct one that belongs." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-render-entourage-people-planting-architects-2026.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="The Crowd in the Render: Fixing AI Entourage for Architects" />
 <meta name="twitter:description" content="Entourage is the cheapest tell of an AI render. The same beige crowd, the broken hands, the people who do not match your program, and the fixes that hold up." />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-render-entourage-people-planting-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,6 +130,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -157,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-render-entourage-people-planting-architects-2026.jpg",
   "headline": "The Crowd in the Render: Fixing AI Entourage for Architects",
   "description": "The building in your AI render holds up. The people in it do not. A practical look at entourage in 2026: why AI puts the same beige crowd in every image, where it breaks under a client's zoom, and how to direct a crowd that actually belongs in your project.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -256,6 +266,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-render-entourage-people-planting-architects-2026.jpg" alt="A wide outdoor public plaza featuring modern timber architecture and blurred figures walking during golden hour." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The geometry is precise; the scale figures are purely improvisational.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -269,7 +287,12 @@
 
     <p>Get the people right and the client pictures themselves inside. Get them wrong and the whole image tips into the uncanny, even when the architecture is flawless, because a person looks at a person before they look at a wall. This is the quiet reason a technically perfect render can still land flat. The geometry was solved and the crowd was an afterthought, and the human eye weights the crowd more heavily than the wall behind it.</p>
 
-    <h2>What AI gets wrong about the crowd</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-entourage-people-planting-architects-2026-1.jpg" alt="A high-angle view of a colorful modern atrium with glass walkways and silhouetted figures walking." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Default pedestrians always seem to dress for a completely different building.</span></figcaption>
+</figure>
+
+        <h2>What AI gets wrong about the crowd</h2>
 
     <p>The failures cluster into three, and once you can name them you cannot stop seeing them.</p>
 
@@ -284,7 +307,12 @@
 
     <blockquote>The architecture is generated from your geometry. The crowd is generated from a stereotype. One of those you reviewed. The other you let the machine cast.</blockquote>
 
-    <h2>How to actually fix the crowd</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-entourage-people-planting-architects-2026-2.jpg" alt="A close-up of a physical architectural model on a studio workbench with hands placing scale figures." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Directing your scale figures takes five minutes; fixing them takes forever.</span></figcaption>
+</figure>
+
+        <h2>How to actually fix the crowd</h2>
 
     <p>The fix is not to ban AI people. It is to stop letting one method carry the whole image, and to spend your attention where the client's will go. The governing rule is distance.</p>
 
