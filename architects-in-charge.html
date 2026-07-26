@@ -169,6 +169,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -193,7 +201,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-architects-in-charge.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-architects-in-charge.jpg",
@@ -307,6 +315,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-architects-in-charge.jpg" alt="A low-angle view looking up at a wooden architectural cantilever dissolving into glowing digital particles during a heavy rainstorm." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When the prompt runs wild, the umbrella becomes structural equipment.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -350,7 +366,12 @@
       <span class="attr">From the field notes · Issue 042</span>
     </div>
 
-    <h2>Midjourney as a <em>conceptual instrument</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architects-in-charge-1.jpg" alt="An overhead drone view of a geometric concrete courtyard with a reflective pool and tropical foliage." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Midjourney loves a water feature, especially from three hundred feet up.</span></figcaption>
+</figure>
+
+        <h2>Midjourney as a <em>conceptual instrument</em></h2>
 
     <p>Midjourney's weakness in architectural work is documented: geometry failures, structural inventions, doors that open into other doors. We know this. We've all made the mistake of trusting it with technical things.</p>
 
@@ -372,7 +393,12 @@
 
     <p>Non-architects find ComfyUI notoriously difficult, not because the software is opaque, but because the decisions it requires map onto a spatial intelligence they haven't been trained in. You can't get the denoise right if you haven't developed an opinion about what the right level of resolution means for this building at this stage. The tool is neutral. The judgment is professional.</p>
 
-    <h2>FLUX and material <em>intelligence</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architects-in-charge-2.jpg" alt="A close-up macro shot of a textured rammed-earth wall illuminated by sharp morning sunlight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Material prompts hit harder when the mud has actual texture.</span></figcaption>
+</figure>
+
+        <h2>FLUX and material <em>intelligence</em></h2>
 
     <p>FLUX.1 Dev has changed how we handle material exploration in early design. Its understanding of material properties, the way light reads differently off polished concrete than off board-marked concrete, the thermal connotations of brick versus CLT, the difference between a factory-finished aluminium panel and one that has weathered for three seasons, is better than anything that existed before.</p>
 

@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/testfit-feasibility-generative-design-review-2026.html" />
 <meta property="og:title" content="TestFit Review 2026, The Feasibility Studio Eating Pre-Design, ArchiGen AI" />
 <meta property="og:description" content="TestFit has quietly become the default feasibility tool for developers and pre-design teams. We ran it against a live mixed-use site to see whether the generative pitch holds up." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-maket.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-testfit-feasibility-generative-design-review-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="TestFit Review 2026, The Feasibility Studio Eating Pre-Design, ArchiGen AI" />
 <meta name="twitter:description" content="TestFit has quietly become the default feasibility tool for developers and pre-design teams. We ran it against a live mixed-use site to see whether the generative pitch holds up." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-maket.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-testfit-feasibility-generative-design-review-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-testfit-feasibility-generative-design-review-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-maket.jpg",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-testfit-feasibility-generative-design-review-2026.jpg" alt="A low-angle view of a mixed-use concrete podium structure illuminated at night by glowing projected massing lines on wet pavement." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Pro-formas written in light before the first rebar hits the site.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -273,7 +289,12 @@
 
     <p>What's changed in the last year is the speed of iteration and the depth of pro-forma integration. The solver now feels real-time on most sites under three acres. The pro-forma module is no longer just unit count and gross area, it tracks per-unit construction cost, parking cost separately, common area factor, and lets you sensitize against rent assumptions on the fly.</p>
 
-    <h2>Stage one, <em>setting up</em> the site</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-testfit-feasibility-generative-design-review-2026-1.jpg" alt="A top-down drone photograph of a tight urban infill lot cutting through early morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Site boundaries set the trap; the solver finds the way out.</span></figcaption>
+</figure>
+
+        <h2>Stage one, <em>setting up</em> the site</h2>
 
     <p>For our infill site, setup took roughly 25 minutes. Pull in the parcel from the integrated GIS layer (TestFit reads from public county data in most US jurisdictions), apply the zoning rules, define the program. The zoning import was about 80% accurate, it caught the base FAR and height limit but missed a transit-overlay bonus we had to add manually. Standard for any tool reading parcel data; nothing unusual.</p>
 
@@ -293,7 +314,12 @@
 
     <p>That's the central use case. Developers want to know if a parti pencils <em>now</em>, not after a week of massing. TestFit collapses the loop from days to minutes. The parti they push forward to design is one they've already stress-tested against rent assumptions, parking ratios, and three different zoning interpretations.</p>
 
-    <h2>Stage three, <em>handing off</em> to design</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-testfit-feasibility-generative-design-review-2026-2.jpg" alt="An architectural macro shot of a ribbed terracotta facade reflecting light while dissolving into wireframe at one edge." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Where the mathematical solver stops and actual architecture begins.</span></figcaption>
+</figure>
+
+        <h2>Stage three, <em>handing off</em> to design</h2>
 
     <p>The export is fine, not great. TestFit exports to Revit, SketchUp, and Rhino with reasonable fidelity for the building footprint, podium massing, and parking layout. What doesn't survive cleanly is intent. The export is geometry, not a parametric structure that the design team can keep editing inside TestFit's logic. Once you've handed off, you've left the feasibility loop.</p>
 

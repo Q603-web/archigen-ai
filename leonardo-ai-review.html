@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/leonardo-ai-review.html" />
 <meta property="og:title" content="Leonardo AI for Architecture: Full Review, ArchiGen AI" />
 <meta property="og:description" content="Six months of using Leonardo AI on real architecture projects, what it's actually good at, where it falls short, and whether the price is worth it." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-leonardo.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-leonardo-ai-review.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Leonardo AI for Architecture: Full Review, ArchiGen AI" />
 <meta name="twitter:description" content="Six months of using Leonardo AI on real architecture projects, what it's actually good at, where it falls short, and whether the price is worth it." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-leonardo.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-leonardo-ai-review.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,6 +123,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -228,6 +236,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-leonardo-ai-review.jpg" alt="A worm's-eye view of a modern concrete museum illuminated by vibrant neon projections on a wet night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Always the last tool touched, rarely the first.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -277,7 +293,12 @@
       </div>
     </div>
 
-    <h2>Where it <em>excels</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-leonardo-ai-review-1.jpg" alt="A view framed through frosted glass looking at a cantilevered wooden cabin during a clearing mountain snowstorm." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Rescuing flat lighting with an emergency dose of atmosphere.</span></figcaption>
+</figure>
+
+        <h2>Where it <em>excels</em></h2>
 
     <p><strong>Upscaling.</strong> The Universal Upscaler is the reason we keep paying. Take any 1024px AI render, from Veras, Rendair, Midjourney, anywhere, and run it through Leonardo at 2x with the "Crisp" preset. The output is consistently usable for print. We've A/B tested it against Topaz Gigapixel and Magnific, and Leonardo holds its own at half the price.</p>
 
@@ -314,7 +335,12 @@
       <p><strong>vs Krea:</strong> Krea wins on real-time interactivity and live client meetings. Leonardo wins on output quality and finishing tools.</p>
     </div>
 
-    <h2>Workflow <em>tips</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-leonardo-ai-review-2.jpg" alt="A top-down drone photograph showing a travertine courtyard transitioning into a wireframe mesh near ocean waters." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Inpainting away urban clutter before the client ever notices.</span></figcaption>
+</figure>
+
+        <h2>Workflow <em>tips</em></h2>
 
     <p><strong>Use it as a finisher, not a starter.</strong> Generate your concept in Midjourney, your geometry-aware render in Veras, then bring both into Leonardo for upscaling and inpainting. That's where the value lives.</p>
 

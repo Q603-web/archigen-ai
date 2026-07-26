@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/ai-rendering-interior-designers-spacely-2026.html" />
 <meta property="og:title" content="AI Rendering for Interior Designers, Spacely.ai and the Interior-First Stack, ArchiGen AI" />
 <meta property="og:description" content="Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-spacely.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-ai-rendering-interior-designers-spacely-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="AI Rendering for Interior Designers, Spacely.ai and the Interior-First Stack, ArchiGen AI" />
 <meta name="twitter:description" content="Most AI rendering tools were built for exteriors. Interior designers have been adapting workflows that don't fit. We tested Spacely.ai and the interior-specific tools that finally do." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-spacely.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-ai-rendering-interior-designers-spacely-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-rendering-interior-designers-spacely-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-spacely.jpg",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-rendering-interior-designers-spacely-2026.jpg" alt="An extreme low-angle view of a modern hotel lobby lit with cyan and magenta lights, featuring ceiling elements transitioning into a digital wireframe." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Exterior tools see a lobby; interior software sees fifty lighting decisions.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -263,7 +279,12 @@
 
     <p><strong>Soft light reads.</strong> Exterior light is brutal, direct sun, cast shadows, sky bounce. Interior light is layered: ambient, task, decorative, accent. The exterior models tend to flatten interior light into a single global illumination, which kills depth and reads as either too bright or too cave-like.</p>
 
-    <h2>Spacely.ai, <em>built for the interior workflow</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-interior-designers-spacely-2026-1.jpg" alt="A top-down view through a wet glass skylight reveals a sunlit modern kitchen with a marble countertop." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Getting the marble veining right matters when clients check the specs.</span></figcaption>
+</figure>
+
+        <h2>Spacely.ai, <em>built for the interior workflow</em></h2>
 
     <p>Spacely.ai's core proposition is "interior rendering and design intelligence for designers, not architects." That positioning matters. The tool is aware of room types in a way that the architectural renderers aren't, it knows what a primary bedroom, a powder room, or a hospitality lobby is supposed to do, and it generates accordingly.</p>
 
@@ -295,7 +316,12 @@
 
     <p>The other limitation is exterior context. If your interior render needs to show a meaningful exterior view through a window, a specific city skyline, a known landscape, Spacely tends to invent generic context. For projects where the view <em>is</em> the design, this matters.</p>
 
-    <h2>The interior-first <em>stack</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-rendering-interior-designers-spacely-2026-2.jpg" alt="A close-up photograph of raking light on textured plaster and brass seen through fluted glass." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The art of stacking software until the fabric weave looks real.</span></figcaption>
+</figure>
+
+        <h2>The interior-first <em>stack</em></h2>
 
     <p>Spacely is the centerpiece, but interior workflows benefit from a stack rather than a single tool. Here's what we ran during the test, and what each one was actually good for:</p>
 

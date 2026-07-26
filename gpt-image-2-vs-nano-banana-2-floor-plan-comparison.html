@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html" />
 <meta property="og:title" content="Nano Banana 2 vs GPT Image 2 for Floor Plans: We Ran Both | ArchiGen AI" />
 <meta property="og:description" content="Same source plan, same JSON spec, two models. Side-by-side outputs, timings, costs, and a verdict from a real Vista Studios residential project." />
-<meta property="og:image" content="https://archigenai.com/assets/floor-plan-comparison/nb2-v1.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Nano Banana 2 vs GPT Image 2 for Floor Plans: We Ran Both" />
 <meta name="twitter:description" content="Same source plan, same JSON spec, two models. Side-by-side, with the verdict up front." />
-<meta name="twitter:image" content="https://archigenai.com/assets/floor-plan-comparison/nb2-v1.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,6 +161,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -188,7 +196,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg",
   "headline": "Nano Banana 2 vs GPT Image 2 for Floor Plans: We Ran Both. Here's What Held Up.",
   "description": "Vista Studios ran the same residential floor plan through Nano Banana 2 and OpenAI's GPT Image 2 with the same JSON spec. Side-by-side renders, real timings, real costs, and an honest verdict on which model preserves a building and which one improvises a different one.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
@@ -345,6 +353,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg" alt="A top-down aerial photograph of an inhabited modern residential courtyard in the rain with glowing interior windows and a central fire pit." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>One prompt to rule them all, until the rain hits the wireframe.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -375,7 +391,12 @@
       </figure>
     </div>
 
-    <h2>Nano Banana 2, <em>iter-05</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-gpt-image-2-vs-nano-banana-2-floor-plan-comparison-1.jpg" alt="A close-up view through textured ribbed glass showing golden morning light casting geometric shadows on concrete and wood interiors." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Absolute layout discipline looks surprisingly good in dense morning fog.</span></figcaption>
+</figure>
+
+        <h2>Nano Banana 2, <em>iter-05</em></h2>
 
     <p>Two variants, 37 seconds each, $0.04 a piece. The output comes back at 1567 by 688, the source aspect ratio preserved nearly to the pixel. NB2 reads the JSON structure and produces, with very little drama, the building you drew. Roof off. Walls intact. The fire pit glowing in the centre of the courtyard where you put it. The gym is the gym, the apartments are the apartments, the garden running through the lower spine is unmistakably the garden running through the lower spine of the source plan. NB2 does not surprise you, which is the entire point.</p>
 
@@ -469,7 +490,12 @@
 
     <p>JSON does not <em>override</em> a model's biases, though. GPT Image 2 read the same structured rules and produced renders with hallucinated rooms anyway. The model's underlying composition logic does what it was trained to do, which is produce a beautiful image. The plan is the input. It was never the law. The first model that treats a structured prompt the way an API treats an OpenAPI schema, as a contract rather than a vibe, will rewrite this comparison. Until then: structure your prompts, but don't expect the structure to fight the model's training for you.</p>
 
-    <h2>Picking the right model, <em>per stage</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-gpt-image-2-vs-nano-banana-2-floor-plan-comparison-2.jpg" alt="A low-angle ground-level photo looking up at a modern building facade with its complete reflection mirrored in a standing rain puddle." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When atmospheric mood board vibes outweigh structural accuracy.</span></figcaption>
+</figure>
+
+        <h2>Picking the right model, <em>per stage</em></h2>
 
     <p>The question that matters is not which model is better. It is which model is right for the stage of your project.</p>
 

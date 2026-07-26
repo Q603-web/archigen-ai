@@ -133,6 +133,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -160,7 +168,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-ai-render-time-savings-reality-check-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-ai-render-time-savings-reality-check-2026.jpg",
@@ -237,6 +245,14 @@
     </div>
   </div>
 </section>
+
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-render-time-savings-reality-check-2026.jpg" alt="A low-angle view of a illuminated glass skyscraper reflecting neon lights on rain-slicked pavement while dissolving into a wireframe point-cloud." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The speed is real; where that time actually goes is another story.</span></figcaption>
+  </figure></div>
+</section>
+
 
 <div class="wrap">
   <div class="article-body">
@@ -322,7 +338,12 @@
 
     <hr>
 
-    <h2>Where the time <em>reappears</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-time-savings-reality-check-2026-1.jpg" alt="Close-up macro of ribbed terracotta panels catching early morning sunlight behind condensation-covered glass." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Saved render hours frequently reappear during late-stage client revision rounds.</span></figcaption>
+</figure>
+
+        <h2>Where the time <em>reappears</em></h2>
 
     <p>The headline number assumes the rendering block is the binding constraint on delivery. In our experience, it isn't. The rendering block is one of three stages, and the AI pipeline introduces new costs at the other two that the vendor blogs don't talk about.</p>
 
@@ -402,7 +423,12 @@
 
     <p><strong>Looser front-end.</strong> When a render set takes 6 hours instead of 22, you can experiment earlier in the design phase, running test renders during SD, not waiting for DD. That changes how the project conversation happens with the client.</p>
 
-    <h2>What the savings <em>aren't</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-render-time-savings-reality-check-2026-2.jpg" alt="Top-down aerial view of a mass timber construction site illuminated by a break in storm clouds." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Faster pixels do not automatically translate to earlier project sign-offs.</span></figcaption>
+</figure>
+
+        <h2>What the savings <em>aren't</em></h2>
 
     <p><strong>A 60–80% staffing cut.</strong> If you reduce your viz team by 70% on the basis of the vendor claim, you'll be back-filling six months later. The labor migrates rather than disappearing.</p>
 
