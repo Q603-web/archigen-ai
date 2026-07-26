@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/comfyui-advanced-tutorial.html" />
 <meta property="og:title" content="ComfyUI Advanced: Exterior Workflows That Actually Work, ArchiGen AI" />
 <meta property="og:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-nb2-upper.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="ComfyUI Advanced: Exterior Workflows That Actually Work, ArchiGen AI" />
 <meta name="twitter:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-nb2-upper.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,6 +116,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -281,6 +289,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-advanced-tutorial.jpg" alt="A low-angle shot looking up at a four-storey mixed-use building through rain-splattered glass during a clearing storm." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When your prompt asks for context and the AI delivers drama.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -327,7 +343,12 @@
       <p>Generate the depth pass directly from your 3D software. Don't let ComfyUI's MiDaS depth estimator handle it, MiDaS guesses depth from the rendered image and gets architectural geometry wrong about 30% of the time. SketchUp's Z-Depth render output is free and accurate.</p>
     </div>
 
-    <h2>The material <em>pass</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-advanced-tutorial-1.jpg" alt="An abstract close-up photograph showing the texture of fluted terracotta and concrete facade panels under low raking sunlight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Material passes are where concrete stops looking like grey plastic.</span></figcaption>
+</figure>
+
+        <h2>The material <em>pass</em></h2>
 
     <p>Once the base render looks right structurally, the material pass refines surfaces. This is where you get concrete that looks like concrete instead of plaster, glass that reads as glass instead of acrylic, and corten steel that has actual texture rather than orange paint.</p>
 
@@ -380,7 +401,12 @@
       <p>Mask carefully at the building edge. ComfyUI's default inpaint blends across mask boundaries with a hard edge that often shows. Add an Image Blur node on the mask itself (radius: 6 to 12px) to feather the transition. Your building won't look pasted.</p>
     </div>
 
-    <h2>The lighting <em>pass</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-advanced-tutorial-2.jpg" alt="A bird's-eye drone view of a glass pavilion in a city plaza illuminated by indoor warm lights and outdoor neon at night." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Lighting passes prove that blue hour fixes almost any geometry flaw.</span></figcaption>
+</figure>
+
+        <h2>The lighting <em>pass</em></h2>
 
     <p>Last pass. Now you have a building with the right materials in the right context. The final job is lighting, establishing time of day, sun angle, weather, and atmosphere.</p>
 

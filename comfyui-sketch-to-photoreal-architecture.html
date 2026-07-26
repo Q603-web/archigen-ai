@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" />
 <meta property="og:title" content="ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI" />
 <meta property="og:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-gpt-upper.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI" />
 <meta name="twitter:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-gpt-upper.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -162,7 +170,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/villa-gpt-upper.png",
@@ -272,6 +280,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" alt="A low-angle night photograph of a modern concrete building partially dissolving into cyan wireframes over rain-slicked plaza reflections." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When ControlNet locks in, rough linework turns into actual architectural mass.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -328,7 +344,12 @@
       <li><strong>Canny preprocessor</strong>, produces a hard-edge map. Set the low threshold around 100 and the high around 200 for typical line work.</li>
     </ul>
 
-    <h2>Stage 2: <em>Stacked ControlNet</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-sketch-to-photoreal-architecture-1.jpg" alt="A close-up macro photograph of textured terracotta facade panels hit by harsh sunlight through wet glass." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Raking light reveals the physical depth that single-model passes usually flatten.</span></figcaption>
+</figure>
+
+        <h2>Stage 2: <em>Stacked ControlNet</em></h2>
 
     <p>Here's the actual numbers, which most tutorials skip:</p>
 
@@ -371,7 +392,12 @@ Prompt structure:
 
     <p>For prompts: lead with the most specific architectural detail, not with style words. <code>"three-story timber-frame house, larch cladding, board-and-batten, golden hour, 35mm photograph"</code> works better than <code>"beautiful architectural photo of a modern house"</code>. The model responds to specificity. Vague prompts produce vague output.</p>
 
-    <h2>Stage 4: <em>Upscale and refine</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-sketch-to-photoreal-architecture-2.jpg" alt="An overhead drone photograph of a modern timber building and reflecting pool emerging from dawn fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Tiled upscaling restores material detail without warping the original gesture.</span></figcaption>
+</figure>
+
+        <h2>Stage 4: <em>Upscale and refine</em></h2>
 
     <p>FLUX outputs at 1024x1024 read fine on screen but lack detail at print size. The final stage adds resolution.</p>
 

@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/prompt-engineering-architectural-exteriors.html" />
 <meta property="og:title" content="Prompt Engineering for Architectural Exteriors, ArchiGen AI" />
 <meta property="og:description" content="A structured method for writing prompts that produce consistent, client-ready architectural exterior renders. Seven parameters, one framework." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-nb2-upper-v2-final.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-prompt-engineering-architectural-exteriors.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Prompt Engineering for Architectural Exteriors, ArchiGen AI" />
 <meta name="twitter:description" content="A structured method for writing prompts that produce consistent, client-ready architectural exterior renders. Seven parameters, one framework." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-nb2-upper-v2-final.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-prompt-engineering-architectural-exteriors.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,6 +117,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -141,7 +149,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-prompt-engineering-architectural-exteriors.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/villa-nb2-upper-v2-final.png",
@@ -246,6 +254,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-prompt-engineering-architectural-exteriors.jpg" alt="A low-angle photograph of a multi-storey Corten steel building reflected in street puddles during dusk after rain." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Specificity in material weathering turns generic boxes into actual architecture.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -260,7 +276,12 @@
 
     <p>This is the framework we've developed at Vista Studios over the past year of live project use. We use it across Midjourney, Veras, and Stable Diffusion/ComfyUI. The parameters change the specific syntax slightly by tool, but the structure stays the same.</p>
 
-    <h2>The seven-parameter <em>framework</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-prompt-engineering-architectural-exteriors-1.jpg" alt="A top-down drone view of a cliffside building transitioning from solid timber into digital wireframe in dense dawn fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Deconstructing structural parameters yields far better control over rendering outputs.</span></figcaption>
+</figure>
+
+        <h2>The seven-parameter <em>framework</em></h2>
 
     <div class="param-card">
       <div class="num">01</div>
@@ -304,7 +325,12 @@
       <p>What you don't want is as important as what you do. Consistently remove: "no people," "no cars," "no lens flare," "no digital artifacts," "no unrealistic saturation." For Midjourney use the --no parameter. For ComfyUI, negative prompts in CFG. For Veras, the exclusion panel. Every tool supports this, use it every time.</p>
     </div>
 
-    <h2>A <em>complete</em> prompt, assembled</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-prompt-engineering-architectural-exteriors-2.jpg" alt="A night shot through rain-slicked glass showing illuminated architecture reflected in a courtyard water feature." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Lighting cues and atmospheric conditions transform cold glass into inhabited space.</span></figcaption>
+</figure>
+
+        <h2>A <em>complete</em> prompt, assembled</h2>
 
     <p>Here's an actual prompt from a recent project, a residential building in Boston, brick masonry, urban infill:</p>
 

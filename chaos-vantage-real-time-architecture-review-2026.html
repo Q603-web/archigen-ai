@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/chaos-vantage-real-time-architecture-review-2026.html" />
 <meta property="og:title" content="Chaos Vantage for Architects, Real-Time Photorealism on Live Client Meetings, ArchiGen AI" />
 <meta property="og:description" content="Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-nb2-lower.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-chaos-vantage-real-time-architecture-review-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Chaos Vantage for Architects, Real-Time Photorealism on Live Client Meetings, ArchiGen AI" />
 <meta name="twitter:description" content="Chaos Vantage gives architects path-traced photoreal scenes that respond in real time. We ran it on a mixed-use SD review and a residential pitch. Here's what holds up." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-nb2-lower.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-chaos-vantage-real-time-architecture-review-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,6 +136,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -163,7 +171,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-chaos-vantage-real-time-architecture-review-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/villa-nb2-lower.png",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-chaos-vantage-real-time-architecture-review-2026.jpg" alt="A top-down view of architects reviewing an illuminated project model on a studio floor at night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Nothing calms a nervous client like light bouncing in real time.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -271,7 +287,12 @@
 
     <p>For practices coming from Enscape or D5, that distinction matters. Enscape and D5 are rasterized real-time engines with strong PBR shading, they look great, but they cheat on light. Reflections are screen-space, indirect bounce light is baked or approximated, and certain scenes (interior spaces with multiple bounces, glass curtain walls with deep mullion shadows) reveal those approximations. Vantage handles them honestly because it's tracing rays.</p>
 
-    <h2>The client meeting <em>moment</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-chaos-vantage-real-time-architecture-review-2026-1.jpg" alt="A low-angle view looking up at a rain-washed modern skyscraper as golden sunlight breaks through dark clouds." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Ray-traced puddles always win the room over rasterized approximations.</span></figcaption>
+</figure>
+
+        <h2>The client meeting <em>moment</em></h2>
 
     <p>This is the use case where I changed my mind about Vantage.</p>
 
@@ -307,7 +328,12 @@
 
     <p>RTX 30-series minimum. Realistically 4080 or better for fluid framerates on complex scenes. Our office runs a 4090 on the workstation and a laptop 4080 for travel, both fine. If you're on a 3060 or an integrated GPU, this is not the tool for you.</p>
 
-    <h2>Vantage vs Enscape vs D5: <em>the honest delta</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-chaos-vantage-real-time-architecture-review-2026-2.jpg" alt="A close-up photograph through fluted glass showing a terracotta building facade dissolving into a digital wireframe." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When indirect bounces are computed honestly, visual shortcuts become obvious.</span></figcaption>
+</figure>
+
+        <h2>Vantage vs Enscape vs D5: <em>the honest delta</em></h2>
 
     <table class="compare-table">
       <thead>

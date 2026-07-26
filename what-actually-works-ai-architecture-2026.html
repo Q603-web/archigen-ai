@@ -139,6 +139,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -166,7 +174,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-what-actually-works-ai-architecture-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-what-actually-works-ai-architecture-2026.jpg",
@@ -280,6 +288,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-what-actually-works-ai-architecture-2026.jpg" alt="Worm's-eye view of a glass skyscraper during a rainstorm with neon lights and a dissolving point-cloud facade." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The renders that survive 11pm deadlines rarely look this peaceful.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -297,7 +313,12 @@
     <hr>
 
     <span class="bucket-badge use">★ Bucket 1 / Use</span>
-    <h2>Six tools we'd <em>fight to keep</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-what-actually-works-ai-architecture-2026-1.jpg" alt="Top-down aerial view of a modern forest architectural studio surrounded by early morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Six survivors out of dozens tested under real studio pressure.</span></figcaption>
+</figure>
+
+        <h2>Six tools we'd <em>fight to keep</em></h2>
 
     <p>These are the tools we'd lose sleep over if they disappeared. Not the ones we tried for an afternoon and turned into a LinkedIn post. The ones that have survived a year of deadline weeks, client revisions at 9pm on a Friday, and the slow grind of a render queue working through forty versions of an elevation while you quietly consider whether you should have been an attorney.</p>
 
@@ -406,7 +427,12 @@
     <hr>
 
     <span class="bucket-badge hype">! Bucket 3 / Hype</span>
-    <h2>Five tools that <em>don't survive a project</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-what-actually-works-ai-architecture-2026-2.jpg" alt="Macro view of textured terracotta building facade reflecting city motion in adjoining glass." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Listicle darlings rarely survive their first encounter with real geometry.</span></figcaption>
+</figure>
+
+        <h2>Five tools that <em>don't survive a project</em></h2>
 
     <p>Not bad tools. Not scams. Tools whose marketing has been written by someone with stronger ambitions than the product currently supports. The "hype" call is about the gap between what the homepage promises and what we found in production, not about whether the company should exist.</p>
 

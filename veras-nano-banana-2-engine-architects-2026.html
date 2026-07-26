@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/veras-nano-banana-2-engine-architects-2026.html" />
 <meta property="og:title" content="Veras now runs on Nano Banana 2. What it changes for architects" />
 <meta property="og:description" content="Chaos quietly switched the rendering engine behind Veras to Google Nano Banana 2. Here is the implication for architectural workflow." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-veras-nano-banana-2-engine-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Veras now runs on Nano Banana 2. What it changes for architects" />
 <meta name="twitter:description" content="The plugin architects already run inside Revit, SketchUp, and Rhino just swapped engines under the hood." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-veras.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-veras-nano-banana-2-engine-architects-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,6 +122,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -149,7 +157,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-veras-nano-banana-2-engine-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-veras.jpg",
@@ -221,6 +229,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-veras-nano-banana-2-engine-architects-2026.jpg" alt="A low-angle view of a modern apartment building with charred wood cladding transitioning into a digital wireframe mesh at night." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The render engine changed but your client still wants it by five.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -235,7 +251,12 @@
 
     <p>This matters more than the marketing copy suggests. Nano Banana 2 is Google's current state of the art image generation model, released earlier this year and previously available only through Gemini and the Vertex AI API. It is the same model behind several of the most photorealistic AI architecture renders circulating on Instagram and ArchDaily this spring. As of this Veras release, that model is now sitting behind a plugin we run inside the same modeling software where the architect builds.</p>
 
-    <h2>What actually <em>changed under the hood</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-veras-nano-banana-2-engine-architects-2026-1.jpg" alt="A macro close-up of patinated copper and charred timber facade panels seen through rain-dappled glass." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>NBP2 finally understands the difference between cedar and copper.</span></figcaption>
+</figure>
+
+        <h2>What actually <em>changed under the hood</em></h2>
 
     <p>Earlier versions of Veras (3.x through 4.0) appeared to be built on a fine-tuned Stable Diffusion pipeline with Chaos's own ControlNet-style geometry conditioning. The 4.x line introduced significantly better geometry preservation, which we wrote about at the time. The current release keeps the Veras-side conditioning intact (depth maps, segmentation, prompt structure) but routes the actual image synthesis to Nano Banana 2 instead of the in-house diffusion stack.</p>
 
@@ -265,7 +286,12 @@
 
     <p>The longer-term read: Veras becomes a thin orchestration layer over whatever frontier image model is best at any given moment. Today it is NBP2. In six months it could be a refreshed Imagen, a refreshed Midjourney API, or the next Anthropic image model. The Chaos value is in the geometry pipeline, the modeling-software integration, and the prompt orchestration, not in the diffusion weights. That is a defensible position, and the kind of architecture rendering studios should pay attention to.</p>
 
-    <h2>Caveats and <em>concerns</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-veras-nano-banana-2-engine-architects-2026-2.jpg" alt="A top-down drone view of wet stone pavers and umbrellas in an urban apartment courtyard during rain." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>It handles dusk light now, assuming you still care about dusk.</span></figcaption>
+</figure>
+
+        <h2>Caveats and <em>concerns</em></h2>
 
     <h3>Pricing has not changed yet</h3>
 

@@ -133,6 +133,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -160,7 +168,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-hybrid-ai-render-workflow-architecture-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-hybrid-ai-render-workflow-architecture-2026.jpg",
@@ -274,6 +282,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-hybrid-ai-render-workflow-architecture-2026.jpg" alt="A low-angle night photograph of a modern brick courtyard building with projection light reflections and a digital point-cloud edge near the roof." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Prompts don't write themselves, but one tool will gladly do it.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -322,7 +338,12 @@
 
     <hr>
 
-    <h2>Stage two: Midjourney finds the <em>look</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-hybrid-ai-render-workflow-architecture-2026-1.jpg" alt="A macro close-up of fluted glass and rammed earth facade with a silhouetted figure in morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Finding the vibe is easy; convincing your client takes ninety minutes.</span></figcaption>
+</figure>
+
+        <h2>Stage two: Midjourney finds the <em>look</em></h2>
 
     <p>Take the ChatGPT prompt and run it in Midjourney. Generate four images. Pick the one closest to the desired atmosphere, vary it three times to land on the strongest single image, then upscale. Total wall time: about ten minutes. What you have at the end of stage two is not a render of your building. What you have is the look of your building, the atmosphere, the time of day, the material language, the photographic mood.</p>
 
@@ -407,7 +428,12 @@
 
     <hr>
 
-    <h2>Where the workflow <em>breaks</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-hybrid-ai-render-workflow-architecture-2026-2.jpg" alt="A top-down drone photograph of a rain-slicked plaza with turquoise tiles and long shadows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Pipeline handoffs break cleanly right where you expect them to.</span></figcaption>
+</figure>
+
+        <h2>Where the workflow <em>breaks</em></h2>
 
     <p>Three honest failure modes worth flagging, because no one in the YouTube tutorials seems to mention them.</p>
 

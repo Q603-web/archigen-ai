@@ -126,6 +126,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 <script type="application/ld+json">
 {
@@ -231,6 +239,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-ai-architecture-portfolio.jpg" alt="A low-angle view looking up at a modern glass and terracotta tower dissolving into a digital point-cloud at twilight during a monsoon storm." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Proof of concept beats proof of software every single time.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -255,7 +271,12 @@
 
     <blockquote>Specificity is only possible when an architect is making the decisions. That's the gap your portfolio should demonstrate.</blockquote>
 
-    <h2>The four-stage <em>production workflow</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-architecture-portfolio-1.jpg" alt="An overhead drone perspective of a geometric terracotta courtyard veiled in morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Four stages sound tedious until you see the alternative in print.</span></figcaption>
+</figure>
+
+        <h2>The four-stage <em>production workflow</em></h2>
 
     <p>Portfolio-quality AI renders don't come from a single tool and a single prompt. They come from a deliberate four-stage process. Each stage has a job. Conflating them is how you end up with images that look impressive in a thumbnail and fall apart at presentation size.</p>
 
@@ -315,7 +336,12 @@
 
     <p>Cut anything that looks like it came from a template. Cut generic golden-hour renders that could belong to any project. Cut anything where you can't explain exactly what you told the tool to do and why. What's left is your actual portfolio.</p>
 
-    <h2>Using <em>FLUX Kontext</em> for iterative portfolio work</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-ai-architecture-portfolio-2.jpg" alt="A close-up photograph through wet glass highlighting concrete texture and golden light reflections." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Consistency across iterations is where most AI portfolios fall short.</span></figcaption>
+</figure>
+
+        <h2>Using <em>FLUX Kontext</em> for iterative portfolio work</h2>
 
     <p>FLUX.1 Kontext changed the practical workflow for portfolio generation in early 2026 because it solved the iteration problem. Previous tools reset on every generation, you'd get a great base image and then lose it the moment you tried to adjust the lighting or swap a material. Kontext maintains spatial and material consistency across edits, which means you can actually develop an image instead of starting over.</p>
 

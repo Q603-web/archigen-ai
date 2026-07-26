@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/pre-design-ai-stack-rayon-spacio-forma-2026.html" />
 <meta property="og:title" content="The Pre-Design AI Stack, Rayon, Spacio, and Autodesk Forma in 2026, ArchiGen AI" />
 <meta property="og:description" content="Pre-design is where AI is starting to bite first. Rayon, Spacio, and Autodesk Forma are reshaping how architects move from site to scheme. We tested all three on live work." />
-<meta property="og:image" content="https://archigenai.com/assets/villa-nb2-upper-v1-final.png" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-pre-design-ai-stack-rayon-spacio-forma-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="The Pre-Design AI Stack, Rayon, Spacio, and Autodesk Forma in 2026, ArchiGen AI" />
 <meta name="twitter:description" content="Pre-design is where AI is starting to bite first. Rayon, Spacio, and Autodesk Forma are reshaping how architects move from site to scheme. We tested all three on live work." />
-<meta name="twitter:image" content="https://archigenai.com/assets/villa-nb2-upper-v1-final.png" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-pre-design-ai-stack-rayon-spacio-forma-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-pre-design-ai-stack-rayon-spacio-forma-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/villa-nb2-upper-v1-final.png",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-pre-design-ai-stack-rayon-spacio-forma-2026.jpg" alt="Top-down drone photograph of a city infill site dissolving into point-cloud light vectors at twilight." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Site feasibility mapped before the first spade hits wet asphalt.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -253,7 +269,12 @@
 
     <p>We spent two weeks running three of them, Rayon, Spacio, and Autodesk Forma, through the same live project: an early-stage feasibility on a 0.6-acre infill site in Philadelphia. Mixed-use envelope, R-MX zoning, sloped lot. Below is what each one is actually for, where they overlap, and where they don't.</p>
 
-    <h2>Rayon, <em>collaborative CAD without the friction</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-pre-design-ai-stack-rayon-spacio-forma-2026-1.jpg" alt="View through ribbed glass showing designers collaborating around site plans in warm sunlight." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Real-time 2D collaboration captured in the studio light.</span></figcaption>
+</figure>
+
+        <h2>Rayon, <em>collaborative CAD without the friction</em></h2>
 
     <p>Rayon is a browser-based 2D CAD platform. That description undersells it. The pitch is closer to "what AutoCAD would look like if you started over in 2024 with a real-time collaborative product team and zero legacy obligations."</p>
 
@@ -305,7 +326,12 @@
 
     <p><strong>Where it falls short:</strong> The output is opinionated. Spacio assumes the dominant constraint is yield, with carbon as a co-equal. If your client's actual dominant constraint is, say, view corridor preservation or community character, you'll have to encode that as an explicit penalty function, and that's not a UI workflow yet. Custom constraint modeling currently means an export-Rhino-and-tweak loop.</p>
 
-    <h2>Autodesk Forma, <em>site intelligence at the urban scale</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-pre-design-ai-stack-rayon-spacio-forma-2026-2.jpg" alt="Ground-level view looking up at a modern terracotta facade shrouded in morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Urban scale intelligence rising through the morning mist.</span></figcaption>
+</figure>
+
+        <h2>Autodesk Forma, <em>site intelligence at the urban scale</em></h2>
 
     <p>Forma is the heavyweight. It's also the most mature of the three, having spent its earlier life as Spacemaker (acquired by Autodesk in 2020) and now sitting inside the Autodesk subscription stack alongside Revit and AutoCAD.</p>
 
