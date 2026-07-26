@@ -20,12 +20,12 @@
 <meta property="og:url" content="https://archigenai.com/midjourney-v8-architects-renders-2026.html" />
 <meta property="og:title" content="Midjourney V8 for Architects, What the 2026 Release Actually Changes, ArchiGen AI" />
 <meta property="og:description" content="Midjourney V8 and V8.1 shipped in spring 2026, native 2K, 5x faster, a rebuilt engine. We ran both against live concept work. Here is what improved, what still breaks, and whether it belongs in your stack." />
-<meta property="og:image" content="https://archigenai.com/assets/hero-midjourney.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-midjourney-v8-architects-renders-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Midjourney V8 for Architects, What the 2026 Release Actually Changes, ArchiGen AI" />
 <meta name="twitter:description" content="Midjourney V8 and V8.1 shipped in spring 2026, native 2K, 5x faster, a rebuilt engine. We ran both against live concept work. Here is what improved, what still breaks, and whether it belongs in your stack." />
-<meta name="twitter:image" content="https://archigenai.com/assets/hero-midjourney.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-midjourney-v8-architects-renders-2026.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,6 +137,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -164,7 +172,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-midjourney-v8-architects-renders-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-midjourney.jpg",
@@ -242,6 +250,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-midjourney-v8-architects-renders-2026.jpg" alt="A worm's-eye view of a modern high-rise building dissolving into a digital point-cloud during a rainstorm." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Faster renders won't fix a crooked cantilever, but they look magnificent.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -274,7 +290,12 @@
 
     <p>The headline changes: a native <strong>--hd mode</strong> that renders at 2K resolution without an upscale pass, generation roughly five times faster than V7, a <strong>--q 4</strong> mode for extra coherence on demanding prompts, markedly better prompt adherence, and legible text rendering when you wrap strings in quotation marks. There is also a Style Creator, improved personalization, a Grid Mode for focusing on one set, and settings moved into sidebars so they no longer block the canvas. V8.1 then refined the aesthetics and made HD the default behavior. For architects, three of those matter; the rest is workflow comfort.</p>
 
-    <h2>2K native output &mdash; <em>the change you feel first</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-midjourney-v8-architects-renders-2026-1.jpg" alt="A macro photograph of a ribbed concrete building facade with raking morning sunlight casting sharp shadows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Native resolution finally lets mullions look like mullions, not digital soup.</span></figcaption>
+</figure>
+
+        <h2>2K native output &mdash; <em>the change you feel first</em></h2>
 
     <p>For two years the Midjourney architecture workflow has included a tax: generate, then upscale, then hope the upscaler did not invent detail that was not there. V8 renders at 2K natively. On our competition boards that meant we could crop into a render at presentation scale and the window mullions still held a line instead of dissolving into upscaler mush.</p>
 
@@ -288,7 +309,12 @@
 
     <blockquote>Speed does not improve a render. It improves how many bad renders you can afford to throw away before you find the right one.</blockquote>
 
-    <h2>The geometry problem is <em>still the geometry problem</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-midjourney-v8-architects-renders-2026-2.jpg" alt="A top-down drone photograph of an illuminated museum plaza with reflection pools at night." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Top-down geometry looks crisp right up until the stairs lead nowhere.</span></figcaption>
+</figure>
+
+        <h2>The geometry problem is <em>still the geometry problem</em></h2>
 
     <p>Here is the part the launch coverage will not lead with. V8 follows prompts noticeably better &mdash; material callouts, color palettes, lighting conditions and spatial arrangements land more reliably than they did in V7. But V8 still does not understand <em>your</em> building. Ask for a four-storey facade with a regular structural bay rhythm and you will get four-and-a-half storeys and a bay that drifts a foot every span.</p>
 

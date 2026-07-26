@@ -142,6 +142,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -169,7 +177,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg",
@@ -247,6 +255,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" alt="Top-down view of a floor plan on a dark studio floor illuminated by vibrant blue light projections forming 3D room outlines." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When the graph works, the walls stay where you drew them.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -273,7 +289,12 @@
       </div>
     </div>
 
-    <h2>What "2D plan to 3D" <em>actually means</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-floor-plan-to-3d-render-architects-2026-2.jpg" alt="Low-angle shot from the floor looking up through a glass table toward foggy apartment windows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Top-down plans never reveal how tall the living room ceiling feels.</span></figcaption>
+</figure>
+
+        <h2>What "2D plan to 3D" <em>actually means</em></h2>
 
     <p>The phrase hides two completely different jobs, and the demos blur them on purpose because one is reliable and one is hard.</p>
 
@@ -338,7 +359,12 @@
       </tbody>
     </table>
 
-    <h2>Where it <em>quietly invents a wall</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-comfyui-floor-plan-to-3d-render-architects-2026-1.jpg" alt="Macro photograph of a concrete wall junction with sharp diagonal shadow and wet floor reflection." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>The exact seam where diffusion models substitute geometry for educated guesses.</span></figcaption>
+</figure>
+
+        <h2>Where it <em>quietly invents a wall</em></h2>
 
     <p><strong>Scale drift.</strong> Diffusion models have no sense of metric scale. A doorway will render at a believable height in one room and slightly off in the next, because the model is matching <em>look</em>, not dimension. For a presentation image this is invisible; for anything a contractor might read off, it is a trap.</p>
 

@@ -115,6 +115,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -142,7 +150,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-architectural-visualization-dying-response-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-architectural-visualization-dying-response-2026.jpg",
@@ -214,6 +222,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-architectural-visualization-dying-response-2026.jpg" alt="A low-angle night photograph looking up a modern skyscraper with neon reflections on glass and rain-slicked pavement." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Pretty renders are cheap now; actual spatial credibility is full price.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -250,7 +266,12 @@
 
     <p>This is the move most missed in the doom argument. As AI tools commoditize the visually convincing image, the deliverable shifts from "pretty" to "technically correct and visually convincing." The viz practitioner's job becomes: hold the AI output accountable to construction reality. Match the actual material schedule. Cast shadows that respect the site's actual latitude and date. Render entourage that respects local code on visibility splays, paving widths, and tree species. Produce a still or sequence that survives cross-examination from a planning officer who has seen too many flattering renders. That work is harder than what came before, not easier, and it commands a higher rate.</p>
 
-    <h2>The viz studios <em>that survive</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architectural-visualization-dying-response-2026-1.jpg" alt="A view through a rain-covered window into an architectural studio at foggy dawn as team members examine design models." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Survival belongs to studios that sell spatial truth, not digital speed.</span></figcaption>
+</figure>
+
+        <h2>The viz studios <em>that survive</em></h2>
 
     <p>Three profiles will do well over the next 18 months.</p>
 
@@ -266,7 +287,12 @@
 
     <p>Visualization studios that recognize they are now in the moving-image business, not the still business. Real-time walkthroughs, VR previews, video flythroughs, AI-extended construction sequencing. These are not deliverables AI tools currently produce well end to end. They require visualization craft, software pipeline knowledge, and the ability to integrate AI outputs into longer-form media. The market here is growing, not shrinking, and the doom narrative misses it entirely.</p>
 
-    <h2>The viz studios <em>that will not survive</em></h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-architectural-visualization-dying-response-2026-2.jpg" alt="A top-down aerial photograph of a plaza with golden hour sunlight casting dramatic long shadows across geometric paving tiles." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Single-still commodity shops are finding out how fast margins evaporate.</span></figcaption>
+</figure>
+
+        <h2>The viz studios <em>that will not survive</em></h2>
 
     <p>One profile is in trouble. Studios whose revenue is concentrated in mid-priced, marketing-grade still imagery for developer clients who do not require technical accuracy, do not require regulatory submission, and were paying for "pretty" rather than "true." Those clients will pivot to in-house AI workflows over the next 12 months. Some already have. The studios that built businesses around that work need to pivot upstream (into design support and validation) or downstream (into moving image and real-time) within the next 18 months. Standing still is the failure mode.</p>
 

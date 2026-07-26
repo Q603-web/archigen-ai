@@ -135,6 +135,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -162,7 +170,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-xpress-rendering-top-10-ai-tools-audited-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-xpress-rendering-top-10-ai-tools-audited-2026.jpg",
@@ -240,6 +248,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-xpress-rendering-top-10-ai-tools-audited-2026.jpg" alt="A worm's-eye view at night of a modern skyscraper dissolving into a wireframe grid amid rain and neon light reflections." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Evaluating ten glossy rendering tools requires wading through some digital illusions.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -254,7 +270,12 @@
 
     <p>The piece is well-written. The tools listed are real. The category labels are reasonable. What it is not is a buyer's guide, and the gap between an inventory and a buyer's guide is the gap between a confident search session and a firm that wastes a quarter onboarding the wrong stack. We tested the recommendations against a four-axis grade: <strong>category fit</strong> (does it actually do the job the article assigns it), <strong>practitioner readiness</strong> (will a typical small-to-mid firm get value in the first month), <strong>pricing transparency</strong> (does the public site let you know what it costs without a sales call), and <strong>where it actually belongs in a stack</strong>. Here is the audit.</p>
 
-    <h2>How we ran the audit</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-xpress-rendering-top-10-ai-tools-audited-2026-1.jpg" alt="A top-down aerial photograph of an architect walking across a bright concrete studio courtyard with long shadows." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>We stress-tested each platform on active firm workflows under real deadlines.</span></figcaption>
+</figure>
+
+        <h2>How we ran the audit</h2>
 
     <p>For each of the ten tools, we either pulled our existing review, ran a fresh trial on a current Vista Studios project, or both. Every tool got the same evaluation week: load it, fit it into a single live project workflow, push it until it either earned its slot or showed why it would not. No vendor briefings. No press demos. The list below mirrors the XPress order so you can cross-reference, but the verdicts are independent.</p>
 
@@ -445,7 +466,12 @@
 
     <p>The listicle also avoids two common errors. It does not over-index on ChatGPT (which is not an architecture tool, despite many lists treating it as one), and it does not pretend Stable Diffusion or ComfyUI is a turnkey solution for the average firm (it is a power-user platform).</p>
 
-    <h2>What it got wrong</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-xpress-rendering-top-10-ai-tools-audited-2026-2.jpg" alt="A close-up view of textured board-formed concrete and glass enveloped in morning mountain fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Not every feature survives contact with an actual client presentation.</span></figcaption>
+</figure>
+
+        <h2>What it got wrong</h2>
 
     <p>Three meaningful errors. <strong>Category labels are misapplied.</strong> Midjourney is concept ideation, not rendering. mnml.ai is an interior tool, not a generalist. TestFit is feasibility, not site analysis. Buying off the listicle without correcting these labels will produce stacks that work against each other instead of together.</p>
 

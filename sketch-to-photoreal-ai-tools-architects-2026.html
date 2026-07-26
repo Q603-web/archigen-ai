@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-sketch-to-photoreal-ai-tools-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-sketch-to-photoreal-ai-tools-architects-2026.jpg",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-sketch-to-photoreal-ai-tools-architects-2026.jpg" alt="A low-angle shot of a contemporary house addition partially dissolving into wireframe sketch lines against a storm sky." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When the AI works, geometry and intention stay in lockstep.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -277,7 +293,12 @@
 
     <blockquote>If you cannot tell, from looking at the AI output, that the sketch was about a shed roof and not a hipped roof, the tool failed.</blockquote>
 
-    <h2>The mixed-use courtyard interior, where the field collapses</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-sketch-to-photoreal-ai-tools-architects-2026-1.jpg" alt="A view through a rain-streaked glass skylight down into a brightly lit courtyard interior at night." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Complex courtyard geometry is usually where hand sketches get reinterpreted.</span></figcaption>
+</figure>
+
+        <h2>The mixed-use courtyard interior, where the field collapses</h2>
 
     <p>The interior sketch was harder. Pen on yellow trace, with a courtyard glazing pattern, two seating zones, a planter wall, and rough furniture blocks. The kind of drawing a project architect sketches over a model export at the desk in 15 minutes.</p>
 
@@ -287,7 +308,12 @@
 
     <p>The lesson on interior sketches is that tools without strong control conditioning are guessing. They guess well when the scene is familiar and poorly when the scene is specific. A working studio that needs interiors to reflect actual design intent should either build a ComfyUI rig or accept that current commercial cloud tools are giving them photoreal mood, not photoreal documentation.</p>
 
-    <h2>The civic pavilion concept, where ambition broke everything</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-sketch-to-photoreal-ai-tools-architects-2026-2.jpg" alt="An overhead drone photograph looking straight down at a timber pavilion surrounded by autumn trees and morning fog." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Ambitious structural curves tend to break standard diffusion pipelines.</span></figcaption>
+</figure>
+
+        <h2>The civic pavilion concept, where ambition broke everything</h2>
 
     <p>The third sketch was the hardest. Graphite on letter paper, civic pavilion concept, geometry mostly suggested rather than locked, scale figure and a tree present, no material specification at all. The kind of drawing a designer puts in front of a client to test a direction, not to confirm one.</p>
 

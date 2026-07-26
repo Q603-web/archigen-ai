@@ -132,6 +132,14 @@
   .foot a { display: block; padding: 5px 0; color: var(--paper); text-decoration: none; font-size: 14px; opacity: 0.85; }
   .foot a:hover { color: var(--marigold); opacity: 1; }
   .foot-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(244,239,227,0.1); display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,239,227,0.4); }
+
+/*agvis*/
+.agv-hero-section { border-bottom: 1px solid var(--rule); }
+.agv-hero-section figure { margin: 0; padding: 40px 0; }
+.agv-hero-section img, .agv-inline img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--rule); }
+.agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
+.agv-inline { margin: 40px 0; }
 </style>
 
 <script type="application/ld+json">
@@ -159,7 +167,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "Article", "image": "https://archigenai.com/assets/hero-mnml-ai-review-architects-2026.jpg",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-mnml-ai-review-architects-2026.jpg",
@@ -237,6 +245,14 @@
   </div>
 </section>
 
+<section class="agv-hero-section" data-agvis="hero">
+  <div class="wrap"><figure>
+  <img src="assets/hero-mnml-ai-review-architects-2026.jpg" alt="A worm's-eye night view of a mixed-use building facade reflecting vibrant neon lights on rain-soaked pavement." fetchpriority="high" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>Promising total modeler fluency requires at least a little nocturnal magic.</span></figcaption>
+  </figure></div>
+</section>
+
+
 <div class="wrap">
   <div class="article-body">
 
@@ -263,7 +279,12 @@
       </div>
     </div>
 
-    <h2>The <em>SketchUp</em> path, where mnml.ai is at its best</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-mnml-ai-review-architects-2026-1.jpg" alt="A top-down drone photograph of a sunny public plaza with pedestrians casting long shadows across paved walkways." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>SketchUp viewports convert into convincing daylight scenes with surprising ease.</span></figcaption>
+</figure>
+
+        <h2>The <em>SketchUp</em> path, where mnml.ai is at its best</h2>
 
     <p>If you're a SketchUp-first practice, mnml.ai is the most polished entry point. The plugin installs from the Extension Warehouse, signs in with your mnml account, and adds a sidebar that captures the current viewport as the input image. You pick a style preset (Day, Dusk, Editorial, Diagram-clean) and ship the render to mnml's cloud. Results come back in roughly 25 to 45 seconds at preview quality and 90 to 120 seconds at marketing quality.</p>
 
@@ -287,7 +308,12 @@
 
     <p>The V-Ray and Enscape integrations live in the same category. There's no special V-Ray plugin. You render in V-Ray, push the still into mnml.ai for finishing, and get back a touched-up output. For a studio already invested in V-Ray, that round trip can save 15 minutes per image versus a Photoshop polish. For a studio choosing between mnml.ai and a tighter Chaos pipeline, the integration is light enough that you'd choose Chaos every time.</p>
 
-    <h2>Sketch-to-photoreal, the surprise win</h2>
+    <figure class="agv-inline" data-agvis="inline">
+  <img src="assets/inline-mnml-ai-review-architects-2026-2.jpg" alt="A close-up macro view of fluted terracotta facade tiles illuminated by sharp morning sunbeams through mist." loading="lazy" />
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>When quick napkin sketches unexpectedly translate into crisp structural detail.</span></figcaption>
+</figure>
+
+        <h2>Sketch-to-photoreal, the surprise win</h2>
 
     <p>The feature we didn't expect to like is mnml.ai's sketch-to-photoreal pass. Upload a hand sketch or marker drawing. Pick a target style. Get back a credible photoreal frame that respects the drawing's composition, geometry intent, and view angle. We've tested this category enough times to be skeptical, and mnml.ai's output is among the strongest we've seen. Close to ComfyUI with a properly tuned workflow, but a fraction of the setup cost.</p>
 
