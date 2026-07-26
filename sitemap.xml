@@ -1381,4 +1381,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 2026-07-26 Content -->
+  <url>
+    <loc>https://archigenai.com/meltplan-workflow-first-comparison-audited-2026.html</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
