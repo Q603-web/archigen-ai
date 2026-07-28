@@ -1,0 +1,29 @@
+{
+  "_README": "Join-list + link map for insert-affiliates.mjs. WORKFLOW: (1) sign up for a tool's program at its 'signup' URL, (2) paste YOUR affiliate link into that tool's 'url', (3) run `node insert-affiliates.mjs --apply`. A tool only gets linked when its 'url' is non-empty, so nothing publishes until you've actually joined. 'program': open = self-serve, join today | apply = real program but gated/undisclosed terms, apply to learn | none = no program, will never be linked. 'mentions' = first-mention count across the 97 articles (from the 2026-07-03 dry run). 'match' = text aliases (longest matched first).",
+  "_researched": "2026-07-03",
+  "tools": [
+    { "slug": "comfyui",                   "match": ["Comfy Cloud", "ComfyUI"], "mentions": 36, "program": "open",  "rate": "30% recurring for 3 months (Comfy Cloud paid tiers only; app itself is free), 60-day cookie, $100 min payout", "signup": "https://comfy.org/affiliates", "url": "" },
+    { "slug": "promeai",                   "match": ["PromeAI"],                "mentions": 8,  "program": "open",  "rate": "10% recurring (30% for student/educator 'Campus Ambassador'), 7-day cookie", "signup": "https://www.promeai.pro/affiliate", "url": "" },
+    { "slug": "magnific-ai",               "match": ["Magnific AI", "Magnific"], "mentions": 3, "program": "open",  "rate": "30% recurring + 20% upfront bonus on annual, in-house, open to all", "signup": "https://www.magnific.com/affiliates", "url": "" },
+    { "slug": "adobe-firefly",             "match": ["Adobe Firefly", "Firefly"], "mentions": 3, "program": "open", "rate": "Adobe Partnerize (covers Firefly + Photoshop): ~85% of first month / ~8.33% of annual", "signup": "https://www.adobe.com/affiliates.html", "url": "" },
+    { "slug": "photoshop-generative-fill", "match": ["Photoshop Generative Fill", "Generative Fill"], "mentions": 2, "program": "open", "rate": "same Adobe Partnerize program as Firefly", "signup": "https://www.adobe.com/affiliates.html", "url": "" },
+    { "slug": "runway-gen-3",              "match": ["Runway Gen-3", "Runway Gen 3", "Runway"], "mentions": 3, "program": "open", "rate": "20% recurring for first 12 months, via Awin, 30-day last-click cookie", "signup": "https://affiliates.runwayml.com/", "url": "" },
+    { "slug": "topaz-photo-ai",            "match": ["Topaz Photo AI", "Topaz"], "mentions": 3, "program": "open", "rate": "20% (subs capped at 12mo of commission), 30-day cookie, $50 min. NOTE: Adobe acquiring Topaz 2026 — terms may change", "signup": "https://topazlabs.com/affiliates/", "url": "" },
+
+    { "slug": "veras",                     "match": ["Veras"],   "mentions": 78, "program": "apply", "rate": "Chaos — creator earn rate NOT public (page shows buyer 10% discount); reseller channel confirmed. Apply to learn terms", "signup": "https://www.chaos.com/affiliate-program  (or contracts@chaos.com)", "url": "" },
+    { "slug": "enscape",                   "match": ["Enscape"], "mentions": 31, "program": "apply", "rate": "same Chaos program as Veras", "signup": "https://www.chaos.com/affiliate-program", "url": "" },
+    { "slug": "rendair",                   "match": ["Rendair"], "mentions": 35, "program": "apply", "rate": "runs on Tapfiliate; rate/cookie only visible after signup (~20-30% recurring is Tapfiliate norm, unconfirmed)", "signup": "https://rendairai.tapfiliate.com/", "url": "" },
+    { "slug": "krea-ai",                   "match": ["Krea AI", "Krea"], "mentions": 7, "program": "apply", "rate": "25% via Creative Partners Program — invite/window-based, not always open", "signup": "https://www.krea.ai/cpp", "url": "" },
+    { "slug": "krea-enhancer",             "match": ["Krea Enhancer"], "mentions": 0, "program": "apply", "rate": "same Krea CPP", "signup": "https://www.krea.ai/cpp", "url": "" },
+    { "slug": "luma-dream-machine",        "match": ["Luma Dream Machine", "Dream Machine", "Luma"], "mentions": 1, "program": "apply", "rate": "real program but invite-only, no self-serve page, rate undisclosed, 60-day cookie. Contact Luma directly", "signup": "https://lumalabs.ai", "url": "" },
+    { "slug": "kling-2-6",                 "match": ["Kling 2.6", "Kling"], "mentions": 0, "program": "apply", "rate": "invite-only 'commission-share', terms hidden", "signup": "https://app.klingai.com/global/commission-share", "url": "" },
+
+    { "slug": "midjourney",                "match": ["Midjourney"], "mentions": 47, "program": "none", "rate": "NO affiliate program (the '30% Midjourney' blogs are fake reseller wrappers). Do not link.", "signup": "", "url": "" },
+    { "slug": "flux",                      "match": ["FLUX", "Flux"], "mentions": 20, "program": "none", "rate": "Black Forest Labs — no public program, enterprise sales only", "signup": "", "url": "" },
+    { "slug": "sora-2",                    "match": ["Sora 2", "Sora"], "mentions": 0, "program": "none", "rate": "OpenAI — credits-only invite referral, no cash affiliate", "signup": "", "url": "" },
+    { "slug": "google-veo-3",             "match": ["Google Veo 3", "Veo 3", "Veo"], "mentions": 0, "program": "none", "rate": "no Veo-specific program (only broad Google Cloud CJ ~5%)", "signup": "", "url": "" },
+    { "slug": "gemini-omni",               "match": ["Gemini Omni"], "mentions": 0, "program": "none", "rate": "Google — user referral only (gift months), no affiliate", "signup": "", "url": "" },
+    { "slug": "architectgpt",              "match": ["ArchitectGPT"], "mentions": 0, "program": "none", "rate": "no public program found", "signup": "", "url": "" },
+    { "slug": "pika-2-0",                  "match": ["Pika 2.0", "Pika"], "mentions": 0, "program": "none", "rate": "pika.art has no program; AVOID 'Pika via Rewardful' = pika.style, a different mockup tool", "signup": "", "url": "" }
+  ]
+}
