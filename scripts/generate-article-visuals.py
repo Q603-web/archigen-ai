@@ -201,17 +201,19 @@ def process(client, path: Path, model: str, hero_aspect: str, inline_count: int,
         pos = h2_iter[idx].start()
         html = html[:pos] + "    " + fig + html[pos:]
 
+    # NOTE: the article template emits plain ">" metas (not " />") — patterns
+    # must accept both or the insert silently no-ops (bit us through 2026-08-06).
     hero_url = f"{SITE}/assets/{hero_file.name}"
-    og = f'<meta property="og:image" content="{hero_url}" />'
+    og = f'<meta property="og:image" content="{hero_url}">'
     if 'property="og:image"' in html:
-        html = re.sub(r'<meta property="og:image" content="[^"]*" />', og, html)
+        html = re.sub(r'<meta property="og:image" content="[^"]*"\s*/?>', og, html)
     else:
-        html = re.sub(r"(<meta property=\"og:description\"[^>]*/>)", r"\1\n" + og, html, count=1)
-    tw = f'<meta name="twitter:image" content="{hero_url}" />'
+        html = re.sub(r'(<meta property="og:description"[^>]*>)', r"\1" + og, html, count=1)
+    tw = f'<meta name="twitter:image" content="{hero_url}">'
     if 'name="twitter:image"' in html:
-        html = re.sub(r'<meta name="twitter:image" content="[^"]*" />', tw, html)
+        html = re.sub(r'<meta name="twitter:image" content="[^"]*"\s*/?>', tw, html)
     else:
-        html = re.sub(r"(<meta name=\"twitter:description\"[^>]*/>)", r"\1\n" + tw, html, count=1)
+        html = re.sub(r'(<meta name="twitter:description"[^>]*>)', r"\1" + tw, html, count=1)
     html = html.replace('name="twitter:card" content="summary"', 'name="twitter:card" content="summary_large_image"')
     if '"@type"' in html and "application/ld+json" in html:
         html = re.sub(r'("@type"\s*:\s*"(?:Article|NewsArticle)")', r'\1, "image": "' + hero_url + '"', html, count=1)
