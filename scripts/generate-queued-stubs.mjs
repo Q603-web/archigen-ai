@@ -118,6 +118,7 @@ const page = (t) => `<!doctype html>
   .related a:hover { color: var(--terracotta); }
   @media (max-width: 640px) { .nav-links { display: none; } .nav-inner { padding: 14px 20px; } .page-hero { padding: 64px 20px 48px; } .notify, .related { padding-left: 20px; padding-right: 20px; } }
 </style>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
