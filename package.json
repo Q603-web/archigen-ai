@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "verify:s1": "node scripts/s1-provenance-audit.mjs"
+  },
   "devDependencies": {
     "twitter-api-v2": "^1.29.0"
   }
