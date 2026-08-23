@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """ArchiGen visual engine — gives every article a hero + inline visuals.
 
 Pipeline (all Gemini API):
