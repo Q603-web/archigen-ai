@@ -1,4 +1,4 @@
-﻿# S1 provenance release holds
+# S1 provenance release holds
 
 No preserved repository artifact currently establishes tool, version, scene/input, settings, capture date, and unedited output provenance for the priority cohort below. These pages remain held from release until Reel supplies that evidence and the relevant figures are replaced and classified as actual tested-tool output.
 

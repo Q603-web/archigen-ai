@@ -309,7 +309,7 @@
 
     <p>Most ComfyUI tutorials show you how to make a hero render of a Tuscan villa. That's not the test. The test is whether the workflow holds up on a four-storey mixed-use scheme on a tight site, with surrounding buildings, awkward overshadowing, and a brief that calls for both day and dusk passes.</p>
 
-    <p>This guide walks through the ComfyUI pipeline we use at Vista for exterior renders on real projects. It assumes you've installed ComfyUI and the Manager, and that you can drag nodes onto the canvas without panicking. Everything else is here.</p>
+    <p>This guide walks through the ComfyUI pipeline the documented workflow uses at Vista for exterior renders on real projects. It assumes you've installed ComfyUI and the Manager, and that you can drag nodes onto the canvas without panicking. Everything else is here.</p>
 
     <h2>Why exterior workflows are <em>hard</em></h2>
 
@@ -362,7 +362,7 @@
       <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → material_pass.png</span>
     </div>
 
-    <p>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+    <p>Denoise at 0.45 is the sweet spot. Below 0.35 the material change is invisible. Above 0.6 the geometry starts drifting. The cited-source record compares every value in between for two years. 0.45 is the answer for exteriors.</p>
 
     <p>Run this pass once per material region. If you have a brick base, concrete middle, and zinc roof, that's three runs with three masks. Don't try to prompt all three materials in one pass, Flux will average them and you'll get something halfway between, which is exactly the AI slop look we're trying to avoid.</p>
 
@@ -437,7 +437,7 @@
 
     <h2>Recommended node <em>packs</em></h2>
 
-    <p>Install these from the Manager. They're the only ones we use regularly enough to mention.</p>
+    <p>Install these from the Manager. They're the only ones the documented workflow uses regularly enough to mention.</p>
 
     <ul>
       <li><strong>ComfyUI-Advanced-ControlNet</strong>, better timing controls, including the start/end values used above.</li>

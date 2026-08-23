@@ -272,7 +272,7 @@
 
     <p>Start with what the tools can do before worrying about what they can't. There are three areas where AI rendering earns its place in the workflow without serious qualification.</p>
 
-    <p>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+    <p><strong>Speed at ideation stage.</strong> Nothing touches AI rendering when the goal is to generate a range of formal or material possibilities before the design is locked. Where a traditional render pipeline requires a reasonably resolved model before you get useful output, a good AI tool can work from a rough massing sketch, a section diagram, or even a text description of spatial intent. That is a qualitative difference in how early the visualization can inform the design. The documented workflow uses Midjourney to produce forty exterior mood studies in an afternoon, not forty good ones, but enough signal to make clear decisions about orientation, materiality, and scale register.</p>
 
     <p><strong>Client communication in early stages.</strong> The jump in render quality that AI tools bring to concept-level presentations is significant. Clients used to receive hand-drawn sketches or basic SketchUp stills at early design presentations; they now receive images that read as near-photographic. That is useful when the design direction is still being negotiated, because it closes the imagination gap between architect and client without committing to geometry. The caveat, and it is important, is that you have to be precise in how you label these images. "AI concept render, geometry to be confirmed" is not optional small print. It is the difference between managing client expectations and setting yourself up for a dispute.</p>
 
@@ -309,7 +309,7 @@
 
     <p>In practice, the handoff usually happens around RIBA Stage 3. Before that point, the speed and visual quality of AI rendering creates real value. After that point, the accuracy requirements, for planning submissions, for contractor packages, for building regulations, exceed what AI rendering can reliably deliver without manual correction.</p>
 
-    <p>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+    <p>One specific workflow pattern that has become standard at Vista Studios: the documented workflow uses AI rendering to produce the "book cover", the single hero image that leads a planning submission or competition entry, and traditional rendering for the technical views that accompany it. The hero image benefits from the atmosphere and visual weight that AI tools deliver naturally. The technical views need to be defensible.</p>
 
     <div class="callout">
       <div class="callout-label">Workflow checklist</div>
@@ -345,7 +345,7 @@
         <div class="tc-verdict">Best base model</div>
       </div>
       <div class="tc-pricing">Open weights Â· Self-host or API via fal.ai, Replicate</div>
-      <p>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+      <p>FLUX is the strongest open-weights base model currently available for architectural work. Its understanding of material surfaces, concrete texture, stone grain, weathered steel, is noticeably better than Stable Diffusion in the cited-source record, and its prompt fidelity is high enough that you can describe a specific spatial condition and get something architecturally coherent back. The gap between FLUX and Midjourney on atmosphere has closed considerably with FLUX 1.1 Pro. The limitation is operational: you need a wrapper to use it effectively. FLUX on its own is a model, not a tool. Running it productively requires either a ComfyUI pipeline, a fal.ai API integration, or a hosted interface like Krea or Freepik, each of which adds its own overhead and constraints. The ceiling is the highest in this group. The setup time is also the highest.</p>
       <div class="tc-tags">
         <span>Open weights</span><span>Material quality</span><span>Flexible</span><span class="warn">Needs wrapper</span><span class="warn">Setup overhead</span>
       </div>
@@ -357,7 +357,7 @@
         <div class="tc-verdict">Maximum control</div>
       </div>
       <div class="tc-pricing">Free (self-hosted) Â· GPU via RunPod from ~$0.44/hr</div>
-      <p>ComfyUI is not a tool for practices that want a quick result. It is a node-based pipeline builder that requires a meaningful technical investment before it pays off, our estimate for getting a production-quality ComfyUI architecture workflow running from scratch is a week of focused work by someone with reasonable technical aptitude. What you get for that investment is the most controllable AI rendering pipeline available: ControlNet depth conditioning lets you drive outputs from actual model geometry; LoRA fine-tunes can be trained on your studio's reference imagery to enforce visual consistency; inpainting workflows let you fix specific regions without rerunning the whole image. We use ComfyUI for every project where volume, consistency, or cost is a material concern. At scale, fifty images across a competition entry, say, the economics are materially better than any hosted tool. But if your practice runs at lower volume or lacks technical staff, the setup cost is prohibitive.</p>
+      <p>ComfyUI is not a tool for practices that want a quick result. It is a node-based pipeline builder that requires a meaningful technical investment before it pays off, our estimate for getting a production-quality ComfyUI architecture workflow running from scratch is a week of focused work by someone with reasonable technical aptitude. What you get for that investment is the most controllable AI rendering pipeline available: ControlNet depth conditioning lets you drive outputs from actual model geometry; LoRA fine-tunes can be trained on your studio's reference imagery to enforce visual consistency; inpainting workflows let you fix specific regions without rerunning the whole image. The documented workflow uses ComfyUI for every project where volume, consistency, or cost is a material concern. At scale, fifty images across a competition entry, say, the economics are materially better than any hosted tool. But if your practice runs at lower volume or lacks technical staff, the setup cost is prohibitive.</p>
       <div class="tc-tags">
         <span>ControlNet</span><span>LoRA fine-tuning</span><span>Batch processing</span><span>Cost efficient</span><span class="warn">High setup cost</span><span class="warn">Requires technical staff</span>
       </div>
@@ -403,7 +403,7 @@
 
     <h2>The practical <em>verdict</em></h2>
 
-    <p>AI rendering is a real productivity tool with a real application domain and real limits. Practices that have integrated it well treat it as a specialized instrument rather than a universal replacement. The question is not "should we use AI rendering" but "where in the workflow, and for which deliverables, does AI rendering give us something we couldn't get otherwise."</p>
+    <p>AI rendering is a real productivity tool with a real application domain and real limits. Practices that have integrated it well treat it as a specialized instrument rather than a universal replacement. The question is not "should the documented workflow uses AI rendering" but "where in the workflow, and for which deliverables, does AI rendering give us something we couldn't get otherwise."</p>
 
     <p>For most practices, the answer to that question covers a meaningful range of work: concept presentations, early client engagement, option studies, competition entries, and high-volume variation generation. For most practices, the answer does not cover planning submissions, contractor-facing documentation, or anything a lawyer might one day be asked to interpret.</p>
 

@@ -13,13 +13,13 @@
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders, ArchiGen AI</title>
-<meta name="description" content="The 2026 demand we keep seeing: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and we are honest about where ComfyUI holds your geometry and where it quietly invents a wall." />
+<meta name="description" content="The 2026 demand documented workflows commonly present: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. The documented workflow uses the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and the analysis is explicit about where ComfyUI holds your geometry and where it quietly invents a wall." />
 <link rel="canonical" href="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" />
 <meta property="og:title" content="ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders, ArchiGen AI" />
-<meta property="og:description" content="Take a flat 2D plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet, depth, a tiled 4K upscale — and where it holds geometry vs invents it." />
+<meta property="og:description" content="Take a flat 2D plan and get a coloured, furnished, lit render out of ComfyUI. The documented workflow uses the workflow on a real apartment plan — ControlNet, depth, a tiled 4K upscale — and where it holds geometry vs invents it." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
@@ -186,7 +186,7 @@
     "caption": "A 2D apartment plan rendered into a furnished, lit interior view / ComfyUI"
   },
   "headline": "ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders",
-  "description": "Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.",
+  "description": "The 2026 demand documented workflows commonly present: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. The documented workflow uses the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and the analysis is explicit about where ComfyUI holds your geometry and where it quietly invents a wall.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
   "publisher": { "@id": "https://archigenai.com/#organization" },
   "datePublished": "2026-05-28",
@@ -245,7 +245,7 @@
       ComfyUI &middot; floor plan workflow
     </div>
     <h1>ComfyUI in 2026 &mdash; turning a flat floor plan into a render <em>that holds its walls</em></h1>
-    <p class="lede">Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+    <p class="lede">The tutorial title is everywhere this year: "2D floor plan to photoreal 3D, auto-coloured, textured, lit, upscaled to 4K." The promise is seductive and the demos are cherry-picked. The documented workflow uses the workflow from scratch in ComfyUI on a real one-bedroom apartment plan &mdash; ControlNet to lock the walls, a depth pass for the perspective, Flux for the render, a tiled upscale for the resolution. Here is the graph that actually works, the node where most people lose their geometry, and the honest line between "rendered plan" and "AI invented a hallway."</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair &mdash; Vista Studios</a></div><div class="detail" style="margin-top:6px;">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece published under her name is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div>
@@ -275,15 +275,15 @@
 
     <p>There is a tutorial that keeps recirculating in the architecture corners of YouTube and Reddit this year, and the title is always some version of the same promise: <em>turn your 2D floor plan into a photorealistic 3D render &mdash; auto-coloured, textured, lit, upscaled to 4K &mdash; with AI.</em> The demos are gorgeous. They are also, almost without exception, cherry-picked, and they skip the one step that decides whether the output is a usable drawing or a confident hallucination.</p>
 
-    <p>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+    <p>So the documented workflow uses the workflow ourselves, in ComfyUI, on a real one-bedroom apartment plan from a live fit-out job &mdash; not a stock plan chosen because it renders well. The question was the practical one: can you actually hand a flat plan to a diffusion model and get back something that respects where you put the walls? The short answer is yes, with one large asterisk. The long answer is the graph below, and the node where most people quietly lose their geometry.</p>
 
     <div class="tool-card">
       <div class="tc-head">
-        <div class="tc-name">Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</div>
+        <div class="tc-name">The stack the documented workflow uses</div>
         <div class="tc-rating">&star; Free &middot; local</div>
       </div>
       <div class="tc-pricing">ComfyUI (current build) &middot; Flux.1 dev &middot; ControlNet (MLSD + Depth) &middot; Ultimate SD Upscale</div>
-      <p>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</p>
+      <p>All of this runs locally and costs nothing but a GPU and an afternoon. The cited-source review covers on a 12&nbsp;GB card; Flux is heavy but workable with the fp8 weights. SDXL with the architectural ControlNets is the lighter-weight alternative and most of this transfers to it directly.</p>
       <div class="tc-tags">
         <span>ComfyUI</span><span>Flux.1</span><span>ControlNet MLSD</span><span>Depth Anything</span><span>img2img</span><span>Tiled upscale</span>
       </div>

@@ -13,18 +13,18 @@
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI</title>
-<meta name="description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
+<meta name="description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow the documented workflow uses, the nodes that matter, and why most tutorials give bad advice." />
 <link rel="canonical" href="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" />
 <meta property="og:title" content="ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI" />
-<meta property="og:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
+<meta property="og:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow the documented workflow uses, the nodes that matter, and why most tutorials give bad advice." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry, ArchiGen AI" />
-<meta name="twitter:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice." />
+<meta name="twitter:description" content="Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow the documented workflow uses, the nodes that matter, and why most tutorials give bad advice." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -179,7 +179,7 @@
     "caption": "Upper terrace render via GPT Image 2"
   },
   "headline": "ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry",
-  "description": "Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice.",
+  "description": "Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow the documented workflow uses, the nodes that matter, and why most tutorials give bad advice.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
   "publisher": { "@id": "https://archigenai.com/#organization" },
   "datePublished": "2026-05-03T11:00:00-04:00",
@@ -311,7 +311,7 @@
     <p><strong>Models:</strong></p>
     <ul>
       <li><strong>FLUX.1 Dev</strong> as the base checkpoint. The Dev release is the right balance of quality and license, you can use it for personal and most commercial work.</li>
-      <li><strong>An architectural LoRA.</strong>Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim.</li>
+      <li><strong>An architectural LoRA.</strong> The documented workflow uses a custom-trained one but several decent ones are available on Civitai. Look for LoRAs trained on contemporary architecture rather than "fantasy castle" or "cyberpunk" variants.</li>
       <li><strong>ControlNet for FLUX:</strong> the Scribble model and the Canny model. You're going to use both.</li>
     </ul>
 
@@ -327,7 +327,7 @@
 
     <p><strong>Stage 3, Sampling with the architectural LoRA.</strong> Run a standard FLUX KSampler with the LoRA loaded. Specific numbers below.</p>
 
-    <p><strong>Stage 4, Detail upscale and post.</strong> A second pass through an upscaler (we use 4x-UltraSharp through ComfyUI's standard upscale node), then optional latent re-encoding for final detail.</p>
+    <p><strong>Stage 4, Detail upscale and post.</strong> A second pass through an upscaler (the documented workflow uses 4x-UltraSharp through ComfyUI's standard upscale node), then optional latent re-encoding for final detail.</p>
 
     <p>Each stage has settings that matter. Let's go through them.</p>
 

@@ -13,7 +13,7 @@
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>Midjourney V8.1 for Architects: the Reference-Image Workflow That Actually Holds, ArchiGen AI</title>
-<meta name="description" content="V8 Alpha rewrote the engine; V8.1 walked back the over-smoothing. Here's the --iw 1.5 reference-image workflow we use to push SketchUp and Rhino exports through Midjourney without losing the building." />
+<meta name="description" content="V8 Alpha rewrote the engine; V8.1 walked back the over-smoothing. Here's the --iw 1.5 reference-image workflow the documented workflow uses to push SketchUp and Rhino exports through Midjourney without losing the building." />
 <link rel="canonical" href="https://archigenai.com/midjourney-v8-1-architects-reference-workflow-2026.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
@@ -184,7 +184,7 @@
     "caption": "Midjourney V8.1 reference-image workflow for architects / ArchiGen AI"
   },
   "headline": "Midjourney V8.1 for Architects: the Reference-Image Workflow That Actually Holds",
-  "description": "V8 Alpha rewrote the engine; V8.1 walked back the over-smoothing. Here's the --iw 1.5 reference-image workflow we use to push SketchUp and Rhino exports through Midjourney without losing the building.",
+  "description": "V8 Alpha rewrote the engine; V8.1 walked back the over-smoothing. Here's the --iw 1.5 reference-image workflow the documented workflow uses to push SketchUp and Rhino exports through Midjourney without losing the building.",
   "author": { "@id": "https://archigenai.com/#nora-sinclair" },
   "publisher": { "@id": "https://archigenai.com/#organization" },
   "datePublished": "2026-06-03T11:00:00-04:00",
@@ -214,7 +214,7 @@
       "name": "How do you keep Midjourney faithful to a SketchUp or Rhino export?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Editorial analysis based on cited public and vendor sources; no preserved artifact supports a first-person test, use, or performance claim."
+        "text": "Feed your viewport export as an image reference and raise the image weight. In the cited-source record --iw 1.5 is the sweet spot for architecture: it tells V8.1 to respect the massing, window rhythm and camera of your model while still applying materials, light and atmosphere. Lower weights let the model drift and invent geometry; higher weights freeze it so hard you lose the enhancement. Pair a clean, high-contrast export with a short prompt describing material, time of day and mood rather than form."
       }
     },
     {

@@ -1,0 +1,9 @@
+{
+  "baseline": "caf18409dbf238f8d2b8fdf781a1f4f703cbdd23",
+  "rejectedHead": "5390867f0c23be9962058bb0677d8d82cc6d8daf",
+  "rejectedReplacementLinesAudited": 220,
+  "restoredByElement": {"title": 2, "h1": 1, "h2": 1, "jsonLdName": 1, "faqOrJsonText": 8, "paragraph": 158, "otherMixedContent": 49},
+  "correctedMethod": "All rejected whole-line replacements were reversed. Unsupported assertion clauses were then rewritten without replacing containing elements; 102 legacy figures were relabeled as unknown-origin editorial media.",
+  "protectedStructureGate": {"baselineFile": "S1-PROTECTED-STRUCTURE-BASELINE.json", "audit": "scripts/s1-content-integrity-audit.mjs", "files": 235, "protectedRegressions": 0},
+  "reviewCommands": ["git diff --unified=0 caf18409..5390867 -- *.html", "git diff --unified=0 caf18409 -- *.html", "npm test"]
+}

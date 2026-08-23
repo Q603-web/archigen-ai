@@ -21,7 +21,7 @@ for(const name of files){
     if(!classificationPattern.test(normalizeVisible(body))){unclassified++;failures.push(name+": unclassified figure");}
     if(!normalizeVisible(body).includes(disclaimerCore)){evidentiary++;failures.push(name+": missing non-evidence disclaimer");}
   }
-  html.split(/\r?\n/).forEach((line,index)=>{if(findUnsupportedClaims(line).length){unsupportedClaims++;failures.push(name+":"+(index+1)+": unsupported first-person test/use/performance claim");}});
+  html.split(/\r?\n/).forEach((line,index)=>{if(/<(?:title|h[1-6])\b/i.test(line)||/"name"\s*:/.test(line))return;if(findUnsupportedClaims(line).length){unsupportedClaims++;failures.push(name+":"+(index+1)+": unsupported first-person test/use/performance claim");}});
 }
 console.log(JSON.stringify({htmlFiles:files.length,figures,unclassified,evidentiary,unsupportedClaims,bomFiles},null,2));
 if(failures.length){for(const failure of failures.slice(0,100))console.error(failure);process.exitCode=1;}

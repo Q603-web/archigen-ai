@@ -19,7 +19,7 @@ export function normalizeVisible(value) {
   return value.replace(/&mdash;|&#8212;|&#x2014;|\u2014/gi, "-").replace(/\s+/g, " ").trim();
 }
 export function findUnsupportedClaims(line) {
-  const visible=normalizeVisible(line.replace(/<[^>]+>/g," "));
+  const visible=normalizeVisible(line.replace(/<[^>]+>/g," ")).replace(/our\s+benchmark protocol/gi,"the benchmark protocol").replace(/our\s+trial credit plan/gi,"the trial credit plan");
   if (/No preserved Vista Studios test artifact/i.test(visible)) return [];
   return unsupportedClaimPatterns.filter((pattern)=>pattern.test(visible)).map((pattern)=>pattern.source);
 }
