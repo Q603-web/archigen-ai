@@ -9,7 +9,7 @@
 // Idempotent: managed regions are delimited by AUTO markers after the
 // first run. Run from repo root: node scripts/update-homepage.mjs
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 
 const INDEX = 'index.html';
 
@@ -35,6 +35,7 @@ for (const file of readdirSync('.')) {
         section: String(it.articleSection || 'Field Notes').split(',')[0].trim(),
         published,
         minutes,
+        ...articleImage(it, html),
       });
     }
   }
@@ -43,6 +44,20 @@ articles.sort((a, b) => b.published - a.published || a.file.localeCompare(b.file
 if (articles.length < 5) {
   console.error(`Only ${articles.length} articles found — refusing to rewrite homepage.`);
   process.exit(1);
+}
+
+// Only use real, local article artwork; never promote an external URL into markup.
+function articleImage(article, html) {
+  let candidate = Array.isArray(article.image) ? article.image[0] : article.image;
+  candidate = typeof candidate === 'object' ? candidate?.url : candidate;
+  if (typeof candidate !== 'string') return {};
+  const file = candidate.replace(/^https:\/\/archigenai\.com\//, '');
+  if (!/^assets\/[a-zA-Z0-9._-]+\.(?:webp|png|jpe?g)$/.test(file) || !existsSync(file)) return {};
+  const imageTag = [...html.matchAll(/<img\b[^>]*>/g)].find(m => m[0].includes(`src="${file}"`))?.[0] || '';
+  const alt = /\balt="([^"]*)"/.exec(imageTag)?.[1] || `Illustration for ${article.headline}`;
+  const width = /\bwidth="(\d+)"/.exec(imageTag)?.[1];
+  const height = /\bheight="(\d+)"/.exec(imageTag)?.[1];
+  return { image: file, imageAlt: alt.replace(/&quot;/g, '"').replace(/&amp;/g, '&'), imageDimensions: width && height ? ` width="${width}" height="${height}"` : '' };
 }
 
 function parseMinutes(iso) {
@@ -67,10 +82,7 @@ const issueDate = fmtDate(new Date(ANCHOR_UTC + weeks * 7 * 86400000));
 function fmtDate(dt) {
   return new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(dt);
 }
-const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const shorten = (s, max = 58) => s.length <= max ? s : s.slice(0, max).replace(/\s+\S*$/, '') + '…';
-const monthYear = (ts) => new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(ts));
-const readTag = (m) => m > 12 ? '<span class="r warn">Long</span>' : `<span class="r">${m} min</span>`;
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 // ---- 3. rewrite managed regions ----
 let html = readFileSync(INDEX, 'utf8');
@@ -104,37 +116,28 @@ region('journal-meta',
 // marquee + masthead issue number/date (legacy regexes are global: ×2 in marquee;
 // (?<=>) pins the date to whole-span contents only)
 region('issue-no', `Issue № ${issueNo}`, /Issue № 047/g);
-region('issue-date', issueDate, /(?<=>)26 May 2026(?=<\/span>)/g);
+if (html.includes('<!--AUTO:issue-date-->')) region('issue-date', issueDate, /(?<=>)26 May 2026(?=<\/span>)/g);
 region('vol-issue', `Vol. 04 · Issue ${issueNo}`, /Vol\. 04 · Issue 047/);
 
-// bento feature card = newest article
-const f = articles[0];
-const ARROW = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>';
-region('feature-card', `
-      <a href="${f.file}" class="art-card feature" style="text-decoration:none;display:block;">
-        <div class="cat"><span class="dot"></span> ${esc(f.section)} · ${monthYear(f.published)}</div>
-        <h3>${esc(f.headline)}</h3>
-        <div class="viz"></div>
-        <p class="excerpt">${esc(f.description)}</p>
-        <div class="foot">
-          <span>${f.minutes} min · ${esc(f.section)}</span>
-          <span class="arrow">${ARROW}</span>
-        </div>
-      </a>`,
-  /\n\s*<a href="[^"]*" class="art-card feature"[\s\S]*?<\/a>/);
+// Two recent illustrated articles lead the journal. New articles awaiting artwork
+// remain discoverable in the reading desk rather than receiving fake images.
+const illustrated = articles.filter(a => a.image);
+const featured = illustrated.length >= 2 ? illustrated.slice(0, 2) : articles.slice(0, 2);
+const cards = featured.map(a => `
+  <a class="story-card" href="${esc(a.file)}">
+    <div class="story-art">${a.image ? `<img src="${esc(a.image)}" alt="${esc(a.imageAlt)}"${a.imageDimensions} loading="lazy" decoding="async">` : `<div class="story-placeholder">${esc(a.section)}</div>`}<span class="story-arrow" aria-hidden="true">↗</span></div>
+    <span class="eyebrow">${esc(a.section)} · ${fmtDate(new Date(a.published))}</span>
+    <h3>${esc(a.headline)}</h3>
+    <p class="excerpt">${esc(a.description)}</p>
+    <span class="read-label">${a.minutes} min read</span>
+  </a>`).join('\n');
+region('feature-card', cards, /$^/);
 
-// bento list card = next four articles
-const items = articles.slice(1, 5).map(a =>
-  `          <li><a href="${a.file}" style="text-decoration:none;color:inherit;"><span class="t">${esc(shorten(a.headline))}</span>${readTag(a.minutes)}</a></li>`
-).join('\n');
-region('list-card', `
-        <div class="cat"><span class="dot"></span> On the Site · ${monthYear(articles[1].published)}</div>
-        <ul>
-${items}
-        </ul>`,
-  /\n\s*<div class="cat"><span class="dot"><\/span> On the Site[\s\S]*?<\/ul>/);
+const items = articles.filter(a => !featured.some(f => f.file === a.file)).slice(0, 4).map((a, i) => `
+  <li><a href="${esc(a.file)}"><span class="desk-no">0${i + 1}</span><span><span class="desk-date">${esc(a.section)} · ${fmtDate(new Date(a.published))}</span><span class="desk-title">${esc(a.headline)}</span></span><span class="desk-time">${a.minutes} min ↗</span></a></li>`).join('\n');
+region('list-card', `<ul>${items}\n</ul>`, /$^/);
 
 writeFileSync(INDEX, html);
 console.log(`Issue № ${issueNo} · ${issueDate} · ${articles.length} articles`);
-console.log(`Feature: ${f.headline} (${f.file})`);
+console.log(`Featured: ${featured.map(a => a.headline).join("; ")}`);
 console.log(`Updated regions: ${changes.length ? changes.join(', ') : 'none (already current)'}`);

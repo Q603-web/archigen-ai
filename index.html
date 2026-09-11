@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -12,7 +12,7 @@
   gtag('js', new Date());
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
-<title>ArchiGen AI, The front door for AI in architecture</title>
+<title>ArchiGen AI — Architecture, through a new lens</title>
 
 
 <meta name="description" content="ArchiGen AI is the front door for AI in architecture. Editorially independent reviews, tutorials, and workflows for architects designing with the machine, Midjourney, FLUX, ComfyUI, Veras, and the broader 2026 toolset." />
@@ -21,664 +21,17 @@
 <meta property="og:url" content="https://archigenai.com/" />
 <meta property="og:title" content="ArchiGen AI, The front door for AI in architecture" />
 <meta property="og:description" content="Editorially independent reviews, tutorials, and workflows for architects designing with the machine. No vendor demos. No hype." />
-<meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta property="og:image" content="https://archigenai.com/assets/hero-depth-anything-v3-architecture-control-map-check-2026-v2.webp" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="ArchiGen AI, The front door for AI in architecture" />
 <meta name="twitter:description" content="Editorially independent reviews, tutorials, and workflows for architects designing with the machine." />
-<meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
+<meta name="twitter:image" content="https://archigenai.com/assets/hero-depth-anything-v3-architecture-control-map-check-2026-v2.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-  :root {
-    /* Editorial pairing (default) */
-    --f-display: 'Fraunces', 'Times New Roman', serif;
-    --f-sans: 'Inter', system-ui, sans-serif;
-    --f-mono: 'JetBrains Mono', ui-monospace, monospace;
-
-    /* Warm paper palette (default) */
-    --paper: #F2EFE8;
-    --paper-2: #EAE5D9;
-    --ink: #1A1915;
-    --ink-2: #3A3830;
-    --muted: #706A5C;
-    --rule: #1A19151A;
-    --rule-2: #1A19150F;
-    --forest: #2F4A3A;
-    --terracotta: #C96F4A;
-    --sand: #D9C89E;
-    --slate: #4A5A6A;
-    --marigold: #E2A13B;
-    --coral: #E36A52;
-    --sage: #6B7A5A;
-    --rose: #D9B9B0;
-    --cream: #F4EFE3;
-  }
-
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; overflow-x: hidden; }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--f-sans);
-    font-size: 15px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
-  .mono { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
-  .serif { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.02em; }
-  .hair { border: 0; border-top: 1px solid var(--rule); margin: 0; }
-
-  /* ============ Top bar + Nav ============ */
-  .topstrip {
-    border-bottom: 1px solid var(--rule);
-    background: var(--ink);
-    color: var(--paper);
-    overflow: hidden;
-  }
-  .marquee {
-    display: flex; gap: 56px;
-    white-space: nowrap;
-    animation: marquee 60s linear infinite;
-    padding: 9px 0;
-    font-family: var(--f-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  @keyframes marquee { to { transform: translateX(-50%); } }
-  .marquee span { opacity: 0.85; }
-  .marquee .dot { opacity: 0.4; }
-
-  .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-  }
-  .nav-inner {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 18px 40px;
-    gap: 32px;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; font-family: var(--f-display); font-weight: 500; font-size: 20px; letter-spacing: -0.01em;}
-  .brand-mark {
-    width: 32px; height: 32px; border-radius: 6px;
-    background: var(--ink); color: var(--paper);
-    display: grid; place-items: center;
-    font-family: var(--f-mono); font-weight: 600; font-size: 12px;
-  }
-  .brand em { font-style: italic; color: var(--muted); font-weight: 300; }
-
-  .nav-links { display: flex; gap: 4px; background: var(--ink); color: var(--paper); padding: 4px; border-radius: 999px; }
-  .nav-links a {
-    padding: 8px 16px; border-radius: 999px;
-    color: var(--paper); text-decoration: none;
-    font-size: 13px; font-weight: 500;
-    transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
-  }
-  .nav-links a.active, .nav-links a:hover { background: var(--paper); color: var(--ink); }
-
-  .nav-right { display: flex; justify-content: flex-end; gap: 8px; align-items: center; }
-  .btn {
-    padding: 9px 18px; border-radius: 999px;
-    font-size: 13px; font-weight: 500;
-    border: 1px solid var(--rule);
-    background: transparent; color: var(--ink);
-    text-decoration: none; cursor: pointer;
-    transition: color 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .btn.dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .btn.dark:hover { background: var(--forest); border-color: var(--forest); }
-
-  /* ============ HERO ============ */
-  .hero { padding: 40px 0 72px; }
-  .hero-meta {
-    display: flex; justify-content: space-between; align-items: baseline;
-    border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--rule);
-    padding: 14px 0;
-    margin-bottom: 40px;
-  }
-  .hero-meta .left { display: flex; gap: 28px; align-items: baseline;}
-  .hero-meta .right { display: flex; gap: 28px; align-items: baseline; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 5px 12px; border-radius: 999px;
-    font-family: var(--f-mono); font-size: 10px; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    background: var(--marigold); color: var(--ink);
-  }
-  .pill.forest { background: var(--forest); color: var(--cream); }
-  .pill.coral { background: var(--coral); color: var(--ink); }
-  .pill.ghost { background: transparent; border: 1px solid var(--rule); }
-
-  /* SPLIT hero (default) */
-  .hero-split {
-    display: grid; grid-template-columns: 1.1fr 1fr;
-    gap: 56px;
-    align-items: start;
-  }
-  .hero-headline {
-    font-family: var(--f-display);
-    font-weight: 400;
-    font-size: clamp(48px, 9.5vw, 104px);
-    line-height: 0.95;
-    letter-spacing: -0.035em;
-    color: var(--ink);
-    margin: 0;
-  }
-  .hero-headline em { font-style: italic; font-weight: 300; }
-  .hero-sub {
-    margin-top: 32px;
-    max-width: 520px;
-    font-size: 17px;
-    line-height: 1.5;
-    color: var(--ink-2);
-  }
-  .hero-byline {
-    margin-top: 28px;
-    display: flex; gap: 18px; align-items: center;
-    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: var(--muted);
-  }
-  .hero-byline a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
-
-  .hero-cta { margin-top: 36px; display: flex; gap: 12px;}
-
-  /* Featured story card (right of hero) */
-  .feat-card {
-    position: relative;
-    aspect-ratio: 5/4.2;
-    border-radius: 18px;
-    background:
-      linear-gradient(180deg, rgba(22,34,27,0.78) 0%, rgba(22,34,27,0.42) 45%, rgba(22,34,27,0.82) 100%),
-      var(--forest) url('assets/cover-issue-042.jpg') center/cover no-repeat;
-    color: var(--cream);
-    padding: 30px;
-    overflow: hidden;
-    display: flex; flex-direction: column; justify-content: space-between;
-  }
-  .feat-card .topline {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #C9D3C7;
-  }
-  .feat-card .topline b { color: var(--cream); font-weight: 500; }
-  .feat-card .cursor {
-    position: absolute; top: 54px; right: 90px;
-    width: 26px; height: 30px;
-    transform: rotate(-18deg);
-  }
-  .feat-card .arrow-btn {
-    width: 36px; height: 36px; border-radius: 999px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    display: grid; place-items: center;
-    color: var(--cream);
-  }
-  .feat-stack {
-    position: absolute;
-    left: 50%; top: 56%;
-    transform: translate(-50%, -50%);
-    width: 78%;
-  }
-  .feat-stack .quote {
-    background: #F7F2E6;
-    color: var(--ink);
-    border-radius: 10px;
-    padding: 16px 18px;
-    font-family: var(--f-display);
-    font-size: 17px;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    box-shadow: 0 16px 36px rgba(0,0,0,0.22);
-    position: relative;
-    margin-bottom: 12px;
-  }
-  .feat-stack .quote .label {
-    position: absolute; top: -10px; left: 16px;
-    background: #F7F2E6;
-    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted);
-    padding: 0 6px;
-  }
-  .feat-stack .quote.gold { background: var(--marigold); }
-  .feat-stack .quote.gold .label { background: var(--marigold); color: var(--ink); }
-  .feat-stack .quote.gold em { font-style: italic; }
-
-  .feat-card .bottomline {
-    display: flex; justify-content: space-between; align-items: flex-end;
-  }
-  .feat-card .runtime-label { color: #C9D3C7; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
-  .feat-card .runtime {
-    font-family: var(--f-display); font-size: 44px; letter-spacing: -0.02em;
-    line-height: 1;
-  }
-  .feat-card .chapter {
-    text-align: right;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: #C9D3C7;
-  }
-  .feat-card .chapter b { color: var(--cream); font-weight: 500; display: block; }
-
-  /* ============ Positioning statement ============ */
-  .positioning {
-    padding: 56px 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-  }
-  .positioning .grid {
-    display: grid; grid-template-columns: 200px 1fr 1fr; gap: 48px;
-  }
-  .positioning h2 {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 42px; line-height: 1.05; letter-spacing: -0.025em;
-    margin: 0;
-  }
-  .positioning h2 em { font-style: italic; font-weight: 300; color: var(--terracotta); }
-  .positioning p {
-    margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink-2);
-    max-width: 48ch;
-  }
-  .positioning .label { color: var(--muted); }
-
-  /* ============ Featured outputs ============ */
-  .section { padding: 72px 0; }
-  .section-head {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--ink);
-  }
-  .section-head h2 {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 48px; line-height: 1; letter-spacing: -0.025em; margin: 0;
-  }
-  .section-head h2 em { font-style: italic; font-weight: 300; }
-  .section-head .meta { display: flex; gap: 24px; align-items: baseline; color: var(--muted); }
-  .section-head .meta a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
-
-  .outputs-row {
-    display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px;
-  }
-  .render-card {
-    position: relative;
-    aspect-ratio: 4/5;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #5a6a5e;
-  }
-  .render-card.wide { aspect-ratio: 4/3.2; }
-  .render-card .stripes {
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 6px);
-  }
-  .render-card .overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%);
-  }
-  .render-card .tl {
-    position: absolute; top: 16px; left: 16px;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    background: rgba(20,18,13,0.5);
-    padding: 5px 8px; border-radius: 4px;
-    backdrop-filter: blur(6px);
-  }
-  .render-card .tr {
-    position: absolute; top: 16px; right: 16px;
-    width: 28px; height: 28px; border-radius: 999px;
-    background: rgba(20,18,13,0.5); color: var(--cream);
-    display: grid; place-items: center;
-    backdrop-filter: blur(6px);
-  }
-  .render-card .bl {
-    position: absolute; left: 16px; right: 16px; bottom: 14px;
-    color: var(--cream);
-  }
-  .render-card .bl .title {
-    font-family: var(--f-display); font-size: 22px; line-height: 1.1; letter-spacing: -0.01em;
-  }
-  .render-card .bl .sub {
-    margin-top: 6px;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(244,239,227,0.8);
-  }
-
-  .render-card.c1 { background-color: #5a6a5e; background-size: cover; background-position: center; }
-  .render-card.c2 { background-color: #6e5a4a; background-size: cover; background-position: center; }
-  .render-card.c3 { background-color: #4a5562; background-size: cover; background-position: center; }
-  .render-card.c4 { background-color: #8a7458; background-size: cover; background-position: center; }
-  .render-card.c5 { background-color: #3d4a3e; background-size: cover; background-position: center; }
-
-  /* ============ Featured tools ============ */
-  .tools-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-  }
-  .tool-card {
-    padding: 24px;
-    border-radius: 14px;
-    background: var(--paper-2);
-    border: 1px solid var(--rule);
-    display: flex; flex-direction: column; gap: 20px;
-    min-height: 240px;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .tool-card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(26,25,21,0.06); }
-  .tool-head {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    gap: 12px;
-  }
-  .tool-logo {
-    width: 40px; height: 40px; border-radius: 8px;
-    background: var(--ink); color: var(--paper);
-    display: grid; place-items: center;
-    font-family: var(--f-display); font-weight: 500; font-size: 18px;
-    letter-spacing: -0.02em;
-    flex-shrink: 0;
-  }
-  .tool-tag {
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted);
-    text-align: right;
-    max-width: 90px;
-    line-height: 1.4;
-  }
-  .tool-card.feature .tool-tag { max-width: none; text-align: left; }
-  .tool-name {
-    font-family: var(--f-display); font-weight: 500; font-size: 24px; letter-spacing: -0.015em;
-    margin: 0 0 8px;
-  }
-  .tool-desc {
-    margin: 0;
-    font-size: 14px; line-height: 1.45; color: var(--ink-2);
-  }
-  .tool-foot {
-    margin-top: auto;
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 16px;
-    border-top: 1px solid var(--rule);
-    font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.04em;
-  }
-  .tool-foot .stars { color: var(--ink); }
-  .tool-foot svg { display: block; }
-
-  .tool-card.feature {
-    grid-column: span 2;
-    background: var(--forest);
-    color: var(--cream);
-    border-color: transparent;
-  }
-  .tool-card.feature .tool-logo { background: var(--cream); color: var(--forest); }
-  .tool-card.feature .tool-tag, .tool-card.feature .tool-foot { color: rgba(244,239,227,0.75); border-color: rgba(244,239,227,0.18); }
-  .tool-card.feature .tool-foot .stars { color: var(--cream); }
-  .tool-card.feature .tool-desc { color: rgba(244,239,227,0.88); }
-  .tool-card.feature .render-strip {
-    aspect-ratio: 16/7;
-    border-radius: 8px;
-    background: #375446 url('images/vista-output-north-light.jpg') center/cover no-repeat;
-    position: relative;
-    overflow: hidden;
-  }
-  .tool-card.feature .render-strip .tag {
-    position: absolute; top: 10px; left: 12px;
-    font-family: var(--f-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(244,239,227,0.9);
-    background: rgba(20,18,13,0.45);
-    padding: 4px 8px; border-radius: 4px;
-    backdrop-filter: blur(6px);
-  }
-
-  /* ============ Bento articles ============ */
-  .bento {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 220px;
-    gap: 16px;
-  }
-  .art-card {
-    position: relative;
-    padding: 24px;
-    border-radius: 14px;
-    background: var(--paper-2);
-    border: 1px solid var(--rule);
-    display: flex; flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .art-card:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(26,25,21,0.06); }
-  .art-card .cat {
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 16px;
-    display: flex; gap: 10px; align-items: center;
-  }
-  .art-card .cat .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terracotta); }
-  .art-card h3 {
-    font-family: var(--f-display); font-weight: 500;
-    font-size: 24px; line-height: 1.1; letter-spacing: -0.015em;
-    margin: auto 0 0;
-  }
-  .art-card h3.big {
-    font-size: 36px; line-height: 1.05;
-  }
-  .art-card .excerpt {
-    margin: 10px 0 0;
-    font-size: 13px; line-height: 1.45; color: var(--ink-2);
-  }
-  .art-card .foot {
-    margin-top: 16px;
-    display: flex; justify-content: space-between; align-items: center;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted);
-  }
-  .art-card .foot .arrow {
-    width: 28px; height: 28px; border-radius: 999px;
-    border: 1px solid var(--rule); display: grid; place-items: center;
-  }
-  .art-card.feature { grid-column: span 7; grid-row: span 2; background: var(--marigold); }
-  .art-card.feature h3 { font-size: 52px; line-height: 1; font-weight: 400; color: var(--ink); }
-  .art-card.feature .cat .dot { background: var(--ink); }
-  .art-card.feature .viz {
-    margin: 16px 0 20px;
-    height: 90px;
-    background: rgba(0,0,0,0.08);
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
-  }
-  .art-card.feature .viz::before {
-    content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(90deg, rgba(26,25,21,0.15) 0 2px, transparent 2px 12px);
-  }
-  .art-card.feature .viz::after {
-    content: ''; position: absolute; left: 0; bottom: 0; width: 68%; height: 100%;
-    background: rgba(26,25,21,0.18);
-  }
-
-  .art-card.dark { grid-column: span 5; grid-row: span 2; background: #17170F; color: var(--cream); border-color: transparent; }
-  .art-card.dark h3 { color: var(--cream); }
-  .art-card.dark .cat { color: rgba(244,239,227,0.6); }
-  .art-card.dark .excerpt { color: rgba(244,239,227,0.75); }
-  .art-card.dark .foot { color: rgba(244,239,227,0.6); }
-  .art-card.dark .foot .arrow { border-color: rgba(244,239,227,0.2); }
-  .art-card.dark .terminal {
-    font-family: var(--f-mono);
-    font-size: 12px;
-    line-height: 1.7;
-    color: rgba(244,239,227,0.85);
-    margin-top: 14px;
-    margin-bottom: auto;
-  }
-  .art-card.dark .terminal .g { color: var(--marigold); }
-  .art-card.dark .terminal .r { color: var(--coral); }
-  .art-card.dark .terminal .d { color: rgba(244,239,227,0.4); }
-
-  .art-card.date { grid-column: span 3; background: var(--rose); border-color: transparent;}
-  .art-card.date .big-date {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 80px; line-height: 0.85; letter-spacing: -0.04em;
-    margin: 8px 0;
-  }
-  .art-card.date .date-meta {
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--ink-2);
-  }
-
-  .art-card.swatches { grid-column: span 4; background: #C9B8E0; border-color: transparent; }
-  .art-card.swatches .swatch-row { display: flex; gap: 8px; margin: 16px 0 12px;}
-  .art-card.swatches .swatch-row .sw {
-    flex: 1; aspect-ratio: 1;
-    border-radius: 6px;
-  }
-
-  .art-card.render { grid-column: span 3; padding: 0; overflow: hidden; border-color: transparent; background: #6b7a5a; }
-  .art-card.render .inner {
-    position: absolute; inset: 0;
-    background: #5f6d50 url('images/render-elevation-04.jpg') center/cover no-repeat;
-  }
-  .art-card.render .inner::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
-  }
-  .art-card.render .tag {
-    position: absolute; top: 16px; left: 16px;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.9);
-    background: rgba(20,18,13,0.5);
-    padding: 5px 8px; border-radius: 4px;
-    backdrop-filter: blur(6px);
-  }
-  .art-card.render .cap {
-    position: absolute; left: 16px; right: 16px; bottom: 16px;
-    color: var(--cream);
-    font-family: var(--f-display); font-size: 18px; line-height: 1.1;
-  }
-
-  .art-card.list { grid-column: span 3; background: var(--paper); }
-  .art-card.list ul { list-style: none; padding: 0; margin: 16px 0; }
-  .art-card.list li {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--rule-2);
-    font-size: 13px;
-  }
-  .art-card.list li:last-child { border-bottom: 0; }
-  .art-card.list li .t { color: var(--ink); }
-  .art-card.list li .r { font-family: var(--f-mono); color: var(--muted); font-size: 11px; letter-spacing: 0.05em;}
-  .art-card.list li .r.warn { color: var(--coral); }
-
-  /* ============ Newsletter strip ============ */
-  .newsletter {
-    margin-top: 48px;
-    padding: 48px;
-    border-radius: 18px;
-    background: var(--ink);
-    color: var(--cream);
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px;
-    align-items: center;
-  }
-  .newsletter h2 {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 48px; line-height: 1; letter-spacing: -0.03em;
-    margin: 0;
-  }
-  .newsletter h2 em { font-style: italic; font-weight: 300; color: var(--marigold); }
-  .newsletter p { margin: 16px 0 0; color: rgba(244,239,227,0.7); max-width: 42ch; }
-  .news-form {
-    display: flex; gap: 8px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 999px;
-    padding: 6px;
-  }
-  .news-form input {
-    flex: 1; border: 0; background: transparent; color: var(--cream);
-    padding: 12px 16px; outline: none; font-family: var(--f-sans); font-size: 14px;
-  }
-  .news-form input::placeholder { color: rgba(244,239,227,0.4); }
-  .news-form button {
-    background: var(--cream); color: var(--ink);
-    border: 0; padding: 12px 20px; border-radius: 999px;
-    font-family: var(--f-sans); font-size: 13px; font-weight: 500;
-    cursor: pointer;
-  }
-  .news-form button:hover { background: var(--marigold); }
-  .news-meta {
-    margin-top: 20px;
-    display: flex; gap: 24px;
-    font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
-    color: rgba(244,239,227,0.5);
-  }
-
-  /* ============ Footer ============ */
-  footer.foot {
-    padding: 72px 0 40px;
-    border-top: 1px solid var(--rule);
-  }
-  .foot-grid {
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    gap: 48px;
-  }
-  .foot-brand h3 {
-    font-family: var(--f-display); font-weight: 400;
-    font-size: 40px; line-height: 1; letter-spacing: -0.025em;
-    margin: 16px 0 16px;
-    max-width: 18ch;
-  }
-  .foot-brand h3 em { font-style: italic; font-weight: 300;}
-  .foot-col h4 {
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--muted);
-    margin: 0 0 14px;
-  }
-  .foot-col a {
-    display: block; padding: 5px 0;
-    color: var(--ink); text-decoration: none;
-    font-size: 14px;
-  }
-  .foot-col a:hover { color: var(--terracotta); }
-  .foot-bottom {
-    margin-top: 56px;
-    padding-top: 24px;
-    border-top: 1px solid var(--rule);
-    display: flex; justify-content: space-between;
-    font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ── Tablet: single-column hero before things start clipping ── */
-  @media (max-width: 900px) {
-    .hero-split { grid-template-columns: 1fr; gap: 40px; }
-    .nav-right .btn { white-space: nowrap; }
-    .tools-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  /* ── Mobile: collapse grids to single column at 480px ── */
-  @media (max-width: 480px) {
-    .wrap { padding: 0 16px; }
-    .nav-inner { padding: 12px 16px; grid-template-columns: 1fr auto; }
-    .nav-right { display: none; }
-    .tools-grid { grid-template-columns: 1fr !important; }
-    .bento { grid-template-columns: 1fr !important; grid-auto-rows: auto !important; }
-    .bento .art-card { grid-column: span 1 !important; grid-row: span 1 !important; }
-    .positioning .grid { grid-template-columns: 1fr !important; gap: 24px; }
-    .render-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; }
-    .foot-grid { grid-template-columns: 1fr 1fr !important; gap: 32px; }
-    .hero-split { grid-template-columns: 1fr !important; }
-    .feat-card { aspect-ratio: 4/5; }
-    .toc { grid-template-columns: 1fr 1fr !important; }
-  }
-</style>
+<link rel="stylesheet" href="styles/home.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -716,392 +69,91 @@
 </script>
 </head>
 <body>
-
-<!-- ============ Marquee strip ============ -->
-<div class="topstrip">
-  <div class="marquee">
-    <span><!--AUTO:issue-no-->Issue № 062<!--/AUTO:issue-no--></span><span class="dot">/</span>
-    <span>The Volume Issue, AI, architecture &amp; the new render pipeline</span><span class="dot">/</span>
-    <span>New essay: What does AI build when architects are in charge?</span><span class="dot">/</span>
-    <span>Tool of the week, Vista</span><span class="dot">/</span>
-    <span><!--AUTO:issue-date-->06 Sept 2026<!--/AUTO:issue-date--></span><span class="dot">/</span>
-    <span>Field notes from the practice</span><span class="dot">/</span>
-    <!-- repeat for seamless loop -->
-    <span><!--AUTO:issue-no-->Issue № 062<!--/AUTO:issue-no--></span><span class="dot">/</span>
-    <span>The Volume Issue, AI, architecture &amp; the new render pipeline</span><span class="dot">/</span>
-    <span>New essay: What does AI build when architects are in charge?</span><span class="dot">/</span>
-    <span>Tool of the week, Vista</span><span class="dot">/</span>
-    <span><!--AUTO:issue-date-->06 Sept 2026<!--/AUTO:issue-date--></span><span class="dot">/</span>
-    <span>Field notes from the practice</span><span class="dot">/</span>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="edition-bar"><div class="wrap"><span>ARCHITECTURE × INTELLIGENCE</span><span>Independent perspectives. New possibilities.</span><span><!--AUTO:issue-no-->Issue № 062<!--/AUTO:issue-no--></span></div></div>
+<nav class="nav" aria-label="Main navigation">
+ <div class="nav-inner wrap">
+  <a class="brand" href="index.html" aria-label="ArchiGen AI home"><span class="brand-mark">AG</span><span>ArchiGen<em>/AI</em></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+  <div class="site-menu" id="site-menu">
+   <div class="nav-links"><a href="journal.html">Journal</a><a href="tools.html">Tools</a><a href="case-studies.html">Case Studies</a><a href="vista-studios-positioning.html">Vista Studios</a><a href="about.html">About</a></div>
+   <a href="#newsletter" class="btn dark">The Sunday letter <span aria-hidden="true">↗</span></a>
   </div>
-</div>
-
-<!-- ============ Nav ============ -->
-<nav class="nav">
-  <div class="nav-inner">
-    <div class="brand">
-      <div class="brand-mark">AG</div>
-      <span>ArchiGen<em>/AI</em></span>
-    </div>
-    <div class="nav-links">
-      <a href="journal.html">Journal</a>
-      <a href="tools.html">Tools</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="vista-studios-positioning.html">Vista Studios</a>
-      <a href="about.html">About</a>
-    </div>
-    <div class="nav-right">
-      <a href="#newsletter" class="btn dark">Join the studio →</a>
-    </div>
-  </div>
+ </div>
 </nav>
-
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap">
-
-    <div class="hero-meta">
-      <div class="left">
-        <span class="mono" style="color:var(--muted)"><!--AUTO:vol-issue-->Vol. 04 · Issue 062<!--/AUTO:vol-issue--></span>
-        <span class="mono" style="color:var(--muted)">The Volume Issue</span>
-      </div>
-      <div class="right">
-        <span class="mono" style="color:var(--muted)"><!--AUTO:issue-date-->06 Sept 2026<!--/AUTO:issue-date--></span>
-        <span class="mono" style="color:var(--ink)">Updated weekly</span>
-      </div>
-    </div>
-
-    <!-- SPLIT variant -->
-    <div class="hero-split">
-      <div>
-        <div style="display:flex; gap:10px; margin-bottom:28px">
-          <span class="pill forest">● Field notes · Featured</span>
-          <span class="pill ghost">6 min read</span>
-        </div>
-        <h1 class="hero-headline">What does AI <em>build</em> when architects are in&nbsp;charge?</h1>
-        <p class="hero-sub">Six studios spent a week letting the models draft. What came back wasn't faster, it was louder. We went through every frame to find what's worth keeping, and the five prompts that changed how we work.</p>
-
-        <div class="hero-byline">
-          <span>By Nora Sinclair, Vista Studios</span><span style="display:block;font-size:11px;opacity:.75;margin-top:4px;">Nora Sinclair is ArchiGen's AI editorial persona; every piece is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Disclosure</a></span>
-          <span>·</span>
-          <span>Field notes, Issue 047</span>
-        </div>
-
-        <div class="hero-cta">
-          <a href="architects-in-charge.html" class="btn dark">Read the essay →</a>
-          <a href="journal.html" class="btn">Browse the archive</a>
-        </div>
-      </div>
-
-      <div class="feat-card">
-        <div class="topline">
-          <div>
-            <div>Featured Study</div>
-            <div style="margin-top:4px"><b>No. 042 / The Volume Issue</b></div>
-          </div>
-          <div class="arrow-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </div>
-        </div>
-
-        <svg class="cursor" viewBox="0 0 26 30" fill="none">
-          <path d="M2 2 L2 22 L8 17 L12 27 L16 25 L12 15 L22 15 Z" fill="#E36A52" stroke="#1A1915" stroke-width="1.4" stroke-linejoin="round"/>
-        </svg>
-
-        <div class="feat-stack">
-          <div class="quote">
-            <span class="label">Prompt · 00:45</span>
-            "A concrete reading room with a single north-facing window. Make the silence visible."
-          </div>
-          <div class="quote gold">
-            <span class="label">Rework · 02:13</span>
-            <em>"Six studios. Ninety renders. The models are loud, but not wrong about light."</em>
-          </div>
-        </div>
-
-        <div class="bottomline">
-          <div>
-            <div class="runtime-label">Run time</div>
-            <div class="runtime">00:45</div>
-          </div>
-          <div class="chapter">
-            <b>Chapter 01</b>
-            <span>The 45-second brief</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<main id="main">
+<section class="cover-section wrap" aria-labelledby="cover-title">
+ <div class="cover-masthead"><span class="mono">A new lens on architecture</span><span class="mono"><!--AUTO:vol-issue-->Vol. 04 · Issue 062<!--/AUTO:vol-issue--></span></div>
+ <div class="cover">
+  <img class="cover-art" src="assets/hero-depth-anything-v3-architecture-control-map-check-2026-v2.webp" width="1672" height="941" fetchpriority="high" alt="A dramatic concrete pavilion transforms into luminous cyan wireframe and vivid depth colors above reflecting water.">
+  <div class="cover-top"><span class="cover-tag"><span class="live-dot"></span> The editor’s pick</span><span class="mono">01 / Perspective</span></div>
+  <div class="cover-content">
+   <div><p class="eyebrow">Depth Anything V3 · Architecture &amp; AI</p><h1 id="cover-title">The depth map is<br> <em>not the building.</em></h1></div>
+   <div class="cover-summary"><p>A beautiful image is only the beginning. Five checks before an inferred map takes control of your next render.</p><a class="btn light" href="depth-anything-v3-architecture-control-map-check-2026.html">Read the story <span aria-hidden="true">↗</span></a><span class="read-time mono">8 min read</span></div>
   </div>
+ </div>
+ <div class="cover-caption"><span>Conceptual AI artwork · ArchiGen</span><a href="journal.html">Step inside the journal <span aria-hidden="true">↗</span></a></div>
 </section>
+<section class="manifesto wrap" aria-label="About the publication"><p class="mono">For the people<br>who shape the world</p><h2>New tools.<br> <em>Architectural judgment.</em></h2><div><p>Ideas, workflows and critical perspectives for architects designing with AI. Explore what’s possible. Understand what’s worth keeping.</p><a class="text-link" href="about.html">Meet ArchiGen <span aria-hidden="true">↗</span></a></div></section>
+<section class="journal-section wrap" id="latest" aria-labelledby="latest-title">
+ <div class="section-head"><div><span class="eyebrow">Fresh perspectives</span><h2 id="latest-title">Inside <em>the journal.</em></h2></div><div class="section-meta"><span class="mono"><!--AUTO:journal-meta-->231 articles · Updated 11 Sept 2026<!--/AUTO:journal-meta--></span><a class="text-link" href="journal.html">All stories <span aria-hidden="true">↗</span></a></div></div>
+ <div class="story-grid"><!--AUTO:feature-card-->
+  <a class="story-card" href="ai-render-comparison-intervention-ledger-architects-2026.html">
+    <div class="story-art"><img src="assets/hero-ai-render-comparison-intervention-ledger-architects-2026-v2.webp" alt="A glowing terracotta pavilion floats above transparent layers of architectural sketches, linework and material studies." width="1672" height="941" loading="lazy" decoding="async"><span class="story-arrow" aria-hidden="true">↗</span></div>
+    <span class="eyebrow">Analysis · 11 Sept 2026</span>
+    <h3>AI Render Comparisons Need an Intervention Ledger</h3>
+    <p class="excerpt">A fair AI rendering comparison records every rerun, prompt rewrite, mask, crop, repair, and selection minute between input and published image.</p>
+    <span class="read-label">8 min read</span>
+  </a>
 
-<!-- ============ Positioning ============ -->
-<section class="positioning">
-  <div class="wrap">
-    <div class="grid">
-      <div>
-        <div class="mono label">What this is</div>
-      </div>
-      <div>
-        <h2>A publication for architects who <em>design with the machine.</em></h2>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:16px">
-        <p>ArchiGen is a curated editorial platform for architects, archviz artists and design-forward studios figuring out where AI fits into the drawing set.</p>
-        <p>We test, we compare, we publish what's useful and put the rest down. Magazine on the cover, library underneath.</p>
-      </div>
-    </div>
-  </div>
+  <a class="story-card" href="depth-anything-v3-architecture-control-map-check-2026.html">
+    <div class="story-art"><img src="assets/hero-depth-anything-v3-architecture-control-map-check-2026-v2.webp" alt="A dramatic concrete pavilion transitions from warm-lit architecture into cyan wireframe and vivid abstract depth colors." width="1672" height="941" loading="lazy" decoding="async"><span class="story-arrow" aria-hidden="true">↗</span></div>
+    <span class="eyebrow">Tutorial · 11 Sept 2026</span>
+    <h3>Depth Anything V3 for Architecture: Check the Map Before It Controls the Render</h3>
+    <p class="excerpt">A practical acceptance test for inferred depth maps before they control a ComfyUI architectural render.</p>
+    <span class="read-label">8 min read</span>
+  </a><!--/AUTO:feature-card--></div>
+ <div class="reading-desk"><div class="desk-heading"><span class="mono">Keep exploring</span><h3>On the<br> <em>reading desk.</em></h3><a class="text-link" href="journal.html">Browse the archive ↗</a></div><div class="desk-list"><!--AUTO:list-card--><ul>
+  <li><a href="comfyui-architecture-flux-sdxl-model-routing-2026.html"><span class="desk-no">01</span><span><span class="desk-date">Tutorial · 10 Sept 2026</span><span class="desk-title">ComfyUI for Architecture: Route FLUX and SDXL by Task</span></span><span class="desk-time">9 min ↗</span></a></li>
+
+  <li><a href="veras-4-6-live-model-video-workflow-architects-2026.html"><span class="desk-no">02</span><span><span class="desk-date">Workflow · 10 Sept 2026</span><span class="desk-title">Veras 4.6 Live 3D Model to Video Workflow for Architects</span></span><span class="desk-time">8 min ↗</span></a></li>
+
+  <li><a href="ai-render-reference-image-provenance-register-architects-2026.html"><span class="desk-no">03</span><span><span class="desk-date">Practice · 09 Sept 2026</span><span class="desk-title">Reference Image Provenance Register for AI Architecture Renders</span></span><span class="desk-time">8 min ↗</span></a></li>
+
+  <li><a href="veras-5-image-to-3d-bim-assets-architects-2026.html"><span class="desk-no">04</span><span><span class="desk-date">Tool Review · 09 Sept 2026</span><span class="desk-title">Veras 5 Image to 3D for BIM: What Architects Need to Test</span></span><span class="desk-time">9 min ↗</span></a></li>
+</ul><!--/AUTO:list-card--></div></div>
+<p class="editorial-note">Nora Sinclair is ArchiGen’s AI editorial persona. <a href="masthead.html#nora-sinclair">Our editorial disclosure ↗</a></p>
 </section>
-
-<!-- ============ Featured tools ============ -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Tools we actually <em>use</em></h2>
-      <div class="meta">
-        <span class="mono">6 curated of 48 in the directory</span>
-        <a href="tools.html" class="mono">Enter the directory →</a>
-      </div>
-    </div>
-
-    <div class="tools-grid">
-
-      <div class="tool-card feature">
-        <div class="tool-head">
-          <div class="tool-logo">Vi</div>
-          <div style="display:flex; gap:8px">
-            <span class="pill" style="background:var(--marigold)">● Tool of the week</span>
-            <span class="mono" style="color:rgba(244,239,227,0.6)">v0.4.2</span>
-          </div>
-        </div>
-
-        <div>
-          <div class="tool-tag">Render · img2img · text2img</div>
-          <h3 class="tool-name" style="color:var(--cream)">Vista</h3>
-          <p class="tool-desc">The fastest way we've found to go from SketchUp massing to a publishable render. Architectural priors, exposed seed, and enough control not to feel like a slot machine.</p>
-        </div>
-
-        <div class="render-strip">
-          <div class="tag">Output · North-light · 03/12</div>
-        </div>
-
-        <div class="tool-foot">
-          <span>Freemium · Pro $24/mo</span>
-          <span class="stars">★★★★★ 4.8 <span style="color:rgba(244,239,227,0.5); margin-left:6px">128 reviews</span></span>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-head">
-          <div class="tool-logo">Kr</div>
-          <span class="tool-tag">Realtime · img2img</span>
-        </div>
-        <div>
-          <h3 class="tool-name">Krea</h3>
-          <p class="tool-desc">Best for iterating in front of a client. Real-time canvas, weak at plans.</p>
-        </div>
-        <div class="tool-foot">
-          <span>$10/mo</span>
-          <span class="stars">★★★★☆</span>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-head">
-          <div class="tool-logo">Fl</div>
-          <span class="tool-tag">Base model</span>
-        </div>
-        <div>
-          <h3 class="tool-name">Flux · dev</h3>
-          <p class="tool-desc">Our go-to base. Understands materials. Struggles with scale. Needs a LoRA.</p>
-        </div>
-        <div class="tool-foot">
-          <span>Open · self-host</span>
-          <span class="stars">★★★★★</span>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-head">
-          <div class="tool-logo">Mj</div>
-          <span class="tool-tag">Concept · moodboard</span>
-        </div>
-        <div>
-          <h3 class="tool-name">Midjourney v7</h3>
-          <p class="tool-desc">Still the best at atmosphere. Worst at geometry. Use for the front of the book, not the set.</p>
-        </div>
-        <div class="tool-foot">
-          <span>$30/mo</span>
-          <span class="stars">★★★★☆</span>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-head">
-          <div class="tool-logo">Lf</div>
-          <span class="tool-tag">Upscale · cleanup</span>
-        </div>
-        <div>
-          <h3 class="tool-name">Leonardo · Finish</h3>
-          <p class="tool-desc">Boring, fast, reliable. The last node in nine of our ten workflows.</p>
-        </div>
-        <div class="tool-foot">
-          <span>$12/mo</span>
-          <span class="stars">★★★★☆</span>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-head">
-          <div class="tool-logo">Nv</div>
-          <span class="tool-tag">Sketch → render</span>
-        </div>
-        <div>
-          <h3 class="tool-name">Nvidia Canvas</h3>
-          <p class="tool-desc">Underrated for site-plan mood work. Pair with a trained checkpoint.</p>
-        </div>
-        <div class="tool-foot">
-          <span>Free</span>
-          <span class="stars">★★★☆☆</span>
-        </div>
-      </div>
-
-      <div class="tool-card">
-        <div class="tool-head">
-          <div class="tool-logo">Rh</div>
-          <span class="tool-tag">Parametric · plugin</span>
-        </div>
-        <div>
-          <h3 class="tool-name">Rhino · GenAI</h3>
-          <p class="tool-desc">Grasshopper integration that actually respects tolerances. Ugly UI, good bones.</p>
-        </div>
-        <div class="tool-foot">
-          <span>$18/mo</span>
-          <span class="stars">★★★★☆</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ Bento articles ============ -->
-<section class="section" style="padding-top:0">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Latest in <em>the journal</em></h2>
-      <div class="meta">
-        <span class="mono"><!--AUTO:journal-meta-->231 articles · Updated 11 Sept 2026<!--/AUTO:journal-meta--></span>
-        <a href="journal.html" class="mono">Open the journal →</a>
-      </div>
-    </div>
-
-    <div class="bento"><!--AUTO:feature-card-->
-      <a href="ai-render-comparison-intervention-ledger-architects-2026.html" class="art-card feature" style="text-decoration:none;display:block;">
-        <div class="cat"><span class="dot"></span> Analysis · September 2026</div>
-        <h3>AI Render Comparisons Need an Intervention Ledger</h3>
-        <div class="viz"></div>
-        <p class="excerpt">A fair AI rendering comparison records every rerun, prompt rewrite, mask, crop, repair, and selection minute between input and published image.</p>
-        <div class="foot">
-          <span>8 min · Analysis</span>
-          <span class="arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg></span>
-        </div>
-      </a><!--/AUTO:feature-card-->
-
-      <a href="comfyui-advanced-tutorial.html" class="art-card dark" style="text-decoration:none;display:block;">
-        <div class="cat"><span class="dot" style="background:var(--marigold)"></span> Tutorial · April 2026</div>
-        <h3 class="big">ComfyUI Architecture Workflows: From Beginner to Production</h3>
-        <div class="terminal">
-          $ load depth_export.png<br>
-          <span class="d">› controlnet: depth_midas · strength 0.75</span><br>
-          $ generate --model juggernaut_xl --passes 3<br>
-          <span class="g">✓ pass 01, massing + atmosphere</span><br>
-          <span class="g">✓ pass 02, material refinement (denoise 0.45)</span><br>
-          <span class="d">› upscale 4× · final: 3072×2048</span>
-        </div>
-        <div class="foot">
-          <span>14 min · Full Tutorial</span>
-          <span class="arrow">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <div class="art-card date">
-        <div class="cat"><span class="dot" style="background:var(--ink)"></span> Meetup · London</div>
-        <div class="big-date">03<br>MAY</div>
-        <h3 style="font-size:22px; font-weight:500">Studio Night: AI in Practice</h3>
-        <div class="date-meta" style="margin-top:auto">RSVP · 42 of 80 · Free</div>
-      </div>
-
-      <div class="art-card swatches">
-        <div class="cat"><span class="dot" style="background:var(--ink)"></span> Materials · 09 Apr 2026</div>
-        <div class="swatch-row">
-          <div class="sw" style="background:#C96F4A"></div>
-          <div class="sw" style="background:#E2A13B"></div>
-          <div class="sw" style="background:#2F4A3A"></div>
-          <div class="sw" style="background:#4A5A6A"></div>
-        </div>
-        <h3>Four material prompts for a believable render.</h3>
-        <div class="foot">
-          <span>3 min · Field guide</span>
-          <span class="arrow">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </span>
-        </div>
-      </div>
-
-      <div class="art-card render">
-        <div class="inner"></div>
-        <div class="tag">Render · Elevation · 04</div>
-        <div class="cap">The case for showing your seed.</div>
-      </div>
-
-      <div class="art-card list"><!--AUTO:list-card-->
-        <div class="cat"><span class="dot"></span> On the Site · September 2026</div>
-        <ul>
-          <li><a href="depth-anything-v3-architecture-control-map-check-2026.html" style="text-decoration:none;color:inherit;"><span class="t">Depth Anything V3 for Architecture: Check the Map Before…</span><span class="r">8 min</span></a></li>
-          <li><a href="comfyui-architecture-flux-sdxl-model-routing-2026.html" style="text-decoration:none;color:inherit;"><span class="t">ComfyUI for Architecture: Route FLUX and SDXL by Task</span><span class="r">9 min</span></a></li>
-          <li><a href="veras-4-6-live-model-video-workflow-architects-2026.html" style="text-decoration:none;color:inherit;"><span class="t">Veras 4.6 Live 3D Model to Video Workflow for Architects</span><span class="r">8 min</span></a></li>
-          <li><a href="ai-render-reference-image-provenance-register-architects-2026.html" style="text-decoration:none;color:inherit;"><span class="t">Reference Image Provenance Register for AI Architecture…</span><span class="r">8 min</span></a></li>
-        </ul><!--/AUTO:list-card-->
-        <div class="foot">
-          <span>Latest articles</span>
-          <span class="arrow">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
-          </span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Newsletter -->
+<section class="explore-section" aria-labelledby="explore-title"><div class="wrap">
+ <div class="section-head"><div><span class="eyebrow">From possibility to practice</span><h2 id="explore-title">Make your <em>next move.</em></h2></div><p>Find the right starting point<br>for the way you work.</p></div>
+ <div class="explore-grid">
+  <a class="explore-card" href="tools.html"><span class="mono">01 / The directory</span><span class="explore-symbol" aria-hidden="true">↗</span><h3>Build your<br> <em>toolkit.</em></h3><p>Explore the tools shaping architectural design and visualization.</p><span class="text-link">Find your tools ↗</span></a>
+  <a class="explore-card" href="comparisons.html"><span class="mono">02 / The comparisons</span><span class="explore-symbol" aria-hidden="true">⇄</span><h3>Look a<br> <em>little closer.</em></h3><p>Consider the tradeoffs before choosing your next workflow.</p><span class="text-link">Explore comparisons ↗</span></a>
+  <a class="explore-card" href="case-studies.html"><span class="mono">03 / The case studies</span><span class="explore-symbol" aria-hidden="true">⌑</span><h3>See ideas<br> <em>take shape.</em></h3><p>Follow architectural ideas from experimentation to visual outcomes.</p><span class="text-link">Visit the case studies ↗</span></a>
+ </div>
+</div></section>
+<section class="newsletter-section wrap" aria-label="Newsletter">
     <div class="newsletter" id="newsletter">
       <div>
         <h2>Letters from the <em>practice.</em></h2>
-        <p>One Sunday email. One essay, three tools we've actually used, one render worth looking at. No news, no roundups.</p>
+        <p>One Sunday email. One essay, three tools to explore, one render worth looking at. No news, no roundups.</p>
         <div class="news-meta">
           <span>Growing community</span>
           <span>Unsubscribe anytime</span>
           <span>Since 2024</span>
         </div>
       </div>
-      <div>
-        <form class="news-form" id="newsletter-form">
-          <input type="email" name="email" placeholder="you@studio.com" required />
-          <button type="submit">Subscribe →</button>
-        </form>
-        <div class="news-status" id="newsletter-status" role="status" style="font-family:var(--f-mono); font-size:11px; letter-spacing:0.06em; color:var(--marigold); margin-top:12px; display:none;"></div>
-        <div style="font-family:var(--f-mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(244,239,227,0.4); margin-top:14px">
-          No drip campaigns. No AI-generated newsletters.
-        </div>
+      <div class="signup-options">
+        <span class="eyebrow">A fresh perspective, every Sunday</span>
+        <a class="btn light signup-link" href="mailto:hello@archigenai.com?subject=Subscribe%20me%20to%20the%20Sunday%20letter&amp;body=Please%20add%20me%20to%20the%20ArchiGen%20Sunday%20letter.">Subscribe by email <span aria-hidden="true">↗</span></a>
+        <p class="signup-help">Opens your email app with a signup request. Send it to join the list.</p>
+        <a class="signup-web" href="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e" target="_blank" rel="noopener">Or open the web signup form ↗</a>
       </div>
     </div>
 
-  </div>
-</section>
 
-<!-- ============ Footer ============ -->
+</section>
+</main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
@@ -1149,46 +201,9 @@
   </div>
 </footer>
 
-<script>
-  // ============================================================
-  // NEWSLETTER CONFIG — the ONLY thing to edit when Beehiiv is ready.
-  // Paste the publication's embed URL (https://embeds.beehiiv.com/...)
-  // and the form swaps to the live Beehiiv embed automatically.
-  // Until then the form opens a pre-filled subscribe email (no silent
-  // failures, no fake success).
-  // ============================================================
-  var BEEHIIV_EMBED_URL = 'https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e?slim=true';
 
-  (function () {
-    var form = document.getElementById('newsletter-form');
-    if (!form) return;
-    var status = document.getElementById('newsletter-status');
 
-    if (BEEHIIV_EMBED_URL) {
-      var frame = document.createElement('iframe');
-      frame.src = BEEHIIV_EMBED_URL;
-      frame.title = 'Subscribe to the ArchiGen Sunday letter';
-      frame.setAttribute('data-test-id', 'beehiiv-embed');
-      frame.style.cssText = 'width:100%; height:52px; border:0; border-radius:999px; background:transparent;';
-      frame.scrolling = 'no';
-      form.replaceWith(frame);
-      return;
-    }
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = form.querySelector('input[name="email"]').value.trim();
-      if (!email) return;
-      var subject = encodeURIComponent('Subscribe me to the Sunday letter');
-      var body = encodeURIComponent('Please add ' + email + ' to the ArchiGen Sunday letter.');
-      window.location.href = 'mailto:hello@archigenai.com?subject=' + subject + '&body=' + body;
-      if (status) {
-        status.style.display = 'block';
-        status.textContent = 'Your email app should open — send the message and we\'ll add you by hand. The human way, for now.';
-      }
-    });
-  })();
-</script>
-
+<script src="scripts/home-navigation.js" defer></script>
 </body>
 </html>
