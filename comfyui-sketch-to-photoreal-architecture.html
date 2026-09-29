@@ -194,38 +194,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What's the best ComfyUI workflow for turning architectural sketches into photorealistic renders?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A four-stage workflow built around FLUX.1 Dev, ControlNet (Scribble + Canny), an architecture LoRA, and a final upscale pass produces the most reliable results today. The key is using two ControlNets stacked at moderate strength (0.7-0.8) rather than relying on a single high-strength ControlNet, and keeping CFG between 3.5 and 4.5 to let the model interpret the sketch without overfitting to it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need a powerful GPU to run architectural ComfyUI workflows?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For FLUX.1 Dev at full quality you want at least 16GB of VRAM (RTX 4080 or better). You can run quantized versions on 12GB cards (RTX 4070 Ti) with quality tradeoffs. For 8GB cards, drop to SDXL with an architectural fine-tune, quality is lower but the workflow runs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does my AI sketch render keep ignoring my building?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The most common cause is over-relying on prompt and under-relying on ControlNet. If your sketch isn't constraining the geometry, you're just generating an image of a building that vaguely matches your prompt. Increase ControlNet strength to 0.75-0.85, use Scribble + Canny stacked, and keep CFG below 5.0 so the model respects the structural input rather than overpowering it with prompt guidance."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

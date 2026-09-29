@@ -183,30 +183,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What does a reference image control in an AI render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Surface qualities: material character, lighting mood, color palette, entourage style, and overall finish. A reference steers what the model paints onto your scene, not the scene itself. Geometry still comes from your model, your ControlNet pass, or the tool's adherence setting. If the building itself is drifting, the fix is structure control, not a better reference."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many reference images should I use per render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Fewer than you think, and one job per image. A material close-up, a lighting mood, and a context photo work well together because they answer different questions. Four finished renders you admire work badly together because each one answers every question, and the model averages the conflicts into mush. If two references disagree about light or palette, remove one."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

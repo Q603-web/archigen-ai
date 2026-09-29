@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does my ComfyUI exterior workflow look worse on interiors?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An exterior gives the model an easy job: open sky, distant context, and a single dominant light direction it can infer from the sky. An interior removes all of that. The light has to come from windows and fixtures the model cannot see behind, the framing is close so every surface is examined at full detail, and the room is full of objects the model wants to redesign. The same denoise and control settings that gave an exterior pleasant variation will scramble an interior, because in a room there is far less margin for the model to invent before it breaks the space you drew."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What denoise should I use for interior renders in ComfyUI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Lower than you think. For interiors where the layout and furniture must survive, a denoise of roughly 0.35 to 0.5 on an image-to-image pass keeps the room intact while restyling materials and light. Push past 0.6 and the model starts moving walls, swapping furniture, and inventing windows. The trade is real: low denoise protects your geometry but limits how much the model can improve a flat base render, so the cleaner your input the higher you can safely go."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I stop ComfyUI from rearranging my interior furniture?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Hold the structure with control inputs rather than hoping the prompt is enough. A depth map preserves the spatial volume of the room and the position of large objects, and a line or edge control keeps the hard boundaries of cabinetry, openings, and trim. Run them together at moderate weight, keep denoise in the protective range, and the furniture stays where you placed it. If a piece still drifts, the usual cause is a control weight set too low or a base image too soft for the model to read the edge."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

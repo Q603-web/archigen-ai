@@ -199,38 +199,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What changed between Midjourney V8 and V8.1 for architectural work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "V8 Alpha (mid-March 2026) was a ground-up, GPU-native rewrite that delivered native 2K output and roughly 5x faster generation, but its default look was noticeably over-smoothed — it sanded off the grit that makes a render read as real and tended to homogenise materials. V8.1 (mid-April 2026) kept the speed and resolution gains while restoring aesthetic range and creative expressiveness, which for architects means crisper material edges, more believable light, and far less of the plastic, too-clean look that made V8 outputs hard to use on serious work."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you keep Midjourney faithful to a SketchUp or Rhino export?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Feed your viewport export as an image reference and raise the image weight. In our testing --iw 1.5 is the sweet spot for architecture: it tells V8.1 to respect the massing, window rhythm and camera of your model while still applying materials, light and atmosphere. Lower weights let the model drift and invent geometry; higher weights freeze it so hard you lose the enhancement. Pair a clean, high-contrast export with a short prompt describing material, time of day and mood rather than form."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Midjourney a replacement for a geometry-anchored renderer like Veras?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Even with a strong image reference, Midjourney V8.1 is still a general image generator — it will quietly redraw a building between iterations and has no model of construction logic. It is excellent for early concept imagery and mood, and usable for client-facing visuals when anchored carefully and checked by eye. For consistency across iterations and accuracy you can defend downstream, a geometry-anchored tool that renders your actual model is the safer choice. Most studios run both: Midjourney upstream for ideation, an anchored tool once the design has to be true."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is inpainting in an AI architecture render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Inpainting regenerates only a masked region of an existing image and leaves every pixel outside the mask untouched. For architects, that means fixing a bad tree, a broken figure, a wrong material plane or a hallucinated detail without re-rolling the whole render and losing the version the client already approved. It is the difference between a targeted edit and a new image that merely resembles the old one."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is inpainting different from an image-to-image enhance pass?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An enhance pass runs the whole image at low denoise to raise realism while preserving content: same building, same tree, better pixels. Inpainting runs one region at high denoise to replace content: a different tree, a repaired hand, a new sky, while the rest of the image is not processed at all. Enhance answers 'make it look better.' Inpainting answers 'change this one thing.' Confusing the two is how architects end up re-rolling approved images to fix a single object."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which tool should architects use for inpainting renders?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Photoshop Generative Fill is the fastest route and handles skies, planting, object removal and entourage repair well, though it can soften precise architectural detail and large fills may look mushy at print size. A ComfyUI graph with a dedicated inpainting model gives the most control, including structure control inside the mask for edits where geometry must hold, at the cost of setup time. Several web editors and renderer add-ins now offer select-and-regenerate region passes that sit between the two. Most firms need Photoshop for speed and one controlled pipeline for the edits that have to be exact."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

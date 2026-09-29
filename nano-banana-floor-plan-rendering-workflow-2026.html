@@ -184,46 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can Nano Banana turn a 2D floor plan into a realistic rendered plan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, with caveats. Given a clean top-down plan export and a prompt that locks the camera to a straight-down orthographic view, Nano Banana produces convincing furnished, materially rendered plans — wood floors, rugs, furniture, shadows — in one or two attempts. What it does not guarantee is dimensional fidelity: wall positions can drift, door swings can flip, and fixtures can migrate. The output is a presentation graphic, not a measurable drawing, and it needs a geometry QA pass before it goes near a client."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is Photoshop still needed in an AI floor plan workflow?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Three reasons. First, restoration: compositing the original CAD linework, room labels, dimensions and north arrow back over the AI render, because the model will mangle or invent text. Second, correction: patching the spots where geometry drifted, often by masking the AI texture back to the true plan lines. Third, control: clients ask for the sofa in a different fabric, and a layered Photoshop file answers that in minutes where re-prompting risks changing everything else."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are rendered floor plans acceptable for client presentations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For marketing and early-stage communication, they're often better than line drawings — laypeople read furniture and materials far more fluently than wall poché. For anything contractual or dimensional, no: the AI pass breaks the drawing's reliability as a measured document. The professional pattern is to pair them — the rendered plan to communicate, the CAD plan to govern — and never let the rendered version be the only plan in the room."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you need to buy a course to learn AI floor plan rendering?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The technique is four steps — clean plan export, top-down render prompt, Photoshop composite, geometry QA — and the skill ceiling is in your existing drawing and retouching judgment, not in secret prompts. Courses can be worth it for people who learn best from video and want worked examples, but there is no proprietary trick behind the paywall. Spend the course fee on model credits and practice on your own plans instead."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why do AI renders of the same building look different from view to view?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because most image models treat each view as a fresh prompt, not as another angle on a fixed object. The model holds no memory of the brick colour, mullion profile or roof material it invented for the last frame, so it reinvents them. Change the camera and you change the random draw, and small drifts in texture, proportion and detail follow. Unless you feed the model a stable reference, your 3D geometry, a locked seed, a style image, every new view is a slightly new building."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you keep an AI render set consistent across angles?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Anchor every view to the same source. Drive the renders from one 3D model with ControlNet or a depth and edge pass so the geometry is fixed, reuse one approved render as a style reference for the rest, hold the seed and the core prompt steady, and lock a short material list in writing so the brick and glazing are named the same way every time. Then render the hero view first, approve it, and make every other angle conform to that hero rather than generating each one cold."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you fix one inconsistent render without redoing the whole set?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Usually, yes. If a single view drifted, mask the part that disagrees, the wrong brick, an invented balcony, a roof that changed pitch, and inpaint just that region using the approved hero as the reference, leaving the rest of the frame intact. This is faster and safer than regenerating the whole image, which risks introducing a fresh inconsistency somewhere else. Regenerate the full view only when the drift is structural rather than cosmetic."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

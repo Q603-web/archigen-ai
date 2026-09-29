@@ -175,38 +175,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does pushing an AI render straight to 4K break the image?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Diffusion models are trained around one or two megapixels. Ask one to generate a 3840 pixel image in a single pass and it has no idea what to put in the extra space, so it repeats. You get duplicated windows, a second set of balconies, doubled people, and brick coursing that drifts out of alignment. The fix is not a bigger single render. It is to generate at the model's native resolution where the composition holds, then enlarge that good image through a separate upscaling pass."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What denoise strength keeps the building accurate when upscaling?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For architecture, keep the denoise on the upscale pass low, roughly 0.2 to 0.35. That gives the model enough freedom to sharpen and add fine grain without licence to reinvent the structure. Above about 0.45 each tile starts redesigning what it sees, so window mullions shift, edges wobble, and details stop matching across tile boundaries. Low denoise plus a structure-locking control input is the combination that adds resolution while leaving the geometry alone."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you upscale a render in tools other than ComfyUI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Dedicated enhancers such as Magnific, Krea, and the upscalers built into D5 and the Chaos tools run the same tiled approach behind a simpler interface, trading control for speed. ComfyUI gives you the dials directly, which matters when straight lines and accurate openings are non-negotiable. For most client stills a one-click enhancer is fine; for a print-scale hero or anything a planner will scrutinise, the manual tiled pipeline earns its time."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

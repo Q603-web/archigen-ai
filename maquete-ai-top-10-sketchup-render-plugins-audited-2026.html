@@ -198,46 +198,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Which AI rendering tools actually run natively inside SketchUp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The tools that genuinely live inside SketchUp are extensions you install from the Extension Warehouse or a vendor installer and run against your live model. SketchUp Diffusion is the clearest case, built by Trimble's SketchUp Labs and run from a panel inside SketchUp. Veras from Chaos installs as a SketchUp extension and renders from the active view. Enscape and D5 Render connect as live-link plugins that sync the SketchUp model in real time. Many other tools on listicles are web apps that import a SketchUp export, which is a round-trip, not a native plugin."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between a native SketchUp plugin and a web round-trip?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A native plugin runs as an extension inside SketchUp and reads your live model or current viewport, so geometry, camera, and often materials stay in sync. A web round-trip means you export an image, a screenshot, or a model file out of SketchUp, upload it to a website, generate a render there, then bring the result back manually. Round-trips can produce good images, but they break the link to your model, so a design change means exporting and re-uploading again. For iterative project work that distinction matters more than raw image quality."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is a real-time renderer the same as a generative AI render for SketchUp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. A real-time renderer like Enscape, D5 Render, or Lumion uses a physically based engine to light and shade the actual geometry you modelled, so the result is faithful to your design. A generative AI render like SketchUp Diffusion or Veras takes your view as a starting point and reinterprets it with a diffusion model guided by a prompt, which can add realism and atmosphere but can also invent details that are not in your model. Some tools now blend the two, layering an AI enhancer on top of a real-time engine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are there free AI rendering options for SketchUp?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SketchUp Diffusion is included with a SketchUp subscription rather than sold separately, which makes it the closest thing to a free starting point if you already pay for SketchUp. Several real-time renderers and generative tools offer free trials or limited free tiers, and some web round-trip apps give a small number of free credits before charging. Always confirm current pricing on the vendor's own page, since AI rendering pricing changes frequently and credit models are easy to misread."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

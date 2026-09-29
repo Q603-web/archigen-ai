@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much GPU memory do you need to run AI rendering locally?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "VRAM is the constraint that decides whether a local pipeline runs at all. For diffusion tools such as ComfyUI, Stable Diffusion, and Flux, 12GB is a workable floor, 16GB is comfortable, and 24GB lets you run larger models and higher resolutions without juggling. Raw clock speed mostly changes how fast a render finishes; VRAM decides whether it finishes. A faster card with too little memory will refuse jobs that a slower card with more memory completes, which is why architects shopping on headline benchmark numbers often buy the wrong thing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you do AI rendering on a Mac in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, but the gap is specific. Cloud and browser-based tools (Veras, Midjourney, and most web renderers) run on the server, so any Mac drives them fine. The gap is in heavy local diffusion pipelines, which were built around NVIDIA's CUDA stack; Apple Silicon runs them through a different path that is slower and more limited, even with the unified memory advantage. The practical answer for most Mac-based firms is to keep concept and rendering work in cloud or web tools and not try to recreate a local NVIDIA pipeline on a Mac."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it worth buying a workstation for AI rendering or should you use the cloud?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It depends on volume and confidentiality. If you render daily, want full control of local models, and have project data you cannot send to a third party, a local NVIDIA workstation pays for itself and keeps the work in house. If you render in bursts, work on a Mac, or do not want to manage hardware, cloud rendering removes the upfront cost and the maintenance, at a recurring per-job price and with the requirement that you trust the provider with your files. Many firms run a hybrid: a single capable local machine for sensitive work, cloud for overflow."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

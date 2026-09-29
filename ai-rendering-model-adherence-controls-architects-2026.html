@@ -196,38 +196,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is model adherence in AI rendering?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Model adherence is how strictly an AI renderer is forced to respect your source geometry instead of reinventing it. High adherence keeps the output faithful to your model — the same massing, openings and proportions — at some cost to image flair. Low adherence gives the AI freedom to embellish, which produces more striking but less accurate images. Most serious tools now expose this as a setting: Veras calls it Geometry Override, ComfyUI achieves it through ControlNet strength, and 3D-import tools raise it by feeding the model real geometry rather than a flat screenshot."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Veras Geometry Override the same as ControlNet?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "They serve the same purpose — constraining the AI to your geometry — through different mechanisms. Veras's Geometry Override is a packaged control that governs how far the render departs from your model, surfaced as a slider in some versions and a prompt setting in others. ControlNet in ComfyUI is a lower-level conditioning system where you set the strength of edge, depth or line guidance yourself. One is a product feature, the other a building block, but both are dials on the same underlying trade-off."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I always set model adherence to maximum?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. High adherence is right for design development and client work where the render must match the building, but it can leave images stiff and under-resolved. For early concept and mood exploration, lower adherence lets the AI suggest forms and atmospheres you might not have drawn. The skill is matching the dial to the stage: loose when you're exploring, tight when you're committing."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

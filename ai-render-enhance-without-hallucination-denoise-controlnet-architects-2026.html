@@ -175,38 +175,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does enhancing a render change the building?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An enhancement pass is still a diffusion pass, and at any meaningful denoise the model is free to repaint whatever it touches. Ask it to make a render more photorealistic and it will gladly add a window, shift a mullion, or thicken a column while it improves the materials, because nothing told it those were fixed. The geometry is not protected by good intentions. It is protected by a low denoise ceiling and a structure control that pins every edge to the source."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What denoise strength should I use to enhance a render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For a full realism polish, keep denoise low, roughly 0.2 to 0.35. That is enough for the model to add material grain, soft contact shadows and atmosphere, and low enough that the walls, openings and proportions survive. Push past 0.4 and the pass stops enhancing and starts reinterpreting, which is the point where new windows and bent lines appear. If you need more detail than a third of a denoise gives you, mask the area and run it separately rather than raising the global value."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I add realistic planting and reflections without touching the facade?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Mask the work. Diffusion lets you run a higher denoise inside a selection and leave the rest untouched, so you can push foreground planting, ground texture and glass reflections hard while the building envelope stays frozen under a low global pass. Feed a depth or soft-edge control from the original so even the masked areas keep their place, and the result reads as a richer version of the same render rather than a new one that happens to look similar."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

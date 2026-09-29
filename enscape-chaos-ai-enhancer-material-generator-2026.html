@@ -191,46 +191,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the Chaos AI Enhancer in Enscape?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Chaos AI Enhancer is a post-process pass in Enscape that uses AI to refine specific scene elements, primarily vegetation, people, and other entourage, so they read more naturally without forcing you to re-render the whole frame. It targets the parts of a real-time render that usually look the most synthetic, sharpening foliage and softening the obviously placed look of people assets, while leaving the architecture untouched."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the Enscape AI Material Generator work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The AI Material Generator takes a real-world photograph, a brick wall, a timber sample, a stone floor, and converts it into a render-ready PBR material, generating the albedo, roughness, normal, and other maps automatically. Instead of hunting through a material library or building maps by hand, you photograph or upload the surface you want and get a tileable material you can apply directly in Enscape."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the AI Enhancer change my building geometry or design?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The Enhancer is deliberately scoped to entourage and environmental assets, not the modeled architecture. It refines how vegetation and people look in the final image but does not reinterpret your massing, openings, or materials on the building itself. That conservative scope is the point, it improves the parts clients notice as fake without putting your design accuracy at risk."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is the AI Material Generator output good enough for client work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For most architectural surfaces it is genuinely useful and fast, especially for one-off materials a client supplied as a photo. Quality depends on the input photo: flat, evenly lit, head-on shots produce the cleanest tileable maps, while angled or shadowed photos can bake in lighting that fights your scene. For hero close-ups you may still prefer a hand-tuned material, but for the long tail of secondary surfaces it removes hours of library wrangling."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

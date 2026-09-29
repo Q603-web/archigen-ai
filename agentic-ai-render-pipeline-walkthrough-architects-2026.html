@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is an agentic AI render pipeline?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "An agentic render pipeline is a workflow where an AI agent plans and executes the multiple steps of producing a render — exporting views from your model, assembling prompts, generating variations, running quality checks and packaging output — and recovers from errors along the way, rather than each step being triggered by hand. The architect sets intent and reviews results; the agent coordinates the hand-offs in between that a person would otherwise do manually."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is agentic AI different from a normal AI renderer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A normal AI renderer does one step well: image in, image out. Agentic AI is about orchestration across many steps. Instead of you manually exporting a viewport, pasting it into a render tool, writing a prompt, generating, exporting, and starting again for the next view, an agent chains those steps, repeats them across views, checks its own output and retries failures. The rendering model is a component; the agent is the coordinator around it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I trust an agentic pipeline to run unattended?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not fully, and not yet. Agentic pipelines are good at the mechanical coordination between steps and at catching obvious failures. They are not reliable judges of design intent or geometry accuracy. The sound pattern is supervised autonomy: let the agent run the repetitive chain, but keep human checkpoints at prompt approval and at final geometry and quality review before anything reaches a client."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

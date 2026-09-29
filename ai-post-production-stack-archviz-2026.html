@@ -184,30 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the correct order of AI post-production passes for an architectural render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Repair first (inpaint the artifacts and mistakes), then enhancement (low-denoise detail work), then relighting and atmosphere, then entourage (people and planting), then color grade, and upscale last. Repair comes first because every later pass bakes existing errors in deeper, and upscale comes last because working at delivery resolution makes every intermediate pass slower and more expensive while adding nothing."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to learn ComfyUI for archviz post-production?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not first. ComfyUI is an automation rack, not a post-production method: it chains passes you already understand into a repeatable graph. Learn each pass in a simple single-purpose tool until you know what good output looks like and which settings matter, then move the two or three passes you repeat on every image into a ComfyUI graph. Architects who start with someone else's forty-node workflow inherit its assumptions without the judgment to override them."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

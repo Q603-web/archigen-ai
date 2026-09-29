@@ -175,38 +175,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does AI give a glass building reflections of a city that isn't on the site?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Diffusion models paint reflections as a learned texture, they do not trace what is actually around your building. The training data is full of glass towers downtown, so the model fills the glazing with a generic skyline because that is what reflective glass usually shows in the images it learned from. It has no way to know your site is a quiet street or open countryside unless you give it that context directly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do you get correct reflections in an AI architectural render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "If you still hold the 3D model, render a reflection or environment pass against an HDRI of the real site so the glass mirrors the true surroundings, then style on top at low denoise. If you only have the flat image, mask the glazing and run a separate controlled pass on the glass alone, with a structure control holding the mullion grid and a prompt that names exactly what the glass should reflect, the overcast sky and the low building opposite rather than a generic city."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does AI glass look too much like a mirror?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The model defaults to maximum reflectivity because mirror-bright glass reads as premium in the marketing images it trained on. Real vision glass is partly transparent, showing the floor plates, mullions and interior behind it, while spandrel panels read differently again. If the prompt does not specify the interior should be faintly visible, the AI flattens the facade into a chrome sheet and loses the depth that tells a viewer it is a real building."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

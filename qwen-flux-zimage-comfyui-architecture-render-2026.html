@@ -198,46 +198,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I use images from Flux, Qwen-Image or Z-Image commercially on client projects?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Generally, yes, but the exact terms depend on the specific model and version, so always read the license that ships with the weights you download. Black Forest Labs releases Flux under several tiers, including a non-commercial dev license and separate commercial terms, so the variant matters. Alibaba's Qwen-Image and the Tongyi Z-Image releases have typically used permissive open licenses. The community signal that prompted this piece put it bluntly: with these open models the licensing concern is largely about offering image generation as a service to third parties, not about owning and using the images you generate yourself. Confirm the current terms before you bill a client."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What hardware and VRAM do I need to run these models in ComfyUI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It varies by model and by the quantized build you use. The community generally reports that full-size Flux runs comfortably on cards with around 24GB of VRAM, while quantized GGUF and FP8 builds bring it down to 12GB or even 8GB cards at some speed and quality cost. Qwen-Image is a larger model and is more demanding, again with smaller quantized builds available. Z-Image is positioned by the community as a more efficient option. Treat any single VRAM number as a starting point and check the model card and ComfyUI release notes for your exact build."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is local diffusion in ComfyUI better than Midjourney for architecture?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It depends on what you value. Midjourney still tends to win on out-of-the-box aesthetic polish: type a prompt, get a beautiful image. Local models in ComfyUI win on control, cost, licensing clarity and client privacy. With ControlNet you can lock a render to your actual massing, edges or depth from a sketch or model export, which Midjourney does not match. If you need a fast mood image, Midjourney is hard to beat. If you need a render that respects your geometry and never leaves your machine, the open stack wins."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the sketch-to-render workflow work with these models in ComfyUI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The standard approach is to pair a base diffusion model with a ControlNet or similar structural conditioning. You feed a line drawing, a Canny or scribble edge map, or a depth pass exported from your 3D model, and the ControlNet constrains the generation to that structure while the base model handles materials, light and atmosphere. This is what lets an architecture student turn a hand sketch into a photoreal render without the model inventing a different building. The exact node setup differs per model family, so follow a ComfyUI workflow built for the specific model you are using."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

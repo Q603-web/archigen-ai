@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can AI turn a single photo into a full PBR material set?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, and that is the part that changed. Tools like Adobe Substance 3D Sampler, Poly and the AI material features inside render engines now take one photo of a real surface and infer a base color, normal, roughness and height map from it, removing the baked-in lighting so the surface reacts correctly to your own scene light. The output is rarely perfect on the first pass, but it is a working material in minutes rather than an afternoon of manual texture authoring, which is what put it out of reach for most architects before."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do AI-generated material maps usually go wrong?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Three places. Real-world scale, because the tool does not know your photo of brick is one metre wide, so the texture lands at the wrong size in the scene. Tiling, because a generated square repeated across a wall reveals an obvious pattern unless the seams and any standout features are dealt with. And delighting, because if the source photo had a hard shadow or a hotspot, the model sometimes bakes that lighting into the base color, where it fights your render light. All three are fixable in a quick check, but none of them announce themselves until the surface is in the scene."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to learn ComfyUI to generate material maps with AI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The fastest route for most architects is a dedicated image-to-material tool such as Substance 3D Sampler or the material generator built into engines like Enscape and D5, where you drop in a photo and get a layered material out. A ComfyUI or diffusion pipeline becomes worth it only when you need to invent a material that does not exist to photograph, or to produce many variants at once. For matching a real surface a client pointed at, the dedicated tool is faster and more predictable."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

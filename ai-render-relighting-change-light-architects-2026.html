@@ -175,38 +175,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does re-prompting a render for a different time of day change the building?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A fresh prompt is a fresh generation. The model has no memory of the approved image, so when you ask for the same facade at dusk it composes a new building that merely resembles the old one. Bay counts drift, a parapet detail vanishes, the entrance moves. Relighting has to be a pass over the existing image, not a new request, so the structure is held while only the light changes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the safest way to relight an architectural render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "If you still hold the 3D model, re-rendering at a new sun position is the most accurate option because the shadows are computed, not guessed. When you only have the flat image, run a low-denoise image-to-image pass, roughly 0.25 to 0.4, with a structure control fed from the original and a prompt that describes only the light. That changes the mood while keeping the geometry the client already signed off."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why do AI relit renders get the shadows wrong?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Diffusion models paint plausible shadows, they do not cast them. So a dusk relight will often add a warm glow and longer shadows that point in inconsistent directions, fall on the wrong side of a recess, or ignore an overhang entirely. The fix is to give the model a real cue, a re-rendered shadow pass or a depth map from the model, so the dark areas land where the sun would actually put them."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

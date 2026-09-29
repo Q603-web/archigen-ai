@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can you run D5 Render or Lumion on a Mac?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not natively. Neither D5 Render nor Lumion ships a Mac build that runs on Apple Silicon, because both were written for Windows and a dedicated NVIDIA GPU, which Apple Silicon does not provide. A Mac user reaches them only through a workaround: a cloud GPU desktop running Windows, or a render farm that hands you a remote Windows machine with an NVIDIA card. There is no way to install them straight onto macOS."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best AI rendering setup for architects on Apple Silicon?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For most architects on a Mac, the cleanest stack is a native real-time engine for live work, Twinmotion runs natively with Metal acceleration, paired with browser-based AI rendering for the final image. Cloud AI tools run in a tab and do not care what operating system you are on, so the heavy compute happens on a remote GPU and your Mac only has to drive a web page. That combination avoids buying a Windows machine purely to render."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Veras work on a Mac?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Veras can work on a Mac because its AI compute runs in the cloud, not on your local GPU. What limits you is the host application. Veras inside Revit is Windows-only because Revit itself does not run on macOS, but Veras driven from SketchUp or Rhino, both of which run on Mac, gives you the AI render layer on Apple Silicon. The Mac handles the model, the cloud handles the generation."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

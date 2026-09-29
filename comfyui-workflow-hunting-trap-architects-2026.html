@@ -174,30 +174,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why do downloaded ComfyUI workflows break so often?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because a workflow JSON is a snapshot of one person's setup at one moment in a fast-moving ecosystem. It references specific custom nodes at specific versions, checkpoints and LoRAs you may not have, and parameter values tuned to that author's imagery. Custom nodes update and change their inputs, model files get renamed or superseded, and six months later half the graph loads red. Even when it runs, it was tuned for someone else's renders, not yours."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the minimal ComfyUI graph an architect should build for render enhancement?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Five stages you understand: load your render, extract structure with a ControlNet preprocessor (depth or edges), run image-to-image at low denoise (roughly 0.2 to 0.35) with the ControlNet holding geometry, then upscale. Build it node by node from the default graph rather than importing someone's file. It enhances materials, lighting, and vegetation while your building stays your building, and when a node breaks you know which one and why."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

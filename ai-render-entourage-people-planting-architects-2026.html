@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why do the people in AI architecture renders look wrong?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Two reasons. First, the model was trained to make a plausible image at a glance, not a correct one under a zoom, so faces, hands and feet fall apart the moment a client enlarges the picture. Second, the model has no idea who your building is for, so it reaches for the average person in its training data, which is why the same well-dressed, idle figures turn up in a daycare, a clinic and a luxury lobby. The architecture is generated from your geometry. The crowd is generated from a stereotype."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best way to add people to an AI render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Match the method to the distance. For figures in the deep background, the AI-generated crowd is fine because nobody will look closely. For anyone near the camera, replace the hallucinated figure with a real photo-cutout or a 3D entourage asset from your render engine, where you control scale, pose and placement and the detail survives a zoom. The fast middle path is to mask just the people and regenerate or inpaint that region, leaving the building you already approved untouched."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should architects use AI-generated entourage or 3D entourage assets?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Both, by zone. 3D and photo-cutout entourage libraries from Enscape, Twinmotion, D5 and stock providers give you placement control and hold up in the foreground of a hero shot. AI-generated people are quick and free and good enough for distant or blurred figures and for early concept passes where the crowd only sets mood. The mistake is letting one method carry the whole image: AI everywhere reads as uncanny up close, hand-placed assets everywhere is slow and often stiff in the background."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

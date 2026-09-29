@@ -184,38 +184,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Should an architect learn ComfyUI or use a one-click render enhancer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It depends on volume and control. If you finish a handful of images a week and mostly want them to look sharper, a one-click enhancer like Magnific, Krea or Veras gives you ninety percent of the result for a fraction of the effort. If you process renders by the dozen, need the same look every time, or have to keep the AI tightly locked to your geometry, a ComfyUI pipeline with ControlNet pays back the steep learning curve. Most architects should start with an enhancer and only graduate to a pipeline when a specific limit forces it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does a ComfyUI pipeline keep renders more faithful to the 3D model?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It can, because ComfyUI lets you stack ControlNet conditioning on depth, edges and segmentation so the generated image is pinned to your geometry rather than reinventing it. One-click enhancers expose far fewer of those controls, so they are more likely to drift, thicken a mullion or invent a reflection. The catch is that the control is only as good as the setup, and a badly tuned pipeline drifts too. Control is available in a pipeline; it is not automatic."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does it take to learn ComfyUI well enough to be useful?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Plan on a weekend to get a borrowed workflow running and a few weeks of real projects before you can tune it confidently. The node graph itself is learnable in a day; the time goes into understanding which models, ControlNet types and settings hold your architecture together. If you cannot spare that, an enhancer is the honest choice, not a compromise."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

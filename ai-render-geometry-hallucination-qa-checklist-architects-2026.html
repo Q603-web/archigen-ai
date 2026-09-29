@@ -196,38 +196,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a geometry hallucination in an AI render?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A geometry hallucination is any structural element an AI renderer invents, removes or distorts that was not in your source model — a column that isn't load-bearing in reality, a window that drifted off the structural grid, a railing that stops short of code height, or a roofline that no longer matches your section. Diffusion-based renderers generate pixels that look plausible rather than reading your geometry as ground truth, so they routinely 'improve' a scene in ways that are architecturally wrong."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I stop AI renderers from changing my geometry?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You reduce hallucinations by raising model adherence — using a low departure or geometry-override setting, feeding a clean source image with strong edges, and leaning on tools with ControlNet or direct BIM/CAD integration that constrain output to your geometry. But no setting eliminates the risk entirely, which is why a deliberate pre-presentation QA pass remains the only reliable safeguard before a render reaches a client."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does AI render QA matter more before client presentations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because a hallucinated element shown to a client becomes a promise. If the AI added a cantilever, a glazing run or a material that can't be built or wasn't designed, the client anchors on it, and walking it back later costs trust and sometimes fees. Catching it in a five-minute QA pass before the deck goes out is far cheaper than explaining in a meeting why the building no longer looks like the picture."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

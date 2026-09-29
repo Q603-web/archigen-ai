@@ -183,30 +183,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why does my AI render look fake even though the geometry is correct?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because realism is carried by physics, not by structure. A model can generate a perfectly proportioned building and still get the light, material scale, reflections, and repetition wrong. Those are the physical tells a trained eye reads before it can name them: shadows pointing in different directions, brick coursing at the wrong size, glass reflecting a sky that is not in frame, the same tree copied four times, and surfaces with no wear at all. Fix the physics and the same image reads as real."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I have to re-render to fix an AI render that looks off?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Usually not. Most physical tells are local, so a masked inpaint or a low-denoise pass on the affected region fixes them without regenerating the whole image and risking new problems. Relight the shadow direction, rescale a material inside a mask, regenerate one glass panel, remove a duplicated tree, add a grade and grain pass for surface wear. A full re-render is the expensive option and often the one that introduces the next tell."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

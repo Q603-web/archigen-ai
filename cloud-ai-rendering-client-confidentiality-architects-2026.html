@@ -196,38 +196,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Does using a cloud AI renderer expose my client's project?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Using a cloud renderer means your model, image or massing leaves your machine and is processed on the provider's servers, and often on a third-party foundation model's servers as well. Whether that counts as an exposure depends entirely on the provider's terms — how long files are retained, whether they can be used to train models, and who can access them. For routine concept work it is usually a manageable risk; for NDA, competition, or public-sector projects it can be a genuine breach of confidence if you have not checked the terms."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is local rendering like ComfyUI actually more private?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, materially. Running Stable Diffusion locally through a tool like ComfyUI means the project files never leave your network — there is no upload, no retention question and no third-party training exposure. The trade-off is setup complexity, hardware requirements and a steeper learning curve. For confidential or regulated work, that trade-off is often worth it precisely because the confidentiality guarantee is structural rather than contractual."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What should I check before uploading a project to an AI rendering tool?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Check four things in the terms of service and privacy policy: data retention (how long they keep your uploads and whether you can delete them), training use (whether your files can be used to improve their models), sub-processors (which third parties, including foundation-model providers, receive your data), and jurisdiction (which country's law governs and whether that satisfies your client's or your public-sector obligations). If any of these conflict with an NDA or a client requirement, use a local tool or get explicit written consent first."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

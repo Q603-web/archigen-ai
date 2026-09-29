@@ -241,46 +241,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the best AI rendering tool for architects in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "There isn't one, because the tools architects search for aren't in the same category. Rendair AI is the best turnkey renderer if you want to upload geometry and get a photoreal image with no setup. The Chaos AI Enhancer is best if you already work in Enscape and want to lift real-time output. PromeAI is best for fast, cheap concept and sketch exploration. Stable Diffusion 3.5 is best for firms that want maximum control, privacy, and per-image cost near zero and have someone willing to build a ControlNet workflow. Match the tool to the job, not to a ranking."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Stable Diffusion 3.5 good for architectural rendering?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It can be excellent, but only inside a workflow. Raw SD 3.5 will invent architecture — it does not respect your geometry on its own. Paired with ControlNet (depth, canny, or line conditioning) it holds a model's massing and openings well, runs entirely on your own hardware with no cloud dependency, and costs nothing per image after the GPU. The trade-off is setup: it needs a capable GPU or cloud GPU, ComfyUI or a similar front end, and time to tune. It rewards technical firms and punishes anyone expecting a turnkey button."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is the Chaos AI Enhancer different from Rendair or PromeAI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Chaos AI Enhancer isn't a from-scratch renderer at all. It's an AI post-process inside Enscape that refines the fake-looking parts of a real-time render — vegetation, people, environmental detail — without re-rendering, and it deliberately leaves your building untouched. Rendair generates a full render from uploaded geometry. PromeAI generates images from sketches or prompts. The Enhancer only improves an image you already made in Enscape, which makes it a complement to a real-time workflow rather than a competitor to the generators."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which AI rendering tool is cheapest for a small firm?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Stable Diffusion 3.5 is free to license (open weights) — your only cost is compute, so at high volume it's the cheapest per image if you already own a GPU. PromeAI has a genuine free tier and low-cost paid plans, which makes it the cheapest zero-setup entry point. The Chaos AI Enhancer costs nothing extra if you already pay for Enscape. Rendair starts at roughly $49/month. The real cost, though, is operator time: a cheap tool that needs an hour of masking per image is not cheap."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {

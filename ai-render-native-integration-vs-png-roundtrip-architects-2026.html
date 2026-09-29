@@ -175,38 +175,6 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Does native BIM integration make AI renders more accurate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It can, because a plugin that runs inside Revit, SketchUp or Rhino can read the live scene and hand the model a depth or structure signal alongside the colour image. That signal pins the geometry, so the render is far less likely to invent a window or bend a line. A flat PNG carries no depth, so a browser tool has to infer the structure from pixels, which is where hallucination starts. Integration is a fidelity feature first and a convenience feature second."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is exporting a PNG to a web render tool good enough?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For a single concept image or a quick mood study, the export round-trip is fine and it avoids tying your stack to one vendor. The cost shows up on iteration and on sets. Every change means re-export, re-upload and a fresh generation with no memory of the last one, and holding a building consistent across views is much harder when the model never sees the geometry. Light, one-off work favours the browser tab. Repeated, structure-critical work favours the plugin."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What do you lose by committing to an integrated render plugin?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Flexibility and bargaining room on price. An integrated plugin ties part of your workflow to one company's roadmap, credit system and release schedule, and moving off it later means rebuilding habits and presets. That is a real cost, not a hypothetical one. The trade is worth making when your work is geometry-critical and repetitive enough that the fidelity and speed pay the lock-in back every week. It is not worth making for occasional concept images."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
