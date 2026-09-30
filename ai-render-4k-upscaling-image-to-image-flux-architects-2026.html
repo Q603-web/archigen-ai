@@ -262,7 +262,7 @@
 <div class="wrap">
   <div class="article-body">
 
-    <p>Two of the busiest community threads this week were the same question worded twice: how do I take a Flux or ComfyUI architecture render up to 4K, and why does it keep breaking when I try. One was a beginner asking about image-to-image at 4K for renders, the other a longer workflow thread on enhancing exterior images with reflections, vegetation, and material detail. Both run into the same wall, and it is worth understanding the wall before reaching for a node.</p>
+    <p>Two of the busiest community threads this week were the same question worded twice: how do I take a Flux or ComfyUI architecture render up to 4K, and why does it keep breaking when I try. One was <a href="first-4k-img2img-pass-architecture-order-of-operations-2026.html" data-agl="1">a beginner asking about image-to-image at 4K for renders</a>, the other a longer workflow thread on enhancing exterior images with reflections, vegetation, and material detail. Both run into the same wall, and it is worth understanding the wall before reaching for a node.</p>
 
     <p>The short version: a diffusion model is not an enlarger. It is a generator with a comfortable working size, and architecture is the worst possible subject to push past that size carelessly, because architecture is made of the two things these models are weakest at, repeating elements and dead straight lines.</p>
 
@@ -285,11 +285,11 @@
 
     <h3>The denoise dial decides everything</h3>
 
-    <p>Denoise strength is how much licence each tile gets to change what it sees. This is the single setting that separates a clean upscale from a quietly redesigned building. Set it high, above 0.45 or so, and every tile treats its patch as an invitation to improve, so a mullion shifts here, a transom appears there, and across a tile boundary two halves of the same window no longer agree. Set it low, around 0.2 to 0.35 for architecture, and the model adds grain, sharpens reflections, and resolves material texture without rewriting the structure underneath. Low denoise is not the timid choice. It is the correct one for any image where the geometry has to survive.</p>
+    <p>Denoise strength is how much licence each tile gets to change what it sees. This is the single setting that separates a clean upscale from a quietly redesigned building. Set it high, above 0.45 or so, and every tile treats its patch as an invitation to improve, so a mullion shifts here, a transom appears there, and across a tile boundary two halves of the same window no longer agree. Set it low, around 0.2 to 0.35 for architecture, and the model adds grain, sharpens reflections, and resolves material texture without rewriting the structure underneath. <a href="denoise-strength-creativity-dial-comfyui-architects-2026.html" data-agl="1">Low denoise is not the timid choice</a>. It is the correct one for any image where the geometry has to survive.</p>
 
     <h3>Lock the structure with control</h3>
 
-    <p>Low denoise alone still drifts on long runs of brick and glass. The fix is a control input that pins each tile to the source. A tile-type ControlNet, fed the base image, tells every patch to stay faithful to what was already there, which is exactly what you want when the answer is "more detail, same building." For edges specifically, a lineart or depth control holds the straight lines that diffusion loves to bend. Flux has its own depth and edge tools that do the same job. Stack a tile control with low denoise and the upscale becomes what the client thinks a render already is, the same image with more truth in it, not a remix.</p>
+    <p>Low denoise alone still drifts on long runs of brick and glass. The fix is a control input that pins each tile to the source. A tile-type ControlNet, fed the base image, tells every patch to stay faithful to what was already there, which is exactly what you want when the answer is "more detail, same building." For edges specifically, <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html" data-agl="1">a lineart or depth control holds the straight lines</a> that diffusion loves to bend. Flux has its own depth and edge tools that do the same job. Stack a tile control with low denoise and the upscale becomes what the client thinks a render already is, the same image with more truth in it, not a remix.</p>
 
     <h2>The failures that are <em>specific to buildings</em></h2>
 

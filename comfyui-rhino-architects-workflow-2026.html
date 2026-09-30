@@ -304,7 +304,7 @@
 
     <h3>Pass 1. The depth map</h3>
 
-    <p>Rhino's built-in display mode for depth is workable but not ideal. We use the free Lands Design display mode or a custom display mode with edges hidden, color set to a black-to-white linear ramp by Z distance from camera, and no shadows. The result is a clean grayscale where near objects are dark and far objects are pale. This is the file that goes into the ControlNet Depth node in ComfyUI. If this pass is wrong, nothing else can recover it.</p>
+    <p>Rhino's built-in display mode for depth is workable but not ideal. We use the free Lands Design display mode or a custom display mode with edges hidden, color set to a black-to-white linear ramp by Z distance from camera, and no shadows. The result is a clean grayscale where near objects are dark and far objects are pale. This is the file that goes into the ControlNet Depth node in ComfyUI. <a href="depth-anything-v3-architecture-control-map-check-2026.html" data-agl="1">If this pass is wrong, nothing else can recover it</a>.</p>
 
     <h3>Pass 2. The line drawing</h3>
 
@@ -333,7 +333,7 @@
       <li><strong>Save Image.</strong> Two outputs, one at full resolution and one downsampled for the client deck.</li>
     </ol>
 
-    <p>The numbers above are not theoretical. They are the configuration that produced four hero shots for the community engagement deck without a single image that misrepresented the geometry. The Depth ControlNet weight is the most important variable. Too high and the image looks like a re-skinned diagram. Too low and the model invents a different building.</p>
+    <p>The numbers above are not theoretical. They are the configuration that produced four hero shots for the community engagement deck without a single image that misrepresented the geometry. <a href="comfyui-mask-edge-depth-control-architecture-2026.html" data-agl="1">The Depth ControlNet weight is the most important variable</a>. Too high and the image looks like a re-skinned diagram. Too low and the model invents a different building.</p>
 
     <h2>The tool-card grading</h2>
 
@@ -443,7 +443,7 @@
 
     <p>If your practice is producing final-quality construction-document graphics or photoreal marketing imagery for printed brochures, this is not the workflow. The output is concept-grade. Beautiful, sometimes more beautiful than a path-traced render, but still concept-grade. Pair it with a downstream V-Ray or Enscape pipeline for the deliverables that require physical accuracy.</p>
 
-    <p>The deeper point is that the architects on Reddit asking for this workflow are right to ask. The pipeline exists. The pieces are public. The reason the threads stall at the depth map is that nobody has bothered to write down the Rhino-specific export steps. We have. Save the graph, save the export instructions, and run it on next week's project. The first one is a learning curve. The second one is a tool.</p>
+    <p>The deeper point is that the architects on Reddit asking for this workflow are right to ask. The pipeline exists. The pieces are public. The reason <a href="recover-depth-canny-from-flat-render-comfyui-architects-2026.html" data-agl="1">the threads stall at the depth map</a> is that nobody has bothered to write down the Rhino-specific export steps. We have. Save the graph, save the export instructions, and run it on next week's project. The first one is a learning curve. The second one is a tool.</p>
 
     <hr>
 

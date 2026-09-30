@@ -316,7 +316,7 @@
 
     <h3>The setting that decides everything</h3>
 
-    <p>Denoise strength is the entire game. Too low, around 0.3, and you get a slightly prettier viewport that still reads as CAD. Too high, above 0.65, and the model starts inventing, smoothing your mullions and guessing at materials you did not specify. The usable band for render rescue on a developed model is roughly 0.40 to 0.55, with depth ControlNet holding the line. On the Rhino courtyard, 0.48 with depth at 0.85 produced a frame that was unmistakably the model, lit like a photograph.</p>
+    <p><a href="denoise-strength-creativity-dial-comfyui-architects-2026.html" data-agl="1">Denoise strength is the entire game</a>. Too low, around 0.3, and you get a slightly prettier viewport that still reads as CAD. Too high, above 0.65, and the model starts inventing, smoothing your mullions and guessing at materials you did not specify. The usable band for render rescue on a developed model is roughly 0.40 to 0.55, with depth ControlNet holding the line. On the Rhino courtyard, 0.48 with depth at 0.85 produced a frame that was unmistakably the model, lit like a photograph.</p>
 
     <h2>The cloud path, img2img on a viewport export</h2>
 
@@ -376,9 +376,9 @@
 
     <p>Across every tool, render rescue comes down to three controls, and getting them right is most of the skill.</p>
 
-    <p><strong>Denoise or influence strength</strong> is the master control. Find the band where the tool adds light and material without inventing geometry, and live in it. For a developed model that band is narrower than people expect, usually a window of about 0.15 wide.</p>
+    <p><strong>Denoise or influence strength</strong> is the master control. <a href="flux-img2img-4k-lighting-realism-architects-2026.html" data-agl="1">Find the band where the tool adds light and material without inventing geometry</a>, and live in it. For a developed model that band is narrower than people expect, usually a window of about 0.15 wide.</p>
 
-    <p><strong>Control conditioning</strong> is what makes the band exist at all. A depth or canny pass off the viewport capture is what lets you push denoise high enough to get real atmosphere without losing the building. Without it, every setting is a gamble. With it, you have a usable range.</p>
+    <p><strong>Control conditioning</strong> is what makes the band exist at all. <a href="recover-depth-canny-from-flat-render-comfyui-architects-2026.html" data-agl="1">A depth or canny pass off the viewport capture</a> is what lets you push denoise high enough to get real atmosphere without losing the building. Without it, every setting is a gamble. With it, you have a usable range.</p>
 
     <p><strong>The prompt is for material and light, never geometry.</strong> In render rescue the prompt should describe the time of day, the sky, the material qualities the viewport could not show. The moment you start describing the building in the prompt, you are inviting the tool to reinterpret geometry you already drew. Let the image carry the building. Let the prompt carry the photograph.</p>
 

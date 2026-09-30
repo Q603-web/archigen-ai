@@ -292,7 +292,7 @@
       </figure>
     </div>
 
-    <p>Every few weeks a familiar Reddit post appears on r/comfyui. An architecture student has been generating images for months, they have the tool installed, they've watched the tutorials, and they still can't turn their hand sketches into renders that look like their actual building. The replies they get are mostly wrong, often from people who haven't actually tried to do this work.</p>
+    <p>Every few weeks <a href="comfyui-archviz-question-nobody-answers-2026.html" data-agl="1">a familiar Reddit post appears on r/comfyui</a>. An architecture student has been generating images for months, they have the tool installed, they've watched the tutorials, and they still can't turn their hand sketches into renders that look like their actual building. The replies they get are mostly wrong, often from people who haven't actually tried to do this work.</p>
 
     <p>This article is the workflow Vista Studios uses for sketch-to-photoreal conversion. It's been running stable since FLUX.1 Dev landed last year and it gets us reliable architectural output from hand-drawn input. It's also the workflow we'd point that student to.</p>
 
@@ -395,7 +395,7 @@ Prompt structure:
 
     <p>FLUX outputs at 1024x1024 read fine on screen but lack detail at print size. The final stage adds resolution.</p>
 
-    <p>Standard pattern: <strong>4x-UltraSharp</strong> upscaler through ComfyUI's <code>Upscale Image (using Model)</code> node. Then optionally re-encode to latent and run a low-denoise pass (around 0.25) through FLUX again at the upscaled resolution. This second pass adds material micro-detail, the grain in concrete, the texture of brick mortar, the irregularity of weathered metal, that wasn't visible at 1024.</p>
+    <p>Standard pattern: <strong>4x-UltraSharp</strong> upscaler through ComfyUI's <code>Upscale Image (using Model)</code> node. Then optionally re-encode to latent and <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html" data-agl="1">run a low-denoise pass (around 0.25)</a> through FLUX again at the upscaled resolution. This second pass adds material micro-detail, the grain in concrete, the texture of brick mortar, the irregularity of weathered metal, that wasn't visible at 1024.</p>
 
     <p>Don't denoise above 0.35 in this second pass or you'll start re-interpreting the building. Stay low, let it polish.</p>
 
@@ -426,7 +426,7 @@ FLUX Model + VAE ─────────────────┴→ KSamp
 
     <p><strong>Output looks like a sketch with color filled in.</strong> Your end_percent values are too high, you're holding the ControlNets through the entire sampling process. Drop them to 0.6/0.7. Let the model actually render the late steps.</p>
 
-    <p><strong>Output is photorealistic but the building changed.</strong> Your sketch is too loose for what you're asking. Add a Canny pass with cleaner line input. Or accept that the model needed more structural information than you gave it and tighten the sketch.</p>
+    <p><strong>Output is photorealistic but the building changed.</strong> Your sketch is too loose for what you're asking. <a href="recover-depth-canny-from-flat-render-comfyui-architects-2026.html" data-agl="1">Add a Canny pass with cleaner line input</a>. Or accept that the model needed more structural information than you gave it and tighten the sketch.</p>
 
     <p><strong>Materials look wrong.</strong> Your prompt isn't specific enough about materiality, or your architectural LoRA was trained on a different style. Be explicit in the prompt about exact materials. If a LoRA keeps pulling outputs toward "sleek modernist glass house" regardless of what you ask for, that LoRA is overpowered for general use, drop it to 0.4 strength or swap it.</p>
 
