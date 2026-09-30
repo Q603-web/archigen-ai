@@ -342,7 +342,7 @@
 
     <p>One JSON spec, frozen from iter-05. 2,467 characters of structured object, wrapped in a 2,781-character prose preamble. The spec encodes every fidelity rule we'd normally hold in our heads and quietly violate at iteration four: <em>preserve every wall, do not add rooms not in source, do not change wall thickness, only add furniture and decor</em>. The discipline is the spec. Without it, every iter drifts a little, and by iter-04 you're presenting a building that looks like the building you drew if you squint.</p>
 
-    <p>Two variants per model, four renders total. Same input image, same prompt payload, same edit endpoint. The only changes between iter-05 and iter-06 are the model and the prompt encoding (NB2 took the prose form, GPT Image 2 took the structured-JSON form). Everything else is locked. If the renders come back different, the model is what made them different.</p>
+    <p>Two variants per model, four renders total. Same input image and the same requirements, but not a single-variable test: iter-05 and iter-06 differ in the model, the edit endpoint (nano-banana-2/edit versus gpt-image-2/edit) and the prompt encoding (NB2 took the prose form, GPT Image 2 took the structured-JSON form). If the renders come back different, any of the three could be why.</p>
 
     <h2>The source <em>plan</em></h2>
 
@@ -375,7 +375,7 @@
 
     <h2>GPT Image 2, <em>iter-06</em></h2>
 
-    <p>Same JSON spec. Same source plan. Different model, different endpoint, different result, in roughly that order of importance. Two variants at 132 seconds each, three and a half times slower than NB2. The output comes back compressed from the source's wide horizontal footprint into something close to a square, the way a phone photo of a long building always ends up wrong on the short side. The materials read more believable at the surface. The lighting is warmer, the shadows softer, the mood frankly cinematic. If we'd never seen the source plan, we'd have called it a beautiful render.</p>
+    <p>Same source plan, same requirements. Different model, different endpoint, different prompt encoding, different result. Two variants at 132 seconds each, three and a half times slower than NB2. The output comes back compressed from the source's wide horizontal footprint into something close to a square, the way a phone photo of a long building always ends up wrong on the short side. The materials read more believable at the surface. The lighting is warmer, the shadows softer, the mood frankly cinematic. If we'd never seen the source plan, we'd have called it a beautiful render.</p>
 
     <p>We have seen the source plan. It is a different building.</p>
 
@@ -385,7 +385,7 @@
         <figcaption>GPT-2 v1 / 132s / aspect compressed to ~1:1</figcaption>
       </figure>
       <figure>
-        <img src="assets/floor-plan-comparison/gpt2-v2.png" alt="GPT Image 2 isometric render variant 2: same prompt, similar atmospheric quality, with hallucinated rooms and structural changes from the source plan." loading="lazy" />
+        <img src="assets/floor-plan-comparison/gpt2-v2.png" alt="GPT Image 2 isometric render variant 2: same JSON prompt as variant 1, similar atmospheric quality, with hallucinated rooms and structural changes from the source plan." loading="lazy" />
         <figcaption>GPT-2 v2 / 132s / hallucinated rooms visible</figcaption>
       </figure>
     </div>
@@ -421,7 +421,7 @@
 
     <h2>The JSON spec, <em>and why it matters</em></h2>
 
-    <p>Both models received the same prompt object, expressed as a JSON structure inside a short prose wrapper. A flavor of what's in there:</p>
+    <p>GPT Image 2 received the requirements as a JSON structure inside a short prose wrapper; NB2 received the same requirements as a long prose prompt. A flavor of the JSON version:</p>
 
     <div class="code-block">
 <span class="cc">// excerpted from the iter-05 / iter-06 spec, ~2,500 chars structured</span>
@@ -489,7 +489,7 @@
 
     <p>Open-weights models continue to close the gap on geometry fidelity. FLUX and successors keep landing architectural-grade outputs in ComfyUI workflows. If a downloadable model lands that matches NB2 on layout preservation, the licensing economics of the proprietary stack shift. We are tracking quarterly. Nothing has flipped yet.</p>
 
-    <p>And the prompt-format frontier stays open. Structured JSON beat prose in our test for both models, but neither model has been fine-tuned to <em>obey</em> a JSON schema in the way an API does. The first model that treats a structured prompt like a contract rather than a suggestion will rewrite this comparison.</p>
+    <p>And the prompt-format frontier stays open. Our test does not settle whether structured JSON beats prose: each model received only one of the two formats. Neither model has been fine-tuned to <em>obey</em> a JSON schema the way an API does. The first model that treats a structured prompt like a contract rather than a suggestion will rewrite this comparison.</p>
 
     <p>For now, the honest read is short. Newer model. Slower render. Wrong building. Quietly beautiful. The rendering category just stopped having a winner. Pick yours per project, not per press release, and keep both folders in the tree.</p>
 
