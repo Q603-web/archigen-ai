@@ -293,11 +293,11 @@
 
     <h2>Step 2: <em>the prompt</em> — lock the camera, describe the world</h2>
 
-    <p>Every failed rendered-plan attempt we've seen dies the same way: the model drifts into a perspective or isometric view because nothing told it not to. The prompt has two jobs — pin the camera, then set the design language. A working pattern:</p>
+    <p>A common way rendered-plan attempts fail: the model drifts into a perspective or isometric view because nothing told it not to. The prompt has two jobs — pin the camera, then set the design language. A working pattern:</p>
 
     <blockquote>"Transform this architectural floor plan into a photorealistic rendered floor plan. Strict top-down orthographic view, perfectly flat, no perspective, no isometric angle. Keep all walls, doors, windows and room positions exactly as drawn. Furnish each room appropriately to its label. Oak flooring, warm neutral palette, linen upholstery, soft even daylight, subtle ambient-occlusion shadows."</blockquote>
 
-    <p>The load-bearing phrases are "strict top-down orthographic," the explicit negative ("no perspective, no isometric"), and "exactly as drawn." Then iterate on style, not geometry: change "oak and warm neutrals" to whatever the project's material story is, and re-roll until the furnishing reads right. Expect usable output in one to three attempts on a clean plan. If you're running this at volume or want repeatability, the same logic ports into a node pipeline — our <a href="comfyui-floor-plan-to-3d-render-architects-2026.html">ComfyUI floor-plan workflow</a> trades convenience for control in exactly that direction.</p>
+    <p>The load-bearing phrases are "strict top-down orthographic," the explicit negative ("no perspective, no isometric"), and "exactly as drawn." Then iterate on style, not geometry: change "oak and warm neutrals" to whatever the project's material story is, and re-roll until the furnishing reads right. If you're running this at volume or want repeatability, the same logic ports into a node pipeline — our <a href="comfyui-floor-plan-to-3d-render-architects-2026.html">ComfyUI floor-plan workflow</a> trades convenience for control in exactly that direction.</p>
 
     <figure class="agv-inline" data-agvis="inline">
   <img src="assets/inline-nano-banana-floor-plan-rendering-workflow-2026-1.jpg" alt="A view through wet window glass showing architects working over printed plans in a brightly lit studio." loading="lazy" />
