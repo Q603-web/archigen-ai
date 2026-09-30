@@ -219,8 +219,8 @@
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "How to compare AI floor plan renders across models with a single JSON spec",
-  "description": "A reproducible workflow for testing two AI image-edit models on the same 2D floor plan with a frozen specification, used by Vista Studios on a real residential project.",
+  "name": "How to run a controlled AI floor plan render comparison across models",
+  "description": "A proposed protocol for comparing two AI image-edit models on the same 2D floor plan with one frozen specification. ArchiGen's May 2026 comparison did not hold the prompt constant: NB2 received a prose prompt and GPT Image 2 a structured JSON spec.",
   "totalTime": "PT15M",
   "tool": [
     { "@type": "HowToTool", "name": "Nano Banana 2 (via fal.ai or Chaos developer API)" },
@@ -340,7 +340,7 @@
 
     <p>The source is a second-floor plan from a current Vista Studios multi-unit residential project, anonymised for publication. Wide horizontal aspect, roughly 1,560 by 690 pixels, fully detailed: every apartment unit drawn through, every fixture in the bathrooms, the gym equipment laid out, the central courtyard and its fire pit at the building's heart. The plan that goes to the printer, not the marketing concept.</p>
 
-    <p>One JSON spec, frozen from iter-05. 2,467 characters of structured object, wrapped in a 2,781-character prose preamble. The spec encodes every fidelity rule we'd normally hold in our heads and quietly violate at iteration four: <em>preserve every wall, do not add rooms not in source, do not change wall thickness, only add furniture and decor</em>. The discipline is the spec. Without it, every iter drifts a little, and by iter-04 you're presenting a building that looks like the building you drew if you squint.</p>
+    <p>The JSON spec GPT Image 2 received restated the iter-05 requirements. 2,467 characters of structured object, wrapped in a 2,781-character prose preamble. The spec encodes every fidelity rule we'd normally hold in our heads and quietly violate at iteration four: <em>preserve every wall, do not add rooms not in source, do not change wall thickness, only add furniture and decor</em>. The discipline is the spec. Without it, every iter drifts a little, and by iter-04 you're presenting a building that looks like the building you drew if you squint.</p>
 
     <p>Two variants per model, four renders total. Same input image and the same requirements, but not a single-variable test: iter-05 and iter-06 differ in the model, the edit endpoint (nano-banana-2/edit versus gpt-image-2/edit) and the prompt encoding (NB2 took the prose form, GPT Image 2 took the structured-JSON form). If the renders come back different, any of the three could be why.</p>
 
@@ -467,9 +467,9 @@
 
     <p><strong>Client-facing renders, design-development through CD.</strong> The render must depict the building you actually drew, room for room, wall for wall. NB2, full stop. Or use Veras 4.0 (which runs NB2 underneath, see our <a href="nano-banana-2-architecture-rendering-explained.html">NB2 explainer</a> for what's actually in there) inside SketchUp or Revit and skip the prompt-engineering layer entirely.</p>
 
-    <h2>The reproducible <em>workflow</em></h2>
+    <h2>A controlled workflow <em>for your own plan</em></h2>
 
-    <p>If you want to run this same comparison on your own plan, the steps are short:</p>
+    <p>Our run did not hold the prompt constant. To run a controlled version on your own plan, send both models the identical payload:</p>
 
     <ol>
       <li>Freeze your spec as a JSON object with explicit fidelity rules. Wrap it in a one-paragraph prose preamble.</li>
