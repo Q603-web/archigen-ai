@@ -14,11 +14,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Core guides
 
-- [An Honest Guide to AI Rendering in Architecture](https://archigenai.com/honest-guide-ai-rendering-architecture.html): What AI rendering does and does not do for architects, with tool-by-tool assessments of Midjourney, FLUX, ComfyUI and Leonardo and when not to use AI rendering at all.
-- [The Honest Guide to AI Rendering in 2026](https://archigenai.com/honest-guide-ai-rendering.html): What AI rendering can and can't do for practices today, five common adoption mistakes, and how to evaluate a tool before buying a seat.
-- [Best AI Tools for Architectural Visualization 2026](https://archigenai.com/best-ai-tools-architectural-visualization-2026.html): A ranked comparison of AI visualization tools including Midjourney, Chaos Veras and Stable Diffusion, with the evaluation criteria stated on the page.
 - [Prompt Engineering for Architectural Exteriors](https://archigenai.com/prompt-engineering-architectural-exteriors.html): A seven-parameter framework for writing prompts that produce consistent exterior renders.
-- [What does AI build when architects are in charge?](https://archigenai.com/architects-in-charge.html): An essay on what AI produces when architects direct the tools rather than follow them, and on human authorship in generative design.
 
 ## Evaluating AI render tools
 
@@ -33,8 +29,6 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 - [Blender + ComfyUI: A Tested Architectural Rendering Workflow](https://archigenai.com/blender-comfyui-architectural-rendering-workflow-test.html): A documented local test (RTX 3090, Blender 5.2.0 LTS, ComfyUI 0.37.0) with settings, approved interior renders, AI mistakes and masking steps.
 - [ComfyUI Sketch-to-Photoreal for Architecture](https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html): A ComfyUI workflow for turning hand sketches into renders while holding the building's geometry.
-- [ComfyUI Advanced: Exterior Workflows](https://archigenai.com/comfyui-advanced-tutorial.html): Depth ControlNet, material passes, site-context inpainting and lighting control for exterior renders.
-- [Veras Inside Revit in 2026](https://archigenai.com/veras-revit-bim-render-workflow-2026.html): The BIM-native Veras workflow in Revit compared with exporting to SketchUp.
 - [Nano Banana 2 vs GPT Image 2 for Floor Plans](https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html): Nano Banana 2 and GPT Image 2 compared for rendering residential floor plans.
 - [AI Rendering on a Mac](https://archigenai.com/ai-rendering-on-a-mac-architects-2026.html): What runs natively on Apple Silicon, what needs a workaround, and where cloud tools fill the gap.
 - [AI Rendering for Small Firms, Budget Tiers](https://archigenai.com/ai-rendering-small-firms-budget-tiers.html): Building an AI rendering stack at free, $50/month, $200/month and studio budgets.

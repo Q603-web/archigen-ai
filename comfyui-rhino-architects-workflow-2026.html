@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, follow" />
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
@@ -263,7 +264,7 @@
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg>
       Live Rhino Project, Real Workflow
     </div>
-    <h1>ComfyUI for Rhino users in 2026. <em>The workflow</em> architects keep asking for and not finding.</h1>
+    <h1>ComfyUI for Rhino users in 2026. <em>The workflow</em> architects keep asking for and not finding.</h1><aside class="correction-notice" role="note" style="max-width:760px;margin:24px 0;padding:16px 20px;border-left:3px solid #C96F4A;background:#EAE5D9;color:#1A1915;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;"><strong>Correction, 30 September 2026:</strong> this article describes hands-on tests on client projects that ArchiGen did not carry out. Its results are unverified, and it is being rewritten.</aside>
     <p class="lede">The Reddit threads keep stalling at the same place. An architect posts a Rhino model and asks for a ComfyUI workflow to stylize it. The replies link to a generic tutorial that starts with a square PNG. The depth map step gets glossed over. The ControlNet weights are not specified. The output looks nothing like the input geometry. We built and shipped a real Rhino-to-ComfyUI pipeline on a live mixed-use project, and this is the version of the workflow that actually preserves what you drew.</p>
     <div class="byline">
       <div class="byline-info">
@@ -348,7 +349,7 @@
         <span class="tc-rating">Recommended &middot; Best NURBS source for ComfyUI</span>
       </div>
       <div class="tc-pricing">Rhino subscription or perpetual &middot; VisualARQ for unit-level detail</div>
-      <p>The depth-pass export from Rhino is cleaner than any other CAD tool we tested for ComfyUI input. NURBS surfaces produce smooth depth gradients without the polygonal artifacts that SketchUp's depth export introduces. Lines export cleanly from Make2D. Materials from the rendered display mode survive the trip to IP-Adapter.</p>
+      <p>NURBS surfaces produce smooth depth gradients without the polygonal artifacts that SketchUp's depth export introduces. Lines export cleanly from Make2D. Materials from the rendered display mode survive the trip to IP-Adapter.</p>
       <div class="tc-tags">
         <span>nurbs</span>
         <span>depth pass</span>
@@ -452,7 +453,7 @@
 
     <p>Try it this week. Take one current Rhino project, export the three passes described above, and run them through any ComfyUI graph you already have. The deltas between this graph and whichever generic one you were running are where the building stops being a different building. The pipeline starts to feel like a tool the day the second project takes an hour instead of an afternoon.</p>
 
-    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Tested by Vista Studios on a 14,000-square-foot mixed-use project. Rhino 8 with VisualARQ, ComfyUI local install, Flux dev checkpoint, ControlNet Depth and Lineart, IP-Adapter for material reference. No affiliate relationships.</p>
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">No affiliate relationships.</p>
 
     <div class="related">
       <h4>Related Reading</h4>
