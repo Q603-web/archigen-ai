@@ -13,18 +13,18 @@
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){gtag('config','G-JJQ4M8NNBR');}
 </script>
 <title>Nano Banana 2 vs GPT Image 2 for Floor Plans | ArchiGen AI</title>
-<meta name="description" content="The same residential floor plan and JSON spec through Nano Banana 2 and GPT Image 2: side-by-side iterations, six scored axes, and which one held the building." />
+<meta name="description" content="One residential floor plan through Nano Banana 2 (prose prompt) and GPT Image 2 (JSON prompt): side-by-side renders, six scored axes, which held the building." />
 <link rel="canonical" href="https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html" />
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html" />
 <meta property="og:title" content="Nano Banana 2 vs GPT Image 2 for Floor Plans" />
-<meta property="og:description" content="The same residential floor plan and JSON spec through Nano Banana 2 and GPT Image 2: side-by-side iterations, six scored axes, and which one held the building." />
+<meta property="og:description" content="One residential floor plan through Nano Banana 2 (prose prompt) and GPT Image 2 (JSON prompt): side-by-side renders, six scored axes, which held the building." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Nano Banana 2 vs GPT Image 2 for Floor Plans" />
-<meta name="twitter:description" content="The same residential floor plan and JSON spec through Nano Banana 2 and GPT Image 2: side-by-side iterations, six scored axes, and which one held the building." />
+<meta name="twitter:description" content="One residential floor plan through Nano Banana 2 (prose prompt) and GPT Image 2 (JSON prompt): side-by-side renders, six scored axes, which held the building." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -318,7 +318,7 @@
 <section class="agv-hero-section" data-agvis="hero">
   <div class="wrap"><figure>
   <img src="assets/hero-gpt-image-2-vs-nano-banana-2-floor-plan-comparison.jpg" alt="A top-down aerial photograph of an inhabited modern residential courtyard in the rain with glowing interior windows and a central fire pit." fetchpriority="high" />
-  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>One prompt to rule them all, until the rain hits the wireframe.</span></figcaption>
+  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>One plan, two models, two prompt formats, until the rain hits the wireframe.</span></figcaption>
   </figure></div>
 </section>
 
@@ -360,7 +360,7 @@
 
         <h2>Nano Banana 2, <em>iter-05</em></h2>
 
-    <p>Two variants, 37 seconds each, $0.04 a piece. The output comes back at 1567 by 688, the source aspect ratio preserved nearly to the pixel. NB2 reads the JSON structure and produces, with very little drama, the building you drew. Roof off. Walls intact. The fire pit glowing in the centre of the courtyard where you put it. The gym is the gym, the apartments are the apartments, the garden running through the lower spine is unmistakably the garden running through the lower spine of the source plan. NB2 does not surprise you, which is the entire point.</p>
+    <p>Two variants, 37 seconds each, $0.04 a piece. The output comes back at 1567 by 688, the source aspect ratio preserved nearly to the pixel. Working from the prose brief, NB2 produces, with very little drama, the building you drew. Roof off. Walls intact. The fire pit glowing in the centre of the courtyard where you put it. The gym is the gym, the apartments are the apartments, the garden running through the lower spine is unmistakably the garden running through the lower spine of the source plan. NB2 does not surprise you, which is the entire point.</p>
 
     <div class="compare-grid">
       <figure>
@@ -448,9 +448,9 @@
 }
     </div>
 
-    <p>We've been telling these models in plain English to preserve our buildings for two years. They've been politely ignoring us for two years. JSON is what happens when you stop asking and start specifying. NB2 reads the structure and treats the fidelity rules as constraints rather than suggestions, and the gap between iter-04 (prose) and iter-05 (JSON) was bigger than the gap between any two prose iters that came before it. Worth restructuring your prompt library for.</p>
+    <p>We've been telling these models in plain English to preserve our buildings for two years. They've been politely ignoring us for two years. JSON is what happens when you stop asking and start specifying, but this run cannot prove it helps: NB2 worked from a prose prompt and GPT Image 2 from JSON, so our records do not isolate a JSON-versus-prose effect for either model. Worth testing on your own prompt library before you restructure it.</p>
 
-    <p>JSON does not <em>override</em> a model's biases, though. GPT Image 2 read the same structured rules and produced renders with hallucinated rooms anyway. The model's underlying composition logic does what it was trained to do, which is produce a beautiful image. The plan is the input. It was never the law. The first model that treats a structured prompt the way an API treats an OpenAPI schema, as a contract rather than a vibe, will rewrite this comparison. Until then: structure your prompts, but don't expect the structure to fight the model's training for you.</p>
+    <p>JSON does not <em>override</em> a model's biases, though. GPT Image 2 got the fidelity rules as structured JSON and produced renders with hallucinated rooms anyway. The model's underlying composition logic does what it was trained to do, which is produce a beautiful image. The plan is the input. It was never the law. The first model that treats a structured prompt the way an API treats an OpenAPI schema, as a contract rather than a vibe, will rewrite this comparison. Until then: structure your prompts, but don't expect the structure to fight the model's training for you.</p>
 
     <figure class="agv-inline" data-agvis="inline">
   <img src="assets/inline-gpt-image-2-vs-nano-banana-2-floor-plan-comparison-2.jpg" alt="A low-angle ground-level photo looking up at a modern building facade with its complete reflection mirrored in a standing rain puddle." loading="lazy" />
