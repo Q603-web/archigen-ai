@@ -8,6 +8,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Editorial standards
 
+- [How to Read AI Rendering Tool Rankings](https://archigenai.com/rankings-claims-audits.html): Hub page for every ArchiGen audit of AI rendering rankings, roundups and vendor claims, grouped by the question each answers.
 - [Masthead](https://archigenai.com/masthead.html): Ownership (Vista Studios), human publisher accountability, the Nora Sinclair AI persona disclosure, the testing and ratings policy, and the corrections policy.
 - [About](https://archigenai.com/about.html): What ArchiGen covers, what it does not do, and how reviews qualify for a scored verdict.
 
