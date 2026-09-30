@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, follow" />
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
@@ -223,7 +224,7 @@
       <span class="tag">Field Guide Â· 23 Apr 2026</span>
       <span class="tag">Â· 11 min read</span>
     </div>
-    <h1>An Honest Guide to AI Rendering in <em>Architecture</em></h1>
+    <h1>An Honest Guide to AI Rendering in <em>Architecture</em></h1><aside class="correction-notice" role="note" style="max-width:760px;margin:24px 0;padding:16px 20px;border-left:3px solid #C96F4A;background:#EAE5D9;color:#1A1915;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;"><strong>Correction, 30 September 2026:</strong> this article describes hands-on tests on client projects that ArchiGen did not carry out. Its results are unverified, and it is being rewritten.</aside>
     <p class="lede">What actually works, what doesn't, and when the whole category is the wrong tool for the job. Written after two years of running these pipelines on real projects, not demos.</p>
     <div class="byline">
       <div class="byline-info">
@@ -299,7 +300,7 @@
 
     <p>In practice, the handoff usually happens around RIBA Stage 3. Before that point, the speed and visual quality of AI rendering creates real value. After that point, the accuracy requirements, for planning submissions, for contractor packages, for building regulations, exceed what AI rendering can reliably deliver without manual correction.</p>
 
-    <p>One specific workflow pattern that has become standard at Vista Studios: we use AI rendering to produce the "book cover", the single hero image that leads a planning submission or competition entry, and traditional rendering for the technical views that accompany it. The hero image benefits from the atmosphere and visual weight that AI tools deliver naturally. The technical views need to be defensible.</p>
+    <p>One specific workflow pattern: use AI rendering to produce the "book cover", the single hero image that leads a planning submission or competition entry, and traditional rendering for the technical views that accompany it. The hero image benefits from the atmosphere and visual weight that AI tools deliver naturally. The technical views need to be defensible.</p>
 
     <div class="callout">
       <div class="callout-label">Workflow checklist</div>
@@ -335,7 +336,7 @@
         <div class="tc-verdict">Best base model</div>
       </div>
       <div class="tc-pricing">Open weights Â· Self-host or API via fal.ai, Replicate</div>
-      <p>FLUX is the strongest open-weights base model currently available for architectural work. Its understanding of material surfaces, concrete texture, stone grain, weathered steel, is noticeably better than Stable Diffusion in our testing, and its prompt fidelity is high enough that you can describe a specific spatial condition and get something architecturally coherent back. The gap between FLUX and Midjourney on atmosphere has closed considerably with FLUX 1.1 Pro. The limitation is operational: you need a wrapper to use it effectively. FLUX on its own is a model, not a tool. Running it productively requires either a ComfyUI pipeline, a fal.ai API integration, or a hosted interface like Krea or Freepik, each of which adds its own overhead and constraints. The ceiling is the highest in this group. The setup time is also the highest.</p>
+      <p>FLUX is the strongest open-weights base model currently available for architectural work. Its understanding of material surfaces, concrete texture, stone grain, weathered steel, is noticeably better than Stable Diffusion, and its prompt fidelity is high enough that you can describe a specific spatial condition and get something architecturally coherent back. The gap between FLUX and Midjourney on atmosphere has closed considerably with FLUX 1.1 Pro. The limitation is operational: you need a wrapper to use it effectively. FLUX on its own is a model, not a tool. Running it productively requires either a ComfyUI pipeline, a fal.ai API integration, or a hosted interface like Krea or Freepik, each of which adds its own overhead and constraints. The ceiling is the highest in this group. The setup time is also the highest.</p>
       <div class="tc-tags">
         <span>Open weights</span><span>Material quality</span><span>Flexible</span><span class="warn">Needs wrapper</span><span class="warn">Setup overhead</span>
       </div>
@@ -403,7 +404,7 @@
 
     <hr>
 
-    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">All tools tested by Vista Studios on live project work. No affiliate relationships. Editorial judgment only, not paid placement.</p>
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">No affiliate relationships. Editorial judgment only, not paid placement.</p>
 
   </div>
 </div>
