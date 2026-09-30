@@ -28,7 +28,6 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 ## Workflows
 
 - [Blender + ComfyUI: A Tested Architectural Rendering Workflow](https://archigenai.com/blender-comfyui-architectural-rendering-workflow-test.html): A documented local test (RTX 3090, Blender 5.2.0 LTS, ComfyUI 0.37.0) with settings, approved interior renders, AI mistakes and masking steps.
-- [ComfyUI Sketch-to-Photoreal for Architecture](https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html): A ComfyUI workflow for turning hand sketches into renders while holding the building's geometry.
 - [Nano Banana 2 vs GPT Image 2 for Floor Plans](https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html): Nano Banana 2 and GPT Image 2 compared for rendering residential floor plans.
 - [AI Rendering on a Mac](https://archigenai.com/ai-rendering-on-a-mac-architects-2026.html): What runs natively on Apple Silicon, what needs a workaround, and where cloud tools fill the gap.
 - [AI Rendering for Small Firms, Budget Tiers](https://archigenai.com/ai-rendering-small-firms-budget-tiers.html): Building an AI rendering stack at free, $50/month, $200/month and studio budgets.
