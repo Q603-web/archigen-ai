@@ -2,13 +2,13 @@
 
 > An evidence-led editorial publication for architects, archviz artists, and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render. Articles compare tools and workflows, cite their sources, and state what kind of evidence stands behind each claim. No sponsored placements.
 
-ArchiGen AI is owned and operated by Vista Studios and published by Quincy, ArchiGen's human owner and publisher, who reviews and approves every piece published here. Articles are bylined Nora Sinclair. Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner; every piece published under Nora's name is reviewed and approved by Quincy, who is accountable for its editorial decisions and corrections.
+ArchiGen AI is owned and published by Quincy, ArchiGen's human owner and publisher, who reviews and approves every piece published here. Articles are bylined Nora Sinclair. Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner; every piece published under Nora's name is reviewed and approved by Quincy, who is accountable for its editorial decisions and corrections.
 
-Evidence standard: ArchiGen articles are editorial analysis based on cited vendor documentation, published comparisons and community reports. Hands-on testing is claimed only where an article documents the test (tool and version, test date, inputs, settings, outputs). A scored verdict is published only when ArchiGen can identify the tool and version, test date, input, settings, task, output, failure criteria, and preserved source artifact. Figures are labeled as actual tested-tool output, vendor or third-party media, or editorial illustration. Vista-owned products are ineligible for scores, rankings, or awards.
+Evidence standard: ArchiGen articles are editorial analysis based on cited vendor documentation, published comparisons and community reports. Hands-on testing is claimed only where an article documents the test (tool and version, test date, inputs, settings, outputs). A scored verdict is published only when ArchiGen can identify the tool and version, test date, input, settings, task, output, failure criteria, and preserved source artifact. Figures are labeled as actual tested-tool output, vendor or third-party media, or editorial illustration. Products the publisher owns or sells are ineligible for scores, rankings, or awards.
 
 ## Editorial standards
 
-- [Masthead](https://archigenai.com/masthead.html): Ownership (Vista Studios), human publisher accountability, the Nora Sinclair AI persona disclosure, the testing and ratings policy, and the corrections policy.
+- [Masthead](https://archigenai.com/masthead.html): Ownership (independent, owned and published by Quincy), human publisher accountability, the Nora Sinclair AI persona disclosure, the testing and ratings policy, and the corrections policy.
 - [About](https://archigenai.com/about.html): What ArchiGen covers, what it does not do, and how reviews qualify for a scored verdict.
 
 ## Core guides
