@@ -44,7 +44,6 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 - [Comparisons](https://archigenai.com/comparisons.html): Head-to-head AI tool comparisons for architectural visualization.
 - [Case Studies](https://archigenai.com/case-studies.html): Documented studio workflows using AI in production.
 - [Tools Directory](https://archigenai.com/tools.html): Curated directory of AI tools for architecture, organized by category.
-- [Workflow library offline](https://archigenai.com/workflows.html): ArchiGen's workflow guides for AI in architectural practice, in one place.
 
 ## Optional
 
