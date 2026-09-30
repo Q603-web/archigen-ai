@@ -8,7 +8,6 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Editorial standards
 
-- [How to Read AI Rendering Tool Rankings](https://archigenai.com/rankings-claims-audits.html): Hub page for every ArchiGen audit of AI rendering rankings, roundups and vendor claims, grouped by the question each answers.
 - [Masthead](https://archigenai.com/masthead.html): Ownership (Vista Studios), human publisher accountability, the Nora Sinclair AI persona disclosure, the testing and ratings policy, and the corrections policy.
 - [About](https://archigenai.com/about.html): What ArchiGen covers, what it does not do, and how reviews qualify for a scored verdict.
 
@@ -22,6 +21,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Evaluating AI render tools
 
+- [How to Read AI Rendering Tool Rankings](https://archigenai.com/rankings-claims-audits.html): Hub page for every ArchiGen audit of AI rendering rankings, roundups and vendor claims, grouped by the question each answers.
 - [The Fair AI Render Benchmark for Architects](https://archigenai.com/ai-render-tool-benchmark-protocol-architects-2026.html): A repeatable protocol for comparing Veras, Rendair AI, Archsynth, Gendo, D5, Enscape and similar tools without mixing incompatible jobs.
 - [Build an Evidence Ladder for AI Render Tool Recommendations](https://archigenai.com/ai-render-recommendation-evidence-ladder-architects-2026.html): Separating product claims, comparison summaries, community reports and project-tested facts.
 - [The Geometry-Hallucination QA Checklist](https://archigenai.com/ai-render-geometry-hallucination-qa-checklist-architects-2026.html): Failure modes AI renderers introduce and a review routine before a render reaches the client.
