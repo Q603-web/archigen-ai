@@ -10,6 +10,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 - [Masthead](https://archigenai.com/masthead.html): Ownership (independent, owned and published by Quincy), human publisher accountability, the Nora Sinclair AI persona disclosure, the testing and ratings policy, and the corrections policy.
 - [About](https://archigenai.com/about.html): What ArchiGen covers, what it does not do, and how reviews qualify for a scored verdict.
+- [Privacy](https://archigenai.com/privacy.html): What the site collects (Google Analytics, cookieless PostHog, hosting logs, Google Fonts), how email is handled, including processing by an AI assistant, and how to opt out of analytics.
 
 ## Core guides
 

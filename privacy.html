@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -17,8 +17,8 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>About, ArchiGen AI</title>
-<meta name="description" content="ArchiGen AI is a curated editorial platform for architects and archviz artists figuring out where AI fits into the drawing set." />
+<title>Privacy | ArchiGen AI</title>
+<meta name="description" content="What ArchiGen AI collects when you read it: Google Analytics, cookieless PostHog, hosting logs and Google Fonts, email signups, and how to opt out." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -203,6 +203,7 @@
     .about-body .inner { grid-template-columns: 1fr; gap: 40px; }
     .foot-grid { grid-template-columns: 1fr 1fr; }
   }
+  .about-body code { font-family: var(--f-mono); font-size: .9em; }
 </style>
 <script type="application/ld+json">
 {
@@ -218,10 +219,10 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://archigenai.com/about.html#webpage",
-      "url": "https://archigenai.com/about.html",
-      "name": "About, ArchiGen AI",
-      "description": "ArchiGen AI is a curated editorial platform for architects and archviz artists figuring out where AI fits into the drawing set.",
+      "@id": "https://archigenai.com/privacy.html#webpage",
+      "url": "https://archigenai.com/privacy.html",
+      "name": "Privacy | ArchiGen AI",
+      "description": "What ArchiGen AI collects when you read it: Google Analytics, cookieless PostHog, hosting logs and Google Fonts, email signups, and how to opt out.",
       "isPartOf": {
         "@id": "https://archigenai.com/#website"
       },
@@ -262,7 +263,7 @@
       <a href="journal.html">Journal</a>
       <a href="tools.html">Tools</a>
       <a href="case-studies.html">Case Studies</a>
-      <a href="about.html" class="active">About</a>
+      <a href="about.html">About</a>
     </div>
     <div class="nav-right">
       <a href="index.html#newsletter" class="btn dark">Join the studio →</a>
@@ -270,46 +271,48 @@
   </div>
 </nav>
 
-<!-- About hero -->
+<!-- Privacy hero -->
 <section style="padding: 0 40px;">
   <div class="about-hero">
-    <div class="tag">About the publication</div>
-    <h1>Built for architects<br>who <em>work with AI.</em></h1>
-    <p>ArchiGen is an evidence-led editorial publication covering AI tools, workflows, and techniques for architectural visualization — for architects deciding whether, where, and how to use them. It is owned and published by Quincy, who reviews and approves every piece published here.</p>
-    <p>Who owns the publication, who is accountable for it, and how tools qualify for review are stated plainly below and on the masthead. Where a page falls short of these rules, it is corrected — not quietly rewritten.</p>
-    <div class="actions">
-      <a href="journal.html" class="btn dark">Read the journal →</a>
-      <a href="workflows.html" class="btn">Browse workflows</a>
-    </div>
+    <div class="tag">Privacy</div>
+    <h1>What this site<br><em>collects.</em></h1>
+    <p>ArchiGen AI is a reading site. There are no accounts, no comments and no ads. This page lists every service that receives data when you read it, what each one gets, and how to switch it off.</p>
+    <p>Last updated 30 September 2026. When this changes, the date above changes with it.</p>
   </div>
 </section>
 
-<!-- About body -->
+<!-- Privacy body -->
 <section class="about-body" style="padding-left: 40px; padding-right: 40px;">
   <div class="inner">
     <div>
-      <h2>What we <em>cover</em></h2>
-      <p>The full pipeline from concept sketch to client-ready render, and every AI tool that touches it. We focus on what's actually useful to architects and archviz artists working under real deadlines with real clients.</p>
-      <p>That means render engines, concept generators, upscalers, inpainting workflows, ComfyUI setups, prompt engineering for architectural subjects, and the broader question of how these tools change how studios are run.</p>
+      <h2>What we <em>measure</em></h2>
+      <p>We count visits so we know which articles are read and where readers come from. Two analytics services do this.</p>
+      <p><strong>Google Analytics 4.</strong> Records the pages you view, the site that sent you, your browser, device type and approximate location. It sets cookies (<code>_ga</code>) so a returning browser can be recognised. Google's handling is described in <a href="https://policies.google.com/privacy" style="color:inherit;text-decoration:underline;">Google's privacy policy</a>.</p>
+      <p><strong>PostHog.</strong> Records the pages you view, clicks on links and buttons, the site that sent you, your browser, device type and approximate location. It runs without cookies or browser storage, so it counts visits without recognising a returning browser, and it does not record sessions. PostHog processes this data in the United States. Your full IP address is not stored.</p>
+      <p>We do not sell this data, run ads, or build advertising profiles.</p>
     </div>
     <div>
-      <h2>What we <em>don't</em> do</h2>
+      <h2>What else <em>sees your visit</em></h2>
       <ul>
-        <li>Scored verdicts without preserved evidence — a score publishes only with the tool version, test date, inputs, settings, outputs, and failure criteria on record</li>
-        <li>Affiliate compensation on rated, reviewed, ranked, comparison, or directory surfaces — permanently</li>
-        <li>Scores or awards for products the publisher owns, funds or sells — they are recused</li>
-        <li>Unlabeled simulations as evidence — figures are labeled as actual tested output, vendor media, or editorial illustration</li>
+        <li><span><strong>Hosting (Vercel).</strong> Like any web server, it logs requests: your IP address, browser and the pages requested.</span></li>
+        <li><span><strong>Fonts (Google Fonts).</strong> The site's typefaces load from Google's servers, which receive your IP address when they do.</span></li>
+        <li><span><strong>Links to other sites.</strong> Outbound links carry no affiliate or referral tracking tags. Once you follow a link, that site's own policy applies.</span></li>
       </ul>
     </div>
     <div>
-      <h2>Who <em>makes this</em></h2>
-      <p><strong>ArchiGen is an independent publication, owned and published by Quincy.</strong> Products the publisher owns, funds or sells are ineligible for scores, ranking positions, or awards.</p>
-      <p><strong>Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner.</strong> A human is always in the loop: every piece published under Nora's name is reviewed and approved by Quincy, ArchiGen's human owner and publisher, who is accountable for its editorial decisions and corrections. <a href="masthead.html#nora-sinclair">Full disclosure on the masthead</a>.</p>
+      <h2>Email and the <em>newsletter</em></h2>
+      <p>The Sunday letter and "Notify me" buttons open your own email app with a message addressed to <a href="mailto:hello@archigenai.com" style="color:inherit;text-decoration:underline;">hello@archigenai.com</a>. Nothing is sent until you send it. We use your address only to send what you asked for, and remove it when you ask.</p>
+      <p>The optional web signup form is hosted by Beehiiv, and Beehiiv's privacy policy applies to what you enter there.</p>
+      <p>Emails you send to hello@, pitches@ or partners@archigenai.com are read and processed by an AI assistant, which sorts them and drafts replies. That means their contents pass through the AI service providers it runs on. Please don't send anything you would not want handled that way.</p>
     </div>
     <div>
-      <h2>How reviews <em>qualify</em></h2>
-      <p>A scored verdict is published only when ArchiGen can identify the tool and version, test date, input, settings, task, output, failure criteria, and preserved source artifact. Editorial illustrations, including AI-generated simulations, never substantiate claims about another tool's performance. <a href="masthead.html#ratings-policy">Testing and ratings policy</a>.</p>
-      <p><strong>Corrections:</strong> report a factual, methodological, attribution, or disclosure error at <a href="mailto:hello@archigenai.com?subject=Correction%20request" style="color:inherit;text-decoration:underline;">hello@archigenai.com</a>. Material corrections are recorded with the date, original claim, corrected claim, reason, and accountable approver. <a href="masthead.html#corrections">Corrections policy</a>.</p>
+      <h2>Your <em>choices</em></h2>
+      <ul>
+        <li><span><strong>Turn off analytics in your browser:</strong> visit <a href="exclude.html" style="color:inherit;text-decoration:underline;">this opt-out page</a>. Both Google Analytics and PostHog then stop sending anything from that browser. Clearing your browser data resets it.</span></li>
+        <li><span><strong>Block trackers</strong> with your browser's privacy settings or an extension. The site works fully without them.</span></li>
+        <li><span><strong>Ask about your data</strong> at <a href="mailto:hello@archigenai.com?subject=Privacy%20request" style="color:inherit;text-decoration:underline;">hello@archigenai.com</a> with the subject "Privacy request". Analytics data is not tied to your name, so we usually cannot find an individual's visits. Email correspondence and newsletter addresses can be exported or deleted on request.</span></li>
+      </ul>
+      <p><strong>Who is responsible:</strong> ArchiGen AI is published by Quincy, its human owner and publisher. Privacy questions go to the address above.</p>
     </div>
   </div>
 </section>
@@ -345,7 +348,6 @@
         <a href="mailto:hello@archigenai.com">Contact</a>
         <a href="sitemap.xml">Sitemap</a>
         <a href="masthead.html">Masthead</a>
-        <a href="privacy.html">Privacy</a>
       </div>
     </div>
     <div class="foot-bottom">
