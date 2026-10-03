@@ -155,7 +155,7 @@ def figure_html(src: str, alt: str, caption: str, hero: bool) -> str:
         if hero
         else f'<img src="{src}" alt="{esc(alt)}" loading="lazy" />'
     )
-    fig = f'{img}\n  <figcaption class="agv-cap"><span class="agv-chip">Generated · Gemini</span> <span>{esc(caption)}</span></figcaption>'
+    fig = f'{img}\n  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>{esc(caption)}</span></figcaption>'
     if hero:
         return f'\n<section class="agv-hero-section" data-agvis="hero">\n  <div class="wrap"><figure>\n  {fig}\n  </figure></div>\n</section>\n'
     return f'<figure class="agv-inline" data-agvis="inline">\n  {fig}\n</figure>\n\n    '
