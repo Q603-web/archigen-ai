@@ -17,19 +17,19 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>Reference Images Steer AI Renders Better Than Prompts</title>
-<meta name="description" content="Show, don&#x27;t describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what no reference can control." />
-<link rel="canonical" href="https://archigenai.com/reference-images-steer-ai-renders-architects-2026.html" />
+<title>Reference Images Beat Prompts for AI Renders | ArchiGen AI</title>
+<meta name="description" content="Show, don&#x27;t describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what none can control." />
+<link rel="canonical" href="https://archigenai.com/reference-images-steer-ai-renders-architects-2026.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/reference-images-steer-ai-renders-architects-2026.html" />
 <meta property="og:title" content="Reference Images Steer AI Renders Better Than Prompts" />
-<meta property="og:description" content="Show, don&#x27;t describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what no reference can control." />
+<meta property="og:description" content="Show, don&#x27;t describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what none can control." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-reference-images-steer-ai-renders-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
 <meta name="twitter:title" content="Reference Images Steer AI Renders Better Than Prompts" />
-<meta name="twitter:description" content="Show, don&#x27;t describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what no reference can control." />
+<meta name="twitter:description" content="Show, don&#x27;t describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what none can control." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-reference-images-steer-ai-renders-architects-2026.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -154,7 +154,16 @@
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
       "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
-      "sameAs": ["https://twitter.com/archigenai", "https://instagram.com/archigenai"]
+      "sameAs": [
+        "https://twitter.com/archigenai",
+        "https://instagram.com/archigenai"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://archigenai.com/assets/brand/logo-512.png",
+        "width": 512,
+        "height": 512
+      }
     },
     {
       "@type": "Person",
@@ -162,7 +171,9 @@
       "name": "Nora Sinclair",
       "url": "https://archigenai.com/about.html",
       "description": "AI editorial persona of ArchiGen AI, not a human architect or practitioner. Every piece published under this name is reviewed and approved by ArchiGen's human owner and publisher.",
-      "worksFor": { "@id": "https://archigenai.com/#organization" }
+      "worksFor": {
+        "@id": "https://archigenai.com/#organization"
+      }
     }
   ]
 }
@@ -170,18 +181,32 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article", "image": "https://archigenai.com/assets/hero-reference-images-steer-ai-renders-architects-2026.jpg",
+  "@type": "Article",
+  "image": "https://archigenai.com/assets/hero-reference-images-steer-ai-renders-architects-2026.jpg",
   "headline": "Reference Images Are the New Prompt: Steer AI Renders by Showing, Not Describing",
-  "description": "Veras accepts up to four reference images per render, Midjourney has style and omni reference, and ComfyUI has IPAdapter. What each route actually steers, why one job per image is the rule that saves the output, and why geometry is the one thing no reference can hold.",
-  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
-  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "description": "Show, don't describe: how reference images steer AI renders in Veras, Midjourney and ComfyUI, what makes a good reference, and what none can control.",
+  "author": {
+    "@id": "https://archigenai.com/#nora-sinclair"
+  },
+  "publisher": {
+    "@id": "https://archigenai.com/#organization"
+  },
   "datePublished": "2026-07-07T03:30:00-04:00",
   "dateModified": "2026-07-07T03:30:00-04:00",
   "mainEntityOfPage": "https://archigenai.com/reference-images-steer-ai-renders-architects-2026.html",
   "articleSection": "Technique",
   "timeRequired": "PT6M",
   "inLanguage": "en",
-  "keywords": ["reference images AI render", "Veras reference images", "Midjourney style reference architecture", "IPAdapter architecture render", "steer AI render with image", "AI render material reference", "prompt vs reference image", "AI rendering for architects 2026"]
+  "keywords": [
+    "reference images AI render",
+    "Veras reference images",
+    "Midjourney style reference architecture",
+    "IPAdapter architecture render",
+    "steer AI render with image",
+    "AI render material reference",
+    "prompt vs reference image",
+    "AI rendering for architects 2026"
+  ]
 }
 </script>
 <script type="application/ld+json">
