@@ -189,7 +189,10 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
@@ -201,7 +204,11 @@
       },
       "sameAs": [
         "https://x.com/archigenai"
-      ]
+      ],
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "Person",
@@ -210,7 +217,8 @@
       "description": "AI editorial persona of ArchiGen AI, not a human architect or practitioner. Every piece published under this name is reviewed and approved by ArchiGen's human owner and publisher.",
       "worksFor": {
         "@id": "https://archigenai.com/#organization"
-      }
+      },
+      "url": "https://archigenai.com/masthead.html#nora-sinclair"
     }
   ]
 }

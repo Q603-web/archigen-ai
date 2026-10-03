@@ -17,20 +17,20 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>ArchiGen AI — Architecture, through a new lens</title>
+<title>ArchiGen AI: Evidence-Led AI Guides for Architects</title>
 
 
-<meta name="description" content="ArchiGen AI is the front door for AI in architecture. Editorially independent reviews, tutorials, and workflows for architects designing with the machine, Midjourney, FLUX, ComfyUI, Veras, and the broader 2026 toolset." />
+<meta name="description" content="ArchiGen AI is an evidence-led publication for architects working out where AI fits into practice: tool comparisons, workflows and claim audits, sources cited." />
 <link rel="canonical" href="https://archigenai.com/" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://archigenai.com/" />
-<meta property="og:title" content="ArchiGen AI, The front door for AI in architecture" />
-<meta property="og:description" content="Editorially independent reviews, tutorials, and workflows for architects designing with the machine. No vendor demos. No hype." />
+<meta property="og:title" content="ArchiGen AI: Evidence-Led AI Guides for Architects" />
+<meta property="og:description" content="ArchiGen AI is an evidence-led publication for architects working out where AI fits into practice: tool comparisons, workflows and claim audits, sources cited." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-depth-anything-v3-architecture-control-map-check-2026-v2.webp" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ArchiGen AI, The front door for AI in architecture" />
-<meta name="twitter:description" content="Editorially independent reviews, tutorials, and workflows for architects designing with the machine." />
+<meta name="twitter:title" content="ArchiGen AI: Evidence-Led AI Guides for Architects" />
+<meta name="twitter:description" content="ArchiGen AI is an evidence-led publication for architects working out where AI fits into practice: tool comparisons, workflows and claim audits, sources cited." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-depth-anything-v3-architecture-control-map-check-2026-v2.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,12 +42,15 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "alternateName": "ArchiGen",
       "url": "https://archigenai.com/",
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
       "logo": {
         "@type": "ImageObject",
         "url": "https://archigenai.com/assets/brand/logo-512.png",
@@ -56,7 +59,10 @@
       },
       "sameAs": [
         "https://x.com/archigenai"
-      ]
+      ],
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "WebSite",
@@ -76,7 +82,8 @@
       "description": "AI editorial persona of ArchiGen AI, not a human architect or practitioner. Every piece published under this name is reviewed and approved by ArchiGen's human owner and publisher.",
       "worksFor": {
         "@id": "https://archigenai.com/#organization"
-      }
+      },
+      "url": "https://archigenai.com/masthead.html#nora-sinclair"
     }
   ]
 }

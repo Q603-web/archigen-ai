@@ -1,6 +1,6 @@
 # ArchiGen AI
 
-> An evidence-led editorial publication for architects, archviz artists, and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render. Articles compare tools and workflows, cite their sources, and state what kind of evidence stands behind each claim. No sponsored placements.
+> An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render. Articles compare tools and workflows, cite their sources, and state what kind of evidence stands behind each claim. No sponsored placements.
 
 ArchiGen AI is owned and published by Quincy, ArchiGen's human owner and publisher, who reviews and approves every piece published here. Articles are bylined Nora Sinclair. Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner; every piece published under Nora's name is reviewed and approved by Quincy, who is accountable for its editorial decisions and corrections.
 
