@@ -27,6 +27,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Workflows
 
+- [Floor Plan to Blender: What the Audit Caught](https://archigenai.com/floor-plan-to-blender-3d-model-audit-2026.html): ArchiGen's documented test: tracing raster floor plans into a Blender model, the five errors an overlay caught, and the checks that fixed them.
 - [Blender + ComfyUI: A Tested Architectural Rendering Workflow](https://archigenai.com/blender-comfyui-architectural-rendering-workflow-test.html): A documented local test (RTX 3090, Blender 5.2.0 LTS, ComfyUI 0.37.0) with settings, approved interior renders, AI mistakes and masking steps.
 - [Nano Banana 2 vs GPT Image 2 for Floor Plans](https://archigenai.com/gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html): Nano Banana 2 and GPT Image 2 compared for rendering residential floor plans.
 - [AI Rendering on a Mac](https://archigenai.com/ai-rendering-on-a-mac-architects-2026.html): What runs natively on Apple Silicon, what needs a workaround, and where cloud tools fill the gap.
@@ -51,6 +52,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Floor Plan to Blender: What the Audit Caught](https://archigenai.com/floor-plan-to-blender-3d-model-audit-2026.html): ArchiGen's documented test: tracing raster floor plans into a Blender model, the five errors an overlay caught, and the checks that fixed them.
 - [Audit AI Renderer Rankings by Input Route](https://archigenai.com/ai-render-ranking-input-route-audit-architects-2026.html): A practical input-route audit for architects comparing AI renderers, from BIM plugins and image uploads to prompts, revisions, and return paths.
 - [Audit Native Resolution and Upscaling in AI Render Comparisons](https://archigenai.com/ai-render-comparison-native-resolution-upscaling-audit-2026.html): A fair test protocol for separating native AI render output from denoising, upscaling, sharpening, and manual finishing.
 - [Build an Evidence Packet Before Shortlisting an AI Render Tool](https://archigenai.com/ai-render-tool-shortlist-evidence-packet-architects-2026.html): A six-file evidence packet that turns an AI rendering tool trial into a decision architects can defend after the demo ends.
