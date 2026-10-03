@@ -150,11 +150,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://instagram.com/archigenai"
@@ -164,7 +167,10 @@
         "url": "https://archigenai.com/assets/brand/logo-512.png",
         "width": 512,
         "height": 512
-      }
+      },
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "Person",
@@ -284,6 +290,11 @@
 
 <div class="wrap">
   <div class="article-body">
+<section class="answer-first" aria-label="Short answer">
+<h2>Can Nano Banana render architectural floor plans?</h2>
+<p>Yes. Nano Banana can turn a cleaned CAD export into a furnished, top-down rendered floor plan in minutes, given a prompt that locks a strict orthographic view. The output is a probabilistic redrawing, not a measured document, so overlay the original plan to check walls, doors and fixtures, and keep the CAD plan as the governing drawing.</p>
+</section>
+
 
     <p>First, why this is worth doing at all. A rendered floor plan — top-down, furnished, real materials, soft shadows — is the single most legible drawing you can hand a non-architect. Clients who can't parse wall poché understand a walnut floor and a bed at a glance. Real estate marketing has paid specialist visualizers for these for years, and interior designers live on them. What changed in the last year is that image models finally got good enough at the straight-down orthographic view to produce one from your CAD export in minutes. Nano Banana — Google's image model, the same engine family that <a href="veras-nano-banana-2-engine-architects-2026.html">now powers Veras</a> — is currently the most reliable at it, which our <a href="gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html">GPT-Image-2 vs Nano Banana floor plan comparison</a> documented in detail.</p>
 

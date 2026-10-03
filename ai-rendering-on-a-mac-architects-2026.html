@@ -150,11 +150,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://instagram.com/archigenai"
@@ -164,7 +167,10 @@
         "url": "https://archigenai.com/assets/brand/logo-512.png",
         "width": 512,
         "height": 512
-      }
+      },
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "Person",
@@ -284,6 +290,11 @@
 
 <div class="wrap">
   <div class="article-body">
+<section class="answer-first" aria-label="Short answer">
+<h2>Can architects run AI rendering tools on a Mac?</h2>
+<p>Yes, for most AI rendering, because tools like Veras and browser generators run in the cloud rather than on your local GPU. The limits are Windows and CUDA engines: D5 Render, Lumion and Chaos Vantage do not run on Apple Silicon. Local ComfyUI works through Metal but is slower, and some CUDA-dependent nodes will not load.</p>
+</section>
+
 
     <p>The wall is real and it is specific. A long list of the tools architects actually render with, D5 Render, Lumion, Chaos Vantage, were built on Windows and on NVIDIA's CUDA stack. Apple Silicon does not speak CUDA. It uses Metal, Apple's own graphics layer, and an M-series chip has no NVIDIA card to fall back on. So these tools do not run slowly on a Mac. They do not run at all, because nobody wrote the Mac version, and porting a real-time GPU renderer off CUDA is a year of engineering nobody has prioritised.</p>
 

@@ -150,11 +150,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://instagram.com/archigenai"
@@ -164,7 +167,10 @@
         "url": "https://archigenai.com/assets/brand/logo-512.png",
         "width": 512,
         "height": 512
-      }
+      },
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "Person",
@@ -284,6 +290,11 @@
 
 <div class="wrap">
   <div class="article-body">
+<section class="answer-first" aria-label="Short answer">
+<h2>How can architects edit part of a render with AI inpainting?</h2>
+<p>Mask only the region to change and regenerate it, so everything outside the mask stays as approved. Use high denoise, near 1.0, to replace an object and about 0.5 to 0.6 to repair one. Stop mask edges at architectural lines, give the model enough context to match the light, and check pixels outside the mask afterward.</p>
+</section>
+
 
     <p>This week's round of ComfyUI workflow guides puts inpainting on the shortlist of techniques every designer should know, and the archviz threads keep circling the same request from the other direction: improve this render, but do not touch the building. We covered the global version of that request on Monday in our piece on <a href="ai-render-enhance-without-hallucination-denoise-controlnet-architects-2026.html">enhancing without hallucination</a>. Inpainting is the regional version, and architects reach for it far less than they should, mostly because the tool lists explain it as a photo-editing trick rather than what it actually is for us: a markup workflow for images.</p>
 

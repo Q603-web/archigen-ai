@@ -155,11 +155,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://instagram.com/archigenai"
@@ -169,7 +172,10 @@
         "url": "https://archigenai.com/assets/brand/logo-512.png",
         "width": 512,
         "height": 512
-      }
+      },
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "Person",
@@ -303,6 +309,11 @@
         <figcaption>The image looks finished. Whether it's correct is a different question entirely / ArchiGen AI Curation</figcaption>
       </figure>
     </div>
+<section class="answer-first" aria-label="Short answer">
+<h2>How do you stop AI renders from changing your building's geometry?</h2>
+<p>You cannot fully stop it, but you can constrain it and catch it. Use strong adherence controls, a clean high-contrast source or direct BIM/CAD integration, then check each render beside the source model for load path, openings, scale, buildability and site. Higher adherence lowers the hallucination rate; it does not zero it.</p>
+</section>
+
 
     <p>There's a quiet asymmetry at the heart of AI rendering. The tools have gotten extraordinary at making images that <em>look</em> right — atmospheric light, convincing materials, a sky that sells the mood — and they remain fundamentally indifferent to whether the building in the image is the building you designed. A diffusion model generates pixels that are statistically plausible. It does not read your geometry as ground truth. It reads it as a suggestion.</p>
 

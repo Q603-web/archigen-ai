@@ -149,11 +149,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "url": "https://archigenai.com/",
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://instagram.com/archigenai"
@@ -163,7 +166,10 @@
         "url": "https://archigenai.com/assets/brand/logo-512.png",
         "width": 512,
         "height": 512
-      }
+      },
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "Person",
@@ -283,6 +289,11 @@
 
 <div class="wrap">
   <div class="article-body">
+<section class="answer-first" aria-label="Short answer">
+<h2>Why do AI architectural renders look fake?</h2>
+<p>AI renders usually look fake because of physics, not geometry. Five tells give them away: shadows that disagree on the sun, materials at the wrong scale, reflections that do not match the scene, cloned entourage, and surfaces too clean to be real. Each one is local, so a masked repair usually beats regenerating the whole frame.</p>
+</section>
+
 
     <p>Start by separating two problems that get lumped together. One is geometry hallucination, where the model invents a column, warps a mullion, or bends a stair. We wrote the pre-presentation pass for that in the <a href="ai-render-geometry-hallucination-qa-checklist-architects-2026.html">geometry QA checklist</a>, and it is a different failure. This piece is about the render where nothing is structurally wrong and the image still fails the half-second test. That failure is physical. Light, material scale, reflection logic, repetition, and surface wear are the five channels where a diffusion model quietly breaks the laws your eye has been calibrated on since birth. You do not consciously check them. You feel the result.</p>
 

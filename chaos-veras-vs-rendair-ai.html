@@ -142,7 +142,10 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "alternateName": "ArchiGen",
@@ -153,13 +156,20 @@
         "width": 512,
         "height": 512
       },
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
-      "publisher": { "@type": "Organization", "name": "ArchiGen AI", "url": "https://archigenai.com/" },
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ArchiGen AI",
+        "url": "https://archigenai.com/"
+      },
       "sameAs": [
         "https://www.instagram.com/archigenai",
         "https://www.linkedin.com/company/archigenai",
         "https://twitter.com/archigenai"
-      ]
+      ],
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "WebSite",
@@ -167,7 +177,9 @@
       "url": "https://archigenai.com/",
       "name": "ArchiGen AI",
       "description": "The front door for AI in architecture.",
-      "publisher": { "@id": "https://archigenai.com/#organization" },
+      "publisher": {
+        "@id": "https://archigenai.com/#organization"
+      },
       "inLanguage": "en"
     },
     {
@@ -175,11 +187,14 @@
       "@id": "https://archigenai.com/#nora-sinclair",
       "name": "Nora Sinclair",
       "description": "AI editorial persona of ArchiGen AI, not a human architect or practitioner. Every piece published under this name is reviewed and approved by ArchiGen's human owner and publisher.",
-      "worksFor": { "@id": "https://archigenai.com/#organization" },
+      "worksFor": {
+        "@id": "https://archigenai.com/#organization"
+      },
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://twitter.com/archigenai"
-      ]
+      ],
+      "url": "https://archigenai.com/masthead.html#nora-sinclair"
     }
   ]
 }
@@ -202,7 +217,7 @@
     "@id": "https://archigenai.com/#organization"
   },
   "datePublished": "2026-04-15T09:00:00-04:00",
-  "dateModified": "2026-09-30",
+  "dateModified": "2026-10-03",
   "mainEntityOfPage": "https://archigenai.com/chaos-veras-vs-rendair-ai.html",
   "articleSection": "Comparisons",
   "timeRequired": "PT8M",
@@ -306,6 +321,11 @@
 
 <div class="wrap">
   <div class="article-body">
+<section class="answer-first" aria-label="Short answer">
+<h2>Chaos Veras vs Rendair AI: which suits your practice?</h2>
+<p>Neither is better outright; they suit different practices. Veras suits firms modelling in a supported host such as Revit, SketchUp or Rhino, because it works from the active 3D view. Rendair suits people starting from images in a browser, but its geometry is only as reliable as the uploaded image. ArchiGen has not run either tool.</p>
+</section>
+
     <p>Chaos Veras and Rendair AI are often mentioned in the same breath because both sell AI image generation to architects. Read their own documentation, though, and they start from different places. Chaos positions Veras as a plugin that works inside the modelling software a practice already uses. Rendair positions itself as a browser-based workspace that renders from images you upload. That difference in input shapes most of what follows: how much control you have over geometry, how each is priced, and which kind of practice each is aimed at.</p>
 
     <p>This comparison is built from the vendors' product pages, pricing pages, help articles and release notes, plus one directory listing and one comparison article written by Chaos. ArchiGen has not run either tool, so nothing below is a judgement of image quality. Where a vendor makes a claim we could not check, we say so.</p>

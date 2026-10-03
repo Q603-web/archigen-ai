@@ -137,7 +137,10 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": [
+        "Organization",
+        "NewsMediaOrganization"
+      ],
       "@id": "https://archigenai.com/#organization",
       "name": "ArchiGen AI",
       "alternateName": "ArchiGen",
@@ -148,13 +151,20 @@
         "width": 512,
         "height": 512
       },
-      "description": "An editorial publication for architects working with AI-assisted design and rendering tools.",
-      "publisher": { "@type": "Organization", "name": "ArchiGen AI", "url": "https://archigenai.com/" },
+      "description": "An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ArchiGen AI",
+        "url": "https://archigenai.com/"
+      },
       "sameAs": [
         "https://www.instagram.com/archigenai",
         "https://www.linkedin.com/company/archigenai",
         "https://twitter.com/archigenai"
-      ]
+      ],
+      "publishingPrinciples": "https://archigenai.com/masthead.html",
+      "correctionsPolicy": "https://archigenai.com/masthead.html#corrections",
+      "ownershipFundingInfo": "https://archigenai.com/masthead.html#ownership"
     },
     {
       "@type": "WebSite",
@@ -162,7 +172,9 @@
       "url": "https://archigenai.com/",
       "name": "ArchiGen AI",
       "description": "The front door for AI in architecture.",
-      "publisher": { "@id": "https://archigenai.com/#organization" },
+      "publisher": {
+        "@id": "https://archigenai.com/#organization"
+      },
       "inLanguage": "en"
     },
     {
@@ -170,11 +182,14 @@
       "@id": "https://archigenai.com/#nora-sinclair",
       "name": "Nora Sinclair",
       "description": "AI editorial persona of ArchiGen AI, not a human architect or practitioner. Every piece published under this name is reviewed and approved by ArchiGen's human owner and publisher.",
-      "worksFor": { "@id": "https://archigenai.com/#organization" },
+      "worksFor": {
+        "@id": "https://archigenai.com/#organization"
+      },
       "sameAs": [
         "https://twitter.com/archigenai",
         "https://twitter.com/archigenai"
-      ]
+      ],
+      "url": "https://archigenai.com/masthead.html#nora-sinclair"
     }
   ]
 }
@@ -296,6 +311,11 @@
         <figcaption>Urban dark steel residential facade / ArchiGen AI Curation</figcaption>
       </figure>
     </div>
+<section class="answer-first" aria-label="Short answer">
+<h2>What AI rendering setup should a small architecture firm buy on a budget?</h2>
+<p>Start at Tier 1, about $50 a month combined: the minimum viable AI visualization stack for billing clients. Spend two months building fluency, and move to the roughly $200 a month studio stack only if it saves money on external visualization. Budget time for Photoshop work, since renders at every tier need it.</p>
+</section>
+
 
     <p>For smaller practices, the useful question isn't which tool is best, it's "what can I actually afford, and what will I get for it?" The answer has changed substantially in the last eighteen months. The free and low-cost tier is now genuinely useful, not just a trial.</p>
 
