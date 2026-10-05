@@ -17,18 +17,18 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>ComfyUI Exterior Architecture Workflow</title>
+<title>ComfyUI Exteriors: Depth, Fill or Img2img?</title>
 <meta name="description" content="A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files." />
 <link rel="canonical" href="https://archigenai.com/comfyui-advanced-tutorial.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-advanced-tutorial.html" />
-<meta property="og:title" content="ComfyUI Exterior Architecture Workflow" />
+<meta property="og:title" content="ComfyUI Exteriors: Depth, Fill or Img2img?" />
 <meta property="og:description" content="A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI Exterior Architecture Workflow" />
+<meta name="twitter:title" content="ComfyUI Exteriors: Depth, Fill or Img2img?" />
 <meta name="twitter:description" content="A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg" />
 
@@ -222,7 +222,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "ComfyUI Exterior Architecture Workflow",
+  "headline": "ComfyUI Exteriors: Depth, Fill or Img2img?",
   "description": "A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files.",
   "author": {
     "@id": "https://archigenai.com/#nora-sinclair"
@@ -264,7 +264,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "ComfyUI Exterior Architecture Workflow",
+      "name": "ComfyUI Exteriors: Depth, Fill or Img2img?",
       "item": "https://archigenai.com/comfyui-advanced-tutorial.html"
     }
   ]
@@ -311,8 +311,8 @@
       <span class="tag">Workflow · 23 Apr 2026</span>
       <span class="tag">Updated 5 October 2026</span>
     </div>
-    <h1>A ComfyUI workflow for <em>architectural exteriors</em></h1>
-    <p class="lede">For architectural exteriors in ComfyUI, start with a depth-guided structure pass, then use img2img to study materials, FLUX.1 Fill for masked surroundings, and a separate lighting variation. Use compatible weights and review geometry between stages. This source-led guide links the public examples that supply each model-specific graph.</p>
+    <h1>ComfyUI Exteriors: Depth, Fill or Img2img?</h1>
+    <p class="lede">Use Depth when an exterior should follow a depth map. Use Fill to change a masked region, or img2img for broader variations from an existing image. In ComfyUI, these are separate routes with compatible model files. Choose the operation for the edit required, then review the result against its source.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair</a></div>
@@ -334,22 +334,22 @@
 <div class="wrap">
   <main class="article-body">
     <h2>Which ComfyUI workflow fits architectural exteriors?</h2>
-    <p>Choose by the source image and the change required. Use depth guidance when the input defines the intended massing, a masked edit when a region needs replacing, or an image adapter when the task is a reference variation. BFL documents separate <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">structural models</a>, a <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">Fill model for image regions</a> and a <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux adapter for image variations</a>. A longer node graph is not a selection criterion.</p>
+    <p>Choose by the source image and the edit it needs. Use depth guidance when the input defines the intended massing, a masked edit when a region needs replacing, or an image adapter when the task is a reference variation. BFL documents separate <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">structural models</a>, a <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">Fill model for image regions</a> and a <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux adapter for image variations</a>. A longer node graph is not a selection criterion.</p>
     <p>Work through geometry, materials, site context, then lighting. Treat these as review stages: keep an accepted output before starting the next operation. This order is an editorial recommendation based on the documented operations. Keep the model, encoders, VAE and conditioning components compatible with the chosen example; the <a href="comfyui-architecture-flux-sdxl-model-routing-2026.html">FLUX and SDXL model-choice guide</a> explains the separate routes.</p>
 
-    <h2>1. Establish the structure</h2>
+    <h2>1. Set the structural input before surfaces</h2>
     <p><a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth [dev]</a> generates images guided by a depth map. Start with the intended camera and massing. Where the source model can export depth, use that map as the proposed structural input and inspect it before generation. This recommendation follows the model's conditioning mechanism; it is not a claim that every opening will survive unchanged.</p>
     <p>If the input is only a rendered image, <a href="https://github.com/isl-org/MiDaS">MiDaS estimates depth from that image</a>. An estimate and a model export are different sources of information. The <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">auxiliary preprocessor pack</a> creates hint images, including depth and edges; it does not replace the weights that use those hints.</p>
     <p>Import the corresponding <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">ComfyUI FLUX example</a>, load its required files and supply the source input. Use the example's compatible components before adding custom nodes. BFL's full Depth model and its Depth LoRA are distinct options; the <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">LoRA route requires FLUX.1 [dev]</a>. Neither is an SDXL ControlNet.</p>
-    <p>Save a candidate and compare its silhouette and openings with the source. Make that comparison a decision point before changing surfaces. The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> expands this review method; it supplies no measured success rate for the workflow described here.</p>
+    <p>Save a candidate and compare its silhouette, parapets and window openings with the source. Make that comparison a decision point before changing surfaces. The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> expands this review method.</p>
 
-    <h2>2. Change materials from an accepted image</h2>
-    <p>ComfyUI's <a href="https://comfyanonymous.github.io/ComfyUI_examples/img2img/">img2img documentation</a> describes loading an image, encoding it with a VAE and sampling that latent with reduced denoise. Lower denoise adds less noise and generally changes less of the input. That explains the control; it does not establish one correct value for concrete, glazing or brick.</p>
-    <p>Use the accepted structural image as the starting point for a material study. “Board-formed concrete, pale grey surface” is a prompt example, not a tested recipe. If the requested change is confined to a region, choose a compatible masked-edit workflow rather than assuming a full-image instruction will protect everything else. Review the boundary as well as the material. A convincing texture can still belong to the wrong wall.</p>
+    <h2>2. Study facade materials from an accepted image</h2>
+    <p>ComfyUI's <a href="https://comfyanonymous.github.io/ComfyUI_examples/img2img/">img2img documentation</a> describes loading an image, encoding it with a VAE and sampling that latent with reduced denoise. Lower denoise adds less noise and generally changes less of the input. This is a general img2img example, not a FLUX material-study graph. It explains the operation without establishing one correct value for concrete, glazing or brick.</p>
+    <p>Use the accepted structural image as the starting point for a material study. “Board-formed concrete, pale grey surface” is a prompt example, not a tested recipe. For a change confined to a spandrel panel or podium cladding, choose a compatible masked-edit workflow. A full-image instruction does not establish that adjacent surfaces will stay unchanged. Review the boundary as well as the material. A convincing texture can still belong to the wrong wall.</p>
     <p>Sampler values belong to the selected model example. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/#simple-to-use-fp8-checkpoint-version">FLUX fp8 checkpoint example</a>, for instance, specifies Load Checkpoint with CFG 1.0. Do not copy an SDXL sampler recipe into it. ComfyUI also warns that fp8 can reduce quality; it recommends the full 16-bit version when resources permit. This is not a hardware capacity guarantee.</p>
 
     <h2>3. Choose the operation for site context</h2>
-    <p>For a local edit, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">FLUX.1 Fill [dev]</a> accepts an existing image and a mask to fill a region according to a text description. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/#fill-inpainting-model">ComfyUI Fill example</a> includes access to MaskEditor from Load Image. Mark the region intended to change, run the documented example and compare the edited edge with the source. A mask is an instruction to the workflow, not evidence that the resulting context is geographically correct.</p>
+    <p>For a local edit, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">FLUX.1 Fill [dev]</a> accepts an existing image and a mask to fill a region according to a text description. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/#fill-inpainting-model">ComfyUI Fill example</a> includes access to MaskEditor from Load Image. Mark the region intended to change, run the documented example and compare the edited edge with the source. The Fill card also warns of colour shifts outside the filled area; inspect those surroundings too. A mask is an instruction to the workflow, not evidence that the resulting context is geographically correct.</p>
     <p>For an image-reference variation, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux is a FLUX.1 image adapter</a>. Treat it as a different operation from filling a selected region. The reference image supplies visual information; it does not verify site conditions. Use a reference you have permission to use and keep its origin with the output.</p>
     <p>The <a href="https://huggingface.co/h94/IP-Adapter#ip-adapter-for-sdxl-10">IP-Adapter model card</a> places <code>ip-adapter-plus_sdxl_vit-h</code> in its SDXL family. That adapter is not the FLUX Redux component. A matching-sounding filename cannot make those families interchangeable.</p>
 
@@ -373,8 +373,8 @@
     <p>The <a href="https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-dev.md">dev model card</a>, <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">Depth/Canny table</a>, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">Fill card</a> and <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux card</a> identify the dev non-commercial licence. Generated-output permissions are a separate part of the terms. Check the licence for the intended use and <a href="https://bfl.ai/licensing">BFL's commercial licensing options</a>; local weights are not a blanket commercial-use permission.</p>
 
     <h2>4. Review lighting as another image change</h2>
-    <p>For a lighting variation, return to the accepted context image and use a compatible img2img workflow. “Overcast daylight” and “warm evening light” are illustrative prompts. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/img2img/">documented denoise control</a> governs how much noise enters the starting image; it does not promise a lighting-only edit.</p>
-    <p>Compare the candidate with the same baseline before accepting another variant. Check whether the material request still reads correctly and whether openings changed. Keep the original control inputs with the workflow; the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass guide</a> discusses their use in later passes. No fixed render time or universal denoise schedule is claimed here.</p>
+    <p>For a lighting variation, return to the accepted context image and choose a compatible img2img workflow for that model. The general example linked below explains the operation; it does not supply a FLUX lighting graph. “Overcast daylight” and “warm evening light” are illustrative prompts. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/img2img/">documented denoise control</a> governs how much noise enters the starting image; it does not promise a lighting-only edit.</p>
+    <p>Compare the candidate with the same baseline before accepting another variant. Check whether the material request still reads correctly and whether openings changed. Keep the original control inputs with the workflow; the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass guide</a> discusses their use in later passes.</p>
 
     <h2>Keep the workflow reproducible</h2>
     <p><a href="https://github.com/Comfy-Org/ComfyUI-Manager#snapshot-manager">ComfyUI-Manager</a> can save installation snapshots, but its documentation says snapshot support is incomplete for custom nodes not managed by Git. Record versions and required files alongside the workflow; do not treat a saved graph as a complete environment backup.</p>

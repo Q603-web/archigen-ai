@@ -27,7 +27,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Workflows
 
-- [ComfyUI Exterior Architecture Workflow](https://archigenai.com/comfyui-advanced-tutorial.html): A source-led exterior workflow covering depth, materials, masked context edits and lighting, with compatible FLUX model files.
+- [ComfyUI Exteriors: Depth, Fill or Img2img?](https://archigenai.com/comfyui-advanced-tutorial.html): A source-led exterior workflow covering depth, materials, masked context edits and lighting, with compatible FLUX model files.
 
 - [ComfyUI Floor Plan Renders: Line or Depth?](https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html): Planning guide to line and depth inputs, compatible model files and linked examples for floor-plan presentation images.
 
