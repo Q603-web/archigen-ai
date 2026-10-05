@@ -17,19 +17,19 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>ComfyUI Floor Plan to 3D Render | ArchiGen AI</title>
-<meta name="description" content="How ComfyUI turns a 2D floor plan into a coloured plan or an eye-level view: M-LSD or Canny on the lines, a depth map from a model, and the Flux files to load." />
+<title>ComfyUI Floor Plan Renders: Line or Depth? | ArchiGen AI</title>
+<meta name="description" content="Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples." />
 <link rel="canonical" href="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" />
-<meta property="og:title" content="ComfyUI Floor Plan to 3D Render" />
-<meta property="og:description" content="How ComfyUI turns a 2D floor plan into a coloured plan or an eye-level view: M-LSD or Canny on the lines, a depth map from a model, and the Flux files to load." />
+<meta property="og:title" content="ComfyUI Floor Plan Renders: Line or Depth?" />
+<meta property="og:description" content="Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI Floor Plan to 3D Render" />
-<meta name="twitter:description" content="How ComfyUI turns a 2D floor plan into a coloured plan or an eye-level view: M-LSD or Canny on the lines, a depth map from a model, and the Flux files to load." />
+<meta name="twitter:title" content="ComfyUI Floor Plan Renders: Line or Depth?" />
+<meta name="twitter:description" content="Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" />
 
 <meta property="og:image:width" content="1344" />
@@ -232,8 +232,8 @@
     "height": 768,
     "caption": "AI-generated editorial illustration. This imagined drawing-and-room pairing is not a ComfyUI result or a documented project."
   },
-  "headline": "ComfyUI Floor Plan to 3D Render",
-  "description": "How ComfyUI turns a 2D floor plan into a coloured plan or an eye-level view: M-LSD or Canny on the lines, a depth map from a model, and the Flux files to load.",
+  "headline": "ComfyUI Floor Plan Renders: Line or Depth?",
+  "description": "Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples.",
   "author": {
     "@id": "https://archigenai.com/#nora-sinclair"
   },
@@ -275,7 +275,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "ComfyUI Floor Plan to 3D Render",
+      "name": "ComfyUI Floor Plan Renders: Line or Depth?",
       "item": "https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html"
     }
   ]
@@ -326,8 +326,8 @@
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
       ComfyUI &middot; floor plan workflow
     </div>
-    <h1>ComfyUI floor plan to <em>3D render</em></h1>
-    <p class="lede">For a ComfyUI floor-plan render, clean the linework and choose matching line controls. For a 3D perspective image, model the heights and camera, export a depth map, and use <a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth</a>. Generate the image, compare it with the source, then upscale. The output is presentation imagery, not a measured 3D model.</p>
+    <h1>ComfyUI floor plan renders: <em>line or depth?</em></h1>
+    <p class="lede">Use line guidance for a coloured plan; supply a depth map for a perspective based on defined heights and camera position. In ComfyUI, Canny or M-LSD produces line hints for compatible controls; <a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth</a> follows depth-map structure. The outputs are presentation images, not measured 3D models.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair</a></div><div class="detail" style="margin-top:6px;">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece published under her name is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div>
@@ -349,18 +349,18 @@
   <main class="article-body">
     <h2>Can a floor plan become a 3D render?</h2>
     <p>A coloured plan keeps the drawing's view. An eye-level image needs a camera and height information that a bare plan outline does not supply. That distinction matters before choosing nodes. The <a href="https://arxiv.org/abs/2302.05543">ControlNet paper</a> describes spatial conditioning from inputs including edges and depth. It does not describe recovering a measured building from a floor plan.</p>
-    <p>For a presentation plan, start with cleaned linework and a compatible line-control workflow. For a perspective of a specified design, the recommended route here is to set the heights and camera in a massing model, then export its depth map. This is a workflow recommendation drawn from <a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth's documented use of depth maps to guide image structure</a>, not a guarantee that the result preserves every dimension.</p>
+    <p>For a presentation plan, start with cleaned linework and a compatible line-control workflow. For a perspective of a specified design, set the heights and camera in a massing model, then export its depth map. This recommendation follows <a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth's documented use of depth maps to guide image structure</a>, not a guarantee that the result preserves every dimension.</p>
     <p>A depth estimator offers another route from an existing image. <a href="https://github.com/DepthAnything/Depth-Anything-V2">Depth Anything V2</a> estimates depth from a single image; it does not receive the wall heights missing from your drawing. Keep that distinction visible in the workflow. A plausible ceiling is still a design decision someone has to make.</p>
 
-    <h2>Build the input before polishing the image</h2>
-    <p>Use this sequence as a planning checklist. It is not a tested graph or a promise of a particular render time.</p>
+    <h2>Choose the control inputs before writing the prompt</h2>
+    <p>Use this planning checklist alongside the linked model examples.</p>
     <ol>
       <li><strong>Name the view.</strong> Decide whether the deliverable is a coloured plan or a perspective. For the latter, establish the intended camera and heights before generating its control image.</li>
-      <li><strong>Inspect the hint.</strong> Compare the extracted lines or exported depth map with the source. Keep an unedited copy so later changes remain visible.</li>
-      <li><strong>Choose one documented model route.</strong> Load its example and required files. Begin with a plain material instruction, such as “oak flooring, white walls, daylight”. This is an illustrative prompt, not a measured improvement over another prompt.</li>
+      <li><strong>Inspect the control hint.</strong> Compare the extracted lines or exported depth map with the source. Keep an unedited copy so later changes remain visible.</li>
+      <li><strong>Follow one documented model example.</strong> Load its workflow and required files. Begin with a plain material instruction, such as “oak flooring, white walls, daylight”. This is an illustrative prompt, not a measured improvement over another prompt.</li>
       <li><strong>Compare the output.</strong> Check openings and wall boundaries against the source before treating the image as a presentation candidate. Record the model files, controls and settings used.</li>
     </ol>
-    <p>The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> expands that review sequence. If another generation pass is needed, the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass guide</a> discusses carrying depth and edge references forward. Neither link supplies a measured success rate for a floor-plan conversion.</p>
+    <p>The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> expands that review sequence. If another generation pass is needed, the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass guide</a> discusses carrying depth and edge references forward. Use both guides alongside visual inspection of the source and output.</p>
 
     <h2>Which nodes and models belong together?</h2>
     <p>Three things need separate names: the source image, the node that extracts a hint, and the model that uses it. The <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">ControlNet Auxiliary Preprocessors README</a> says the pack creates hint images. Its M-LSD Lines entry pairs with <code>control_v11p_sd15_mlsd</code> or <code>control_mlsd</code>; Canny Edge pairs with SD1.5 Canny controls. Those entries do not identify FLUX weights.</p>

@@ -27,7 +27,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Workflows
 
-- [ComfyUI Floor Plan to 3D Render](https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html): Source-led guide to coloured plans, perspective depth inputs and compatible ComfyUI model files; generated images are not measured drawings.
+- [ComfyUI Floor Plan Renders: Line or Depth?](https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html): Planning guide to line and depth inputs, compatible model files and linked examples for floor-plan presentation images.
 
 - [Floor Plan to Blender: What the Audit Caught](https://archigenai.com/floor-plan-to-blender-3d-model-audit-2026.html): ArchiGen's documented test: tracing raster floor plans into a Blender model, the five errors an overlay caught, and the checks that fixed them.
 - [Blender + ComfyUI: A Tested Architectural Rendering Workflow](https://archigenai.com/blender-comfyui-architectural-rendering-workflow-test.html): A documented local test (RTX 3090, Blender 5.2.0 LTS, ComfyUI 0.37.0) with settings, approved interior renders, AI mistakes and masking steps.
