@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, follow" />
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
@@ -18,19 +17,23 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>ComfyUI Sketch to Photoreal for Architecture | ArchiGen AI</title>
-<meta name="description" content="A four-stage ComfyUI workflow for turning architectural hand sketches into photoreal renders: preprocessing, stacked ControlNet, sampler settings and upscale." />
+<title>ComfyUI Sketch Renders: Nodes and Models | ArchiGen AI</title>
+<meta name="description" content="Choose ComfyUI nodes and models for architectural sketch renders: line preprocessors, compatible FLUX files, model licences and workflow JSON structure." />
 <link rel="canonical" href="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html" />
-<meta property="og:title" content="ComfyUI Sketch to Photoreal for Architecture" />
-<meta property="og:description" content="A four-stage ComfyUI workflow for turning architectural hand sketches into photoreal renders: preprocessing, stacked ControlNet, sampler settings and upscale." />
+<meta property="og:title" content="ComfyUI Sketch Renders: Nodes and Models" />
+<meta property="og:description" content="Choose ComfyUI nodes and models for architectural sketch renders: line preprocessors, compatible FLUX files, model licences and workflow JSON structure." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" />
+<meta property="og:image:alt" content="AI editorial illustration of an angular concrete building with cyan wireframe lines over a wet plaza at night." />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+<meta name="twitter:image:alt" content="AI editorial illustration of an angular concrete building with cyan wireframe lines over a wet plaza at night." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI Sketch to Photoreal for Architecture" />
-<meta name="twitter:description" content="A four-stage ComfyUI workflow for turning architectural hand sketches into photoreal renders: preprocessing, stacked ControlNet, sampler settings and upscale." />
+<meta name="twitter:title" content="ComfyUI Sketch Renders: Nodes and Models" />
+<meta name="twitter:description" content="Choose ComfyUI nodes and models for architectural sketch renders: line preprocessors, compatible FLUX files, model licences and workflow JSON structure." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,6 +119,10 @@
   .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
 
+  .article-body code { overflow-wrap: anywhere; }
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  .table-scroll:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
+  .compare-table caption { text-align: left; padding: 0 0 12px; }
   .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
   .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
   .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
@@ -149,6 +156,23 @@
 .agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 .agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
 .agv-inline { margin: 40px 0; }
+@media (max-width: 700px) {
+  .wrap { padding: 0 20px; }
+  .nav-inner { grid-template-columns: 1fr auto; gap: 12px; padding: 14px 20px; }
+  .brand { font-size: 17px; gap: 8px; }
+  .nav-links { grid-column: 1 / -1; grid-row: 2; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { padding: 7px 10px; font-size: 12px; }
+  .nav-right { grid-column: 2; grid-row: 1; }
+  .nav-right .btn { padding: 8px 10px; font-size: 12px; }
+  .article-header { padding: 40px 0 32px; }
+  .article-header .meta { flex-wrap: wrap; gap: 8px; }
+  .article-header .lede { font-size: 18px; }
+  .article-body { padding: 32px 0 48px; }
+  .compare-table th, .compare-table td { padding: 10px 6px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .foot-grid > div:first-child { grid-column: 1 / -1; }
+  .foot-bottom { flex-wrap: wrap; gap: 12px; }
+}
 </style>
 
 <script type="application/ld+json">
@@ -193,25 +217,33 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg",
+  "@type": "Article",
+  "headline": "ComfyUI Sketch Renders: Nodes and Models",
+  "description": "Choose ComfyUI nodes and models for architectural sketch renders: line preprocessors, compatible FLUX files, model licences and workflow JSON structure.",
   "image": {
     "@type": "ImageObject",
-    "url": "https://archigenai.com/assets/villa-gpt-upper.png",
-    "width": 1200,
-    "height": 800,
-    "caption": "Upper terrace render via GPT Image 2"
+    "url": "https://archigenai.com/assets/hero-comfyui-sketch-to-photoreal-architecture.jpg",
+    "width": 1376,
+    "height": 768,
+    "caption": "AI-generated editorial illustration (Gemini), not a ComfyUI result or a built project."
   },
-  "headline": "ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry",
-  "description": "Architecture students keep asking how to turn hand sketches into convincing renders without losing the building. Here's the ComfyUI workflow we use, the nodes that matter, and why most tutorials give bad advice.",
-  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
-  "publisher": { "@id": "https://archigenai.com/#organization" },
-  "datePublished": "2026-05-03T11:00:00-04:00",
-  "dateModified": "2026-05-03T11:00:00-04:00",
+  "author": {
+    "@id": "https://archigenai.com/#nora-sinclair"
+  },
+  "publisher": {
+    "@id": "https://archigenai.com/#organization"
+  },
+  "datePublished": "2026-05-03",
+  "dateModified": "2026-10-05",
   "mainEntityOfPage": "https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html",
-  "articleSection": "Tutorials",
-  "timeRequired": "PT9M",
+  "articleSection": "Workflow guides",
   "inLanguage": "en",
-  "keywords": ["ComfyUI architecture", "sketch to render", "FLUX architecture", "ControlNet sketch", "AI rendering tutorial"]
+  "keywords": [
+    "ComfyUI architecture nodes and models",
+    "sketch to image",
+    "FLUX Canny",
+    "workflow JSON"
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -234,7 +266,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "ComfyUI Sketch-to-Photoreal for Architecture, A Workflow That Actually Holds Geometry",
+      "name": "ComfyUI Sketch Renders: Nodes and Models",
       "item": "https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html"
     }
   ]
@@ -270,7 +302,7 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Join the studio →</a>
+      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Get the newsletter →</a>
     </div>
   </div>
 </nav>
@@ -278,19 +310,19 @@
 <section class="article-header">
   <div class="wrap">
     <div class="meta">
-      <span class="tag">Tutorial · 03 May 2026</span>
-      <span class="tag">· 9 min read</span>
+      <span class="tag">Guide · 03 May 2026</span>
+      <span class="tag">Updated 05 October 2026</span>
     </div>
     <div class="update-badge">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-      Hand Sketch → Photoreal
+      Sketch inputs · Model files
     </div>
-    <h1>Sketch <em>to photoreal</em></h1><aside class="correction-notice" role="note" style="max-width:760px;margin:24px 0;padding:16px 20px;border-left:3px solid #C96F4A;background:#EAE5D9;color:#1A1915;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;"><strong>Correction, 30 September 2026:</strong> this article describes hands-on tests on client projects that ArchiGen did not carry out. Its results are unverified, and it is being rewritten.</aside>
-    <p class="lede">An architecture student posted on r/comfyui this week asking how to turn hand sketches into realistic renders. Most replies were wrong. Here's the workflow that actually works, what nodes you need, what numbers to set, and why most tutorials get this wrong.</p>
+    <h1>ComfyUI Sketch Renders: Nodes and Models</h1>
+    <p class="lede">ComfyUI sketch-render options include <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">Scribble Lines with SD1.5's Scribble ControlNet</a>, or an edge map with <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">FLUX.1 Canny</a>. The auxiliary pack supplies hint-image preprocessors; BFL supplies FLUX structural weights. Match the hint to the model family. A workflow JSON records the graph; model files must be supplied separately.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair</a></div><div class="detail" style="margin-top:6px;">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece published under her name is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div>
-        <div class="detail">9 min read · May 2026 · Tested on FLUX.1 Dev + RTX 4080</div>
+        <div class="detail">Source-led guide · Updated 05 October 2026</div>
       </div>
     </div>
   </div>
@@ -298,191 +330,76 @@
 
 <section class="agv-hero-section" data-agvis="hero">
   <div class="wrap"><figure>
-  <img src="assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" alt="A low-angle night photograph of a modern concrete building partially dissolving into cyan wireframes over rain-slicked plaza reflections." fetchpriority="high" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>When ControlNet locks in, rough linework turns into actual architectural mass.</span></figcaption>
+    <img src="assets/hero-comfyui-sketch-to-photoreal-architecture.jpg" width="1376" height="768" alt="AI editorial illustration of an angular concrete building with cyan wireframe lines over a wet plaza at night." fetchpriority="high" />
+    <figcaption class="agv-cap"><span class="agv-chip">AI-generated editorial illustration (Gemini)</span> <span>Imagined architecture, not a ComfyUI result or a built project.</span></figcaption>
   </figure></div>
 </section>
-
 
 <div class="wrap">
   <div class="article-body">
 
-    <div class="gallery-full">
-      <figure>
-        <img src="assets/villa-gpt-upper.png" alt="Aerial view of modern villa with highly detailed forest context" loading="lazy" />
-        <figcaption>Upper terrace render via GPT Image 2 / ArchiGen AI Curation</figcaption>
-      </figure>
+    <h2>Which nodes and models fit a sketch?</h2>
+
+    <p>A sketch enters the process as an image. A preprocessor extracts a hint; the compatible model uses that hint during generation. The <a href="https://arxiv.org/abs/2302.05543">ControlNet paper</a> documents edge, depth and other spatial controls. It does not establish one sampler recipe for every architectural drawing. Treat the choices below as a file reference, with public workflow examples linked in the FLUX section.</p>
+
+    <p>The <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">auxiliary preprocessor README</a> maps these line nodes to SD1.5 ControlNets. Its nodes produce hint images; they do not supply the control weights.</p>
+
+    <div class="table-scroll" role="region" aria-label="Line preprocessors and SD1.5 controls" tabindex="0">
+      <table class="compare-table">
+        <caption>Documented line inputs for SD1.5 controls</caption>
+        <thead><tr><th scope="col">Preprocessor</th><th scope="col">Listed control model</th></tr></thead>
+        <tbody>
+          <tr><td>Scribble Lines</td><td><code>control_v11p_sd15_scribble</code></td></tr>
+          <tr><td>Canny Edge</td><td><code>control_v11p_sd15_canny</code></td></tr>
+          <tr><td>M-LSD Lines</td><td><code>control_v11p_sd15_mlsd</code></td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <p>Every few weeks <a href="comfyui-archviz-question-nobody-answers-2026.html" data-agl="1">a familiar Reddit post appears on r/comfyui</a>. An architecture student has been generating images for months, they have the tool installed, they've watched the tutorials, and they still can't turn their hand sketches into renders that look like their actual building. The replies they get are mostly wrong, often from people who haven't actually tried to do this work.</p>
+    <p>Need to adjust Canny thresholds? Use its own node. The pack's all-in-one preprocessor does not expose those controls. Inspect the resulting hint before moving on; that is the image you are asking the model to follow.</p>
 
-    <p>This article is a workflow for sketch-to-photoreal conversion. It's also the workflow we'd point that student to.</p>
+    <p>Keep the model family explicit. <a href="https://docs.comfy.org/tutorials/flux/flux-1-controlnet">Comfy's FLUX ControlNet guide</a> requires a control model compatible with the base model. An SD1.5 Scribble weight does not become a FLUX model because its input is a drawing. The <a href="comfyui-architecture-flux-sdxl-model-routing-2026.html">FLUX and SDXL model-routing guide</a> covers the broader family choice.</p>
 
-    <p>Two things up front. First, this is the local-ComfyUI workflow, you're not paying per render. Second, if you have access to <a href="nano-banana-2-architecture-rendering-explained.html">Nano Banana 2 through Veras or the Chaos API</a>, you'll get better results. NB2 is genuinely better at this. But it's not free, and if you're a student or a small practice running on what you already have, this workflow gets you 80% of the way for $0 of inference cost.</p>
+    <h2>FLUX has its own structural files</h2>
 
-    <h2>What you <em>need</em> first</h2>
+    <p><a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">BFL's structural-conditioning documentation</a> lists Canny for edge maps and Depth for depth maps, each as a full model and a LoRA for FLUX.1 [dev]. That set contains no Scribble model. Do not build a shopping list around an official FLUX Scribble file that this release does not provide.</p>
 
-    <p><strong>Hardware:</strong> 16GB+ VRAM is comfortable (RTX 4080 / 4090 / 5080). 12GB works with quantized FLUX. 8GB cards should run SDXL instead, same workflow logic, weaker output.</p>
+    <p>The <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">ComfyUI FLUX examples</a> give these filenames and folders, plus importable example workflows:</p>
 
-    <p><strong>Models:</strong></p>
-    <ul>
-      <li><strong>FLUX.1 Dev</strong> as the base checkpoint. The Dev release is the right balance of quality and license, you can use it for personal and most commercial work.</li>
-      <li><strong>An architectural LoRA.</strong> We use a custom-trained one but several decent ones are available on Civitai. Look for LoRAs trained on contemporary architecture rather than "fantasy castle" or "cyberpunk" variants.</li>
-      <li><strong>ControlNet for FLUX:</strong> the Scribble model and the Canny model. You're going to use both.</li>
-    </ul>
-
-    <p><strong>Custom nodes:</strong> ComfyUI Manager (you should already have this), the standard ControlNet Auxiliary Preprocessors pack, and the Inspire Pack for some convenience nodes. Nothing exotic.</p>
-
-    <h2>The four-stage <em>workflow</em></h2>
-
-    <p>Most tutorials show a single chain: sketch in, render out. That's the source of most failures. The workflow that actually works has four distinct stages, each with a job.</p>
-
-    <p><strong>Stage 1, Pre-process the sketch.</strong> Run your hand sketch (or rough digital sketch) through both the Scribble and the Canny preprocessors. This gives you two control signals: Scribble captures the loose intent of your line work, Canny captures the hard structural lines. Save both as image outputs.</p>
-
-    <p><strong>Stage 2, Stacked ControlNet conditioning.</strong> Feed both control signals into your conditioning chain at moderate strength. This is the step most tutorials skip or do wrong.</p>
-
-    <p><strong>Stage 3, Sampling with the architectural LoRA.</strong> Run a standard FLUX KSampler with the LoRA loaded. Specific numbers below.</p>
-
-    <p><strong>Stage 4, Detail upscale and post.</strong> A second pass through an upscaler (we use 4x-UltraSharp through ComfyUI's standard upscale node), then optional latent re-encoding for final detail.</p>
-
-    <p>Each stage has settings that matter. Let's go through them.</p>
-
-    <h2>Stage 1: <em>Sketch preprocessing</em></h2>
-
-    <p>Start with a clean sketch. Resolution doesn't need to be high, 1024x1024 is plenty. Pen-and-paper sketches scanned at 300dpi work fine. The model wants to see your line logic; it does not want to see the texture of your paper.</p>
-
-    <p>Pre-clean the sketch. Threshold it in Photoshop or similar so you have black lines on white, no shading, no texture. If your hand sketch has shading, lose the shading, Scribble will read it as additional structural intent and confuse the output. We've seen students keep their pencil shading in and then wonder why the AI rendered a building with a giant gray cloud over it. The cloud was their shadow.</p>
-
-    <p>Run the cleaned sketch through both:</p>
-
-    <ul>
-      <li><strong>Scribble preprocessor</strong>, produces a thin-line map that captures intent loosely. This is your "atmosphere" control signal.</li>
-      <li><strong>Canny preprocessor</strong>, produces a hard-edge map. Set the low threshold around 100 and the high around 200 for typical line work.</li>
-    </ul>
-
-    <figure class="agv-inline" data-agvis="inline">
-  <img src="assets/inline-comfyui-sketch-to-photoreal-architecture-1.jpg" alt="A close-up macro photograph of textured terracotta facade panels hit by harsh sunlight through wet glass." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Raking light reveals the physical depth that single-model passes usually flatten.</span></figcaption>
-</figure>
-
-        <h2>Stage 2: <em>Stacked ControlNet</em></h2>
-
-    <p>Here's the actual numbers, which most tutorials skip:</p>
-
-    <pre><code>ControlNet Apply (Scribble)
-  strength: 0.75
-  start_percent: 0.0
-  end_percent: 0.6
-
-ControlNet Apply (Canny)
-  strength: 0.65
-  start_percent: 0.0
-  end_percent: 0.7</code></pre>
-
-    <p>Why two? Single-ControlNet workflows force you to choose: hold to the loose intent (Scribble alone, building changes shape) or hold to the hard lines (Canny alone, output is over-constrained and looks artificial). Stacking both at moderate strength gives the model two signals to weigh against each other. The output keeps your overall massing logic and your hard structural lines while having room to interpret materials, lighting, and detail.</p>
-
-    <p>The end_percent values matter. Cutting both ControlNets off before sampling is complete (0.6 and 0.7 of total steps) lets the model do its detail work in the final 30-40% of inference without being forced back to the line input. This is where the photorealism actually emerges.</p>
-
-    <blockquote>The mental model: ControlNets enforce the building's bones in the early steps; the model itself adds the flesh and skin in the late steps. Don't let the bones override the skin.</blockquote>
-
-    <h2>Stage 3: <em>The sampler settings</em></h2>
-
-    <p>FLUX sampling for architecture is forgiving but specific:</p>
-
-    <pre><code>KSampler (FLUX)
-  sampler: euler
-  scheduler: simple
-  steps: 28
-  cfg: 3.8
-  denoise: 1.0
-
-LoRA strength: 0.6 - 0.8 depending on LoRA
-
-Prompt structure:
-  [building type], [materials], [time of day],
-  [photographic style], [optional: street view /
-  axon / etc.], professional architectural
-  photography, sharp focus, natural lighting</code></pre>
-
-    <p>Three numbers to internalize: <strong>CFG 3.8</strong>, <strong>steps 28</strong>, <strong>LoRA 0.7</strong>. The CFG range that works is roughly 3.5-4.5. Above 5.0, the model starts ignoring the ControlNets and overfitting to your prompt. Below 3.0, it ignores your prompt and renders generic mush.</p>
-
-    <p>For prompts: lead with the most specific architectural detail, not with style words. <code>"three-story timber-frame house, larch cladding, board-and-batten, golden hour, 35mm photograph"</code> works better than <code>"beautiful architectural photo of a modern house"</code>. The model responds to specificity. Vague prompts produce vague output.</p>
-
-    <figure class="agv-inline" data-agvis="inline">
-  <img src="assets/inline-comfyui-sketch-to-photoreal-architecture-2.jpg" alt="An overhead drone photograph of a modern timber building and reflecting pool emerging from dawn fog." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Tiled upscaling restores material detail without warping the original gesture.</span></figcaption>
-</figure>
-
-        <h2>Stage 4: <em>Upscale and refine</em></h2>
-
-    <p>FLUX outputs at 1024x1024 read fine on screen but lack detail at print size. The final stage adds resolution.</p>
-
-    <p>Standard pattern: <strong>4x-UltraSharp</strong> upscaler through ComfyUI's <code>Upscale Image (using Model)</code> node. Then optionally re-encode to latent and <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html" data-agl="1">run a low-denoise pass (around 0.25)</a> through FLUX again at the upscaled resolution. This second pass adds material micro-detail, the grain in concrete, the texture of brick mortar, the irregularity of weathered metal, that wasn't visible at 1024.</p>
-
-    <p>Don't denoise above 0.35 in this second pass or you'll start re-interpreting the building. Stay low, let it polish.</p>
-
-    <h2>The full <em>node graph</em></h2>
-
-    <p>Conceptually:</p>
-
-    <pre><code>Sketch → [Preprocess: Scribble] ─┐
-       └→ [Preprocess: Canny]    ─┤
-                                  ├→ Stacked ControlNet →
-Prompt → [CLIP Text Encode]      ─┤    Conditioning
-                                  │
-LoRA Loader (FLUX) ───────────────┤
-                                  │
-FLUX Model + VAE ─────────────────┴→ KSampler →
-                                                 Image Decode →
-                                                 Upscale Model →
-                                                 (optional 2nd-pass refine) →
-                                                 Save Image</code></pre>
-
-    <p>If you want a working .json workflow file matching this exactly, it'll be in the next workflow drop on the ArchiGen AI Workflows page. For now, building it from this description in 20-30 minutes is straightforward if you're comfortable with ComfyUI.</p>
-
-    <h2>What goes <em>wrong</em></h2>
-
-    <p>The four most common failure modes and how to fix them:</p>
-
-    <p><strong>Output ignores the building entirely.</strong> Your CFG is too high (above 5.0) or your ControlNet strengths are too low (below 0.5). Increase ControlNet strengths first; lower CFG second.</p>
-
-    <p><strong>Output looks like a sketch with color filled in.</strong> Your end_percent values are too high, you're holding the ControlNets through the entire sampling process. Drop them to 0.6/0.7. Let the model actually render the late steps.</p>
-
-    <p><strong>Output is photorealistic but the building changed.</strong> Your sketch is too loose for what you're asking. <a href="recover-depth-canny-from-flat-render-comfyui-architects-2026.html" data-agl="1">Add a Canny pass with cleaner line input</a>. Or accept that the model needed more structural information than you gave it and tighten the sketch.</p>
-
-    <p><strong>Materials look wrong.</strong> Your prompt isn't specific enough about materiality, or your architectural LoRA was trained on a different style. Be explicit in the prompt about exact materials. If a LoRA keeps pulling outputs toward "sleek modernist glass house" regardless of what you ask for, that LoRA is overpowered for general use, drop it to 0.4 strength or swap it.</p>
-
-    <h2>When <em>not</em> to use this workflow</h2>
-
-    <p>This is the right tool for: turning hand sketches into client-presentable visualization, exploring design directions in early SD, generating quick atmosphere shots from rough massing studies, and doing what students and small practices need most, getting from concept to image without paying per render.</p>
-
-    <p>It's the wrong tool for: rendering an actual developed BIM model (use Veras), doing client-final hero shots that need to be defensible to scrutiny (still use Veras or a real renderer), or for projects where the building has to be exactly correct and the AI output will be measured against drawings (don't use any AI tool for this; use V-Ray or similar).</p>
-
-    <p>Scope what you're using AI for. ComfyUI sketch-to-render is excellent for the conceptual end of the spectrum. It is not a substitute for a developed rendering pipeline.</p>
-
-    <h2>What's <em>next</em></h2>
-
-    <p>Two things to watch this year. First, FLUX.2 if it ships, Black Forest Labs has hinted at architectural fine-tunes in the roadmap, which could collapse the need for community LoRAs. Second, the ControlNet ecosystem itself is consolidating; expect a unified architectural ControlNet from one of the major labs by end of year that does what Scribble + Canny + custom training do today.</p>
-
-    <p>The workflow above will keep working through both transitions. The principles, stack ControlNets at moderate strength, keep CFG low, let the model interpret your sketch in the late steps, translate to whatever model you swap in. That's the whole point of working in ComfyUI rather than in a closed product. The graph is the asset.</p>
-
-    <hr>
-
-    
-
-    <div class="related">
-      <h4>Related Reading</h4>
-      <div class="related-grid">
-        <a href="comfyui-advanced-tutorial.html" class="related-card">
-          <div class="rc-tag">Workflow · Apr 2026</div>
-          <div class="rc-title">ComfyUI advanced, exterior workflows that actually work</div>
-        </a>
-        <a href="prompt-engineering-architectural-exteriors.html" class="related-card">
-          <div class="rc-tag">Workflow · Apr 2026</div>
-          <div class="rc-title">Prompt engineering for architectural exteriors</div>
-        </a>
-      </div>
+    <div class="table-scroll" role="region" aria-label="FLUX structural model file reference" tabindex="0">
+      <table class="compare-table">
+        <caption>Paths are relative to the ComfyUI installation</caption>
+        <thead><tr><th scope="col">Route</th><th scope="col">File</th><th scope="col">Folder</th></tr></thead>
+        <tbody>
+          <tr><td>Canny, full model</td><td><code>flux1-canny-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+          <tr><td>Depth, full model</td><td><code>flux1-depth-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+          <tr><td>Canny LoRA</td><td><code>flux1-canny-dev-lora.safetensors</code></td><td><code>models/loras/</code></td></tr>
+          <tr><td>Depth LoRA</td><td><code>flux1-depth-dev-lora.safetensors</code></td><td><code>models/loras/</code></td></tr>
+        </tbody>
+      </table>
     </div>
+
+    <p>The LoRA versions apply to FLUX.1 [dev]. The regular setup also needs text encoders and a VAE; follow the linked example's file list. Its single-file fp8 checkpoint is a separate route: it uses <code>Load Checkpoint</code>, with CFG set to 1.0 in that example. That instruction is specific to the checkpoint, not an architectural rendering preset.</p>
+
+    <p>Start from the public example that matches your files. Save the hint image alongside the generation so you can compare the intended lines with the output. The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> offers a way to organise those comparisons. If you plan another generation pass, the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass control guide</a> addresses that separate decision. Neither step needs an invented universal strength or denoise value.</p>
+
+    <h2>What does the workflow JSON contain?</h2>
+
+    <p>Comfy's <a href="https://docs.comfy.org/specs/workflow_json_0.4">workflow JSON schema 0.4</a> describes a graph using nodes and links. At the root it requires <code>last_node_id</code>, <code>last_link_id</code>, <code>nodes</code>, <code>links</code> and <code>version</code>.</p>
+
+    <p>Each node requires <code>id</code>, <code>type</code>, <code>pos</code>, <code>size</code>, <code>flags</code>, <code>order</code>, <code>mode</code> and <code>properties</code>. Its <code>inputs</code>, <code>outputs</code> and <code>widgets_values</code> fields are optional in this schema. Widget values may be an array or an object.</p>
+
+    <p>The optional <code>models</code> array records file information: each entry requires <code>name</code>, <code>url</code> and <code>directory</code>. That is model metadata, not the weights themselves. When sharing a graph, include the exact model names and the node packages it depends on. A JSON file with an ambiguous checkpoint name leaves the next reader guessing.</p>
+
+    <h2>Check the licence before the download</h2>
+
+    <p>The <a href="https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-dev.md">FLUX.1 [dev] model card</a> places its weights under a non-commercial licence and treats output use separately under those terms. The <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">Canny and Depth releases</a> are also labelled non-commercial. BFL offers a separate <a href="https://bfl.ai/licensing">commercial weight licence</a>. Downloadable weights are not blanket permission for commercial use.</p>
+
+    <p>An upscaler has its own terms. If a shared graph names <a href="https://huggingface.co/Kim2091/UltraSharp">4x-UltraSharp</a>, its author identifies it as a 4x ESRGAN model under CC-BY-NC-SA-4.0. Check that restriction before treating it as a default for paid work. This is a licence check, not a recommendation based on a render test.</p>
+
+    <h2>An image cannot certify the drawing</h2>
+
+    <p><a href="https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-dev.md">FLUX.1 [dev] generates images</a>; BFL's structural variants guide those images with edges or depth. That makes a sketch render a visual proposal, not a measured drawing or a BIM model. Keep dimensions in the design document. A convincing facade is still an image.</p>
 
   </div>
 </div>
@@ -496,7 +413,7 @@ FLUX Model + VAE ─────────────────┴→ KSamp
           <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
         </a>
         <h3>A publication for architects designing <em>with the machine.</em></h3>
-        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Independent architecture publication</div>
       </div>
       <div>
         <h4>Read</h4>
