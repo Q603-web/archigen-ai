@@ -148,6 +148,97 @@
 .agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 .agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
 .agv-inline { margin: 40px 0; }
+
+/* growth E3 newsletter styles:start */
+.article-newsletter {
+  background: #172b2c;
+  color: var(--paper, var(--p, #f2efe8));
+  border-radius: 10px;
+  padding: 32px 28px;
+  margin: 44px 0;
+  max-width: 840px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  box-sizing: border-box;
+  scroll-margin-top: 150px;
+}
+.article-newsletter > div { min-width: 0; }
+.article-newsletter .eyebrow {
+  display: block;
+  font: 10px/1.4 var(--f-mono, var(--fm, 'JetBrains Mono', monospace));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c7d0c7;
+  margin-bottom: 10px;
+}
+.article-newsletter h3 {
+  font-family: var(--f-display, var(--fd, 'Fraunces', serif));
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.article-newsletter h3 em { color: #e3b777; font-style: italic; font-weight: 300; }
+.article-newsletter p { font-size: 13px; line-height: 1.55; color: #d3d8d2; margin: 0 0 16px; }
+.article-newsletter .news-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font: 9px/1.5 var(--f-mono, var(--fm, 'JetBrains Mono', monospace));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a4b3a7;
+}
+.article-newsletter .signup-options { display: flex; flex-direction: column; min-width: 0; }
+.article-newsletter .signup-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  min-height: 48px;
+  white-space: normal;
+  text-align: center;
+  border-radius: 999px;
+  background: var(--paper, var(--p, #f4efe3));
+  color: #1a1915;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.article-newsletter .signup-link:hover { background: #f3c374; color: #1a1915; transform: translateY(-1px); }
+.article-newsletter .signup-help { font-size: 11px; line-height: 1.4; color: #a4b3a7; margin: 12px 0 8px; }
+.article-newsletter .signup-web {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 14px 0;
+  font-size: 11px;
+  color: #d3d8d2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-newsletter .signup-web:hover { color: #fff; }
+.article-newsletter a:focus-visible { outline: 3px solid #f3c374; outline-offset: 4px; }
+.newsletter-placement { max-width: 920px; margin: 0 auto; padding: 0 40px; }
+@media (min-width: 620px) {
+  .article-newsletter { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 28px; align-items: center; padding: 36px 32px; }
+}
+@media (max-width: 619px) {
+  .newsletter-placement { padding: 0 20px; }
+  .article-newsletter .signup-link { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-newsletter .signup-link { transition: none; }
+  .article-newsletter .signup-link:hover { transform: none; }
+}
+/* growth E3 newsletter styles:end */
 </style>
 
 <script type="application/ld+json">
@@ -240,6 +331,7 @@
   ]
 }
 </script>
+<script src="scripts/newsletter-analytics.js" defer></script>
 </head>
 <body>
 
@@ -331,7 +423,43 @@
   <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Subscriptions buy fine-grained material control when night renders demand precision.</span></figcaption>
 </figure>
 
-        <h2>What a Veras subscription actually buys</h2>
+        <!-- growth E3 newsletter:start -->
+<aside class="newsletter article-newsletter" aria-label="Newsletter">
+  <div class="newsletter-copy">
+    <span class="eyebrow">The Sunday dispatch</span>
+    <h3>Letters from the <em>practice.</em></h3>
+    <p>Most architectural AI tutorials read like promotional copy for cloud compute vendors. ArchiGen arrives once every Sunday with one focused essay and three tools worth a look, with their claims checked. We read the docs, model cards, and public threads, checking vendor claims against their own published evidence.</p>
+    <div class="news-meta">
+      <span>Sunday dispatch</span>
+      <span>One email weekly</span>
+      <span>Unsubscribe anytime</span>
+    </div>
+  </div>
+  <div class="signup-options">
+    <a class="btn light signup-link"
+       href="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e"
+       target="_blank"
+       rel="noopener"
+       data-ph-capture-attribute-cta="newsletter-web"
+       data-ph-capture-attribute-placement="in-article"
+       data-ph-capture-attribute-cta_id="in-article-newsletter-beehiiv"
+       data-ph-capture-attribute-destination="web-signup">
+      Subscribe to the Sunday letter <span aria-hidden="true">&nearr;</span>
+    </a>
+    <p class="signup-help">Opens the web signup form in a new tab. Unsubscribe at any time.</p>
+    <a class="signup-web"
+       href="mailto:hello@archigenai.com?subject=Subscribe%20me%20to%20the%20Sunday%20letter&amp;body=Please%20add%20me%20to%20the%20ArchiGen%20Sunday%20letter."
+       data-ph-capture-attribute-cta="newsletter-mailto"
+       data-ph-capture-attribute-placement="in-article"
+       data-ph-capture-attribute-cta_id="in-article-newsletter-mailto"
+       data-ph-capture-attribute-destination="mailto">
+      Or subscribe via email request &nearr;
+    </a>
+  </div>
+</aside>
+<!-- growth E3 newsletter:end -->
+
+<h2>What a Veras subscription actually buys</h2>
 
     <p>Veras, now running on its 2026 engine, plays a different game. Where the native Archicad tool is a text-prompt instrument bolted to one application, Veras is built as a cross-platform AI visualization layer with a few capabilities that matter once you move past pure exploration.</p>
 
