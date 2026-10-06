@@ -52,6 +52,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Rendero's 11-Tool Comparison Audit](https://archigenai.com/rendero-11-ai-rendering-tools-comparison-audit-2026.html): Rendero compares 11 AI rendering tools by input and workflow, not one score. The method is useful, but its vendor authorship still matters.
 - [Fix AI Render Reflections in ComfyUI](https://archigenai.com/comfyui-fix-architectural-render-reflections-2026.html): A ComfyUI workflow for repairing glazing and reflections after lighting, with masks and geometry controls that keep the architecture in place.
 - [What BIM Integration Actually Means in an AI Renderer](https://archigenai.com/what-bim-integration-means-ai-renderers-2026.html): A BIM plugin badge does not prove an AI renderer understands the model. Use four tests to see what data survives from Revit, Rhino or Archicad.
 - [Floor Plan to Blender: What the Audit Caught](https://archigenai.com/floor-plan-to-blender-3d-model-audit-2026.html): ArchiGen's documented test: tracing raster floor plans into a Blender model, the five errors an overlay caught, and the checks that fixed them.
