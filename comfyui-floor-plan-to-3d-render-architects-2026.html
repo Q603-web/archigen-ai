@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, follow" />
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
@@ -18,21 +17,25 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>ComfyUI: 2D Floor Plan to Photoreal 3D Render | ArchiGen AI</title>
-<meta name="description" content="Turning a 2D floor plan into a lit, furnished render in ComfyUI: ControlNet for walls, depth for perspective, where the graph invents walls, and who it suits." />
+<title>ComfyUI Floor Plan Renders: Line or Depth? | ArchiGen AI</title>
+<meta name="description" content="Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples." />
 <link rel="canonical" href="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html" />
-<meta property="og:title" content="ComfyUI: 2D Floor Plan to Photoreal 3D Render" />
-<meta property="og:description" content="Turning a 2D floor plan into a lit, furnished render in ComfyUI: ControlNet for walls, depth for perspective, where the graph invents walls, and who it suits." />
+<meta property="og:title" content="ComfyUI Floor Plan Renders: Line or Depth?" />
+<meta property="og:description" content="Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI: 2D Floor Plan to Photoreal 3D Render" />
-<meta name="twitter:description" content="Turning a 2D floor plan into a lit, furnished render in ComfyUI: ControlNet for walls, depth for perspective, where the graph invents walls, and who it suits." />
+<meta name="twitter:title" content="ComfyUI Floor Plan Renders: Line or Depth?" />
+<meta name="twitter:description" content="Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" />
 
+<meta property="og:image:width" content="1344" />
+<meta property="og:image:height" content="768" />
+<meta property="og:image:alt" content="AI-generated illustration pairing an interior line drawing with a furnished room; no actual input/output pair is shown." />
+<meta name="twitter:image:alt" content="AI-generated illustration pairing an interior line drawing with a furnished room; no actual input/output pair is shown." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -113,6 +116,10 @@
   .tool-card .tc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
   .tool-card .tc-tags span { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; background: var(--rule); padding: 4px 8px; border-radius: 4px; color: var(--muted); }
 
+  .article-body code { overflow-wrap: anywhere; }
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  .table-scroll:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
+  .compare-table caption { text-align: left; padding: 0 0 12px; }
   .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
   .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
   .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
@@ -156,6 +163,23 @@
 .agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 .agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
 .agv-inline { margin: 40px 0; }
+@media (max-width: 700px) {
+  .wrap { padding: 0 20px; }
+  .nav-inner { grid-template-columns: 1fr auto; gap: 12px; padding: 14px 20px; }
+  .brand { font-size: 17px; gap: 8px; }
+  .nav-links { grid-column: 1 / -1; grid-row: 2; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { padding: 7px 10px; font-size: 12px; }
+  .nav-right { grid-column: 2; grid-row: 1; }
+  .nav-right .btn { padding: 8px 10px; font-size: 12px; }
+  .article-header { padding: 40px 0 32px; }
+  .article-header .meta { flex-wrap: wrap; gap: 8px; }
+  .article-header .lede { font-size: 18px; }
+  .article-body { padding: 32px 0 48px; }
+  .compare-table th, .compare-table td { padding: 10px 6px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .foot-grid > div:first-child { grid-column: 1 / -1; }
+  .foot-bottom { flex-wrap: wrap; gap: 12px; }
+}
 </style>
 
 <script type="application/ld+json">
@@ -200,25 +224,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article", "image": "https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg",
+  "@type": "Article",
   "image": {
     "@type": "ImageObject",
     "url": "https://archigenai.com/assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg",
-    "width": 1200,
-    "height": 800,
-    "caption": "A 2D apartment plan rendered into a furnished, lit interior view / ComfyUI"
+    "width": 1344,
+    "height": 768,
+    "caption": "AI-generated editorial illustration. This imagined drawing-and-room pairing is not a ComfyUI result or a documented project."
   },
-  "headline": "ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders",
-  "description": "The 2026 demand we keep seeing: take a flat 2D floor plan and get a coloured, furnished, lit render out of ComfyUI. We built the workflow on a real apartment plan — ControlNet for the walls, depth for the perspective, a tiled upscale to 4K — and we are honest about where ComfyUI holds your geometry and where it quietly invents a wall.",
-  "author": { "@id": "https://archigenai.com/#nora-sinclair" },
-  "publisher": { "@id": "https://archigenai.com/#organization" },
+  "headline": "ComfyUI Floor Plan Renders: Line or Depth?",
+  "description": "Choose line or depth guidance for a ComfyUI floor-plan render. A source-led planning guide to control inputs, matching model files and public examples.",
+  "author": {
+    "@id": "https://archigenai.com/#nora-sinclair"
+  },
+  "publisher": {
+    "@id": "https://archigenai.com/#organization"
+  },
   "datePublished": "2026-05-28",
-  "dateModified": "2026-05-28",
+  "dateModified": "2026-10-05",
   "mainEntityOfPage": "https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html",
   "articleSection": "Workflows",
-  "timeRequired": "PT9M",
   "inLanguage": "en",
-  "keywords": ["ComfyUI floor plan render", "2D plan to 3D AI", "ComfyUI architecture workflow", "ControlNet floor plan", "AI rendered floor plan 2026", "Flux architecture render"]
+  "keywords": [
+    "ComfyUI floor plan render",
+    "2D plan to 3D AI",
+    "ComfyUI architecture workflow",
+    "ControlNet floor plan",
+    "AI rendered floor plan 2026",
+    "Flux architecture render"
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -241,7 +275,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "ComfyUI in 2026 — Turning 2D Floor Plans Into Photoreal 3D Renders",
+      "name": "ComfyUI Floor Plan Renders: Line or Depth?",
       "item": "https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html"
     }
   ]
@@ -277,7 +311,7 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Join the studio &rarr;</a>
+      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Get the newsletter &rarr;</a>
     </div>
   </div>
 </nav>
@@ -286,18 +320,18 @@
   <div class="wrap">
     <div class="meta">
       <span class="tag">Workflow &middot; 28 May 2026</span>
-      <span class="tag">&middot; 9 min read</span>
+      <span class="tag">Updated 5 October 2026</span>
     </div>
     <div class="update-badge">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6M3 12a9 9 0 0115-6.7L21 8M3 22v-6h6M21 12a9 9 0 01-15 6.7L3 16"/></svg>
       ComfyUI &middot; floor plan workflow
     </div>
-    <h1>ComfyUI in 2026 &mdash; turning a flat floor plan into a render <em>that holds its walls</em></h1><aside class="correction-notice" role="note" style="max-width:760px;margin:24px 0;padding:16px 20px;border-left:3px solid #C96F4A;background:#EAE5D9;color:#1A1915;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;"><strong>Correction, 30 September 2026:</strong> this article describes hands-on tests on client projects that ArchiGen did not carry out. Its results are unverified, and it is being rewritten.</aside>
-    <p class="lede">The tutorial title is everywhere this year: "2D floor plan to photoreal 3D, auto-coloured, textured, lit, upscaled to 4K." The promise is seductive and the demos are cherry-picked. We built the workflow from scratch in ComfyUI on a real one-bedroom apartment plan &mdash; ControlNet to lock the walls, a depth pass for the perspective, Flux for the render, a tiled upscale for the resolution. Here is the graph that actually works, the node where most people lose their geometry, and the honest line between "rendered plan" and "AI invented a hallway."</p>
+    <h1>ComfyUI floor plan renders: <em>line or depth?</em></h1>
+    <p class="lede">Use line guidance for a coloured plan; supply a depth map for a perspective based on defined heights and camera position. In ComfyUI, Canny or M-LSD produces line hints for compatible controls; <a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth</a> follows depth-map structure. The outputs are presentation images, not measured 3D models.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair</a></div><div class="detail" style="margin-top:6px;">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece published under her name is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div>
-        <div class="detail">9 min read &middot; May 2026 &middot; Built on a real one-bed apartment plan</div>
+        <div class="detail">Source-led guide &middot; Revised 5 October 2026</div>
       </div>
     </div>
   </div>
@@ -305,172 +339,60 @@
 
 <section class="agv-hero-section" data-agvis="hero">
   <div class="wrap"><figure>
-  <img src="assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" alt="Top-down view of a floor plan on a dark studio floor illuminated by vibrant blue light projections forming 3D room outlines." fetchpriority="high" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>When the graph works, the walls stay where you drew them.</span></figcaption>
+  <img src="assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" alt="AI-generated illustration pairing an interior line drawing with a furnished room; no actual input/output pair is shown." width="1344" height="768" fetchpriority="high" />
+  <figcaption class="agv-cap">AI-generated editorial illustration. This imagined drawing-and-room pairing is not a ComfyUI result or a documented project.</figcaption>
   </figure></div>
 </section>
 
 
 <div class="wrap">
-  <div class="article-body">
+  <main class="article-body">
+    <h2>Can a floor plan become a 3D render?</h2>
+    <p>A coloured plan keeps the drawing's view. An eye-level image needs a camera and height information that a bare plan outline does not supply. That distinction matters before choosing nodes. The <a href="https://arxiv.org/abs/2302.05543">ControlNet paper</a> describes spatial conditioning from inputs including edges and depth. It does not describe recovering a measured building from a floor plan.</p>
+    <p>For a presentation plan, start with cleaned linework and a compatible line-control workflow. For a perspective of a specified design, set the heights and camera in a massing model, then export its depth map. This recommendation follows <a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth's documented use of depth maps to guide image structure</a>, not a guarantee that the result preserves every dimension.</p>
+    <p>A depth estimator offers another route from an existing image. <a href="https://github.com/DepthAnything/Depth-Anything-V2">Depth Anything V2</a> estimates depth from a single image; it does not receive the wall heights missing from your drawing. Keep that distinction visible in the workflow. A plausible ceiling is still a design decision someone has to make.</p>
 
-    <div class="gallery-full">
-      <figure>
-        <img src="assets/hero-comfyui-floor-plan-to-3d-render-architects-2026.jpg" alt="A furnished, lit interior render generated from a 2D apartment floor plan" />
-        <figcaption>From a flat one-bed plan to a furnished, lit interior view / ComfyUI + Flux / ArchiGen AI</figcaption>
-      </figure>
-    </div>
+    <h2>Choose the control inputs before writing the prompt</h2>
+    <p>Use this planning checklist alongside the linked model examples.</p>
+    <ol>
+      <li><strong>Name the view.</strong> Decide whether the deliverable is a coloured plan or a perspective. For the latter, establish the intended camera and heights before generating its control image.</li>
+      <li><strong>Inspect the control hint.</strong> Compare the extracted lines or exported depth map with the source. Keep an unedited copy so later changes remain visible.</li>
+      <li><strong>Follow one documented model example.</strong> Load its workflow and required files. Begin with a plain material instruction, such as “oak flooring, white walls, daylight”. This is an illustrative prompt, not a measured improvement over another prompt.</li>
+      <li><strong>Compare the output.</strong> Check openings and wall boundaries against the source before treating the image as a presentation candidate. Record the model files, controls and settings used.</li>
+    </ol>
+    <p>The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> expands that review sequence. If another generation pass is needed, the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass guide</a> discusses carrying depth and edge references forward. Use both guides alongside visual inspection of the source and output.</p>
 
-    <p>There is a tutorial that keeps recirculating in the architecture corners of YouTube and Reddit this year, and the title is always some version of the same promise: <em>turn your 2D floor plan into a photorealistic 3D render &mdash; auto-coloured, textured, lit, upscaled to 4K &mdash; with AI.</em> The demos are gorgeous. They are also, almost without exception, cherry-picked, and they skip the one step that decides whether the output is a usable drawing or a confident hallucination.</p>
+    <h2>Which nodes and models belong together?</h2>
+    <p>Three things need separate names: the source image, the node that extracts a hint, and the model that uses it. The <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">ControlNet Auxiliary Preprocessors README</a> says the pack creates hint images. Its M-LSD Lines entry pairs with <code>control_v11p_sd15_mlsd</code> or <code>control_mlsd</code>; Canny Edge pairs with SD1.5 Canny controls. Those entries do not identify FLUX weights.</p>
+    <p><a href="https://arxiv.org/abs/2106.00186">M-LSD detects straight line segments</a>. That makes it a candidate to inspect for plan linework, not a specialist that understands rooms. Canny and LineArt are separate options in the <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">same preprocessor pack</a>. As a practical consequence of edge extraction, remove unwanted dimensions, text and hatching before processing, then inspect the hint image. A dimension string should not get a vote in the composition.</p>
+    <p>MiDaS, Zoe and Depth Anything V2 appear under the pack's <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md#normal-and-depth-estimators">depth estimators</a>. Their output is a depth image. The model that conditions generation is a separate component. BFL supplies <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">FLUX.1 Canny and Depth as full models or LoRAs</a>; the LoRAs require FLUX.1 [dev]. Do not substitute one family's weights into another family's example graph.</p>
+    <p>The <a href="comfyui-architecture-flux-sdxl-model-routing-2026.html">ArchiGen guide to FLUX and SDXL model choice</a> puts these routes in a wider architectural workflow. For the files below, use the corresponding <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">ComfyUI FLUX examples</a>, not a graph assembled from similar-looking node names.</p>
 
-    <p>So we built the workflow ourselves, in ComfyUI, on a real one-bedroom apartment plan from a live fit-out job &mdash; not a stock plan chosen because it renders well. The question was the practical one: can you actually hand a flat plan to a diffusion model and get back something that respects where you put the walls? The short answer is yes, with one large asterisk. The long answer is the graph below, and the node where most people quietly lose their geometry.</p>
-
-    <div class="tool-card">
-      <div class="tc-head">
-        <div class="tc-name">The stack we used</div>
-        <div class="tc-rating">&star; Free &middot; local</div>
-      </div>
-      <div class="tc-pricing">ComfyUI (current build) &middot; Flux.1 dev &middot; ControlNet (MLSD + Depth) &middot; Ultimate SD Upscale</div>
-      <p>All of this runs locally and costs nothing but a GPU and an afternoon. We ran on a 12&nbsp;GB card; Flux is heavy but workable with the fp8 weights. SDXL with the architectural ControlNets is the lighter-weight alternative and most of this transfers to it directly.</p>
-      <div class="tc-tags">
-        <span>ComfyUI</span><span>Flux.1</span><span>ControlNet MLSD</span><span>Depth Anything</span><span>img2img</span><span>Tiled upscale</span>
-      </div>
-    </div>
-
-    <figure class="agv-inline" data-agvis="inline">
-  <img src="assets/inline-comfyui-floor-plan-to-3d-render-architects-2026-2.jpg" alt="Low-angle shot from the floor looking up through a glass table toward foggy apartment windows." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Top-down plans never reveal how tall the living room ceiling feels.</span></figcaption>
-</figure>
-
-        <h2>What "2D plan to 3D" <em>actually means</em></h2>
-
-    <p>The phrase hides two completely different jobs, and the demos blur them on purpose because one is reliable and one is hard.</p>
-
-    <p><strong>Job one: the rendered plan.</strong> Take the orthographic plan and dress it &mdash; colour the rooms, drop in furniture and flooring textures, add soft shadows, make it a presentation drawing instead of a CAD export. This is genuinely reliable. You are still looking straight down (or at a gentle axonometric), so the model never has to guess at the third dimension. ControlNet holds your walls, the diffusion model paints inside them, and the output is a coloured, furnished plan you could put in front of a client tomorrow.</p>
-
-    <p><strong>Job two: the true perspective.</strong> Take the same flat plan and produce an eye-level interior or a dollhouse 3D view. This is where the seductive demos live and where the honesty usually stops. A flat plan contains <em>no depth information</em>. There is nothing in a top-down line drawing that tells a model how tall the walls are, where the ceiling sits, or how the window heads line up. Ask for a perspective off a flat plan and the model will happily invent all of it &mdash; and it will invent differently every seed.</p>
-
-    <h2>The graph, <em>node by node</em></h2>
-
-    <h3>ControlNet &mdash; the part that holds your walls</h3>
-
-    <p>Load the plan as an image, run it through a preprocessor, and feed it to an Apply ControlNet node. The preprocessor choice matters more than anything else in the graph. For architectural line work, <strong>MLSD</strong> is the one to reach for &mdash; it detects straight line segments and is purpose-built for the kind of clean orthogonal geometry a plan is made of. LineArt is the fallback for plans with curves and annotation you want preserved; Canny is the blunt instrument that also traces every dimension string and door swing you forgot to hide.</p>
-
-    <p>Clean your plan before it ever touches ComfyUI. Strip dimensions, text, hatching and title-block clutter in CAD first. The model treats every line as a real edge, so a leader line pointing at a radiator becomes, with depressing reliability, a radiator-shaped object floating in the room.</p>
-
-    <h3>The depth pass &mdash; the step the demos skip</h3>
-
-    <p>This is the asterisk. If you want a trustworthy perspective rather than a coloured plan, you have to give the model depth, and a flat plan cannot. The fix is unglamorous and takes five minutes: extrude the plan into rough massing in SketchUp or Blender &mdash; walls up to ceiling height, no detail &mdash; set a camera, and export both a viewport line image and a depth map. Now you feed <strong>Depth Anything V2</strong> (or Zoe) as a second ControlNet alongside the line control, and the model finally has a third dimension to respect instead of fabricate.</p>
-
-    <p>Yes, this means the "2D plan to 3D, no modelling" pitch is a half-truth. The five-minute extrude is the difference between a render that matches your building and a beautiful image of a building that does not exist. We would rather tell you that than sell you the demo.</p>
-
-    <h3>The render and the 4K upscale</h3>
-
-    <p>With the controls wired in, the KSampler does the work. Two levers decide the outcome: <strong>denoise</strong> and <strong>ControlNet strength</strong>. Run img2img off your plan at a denoise around 0.45&ndash;0.55 and the output stays close but can look flat; push past 0.7 and it turns beautiful and starts drifting from your layout. ControlNet strength is the counterweight &mdash; keep MLSD up around 0.8&ndash;1.0 and you can afford a higher denoise without the walls wandering. Prompt for the materials and light you actually want ("warm oak floor, matte white walls, north light, soft contact shadows"), not for "photorealistic 8k masterpiece," which buys you nothing but contrast.</p>
-
-    <p>The "4K" everyone advertises is just a tiled upscale on the back end. <strong>Ultimate SD Upscale</strong> splits the image into tiles, re-renders each at higher resolution with a low denoise, and stitches them back. It is what turns a sharp 1024px render into a 4096px deliverable without melting the detail. It is also the slowest node in the graph &mdash; budget for it.</p>
-
+    <div class="table-scroll" role="region" aria-label="FLUX model file reference" tabindex="0">
     <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Outcome</th>
-          <th>Rendered plan (top-down / axo)</th>
-          <th>True perspective view</th>
-        </tr>
-      </thead>
+      <caption>File locations in the <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">ComfyUI FLUX examples</a></caption>
+      <thead><tr><th scope="col">Route</th><th scope="col">File or model</th><th scope="col">ComfyUI folder</th></tr></thead>
       <tbody>
-        <tr>
-          <td>Control inputs needed</td>
-          <td class="winner">MLSD / LineArt from the plan</td>
-          <td>Line + depth from a rough 3D extrude</td>
-        </tr>
-        <tr>
-          <td>Modelling required</td>
-          <td class="winner">None</td>
-          <td>~5 min massing extrude</td>
-        </tr>
-        <tr>
-          <td>Geometry reliability</td>
-          <td class="winner">High &mdash; walls hold</td>
-          <td>Good with depth, poor without</td>
-        </tr>
-        <tr>
-          <td>Risk of invented detail</td>
-          <td class="winner">Low</td>
-          <td>High if depth is skipped</td>
-        </tr>
-        <tr>
-          <td>Best use</td>
-          <td>Coloured presentation plans, furnished layouts</td>
-          <td>Concept interiors, marketing dollhouse views</td>
-        </tr>
+        <tr><th scope="row">Base FLUX.1 [dev]</th><td><code>flux1-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+        <tr><th scope="row">Single-file fp8 checkpoint</th><td><code>flux1-dev-fp8.safetensors</code></td><td><code>models/checkpoints/</code></td></tr>
+        <tr><th scope="row">BFL full structural model</th><td><code>flux1-canny-dev.safetensors</code><br><code>flux1-depth-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+        <tr><th scope="row">BFL structural LoRA</th><td><code>flux1-canny-dev-lora.safetensors</code><br><code>flux1-depth-dev-lora.safetensors</code></td><td><code>models/loras/</code></td></tr>
+        <tr><th scope="row">Community FLUX ControlNets</th><td>InstantX Canny; Shakker-Labs Depth/Union; XLabs</td><td><code>models/controlnet/</code></td></tr>
       </tbody>
     </table>
-
-    <figure class="agv-inline" data-agvis="inline">
-  <img src="assets/inline-comfyui-floor-plan-to-3d-render-architects-2026-1.jpg" alt="Macro photograph of a concrete wall junction with sharp diagonal shadow and wet floor reflection." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>The exact seam where diffusion models substitute geometry for educated guesses.</span></figcaption>
-</figure>
-
-        <h2>Where it <em>quietly invents a wall</em></h2>
-
-    <p><strong>Scale drift.</strong> Diffusion models have no sense of metric scale. A doorway will render at a believable height in one room and slightly off in the next, because the model is matching <em>look</em>, not dimension. For a presentation image this is invisible; for anything a contractor might read off, it is a trap.</p>
-
-    <p><strong>Symmetry and repetition collapse.</strong> A row of identical windows or a run of repeated structural bays is where the model gets bored and starts improvising &mdash; one window wider, one mullion missing. The tighter your ControlNet, the less this happens, but it never fully goes away on a busy facade.</p>
-
-    <p><strong>The flat-plan perspective.</strong> Worth repeating because it is the single most common failure: a perspective generated from a plan with no depth control is fiction. It will look spectacular and it will not be your building. If a client could mistake it for a measured view, you are one step from a very awkward meeting.</p>
-
-    <blockquote>ComfyUI does not read your plan the way you do. It sees a field of edges and fills it with the most plausible image &mdash; and "plausible" and "correct" only overlap when you force them to with control inputs.</blockquote>
-
-    <h2>Who this workflow <em>is actually for</em></h2>
-
-    <p><strong>Anyone who needs coloured, furnished presentation plans fast.</strong> This is the strongest, most reliable use, and it is genuinely a time-saver over hand-rendering a plan in Photoshop. Residential architects and interior designers will get the most mileage here.</p>
-
-    <p><strong>Concept-stage teams who can spare a five-minute extrude.</strong> Once you accept the depth pass, the perspective workflow is a fast, cheap way to test material and light directions before committing render time in a heavyweight engine.</p>
-
-    <p>It is <em>not</em> for anyone hoping to delete modelling from their process, and it is not a documentation tool. Nothing it produces is dimensionally trustworthy. Treat the output as a picture, never as a drawing.</p>
-
-    <div class="cta-box">
-      <h4>We build the graph, then tell you where it breaks.</h4>
-      <p>The ArchiGen AI journal runs the workflows architects are actually being sold &mdash; node by node, on real projects &mdash; and reports the step the tutorial skipped. No affiliate links, no sponsored placements.</p>
-      <a href="journal.html">Read the journal &rarr;</a>
     </div>
+    <p>ComfyUI's <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/#simple-to-use-fp8-checkpoint-version">fp8 example</a> uses Load Checkpoint and CFG 1.0. Its documentation warns of reduced quality and recommends the full 16-bit version when resources permit. That is a documented loading instruction, not an architecture-specific setting recipe. The full-model examples also list their text encoders and VAE; download the supporting files for the chosen example.</p>
 
-    <h2>Our take</h2>
+    <h2>What does the upscale actually do?</h2>
+    <p><a href="https://github.com/ssitu/ComfyUI_UltimateSDUpscale">Ultimate SD Upscale</a> performs image-to-image diffusion in tiles, keeping each diffusion region near the model's trained resolution. It is a generative step, so review it as another image change. More pixels are not evidence that the original geometry survived.</p>
+    <p>The <a href="https://github.com/ssitu/ComfyUI_UltimateSDUpscale/blob/main/js/docs/UltimateSDUpscale.md">node documentation</a> separates the upscale factor from denoise and seam controls. Choose them for the selected model and output, then compare the result with the pre-upscale image. This guide supplies no universal denoise value, fixed output resolution or speed ranking.</p>
 
-    <p>The "2D floor plan to photoreal 3D" workflow is real, useful, and oversold in roughly equal measure. Split into its two jobs, the verdict is clear: as a way to turn a flat plan into a coloured, furnished, beautifully lit <em>presentation plan</em>, ComfyUI is excellent and the geometry holds. As a one-click route from flat plan to trustworthy perspective, it does not exist &mdash; and the tutorials that imply it does are quietly leaning on a 3D model they did not mention.</p>
+    <h2>Check the licence before the queue</h2>
+    <p>The <a href="https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-dev.md">FLUX.1 [dev] model card</a> identifies a non-commercial model licence and separately permits uses of generated outputs subject to that licence. BFL's <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">structural-model table</a> lists the dev non-commercial licence for Canny, Depth and their LoRAs. Output permissions and permission to operate model weights commercially are different questions; check the applicable terms and <a href="https://bfl.ai/licensing">BFL's commercial licensing options</a> for the intended use. A local download is not a blanket commercial licence.</p>
+    <p>FLUX.1 [dev] is an image generator, according to its <a href="https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-dev.md">model card</a>. Keep dimensions and construction decisions in the drawing or model that defines them. Use the generated image to discuss an appearance, with its origin stated.</p>
+    <p>The picture can suggest oak. It cannot specify the wall.</p>
 
-    <p>Build the graph once, clean your plans before they go in, and never skip the depth pass when you need a perspective. Do that and ComfyUI earns a permanent slot in the presentation toolkit. Believe the demo at face value and you will ship a gorgeous render of a building nobody designed. The tool is honest about what it is the moment you stop asking it to be magic.</p>
-
-    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Outputs treated as presentation imagery, not measured drawings. No affiliate relationship with any model or node author.</p>
-
-    <div class="related">
-      <h4>Related Reading</h4>
-      <div class="related-grid">
-        <a href="comfyui-sketch-to-photoreal-architecture.html" class="related-card">
-          <div class="rc-tag">Workflow &middot; 2026</div>
-          <div class="rc-title">ComfyUI sketch-to-photoreal &mdash; a workflow that actually holds geometry</div>
-        </a>
-        <a href="comfyui-rhino-architects-workflow-2026.html" class="related-card">
-          <div class="rc-tag">Workflow &middot; 2026</div>
-          <div class="rc-title">ComfyUI for Rhino users &mdash; the workflow architects keep asking for and not finding</div>
-        </a>
-        <a href="nano-banana-floor-plan-rendering-workflow-2026.html" class="related-card">
-          <div class="rc-tag">The floor-plan stack &middot; 2026</div>
-          <div class="rc-title">Nano Banana reads floor plans &mdash; the plan-to-render workflow without the node graph</div>
-        </a>
-        <a href="gpt-image-2-vs-nano-banana-2-floor-plan-comparison.html" class="related-card">
-          <div class="rc-tag">The floor-plan stack &middot; 2026</div>
-          <div class="rc-title">GPT Image 2 vs Nano Banana 2 on the same floor plan &mdash; compared</div>
-        </a>
-        <a href="synaps-ai-floor-plan-render-canvas-first-look-2026.html" class="related-card">
-          <div class="rc-tag">The floor-plan stack &middot; 2026</div>
-          <div class="rc-title">Synaps AI's floor-plan render canvas &mdash; first look</div>
-        </a>
-      </div>
-    </div>
-
-  </div>
+  </main>
 </div>
 
 <footer class="foot">
@@ -482,7 +404,7 @@
           <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
         </a>
         <h3>A publication for architects designing <em>with the machine.</em></h3>
-        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 &middot; Based in the field</div>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Architecture &middot; AI &middot; Editorial analysis</div>
       </div>
       <div>
         <h4>Read</h4>
