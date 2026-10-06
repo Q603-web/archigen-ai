@@ -52,6 +52,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Test AI Renderers With Weak Inputs](https://archigenai.com/ai-renderer-weakest-input-benchmark-architects-2026.html): Benchmark AI renderers with the weakest source your studio routinely accepts. A five-frame test reveals repair labor that polished demos conceal.
 - [Rendero's 11-Tool Comparison Audit](https://archigenai.com/rendero-11-ai-rendering-tools-comparison-audit-2026.html): Rendero compares 11 AI rendering tools by input and workflow, not one score. The method is useful, but its vendor authorship still matters.
 - [Fix AI Render Reflections in ComfyUI](https://archigenai.com/comfyui-fix-architectural-render-reflections-2026.html): A ComfyUI workflow for repairing glazing and reflections after lighting, with masks and geometry controls that keep the architecture in place.
 - [What BIM Integration Actually Means in an AI Renderer](https://archigenai.com/what-bim-integration-means-ai-renderers-2026.html): A BIM plugin badge does not prove an AI renderer understands the model. Use four tests to see what data survives from Revit, Rhino or Archicad.
