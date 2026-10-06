@@ -11,6 +11,97 @@
 .agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 .agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
 .agv-inline { margin: 40px 0; }
+
+/* growth E3 newsletter styles:start */
+.article-newsletter {
+  background: #172b2c;
+  color: var(--paper, var(--p, #f2efe8));
+  border-radius: 10px;
+  padding: 32px 28px;
+  margin: 44px 0;
+  max-width: 840px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  box-sizing: border-box;
+  scroll-margin-top: 150px;
+}
+.article-newsletter > div { min-width: 0; }
+.article-newsletter .eyebrow {
+  display: block;
+  font: 10px/1.4 var(--f-mono, var(--fm, 'JetBrains Mono', monospace));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c7d0c7;
+  margin-bottom: 10px;
+}
+.article-newsletter h3 {
+  font-family: var(--f-display, var(--fd, 'Fraunces', serif));
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.article-newsletter h3 em { color: #e3b777; font-style: italic; font-weight: 300; }
+.article-newsletter p { font-size: 13px; line-height: 1.55; color: #d3d8d2; margin: 0 0 16px; }
+.article-newsletter .news-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font: 9px/1.5 var(--f-mono, var(--fm, 'JetBrains Mono', monospace));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a4b3a7;
+}
+.article-newsletter .signup-options { display: flex; flex-direction: column; min-width: 0; }
+.article-newsletter .signup-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  min-height: 48px;
+  white-space: normal;
+  text-align: center;
+  border-radius: 999px;
+  background: var(--paper, var(--p, #f4efe3));
+  color: #1a1915;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.article-newsletter .signup-link:hover { background: #f3c374; color: #1a1915; transform: translateY(-1px); }
+.article-newsletter .signup-help { font-size: 11px; line-height: 1.4; color: #a4b3a7; margin: 12px 0 8px; }
+.article-newsletter .signup-web {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 14px 0;
+  font-size: 11px;
+  color: #d3d8d2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-newsletter .signup-web:hover { color: #fff; }
+.article-newsletter a:focus-visible { outline: 3px solid #f3c374; outline-offset: 4px; }
+.newsletter-placement { max-width: 920px; margin: 0 auto; padding: 0 40px; }
+@media (min-width: 620px) {
+  .article-newsletter { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 28px; align-items: center; padding: 36px 32px; }
+}
+@media (max-width: 619px) {
+  .newsletter-placement { padding: 0 20px; }
+  .article-newsletter .signup-link { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-newsletter .signup-link { transition: none; }
+  .article-newsletter .signup-link:hover { transform: none; }
+}
+/* growth E3 newsletter styles:end */
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","NewsMediaOrganization"],"@id":"https://archigenai.com/#organization","name":"ArchiGen AI","url":"https://archigenai.com/","logo":{"@type":"ImageObject","url":"https://archigenai.com/assets/brand/logo-512.png","width":512,"height":512},"sameAs":["https://x.com/archigenai"],"description":"An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.","publishingPrinciples":"https://archigenai.com/masthead.html","correctionsPolicy":"https://archigenai.com/masthead.html#corrections","ownershipFundingInfo":"https://archigenai.com/masthead.html#ownership"},{"@type":"Person","@id":"https://archigenai.com/#nora-sinclair","name":"Nora Sinclair","description":"AI editorial persona of ArchiGen AI, not a human architect or practitioner. Every piece published under this name is reviewed and approved by ArchiGen's human owner and publisher.","worksFor":{"@id":"https://archigenai.com/#organization"},"url":"https://archigenai.com/masthead.html#nora-sinclair"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article", "image": "https://archigenai.com/assets/hero-recover-depth-canny-from-flat-render-comfyui-architects-2026.jpg","headline":"No Depth Pass? Rebuild It From The Flat Render","description":"ComfyUI wants a depth or canny map to keep the building from changing, and you only have a finished JPG. Here is when to export the pass from your engine, when to regenerate it with a preprocessor like Depth Anything 3, and where the estimate breaks.","author":{"@id":"https://archigenai.com/#nora-sinclair"},"publisher":{"@id":"https://archigenai.com/#organization"},"datePublished":"2026-07-23","dateModified":"2026-07-23","mainEntityOfPage":"https://archigenai.com/recover-depth-canny-from-flat-render-comfyui-architects-2026.html","articleSection":"Technique","timeRequired":"PT7M","inLanguage":"en","keywords":["ComfyUI","ControlNet","depth map","canny","Depth Anything 3","render pass","architectural rendering","preprocessor"]}</script>
 <script type="application/ld+json">
@@ -44,6 +135,7 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
+<script src="scripts/newsletter-analytics.js" defer></script>
 </head><body>
 <div class="topstrip"><div class="wrap marquee"><span>ArchiGen AI</span><span>/</span><span>Workflows for people who actually build</span><span>/</span><span>No sponsored placements</span><span>/</span><span>Evidence reviewed</span></div></div><nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">AG</span><span>ArchiGen<em>/AI</em></span></a><div class="nav-links"><a href="index.html">Home</a><a class="active" href="journal.html">Journal</a><a href="tools.html">Tools</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a></div><div class="nav-right"><a class="btn" href="index.html#newsletter" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Join the studio &rarr;</a></div></div></nav>
 <section class="article-header"><div class="wrap"><div class="meta"><span class="tag">Technique &middot; 23 Jul 2026</span><span class="tag">&middot; 7 min read</span></div><h1>Rebuild the depth pass you never <em>exported</em></h1><p class="lede">A recurring question in the ComfyUI threads goes like this: I want to enhance a render, ControlNet needs a depth or canny map to keep the building from redesigning itself, and all I have is the flat image. The answer buried in one reply is the useful one. If you do not have the pass from your rendering software, <a href="depth-anything-v3-architecture-control-map-check-2026.html" data-agl="1">regenerate it from the picture with a preprocessor</a>. It works. It also quietly swaps a measurement for a guess, and the guess has a temper.</p><div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit">Nora Sinclair</a></div><div class="detail" style="margin-top:6px;">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece published under her name is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div><div class="detail">7 min read &middot; Jul 2026 &middot; Technique</div></div></section>
@@ -65,7 +157,43 @@
   <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Two minutes in the render dialog saves hours of reconstructive math.</span></figcaption>
 </figure>
 
-    <h2>The pass you should have <em>exported</em></h2>
+    <!-- growth E3 newsletter:start -->
+<aside class="newsletter article-newsletter" aria-label="Newsletter">
+  <div class="newsletter-copy">
+    <span class="eyebrow">The Sunday dispatch</span>
+    <h3>Letters from the <em>practice.</em></h3>
+    <p>Most architectural AI tutorials read like promotional copy for cloud compute vendors. ArchiGen arrives once every Sunday with one focused essay and three tools worth a look, with their claims checked. We read the docs, model cards, and public threads, checking vendor claims against their own published evidence.</p>
+    <div class="news-meta">
+      <span>Sunday dispatch</span>
+      <span>One email weekly</span>
+      <span>Unsubscribe anytime</span>
+    </div>
+  </div>
+  <div class="signup-options">
+    <a class="btn light signup-link"
+       href="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e"
+       target="_blank"
+       rel="noopener"
+       data-ph-capture-attribute-cta="newsletter-web"
+       data-ph-capture-attribute-placement="in-article"
+       data-ph-capture-attribute-cta_id="in-article-newsletter-beehiiv"
+       data-ph-capture-attribute-destination="web-signup">
+      Subscribe to the Sunday letter <span aria-hidden="true">&nearr;</span>
+    </a>
+    <p class="signup-help">Opens the web signup form in a new tab. Unsubscribe at any time.</p>
+    <a class="signup-web"
+       href="mailto:hello@archigenai.com?subject=Subscribe%20me%20to%20the%20Sunday%20letter&amp;body=Please%20add%20me%20to%20the%20ArchiGen%20Sunday%20letter."
+       data-ph-capture-attribute-cta="newsletter-mailto"
+       data-ph-capture-attribute-placement="in-article"
+       data-ph-capture-attribute-cta_id="in-article-newsletter-mailto"
+       data-ph-capture-attribute-destination="mailto">
+      Or subscribe via email request &nearr;
+    </a>
+  </div>
+</aside>
+<!-- growth E3 newsletter:end -->
+
+<h2>The pass you should have <em>exported</em></h2>
 <p>Here is the part most architects skip. Your render engine already knows the depth of every pixel exactly, because it built the scene in three dimensions to make the image. Enscape, D5, V-Ray, Corona, Twinmotion, all of them can write a depth pass, a normal pass, and an object mask as separate render elements, often called AOVs. That depth is measured, not inferred. It is correct to the millimeter because it came straight out of the geometry.</p>
 <p>If the scene is still open, this is the move. Turn on the depth and normal elements, re-render, and you have a control map that is exactly true to the model you built. Two minutes of setup buys you a leash that never lies. The reason nobody does it is that the passes are off by default and the enhancement happens days later in a different program, by which point the scene is closed and the only artifact left is a JPG.</p>
 <blockquote>Your engine measured the depth once. Most people throw it away and estimate it back.</blockquote>
