@@ -54,6 +54,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Test AI Render Reference Conflicts](https://archigenai.com/ai-render-reference-conflict-test-architects-2026.html): Stop conflicting reference images from derailing AI renders. Assign each image one job, expose contradictions, and build a cleaner visual brief.
 - [Set an AI Render Error Budget](https://archigenai.com/ai-render-error-budget-architects-2026.html): Set an AI render error budget before comparing tools. Match geometry, material and context tolerances to the project stage, then score what matters.
 - [Test Multi-Angle AI Renders](https://archigenai.com/ai-render-multi-angle-consistency-test-architects-2026.html): A multi-angle AI renderer must preserve one building across two views. Use this paired-camera test to catch geometry, material and context drift.
 - [Test AI Renderers With Weak Inputs](https://archigenai.com/ai-renderer-weakest-input-benchmark-architects-2026.html): Benchmark AI renderers with the weakest source your studio routinely accepts. A five-frame test reveals repair labor that polished demos conceal.
