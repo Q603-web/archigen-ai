@@ -54,6 +54,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Stop 4K Tile Seams in ComfyUI](https://archigenai.com/comfyui-4k-tile-seam-qa-architects-2026.html): A practical ComfyUI QA method for finding and fixing tiled upscale seams, repeated details and geometry drift in 4K architectural renders.
 - [Choose Better ComfyUI Control Maps](https://archigenai.com/comfyui-source-control-map-hierarchy-architects-2026.html): Use the best available ComfyUI control map: native model data first, renderer passes second, inferred depth only when the source has gone missing.
 - [Test AI Render Reference Conflicts](https://archigenai.com/ai-render-reference-conflict-test-architects-2026.html): Stop conflicting reference images from derailing AI renders. Assign each image one job, expose contradictions, and build a cleaner visual brief.
 - [Set an AI Render Error Budget](https://archigenai.com/ai-render-error-budget-architects-2026.html): Set an AI render error budget before comparing tools. Match geometry, material and context tolerances to the project stage, then score what matters.
