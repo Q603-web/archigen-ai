@@ -1678,5 +1678,11 @@
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <loc>https://archigenai.com/comfyui-architecture-nodes-and-models-2026.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://archigenai.com/comfyui-architecture-workflow-json-2026.html</loc>
+    <priority>0.7</priority>
   </url>
 </urlset>

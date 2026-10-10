@@ -29,6 +29,8 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 - [ComfyUI Exteriors: Depth, Fill or Img2img?](https://archigenai.com/comfyui-advanced-tutorial.html): A source-led exterior workflow covering depth, materials, masked context edits and lighting, with compatible FLUX model files.
 
+- [ComfyUI Architecture Workflow JSON Structure](https://archigenai.com/comfyui-architecture-workflow-json-2026.html): What a ComfyUI architecture workflow JSON contains: nodes, links, widget values, and a models list, and how the API export differs from the file you save.
+- [ComfyUI Nodes and Models for Architecture](https://archigenai.com/comfyui-architecture-nodes-and-models-2026.html): The checkpoint, text encoder, VAE, and control files a ComfyUI architecture graph loads, which family each file belongs to, and the FLUX.1 dev license.
 - [ComfyUI Floor Plan Renders: Line or Depth?](https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html): Planning guide to line and depth inputs, compatible model files and linked examples for floor-plan presentation images.
 
 - [Floor Plan to Blender: What the Audit Caught](https://archigenai.com/floor-plan-to-blender-3d-model-audit-2026.html): ArchiGen's documented test: tracing raster floor plans into a Blender model, the five errors an overlay caught, and the checks that fixed them.
