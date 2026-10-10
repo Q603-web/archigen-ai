@@ -54,6 +54,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Recover Depth From Flat Renders](https://archigenai.com/depth-anything-v3-flat-render-control-comfyui-architects-2026.html): Depth Anything 3 can recover useful control from a flat architectural render. This ComfyUI workflow shows where inferred depth needs checking.
 - [Audit Veras Smart Selection](https://archigenai.com/veras-smart-selection-mask-audit-architects-2026.html): Veras 4.5 selects objects and materials in one click. Architects should audit its semantic masks before trusting a surgical edit.
 - [AI Archviz Needs Better Judgment](https://archigenai.com/ai-archviz-judgment-skill-architects-2026.html): AI is changing archviz by making images cheap and judgment scarce. Architects now need sharper direction, defect detection and evidence control.
 - [Stop 4K Tile Seams in ComfyUI](https://archigenai.com/comfyui-4k-tile-seam-qa-architects-2026.html): A practical ComfyUI QA method for finding and fixing tiled upscale seams, repeated details and geometry drift in 4K architectural renders.
