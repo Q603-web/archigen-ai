@@ -58,6 +58,11 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [VizBase AI Review: Pricing, Features, Verdict](https://archigenai.com/vizbase-ai-review-architects-2026.html): What VizBase AI is, what it does for architects, what its euro plans cost and how good it looks on the evidence. A source-led review, not a hands-on test.
+- [Rendair AI Review: Revit, Archicad and Pricing](https://archigenai.com/rendair-ai-bim-architects-review-2026.html): Rendair AI review for 2026: how it works with Revit and Archicad (upload, no plugin), what each plan costs, the refund and privacy fine print, and Veras.
+- [Chaos Veras Review: 5.2, Engines, Pricing](https://archigenai.com/veras-4-3-update.html): A source-led Chaos Veras review: what it is, the hosts it runs in, what changed from 4.3 to 5.2, which AI engines it uses and what its credits cost.
+- [Archsynth vs xFigura: Reviews and Pricing](https://archigenai.com/xfigura-archsynth-ai-render-tested-2026.html): Archsynth and xFigura reviews from vendor pricing, docs and user ratings: what each costs, what the licence and training terms say, and who each suits.
+- [Rendershop AI Review: Features, Pricing, Terms](https://archigenai.com/rendershop-ai-architects-tested-2026.html): Rendershop AI turns sketches and model screenshots into renders from $9 a month. What it does, what credits cost, who owns the output, and the fine print.
 - [Recover Depth From Flat Renders](https://archigenai.com/depth-anything-v3-flat-render-control-comfyui-architects-2026.html): Depth Anything 3 can recover useful control from a flat architectural render. This ComfyUI workflow shows where inferred depth needs checking.
 - [Audit Veras Smart Selection](https://archigenai.com/veras-smart-selection-mask-audit-architects-2026.html): Veras 4.5 selects objects and materials in one click. Architects should audit its semantic masks before trusting a surgical edit.
 - [AI Archviz Needs Better Judgment](https://archigenai.com/ai-archviz-judgment-skill-architects-2026.html): AI is changing archviz by making images cheap and judgment scarce. Architects now need sharper direction, defect detection and evidence control.
