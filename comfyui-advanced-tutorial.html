@@ -1,9 +1,8 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, follow" />
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
@@ -18,21 +17,25 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>ComfyUI Advanced: Exterior Architecture Workflows</title>
-<meta name="description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
+<title>ComfyUI Exteriors: Depth, Fill or Img2img?</title>
+<meta name="description" content="A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files." />
 <link rel="canonical" href="https://archigenai.com/comfyui-advanced-tutorial.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/comfyui-advanced-tutorial.html" />
-<meta property="og:title" content="ComfyUI Advanced: Exterior Architecture Workflows" />
-<meta property="og:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
+<meta property="og:title" content="ComfyUI Exteriors: Depth, Fill or Img2img?" />
+<meta property="og:description" content="A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="ComfyUI Advanced: Exterior Architecture Workflows" />
-<meta name="twitter:description" content="A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas." />
+<meta name="twitter:title" content="ComfyUI Exteriors: Depth, Fill or Img2img?" />
+<meta name="twitter:description" content="A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg" />
 
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+<meta property="og:image:alt" content="AI-generated illustration of an urban building on a rainy street, with a luminous roof outline; not a workflow result." />
+<meta name="twitter:image:alt" content="AI-generated illustration of an urban building on a rainy street, with a luminous roof outline; not a workflow result." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -130,6 +133,31 @@
 .agv-cap { display: flex; gap: 12px; align-items: baseline; margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 .agv-chip { background: var(--ink); color: var(--paper); padding: 2px 8px; border-radius: 3px; white-space: nowrap; }
 .agv-inline { margin: 40px 0; }
+  .article-body code { overflow-wrap: anywhere; }
+  .table-scroll { max-width: 100%; overflow-x: auto; }
+  .table-scroll:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 14px; }
+  .compare-table caption { text-align: left; padding: 0 0 12px; }
+  .compare-table th, .compare-table td { text-align: left; vertical-align: top; padding: 12px; border-bottom: 1px solid var(--rule); }
+  .compare-table thead th { border-bottom: 2px solid var(--ink); }
+  .compare-table th { font-family: var(--f-mono); font-size: 11px; }
+@media (max-width: 700px) {
+  .wrap { padding: 0 20px; }
+  .nav-inner { grid-template-columns: 1fr auto; gap: 12px; padding: 14px 20px; }
+  .brand { font-size: 17px; gap: 8px; }
+  .nav-links { grid-column: 1 / -1; grid-row: 2; flex-wrap: wrap; justify-content: center; }
+  .nav-links a { padding: 7px 10px; font-size: 12px; }
+  .nav-right { grid-column: 2; grid-row: 1; }
+  .nav-right .btn { padding: 8px 10px; font-size: 12px; }
+  .article-header { padding: 40px 0 32px; }
+  .article-header .meta { flex-wrap: wrap; gap: 8px; }
+  .article-header .lede { font-size: 18px; }
+  .article-body { padding: 32px 0 48px; }
+  .compare-table th, .compare-table td { padding: 10px 6px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .foot-grid > div:first-child { grid-column: 1 / -1; }
+  .foot-bottom { flex-wrap: wrap; gap: 12px; }
+}
 </style>
 
 <script type="application/ld+json">
@@ -185,10 +213,6 @@
       "worksFor": {
         "@id": "https://archigenai.com/#organization"
       },
-      "sameAs": [
-        "https://twitter.com/archigenai",
-        "https://twitter.com/archigenai"
-      ],
       "url": "https://archigenai.com/masthead.html#nora-sinclair"
     }
   ]
@@ -197,21 +221,27 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "ComfyUI Advanced: Exterior Workflows That Actually Work",
-  "description": "A working ComfyUI exterior pipeline for architecture: depth ControlNet, material passes, site context inpainting, and lighting control, with the gotchas.",
+  "@type": "Article",
+  "headline": "ComfyUI Exteriors: Depth, Fill or Img2img?",
+  "description": "A ComfyUI architecture workflow for exteriors: depth for massing, img2img for materials, inpaint for site context, then light. Names the public files.",
   "author": {
-    "@type": "Organization",
-    "name": "ArchiGen AI Editorial",
-    "url": "https://archigenai.com/"
+    "@id": "https://archigenai.com/#nora-sinclair"
   },
-  "publisher": { "@id": "https://archigenai.com/#organization" },
-  "datePublished": "2026-04-15T09:00:00-04:00",
-  "dateModified": "2026-04-15T09:00:00-04:00",
+  "publisher": {
+    "@id": "https://archigenai.com/#organization"
+  },
+  "datePublished": "2026-04-23",
+  "dateModified": "2026-10-05",
   "mainEntityOfPage": "https://archigenai.com/comfyui-advanced-tutorial.html",
-  "totalTime": "PT11M",
   "inLanguage": "en",
-  "keywords": ["ComfyUI tutorial", "architectural rendering ComfyUI", "ControlNet depth architecture"]
+  "articleSection": "Workflows",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/hero-comfyui-advanced-tutorial.jpg",
+    "width": 1376,
+    "height": 768,
+    "caption": "AI-generated editorial illustration of an imagined urban exterior. No project, model output or lighting test from this guide is shown."
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -234,7 +264,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "ComfyUI advanced: exterior workflows that actually work",
+      "name": "ComfyUI Exteriors: Depth, Fill or Img2img?",
       "item": "https://archigenai.com/comfyui-advanced-tutorial.html"
     }
   ]
@@ -270,7 +300,7 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Join the studio →</a>
+      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Get the newsletter →</a>
     </div>
   </div>
 </nav>
@@ -279,14 +309,15 @@
   <div class="wrap">
     <div class="meta">
       <span class="tag">Workflow · 23 Apr 2026</span>
-      <span class="tag">· 11 min read</span>
+      <span class="tag">Updated 5 October 2026</span>
     </div>
-    <h1>ComfyUI advanced: <em>exterior workflows</em> that actually work</h1><aside class="correction-notice" role="note" style="max-width:760px;margin:24px 0;padding:16px 20px;border-left:3px solid #C96F4A;background:#EAE5D9;color:#1A1915;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;"><strong>Correction, 30 September 2026:</strong> this article describes hands-on tests on client projects that ArchiGen did not carry out. Its results are unverified, and it is being rewritten.</aside>
-    <p class="lede">A working ComfyUI exterior pipeline for architecture, depth ControlNet, material passes, site context inpainting, and lighting control. Assumes you can already install nodes.</p>
+    <h1>ComfyUI Exteriors: Depth, Fill or Img2img?</h1>
+    <p class="lede">Use Depth when an exterior should follow a depth map. Use Fill to change a masked region, or img2img for broader variations from an existing image. In ComfyUI, these are separate routes with compatible model files. Choose the operation for the edit required, then review the result against its source.</p>
     <div class="byline">
       <div class="byline-info">
-        <div class="name"><a href="masthead.html" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">ArchiGen AI Editorial</a></div>
-        <div class="detail">11 min read · Apr 2026</div>
+        <div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">Nora Sinclair</a></div>
+        <div class="detail" style="margin-top:6px;">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece published under her name is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div>
+        <div class="detail">Source-led guide · Revised 5 October 2026</div>
       </div>
     </div>
   </div>
@@ -294,177 +325,64 @@
 
 <section class="agv-hero-section" data-agvis="hero">
   <div class="wrap"><figure>
-  <img src="assets/hero-comfyui-advanced-tutorial.jpg" alt="A low-angle shot looking up at a four-storey mixed-use building through rain-splattered glass during a clearing storm." fetchpriority="high" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>When your prompt asks for context and the AI delivers drama.</span></figcaption>
+  <img src="assets/hero-comfyui-advanced-tutorial.jpg" alt="AI-generated illustration of an urban building on a rainy street, with a luminous roof outline; not a workflow result." width="1376" height="768" fetchpriority="high" />
+  <figcaption class="agv-cap">AI-generated editorial illustration of an imagined urban exterior. No project, model output or lighting test from this guide is shown.</figcaption>
   </figure></div>
 </section>
 
 
 <div class="wrap">
-  <div class="article-body">
+  <main class="article-body">
+    <h2>Which ComfyUI workflow fits architectural exteriors?</h2>
+    <p>Choose by the source image and the edit it needs. Use depth guidance when the input defines the intended massing, a masked edit when a region needs replacing, or an image adapter when the task is a reference variation. BFL documents separate <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">structural models</a>, a <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">Fill model for image regions</a> and a <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux adapter for image variations</a>. A longer node graph is not a selection criterion.</p>
+    <p>Work through geometry, materials, site context, then lighting. Treat these as review stages: keep an accepted output before starting the next operation. This order is an editorial recommendation based on the documented operations. Keep the model, encoders, VAE and conditioning components compatible with the chosen example; the <a href="comfyui-architecture-flux-sdxl-model-routing-2026.html">FLUX and SDXL model-choice guide</a> explains the separate routes.</p>
 
-    <div class="gallery-full">
-      <figure>
-        <img src="assets/villa-nb2-upper.png" alt="Aerial perspective rendering of modern villa with terrace pool" loading="lazy" />
-        <figcaption>Upper terrace render via Nano Banana 2 / ArchiGen AI Curation</figcaption>
-      </figure>
+    <h2>1. Set the structural input before surfaces</h2>
+    <p><a href="https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev">FLUX.1 Depth [dev]</a> generates images guided by a depth map. Start with the intended camera and massing. Where the source model can export depth, use that map as the proposed structural input and inspect it before generation. This recommendation follows the model's conditioning mechanism; it is not a claim that every opening will survive unchanged.</p>
+    <p>If the input is only a rendered image, <a href="https://github.com/isl-org/MiDaS">MiDaS estimates depth from that image</a>. An estimate and a model export are different sources of information. The <a href="https://github.com/Fannovel16/comfyui_controlnet_aux/blob/main/README.md">auxiliary preprocessor pack</a> creates hint images, including depth and edges; it does not replace the weights that use those hints.</p>
+    <p>Import the corresponding <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">ComfyUI FLUX example</a>, load its required files and supply the source input. Use the example's compatible components before adding custom nodes. BFL's full Depth model and its Depth LoRA are distinct options; the <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">LoRA route requires FLUX.1 [dev]</a>. Neither is an SDXL ControlNet.</p>
+    <p>Save a candidate and compare its silhouette, parapets and window openings with the source. Make that comparison a decision point before changing surfaces. The <a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">stage-checkpoint guide</a> expands this review method.</p>
+
+    <h2>2. Study facade materials from an accepted image</h2>
+    <p>ComfyUI's <a href="https://comfyanonymous.github.io/ComfyUI_examples/img2img/">img2img documentation</a> describes loading an image, encoding it with a VAE and sampling that latent with reduced denoise. Lower denoise adds less noise and generally changes less of the input. This is a general img2img example, not a FLUX material-study graph. It explains the operation without establishing one correct value for concrete, glazing or brick.</p>
+    <p>Use the accepted structural image as the starting point for a material study. “Board-formed concrete, pale grey surface” is a prompt example, not a tested recipe. For a change confined to a spandrel panel or podium cladding, choose a compatible masked-edit workflow. A full-image instruction does not establish that adjacent surfaces will stay unchanged. Review the boundary as well as the material. A convincing texture can still belong to the wrong wall.</p>
+    <p>Sampler values belong to the selected model example. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/#simple-to-use-fp8-checkpoint-version">FLUX fp8 checkpoint example</a>, for instance, specifies Load Checkpoint with CFG 1.0. Do not copy an SDXL sampler recipe into it. ComfyUI also warns that fp8 can reduce quality; it recommends the full 16-bit version when resources permit. This is not a hardware capacity guarantee.</p>
+
+    <h2>3. Choose the operation for site context</h2>
+    <p>For a local edit, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">FLUX.1 Fill [dev]</a> accepts an existing image and a mask to fill a region according to a text description. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/#fill-inpainting-model">ComfyUI Fill example</a> includes access to MaskEditor from Load Image. Mark the region intended to change, run the documented example and compare the edited edge with the source. The Fill card also warns of colour shifts outside the filled area; inspect those surroundings too. A mask is an instruction to the workflow, not evidence that the resulting context is geographically correct.</p>
+    <p>For an image-reference variation, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux is a FLUX.1 image adapter</a>. Treat it as a different operation from filling a selected region. The reference image supplies visual information; it does not verify site conditions. Use a reference you have permission to use and keep its origin with the output.</p>
+    <p>The <a href="https://huggingface.co/h94/IP-Adapter#ip-adapter-for-sdxl-10">IP-Adapter model card</a> places <code>ip-adapter-plus_sdxl_vit-h</code> in its SDXL family. That adapter is not the FLUX Redux component. A matching-sounding filename cannot make those families interchangeable.</p>
+
+    <h2>Which public files does each route load?</h2>
+    <p>The locations below follow the <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">ComfyUI FLUX examples</a>. Load the supporting text encoders and VAE named by the chosen example too. These are separate model routes, not a single plug-and-play chain.</p>
+    <div class="table-scroll" role="region" aria-label="FLUX workflow file reference" tabindex="0">
+    <table class="compare-table">
+      <caption>Model files and folders in the <a href="https://comfyanonymous.github.io/ComfyUI_examples/flux/">public examples</a></caption>
+      <thead><tr><th scope="col">Role</th><th scope="col">File</th><th scope="col">ComfyUI folder</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Base model</th><td><code>flux1-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+        <tr><th scope="row">Single-file fp8 base</th><td><code>flux1-dev-fp8.safetensors</code></td><td><code>models/checkpoints/</code></td></tr>
+        <tr><th scope="row">Full depth model</th><td><code>flux1-depth-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+        <tr><th scope="row">Full edge model</th><td><code>flux1-canny-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+        <tr><th scope="row">Masked edit</th><td><code>flux1-fill-dev.safetensors</code></td><td><code>models/diffusion_models/</code></td></tr>
+        <tr><th scope="row">Redux image encoder</th><td><code>sigclip_vision_patch14_384.safetensors</code></td><td><code>models/clip_vision/</code></td></tr>
+        <tr><th scope="row">Redux adapter</th><td><code>flux1-redux-dev.safetensors</code></td><td><code>models/style_models/</code></td></tr>
+      </tbody>
+    </table>
     </div>
+    <p>The <a href="https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-dev.md">dev model card</a>, <a href="https://github.com/black-forest-labs/flux/blob/main/docs/structural-conditioning.md">Depth/Canny table</a>, <a href="https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev">Fill card</a> and <a href="https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev">Redux card</a> identify the dev non-commercial licence. Generated-output permissions are a separate part of the terms. Check the licence for the intended use and <a href="https://bfl.ai/licensing">BFL's commercial licensing options</a>; local weights are not a blanket commercial-use permission.</p>
 
-    <p>Most ComfyUI tutorials show you how to make a hero render of a Tuscan villa. That's not the test. The test is whether the workflow holds up on a four-storey mixed-use scheme on a tight site, with surrounding buildings, awkward overshadowing, and a brief that calls for both day and dusk passes.</p>
+    <h2>4. Review lighting as another image change</h2>
+    <p>For a lighting variation, return to the accepted context image and choose a compatible img2img workflow for that model. The general example linked below explains the operation; it does not supply a FLUX lighting graph. “Overcast daylight” and “warm evening light” are illustrative prompts. The <a href="https://comfyanonymous.github.io/ComfyUI_examples/img2img/">documented denoise control</a> governs how much noise enters the starting image; it does not promise a lighting-only edit.</p>
+    <p>Compare the candidate with the same baseline before accepting another variant. Check whether the material request still reads correctly and whether openings changed. Keep the original control inputs with the workflow; the <a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">second-pass guide</a> discusses their use in later passes.</p>
 
-    <p>This guide walks through a ComfyUI pipeline for exterior renders. It assumes you've installed ComfyUI and the Manager, and that you can drag nodes onto the canvas without panicking. Everything else is here.</p>
+    <h2>Keep the workflow reproducible</h2>
+    <p><a href="https://github.com/Comfy-Org/ComfyUI-Manager#snapshot-manager">ComfyUI-Manager</a> can save installation snapshots, but its documentation says snapshot support is incomplete for custom nodes not managed by Git. Record versions and required files alongside the workflow; do not treat a saved graph as a complete environment backup.</p>
+    <p>Custom packs are optional until a specific graph needs them. <a href="https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet">Advanced-ControlNet</a> exposes control strength and sampling-time scheduling. Those controls are not a mandate to stop conditioning at one particular percentage, and the pack is not required simply because this guide has “advanced” in its URL.</p>
+    <p>For enlargement, <a href="https://github.com/ssitu/ComfyUI_UltimateSDUpscale">Ultimate SD Upscale</a> documents tiled img2img inside ComfyUI. Inspect it as another generative edit. There is no basis here for a claim that an external upscaler is required for architectural work.</p>
+    <p>Save the source image, model names and each accepted stage. The next pass should have a reason to exist.</p>
 
-    <h2>Why exterior workflows are <em>hard</em></h2>
-
-    <p>Interior renders are forgiving. The room is contained. Light is controlled. Materials are limited. Mistakes hide in the shadows.</p>
-
-    <p>Exteriors are unforgiving. You have to handle weather, sky, ground cover, vegetation, surrounding buildings, time of day, atmospheric perspective, and entourage, all of which the model wants to invent freely if you let it. The whole job of the workflow is constraining the model to your geometry while still letting it do the things it's good at.</p>
-
-    <p>The pipeline below has four passes. Geometry. Material. Context. Light. Each one is a separate run. Trying to do them all in one pass is the most common reason ComfyUI exterior workflows fail.</p>
-
-    <h2>The base <em>workflow</em></h2>
-
-    <p>Start with txt2img → ControlNet Depth → KSampler → Upscale. This is the spine of every exterior render we make.</p>
-
-    <div class="node-block">
-      <span class="group"><span class="label">[Load Checkpoint]</span> → flux1-dev-fp8.safetensors <span class="comment">// Flux dev is our default base. SDXL works but is weaker on materials.</span></span>
-      <span class="group"><span class="label">[Load Image]</span> → <span class="arrow">depth_pass.png</span> <span class="comment">// 1024px depth from your SketchUp model</span></span>
-      <span class="group"><span class="label">[ControlNet Loader]</span> → control_flux_depth.safetensors</span>
-      <span class="group"><span class="label">[Apply ControlNet]</span> → strength: 0.8 · start: 0.0 · end: 0.7</span>
-      <span class="group"><span class="label">[CLIP Text Encode +]</span> → "[your material brief here]"</span>
-      <span class="group"><span class="label">[CLIP Text Encode -]</span> → "blurry, distorted geometry, fisheye, lens flare, watermark"</span>
-      <span class="group"><span class="label">[KSampler]</span> → steps: 28 · cfg: 4.5 · sampler: dpmpp_2m · scheduler: karras</span>
-      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → base_pass.png</span>
-    </div>
-
-    <p>The depth ControlNet is doing the heavy lifting. It tells Flux exactly where your masses are, what's in front of what, and where the openings sit. Without it, the model invents geometry. With it, the model fills in materiality on top of your geometry.</p>
-
-    <p>The end value of 0.7 on the ControlNet matters. Setting it to 1.0 (full strength to the end of the diffusion) makes the render look stiff and CGI-like. Releasing it at 0.7 lets the last few denoising steps refine the materials without forcing the geometry. We landed on 0.7 after about a week of testing. It's not negotiable.</p>
-
-    <div class="gotcha">
-      <div class="label">Gotcha</div>
-      <p>Generate the depth pass directly from your 3D software. Don't let ComfyUI's MiDaS depth estimator handle it, <a href="recover-depth-canny-from-flat-render-comfyui-architects-2026.html" data-agl="1">MiDaS guesses depth from the rendered image</a> and gets architectural geometry wrong about 30% of the time. SketchUp's Z-Depth render output is free and accurate.</p>
-    </div>
-
-    <figure class="agv-inline" data-agvis="inline">
-  <img src="assets/inline-comfyui-advanced-tutorial-1.jpg" alt="An abstract close-up photograph showing the texture of fluted terracotta and concrete facade panels under low raking sunlight." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Material passes are where concrete stops looking like grey plastic.</span></figcaption>
-</figure>
-
-        <h2>The material <em>pass</em></h2>
-
-    <p>Once the base render looks right structurally, the material pass refines surfaces. This is where you get concrete that looks like concrete instead of plaster, glass that reads as glass instead of acrylic, and corten steel that has actual texture rather than orange paint.</p>
-
-    <p>The material pass is an img2img run on the base output, with a tighter prompt and reduced denoise.</p>
-
-    <div class="node-block">
-      <span class="group"><span class="label">[Load Image]</span> → base_pass.png <span class="comment">// the output from above</span></span>
-      <span class="group"><span class="label">[VAE Encode]</span> → latent</span>
-      <span class="group"><span class="label">[CLIP Text Encode +]</span> → "board-formed concrete with 100mm boards, weathered grey patina, slightly damp surface, moss in the joints"</span>
-      <span class="group"><span class="label">[KSampler]</span> → denoise: 0.45 · steps: 24 · cfg: 5.0</span>
-      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → material_pass.png</span>
-    </div>
-
-    <p>Denoise at 0.45 is the sweet spot. Below 0.35 the material change is invisible. Above 0.6 the geometry starts drifting. We've tested every value in between for two years. 0.45 is the answer for exteriors.</p>
-
-    <p>Run this pass once per material region. If you have a brick base, concrete middle, and zinc roof, that's three runs with three masks. Don't try to prompt all three materials in one pass, Flux will average them and you'll get something halfway between, which is exactly the AI slop look we're trying to avoid.</p>
-
-    <p>Specific material prompts that work for us, after extensive testing:</p>
-
-    <ul>
-      <li><strong>Concrete:</strong> "board-formed concrete with [60mm/100mm/200mm] boards, [weathered grey/warm beige/cool grey] patina, visible tie holes, slight surface variation"</li>
-      <li><strong>Glass:</strong> "low-iron architectural glazing, slight green tint, mullion shadows, faint reflection of sky and surroundings, no fisheye distortion"</li>
-      <li><strong>Corten steel:</strong> "weathered corten steel cladding, deep rust patina, vertical seams every 600mm, runoff staining at the base"</li>
-      <li><strong>Brick:</strong> "stack-bonded brick, hand-thrown red clay, 10mm raked mortar joints, slight efflorescence, occasional darker brick"</li>
-    </ul>
-
-    <p>The pattern is the same: name the material, name the surface treatment, name a defect or imperfection. The defect is what makes it look real. New brick looks fake. Brick with efflorescence looks like a building.</p>
-
-    <h2>Adding site <em>context</em></h2>
-
-    <p>Once your building looks right, the surrounding context needs to look right too. This is where most ComfyUI exterior workflows get bad. The model invents Hollywood Hills behind a project that's actually in Stratford.</p>
-
-    <p>The fix is inpainting the surroundings using a real-context reference. Take a Google Street View screenshot from the actual site, generate a depth pass from it, and use that as the inpaint mask source.</p>
-
-    <div class="node-block">
-      <span class="group"><span class="label">[Load Image]</span> → material_pass.png</span>
-      <span class="group"><span class="label">[Load Image]</span> → context_mask.png <span class="comment">// black where building, white where surroundings</span></span>
-      <span class="group"><span class="label">[Load Image]</span> → site_reference.png <span class="comment">// Street View screenshot or site photo</span></span>
-      <span class="group"><span class="label">[IPAdapter Load]</span> → ip-adapter-plus_sdxl_vit-h</span>
-      <span class="group"><span class="label">[IPAdapter Apply]</span> → reference: site_reference · weight: 0.55</span>
-      <span class="group"><span class="label">[Set Latent Noise Mask]</span> → <span class="arrow">context_mask.png</span></span>
-      <span class="group"><span class="label">[KSampler]</span> → denoise: 0.85 · steps: 30 · cfg: 4.0</span>
-      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → context_pass.png</span>
-    </div>
-
-    <p>IPAdapter weight of 0.55 lets the model take visual cues from your reference photo without copying it directly. Push it to 0.8 and you'll get an obvious paste-up. Drop it to 0.3 and the surroundings look generic.</p>
-
-    <div class="gotcha">
-      <div class="label">Gotcha</div>
-      <p><a href="comfyui-mask-edge-depth-control-architecture-2026.html" data-agl="1">Mask carefully at the building edge</a>. ComfyUI's default inpaint blends across mask boundaries with a hard edge that often shows. Add an Image Blur node on the mask itself (radius: 6 to 12px) to feather the transition. Your building won't look pasted.</p>
-    </div>
-
-    <figure class="agv-inline" data-agvis="inline">
-  <img src="assets/inline-comfyui-advanced-tutorial-2.jpg" alt="A bird's-eye drone view of a glass pavilion in a city plaza illuminated by indoor warm lights and outdoor neon at night." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Lighting passes prove that blue hour fixes almost any geometry flaw.</span></figcaption>
-</figure>
-
-        <h2>The lighting <em>pass</em></h2>
-
-    <p>Last pass. Now you have a building with the right materials in the right context. The final job is lighting, establishing time of day, sun angle, weather, and atmosphere.</p>
-
-    <p>Use img2img one more time, with a low denoise and a heavy lighting prompt:</p>
-
-    <div class="node-block">
-      <span class="group"><span class="label">[Load Image]</span> → context_pass.png</span>
-      <span class="group"><span class="label">[CLIP Text Encode +]</span> → "golden hour, sun at 25 degrees from west, warm orange light raking across the facade, long soft shadows, slight haze in the air, [time: 18:30 in autumn]"</span>
-      <span class="group"><span class="label">[KSampler]</span> → denoise: 0.30 · steps: 24 · cfg: 5.5</span>
-      <span class="group"><span class="label">[VAE Decode]</span> → <span class="arrow">[Save Image]</span> → final_pass.png</span>
-    </div>
-
-    <p>Denoise stays low here, 0.30, because you don't want the building or context changing, just the light treatment. The cfg goes up to 5.5 because the lighting prompt needs to be heard loud over the existing image.</p>
-
-    <p>For multiple time-of-day passes (the brief that asks for "morning, midday, dusk, night"), just re-run the lighting pass with a different prompt and the same input image. Forty seconds per variant. The whole set takes three minutes.</p>
-
-    <blockquote>The hard part of ComfyUI isn't the nodes. It's the discipline to run four passes instead of trying to do everything in one.</blockquote>
-
-    <h2>Common ComfyUI <em>gotchas</em></h2>
-
-    <p><strong>Memory crashes on 8GB cards.</strong> Flux full-precision needs 24GB VRAM. The fp8 quantised version runs on 12GB. The Q4 GGUF version runs on 8GB but the quality drop is real. If you're on a consumer GPU, plan for fp8 minimum.</p>
-
-    <p><strong>The "loaded checkpoint mismatch" error.</strong> Almost always means your ControlNet is for SDXL and your base is Flux, or vice versa. They're not interchangeable. Match the family.</p>
-
-    <p><strong>Saved workflows breaking after a Manager update.</strong> Custom nodes get renamed or deprecated. Pin your custom node versions in the Manager. Don't auto-update mid-project.</p>
-
-    <p><strong>Outputs at 1024px not enlarging cleanly.</strong> ComfyUI's built-in upscale nodes are weak. Export to Leonardo Universal Upscaler or Topaz Gigapixel for the final 4K. Don't try to upscale inside ComfyUI for client work.</p>
-
-    <h2>Recommended node <em>packs</em></h2>
-
-    <p>Install these from the Manager. They're the only ones we use regularly enough to mention.</p>
-
-    <ul>
-      <li><strong>ComfyUI-Advanced-ControlNet</strong>, better timing controls, including the start/end values used above.</li>
-      <li><strong>ComfyUI_IPAdapter_plus</strong>, required for the context pass. The site-reference workflow won't work without it.</li>
-      <li><strong>ComfyUI-Impact-Pack</strong>, better sampler nodes, mask handling, detailer for fixing facade details after the main render.</li>
-      <li><strong>ComfyUI-AnimateDiff</strong>, only if you want to do video walkthroughs from your stills. Not strictly architectural, but useful.</li>
-      <li><strong>rgthree-comfy</strong>, quality-of-life nodes for managing complex graphs. You'll want this by your fifth workflow.</li>
-    </ul>
-
-    <p>Skip the rest. <a href="comfyui-custom-nodes-dependency-budget-architects-2026.html" data-agl="1">The temptation in ComfyUI is to install everything you see on Reddit</a>. Don't. A clean install with these five packs will handle 95% of architecture work, and your workflows won't break every Sunday.</p>
-
-    <h2>What to do <em>next</em></h2>
-
-    <p>Build the base workflow first. Get a single exterior render through the full four-pass pipeline. Don't worry about quality, worry about completing the chain. Once you've done that, every subsequent project is a matter of swapping the depth pass and the prompts.</p>
-
-    <p>The whole pipeline takes about 25 to 35 minutes of compute on a decent GPU, plus 10 minutes of human time choosing prompts and masking. That's faster than V-Ray for the same quality on a non-trivial scheme. It's also more flexible, try four lighting variants in three minutes, instead of re-rendering the scene.</p>
-
-    <p>If your firm hasn't moved on ComfyUI yet, this is the workflow worth starting with. It'll feel slow for the first three projects. By the fifth, you won't go back.</p>
-
-    <hr>
-
-    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">Models: Flux dev fp8.</p>
-
-  </div>
+  </main>
 </div>
 
 <footer class="foot">
@@ -476,7 +394,7 @@
           <span style="font-family:var(--f-display);font-size:20px;color:var(--paper);">ArchiGen<em style="font-style:italic;color:rgba(244,239,227,0.6);font-weight:300;">/AI</em></span>
         </a>
         <h3>A publication for architects designing <em>with the machine.</em></h3>
-        <div class="mono" style="color:rgba(244,239,227,0.5)">Est. 2024 · Based in the field</div>
+        <div class="mono" style="color:rgba(244,239,227,0.5)">Architecture · AI · Editorial analysis</div>
       </div>
       <div>
         <h4>Read</h4>
