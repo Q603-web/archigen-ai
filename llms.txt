@@ -58,6 +58,12 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Enscape AI Material Generator and AI Enhancer](https://archigenai.com/enscape-chaos-ai-enhancer-material-generator-2026.html): What Enscape's AI Material Generator and Chaos AI Enhancer do, which versions added them, what they cost in Chaos Credits, their limits and the link to Veras.
+- [Autodesk Forma AI for Architects: What It Does](https://archigenai.com/autodesk-forma-ai-architects-2026.html): Autodesk Forma for architects in 2026: Site Design and Building Design, rapid AI wind and noise analysis, Revit, Rhino and Dynamo links, pricing and limits.
+- [Fenestra AI and Finch 3D: Pricing, Free Plans](https://archigenai.com/finch3d-fenestra-review.html): Fenestra AI is a browser renderer from $8 a month, billed yearly; Finch 3D generates multifamily floor plans. Pricing, free tiers, Rhino and Revit compared.
+- [Best AI Rendering for Architecture, per Reddit](https://archigenai.com/reddit-top-5-ai-rendering-tools-audited-2026.html): What architects on Reddit recommend for AI rendering in 2026: eleven threads tallied, each tool checked against its own pricing page. ArchiGen tested nothing.
+- [MyArchitectAI Review: Pricing, Terms, Speed](https://archigenai.com/myarchitectai-review-2026.html): MyArchitectAI review from public sources: the 9.3-second render claim, $29 unlimited plans, SketchUp uploads, who owns free-tier renders, and user reports.
+- [TestFit Review 2026: Pricing, AI and Forma](https://archigenai.com/testfit-feasibility-generative-design-review-2026.html): TestFit review from its own docs: Site Solver and generative design, Parking Solver from $195/month, the new AI MCP link, Revit exports, and Forma compared.
 - [VizBase AI Review: Pricing, Features, Verdict](https://archigenai.com/vizbase-ai-review-architects-2026.html): What VizBase AI is, what it does for architects, what its euro plans cost and how good it looks on the evidence. A source-led review, not a hands-on test.
 - [Rendair AI Review: Revit, Archicad and Pricing](https://archigenai.com/rendair-ai-bim-architects-review-2026.html): Rendair AI review for 2026: how it works with Revit and Archicad (upload, no plugin), what each plan costs, the refund and privacy fine print, and Veras.
 - [Chaos Veras Review: 5.2, Engines, Pricing](https://archigenai.com/veras-4-3-update.html): A source-led Chaos Veras review: what it is, the hosts it runs in, what changed from 4.3 to 5.2, which AI engines it uses and what its credits cost.
