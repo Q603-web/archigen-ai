@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Audit Veras Background Removal](https://archigenai.com/veras-remove-background-alpha-qa-architects-2026.html): Veras exports transparent PNG cutouts. Before compositing, audit alpha edges, glass, planting, shadows and scale against two backgrounds.
+
 - [PureRef Before the AI Render](https://archigenai.com/pureref-reference-board-ai-render-workflow-architects-2026.html): Use PureRef to assign every AI render reference one clear job. A disciplined board controls material, light and composition before prompting begins.
 
 - [VizBase AI Review: Pricing, Features, Verdict](https://archigenai.com/vizbase-ai-review-architects-2026.html): What VizBase AI is, what it does for architects, what its euro plans cost and how good it looks on the evidence. A source-led review, not a hands-on test.
