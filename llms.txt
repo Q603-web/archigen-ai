@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Veras in V-Ray: What It Changes](https://archigenai.com/veras-in-vray-nondestructive-ideation-architects-2026.html): Veras now sits inside V-Ray for rapid AI ideation without changing the 3D scene. Here is where that split helps, and where V-Ray must take over.
+
 - [Audit Veras Background Removal](https://archigenai.com/veras-remove-background-alpha-qa-architects-2026.html): Veras exports transparent PNG cutouts. Before compositing, audit alpha edges, glass, planting, shadows and scale against two backgrounds.
 
 - [PureRef Before the AI Render](https://archigenai.com/pureref-reference-board-ai-render-workflow-architects-2026.html): Use PureRef to assign every AI render reference one clear job. A disciplined board controls material, light and composition before prompting begins.
