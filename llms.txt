@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Export Depth Before ComfyUI](https://archigenai.com/native-depth-pass-comfyui-architecture-2026.html): A renderer-native depth pass gives ComfyUI a cleaner geometry contract than inferred depth. Here is the practical setup and the QA it still needs.
+
 - [Build the Context, Not a Backdrop](https://archigenai.com/real-time-city-context-model-architects-2026.html): A Batumi archviz case shows why consequential city context should be modeled for real-time review, not flattened into one convenient background.
 
 - [Veras in V-Ray: What It Changes](https://archigenai.com/veras-in-vray-nondestructive-ideation-architects-2026.html): Veras now sits inside V-Ray for rapid AI ideation without changing the 3D scene. Here is where that split helps, and where V-Ray must take over.
