@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Make Geometry Control Measurable](https://archigenai.com/measure-ai-renderer-geometry-control-2026.html): AI renderer roundups call geometry control weak, medium or strong. Architects need a measured test based on visible invariants and project stage.
+
 - [Give AI Vegetation Its Own Pass](https://archigenai.com/vegetation-pass-ai-architectural-render-2026.html): AI vegetation can improve an architectural render without swallowing the building. Use a bounded planting pass, then audit scale, edges and access.
 
 - [Export Depth Before ComfyUI](https://archigenai.com/native-depth-pass-comfyui-architecture-2026.html): A renderer-native depth pass gives ComfyUI a cleaner geometry contract than inferred depth. Here is the practical setup and the QA it still needs.
