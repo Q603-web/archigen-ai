@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Set a ComfyUI Change Budget](https://archigenai.com/comfyui-render-enhancement-change-budget-2026.html): Before enhancing an architectural render in ComfyUI, define what may change, what must hold, and which edits require masks or separate passes.
+
 - [Make Geometry Control Measurable](https://archigenai.com/measure-ai-renderer-geometry-control-2026.html): AI renderer roundups call geometry control weak, medium or strong. Architects need a measured test based on visible invariants and project stage.
 
 - [Give AI Vegetation Its Own Pass](https://archigenai.com/vegetation-pass-ai-architectural-render-2026.html): AI vegetation can improve an architectural render without swallowing the building. Use a bounded planting pass, then audit scale, edges and access.
