@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Repair AI Material Maps Without Losing Scale](https://archigenai.com/repair-ai-material-maps-physical-scale-architects-2026.html): AI can rebuild PBR maps from a poor material sample, but scale and channel coherence still fail. Use a scale witness and scene-level checks.
+
 - [Paid AI Render Reviews Need a Test Legend](https://archigenai.com/paid-ai-render-review-test-legend-architects-2026.html): A paid-promotion badge identifies a commercial tie. Architects still need a test legend showing inputs, interventions, versions and failed outputs.
 
 - [Set a ComfyUI Change Budget](https://archigenai.com/comfyui-render-enhancement-change-budget-2026.html): Before enhancing an architectural render in ComfyUI, define what may change, what must hold, and which edits require masks or separate passes.
