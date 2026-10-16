@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Color-Manage ComfyUI Render Enhancement](https://archigenai.com/comfyui-render-color-pipeline-architects-2026.html): Keep the linear EXR as master, send ComfyUI a deliberate display-ready image, and verify profiles, exposure and gradients when the enhanced file returns.
+
 - [AI Renderer Comparisons Need Output Tests](https://archigenai.com/ai-renderer-comparison-output-formats-architects-2026.html): AI renderer comparisons obsess over beauty images. Architects should also score alpha, masks, depth, passes and bit depth for the correction work ahead.
 
 - [Repair AI Material Maps Without Losing Scale](https://archigenai.com/repair-ai-material-maps-physical-scale-architects-2026.html): AI can rebuild PBR maps from a poor material sample, but scale and channel coherence still fail. Use a scale witness and scene-level checks.
