@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Trace Veras Ideas to V-Ray History](https://archigenai.com/veras-vfb-history-provenance-architects-2026.html): Use V-Ray VFB History as the source ledger for Veras options, so every AI image points back to a named render, model revision and camera.
+
 - [Color-Manage ComfyUI Render Enhancement](https://archigenai.com/comfyui-render-color-pipeline-architects-2026.html): Keep the linear EXR as master, send ComfyUI a deliberate display-ready image, and verify profiles, exposure and gradients when the enhanced file returns.
 
 - [AI Renderer Comparisons Need Output Tests](https://archigenai.com/ai-renderer-comparison-output-formats-architects-2026.html): AI renderer comparisons obsess over beauty images. Architects should also score alpha, masks, depth, passes and bit depth for the correction work ahead.
