@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Cryptomatte Masks for ComfyUI Architecture Renders](https://archigenai.com/cryptomatte-masks-comfyui-architecture-2026.html): Turn Cryptomatte IDs from Blender or V-Ray into precise ComfyUI masks, then audit edges, naming and edit scope before changing an architecture render.
+
 - [Review 4K ComfyUI Renders at Three Scales](https://archigenai.com/comfyui-4k-three-scale-review-architects-2026.html): Approve a 4K ComfyUI architecture render at fit view, delivery size and 200 percent so design drift, false detail and technical damage cannot hide.
 
 - [Trace Veras Ideas to V-Ray History](https://archigenai.com/veras-vfb-history-provenance-architects-2026.html): Use V-Ray VFB History as the source ledger for Veras options, so every AI image points back to a named render, model revision and camera.
