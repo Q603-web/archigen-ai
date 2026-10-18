@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Client AI Images Need an Assumption Log](https://archigenai.com/client-ai-image-assumption-log-architects-2026.html): Turn a client-supplied AI image into an assumption log that separates design intent, visual preference, unknown conditions and promises that need proof.
+
 - [Cryptomatte Masks for ComfyUI Architecture Renders](https://archigenai.com/cryptomatte-masks-comfyui-architecture-2026.html): Turn Cryptomatte IDs from Blender or V-Ray into precise ComfyUI masks, then audit edges, naming and edit scope before changing an architecture render.
 
 - [Review 4K ComfyUI Renders at Three Scales](https://archigenai.com/comfyui-4k-three-scale-review-architects-2026.html): Approve a 4K ComfyUI architecture render at fit view, delivery size and 200 percent so design drift, false detail and technical damage cannot hide.
