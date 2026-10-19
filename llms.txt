@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Veras Smart Selection Is Not Cryptomatte](https://archigenai.com/veras-smart-selection-vs-cryptomatte-architects-2026.html): Veras Smart Selection speeds local AI edits, but it is not a renderer ID pass. Know when semantic masks help and when Cryptomatte must lead.
+
 - [Client AI Images Need an Assumption Log](https://archigenai.com/client-ai-image-assumption-log-architects-2026.html): Turn a client-supplied AI image into an assumption log that separates design intent, visual preference, unknown conditions and promises that need proof.
 
 - [Cryptomatte Masks for ComfyUI Architecture Renders](https://archigenai.com/cryptomatte-masks-comfyui-architecture-2026.html): Turn Cryptomatte IDs from Blender or V-Ray into precise ComfyUI masks, then audit edges, naming and edit scope before changing an architecture render.
