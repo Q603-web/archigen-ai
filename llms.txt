@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [AI in Every Project? Count the Tasks](https://archigenai.com/ai-adoption-count-tasks-not-projects-architects-2026.html): An AI touch on every project is not an adoption metric. Count tasks, reviewed outputs and decisions to learn where generative tools earn their place.
+
 - [Veras 5.3 NODES: BIM Gets a Graph](https://archigenai.com/veras-5-3-nodes-bim-workflows-architects-2026.html): Veras 5.3 NODES turns image, video and 3D steps into reusable graphs inside BIM tools. Here is what architects should standardize and audit.
 
 - [Do Not Let Veras Caption Your Brief](https://archigenai.com/veras-describe-source-image-prompt-audit-architects-2026.html): Use Veras Describe Source Image to audit what the model sees, then rewrite the caption as design intent before it enters an architectural prompt.
