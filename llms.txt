@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Veras 5.3 NODES: BIM Gets a Graph](https://archigenai.com/veras-5-3-nodes-bim-workflows-architects-2026.html): Veras 5.3 NODES turns image, video and 3D steps into reusable graphs inside BIM tools. Here is what architects should standardize and audit.
+
 - [Do Not Let Veras Caption Your Brief](https://archigenai.com/veras-describe-source-image-prompt-audit-architects-2026.html): Use Veras Describe Source Image to audit what the model sees, then rewrite the caption as design intent before it enters an architectural prompt.
 
 - [Veras Smart Selection Is Not Cryptomatte](https://archigenai.com/veras-smart-selection-vs-cryptomatte-architects-2026.html): Veras Smart Selection speeds local AI edits, but it is not a renderer ID pass. Know when semantic masks help and when Cryptomatte must lead.
