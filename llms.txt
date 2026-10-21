@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Keep Veras Assumptions Visible](https://archigenai.com/veras-agentic-modeling-assumption-markers-architects-2026.html): Veras 5.2 flags guessed geometry before it enters BIM. Architects should preserve those assumptions through native bake, checking and signoff.
+
 - [AI in Every Project? Count the Tasks](https://archigenai.com/ai-adoption-count-tasks-not-projects-architects-2026.html): An AI touch on every project is not an adoption metric. Count tasks, reviewed outputs and decisions to learn where generative tools earn their place.
 
 - [Veras 5.3 NODES: BIM Gets a Graph](https://archigenai.com/veras-5-3-nodes-bim-workflows-architects-2026.html): Veras 5.3 NODES turns image, video and 3D steps into reusable graphs inside BIM tools. Here is what architects should standardize and audit.
