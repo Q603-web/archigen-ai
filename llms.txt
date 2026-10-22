@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [AI Canvas or BIM Plugin?](https://archigenai.com/collaborative-ai-canvas-vs-bim-plugin-architects-2026.html): Collaborative AI canvases and BIM plugins solve different workflow problems. Choose the place where your team needs decisions, context and traceability.
+
 - [Unlimited AI Renders Need a Review Budget](https://archigenai.com/unlimited-ai-rendering-review-budget-architects-2026.html): Unlimited AI rendering removes the generation meter, not the review cost. Set an option budget so architects compare, reject and decide with care.
 
 - [Keep Veras Assumptions Visible](https://archigenai.com/veras-agentic-modeling-assumption-markers-architects-2026.html): Veras 5.2 flags guessed geometry before it enters BIM. Architects should preserve those assumptions through native bake, checking and signoff.
