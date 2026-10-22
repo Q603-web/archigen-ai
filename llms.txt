@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [ComfyUI Tutorials Need a GPU Budget](https://archigenai.com/comfyui-architecture-tutorial-gpu-budget-2026.html): A useful ComfyUI architecture tutorial declares its GPU budget, models, nodes, source frame and fallback route before anyone downloads the workflow.
+
 - [AI Canvas or BIM Plugin?](https://archigenai.com/collaborative-ai-canvas-vs-bim-plugin-architects-2026.html): Collaborative AI canvases and BIM plugins solve different workflow problems. Choose the place where your team needs decisions, context and traceability.
 
 - [Unlimited AI Renders Need a Review Budget](https://archigenai.com/unlimited-ai-rendering-review-budget-architects-2026.html): Unlimited AI rendering removes the generation meter, not the review cost. Set an option budget so architects compare, reject and decide with care.
