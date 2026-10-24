@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Veras Nodes vs ComfyUI: Who Owns the Graph?](https://archigenai.com/veras-nodes-vs-comfyui-graph-ownership-architects-2026.html): Veras Nodes and ComfyUI both use graphs, but ownership differs. Compare hosting, dependencies, BIM outputs, costs, portability and maintenance.
+
 - [Count the Preparation an AI Render Comparison Hides](https://archigenai.com/ai-render-comparison-preparation-ledger-architects-2026.html): AI renderer comparisons hide the work before upload. Use a preparation ledger to count model cleanup, camera setup, passes, masks and references.
 
 - [Audit a Free AI Render Plan Before Studio Adoption](https://archigenai.com/free-ai-render-plan-audit-architects-2026.html): A free AI render plan needs five checks: user eligibility, project use, output rights, meter limits and export terms. Audit before studio adoption.
