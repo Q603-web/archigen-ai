@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Count the Preparation an AI Render Comparison Hides](https://archigenai.com/ai-render-comparison-preparation-ledger-architects-2026.html): AI renderer comparisons hide the work before upload. Use a preparation ledger to count model cleanup, camera setup, passes, masks and references.
+
 - [Audit a Free AI Render Plan Before Studio Adoption](https://archigenai.com/free-ai-render-plan-audit-architects-2026.html): A free AI render plan needs five checks: user eligibility, project use, output rights, meter limits and export terms. Audit before studio adoption.
 
 - [Test AI Renderer Documentation Before You Buy](https://archigenai.com/ai-render-tool-documentation-test-architects-2026.html): Score AI renderer documentation before buying: versions, inputs, limits, credits and recovery steps decide whether a tool can support studio work.
