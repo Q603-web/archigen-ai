@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [AI Tool Tables Need Unknowns](https://archigenai.com/ai-render-comparison-unknown-cells-architects-2026.html): AI render comparison tables should label unknown, undocumented and untested facts. Clean-looking guesses turn missing evidence into bad procurement advice.
+
 - [Veras Nano Banana 2: Audit Speed](https://archigenai.com/veras-nano-banana-2-throughput-audit-architects-2026.html): Veras offers Nano Banana 2 for faster renders and higher quota. Use a model-switch audit before speed quietly changes an approved architectural image.
 
 - [ComfyUI Render Enhancement Change Contract](https://archigenai.com/comfyui-render-enhancement-change-contract-architects-2026.html): Turn "enhance this render" into a ComfyUI change contract with permitted edits, structure controls, masks and rejection tests.
