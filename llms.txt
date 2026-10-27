@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [4K ComfyUI Renders Need Two Passes](https://archigenai.com/comfyui-4k-render-two-pass-workflow-architects-2026.html): A safer ComfyUI 4K workflow separates image-to-image enhancement from upscaling, so sharper output does not quietly redraw the architecture.
+
 - [AI Tool Tables Need Unknowns](https://archigenai.com/ai-render-comparison-unknown-cells-architects-2026.html): AI render comparison tables should label unknown, undocumented and untested facts. Clean-looking guesses turn missing evidence into bad procurement advice.
 
 - [Veras Nano Banana 2: Audit Speed](https://archigenai.com/veras-nano-banana-2-throughput-audit-architects-2026.html): Veras offers Nano Banana 2 for faster renders and higher quota. Use a model-switch audit before speed quietly changes an approved architectural image.
