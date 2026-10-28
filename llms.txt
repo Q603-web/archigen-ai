@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Veras Search Results Need a Version Check](https://archigenai.com/veras-search-results-version-check-architects-2026.html): Search results still foreground old Veras releases. Check the current engine, workflow, host and credit model before trusting any review or comparison.
+
 - [Veras Cloud Gallery Is Not an Archive](https://archigenai.com/veras-cloud-gallery-project-archive-architects-2026.html): Veras keeps renders in its cloud gallery while local auto-save is off by default. Export approved images with enough context to become project records.
 
 - [4K ComfyUI Renders Need Two Passes](https://archigenai.com/comfyui-4k-render-two-pass-workflow-architects-2026.html): A safer ComfyUI 4K workflow separates image-to-image enhancement from upscaling, so sharper output does not quietly redraw the architecture.
