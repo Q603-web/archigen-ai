@@ -106,6 +106,18 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 - [Trace Veras Ideas to V-Ray History](https://archigenai.com/veras-vfb-history-provenance-architects-2026.html): Use V-Ray VFB History as the source ledger for Veras options, so every AI image points back to a named render, model revision and camera.
 
+- [SketchUp Diffusion vs Veras: AI Render Now](https://archigenai.com/sketchup-diffusion-vs-veras-architects-2026.html): SketchUp Diffusion is now AI Render. Compare its current requirements and image workflow with Chaos Veras before choosing a tool for SketchUp visuals.
+
+- [Best AI Architecture Rendering Tools: 4 Picks](https://archigenai.com/best-ai-architecture-rendering-tools-2026.html): Compare PromeAI, Rendair, Arko AI and Veras for architectural rendering. Check input routes, Rendair free credits, revision needs and purchase questions.
+
+- [AI Site Analysis: Forma, TestFit and Hypar](https://archigenai.com/ai-site-analysis-tools-architects-2026.html): Compare Forma, TestFit and Hypar for site analysis, development feasibility and space planning. Learn which documented workflow fits your design question.
+
+- [Best AI Tools for Architectural Visualization](https://archigenai.com/best-ai-tools-architectural-visualization-2026.html): Choose AI architectural visualization tools by workflow: SketchUp AI Render, Veras, PromeAI and ComfyUI, with source-based strengths and clear limits.
+
+- [ArchiLabs Studio Mode: AI CAD Review](https://archigenai.com/archilabs-studio-mode-ai-cad-review-2026.html): ArchiLabs Studio Mode review: distinguish browser CAD from Desktop for Revit and AutoCAD, check current pricing, and assess the claims before a pilot.
+
+- [Arko AI vs PromeAI: Which Fits Your Workflow?](https://archigenai.com/arko-ai-vs-promeai-architects-2026.html): Arko AI vs PromeAI for architects: compare documented inputs, Rhino compatibility, image editing and subscription questions before choosing a rendering tool.
+
 - [Color-Manage ComfyUI Render Enhancement](https://archigenai.com/comfyui-render-color-pipeline-architects-2026.html): Keep the linear EXR as master, send ComfyUI a deliberate display-ready image, and verify profiles, exposure and gradients when the enhanced file returns.
 
 - [AI Renderer Comparisons Need Output Tests](https://archigenai.com/ai-renderer-comparison-output-formats-architects-2026.html): AI renderer comparisons obsess over beauty images. Architects should also score alpha, masks, depth, passes and bit depth for the correction work ahead.
