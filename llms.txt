@@ -58,6 +58,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Vendor AI Render Rankings Need a Label](https://archigenai.com/vendor-ai-render-rankings-conflict-label-architects-2026.html): Gendo and Chaos publish useful AI renderer comparisons that favor their own category. Read vendor rankings as positioning, then verify the claims.
+
 - [Veras Search Results Need a Version Check](https://archigenai.com/veras-search-results-version-check-architects-2026.html): Search results still foreground old Veras releases. Check the current engine, workflow, host and credit model before trusting any review or comparison.
 
 - [Veras Cloud Gallery Is Not an Archive](https://archigenai.com/veras-cloud-gallery-project-archive-architects-2026.html): Veras keeps renders in its cloud gallery while local auto-save is off by default. Export approved images with enough context to become project records.
