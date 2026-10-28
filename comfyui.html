@@ -1,0 +1,227 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true'))gtag('config','G-JJQ4M8NNBR');</script>
+<title>ComfyUI for Architects: A Learning Path | ArchiGen AI</title><meta name="description" content="Every ArchiGen ComfyUI guide for architects in learning order: choosing the tool, reading a graph, matching inputs, holding control and local repair."><link rel="canonical" href="https://archigenai.com/comfyui.html"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png"><meta property="og:type" content="website"><meta property="og:site_name" content="ArchiGen AI"><meta property="og:url" content="https://archigenai.com/comfyui.html"><meta property="og:title" content="ComfyUI for Architects: A Learning Path"><meta property="og:description" content="Every ArchiGen ComfyUI guide for architects in learning order: choosing the tool, reading a graph, matching inputs, holding control and local repair."><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ComfyUI for Architects: A Learning Path"><meta name="twitter:description" content="Every ArchiGen ComfyUI guide for architects in learning order: choosing the tool, reading a graph, matching inputs, holding control and local repair.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,opsz,wght@1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>:root{--fd:'Fraunces',serif;--fs:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;--p:#F2EFE8;--p2:#EAE5D9;--i:#1A1915;--i2:#3A3830;--m:#706A5C;--r:#1A19151A;--t:#B65F3A}*{box-sizing:border-box}html,body{margin:0;overflow-x:hidden}body{background:var(--p);color:var(--i);font:16px/1.6 var(--fs)}.wrap{max-width:1440px;margin:auto;padding:0 40px}.topstrip{background:var(--i);color:var(--p);padding:9px 0}.marquee{display:flex;gap:50px;white-space:nowrap;font:11px var(--fm);text-transform:uppercase}.nav{position:sticky;top:0;z-index:5;background:var(--p);border-bottom:1px solid var(--r)}.nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 40px;gap:32px}.brand{display:flex;align-items:center;gap:12px;color:var(--i);text-decoration:none;font:500 20px var(--fd)}.brand-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:6px;background:var(--i);color:var(--p);font:600 12px var(--fm)}.brand em{color:var(--m);font-weight:300}.nav-links{display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--i)}.nav-links a{padding:8px 16px;border-radius:999px;color:var(--p);text-decoration:none;font-size:13px}.nav-links .active{background:var(--p);color:var(--i)}.nav-right{text-align:right}.btn{padding:9px 18px;border-radius:999px;background:var(--i);color:var(--p);text-decoration:none;font-size:13px}.article-header{padding:64px 0 48px;border-bottom:1px solid var(--r)}.meta{display:flex;gap:16px;margin-bottom:24px}.tag,.detail,.mono{font:11px var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--m)}h1{font:400 clamp(40px,6vw,80px)/1 var(--fd);letter-spacing:-.03em;max-width:18ch;margin:0 0 24px}h1 em,h2 em{color:var(--t);font-weight:300}.lede{font-size:20px;max-width:60ch;color:var(--i2)}.name{font-weight:600}.article-body{max-width:720px;padding:56px 0 80px}.article-body h2{font:400 32px/1.1 var(--fd);margin:56px 0 16px}.article-body h3{font-size:18px;margin:38px 0 12px}.article-body p,.article-body li{color:var(--i2)}.article-body p{margin:0 0 20px}.article-body li{margin-bottom:8px}blockquote{border-left:3px solid var(--t);margin:40px 0;padding-left:24px;font:italic 22px/1.3 var(--fd)}table{width:100%;border-collapse:collapse;margin:32px 0;font-size:14px}th{font:10px var(--fm);text-transform:uppercase;text-align:left;padding:10px;border-bottom:2px solid var(--i)}td{padding:12px 10px;border-bottom:1px solid var(--r);vertical-align:top}.related{margin-top:64px;padding-top:40px;border-top:1px solid var(--r)}.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}.related-card{background:var(--p2);padding:20px;border-radius:10px;color:var(--i);text-decoration:none}.rc-title{font:18px/1.2 var(--fd)}footer{background:var(--i);color:var(--p);padding:64px 0 40px}.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}footer h3{font:36px/1 var(--fd)}footer h4{font:10px var(--fm);text-transform:uppercase;color:#aaa}footer a{display:block;color:var(--p);text-decoration:none;padding:5px 0}.foot-bottom{margin-top:56px;padding-top:24px;border-top:1px solid #ffffff1a;display:flex;justify-content:space-between;font:10px var(--fm)}@media(max-width:800px){.wrap{padding:0 20px}.nav-inner{grid-template-columns:1fr auto;padding:14px 20px}.nav-links{display:none}.foot-grid{grid-template-columns:1fr 1fr}}
+/* growth E3 newsletter styles:start */
+.article-newsletter {
+  background: #172b2c;
+  color: var(--paper, var(--p, #f2efe8));
+  border-radius: 10px;
+  padding: 32px 28px;
+  margin: 44px 0;
+  max-width: 840px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  box-sizing: border-box;
+  scroll-margin-top: 150px;
+}
+.article-newsletter > div { min-width: 0; }
+.article-newsletter .eyebrow {
+  display: block;
+  font: 10px/1.4 var(--f-mono, var(--fm, 'JetBrains Mono', monospace));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c7d0c7;
+  margin-bottom: 10px;
+}
+.article-newsletter h3 {
+  font-family: var(--f-display, var(--fd, 'Fraunces', serif));
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 10px;
+}
+.article-newsletter h3 em { color: #e3b777; font-style: italic; font-weight: 300; }
+.article-newsletter p { font-size: 13px; line-height: 1.55; color: #d3d8d2; margin: 0 0 16px; }
+.article-newsletter .news-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font: 9px/1.5 var(--f-mono, var(--fm, 'JetBrains Mono', monospace));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a4b3a7;
+}
+.article-newsletter .signup-options { display: flex; flex-direction: column; min-width: 0; }
+.article-newsletter .signup-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  min-height: 48px;
+  white-space: normal;
+  text-align: center;
+  border-radius: 999px;
+  background: var(--paper, var(--p, #f4efe3));
+  color: #1a1915;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.article-newsletter .signup-link:hover { background: #f3c374; color: #1a1915; transform: translateY(-1px); }
+.article-newsletter .signup-help { font-size: 11px; line-height: 1.4; color: #a4b3a7; margin: 12px 0 8px; }
+.article-newsletter .signup-web {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 14px 0;
+  font-size: 11px;
+  color: #d3d8d2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-newsletter .signup-web:hover { color: #fff; }
+.article-newsletter a:focus-visible { outline: 3px solid #f3c374; outline-offset: 4px; }
+.newsletter-placement { max-width: 920px; margin: 0 auto; padding: 0 40px; }
+@media (min-width: 620px) {
+  .article-newsletter { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 28px; align-items: center; padding: 36px 32px; }
+}
+@media (max-width: 619px) {
+  .newsletter-placement { padding: 0 20px; }
+  .article-newsletter .signup-link { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .article-newsletter .signup-link { transition: none; }
+  .article-newsletter .signup-link:hover { transform: none; }
+}
+/* growth E3 newsletter styles:end */
+</style>
+<style>.hub-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}.hub-jump a{font:11px var(--fm);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--i);background:var(--p2);padding:7px 12px;border-radius:4px;border:1px solid var(--r)}.hub-list{list-style:none;padding:0;margin:0}.hub-list li{padding:14px 0;border-bottom:1px solid var(--r);margin:0}.hub-list a{font:500 19px/1.3 var(--fd);color:var(--i);text-decoration:none;display:block;margin-bottom:4px}.hub-list a:hover{color:var(--t)}.hub-list span{display:block;font-size:15px;color:var(--i2)}.article-body h2{scroll-margin-top:90px}.newsletter-placement{padding:0;margin:48px 0}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","NewsMediaOrganization"],"@id":"https://archigenai.com/#organization","name":"ArchiGen AI","url":"https://archigenai.com/","logo":{"@type":"ImageObject","url":"https://archigenai.com/assets/brand/logo-512.png","width":512,"height":512},"sameAs":["https://x.com/archigenai"],"description":"An evidence-led editorial publication for architects, archviz artists and design-forward studios working out where AI fits into practice, from concept sketch to client-ready render.","publishingPrinciples":"https://archigenai.com/masthead.html","correctionsPolicy":"https://archigenai.com/masthead.html#corrections","ownershipFundingInfo":"https://archigenai.com/masthead.html#ownership"},{"@type":"Person","@id":"https://archigenai.com/#nora-sinclair","name":"Nora Sinclair","description":"AI editorial persona of ArchiGen AI, not a human architect or practitioner.","worksFor":{"@id":"https://archigenai.com/#organization"},"url":"https://archigenai.com/masthead.html#nora-sinclair"},{"@type":["CollectionPage","Article"],"@id":"https://archigenai.com/comfyui.html#page","url":"https://archigenai.com/comfyui.html","name":"ComfyUI for architects, in learning order.","headline":"ComfyUI for Architects: A Learning Path","description":"Every ArchiGen ComfyUI guide for architects in learning order: choosing the tool, reading a graph, matching inputs, holding control and local repair.","datePublished":"2026-10-28","dateModified":"2026-10-28","inLanguage":"en","mainEntityOfPage":"https://archigenai.com/comfyui.html","articleSection":"Guide","author":{"@id":"https://archigenai.com/#nora-sinclair"},"publisher":{"@id":"https://archigenai.com/#organization"},"mainEntity":{"@type":"ItemList","numberOfItems":59,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"url":"https://archigenai.com/open-source-ai-render-stack-architects-2026.html","name":"Open-Source AI Render Stack: Blender, ComfyUI, SD"},{"@type":"ListItem","position":2,"url":"https://archigenai.com/ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html","name":"AI Render Enhancer vs ComfyUI: Which to Learn"},{"@type":"ListItem","position":3,"url":"https://archigenai.com/comfyui-vs-traditional-rendering-labor-benchmark-architects-2026.html","name":"ComfyUI vs Traditional Rendering: Labor Benchmark"},{"@type":"ListItem","position":4,"url":"https://archigenai.com/comfyui-cloud-architects-render-without-gpu-2026.html","name":"ComfyUI Cloud for Architects: The GPU Excuse Is Gone"},{"@type":"ListItem","position":5,"url":"https://archigenai.com/qwen-flux-zimage-comfyui-architecture-render-2026.html","name":"Qwen, Flux, Z-Image: License-Safe ComfyUI Stack"},{"@type":"ListItem","position":6,"url":"https://archigenai.com/comfyui-architecture-flux-sdxl-model-routing-2026.html","name":"ComfyUI for Architecture: FLUX vs SDXL by Task"},{"@type":"ListItem","position":7,"url":"https://archigenai.com/veras-nodes-vs-comfyui-graph-ownership-architects-2026.html","name":"Veras Nodes vs ComfyUI"},{"@type":"ListItem","position":8,"url":"https://archigenai.com/comfyui-workflow-hunting-trap-architects-2026.html","name":"ComfyUI Workflow Hunting: Stop Downloading"},{"@type":"ListItem","position":9,"url":"https://archigenai.com/comfyui-architecture-starter-graph-five-nodes-2026.html","name":"ComfyUI Starter Graph for Architects: 5 Nodes"},{"@type":"ListItem","position":10,"url":"https://archigenai.com/comfyui-architecture-nodes-and-models-2026.html","name":"ComfyUI Nodes and Models for Architecture"},{"@type":"ListItem","position":11,"url":"https://archigenai.com/comfyui-architecture-workflow-json-2026.html","name":"ComfyUI Architecture Workflow JSON Structure"},{"@type":"ListItem","position":12,"url":"https://archigenai.com/comfyui-architecture-four-exercise-learning-plan-2026.html","name":"Learn ComfyUI for Architecture in Four Exercises"},{"@type":"ListItem","position":13,"url":"https://archigenai.com/comfyui-architecture-tutorial-failure-frames-2026.html","name":"ComfyUI Architecture Tutorials Need Failure Frames"},{"@type":"ListItem","position":14,"url":"https://archigenai.com/comfyui-architecture-tutorial-reproducibility-checklist-2026.html","name":"ComfyUI Architecture Tutorials: Can You Rebuild One?"},{"@type":"ListItem","position":15,"url":"https://archigenai.com/comfyui-architecture-tutorial-gpu-budget-2026.html","name":"ComfyUI Tutorials Need a GPU Budget"},{"@type":"ListItem","position":16,"url":"https://archigenai.com/comfyui-architecture-workflow-read-before-run-2026.html","name":"Read a ComfyUI Architecture Workflow Before You Run It"},{"@type":"ListItem","position":17,"url":"https://archigenai.com/how-to-request-comfyui-architecture-workflow-2026.html","name":"How to Request a ComfyUI Architecture Workflow"},{"@type":"ListItem","position":18,"url":"https://archigenai.com/comfyui-custom-nodes-dependency-budget-architects-2026.html","name":"ComfyUI Custom Nodes: A Dependency Budget"},{"@type":"ListItem","position":19,"url":"https://archigenai.com/comfyui-workflow-maintenance-cost-architects-2026.html","name":"ComfyUI Workflow Maintenance Cost for Architects"},{"@type":"ListItem","position":20,"url":"https://archigenai.com/comfyui-workflow-portability-test-architects-2026.html","name":"ComfyUI Workflow Portability Test: Four Images"},{"@type":"ListItem","position":21,"url":"https://archigenai.com/comfyui-architecture-four-layer-debugging-2026.html","name":"Debug ComfyUI Architecture Workflows in 4 Layers"},{"@type":"ListItem","position":22,"url":"https://archigenai.com/comfyui-architecture-input-triage-workflow-2026.html","name":"ComfyUI Input Triage for Architectural Renders"},{"@type":"ListItem","position":23,"url":"https://archigenai.com/comfyui-source-control-map-hierarchy-architects-2026.html","name":"Choose Better ComfyUI Control Maps"},{"@type":"ListItem","position":24,"url":"https://archigenai.com/native-depth-pass-comfyui-architecture-2026.html","name":"Export Depth Before ComfyUI"},{"@type":"ListItem","position":25,"url":"https://archigenai.com/cryptomatte-masks-comfyui-architecture-2026.html","name":"Cryptomatte Masks for ComfyUI"},{"@type":"ListItem","position":26,"url":"https://archigenai.com/comfyui-render-color-pipeline-architects-2026.html","name":"Color-Manage ComfyUI Render Enhancement"},{"@type":"ListItem","position":27,"url":"https://archigenai.com/comfyui-linework-clay-pass-test-architects-2026.html","name":"ComfyUI Linework and Clay-Pass Workflow Test"},{"@type":"ListItem","position":28,"url":"https://archigenai.com/comfyui-depth-pass-without-the-model-architects-2026.html","name":"ComfyUI Depth Pass Without the 3D Model"},{"@type":"ListItem","position":29,"url":"https://archigenai.com/recover-depth-canny-from-flat-render-comfyui-architects-2026.html","name":"ComfyUI: Rebuild a Depth Pass From a Flat Render"},{"@type":"ListItem","position":30,"url":"https://archigenai.com/depth-anything-v3-flat-render-control-comfyui-architects-2026.html","name":"Recover Depth From Flat Renders"},{"@type":"ListItem","position":31,"url":"https://archigenai.com/gemini-comfyui-concept-pipeline-architects-2026.html","name":"Gemini for the Concept, ComfyUI for the Render"},{"@type":"ListItem","position":32,"url":"https://archigenai.com/blender-comfyui-architectural-rendering-workflow-test.html","name":"Blender + ComfyUI Architectural Rendering Workflow"},{"@type":"ListItem","position":33,"url":"https://archigenai.com/comfyui-floor-plan-to-3d-render-architects-2026.html","name":"ComfyUI Floor Plan Renders: Line or Depth?"},{"@type":"ListItem","position":34,"url":"https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html","name":"ComfyUI Sketch Renders: Nodes and Models"},{"@type":"ListItem","position":35,"url":"https://archigenai.com/comfyui-archviz-question-nobody-answers-2026.html","name":"The ComfyUI Archviz Question Nobody Answers"},{"@type":"ListItem","position":36,"url":"https://archigenai.com/denoise-strength-creativity-dial-comfyui-architects-2026.html","name":"Denoise Strength: The ComfyUI Creativity Dial"},{"@type":"ListItem","position":37,"url":"https://archigenai.com/comfyui-first-pass-geometry-lock-architects-2026.html","name":"ComfyUI Redesigns Your Building on Pass One"},{"@type":"ListItem","position":38,"url":"https://archigenai.com/comfyui-second-pass-keep-depth-canny-controls-architects-2026.html","name":"ComfyUI Second Pass: Keep Depth and Canny Attached"},{"@type":"ListItem","position":39,"url":"https://archigenai.com/comfyui-4k-render-two-pass-workflow-architects-2026.html","name":"4K ComfyUI Renders Need Two Passes"},{"@type":"ListItem","position":40,"url":"https://archigenai.com/comfyui-architectural-render-four-pass-enhancement-2026.html","name":"ComfyUI Architectural Render Enhancement in Four Passes"},{"@type":"ListItem","position":41,"url":"https://archigenai.com/comfyui-stage-checkpoints-architecture-workflow-2026.html","name":"ComfyUI Stage Checkpoints for Architectural Renders"},{"@type":"ListItem","position":42,"url":"https://archigenai.com/comfyui-advanced-tutorial.html","name":"ComfyUI Exteriors: Depth, Fill or Img2img?"},{"@type":"ListItem","position":43,"url":"https://archigenai.com/comfyui-interior-visualization-architects-2026.html","name":"ComfyUI for Interiors: Why Exterior Graphs Break"},{"@type":"ListItem","position":44,"url":"https://archigenai.com/comfyui-depth-edge-control-conflict-architecture-2026.html","name":"ComfyUI Depth vs Edge Controls: When They Disagree"},{"@type":"ListItem","position":45,"url":"https://archigenai.com/comfyui-enhance-render-task-routing-architects-2026.html","name":"ComfyUI Render Enhancement: Route Four Jobs"},{"@type":"ListItem","position":46,"url":"https://archigenai.com/comfyui-render-enhancement-change-budget-2026.html","name":"Set a ComfyUI Change Budget"},{"@type":"ListItem","position":47,"url":"https://archigenai.com/comfyui-render-enhancement-change-contract-architects-2026.html","name":"ComfyUI Render Change Contract"},{"@type":"ListItem","position":48,"url":"https://archigenai.com/comfyui-architectural-render-preservation-brief-2026.html","name":"ComfyUI Render Enhancement: A Preservation Brief"},{"@type":"ListItem","position":49,"url":"https://archigenai.com/comfyui-architectural-render-defect-map-2026.html","name":"ComfyUI Architectural Render Defect Map"},{"@type":"ListItem","position":50,"url":"https://archigenai.com/comfyui-architectural-render-repair-order-2026.html","name":"ComfyUI Architectural Render Repair Order"},{"@type":"ListItem","position":51,"url":"https://archigenai.com/comfyui-mask-edge-depth-control-architecture-2026.html","name":"ComfyUI Mask, Edge or Depth Control for Architecture"},{"@type":"ListItem","position":52,"url":"https://archigenai.com/comfyui-global-pass-local-repair-architecture-2026.html","name":"ComfyUI Render Enhancement: Global, Then Local"},{"@type":"ListItem","position":53,"url":"https://archigenai.com/comfyui-fix-architectural-render-reflections-2026.html","name":"Fix AI Render Reflections in ComfyUI"},{"@type":"ListItem","position":54,"url":"https://archigenai.com/architectural-render-enhancement-punch-list-comfyui-2026.html","name":"Architectural Render Enhancement: A Punch List"},{"@type":"ListItem","position":55,"url":"https://archigenai.com/comfyui-render-polish-difference-matte-architects-2026.html","name":"ComfyUI Render Polish: Add a Difference Matte"},{"@type":"ListItem","position":56,"url":"https://archigenai.com/comfyui-4k-architecture-render-delivery-contract-2026.html","name":"Set a 4K Delivery Contract Before ComfyUI"},{"@type":"ListItem","position":57,"url":"https://archigenai.com/comfyui-4k-tile-seam-qa-architects-2026.html","name":"Stop 4K Tile Seams in ComfyUI"},{"@type":"ListItem","position":58,"url":"https://archigenai.com/comfyui-4k-three-scale-review-architects-2026.html","name":"Review 4K ComfyUI Renders at 3 Scales"},{"@type":"ListItem","position":59,"url":"https://archigenai.com/comfyui-render-provenance-package-architects-2026.html","name":"A PNG Is Not a ComfyUI Project Record"}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://archigenai.com/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://archigenai.com/tools.html"},{"@type":"ListItem","position":3,"name":"ComfyUI for Architects: A Learning Path","item":"https://archigenai.com/comfyui.html"}]}]}</script>
+<!-- PostHog (cookieless: in-memory persistence, no recordings; honours the same plausible_ignore opt-out as GA4) -->
+<script>
+  !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+  if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
+</script>
+<script src="scripts/newsletter-analytics.js" defer></script>
+</head><body>
+<div class="topstrip"><div class="wrap marquee"><span>ArchiGen AI</span><span>/</span><span>Read the graph before you run it</span><span>/</span><span>No sponsored placements</span></div></div><nav class="nav"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">AG</span><span>ArchiGen<em>/AI</em></span></a><div class="nav-links"><a href="index.html">Home</a><a href="journal.html">Journal</a><a class="active" href="tools.html">Tools</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a></div><div class="nav-right"><a class="btn" href="index.html#newsletter" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Join the studio &rarr;</a></div></div></nav>
+<section class="article-header"><div class="wrap"><div class="meta"><span class="tag">Guide &middot; ComfyUI &middot; Updated 28 Oct 2026</span></div><h1>ComfyUI for architects, <em>in learning order.</em></h1><p class="lede">ArchiGen has published 59 ComfyUI pieces for architects. In date order they read like a pile. In this order they read like a course: decide whether the tool fits, learn a graph you can read, match it to the file you have, keep control on the next pass, then repair one defect at a time.</p><div class="name"><a href="masthead.html#nora-sinclair" style="color:inherit">Nora Sinclair</a></div><div class="detail" style="margin-top:6px">Nora Sinclair is ArchiGen's AI editorial persona, not a human architect or practitioner. Every piece is reviewed and approved by ArchiGen's human publisher. <a href="masthead.html#nora-sinclair" style="color:inherit">Full disclosure</a></div><div class="hub-jump"><a href="#decide">1. Decide if ComfyUI is the tool</a><a href="#graph">2. Learn a graph you can read</a><a href="#input">3. Match the graph to the file you have</a><a href="#control">4. Keep control on the next pass</a><a href="#repair">5. Repair one defect, then prove nothing else moved</a></div></div></section>
+<div class="wrap"><main class="article-body">
+<p>Each line below says what the article covers; the sources and method are in the article itself. Most are procedural guides written from documentation, model cards and public threads. The Blender and ComfyUI workflow is the one documented test in the set.</p>
+<h2 id="decide">1. Decide if ComfyUI is the <em>tool</em></h2>
+<p>Before the first checkpoint download, decide whether a node graph suits the work in front of you, and what running one costs.</p>
+<ol class="hub-list">
+<li><a href="open-source-ai-render-stack-architects-2026.html">Open-Source AI Render Stack: Blender, ComfyUI, SD</a><span>What do Blender, ComfyUI and Stable Diffusion each do in a stack with nothing to cancel, and what do you give up?</span></li>
+<li><a href="ai-render-enhancer-vs-comfyui-pipeline-architects-2026.html">AI Render Enhancer vs ComfyUI: Which to Learn</a><span>Learn a ComfyUI pipeline, or drop the render into a one-click enhancer?</span></li>
+<li><a href="comfyui-vs-traditional-rendering-labor-benchmark-architects-2026.html">ComfyUI vs Traditional Rendering: Labor Benchmark</a><span>When does ComfyUI save visualization labor, and when does it only move the work?</span></li>
+<li><a href="comfyui-cloud-architects-render-without-gpu-2026.html">ComfyUI Cloud for Architects: The GPU Excuse Is Gone</a><span>Can you run ComfyUI in the browser with no local NVIDIA GPU, and what is the fine print?</span></li>
+<li><a href="qwen-flux-zimage-comfyui-architecture-render-2026.html">Qwen, Flux, Z-Image: License-Safe ComfyUI Stack</a><span>Which open-weight model can you run locally instead of Midjourney, and what does the license allow?</span></li>
+<li><a href="comfyui-architecture-flux-sdxl-model-routing-2026.html">ComfyUI for Architecture: FLUX vs SDXL by Task</a><span>SDXL ControlNet, FLUX.1 Depth, FLUX.2 editing or FLUX.2 Klein: which family matches this job?</span></li>
+<li><a href="veras-nodes-vs-comfyui-graph-ownership-architects-2026.html">Veras Nodes vs ComfyUI</a><span>Veras Nodes and ComfyUI both use graphs. How do hosting, dependencies, outputs, costs and maintenance differ?</span></li>
+</ol>
+<h2 id="graph">2. Learn a graph you can <em>read</em></h2>
+<p>A graph you understand outlasts a graph you downloaded. These pieces cover its parts, its file format and the records that let someone else rebuild it.</p>
+<ol class="hub-list">
+<li><a href="comfyui-workflow-hunting-trap-architects-2026.html">ComfyUI Workflow Hunting: Stop Downloading</a><span>Download another workflow, or build a small graph you understand?</span></li>
+<li><a href="comfyui-architecture-starter-graph-five-nodes-2026.html">ComfyUI Starter Graph for Architects: 5 Nodes</a><span>What are the five jobs in a first architecture graph: load, encode, constrain, sample, save?</span></li>
+<li><a href="comfyui-architecture-nodes-and-models-2026.html">ComfyUI Nodes and Models for Architecture</a><span>Which checkpoint, text encoder, VAE and control files does the graph load, which family does each belong to, and what does the FLUX.1 dev license say?</span></li>
+<li><a href="comfyui-architecture-workflow-json-2026.html">ComfyUI Architecture Workflow JSON Structure</a><span>What does a workflow JSON contain (nodes, links, widget values, a models list), and how does the API export differ from the saved file?</span></li>
+<li><a href="comfyui-architecture-four-exercise-learning-plan-2026.html">Learn ComfyUI for Architecture in Four Exercises</a><span>How do you practice, in order: prove the graph, measure denoise, add structure, make one local fix?</span></li>
+<li><a href="comfyui-architecture-tutorial-failure-frames-2026.html">ComfyUI Architecture Tutorials Need Failure Frames</a><span>What should a tutorial show besides the beauty shot?</span></li>
+<li><a href="comfyui-architecture-tutorial-reproducibility-checklist-2026.html">ComfyUI Architecture Tutorials: Can You Rebuild One?</a><span>What has to be written down before someone else can rebuild the graph?</span></li>
+<li><a href="comfyui-architecture-tutorial-gpu-budget-2026.html">ComfyUI Tutorials Need a GPU Budget</a><span>Which GPU budget, models, nodes, source frame and fallback route should a tutorial declare before anyone downloads it?</span></li>
+<li><a href="comfyui-architecture-workflow-read-before-run-2026.html">Read a ComfyUI Architecture Workflow Before You Run It</a><span>How do you read an unfamiliar workflow before you install nodes or download models?</span></li>
+<li><a href="how-to-request-comfyui-architecture-workflow-2026.html">How to Request a ComfyUI Architecture Workflow</a><span>What six inputs do you send when you ask for a workflow?</span></li>
+<li><a href="comfyui-custom-nodes-dependency-budget-architects-2026.html">ComfyUI Custom Nodes: A Dependency Budget</a><span>Which custom nodes is the studio willing to depend on?</span></li>
+<li><a href="comfyui-workflow-maintenance-cost-architects-2026.html">ComfyUI Workflow Maintenance Cost for Architects</a><span>Who owns the graph after the first week, and what does upkeep cost?</span></li>
+<li><a href="comfyui-workflow-portability-test-architects-2026.html">ComfyUI Workflow Portability Test: Four Images</a><span>Does the graph survive four unlike source images, or is it tuned to one screenshot?</span></li>
+<li><a href="comfyui-architecture-four-layer-debugging-2026.html">Debug ComfyUI Architecture Workflows in 4 Layers</a><span>Is the failure the install, the graph, the conditioning, or the building?</span></li>
+</ol>
+<h2 id="input">3. Match the graph to the file you <em>have</em></h2>
+<p>A sketch, a clay render, a flat JPG and a native depth pass call for different controls. Start from the evidence in hand.</p>
+<ol class="hub-list">
+<li><a href="comfyui-architecture-input-triage-workflow-2026.html">ComfyUI Input Triage for Architectural Renders</a><span>Given this source, do you need depth, edges, a mask, a reference, or a denoise setting?</span></li>
+<li><a href="comfyui-source-control-map-hierarchy-architects-2026.html">Choose Better ComfyUI Control Maps</a><span>Native model data, renderer passes or inferred depth: which control map should you reach for first?</span></li>
+<li><a href="native-depth-pass-comfyui-architecture-2026.html">Export Depth Before ComfyUI</a><span>How do you export a renderer-native depth pass for ComfyUI, and what QA does it still need?</span></li>
+<li><a href="cryptomatte-masks-comfyui-architecture-2026.html">Cryptomatte Masks for ComfyUI</a><span>How do Cryptomatte IDs from Blender or V-Ray become ComfyUI masks, and what do you audit first?</span></li>
+<li><a href="comfyui-render-color-pipeline-architects-2026.html">Color-Manage ComfyUI Render Enhancement</a><span>What image do you send ComfyUI when the master is a linear EXR, and what do you check when it returns?</span></li>
+<li><a href="comfyui-linework-clay-pass-test-architects-2026.html">ComfyUI Linework and Clay-Pass Workflow Test</a><span>Do you have two witnesses to the same view, a line pass and a clay pass?</span></li>
+<li><a href="comfyui-depth-pass-without-the-model-architects-2026.html">ComfyUI Depth Pass Without the 3D Model</a><span>There is no model file. When is an estimated depth map enough, and where does it fail?</span></li>
+<li><a href="recover-depth-canny-from-flat-render-comfyui-architects-2026.html">ComfyUI: Rebuild a Depth Pass From a Flat Render</a><span>You only have a JPG. Export a pass from the model, or rebuild depth and Canny with a preprocessor?</span></li>
+<li><a href="depth-anything-v3-flat-render-control-comfyui-architects-2026.html">Recover Depth From Flat Renders</a><span>What can Depth Anything 3 recover from a flat render, and where does inferred depth need checking?</span></li>
+<li><a href="gemini-comfyui-concept-pipeline-architects-2026.html">Gemini for the Concept, ComfyUI for the Render</a><span>Where does a Gemini concept end and a ComfyUI geometry lock begin?</span></li>
+<li><a href="blender-comfyui-architectural-rendering-workflow-test.html">Blender + ComfyUI Architectural Rendering Workflow</a><span>How does a Blender view enter the graph? This is the documented Blender and ComfyUI test.</span></li>
+<li><a href="comfyui-floor-plan-to-3d-render-architects-2026.html">ComfyUI Floor Plan Renders: Line or Depth?</a><span>Line or depth guidance for a floor-plan render: which control inputs, matching model files and public examples apply?</span></li>
+<li><a href="comfyui-sketch-to-photoreal-architecture.html">ComfyUI Sketch Renders: Nodes and Models</a><span>Which line preprocessors, compatible FLUX files and model licences apply to a sketch render, and what does its workflow JSON hold?</span></li>
+<li><a href="comfyui-archviz-question-nobody-answers-2026.html">The ComfyUI Archviz Question Nobody Answers</a><span>How do you turn lineart or a rough 3D view into a realistic render, past a pile of tutorial links?</span></li>
+<li><a href="denoise-strength-creativity-dial-comfyui-architects-2026.html">Denoise Strength: The ComfyUI Creativity Dial</a><span>How far may the new image depart from the one you put in?</span></li>
+<li><a href="comfyui-first-pass-geometry-lock-architects-2026.html">ComfyUI Redesigns Your Building on Pass One</a><span>The massing moves on pass one. What control holds a blockout?</span></li>
+</ol>
+<div class="newsletter-placement">
+<!-- growth E3 newsletter:start -->
+<aside class="newsletter article-newsletter" aria-label="Newsletter">
+  <div class="newsletter-copy">
+    <span class="eyebrow">The Sunday dispatch</span>
+    <h3>Letters from the <em>practice.</em></h3>
+    <p>Most architectural AI tutorials read like promotional copy for cloud compute vendors. ArchiGen arrives once every Sunday with one focused essay and three tools worth a look, with their claims checked. We read the docs, model cards, and public threads, checking vendor claims against their own published evidence.</p>
+    <div class="news-meta">
+      <span>Sunday dispatch</span>
+      <span>One email weekly</span>
+      <span>Unsubscribe anytime</span>
+    </div>
+  </div>
+  <div class="signup-options">
+    <a class="btn light signup-link"
+       href="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e"
+       target="_blank"
+       rel="noopener"
+       data-ph-capture-attribute-cta="newsletter-web"
+       data-ph-capture-attribute-placement="in-article"
+       data-ph-capture-attribute-cta_id="in-article-newsletter-beehiiv"
+       data-ph-capture-attribute-destination="web-signup">
+      Subscribe to the Sunday letter <span aria-hidden="true">&nearr;</span>
+    </a>
+    <p class="signup-help">Opens the web signup form in a new tab. Unsubscribe at any time.</p>
+    <a class="signup-web"
+       href="mailto:hello@archigenai.com?subject=Subscribe%20me%20to%20the%20Sunday%20letter&amp;body=Please%20add%20me%20to%20the%20ArchiGen%20Sunday%20letter."
+       data-ph-capture-attribute-cta="newsletter-mailto"
+       data-ph-capture-attribute-placement="in-article"
+       data-ph-capture-attribute-cta_id="in-article-newsletter-mailto"
+       data-ph-capture-attribute-destination="mailto">
+      Or subscribe via email request &nearr;
+    </a>
+  </div>
+</aside>
+<!-- growth E3 newsletter:end -->
+</div>
+<h2 id="control">4. Keep control on the next <em>pass</em></h2>
+<p>Enhancement and upscaling are where a held building starts to wander. Keep the controls attached and stop between stages.</p>
+<ol class="hub-list">
+<li><a href="comfyui-second-pass-keep-depth-canny-controls-architects-2026.html">ComfyUI Second Pass: Keep Depth and Canny Attached</a><span>How do you enhance and upscale while depth and Canny stay attached?</span></li>
+<li><a href="comfyui-4k-render-two-pass-workflow-architects-2026.html">4K ComfyUI Renders Need Two Passes</a><span>Why separate image-to-image enhancement from upscaling on the way to 4K?</span></li>
+<li><a href="comfyui-architectural-render-four-pass-enhancement-2026.html">ComfyUI Architectural Render Enhancement in Four Passes</a><span>How do you split lighting, materials, vegetation and reflections so one pass is not asked to do all four?</span></li>
+<li><a href="comfyui-stage-checkpoints-architecture-workflow-2026.html">ComfyUI Stage Checkpoints for Architectural Renders</a><span>Where do you stop between structure, atmosphere and repair?</span></li>
+<li><a href="comfyui-advanced-tutorial.html">ComfyUI Exteriors: Depth, Fill or Img2img?</a><span>Depth for massing, img2img for materials, inpainting for site context, then light: which exterior operation needs which public files?</span></li>
+<li><a href="comfyui-interior-visualization-architects-2026.html">ComfyUI for Interiors: Why Exterior Graphs Break</a><span>An outdoor graph falls apart in a room. What has to change?</span></li>
+<li><a href="comfyui-depth-edge-control-conflict-architecture-2026.html">ComfyUI Depth vs Edge Controls: When They Disagree</a><span>Depth and the line map describe two different buildings. Which control do you trust?</span></li>
+</ol>
+<h2 id="repair">5. Repair one defect, then prove nothing else <em>moved</em></h2>
+<p>Write down what may change before the graph runs, fix one thing at a time, and check the rest stayed put.</p>
+<ol class="hub-list">
+<li><a href="comfyui-enhance-render-task-routing-architects-2026.html">ComfyUI Render Enhancement: Route Four Jobs</a><span>Is this request a relight, a material swap, planting, or cleanup?</span></li>
+<li><a href="comfyui-render-enhancement-change-budget-2026.html">Set a ComfyUI Change Budget</a><span>Before enhancing, what may change, what must hold, and which edits need masks or separate passes?</span></li>
+<li><a href="comfyui-render-enhancement-change-contract-architects-2026.html">ComfyUI Render Change Contract</a><span>How do you turn 'enhance this render' into permitted edits, controls, masks and rejection tests?</span></li>
+<li><a href="comfyui-architectural-render-preservation-brief-2026.html">ComfyUI Render Enhancement: A Preservation Brief</a><span>What must the render keep, what may be tuned, and what may be replaced?</span></li>
+<li><a href="comfyui-architectural-render-defect-map-2026.html">ComfyUI Architectural Render Defect Map</a><span>Which failure gets which input, mask, pass and acceptance test?</span></li>
+<li><a href="comfyui-architectural-render-repair-order-2026.html">ComfyUI Architectural Render Repair Order</a><span>In what order do you repair geometry, light, materials, reflections and planting?</span></li>
+<li><a href="comfyui-mask-edge-depth-control-architecture-2026.html">ComfyUI Mask, Edge or Depth Control for Architecture</a><span>Mask, edge or depth: which control matches this defect?</span></li>
+<li><a href="comfyui-global-pass-local-repair-architecture-2026.html">ComfyUI Render Enhancement: Global, Then Local</a><span>One controlled global pass, then which defects get a narrow masked repair?</span></li>
+<li><a href="comfyui-fix-architectural-render-reflections-2026.html">Fix AI Render Reflections in ComfyUI</a><span>How do you repair glass after the light is already set?</span></li>
+<li><a href="architectural-render-enhancement-punch-list-comfyui-2026.html">Architectural Render Enhancement: A Punch List</a><span>What is on the punch list for light, materials, reflections, planting and detail?</span></li>
+<li><a href="comfyui-render-polish-difference-matte-architects-2026.html">ComfyUI Render Polish: Add a Difference Matte</a><span>What did the polish pass change that nobody asked for?</span></li>
+<li><a href="comfyui-4k-architecture-render-delivery-contract-2026.html">Set a 4K Delivery Contract Before ComfyUI</a><span>What does a 4K delivery have to include besides the pixel count?</span></li>
+<li><a href="comfyui-4k-tile-seam-qa-architects-2026.html">Stop 4K Tile Seams in ComfyUI</a><span>How do you find and fix tile seams, repeated details and geometry drift in a 4K upscale?</span></li>
+<li><a href="comfyui-4k-three-scale-review-architects-2026.html">Review 4K ComfyUI Renders at 3 Scales</a><span>Why review a 4K render at fit view, delivery size and 200 percent?</span></li>
+<li><a href="comfyui-render-provenance-package-architects-2026.html">A PNG Is Not a ComfyUI Project Record</a><span>Which files sit beside the approved PNG so the render can be rebuilt?</span></li>
+</ol>
+<p>Start with the section that matches today's problem. The graph can wait until you know what it is for.</p>
+</main></div><footer><div class="wrap"><div class="foot-grid"><div><a class="brand" href="index.html" style="color:var(--p)"><span class="brand-mark" style="background:var(--p);color:var(--i)">AG</span>ArchiGen/AI</a><h3>A publication for architects designing with the machine.</h3></div><div><h4>Read</h4><a href="journal.html">Journal</a><a href="workflows.html">Workflows</a></div><div><h4>Tools</h4><a href="tools.html">Directory</a></div><div><h4>Follow</h4><a href="index.html#newsletter" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="footer" data-ph-capture-attribute-cta_id="footer-newsletter-anchor-1">Newsletter</a><a href="masthead.html">Masthead</a><a href="privacy.html">Privacy</a></div></div><div class="foot-bottom"><span>&copy; 2026 ArchiGen AI</span><span>Set in Fraunces &amp; Inter</span></div></div></footer></body></html>
