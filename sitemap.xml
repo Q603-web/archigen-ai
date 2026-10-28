@@ -1772,10 +1772,14 @@
   <url>
     <loc>https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html</loc>
     <lastmod>2026-10-10</lastmod>
+  </url>
+  <url>
     <loc>https://archigenai.com/comfyui-advanced-tutorial.html</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://archigenai.com/comfyui-architecture-nodes-and-models-2026.html</loc>
     <priority>0.7</priority>
   </url>
@@ -1816,6 +1820,10 @@
   <url>
     <loc>https://archigenai.com/pureref-reference-board-ai-render-workflow-architects-2026.html</loc>
     <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://archigenai.com/testfit-feasibility-generative-design-review-2026.html</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -1824,6 +1832,10 @@
   <url>
     <loc>https://archigenai.com/veras-remove-background-alpha-qa-architects-2026.html</loc>
     <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://archigenai.com/myarchitectai-review-2026.html</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -1838,8 +1850,12 @@
   <url>
     <loc>https://archigenai.com/veras-in-vray-nondestructive-ideation-architects-2026.html</loc>
     <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://archigenai.com/finch3d-fenestra-review.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1860,11 +1876,17 @@
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://archigenai.com/autodesk-forma-ai-architects-2026.html</loc>
     <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://archigenai.com/enscape-chaos-ai-enhancer-material-generator-2026.html</loc>
     <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
