@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noindex, follow" />
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJQ4M8NNBR"></script>
@@ -18,19 +17,19 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>Midjourney for Architects: What Nobody Tells You</title>
-<meta name="description" content="Midjourney V8.1 reviewed for architecture practice. The best concept tool, the worst technical tool, and how to know which one you're using it as." />
+<title>Midjourney for Architecture: V8.2, Pricing, Limits</title>
+<meta name="description" content="Midjourney V8.2 suits architecture mood boards and concept images but cannot read a Revit or SketchUp model. Plans from $10 a month, compared with Veras." />
 <link rel="canonical" href="https://archigenai.com/midjourney-architecture-review.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="ArchiGen AI" />
 <meta property="og:url" content="https://archigenai.com/midjourney-architecture-review.html" />
-<meta property="og:title" content="Midjourney for Architects: What Nobody Tells You" />
-<meta property="og:description" content="Midjourney V8.1 reviewed for architecture practice. The best concept tool, the worst technical tool, and how to know which one you're using it as." />
+<meta property="og:title" content="Midjourney for Architecture: V8.2, Pricing, Limits" />
+<meta property="og:description" content="Midjourney V8.2 suits architecture mood boards and concept images but cannot read a Revit or SketchUp model. Plans from $10 a month, compared with Veras." />
 <meta property="og:image" content="https://archigenai.com/assets/hero-midjourney-architecture-review.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="Midjourney for Architects: What Nobody Tells You" />
-<meta name="twitter:description" content="Midjourney V8.1 reviewed for architecture practice. The best concept tool, the worst technical tool, and how to know which one you're using it as." />
+<meta name="twitter:title" content="Midjourney for Architecture: V8.2, Pricing, Limits" />
+<meta name="twitter:description" content="Midjourney V8.2 suits architecture mood boards and concept images but cannot read a Revit or SketchUp model. Plans from $10 a month, compared with Veras." />
 <meta name="twitter:image" content="https://archigenai.com/assets/hero-midjourney-architecture-review.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,13 +103,20 @@
   .article-body blockquote { border-left: 3px solid var(--terracotta); margin: 40px 0; padding: 0 0 0 24px; font-family: var(--f-display); font-style: italic; font-size: 22px; line-height: 1.3; color: var(--ink); }
   .article-body hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
 
-  .ratings-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
-  .rating-block { padding: 24px; border-radius: 12px; background: var(--paper-2); border: 1px solid var(--rule); }
-  .rating-block .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-  .rating-block .stars { font-family: var(--f-mono); font-size: 18px; color: var(--ink); margin-bottom: 6px; letter-spacing: 0.1em; }
-  .rating-block .verdict { font-size: 14px; color: var(--ink-2); }
-  .rating-block.win { background: rgba(107,122,90,0.12); border-color: var(--sage); }
-  .rating-block.lose { background: rgba(227,106,82,0.08); border-color: var(--coral); }
+  .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; }
+  .compare-table th { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--ink); color: var(--muted); }
+  .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink-2); }
+  .compare-table tr:last-child td { border-bottom: 0; }
+  .article-body .table-scroll { overflow-x: auto; }
+
+  .related { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--rule); }
+  .related h4 { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .related-card { border: 1px solid var(--rule); border-radius: 10px; padding: 20px; background: var(--paper-2); text-decoration: none; color: var(--ink); display: block; transition: transform 0.15s; }
+  .related-card:hover { transform: translateY(-2px); }
+  .related-card .rc-tag { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .related-card .rc-title { font-family: var(--f-display); font-weight: 500; font-size: 18px; line-height: 1.2; letter-spacing: -0.01em; }
+  @media (max-width: 640px) { .related-grid { grid-template-columns: 1fr; } }
 
   footer.foot { padding: 64px 0 40px; border-top: 1px solid var(--rule); background: var(--ink); color: var(--paper); }
   .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
@@ -195,15 +201,15 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Review",
-  "name": "Midjourney for Architects: What Nobody Tells You",
-  "description": "Midjourney V8.1 reviewed for architecture practice. The best concept tool, the worst technical tool, and how to know which one you're using it as.",
-  "itemReviewed": {
-    "@type": "SoftwareApplication",
-    "name": "Midjourney",
-    "applicationCategory": "DesignApplication",
-    "operatingSystem": "Web"
+  "@type": "Article",
+  "headline": "Midjourney for Architecture: V8.2, Pricing, Limits",
+  "description": "Midjourney V8.2 suits architecture mood boards and concept images but cannot read a Revit or SketchUp model. Plans from $10 a month, compared with Veras.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://archigenai.com/assets/hero-midjourney-architecture-review.jpg",
+    "caption": "Illustrative image generated with Gemini; not an output of any tool discussed."
   },
+  "about": { "@type": "SoftwareApplication", "name": "Midjourney", "applicationCategory": "DesignApplication", "operatingSystem": "Web" },
   "author": {
     "@type": "Organization",
     "name": "ArchiGen AI Editorial",
@@ -211,9 +217,11 @@
   },
   "publisher": { "@id": "https://archigenai.com/#organization" },
   "datePublished": "2026-04-15T09:00:00-04:00",
-  "dateModified": "2026-04-15T09:00:00-04:00",
+  "dateModified": "2026-10-28",
   "mainEntityOfPage": "https://archigenai.com/midjourney-architecture-review.html",
-  "inLanguage": "en"
+  "articleSection": "Tool Reviews",
+  "inLanguage": "en",
+  "keywords": ["midjourney architecture", "midjourney for architects", "midjourney ai architecture", "Veras vs Midjourney", "Midjourney V8.2", "Midjourney pricing"]
 }
 </script>
 <script type="application/ld+json">
@@ -236,7 +244,7 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Midjourney for architects: what nobody tells you",
+      "name": "Midjourney for Architecture: V8.2, Pricing, Limits",
       "item": "https://archigenai.com/midjourney-architecture-review.html"
     }
   ]
@@ -280,15 +288,15 @@
 <section class="article-header">
   <div class="wrap">
     <div class="meta">
-      <span class="tag">Tool review · 23 Apr 2026</span>
-      <span class="tag">· 7 min read</span>
+      <span class="tag">Tool review &middot; 15 Apr 2026</span>
+      <span class="tag">&middot; 7 min read</span>
     </div>
-    <h1>Midjourney for architects: <em>what nobody tells you</em></h1><aside class="correction-notice" role="note" style="max-width:760px;margin:24px 0;padding:16px 20px;border-left:3px solid #C96F4A;background:#EAE5D9;color:#1A1915;font-family:'Inter',system-ui,sans-serif;font-size:15px;line-height:1.55;"><strong>Correction, 30 September 2026:</strong> this article describes hands-on tests on client projects that ArchiGen did not carry out. Its results are unverified, and it is being rewritten.</aside>
-    <p class="lede">It's a strong concept tool and a weak technical tool, and most architects don't realise they're using it for the wrong thing. A review of V8.1.</p>
+    <h1>Midjourney for architecture: <em>a mood machine, not a renderer</em>.</h1>
+    <p class="lede">Midjourney's current default model, V8.2, is a fast, stylish image generator that suits mood boards and early concept imagery. It cannot read a Revit, SketchUp or Rhino model, so it will not render your building. This review reads Midjourney's documentation, its update posts and independent coverage. ArchiGen has not run Midjourney on any project.</p>
     <div class="byline">
       <div class="byline-info">
         <div class="name"><a href="masthead.html" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(26,25,21,0.25);text-underline-offset:3px;">ArchiGen AI Editorial</a></div>
-        <div class="detail">7 min read · Apr 2026 · Evidence reviewed</div>
+        <div class="detail">7 min read &middot; Rewritten October 2026 &middot; Updated 28 October 2026 &middot; Based on public sources</div>
       </div>
     </div>
   </div>
@@ -297,7 +305,7 @@
 <section class="agv-hero-section" data-agvis="hero">
   <div class="wrap"><figure>
   <img src="assets/hero-midjourney-architecture-review.jpg" alt="A worm's-eye view of a modern concrete building at night with neon lights reflecting on wet pavement." fetchpriority="high" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Generates sublime mood boards; utterly useless for roof drainage detailing.</span></figcaption>
+  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration, AI-generated (Gemini)</span> <span>Illustrative image only. Not a Midjourney output.</span></figcaption>
   </figure></div>
 </section>
 
@@ -305,101 +313,97 @@
 <div class="wrap">
   <div class="article-body">
 
-    <div class="gallery-full">
-      <figure>
-        <img src="assets/hero-midjourney.jpg" alt="Epic cinematic architectural visualization of a futuristic skyscraper with organic green terraces" loading="lazy" />
-        <figcaption>Futuristic organic skyscraper render / Midjourney V8 / ArchiGen AI Original Render</figcaption>
-      </figure>
-    </div>
+    <section class="answer-first" aria-label="Short answer"><h2>Is Midjourney any good for architecture?</h2><p>For concept work, yes. Midjourney V8.2, the default since 24 July 2026, turns text and reference images into atmospheric pictures, which suits mood boards, material studies and early form ideas. It cannot open a Revit, SketchUp or Rhino model. To render a designed building, a model-aware tool such as Chaos Veras fits better.</p></section>
 
-    <p>Midjourney is the most-used AI image tool in architecture. It's also the most misused. The same model that produces stunning concept moodboards can also waste an entire afternoon trying to render a building that doesn't exist outside your SketchUp file. The difference between the two outcomes is knowing which one you're doing.</p>
+    <p>The earlier version of this page reviewed a "V8.1" that it said arrived in February 2026, and it described studio routines and results ArchiGen never produced. Both are gone. What follows is a documentation review: Midjourney's help centre and update posts, Chaos's Veras pages, and press coverage, all checked on 28 October 2026. Where a sentence is a judgement rather than a vendor fact, it reads like one.</p>
 
-    <h2>The Midjourney <em>trap</em></h2>
+    <h2>Which Midjourney version <em>is current?</em></h2>
 
-    <p>The trap looks like this: an architect sees an incredible Midjourney render on Instagram. They sign up. They try to recreate the magic on their actual project. The output looks nothing like their building. They blame themselves, blame the model, or both, and quietly stop using it.</p>
+    <p>The V8 family arrived in stages. <a href="https://the-decoder.com/midjourney-v8-rolls-out-with-5x-faster-generation-but-charges-4x-more-for-its-best-features/">The Decoder reported on 18 March 2026</a> that V8 had opened for community testing on Midjourney's alpha site, with generation roughly five times faster and a new <code>--hd</code> mode rendering natively at 2K. Midjourney's <a href="https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version">Version page</a> says V8.1 was released on 14 April 2026 and was the default from 10 June to 23 July. The <a href="https://updates.midjourney.com/v8-1-is-now-the-default-model/">V8.1 announcement</a> promised images "in only 4 seconds in SD, and 12 seconds in HD," and HD output at "4x the resolution of V7 images."</p>
 
-    <p>None of those reactions is correct. Midjourney was never going to render their actual project. That's not what it does. What it does, exceptionally well, is produce visual reference material with a particular kind of authored aesthetic. Architects who use it for that get enormous value. Architects who try to use it for anything else don't.</p>
+    <p><a href="https://updates.midjourney.com/version-8-2/">V8.2 followed on 24 July 2026</a>, pitched at "aesthetics and image quality and personalization," and it is the default today. Per the Version page, standard images start at 1024 by 1024 pixels; HD images are 2048 pixels and cost 1.3 minutes of GPU time against 0.8 for standard. On 27 August Midjourney opened testing of an <a href="https://updates.midjourney.com/edit-model-for-v8/">Edit model for V8</a> that edits images by instruction, inpaints and outpaints, and takes up to four image references at once, replacing Omni Reference.</p>
 
     <figure class="agv-inline" data-agvis="inline">
   <img src="assets/inline-midjourney-architecture-review-1.jpg" alt="A close-up shot of ribbed terracotta facade panels illuminated by low morning light in fog." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Version 8.1 masters light handling, but the wireframe remains imaginary.</span></figcaption>
+  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration, AI-generated (Gemini)</span> <span>Illustrative image only. Not a Midjourney output.</span></figcaption>
 </figure>
 
-        <h2>The V8.1 <em>update</em></h2>
+    <h2>Where Midjourney <em>earns a seat</em></h2>
 
-    <p>V8.1 dropped in February 2026 with three changes that matter for architecture work.</p>
+    <p>The tools that matter to an architect are the ones that control mood. A <a href="https://docs.midjourney.com/hc/en-us/articles/32180011136653-Style-Reference">Style Reference</a> captures "colors, medium, textures, or lighting" from an image without copying its objects, which is exactly what a material or atmosphere board is for. <a href="https://docs.midjourney.com/hc/en-us/articles/39193335040013-Moodboards">Moodboards</a> go wider, building a personal style from a set of chosen images. Midjourney's <a href="https://updates.midjourney.com/v8-1-is-now-the-default-model/">V8.1 post</a> says style references, personalization and aesthetics stay consistent between V7 and V8.1, so a practice's existing references should carry over.</p>
 
-    <p><strong>Better light handling.</strong> V8.1 reads "golden hour," "overcast," "blue hour," and "north light" with much more accuracy than V7. The improvement is most visible in interior renders, where V7 used to flatten everything into noon. V8.1 holds atmospheric mood across multi-image sets.</p>
+    <p>Speed changes the economics of looking. At the four seconds an image Midjourney quoted for V8.1, twenty variations on "a chapel on a moor in October light" cost less time than one coffee. Midjourney's <a href="https://docs.midjourney.com/hc/en-us/articles/37460773864589-Video">video model</a> adds five-second clips that start from an image you choose, enough for a mood loop on a pitch slide. Every one of those outputs is a new building, invented to match the words. That is the point of concept work, and the problem with everything after it.</p>
 
-    <p><strong>Native 4K output.</strong> No more upscaling for hero shots. V8.1 generates at 4096px on the long edge by default. This sounds minor and is not, it eliminates an entire workflow step for moodboard work.</p>
+    <h2>Where it stops: <em>your actual building</em></h2>
 
-    <p><strong>Style References stabilised.</strong> The --sref system is now consistent across re-rolls. Pin a Sergison Bates image as your style reference and Midjourney will hold the register across 12 generations. V7 drifted by image 4. V8.1 doesn't.</p>
+    <p>Midjourney works from text prompts and images. There is no Revit or SketchUp plug-in in its documentation, and its <a href="https://docs.midjourney.com/hc/en-us/articles/32083055291277-Terms-of-Service">terms</a> say it does not offer an API and prohibit automating the service. You can drop a model screenshot in as an image reference, and the Edit model will restyle it, but the software sees pixels, not walls, levels or window families. Nothing in the documentation promises that the window count you modelled is the window count you get back.</p>
 
-    <p>What V8.1 didn't fix: geometry. Buildings still grow extra columns. Windows still appear in walls that didn't have them. Plan views are still impossible. None of that is going to change in V9, V10, or V20. <a href="geometry-aware-ai-renderers-architects-2026.html" data-agl="1">It's a category limitation, not a version one</a>.</p>
-
-    <h2>Where it <em>excels</em></h2>
-
-    <p><strong>Moodboards.</strong> The fastest way we know to develop a project's visual register. Three to five prompts in the early days of a scheme produce twenty reference images that tell us what kind of building we're trying to make. We never present these. They live on the studio pinboard and shape every subsequent decision.</p>
-
-    <p><strong>Concept renders.</strong> If your scheme is at the stage where the form is still moving, Midjourney is excellent at producing variations on a verbal brief. "Six ways to interpret 'a chapel on the moor'" is a very Midjourney task. Each output will be its own building. You're not rendering a design, you're auditioning ten of them.</p>
-
-    <p><strong>Lighting and atmosphere.</strong> <a href="nano-banana-pro-midjourney-architecture-workflow-2026.html" data-agl="1">Midjourney's read on light</a> is its strongest point. "Wet plaza, hour of blue, sodium-vapor streetlights" produces an image that looks like a photograph someone took. The atmospheric pass is what V-Ray takes 40 minutes to do. Midjourney does it in 30 seconds.</p>
-
-    <p><strong>Material studies.</strong> Want to see what your scheme could look like in board-formed concrete vs. corten steel vs. stack-bonded brick? Six prompts, eighteen images, an afternoon's worth of decisions made in twenty minutes.</p>
-
-    <h2>Where it <em>fails</em></h2>
-
-    <p><strong>Geometry fidelity.</strong> Discussed above. Don't ask Midjourney to render your building. It will render a building. The two will not be the same building.</p>
-
-    <p><strong>BIM integration.</strong> Midjourney doesn't integrate with anything. There's no Revit plugin, no SketchUp connector, no API for studios who want to wire it into their pipeline. Everything happens in Discord or the web app. Both are fine for individual use, awful for team workflow.</p>
-
-    <p><strong>Plan views.</strong> Ask Midjourney for a site plan and you'll get an isometric. Ask for a plan and you'll get a perspective looking down. The model has no concept of orthographic projection. Don't bother.</p>
-
-    <p><strong>Repeatability.</strong> Even with --sref pinned, Midjourney is a slot machine. A great image cannot be reliably reproduced. This is the single biggest reason Midjourney can't be a production tool, you can't iterate on a specific output, only re-roll near it.</p>
+    <p>The Decoder adds a caution on prompts: V8 remains a pure diffusion model and, in its reading, trails competitors on complex, abstract instructions. For orthographic drawings, door schedules or anything a contractor will measure, use the model and the drafting tools. Our piece on <a href="geometry-aware-ai-renderers-architects-2026.html">geometry-aware AI renderers</a> covers the tools built for that job.</p>
 
     <figure class="agv-inline" data-agvis="inline">
   <img src="assets/inline-midjourney-architecture-review-2.jpg" alt="An overhead drone photograph of a modern stone courtyard with water basins reflecting the sky." loading="lazy" />
-  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>Treat it as an atmospheric reference, never construction documentation.</span></figcaption>
+  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration, AI-generated (Gemini)</span> <span>Illustrative image only. Not a Midjourney output.</span></figcaption>
 </figure>
 
-        <h2>How to actually use it in <em>practice</em></h2>
+    <h2>Which is better for architects, <em>Veras or Midjourney?</em></h2>
 
-    <p>This is what works for us, after two years of trying things that didn't.</p>
+    <p>They answer different questions, and the documentation makes the split plain. Chaos describes <a href="https://www.chaos.com/veras">Veras</a> as working with Revit, SketchUp, Rhino, Archicad, Vectorworks, Forma and Allplan, plus a web app, and pitches it for exploring "fa&ccedil;ade treatments within your existing model geometry." Its page claims that with Nano Banana prompt control "only specified geometry and materials change, keeping your massing intact." That is a vendor claim, not an ArchiGen result, but it is the claim Midjourney never makes.</p>
 
-    <p><strong>Use Midjourney at the front of the project, not the back.</strong> Schematic design, concept exploration, mood-finding. Once the geometry is locked, switch to Veras, Rendair, or ComfyUI. Don't go back to Midjourney for presentation work.</p>
+    <div class="table-scroll"><table class="compare-table">
+      <thead>
+        <tr><th>Question</th><th>Midjourney (V8.2)</th><th>Chaos Veras</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Starts from</td><td>Text prompts and reference images</td><td>Your 3D model view, a sketch, an image or a prompt</td></tr>
+        <tr><td>Host software</td><td>None; web app and Discord</td><td>Revit, SketchUp, Rhino, Archicad, Vectorworks, Forma, Allplan, web</td></tr>
+        <tr><td>Keeps your geometry</td><td>Not claimed</td><td>Claimed by Chaos ("keeping your massing intact")</td></tr>
+        <tr><td>Video</td><td>Five-second image-to-video clips</td><td>Image-to-video</td></tr>
+        <tr><td>Best fit, per the vendors' own pages</td><td>Mood, style and concept imagery</td><td>Design-stage renders and material studies of a modelled scheme</td></tr>
+        <tr><td>Entry price (28 Oct 2026)</td><td>$10 a month (Basic)</td><td>$16.90 a month billed annually (Starter)</td></tr>
+      </tbody>
+    </table></div>
 
-    <p><strong>Build a studio --sref library.</strong> Curate 20 to 30 reference images that represent your firm's aesthetic register. Pin them as Style References for any new project. The output gets noticeably more "yours" within five generations.</p>
+    <p>So: Midjourney for the week before there is a model, Veras or a similar tool for the months after. Plenty of practices will want both, and the hand-off between them is the subject of our <a href="bim-integrated-ai-rendering-vs-midjourney-architects-2026.html">CAD-integrated AI versus Midjourney</a> piece. For how Veras compares with the upload-based alternatives, see <a href="chaos-veras-vs-rendair-ai.html">Chaos Veras vs Rendair AI</a>.</p>
 
-    <p><strong>Prompt like a brief, not a haiku.</strong> "A modern minimalist building" produces slop. "A three-storey research building, cast-in-place concrete with deep window reveals, set in a forest clearing at 4pm in October, north-facing main facade, slight overcast" produces something specific. Specificity is the entire game.</p>
+    <h2>Which Midjourney plan <em>does a practice need?</em></h2>
 
-    <p><strong>Treat the output as a brief, not a deliverable.</strong> Use Midjourney images as references for your Veras renders, not as substitutes. The Midjourney image tells your team what mood to aim for. The Veras render is what the client sees.</p>
+    <p>As listed on 28 October 2026 on Midjourney's <a href="https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans">plan comparison</a>:</p>
 
-    <p><strong>Pay for the standard plan, not basic.</strong> $30/month, unlimited Relax mode generations. The Basic plan ($10) runs out of fast hours in three days of real use. Anyone using Midjourney for actual work needs Standard.</p>
+    <div class="table-scroll"><table class="compare-table">
+      <thead>
+        <tr><th>Plan</th><th>Monthly</th><th>Yearly</th><th>Fast GPU time</th><th>Notable limits</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Basic</td><td>$10</td><td>$96 ($8/mo)</td><td>3.3 hr</td><td>No unlimited Relax, no Stealth</td></tr>
+        <tr><td>Standard</td><td>$30</td><td>$288 ($24/mo)</td><td>15 hr</td><td>Unlimited Relax images, no Stealth</td></tr>
+        <tr><td>Pro</td><td>$60</td><td>$576 ($48/mo)</td><td>30 hr</td><td>Stealth mode, unlimited Relax video</td></tr>
+        <tr><td>Mega</td><td>$120</td><td>$1,152 ($96/mo)</td><td>60 hr</td><td>Stealth mode, unlimited Relax video</td></tr>
+      </tbody>
+    </table></div>
 
-    <blockquote>Midjourney is a strong concept tool and a weak technical tool. The architects who get value from it know which one they're using it as.</blockquote>
+    <p>Two rules decide the plan for most firms. Midjourney's <a href="https://docs.midjourney.com/hc/en-us/articles/27870375276557-Using-Images-Videos-Commercially">commercial use page</a> says a business grossing more than $1,000,000 a year needs Pro or Mega to use images commercially. And Stealth mode, which keeps images out of public view, exists only on Pro and Mega, which matters if you are generating imagery for an unpublished competition entry. Extra fast time is $4 an hour on any plan. A sole practitioner under the revenue line can start on Standard; a mid-sized practice is a Pro customer whether it likes it or not.</p>
 
-    <h2>The split <em>verdict</em></h2>
-
-    <div class="ratings-row">
-      <div class="rating-block win">
-        <div class="label">For concept work</div>
-        <div class="stars">★★★★★</div>
-        <div class="verdict">Best in category. The default for moodboards, atmosphere, material studies, and early scheme exploration. No realistic alternative for what it does.</div>
-      </div>
-      <div class="rating-block lose">
-        <div class="label">For technical work</div>
-        <div class="stars">★★★☆☆</div>
-        <div class="verdict">Inadequate. Cannot render your actual building. Cannot do plans, sections, or orthographic. Use literally any geometry-aware tool instead.</div>
-      </div>
-    </div>
-
-    <p>The studios producing the best Midjourney work are clear-eyed about both halves of this rating. They use it intensively for the front of the project, <a href="hybrid-ai-render-workflow-architecture-2026.html" data-agl="1">then put it down and switch tools</a>. The studios producing the worst Midjourney work are the ones still trying to render their building with it.</p>
-
-    <p>If you're currently fighting with Midjourney to render your actual project, stop. That's not what it's for. Use it for the moodboard, then move on.</p>
+    <p>Use it to find the building. Then close the tab and draw it.</p>
 
     <hr>
 
-    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">No affiliate relationship with Midjourney. Reviewed on V8.1, March 2026 release.</p>
+    <p><strong>Evidence note.</strong> This article is based on Midjourney's help-centre pages (Version, Comparing Midjourney Plans, Style Reference, Moodboards, Video, Using Images and Videos Commercially, Terms of Service), its update posts for V8.1, V8.2 and the V8 Edit model, The Decoder's V8 report of 18 March 2026, and Chaos's Veras product page. All were checked on 28 October 2026; prices are as listed on that date and can change. Midjourney's help centre blocked direct fetching that day, so its figures were confirmed from the pages' indexed text. ArchiGen did not test Midjourney or Veras, and no image on this page is output from either tool.</p>
+
+    <p style="font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase;">No affiliate relationship with Midjourney or Chaos.</p>
+
+    <div class="related">
+      <h4>Related Reading</h4>
+      <div class="related-grid">
+        <a href="bim-integrated-ai-rendering-vs-midjourney-architects-2026.html" class="related-card">
+          <div class="rc-tag">Analysis &middot; 2026</div>
+          <div class="rc-title">Architects leaving Midjourney for CAD-integrated AI.</div>
+        </a>
+        <a href="geometry-aware-ai-renderers-architects-2026.html" class="related-card">
+          <div class="rc-tag">Guide &middot; 2026</div>
+          <div class="rc-title">Geometry-aware AI renderers that hold your building.</div>
+        </a>
+      </div>
+    </div>
 
   </div>
 </div>
