@@ -58,6 +58,54 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [Vendor AI Render Rankings Need a Label](https://archigenai.com/vendor-ai-render-rankings-conflict-label-architects-2026.html): Gendo and Chaos publish useful AI renderer comparisons that favor their own category. Read vendor rankings as positioning, then verify the claims.
+
+- [Veras Search Results Need a Version Check](https://archigenai.com/veras-search-results-version-check-architects-2026.html): Search results still foreground old Veras releases. Check the current engine, workflow, host and credit model before trusting any review or comparison.
+
+- [Veras Cloud Gallery Is Not an Archive](https://archigenai.com/veras-cloud-gallery-project-archive-architects-2026.html): Veras keeps renders in its cloud gallery while local auto-save is off by default. Export approved images with enough context to become project records.
+
+- [4K ComfyUI Renders Need Two Passes](https://archigenai.com/comfyui-4k-render-two-pass-workflow-architects-2026.html): A safer ComfyUI 4K workflow separates image-to-image enhancement from upscaling, so sharper output does not quietly redraw the architecture.
+
+- [AI Tool Tables Need Unknowns](https://archigenai.com/ai-render-comparison-unknown-cells-architects-2026.html): AI render comparison tables should label unknown, undocumented and untested facts. Clean-looking guesses turn missing evidence into bad procurement advice.
+
+- [Veras Nano Banana 2: Audit Speed](https://archigenai.com/veras-nano-banana-2-throughput-audit-architects-2026.html): Veras offers Nano Banana 2 for faster renders and higher quota. Use a model-switch audit before speed quietly changes an approved architectural image.
+
+- [ComfyUI Render Enhancement Change Contract](https://archigenai.com/comfyui-render-enhancement-change-contract-architects-2026.html): Turn "enhance this render" into a ComfyUI change contract with permitted edits, structure controls, masks and rejection tests.
+
+- [Rank AI Renderers by Starting Input](https://archigenai.com/ai-render-ranking-starting-inputs-architects-2026.html): AI renderer rankings hide the input route. Compare BIM plugins, screenshots, sketches and prompts by what each tool must reconstruct before judging output.
+
+- [Veras Nodes vs ComfyUI: Who Owns the Graph?](https://archigenai.com/veras-nodes-vs-comfyui-graph-ownership-architects-2026.html): Veras Nodes and ComfyUI both use graphs, but ownership differs. Compare hosting, dependencies, BIM outputs, costs, portability and maintenance.
+
+- [Count the Preparation an AI Render Comparison Hides](https://archigenai.com/ai-render-comparison-preparation-ledger-architects-2026.html): AI renderer comparisons hide the work before upload. Use a preparation ledger to count model cleanup, camera setup, passes, masks and references.
+
+- [Audit a Free AI Render Plan Before Studio Adoption](https://archigenai.com/free-ai-render-plan-audit-architects-2026.html): A free AI render plan needs five checks: user eligibility, project use, output rights, meter limits and export terms. Audit before studio adoption.
+
+- [Test AI Renderer Documentation Before You Buy](https://archigenai.com/ai-render-tool-documentation-test-architects-2026.html): Score AI renderer documentation before buying: versions, inputs, limits, credits and recovery steps decide whether a tool can support studio work.
+
+- [ComfyUI Tutorials Need a GPU Budget](https://archigenai.com/comfyui-architecture-tutorial-gpu-budget-2026.html): A useful ComfyUI architecture tutorial declares its GPU budget, models, nodes, source frame and fallback route before anyone downloads the workflow.
+
+- [AI Canvas or BIM Plugin?](https://archigenai.com/collaborative-ai-canvas-vs-bim-plugin-architects-2026.html): Collaborative AI canvases and BIM plugins solve different workflow problems. Choose the place where your team needs decisions, context and traceability.
+
+- [Unlimited AI Renders Need a Review Budget](https://archigenai.com/unlimited-ai-rendering-review-budget-architects-2026.html): Unlimited AI rendering removes the generation meter, not the review cost. Set an option budget so architects compare, reject and decide with care.
+
+- [Keep Veras Assumptions Visible](https://archigenai.com/veras-agentic-modeling-assumption-markers-architects-2026.html): Veras 5.2 flags guessed geometry before it enters BIM. Architects should preserve those assumptions through native bake, checking and signoff.
+
+- [AI in Every Project? Count the Tasks](https://archigenai.com/ai-adoption-count-tasks-not-projects-architects-2026.html): An AI touch on every project is not an adoption metric. Count tasks, reviewed outputs and decisions to learn where generative tools earn their place.
+
+- [Veras 5.3 NODES: BIM Gets a Graph](https://archigenai.com/veras-5-3-nodes-bim-workflows-architects-2026.html): Veras 5.3 NODES turns image, video and 3D steps into reusable graphs inside BIM tools. Here is what architects should standardize and audit.
+
+- [Do Not Let Veras Caption Your Brief](https://archigenai.com/veras-describe-source-image-prompt-audit-architects-2026.html): Use Veras Describe Source Image to audit what the model sees, then rewrite the caption as design intent before it enters an architectural prompt.
+
+- [Veras Smart Selection Is Not Cryptomatte](https://archigenai.com/veras-smart-selection-vs-cryptomatte-architects-2026.html): Veras Smart Selection speeds local AI edits, but it is not a renderer ID pass. Know when semantic masks help and when Cryptomatte must lead.
+
+- [Client AI Images Need an Assumption Log](https://archigenai.com/client-ai-image-assumption-log-architects-2026.html): Turn a client-supplied AI image into an assumption log that separates design intent, visual preference, unknown conditions and promises that need proof.
+
+- [Cryptomatte Masks for ComfyUI Architecture Renders](https://archigenai.com/cryptomatte-masks-comfyui-architecture-2026.html): Turn Cryptomatte IDs from Blender or V-Ray into precise ComfyUI masks, then audit edges, naming and edit scope before changing an architecture render.
+
+- [Review 4K ComfyUI Renders at Three Scales](https://archigenai.com/comfyui-4k-three-scale-review-architects-2026.html): Approve a 4K ComfyUI architecture render at fit view, delivery size and 200 percent so design drift, false detail and technical damage cannot hide.
+
+- [Trace Veras Ideas to V-Ray History](https://archigenai.com/veras-vfb-history-provenance-architects-2026.html): Use V-Ray VFB History as the source ledger for Veras options, so every AI image points back to a named render, model revision and camera.
+
 - [Color-Manage ComfyUI Render Enhancement](https://archigenai.com/comfyui-render-color-pipeline-architects-2026.html): Keep the linear EXR as master, send ComfyUI a deliberate display-ready image, and verify profiles, exposure and gradients when the enhanced file returns.
 
 - [AI Renderer Comparisons Need Output Tests](https://archigenai.com/ai-renderer-comparison-output-formats-architects-2026.html): AI renderer comparisons obsess over beauty images. Architects should also score alpha, masks, depth, passes and bit depth for the correction work ahead.
