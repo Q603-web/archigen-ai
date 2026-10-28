@@ -27,6 +27,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 
 ## Workflows
 
+- [ComfyUI for Architects: A Learning Path](https://archigenai.com/comfyui.html): Hub page listing every ArchiGen ComfyUI guide for architects in learning order, from choosing the tool and reading a graph to matching inputs, holding control and local repair.
 - [ComfyUI Exteriors: Depth, Fill or Img2img?](https://archigenai.com/comfyui-advanced-tutorial.html): A source-led exterior workflow covering depth, materials, masked context edits and lighting, with compatible FLUX model files.
 
 - [ComfyUI Architecture Workflow JSON Structure](https://archigenai.com/comfyui-architecture-workflow-json-2026.html): What a ComfyUI architecture workflow JSON contains: nodes, links, widget values, and a models list, and how the API export differs from the file you save.
