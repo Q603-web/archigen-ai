@@ -58,6 +58,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 Every indexable ArchiGen article, grouped by topic. Articles under correction are excluded until they are rewritten.
 
 ### Recently published
+- [AI Tool Lists: Docs Are a Floor](https://archigenai.com/ai-render-tool-docs-check-before-trial-architects-2026.html): Documentation-checked AI render lists make sound shortlists, but vendor pages cannot prove fidelity or speed. Turn the matrix into a one-task trial.
 - [Veras Nodes Agent Needs a Graph Review](https://archigenai.com/veras-nodes-agent-graph-review-architects-2026.html): Veras 5.3 can have an agent build image, video and 3D graphs. Review costs, inputs, stale nodes and BIM bake outputs before a team runs one.
 
 - [Vendor AI Render Rankings Need a Label](https://archigenai.com/vendor-ai-render-rankings-conflict-label-architects-2026.html): Gendo and Chaos publish useful AI renderer comparisons that favor their own category. Read vendor rankings as positioning, then verify the claims.
