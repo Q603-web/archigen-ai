@@ -58,6 +58,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 Every indexable ArchiGen article, grouped by topic. Articles under correction are excluded until they are rewritten.
 
 ### Recently published
+- [Will AI Replace Architectural Rendering?](https://archigenai.com/will-ai-replace-architectural-rendering-2026.html): AI will replace some architectural rendering labor, not the accountable model and review process. Here is what moves to AI and what stays exact.
 - [LookX AI Course for Architects](https://archigenai.com/lookx-ai-course-architects-2026.html): A four-exercise LookX AI course for architects: make a baseline, control composition, edit one variable and build a review-ready image set.
 - [Forma Site Design vs Rayon](https://archigenai.com/forma-site-design-vs-rayon-architects-2026.html): Forma Site Design handles site context and analysis. Rayon handles precise 2D plans and presentations. Compare their roles, files and best project phases.
 - [Revit vs Snaptrude: Which Is Better?](https://archigenai.com/revit-vs-snaptrude-architects-2026.html): Revit beats Snaptrude for documentation and coordination. Snaptrude wins early design. Compare the handoff, collaboration and BIM tradeoffs.
