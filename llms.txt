@@ -58,6 +58,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 Every indexable ArchiGen article, grouped by topic. Articles under correction are excluded until they are rewritten.
 
 ### Recently published
+- [ArchiLabs AI Alternatives for Architects](https://archigenai.com/archilabs-ai-alternatives-architects-2026.html): The best ArchiLabs AI alternatives depend on the task: Dynamo for Revit automation, Hypar for planning, Snaptrude for BIM, or Forma for analysis.
 - [AI Render Tool Suite: What Architects Need](https://archigenai.com/ai-render-tool-suite-architects-2026.html): An AI render tool suite should preserve design intent through creation, edits, approval and archive. Compare Chaos, D5, Rendair and ComfyUI.
 - [Will AI Replace Architectural Rendering?](https://archigenai.com/will-ai-replace-architectural-rendering-2026.html): AI will replace some architectural rendering labor, not the accountable model and review process. Here is what moves to AI and what stays exact.
 - [LookX AI Course for Architects](https://archigenai.com/lookx-ai-course-architects-2026.html): A four-exercise LookX AI course for architects: make a baseline, control composition, edit one variable and build a review-ready image set.
