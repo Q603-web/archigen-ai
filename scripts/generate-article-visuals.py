@@ -56,13 +56,13 @@ EDGE_DIRECTIVES = {
 EDGE_TEXT = " ".join(v for k, v in EDGE_DIRECTIVES.items() if EDGE >= k)
 
 STYLE_GUIDE = (
-    "Editorial architectural imagery for a print-quality design magazine. "
-    "Photoreal rendering or archviz-style photography, warm paper-toned grading "
-    "(cream, bone, ink, muted terracotta accents), magazine cover quality, subtle film grain. "
+    "Upbeat, vibrant editorial architectural imagery for a modern design magazine. "
+    "Photoreal rendering or archviz-style photography with rich, saturated but natural color: "
+    "bright daylight or vivid golden hour, blue skies, lush planting, glowing interiors, crisp contrast "
+    "and an optimistic, energetic mood. Magazine cover quality. "
     "Every scene must feel ALIVE and inhabited: architecture in use, human presence and "
-    "motion (silhouettes, motion blur, figures at distance — never identifiable faces), "
-    "dramatic natural light (golden hour, dusk glow, rain-washed reflections, sun shafts), "
-    "atmosphere and weather, depth and activity. NEVER sterile still-life compositions, "
+    "motion (silhouettes, motion blur, figures at distance, never identifiable faces), "
+    "atmosphere, depth and activity. NEVER sterile still-life compositions, grey or muddy palettes, "
     "empty desks, or lifeless product shots. Absolutely no text, no logos, no watermarks, "
     "no UI chrome."
 )
@@ -103,12 +103,20 @@ Lede: {strip(lede.group(1) if lede else '')}
 Sections: {json.dumps([strip(h) for h in h2s])}
 Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
 
-    resp = client.models.generate_content(
-        model=BRIEF_MODEL,
-        contents=prompt,
-        config={"response_mime_type": "application/json"},
-    )
-    return json.loads(resp.text)
+    last = None
+    for _ in range(3):  # the brief model occasionally returns malformed JSON
+        try:
+            resp = client.models.generate_content(
+                model=BRIEF_MODEL,
+                contents=prompt,
+                config={"response_mime_type": "application/json"},
+            )
+            briefs = json.loads(resp.text)
+            if briefs.get("hero", {}).get("prompt"):
+                return briefs
+        except Exception as e:  # noqa: BLE001
+            last = e
+    raise RuntimeError(f"could not derive image briefs: {last}")
 
 
 def render_image(client, model: str, prompt: str, aspect: str) -> bytes:
@@ -149,13 +157,15 @@ CSS = """
 
 
 def figure_html(src: str, alt: str, caption: str, hero: bool) -> str:
-    esc = lambda s: s.replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
+    # house voice: no em or en dashes in published text, even if the brief model writes them
+    clean = lambda s: re.sub(r"\s*[\u2014\u2013]\s*", ", ", str(s)).strip(" ,")
+    esc = lambda s: clean(s).replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
     img = (
         f'<img src="{src}" alt="{esc(alt)}" fetchpriority="high" />'
         if hero
         else f'<img src="{src}" alt="{esc(alt)}" loading="lazy" />'
     )
-    fig = f'{img}\n  <figcaption class="agv-cap"><span class="agv-chip">Editorial illustration — AI-generated (Gemini)</span> <span>{esc(caption)}</span></figcaption>'
+    fig = f'{img}\n  <figcaption class="agv-cap"><span class="agv-chip">AI illustration (Gemini)</span> <span>{esc(caption)}</span></figcaption>'
     if hero:
         return f'\n<section class="agv-hero-section" data-agvis="hero">\n  <div class="wrap"><figure>\n  {fig}\n  </figure></div>\n</section>\n'
     return f'<figure class="agv-inline" data-agvis="inline">\n  {fig}\n</figure>\n\n    '
@@ -195,9 +205,17 @@ def process(client, path: Path, model: str, hero_aspect: str, inline_count: int,
     m = re.search(r'<section class="article-header">.*?</section>', html, re.S)
     html = html[: m.end()] + "\n" + hero_fig + html[m.end() :]
 
-    h2_iter = list(re.finditer(r"[ \t]*<h2>", html))
+    h2_iter = list(re.finditer(r"[ \t]*<h2\b", html))
+    if not h2_iter:  # no sections: place inline images after the 2nd and 5th paragraphs instead
+        h2_iter = [m for i, m in enumerate(re.finditer(r"(?<=</p>)", html)) if i in (1, 4)]
+    used = set()
     for h2_index, fig in sorted(inline_figs, key=lambda x: -x[0]):
-        idx = min(max(h2_index, 0), len(h2_iter) - 1)
+        if not h2_iter:
+            break
+        idx = min(max(int(h2_index), 0), len(h2_iter) - 1)
+        while idx in used and idx > 0:  # never stack two images above the same heading
+            idx -= 1
+        used.add(idx)
         pos = h2_iter[idx].start()
         html = html[:pos] + "    " + fig + html[pos:]
 
@@ -214,6 +232,11 @@ def process(client, path: Path, model: str, hero_aspect: str, inline_count: int,
         html = re.sub(r'<meta name="twitter:image" content="[^"]*"\s*/?>', tw, html)
     else:
         html = re.sub(r'(<meta name="twitter:description"[^>]*>)', r"\1" + tw, html, count=1)
+    # a logo share card carries logo-specific size/alt tags; drop the sizes and describe the hero instead
+    html = re.sub(r'<meta property="og:image:(?:width|height)" content="[^"]*"\s*/?>\s*', "", html)
+    hero_alt = re.sub(r"\s*[\u2014\u2013]\s*", ", ", briefs["hero"]["alt"]).replace("&", "&amp;").replace('"', "&quot;")
+    html = re.sub(r'(<meta (?:property="og:image:alt"|name="twitter:image:alt") content=")[^"]*(")',
+                  lambda m: m.group(1) + hero_alt + m.group(2), html)
     html = html.replace('name="twitter:card" content="summary"', 'name="twitter:card" content="summary_large_image"')
     if '"@type"' in html and "application/ld+json" in html:
         html = re.sub(r'("@type"\s*:\s*"(?:Article|NewsArticle)")', r'\1, "image": "' + hero_url + '"', html, count=1)

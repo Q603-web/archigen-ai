@@ -8,3 +8,4 @@ node_modules/
 .vercel/
 next-env.d.ts
 publish-herenow.mjs
+visuals-run.json
