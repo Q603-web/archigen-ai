@@ -79,7 +79,7 @@ def hero_model_config():
 def derive_briefs(client, html: str, slug: str, inline_count: int):
     title = re.search(r"<h1>(.*?)</h1>", html, re.S)
     lede = re.search(r'<p class="lede">(.*?)</p>', html, re.S)
-    h2s = re.findall(r"<h2>(.*?)</h2>", html, re.S)
+    h2s = re.findall(r"<h2\b[^>]*>(.*?)</h2>", html, re.S)
     paras = re.findall(r"<p>(.*?)</p>", html, re.S)[:6]
     strip = lambda s: re.sub(r"<[^>]+>", "", s or "").strip()
 
@@ -112,8 +112,13 @@ Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
                 config={"response_mime_type": "application/json"},
             )
             briefs = json.loads(resp.text)
-            if briefs.get("hero", {}).get("prompt"):
+            complete = lambda b: isinstance(b, dict) and all(str(b.get(k) or "").strip() for k in ("prompt", "alt", "caption"))
+            inline = briefs.get("inline") if isinstance(briefs, dict) else None
+            if complete(briefs.get("hero")) and isinstance(inline, list) and len(inline) >= inline_count \
+                    and all(complete(b) for b in inline[:inline_count]):
+                briefs["inline"] = inline[:inline_count]
                 return briefs
+            last = ValueError(f"incomplete briefs: need hero + {inline_count} inline with prompt/alt/caption")
         except Exception as e:  # noqa: BLE001
             last = e
     raise RuntimeError(f"could not derive image briefs: {last}")
@@ -171,56 +176,84 @@ def figure_html(src: str, alt: str, caption: str, hero: bool) -> str:
     return f'<figure class="agv-inline" data-agvis="inline">\n  {fig}\n</figure>\n\n    '
 
 
+ARTICLE_TYPES = {"Article", "NewsArticle", "BlogPosting"}
+
+
+def inline_targets(html: str, wanted, count: int):
+    """Distinct insertion offsets (descending) for the inline figures: above h2 headings, falling back to
+    paragraph ends. Raises if `count` distinct places are not available (never publish a partial layout)."""
+    anchors = [m.start() for m in re.finditer(r"[ \t]*<h2\b", html)]
+    if len(anchors) < count:
+        anchors = [m.end() for m in re.finditer(r"</p>", html)][1::3]
+    if len(anchors) < count:
+        raise RuntimeError(f"only {len(anchors)} places for {count} inline images")
+    chosen = []
+    for w in wanted:
+        try:
+            idx = min(max(int(w), 0), len(anchors) - 1)
+        except (TypeError, ValueError):
+            idx = 0
+        if idx in chosen:  # nearest free heading, looking forward first
+            free = [i for i in range(len(anchors)) if i not in chosen]
+            idx = min(free, key=lambda i: (abs(i - idx), i < idx))
+        chosen.append(idx)
+    return [anchors[i] for i in chosen]
+
+
+def set_jsonld_image(html: str, hero_url: str) -> str:
+    """Set image on the Article/NewsArticle/BlogPosting object(s) in JSON-LD, replacing any old value."""
+    def fix(m):
+        try:
+            data = json.loads(m.group(2))
+        except json.JSONDecodeError:
+            return m.group(0)
+        hit = False
+        nodes = data.get("@graph", [data]) if isinstance(data, dict) else data if isinstance(data, list) else []
+        for node in nodes:
+            t = node.get("@type") if isinstance(node, dict) else None
+            types = set(t if isinstance(t, list) else [t])
+            if types & ARTICLE_TYPES:
+                node["image"] = hero_url
+                hit = True
+        return m.group(1) + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + m.group(3) if hit else m.group(0)
+    return re.sub(r'(<script type="application/ld\+json">)(.*?)(</script>)', fix, html, flags=re.S)
+
+
 def process(client, path: Path, model: str, hero_aspect: str, inline_count: int, dry: bool):
-    html = path.read_text(encoding="utf-8")
+    """Render hero + inline images, then rewrite the article only if the whole result validates.
+    On any failure the article file is left unchanged, so the next run retries it."""
+    original = path.read_text(encoding="utf-8")
     slug = path.stem
-    if "data-agvis" in html:
-        print(f"  [skip] {slug} — already has visuals")
+    if "data-agvis" in original:
+        print(f"  [skip] {slug}: already has visuals")
         return
 
-    briefs = derive_briefs(client, html, slug, inline_count)
-    hero_file = ASSETS / f"hero-{slug}.jpg"
-    print(f"  [briefs] hero + {len(briefs.get('inline', []))} inline")
+    briefs = derive_briefs(client, original, slug, inline_count)
+    print(f"  [briefs] hero + {len(briefs['inline'])} inline")
     if dry:
         print(json.dumps(briefs, indent=2)[:1500])
         return
 
-    # hero (reuse an existing hero file rather than regenerate)
-    if not hero_file.exists():
-        w, h, size = to_jpeg(render_image(client, model, briefs["hero"]["prompt"], hero_aspect), HERO_WIDTH, hero_file)
-        print(f"  [hero] {hero_file.name} {w}x{h} {size//1024}KB")
-    hero_fig = figure_html(f"assets/{hero_file.name}", briefs["hero"]["alt"], briefs["hero"]["caption"], hero=True)
-
-    inline_figs = []
-    for n, b in enumerate(briefs.get("inline", [])[:inline_count], 1):
-        f = ASSETS / f"inline-{slug}-{n}.jpg"
+    hero_file = ASSETS / f"hero-{slug}.jpg"
+    files = [(hero_file, briefs["hero"]["prompt"], hero_aspect, HERO_WIDTH)]
+    files += [(ASSETS / f"inline-{slug}-{n}.jpg", b["prompt"], "4:3", INLINE_WIDTH) for n, b in enumerate(briefs["inline"], 1)]
+    for f, prompt, aspect, width in files:  # reuse files left by an earlier partial run
         if not f.exists():
-            w, h, size = to_jpeg(render_image(client, model, b["prompt"], "4:3"), INLINE_WIDTH, f)
-            print(f"  [inline {n}] {f.name} {w}x{h} {size//1024}KB")
-        inline_figs.append((b.get("h2_index", n * 2 - 1), figure_html(f"assets/{f.name}", b["alt"], b["caption"], hero=False)))
+            w, h, size = to_jpeg(render_image(client, model, prompt, aspect), width, f)
+            print(f"  [image] {f.name} {w}x{h} {size//1024}KB")
 
-    # --- HTML surgery ---
-    html = html.replace("</style>", CSS + "</style>", 1)
-
+    html = original.replace("</style>", CSS + "</style>", 1)
     m = re.search(r'<section class="article-header">.*?</section>', html, re.S)
-    html = html[: m.end()] + "\n" + hero_fig + html[m.end() :]
+    if not m:
+        raise RuntimeError("no article-header section")
+    html = html[: m.end()] + "\n" + figure_html(f"assets/{hero_file.name}", briefs["hero"]["alt"], briefs["hero"]["caption"], hero=True) + html[m.end():]
 
-    h2_iter = list(re.finditer(r"[ \t]*<h2\b", html))
-    if not h2_iter:  # no sections: place inline images after the 2nd and 5th paragraphs instead
-        h2_iter = [m for i, m in enumerate(re.finditer(r"(?<=</p>)", html)) if i in (1, 4)]
-    used = set()
-    for h2_index, fig in sorted(inline_figs, key=lambda x: -x[0]):
-        if not h2_iter:
-            break
-        idx = min(max(int(h2_index), 0), len(h2_iter) - 1)
-        while idx in used and idx > 0:  # never stack two images above the same heading
-            idx -= 1
-        used.add(idx)
-        pos = h2_iter[idx].start()
+    figs = [figure_html(f"assets/{f.name}", b["alt"], b["caption"], hero=False) for (f, *_), b in zip(files[1:], briefs["inline"])]
+    targets = inline_targets(html, [b.get("h2_index", 2 * n + 1) for n, b in enumerate(briefs["inline"])], len(figs))
+    for pos, fig in sorted(zip(targets, figs), key=lambda x: -x[0]):
         html = html[:pos] + "    " + fig + html[pos:]
 
-    # NOTE: the article template emits plain ">" metas (not " />") — patterns
-    # must accept both or the insert silently no-ops (bit us through 2026-08-06).
+    # NOTE: the article template emits plain ">" metas (not " />"); patterns must accept both.
     hero_url = f"{SITE}/assets/{hero_file.name}"
     og = f'<meta property="og:image" content="{hero_url}">'
     if 'property="og:image"' in html:
@@ -236,11 +269,29 @@ def process(client, path: Path, model: str, hero_aspect: str, inline_count: int,
     html = re.sub(r'<meta property="og:image:(?:width|height)" content="[^"]*"\s*/?>\s*', "", html)
     hero_alt = re.sub(r"\s*[\u2014\u2013]\s*", ", ", briefs["hero"]["alt"]).replace("&", "&amp;").replace('"', "&quot;")
     html = re.sub(r'(<meta (?:property="og:image:alt"|name="twitter:image:alt") content=")[^"]*(")',
-                  lambda m: m.group(1) + hero_alt + m.group(2), html)
+                  lambda mm: mm.group(1) + hero_alt + mm.group(2), html)
     html = html.replace('name="twitter:card" content="summary"', 'name="twitter:card" content="summary_large_image"')
-    if '"@type"' in html and "application/ld+json" in html:
-        html = re.sub(r'("@type"\s*:\s*"(?:Article|NewsArticle)")', r'\1, "image": "' + hero_url + '"', html, count=1)
+    html = set_jsonld_image(html, hero_url)
 
+    # validate the complete result before replacing the article
+    problems = []
+    if html.count('data-agvis="hero"') != 1 or html.count('data-agvis="inline"') != inline_count:
+        problems.append("figure count")
+    if not all(f.exists() for f, *_ in files):
+        problems.append("image file missing")
+    if f'property="og:image" content="{hero_url}"' not in html or f'name="twitter:image" content="{hero_url}"' not in html:
+        problems.append("share card tags")
+    imgs = []
+    for mm in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+        d = json.loads(mm.group(1))
+        for node in (d.get("@graph", [d]) if isinstance(d, dict) else d):
+            t = node.get("@type") if isinstance(node, dict) else None
+            if set(t if isinstance(t, list) else [t]) & ARTICLE_TYPES:
+                imgs.append(node.get("image"))
+    if imgs and set(imgs) != {hero_url}:
+        problems.append("JSON-LD image")
+    if problems:
+        raise RuntimeError("validation failed: " + ", ".join(problems))
     path.write_text(html, encoding="utf-8")
     print(f"  [done] {path.name}")
 

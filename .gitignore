@@ -9,3 +9,4 @@ node_modules/
 next-env.d.ts
 publish-herenow.mjs
 visuals-run.json
+visuals-stage.txt

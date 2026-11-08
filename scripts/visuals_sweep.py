@@ -18,11 +18,30 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-SINCE = os.environ.get("VISUALS_SINCE") or "2026-10-04"
+FLOOR = "2026-10-04"  # owner rule: never touch articles published before this date
+_since = (os.environ.get("VISUALS_SINCE") or FLOOR).strip()
+SINCE = max(_since, FLOOR) if re.fullmatch(r"\d{4}-\d{2}-\d{2}", _since) else FLOOR
 MAX = int(os.environ.get("VISUALS_MAX") or 25)
 ONLY = set((os.environ.get("VISUALS_ONLY") or "").split())
 OUT = REPO / "visuals-run.json"
-GENERIC_IMG = re.compile(r"logo|icon|avatar|brand|favicon", re.I)
+STAGE = REPO / "visuals-stage.txt"  # files the workflow commits: only validated successes
+GENERIC_SRC = re.compile(r"(^|/)(brand/|favicon|apple-touch-icon|icons?/)|(^|/)[^/]*logo[^/]*$", re.I)
+ROBOTS_NOINDEX = re.compile(r"<meta\b(?=[^>]*\bname=[\"']robots[\"'])(?=[^>]*noindex)[^>]*>", re.I)
+SECRETISH = re.compile(r"(AIza[0-9A-Za-z_\-]{20,}|key=[^&\s]+|bot\d+:[A-Za-z0-9_\-]+)")
+
+
+def safe_error(e: Exception) -> str:
+    return f"{type(e).__name__}: {SECRETISH.sub('[redacted]', str(e))[:200]}"
+
+
+def content_images(body: str):
+    """<img> tags that are article content, judged by their src (logos and site chrome are not)."""
+    out = []
+    for tag in re.findall(r"<img\b[^>]*>", body):
+        src = re.search(r"\bsrc=[\"']([^\"']+)", tag)
+        if src and not GENERIC_SRC.search(src.group(1)):
+            out.append(tag)
+    return out
 
 
 def needs_visuals(html: str):
@@ -32,12 +51,13 @@ def needs_visuals(html: str):
     m = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})', html)
     if not m or m.group(1) < SINCE:
         return None
-    if re.search(r'<meta[^>]+name="robots"[^>]+noindex', html[:6000], re.I):
+    head = (re.search(r"<head.*?</head>", html, re.S | re.I) or [html])[0]
+    if ROBOTS_NOINDEX.search(head):
         return None
     if '<section class="article-header">' not in html:
         return None
     body = (re.search(r"<body.*", html, re.S) or [html])[0]
-    if "data-agvis" in body or [i for i in re.findall(r"<img\b[^>]*>", body) if not GENERIC_IMG.search(i)]:
+    if "data-agvis" in body or content_images(body):
         return None
     title = re.search(r"<h1>(.*?)</h1>", html, re.S)
     return m.group(1), re.sub(r"<[^>]+>|\s+", " ", title.group(1)).strip() if title else ""
@@ -55,6 +75,7 @@ def main():
     batch = candidates[:MAX]
     print(f"[sweep] {len(candidates)} article(s) since {SINCE} without images; processing {len(batch)}")
     result = {"since": SINCE, "found": len(candidates), "done": [], "failed": []}
+    STAGE.write_text("")
     if not batch:
         OUT.write_text(json.dumps(result, indent=1))
         return 0
@@ -81,11 +102,13 @@ def main():
             result["done"].append({"file": f.name, "title": title, "date": date, "images": imgs,
                                    "url": f"https://archigenai.com/{f.name}"})
         except Exception as e:  # one bad article never stops the rest
-            print(f"  [FAIL] {f.name}: {e}", flush=True)
-            result["failed"].append({"file": f.name, "title": title, "error": str(e)[:300]})
+            err = safe_error(e)
+            print(f"  [FAIL] {f.name}: {err}", flush=True)
+            result["failed"].append({"file": f.name, "title": title, "error": err})
     OUT.write_text(json.dumps(result, indent=1))
+    STAGE.write_text("".join(f"{a['file']}\n" + "".join(f"{i}\n" for i in a["images"]) for a in result["done"]))
     print(f"[sweep] done: {len(result['done'])} ok, {len(result['failed'])} failed")
-    return 0
+    return 1 if result["failed"] else 0
 
 
 if __name__ == "__main__":

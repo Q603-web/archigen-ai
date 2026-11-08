@@ -13,13 +13,13 @@ import sys
 import time
 from pathlib import Path
 
-import requests
-
 REPO = Path(__file__).resolve().parent.parent
 RUN = REPO / "visuals-run.json"
 
 
 def main():
+    global requests
+    import requests  # inside main so even an import failure is caught and skipped
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if not token or not chat:
         print("[telegram] TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set; skipping report")
@@ -67,11 +67,15 @@ def send(api, method, data, files=None):
     for attempt in range(3):
         try:
             r = requests.post(f"{api}/{method}", data=data, files=files, timeout=60)
-            if r.status_code == 429:  # rate limited: wait as told, then retry
-                time.sleep(int(r.json().get("parameters", {}).get("retry_after", 5)) + 1)
+            if r.status_code == 429:  # rate limited: wait as told (capped at 30 s), then retry
+                try:
+                    wait = int(r.json().get("parameters", {}).get("retry_after", 5))
+                except Exception:
+                    wait = 5
+                time.sleep(min(max(wait, 1), 30))
                 continue
             if not r.ok:
-                print(f"[telegram] {method} failed: HTTP {r.status_code} {r.text[:200]}")
+                print(f"[telegram] {method} failed: HTTP {r.status_code}")
             return
         except requests.RequestException as e:
             print(f"[telegram] {method} error: {type(e).__name__}")
@@ -82,5 +86,5 @@ if __name__ == "__main__":
     try:
         sys.exit(main())
     except Exception as e:  # reporting must never fail the job
-        print(f"[telegram] report skipped: {type(e).__name__}: {e}")
+        print(f"[telegram] report skipped: {type(e).__name__}")
         sys.exit(0)
