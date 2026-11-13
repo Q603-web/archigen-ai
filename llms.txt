@@ -58,6 +58,7 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 Every indexable ArchiGen article, grouped by topic. Articles under correction are excluded until they are rewritten.
 
 ### Recently published
+- [Revit AI Rendering Plugin nVisionAI](https://archigenai.com/revit-ai-rendering-plugin-nvisionai-2026.html): The Revit AI rendering plugin nVisionAI makes fast concept images, but limited documentation and a session-key issue argue for a careful pilot.
 - [AI Component Query in BIM](https://archigenai.com/ai-component-query-bim-architects-2026.html): AI component query in BIM turns plain-English questions into model searches. Trust it only when answers expose element IDs, parameters and query scope.
 - [Best Alternatives to Snaptrude](https://archigenai.com/best-alternatives-to-snaptrude-architects-2026.html): The best Snaptrude alternatives are Forma for analysis, Hypar for space planning, and TestFit for feasibility. Choose by the decision your model must support.
 - [ArchiLabs AI Alternatives for Architects](https://archigenai.com/archilabs-ai-alternatives-architects-2026.html): The best ArchiLabs AI alternatives depend on the task: Dynamo for Revit automation, Hypar for planning, Snaptrude for BIM, or Forma for analysis.
