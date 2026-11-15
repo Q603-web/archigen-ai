@@ -14,25 +14,26 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --quiet "google-genai>=1.0" pillow requests
+      - run: pip install --quiet "google-genai>=3.0,<4" pillow requests
       - env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python - <<'PY'
-          import os, google.genai as g
-          from google import genai
-          print("sdk", g.__version__)
-          k = os.environ["GEMINI_API_KEY"]
-          print("key shape: len", len(k), "prefix", k[:2] + "..", "whitespace", k != k.strip())
-          for ver in (None, "v1beta", "v1"):
-              try:
-                  c = genai.Client(http_options={"api_version": ver}) if ver else genai.Client()
-                  names = []
-                  for m in c.models.list():
-                      names.append((m.name, ",".join(getattr(m, "supported_actions", None) or [])))
-                  print(f"== api_version={ver}: {len(names)} models")
-                  for n, a in sorted(names):
-                      if any(s in n for s in ("flash", "image", "pro")): print("  ", n, "|", a)
-              except Exception as e:
-                  print(f"== api_version={ver}: ERROR {type(e).__name__}: {str(e)[:300]}")
+          import importlib.util, io
+          from pathlib import Path
+          from PIL import Image
+          spec = importlib.util.spec_from_file_location("engine", "scripts/generate-article-visuals.py")
+          e = importlib.util.module_from_spec(spec); spec.loader.exec_module(e)
+          c = e.make_client()
+          print("fallback list:", e.brief_models(c))
+          f = Path("revit-ai-rendering-plugin-nvisionai-2026.html")
+          b = e.derive_briefs(c, f.read_text(encoding="utf-8"), f.stem, 2)
+          print("briefs ok: hero alt =", b["hero"]["alt"][:120], "| inline:", len(b["inline"]))
+          model, aspect = e.hero_model_config()
+          img = Image.open(io.BytesIO(e.render_image(c, model, b["hero"]["prompt"], aspect)))
+          print("image ok:", model, img.size)
+          # simulate the alias being withdrawn: the fallback must still produce briefs
+          e.BRIEF_MODEL = "gemini-flash-gone"
+          b = e.derive_briefs(c, f.read_text(encoding="utf-8"), f.stem, 2)
+          print("fallback briefs ok: inline", len(b["inline"]))
           PY

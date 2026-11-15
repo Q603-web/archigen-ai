@@ -89,7 +89,7 @@ def main():
     engine = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(engine)
     model, hero_aspect = engine.hero_model_config()
-    client = engine.genai.Client()
+    client = engine.make_client()
     for date, f, title in batch:
         slug = f.stem
         print(f"[article] {f.name} ({date})", flush=True)
