@@ -69,9 +69,9 @@ def jsonld_images(html):
     return out
 
 
-# 1. happy path on all 18 real candidates
+# 1. happy path on every real candidate (the number grows as articles are published)
 d = workdir(); code, r = sweep(d)
-check("finds exactly 18 and all succeed", r["found"] == 18 and len(r["done"]) == 18 and code == 0, f"found={r['found']} done={len(r['done'])} code={code}")
+check("finds every waiting article and all succeed", r["found"] >= 1 and len(r["done"]) == r["found"] and code == 0, f"found={r['found']} done={len(r['done'])} code={code}")
 bad = []
 for a in r["done"]:
     t = (d / a["file"]).read_text()
@@ -83,7 +83,7 @@ for a in r["done"]:
         bad.append(a["file"])
 check("each: 3 figures, no dashes, distinct headings, one JSON-LD image = hero, one og:image", not bad, ",".join(bad))
 stage = (d / "visuals-stage.txt").read_text().split()
-check("stage list = 18 articles + 54 images", len(stage) == 72, str(len(stage)))
+check("stage list = each article + its 3 images", len(stage) == 4 * r["found"], str(len(stage)))
 gate = subprocess.run([sys.executable, "/home/lrd3/Projects/archigen-seo/tools/publish_gate.py", "--repo", str(d), "--require-visuals", *[a["file"] for a in r["done"]]], capture_output=True, text=True)
 check("publish gate PASS with --require-visuals", "PASS" in gate.stdout, gate.stdout[:200])
 code2, r2 = sweep(d)

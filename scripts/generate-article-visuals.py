@@ -27,6 +27,31 @@ from google import genai
 REPO = Path(__file__).resolve().parent.parent
 ASSETS = REPO / "assets"
 BRIEF_MODEL = "gemini-flash-latest"  # rolling alias — survives model retirements
+# The rolling alias only exists on the v1beta API. google-genai 3.x switched its default to v1, where the
+# alias is "404 NOT_FOUND" (every run failed from 2026-11-09 to 2026-11-15), so the version is pinned here.
+API_VERSION = "v1beta"
+
+
+def make_client():
+    """Gemini client for both briefs and images. GEMINI_API_KEY comes from the environment."""
+    return genai.Client(http_options={"api_version": API_VERSION})
+
+
+def brief_models(client):
+    """BRIEF_MODEL first, then the newest plain gemini-N.N-flash models this key can call, as a fallback
+    if the alias is ever withdrawn."""
+    names = [BRIEF_MODEL]
+    try:
+        found = []
+        for m in client.models.list():
+            n = (m.name or "").split("/")[-1]
+            v = re.fullmatch(r"gemini-(\d+)\.(\d+)-flash", n)
+            if v and "generateContent" in (getattr(m, "supported_actions", None) or ["generateContent"]):
+                found.append(((int(v.group(1)), int(v.group(2))), n))
+        names += [n for _, n in sorted(found, reverse=True)[:3]]
+    except Exception as e:  # noqa: BLE001  listing is best-effort
+        print(f"  [models] could not list models: {e}")
+    return names
 SITE = "https://archigenai.com"
 MAX_BYTES = 200_000
 HERO_WIDTH, INLINE_WIDTH = 1600, 1200
@@ -104,10 +129,12 @@ Sections: {json.dumps([strip(h) for h in h2s])}
 Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
 
     last = None
-    for _ in range(3):  # the brief model occasionally returns malformed JSON
+    models = None
+    model = BRIEF_MODEL
+    for _ in range(4):  # the brief model occasionally returns malformed JSON
         try:
             resp = client.models.generate_content(
-                model=BRIEF_MODEL,
+                model=model,
                 contents=prompt,
                 config={"response_mime_type": "application/json"},
             )
@@ -121,6 +148,13 @@ Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
             last = ValueError(f"incomplete briefs: need hero + {inline_count} inline with prompt/alt/caption")
         except Exception as e:  # noqa: BLE001
             last = e
+            if "NOT_FOUND" in str(e) or "404" in str(e):  # model name gone: move to the next available one
+                if models is None:
+                    models = brief_models(client)
+                later = models[models.index(model) + 1:] if model in models else models
+                if later:
+                    print(f"  [models] {model} not available; trying {later[0]}")
+                    model = later[0]
     raise RuntimeError(f"could not derive image briefs: {last}")
 
 
@@ -303,7 +337,7 @@ def main():
     if not args:
         sys.exit("usage: generate-article-visuals.py <article.html> [...] [--dry-run] [--inline N]")
     model, hero_aspect = hero_model_config()
-    client = genai.Client()  # GEMINI_API_KEY from environment
+    client = make_client()
     print(f"[engine] image model: {model} · hero {hero_aspect} · inline 4:3")
     for arg in args:
         p = Path(arg) if Path(arg).is_absolute() else REPO / arg
