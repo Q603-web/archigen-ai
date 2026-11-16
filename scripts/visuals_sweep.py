@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Find published articles with no images and give each a hero + 2 inline images (Gemini).
+"""Find published articles with no images and give each a hero + 2 inline images (Gemini, with GPT Image 2 as the backup).
 
 Runs in GitHub Actions (.github/workflows/article-visuals.yml) after each article push, as a daily sweep,
 and on manual trigger. Owner rule (Quincy, 8 Nov 2026): article images go live automatically, with no
@@ -63,7 +63,46 @@ def needs_visuals(html: str):
     return m.group(1), re.sub(r"<[^>]+>|\s+", " ", title.group(1)).strip() if title else ""
 
 
+def load_engine():
+    spec = importlib.util.spec_from_file_location("engine", REPO / "scripts" / "generate-article-visuals.py")
+    engine = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(engine)
+    return engine
+
+
+def backup_selftest():
+    """Manual check that the backup provider works (workflow input "backup_selftest"): writes briefs for the
+    newest article and renders one hero image with the backup only. Nothing is saved, staged or published."""
+    OUT.write_text(json.dumps({"since": SINCE, "found": 0, "done": [], "failed": [], "selftest": True}, indent=1))
+    STAGE.write_text("")
+    if not os.environ.get("AI_GATEWAY_API_KEY"):
+        print("[selftest] FAILED: AI_GATEWAY_API_KEY secret is not set, so there is no backup")
+        return 1
+    engine = load_engine()
+    try:
+        dated = []
+        for f in REPO.glob("*.html"):
+            m = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})', f.read_text(encoding="utf-8", errors="replace"))
+            if m:
+                dated.append((m.group(1), f))
+        f = max(dated)[1]
+        briefs = engine.derive_briefs(None, f.read_text(encoding="utf-8"), f.stem, 2)  # no Gemini client: backup only
+        print(f"[selftest] backup briefs ok for {f.name}: hero + {len(briefs['inline'])} inline")
+        raw = engine.backup_image(briefs["hero"]["prompt"], "16:9")
+        img = engine.Image.open(engine.io.BytesIO(raw))
+        if img.width < 1000 or abs(img.width / img.height - 16 / 9) > 0.02:
+            raise RuntimeError(f"unexpected image size {img.width}x{img.height}")
+        print(f"[selftest] backup image ok: {img.width}x{img.height} from {engine.BACKUP_IMAGE_MODEL}")
+        print("[selftest] PASSED: the backup can write briefs and make images. Nothing was published.")
+        return 0
+    except Exception as e:  # noqa: BLE001
+        print(f"[selftest] FAILED: {safe_error(e)}")
+        return 1
+
+
 def main():
+    if os.environ.get("VISUALS_BACKUP_SELFTEST") == "true":
+        return backup_selftest()
     candidates = []
     for f in sorted(REPO.glob("*.html")):
         if ONLY and f.name not in ONLY:
@@ -79,32 +118,38 @@ def main():
     if not batch:
         OUT.write_text(json.dumps(result, indent=1))
         return 0
-    if not os.environ.get("GEMINI_API_KEY"):
+    if not os.environ.get("GEMINI_API_KEY") and not os.environ.get("AI_GATEWAY_API_KEY"):
         result["failed"] = [{"file": f.name, "title": t, "error": "GEMINI_API_KEY secret is not set"} for _, f, t in batch]
         OUT.write_text(json.dumps(result, indent=1))
         print("[sweep] GEMINI_API_KEY is not set; nothing generated")
         return 1
+    if not os.environ.get("GEMINI_API_KEY"):
+        print("[sweep] GEMINI_API_KEY is not set; using the backup provider for everything")
 
-    spec = importlib.util.spec_from_file_location("engine", REPO / "scripts" / "generate-article-visuals.py")
-    engine = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(engine)
+    engine = load_engine()
     model, hero_aspect = engine.hero_model_config()
     client = engine.make_client()
     for date, f, title in batch:
         slug = f.stem
         print(f"[article] {f.name} ({date})", flush=True)
         try:
+            before = engine.USAGE["backup"]
             engine.process(client, f, model, hero_aspect, 2, False)
             imgs = [f"assets/hero-{slug}.jpg", f"assets/inline-{slug}-1.jpg", f"assets/inline-{slug}-2.jpg"]
             missing = [i for i in imgs if not (REPO / i).exists()]
             if missing or "data-agvis" not in f.read_text(encoding="utf-8"):
                 raise RuntimeError(f"images or markup missing after generation: {missing}")
             result["done"].append({"file": f.name, "title": title, "date": date, "images": imgs,
-                                   "url": f"https://archigenai.com/{f.name}"})
+                                   "url": f"https://archigenai.com/{f.name}",
+                                   "backup_images": engine.USAGE["backup"] - before})
         except Exception as e:  # one bad article never stops the rest
             err = safe_error(e)
             print(f"  [FAIL] {f.name}: {err}", flush=True)
             result["failed"].append({"file": f.name, "title": title, "error": err})
+    result["backup_images"] = engine.USAGE["backup"]
+    result["backup_briefs"] = engine.USAGE["backup_briefs"]
+    if engine.USAGE["backup"] or engine.USAGE["backup_briefs"]:
+        print(f"[sweep] backup provider used: {engine.USAGE['backup']} image(s), {engine.USAGE['backup_briefs']} brief(s)")
     OUT.write_text(json.dumps(result, indent=1))
     STAGE.write_text("".join(f"{a['file']}\n" + "".join(f"{i}\n" for i in a["images"]) for a in result["done"]))
     print(f"[sweep] done: {len(result['done'])} ok, {len(result['failed'])} failed")
