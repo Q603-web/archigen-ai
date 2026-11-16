@@ -89,6 +89,18 @@ check("publish gate PASS with --require-visuals", "PASS" in gate.stdout, gate.st
 code2, r2 = sweep(d)
 check("second run finds nothing (idempotent)", r2["found"] == 0 and code2 == 0)
 
+# 1b. the brief model answers "503 high demand" twice, then works: the article still gets its images
+d = workdir()
+calls = {"n": 0}
+def busy_then_ok(c):
+    calls["n"] += 1
+    if calls["n"] <= 2:
+        raise RuntimeError("503 UNAVAILABLE. This model is currently experiencing high demand.")
+    return BRIEF
+code, r = sweep(d, {"VISUALS_ONLY": "lookx-ai-course-architects-2026.html", "VISUALS_BUSY_WAIT": "0"}, brief_for=busy_then_ok)
+check("busy model (503 twice) is retried and the article succeeds", len(r["done"]) == 1 and code == 0 and calls["n"] == 3, f"done={len(r['done'])} code={code} calls={calls['n']}")
+os.environ.pop("VISUALS_BUSY_WAIT", None)
+
 # 2. incomplete brief for one article, alongside a success
 d = workdir()
 victim = "archilabs-ai-alternatives-architects-2026.html"

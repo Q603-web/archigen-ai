@@ -19,6 +19,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 from PIL import Image
@@ -30,6 +31,7 @@ BRIEF_MODEL = "gemini-flash-latest"  # rolling alias — survives model retireme
 # The rolling alias only exists on the v1beta API. google-genai 3.x switched its default to v1, where the
 # alias is "404 NOT_FOUND" (every run failed from 2026-11-09 to 2026-11-15), so the version is pinned here.
 API_VERSION = "v1beta"
+BUSY_WAIT = float(os.environ.get("VISUALS_BUSY_WAIT", "5"))  # seconds, multiplied by the attempt number
 
 
 def make_client():
@@ -131,7 +133,7 @@ Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
     last = None
     models = None
     model = BRIEF_MODEL
-    for _ in range(4):  # the brief model occasionally returns malformed JSON
+    for attempt in range(6):  # malformed JSON, a withdrawn model name or a busy model are all retried
         try:
             resp = client.models.generate_content(
                 model=model,
@@ -148,12 +150,17 @@ Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
             last = ValueError(f"incomplete briefs: need hero + {inline_count} inline with prompt/alt/caption")
         except Exception as e:  # noqa: BLE001
             last = e
-            if "NOT_FOUND" in str(e) or "404" in str(e):  # model name gone: move to the next available one
+            msg = str(e)
+            gone = "NOT_FOUND" in msg or "404" in msg
+            busy = any(t in msg for t in ("503", "UNAVAILABLE", "500", "INTERNAL", "overloaded", "high demand"))
+            if gone or busy:  # move to the next available model; a busy one also gets a short wait
                 if models is None:
                     models = brief_models(client)
                 later = models[models.index(model) + 1:] if model in models else models
+                if busy:
+                    time.sleep(BUSY_WAIT * (attempt + 1))
                 if later:
-                    print(f"  [models] {model} not available; trying {later[0]}")
+                    print(f"  [models] {model} {'is busy' if busy else 'not available'}; trying {later[0]}")
                     model = later[0]
     raise RuntimeError(f"could not derive image briefs: {last}")
 
