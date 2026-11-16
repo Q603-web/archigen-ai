@@ -38,6 +38,9 @@ def main():
 
     lines = [f"<b>ArchiGen article images</b>: {len(done)} article(s) got a hero + 2 inline images"
              + (" and are live on the site within a few minutes." if pushed else ", but the push to the site FAILED (see the run).")]
+    if run.get("backup_images") or run.get("backup_briefs"):
+        lines.append(f"\n<b>Backup used</b>: Gemini failed for part of this run, so GPT Image 2 made "
+                     f"{run.get('backup_images', 0)} image(s) (briefs by the backup: {run.get('backup_briefs', 0)}). Check the Gemini key and billing.")
     if failed:
         lines.append(f"\n<b>Failed ({len(failed)})</b>, the next run retries them:")
         lines += [f"• {html.escape(f.get('title') or f['file'])}: {html.escape(f['error'][:120])}" for f in failed]

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ArchiGen visual engine — gives every article a hero + inline visuals.
 
-Pipeline (all Gemini API):
+Pipeline (Gemini API; GPT Image 2 through the Vercel AI Gateway as the backup):
   1. gemini-2.5-flash reads the article and derives image briefs (JSON).
   2. The canonical hero image model (scripts/hero-pipeline-config.mjs) renders them.
   3. PIL optimizes to progressive JPEG (house rule: .jpg only, <=200KB target).
@@ -17,9 +17,12 @@ Idempotent: articles already carrying data-agvis markup are skipped.
 import io
 import json
 import os
+import base64
 import re
 import sys
 import time
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 from PIL import Image
@@ -35,8 +38,13 @@ BUSY_WAIT = float(os.environ.get("VISUALS_BUSY_WAIT", "5"))  # seconds, multipli
 
 
 def make_client():
-    """Gemini client for both briefs and images. GEMINI_API_KEY comes from the environment."""
-    return genai.Client(http_options={"api_version": API_VERSION})
+    """Gemini client for both briefs and images. GEMINI_API_KEY comes from the environment.
+    Returns None if the client cannot be built (no key); every step then goes to the backup provider."""
+    try:
+        return genai.Client(http_options={"api_version": API_VERSION})
+    except Exception as e:  # noqa: BLE001
+        print(f"[gemini] client unavailable: {str(e)[:120]}")
+        return None
 
 
 def brief_models(client):
@@ -93,6 +101,110 @@ STYLE_GUIDE = (
     "empty desks, or lifeless product shots. Absolutely no text, no logos, no watermarks, "
     "no UI chrome."
 )
+
+
+# ---- Backup provider (owner rule, 16 Nov 2026: "we can't have the images going down again") ----
+# If Gemini cannot write the briefs or render an image (no key, quota, outage, withdrawn model), the same
+# step is done through the Vercel AI Gateway: briefs by a Claude model, images by GPT Image 2. It only runs
+# when the AI_GATEWAY_API_KEY secret is set, and a run never makes more than BACKUP_MAX backup images.
+GATEWAY = os.environ.get("VISUALS_GATEWAY_URL", "https://ai-gateway.vercel.sh/v1")
+BACKUP_IMAGE_MODEL = "openai/gpt-image-2"
+BACKUP_BRIEF_MODELS = ["anthropic/claude-sonnet-5", "anthropic/claude-opus-5.5"]
+BACKUP_MAX = int(os.environ.get("VISUALS_BACKUP_MAX_IMAGES", "30"))
+BACKUP_SIZE = "1536x1024"
+PROVIDER_LABEL = {"gemini": "Gemini", "backup": "GPT Image"}
+USAGE = {"gemini": 0, "backup": 0, "backup_briefs": 0}
+
+
+def backup_available() -> bool:
+    return bool(os.environ.get("AI_GATEWAY_API_KEY"))
+
+
+def gateway_post(path: str, body: dict, timeout: int = 300) -> dict:
+    req = urllib.request.Request(
+        GATEWAY + path, data=json.dumps(body).encode(), method="POST",
+        headers={"Authorization": "Bearer " + os.environ["AI_GATEWAY_API_KEY"], "Content-Type": "application/json"})
+    last = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            last = RuntimeError(f"backup {path} HTTP {e.code}: {e.read()[:200].decode(errors='replace')}")
+            if e.code < 500 and e.code != 429:
+                raise last from None
+        except (urllib.error.URLError, TimeoutError) as e:
+            last = RuntimeError(f"backup {path}: {e}")
+        time.sleep(BUSY_WAIT * (attempt + 1))
+    raise last
+
+
+def briefs_complete(briefs, inline_count: int) -> bool:
+    ok = lambda b: isinstance(b, dict) and all(str(b.get(k) or "").strip() for k in ("prompt", "alt", "caption"))
+    inline = briefs.get("inline") if isinstance(briefs, dict) else None
+    return bool(isinstance(briefs, dict) and ok(briefs.get("hero")) and isinstance(inline, list)
+                and len(inline) >= inline_count and all(ok(b) for b in inline[:inline_count]))
+
+
+def backup_briefs(prompt: str, inline_count: int):
+    last = None
+    for model in BACKUP_BRIEF_MODELS * 2:
+        try:
+            r = gateway_post("/chat/completions", {"model": model, "max_tokens": 1800, "temperature": 0.7,
+                                                   "messages": [{"role": "user", "content": prompt}]})
+            text = (r["choices"][0]["message"].get("content") or "").strip()
+            m = re.search(r"\{.*\}", text, re.S)  # tolerate a code fence around the JSON
+            briefs = json.loads(m.group(0) if m else text)
+            if briefs_complete(briefs, inline_count):
+                briefs["inline"] = briefs["inline"][:inline_count]
+                USAGE["backup_briefs"] += 1
+                return briefs
+            last = ValueError("incomplete briefs from backup model")
+        except Exception as e:  # noqa: BLE001
+            last = e
+    raise RuntimeError(f"backup briefs failed: {last}")
+
+
+def backup_image(prompt: str, aspect: str) -> bytes:
+    """GPT Image 2 via the gateway, centre-cropped to the wanted aspect ratio (it only offers fixed sizes)."""
+    if USAGE["backup"] >= BACKUP_MAX:
+        raise RuntimeError(f"backup image cap reached ({BACKUP_MAX} per run)")
+    r = gateway_post("/images/generations", {"model": BACKUP_IMAGE_MODEL, "prompt": prompt, "size": BACKUP_SIZE,
+                                             "quality": "medium", "n": 1})
+    USAGE["backup"] += 1
+    img = Image.open(io.BytesIO(base64.b64decode(r["data"][0]["b64_json"]))).convert("RGB")
+    aw, ah = (int(x) for x in aspect.split(":"))
+    want = aw / ah
+    if img.width / img.height > want:  # too wide: trim the sides
+        w = round(img.height * want); x = (img.width - w) // 2
+        img = img.crop((x, 0, x + w, img.height))
+    else:  # too tall: trim top and bottom
+        h = round(img.width / want); y = (img.height - h) // 2
+        img = img.crop((0, y, img.width, y + h))
+    buf = io.BytesIO(); img.save(buf, "PNG")
+    return buf.getvalue()
+
+
+def render_any(client, model: str, prompt: str, aspect: str):
+    """Gemini first (one retry, with a wait if it is busy); the backup if Gemini still fails.
+    Returns (image bytes, "gemini" | "backup")."""
+    last = None
+    for attempt in range(2):
+        try:
+            data = render_image(client, model, prompt, aspect)
+            USAGE["gemini"] += 1
+            return data, "gemini"
+        except Exception as e:  # noqa: BLE001
+            last = e
+            msg = str(e)
+            if any(t in msg for t in ("RESOURCE_EXHAUSTED", "429", "NOT_FOUND", "404", "PERMISSION_DENIED", "403",
+                                      "API key", "NoneType")):
+                break  # retrying will not help: quota, withdrawn model or key problem
+            time.sleep(BUSY_WAIT * (attempt + 1))
+    if not backup_available():
+        raise last
+    print(f"  [backup] Gemini image failed ({str(last)[:100]}); using {BACKUP_IMAGE_MODEL}", flush=True)
+    return backup_image(prompt, aspect), "backup"
 
 
 def hero_model_config():
@@ -162,6 +274,9 @@ Opening paragraphs: {json.dumps([strip(p) for p in paras])[:3000]}"""
                 if later:
                     print(f"  [models] {model} {'is busy' if busy else 'not available'}; trying {later[0]}")
                     model = later[0]
+    if backup_available():
+        print(f"  [backup] Gemini briefs failed ({str(last)[:100]}); using {BACKUP_BRIEF_MODELS[0]}", flush=True)
+        return backup_briefs(prompt, inline_count)
     raise RuntimeError(f"could not derive image briefs: {last}")
 
 
@@ -202,7 +317,7 @@ CSS = """
 """
 
 
-def figure_html(src: str, alt: str, caption: str, hero: bool) -> str:
+def figure_html(src: str, alt: str, caption: str, hero: bool, provider: str = "gemini") -> str:
     # house voice: no em or en dashes in published text, even if the brief model writes them
     clean = lambda s: re.sub(r"\s*[\u2014\u2013]\s*", ", ", str(s)).strip(" ,")
     esc = lambda s: clean(s).replace("&", "&amp;").replace('"', "&quot;").replace("<", "&lt;")
@@ -211,7 +326,7 @@ def figure_html(src: str, alt: str, caption: str, hero: bool) -> str:
         if hero
         else f'<img src="{src}" alt="{esc(alt)}" loading="lazy" />'
     )
-    fig = f'{img}\n  <figcaption class="agv-cap"><span class="agv-chip">AI illustration (Gemini)</span> <span>{esc(caption)}</span></figcaption>'
+    fig = f'{img}\n  <figcaption class="agv-cap"><span class="agv-chip">AI illustration ({PROVIDER_LABEL.get(provider, "Gemini")})</span> <span>{esc(caption)}</span></figcaption>'
     if hero:
         return f'\n<section class="agv-hero-section" data-agvis="hero">\n  <div class="wrap"><figure>\n  {fig}\n  </figure></div>\n</section>\n'
     return f'<figure class="agv-inline" data-agvis="inline">\n  {fig}\n</figure>\n\n    '
@@ -278,18 +393,20 @@ def process(client, path: Path, model: str, hero_aspect: str, inline_count: int,
     hero_file = ASSETS / f"hero-{slug}.jpg"
     files = [(hero_file, briefs["hero"]["prompt"], hero_aspect, HERO_WIDTH)]
     files += [(ASSETS / f"inline-{slug}-{n}.jpg", b["prompt"], "4:3", INLINE_WIDTH) for n, b in enumerate(briefs["inline"], 1)]
+    made = {}  # file name -> provider; files reused from an earlier partial run keep the default label
     for f, prompt, aspect, width in files:  # reuse files left by an earlier partial run
         if not f.exists():
-            w, h, size = to_jpeg(render_image(client, model, prompt, aspect), width, f)
-            print(f"  [image] {f.name} {w}x{h} {size//1024}KB")
+            raw, made[f.name] = render_any(client, model, prompt, aspect)
+            w, h, size = to_jpeg(raw, width, f)
+            print(f"  [image] {f.name} {w}x{h} {size//1024}KB ({PROVIDER_LABEL[made[f.name]]})")
 
     html = original.replace("</style>", CSS + "</style>", 1)
     m = re.search(r'<section class="article-header">.*?</section>', html, re.S)
     if not m:
         raise RuntimeError("no article-header section")
-    html = html[: m.end()] + "\n" + figure_html(f"assets/{hero_file.name}", briefs["hero"]["alt"], briefs["hero"]["caption"], hero=True) + html[m.end():]
+    html = html[: m.end()] + "\n" + figure_html(f"assets/{hero_file.name}", briefs["hero"]["alt"], briefs["hero"]["caption"], hero=True, provider=made.get(hero_file.name, "gemini")) + html[m.end():]
 
-    figs = [figure_html(f"assets/{f.name}", b["alt"], b["caption"], hero=False) for (f, *_), b in zip(files[1:], briefs["inline"])]
+    figs = [figure_html(f"assets/{f.name}", b["alt"], b["caption"], hero=False, provider=made.get(f.name, "gemini")) for (f, *_), b in zip(files[1:], briefs["inline"])]
     targets = inline_targets(html, [b.get("h2_index", 2 * n + 1) for n, b in enumerate(briefs["inline"])], len(figs))
     for pos, fig in sorted(zip(targets, figs), key=lambda x: -x[0]):
         html = html[:pos] + "    " + fig + html[pos:]

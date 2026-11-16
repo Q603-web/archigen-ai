@@ -2,8 +2,9 @@
 # no hero or inline image gets 1 hero + 2 inline images from Gemini, committed straight to master so Vercel
 # redeploys. No approval step. Articles are never blocked or delayed: they publish on their own push, and this
 # job adds images a few minutes later. After each run, the owner gets a Telegram summary plus one album per article.
-# Secrets (owner adds them in Settings > Secrets and variables > Actions): GEMINI_API_KEY, TELEGRAM_BOT_TOKEN,
-# TELEGRAM_CHAT_ID. Missing Telegram secrets only skip the message.
+# Secrets (owner adds them in Settings > Secrets and variables > Actions): GEMINI_API_KEY, AI_GATEWAY_API_KEY,
+# TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID. AI_GATEWAY_API_KEY turns on the GPT Image 2 backup used when Gemini fails.
+# Missing Telegram secrets only skip the message.
 name: Article images
 
 on:
@@ -23,6 +24,10 @@ on:
       only:
         description: "Optional: space-separated article file names to limit the run to"
         default: ""
+      backup_selftest:
+        description: "Only test the GPT Image backup (makes one image, publishes nothing)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -52,9 +57,11 @@ jobs:
         id: sweep
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AI_GATEWAY_API_KEY: ${{ secrets.AI_GATEWAY_API_KEY }}   # optional: GPT Image 2 backup when Gemini fails
           VISUALS_SINCE: ${{ inputs.since || '2026-10-04' }}
           VISUALS_MAX: ${{ inputs.max || '25' }}
           VISUALS_ONLY: ${{ inputs.only || '' }}
+          VISUALS_BACKUP_SELFTEST: ${{ inputs.backup_selftest || 'false' }}
         run: python scripts/visuals_sweep.py
         continue-on-error: true   # failures are reported, then fail the run in the last step
 
