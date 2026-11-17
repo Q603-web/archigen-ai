@@ -256,8 +256,10 @@ imgs = jsonld_images(blog.read_text()) if r["done"] else []
 check("existing JSON-LD image replaced; exactly one hero reference (BlogPosting)", imgs == [f"https://archigenai.com/assets/hero-{blog.stem}.jpg"], str(imgs))
 
 # 7. Telegram reporter never fails
-def report(env, post=None, break_import=False):
-    d2 = workdir(); shutil.copy(d / "visuals-run.json", d2 / "visuals-run.json")
+def report(env, post=None, break_import=False, run_json="copy"):
+    d2 = workdir()
+    if run_json == "copy": shutil.copy(d / "visuals-run.json", d2 / "visuals-run.json")
+    elif run_json is not None: (d2 / "visuals-run.json").write_text(json.dumps(run_json))
     import requests
     saved_post, saved_mod = requests.post, sys.modules.get("requests")
     if post: requests.post = post
@@ -284,6 +286,23 @@ real_sleep = _t.sleep; _t.sleep = lambda s: slept.append(s)
 code = report(creds, post=lambda *a, **k: R429())
 _t.sleep = real_sleep
 check("telegram: 429 with huge retry_after is capped at 30 s, exit 0", code == 0 and slept and max(slept) <= 30, f"max sleep {max(slept) if slept else None}")
+
+class ROK:
+    status_code = 200; ok = True
+sent = []
+def grab(url, data=None, files=None, timeout=None):
+    sent.append((url.rsplit("/", 1)[-1], (data or {}).get("text", ""))); return ROK()
+empty = {"found": 0, "done": [], "failed": []}
+sent.clear(); report(creds, post=grab, run_json=empty)
+check("telegram: quiet run with nothing to do sends no message", sent == [], str(sent))
+sent.clear(); report({**creds, "VISUALS_SWEEP_OUTCOME": "failure"}, post=grab, run_json=None)
+check("telegram: job crashed before recording anything -> one failure alert", len(sent) == 1 and "FAILED before making any image" in sent[0][1], str(sent))
+sent.clear(); report({**creds, "VISUALS_SWEEP_OUTCOME": "failure"}, post=grab, run_json=empty)
+check("telegram: job failed with an empty record -> one failure alert", len(sent) == 1 and "FAILED" in sent[0][1], str(sent))
+sent.clear(); report({**creds, "VISUALS_SWEEP_OUTCOME": "success"}, post=grab, run_json={**empty, "selftest": True})
+check("telegram: self-test pass sends a test alert", len(sent) == 1 and "self-test passed" in sent[0][1], str(sent))
+sent.clear(); report({**creds, "VISUALS_SWEEP_OUTCOME": "failure"}, post=grab, run_json={**empty, "selftest": True})
+check("telegram: self-test failure sends a failure alert", len(sent) == 1 and "self-test FAILED" in sent[0][1], str(sent))
 
 ok = sum(1 for _, p, _ in RESULTS if p)
 print(f"\n{ok}/{len(RESULTS)} passed")
