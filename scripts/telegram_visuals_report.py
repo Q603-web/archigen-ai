@@ -24,17 +24,33 @@ def main():
     if not token or not chat:
         print("[telegram] TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not set; skipping report")
         return 0
-    if not RUN.exists():
-        print("[telegram] no visuals-run.json; nothing to report")
-        return 0
-    run = json.loads(RUN.read_text())
-    done, failed = run.get("done", []), run.get("failed", [])
-    if not done and not failed:
-        print("[telegram] nothing generated and nothing failed; no message")
-        return 0
     api = f"https://api.telegram.org/bot{token}"
-    pushed = os.environ.get("VISUALS_PUSHED") == "true"
     run_url = f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{os.environ.get('GITHUB_RUN_ID', '')}"
+    link = f'\n<a href="{run_url}">Run log</a>'
+    sweep_failed = os.environ.get("VISUALS_SWEEP_OUTCOME") == "failure"
+    try:
+        run = json.loads(RUN.read_text()) if RUN.exists() else {}
+    except ValueError:
+        run = {}
+    done, failed = run.get("done", []), run.get("failed", [])
+
+    def plain(text):
+        send(api, "sendMessage", data={"chat_id": chat, "text": text + link, "parse_mode": "HTML",
+                                       "disable_web_page_preview": "true"})
+
+    if run.get("selftest"):  # manual backup self-test: always say how it went, which also proves alerts arrive
+        plain("<b>ArchiGen article images</b>: backup self-test "
+              + ("FAILED. The GPT Image backup is not working (see the run)." if sweep_failed
+                 else "passed. The GPT Image backup works and this alert channel works. Nothing was published."))
+        return 0
+    if not done and not failed:
+        if sweep_failed:  # the job died before it could record anything (missing key, crash, bad install)
+            plain("<b>ArchiGen article images</b>: the image job FAILED before making any image. "
+                  "New articles will have no images until this is fixed (see the run).")
+        else:
+            print("[telegram] nothing generated and nothing failed; no message")
+        return 0
+    pushed = os.environ.get("VISUALS_PUSHED") == "true"
 
     lines = [f"<b>ArchiGen article images</b>: {len(done)} article(s) got a hero + 2 inline images"
              + (" and are live on the site within a few minutes." if pushed else ", but the push to the site FAILED (see the run).")]
@@ -44,7 +60,7 @@ def main():
     if failed:
         lines.append(f"\n<b>Failed ({len(failed)})</b>, the next run retries them:")
         lines += [f"• {html.escape(f.get('title') or f['file'])}: {html.escape(f['error'][:120])}" for f in failed]
-    lines.append(f'\n<a href="{run_url}">Run log</a>')
+    lines.append(link)
     send(api, "sendMessage", data={"chat_id": chat, "text": "\n".join(lines), "parse_mode": "HTML",
                                    "disable_web_page_preview": "true"})
 

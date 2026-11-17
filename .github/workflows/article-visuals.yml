@@ -98,6 +98,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           VISUALS_PUSHED: ${{ steps.push.outputs.pushed }}
+          VISUALS_SWEEP_OUTCOME: ${{ steps.sweep.outcome }}
         run: python scripts/telegram_visuals_report.py
 
       - name: Fail the run if image generation failed
