@@ -58,6 +58,8 @@ Evidence standard: ArchiGen articles are editorial analysis based on cited vendo
 Every indexable ArchiGen article, grouped by topic. Articles under correction are excluded until they are rewritten.
 
 ### Recently published
+
+- [AI Rendering Generator: What Architects Need](https://archigenai.com/ai-rendering-generator-architects-2026.html): An AI rendering generator should match your source file, correction path and tolerance for drift. Compare Veras, Rendair, Gendo, SketchUp and ComfyUI.
 - [ArchPulse.co Alternatives: 5 Options](https://archigenai.com/archpulse-co-alternatives-architects-2026.html): Compare five ArchPulse.co alternatives for architecture AI research, from task-led tool tables and AEC directories to professional guidance.
 - [AI Architecture Generator: 4 Real Options](https://archigenai.com/ai-architecture-generator-architects-2026.html): An AI architecture generator should produce a decision-ready model, not a pretty guess. Compare Forma, TestFit, Finch and Hypar by the work they return.
 - [Revit AI Rendering Plugin nVisionAI](https://archigenai.com/revit-ai-rendering-plugin-nvisionai-2026.html): The Revit AI rendering plugin nVisionAI makes fast concept images, but limited documentation and a session-key issue argue for a careful pilot.
