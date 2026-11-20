@@ -9,6 +9,9 @@
 .editorial-note{font-size:11px;color:var(--muted);margin-top:25px}.editorial-note a{text-underline-offset:3px}
 
 .signup-options .eyebrow{color:#c7d0c7;margin-bottom:22px}.signup-link{font-size:14px;padding:16px 26px}.signup-options .signup-help{font-size:12px;max-width:32ch;margin:18px 0}.signup-web{font-size:11px;color:#d3d8d2;text-underline-offset:4px}
+.signup-options .beehiiv-frame{width:100%;max-width:100%;background:#fff;border-radius:8px;overflow:hidden}
+.signup-options .beehiiv-frame iframe{display:block;width:100%;max-width:100%;height:52px}
+@media(max-width:650px){.signup-options .beehiiv-frame iframe{height:108px}}
 
 .cover-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .cover-media .cover-art,.cover-video{position:absolute;inset:0;z-index:auto;width:100%;height:100%;object-fit:cover;object-position:50% 42%}

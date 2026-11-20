@@ -93,6 +93,11 @@
   .article-newsletter .signup-link { transition: none; }
   .article-newsletter .signup-link:hover { transform: none; }
 }
+.article-newsletter .beehiiv-frame { width: 100%; max-width: 100%; background: #fff; border-radius: 8px; overflow: hidden; }
+.article-newsletter .beehiiv-frame iframe { display: block; width: 100%; max-width: 100%; height: 52px; }
+@media (max-width: 619px) {
+  .article-newsletter .beehiiv-frame iframe { height: 108px; }
+}
 /* growth E3 newsletter styles:end */
 
 /*agvis*/
@@ -139,25 +144,9 @@
     </div>
   </div>
   <div class="signup-options">
-    <a class="btn light signup-link"
-       href="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e"
-       target="_blank"
-       rel="noopener"
-       data-ph-capture-attribute-cta="newsletter-web"
-       data-ph-capture-attribute-placement="in-article"
-       data-ph-capture-attribute-cta_id="in-article-newsletter-beehiiv"
-       data-ph-capture-attribute-destination="web-signup">
-      Subscribe to the Sunday letter <span aria-hidden="true">&nearr;</span>
-    </a>
-    <p class="signup-help">Opens the web signup form in a new tab. Unsubscribe at any time.</p>
-    <a class="signup-web"
-       href="mailto:hello@archigenai.com?subject=Subscribe%20me%20to%20the%20Sunday%20letter&amp;body=Please%20add%20me%20to%20the%20ArchiGen%20Sunday%20letter."
-       data-ph-capture-attribute-cta="newsletter-mailto"
-       data-ph-capture-attribute-placement="in-article"
-       data-ph-capture-attribute-cta_id="in-article-newsletter-mailto"
-       data-ph-capture-attribute-destination="mailto">
-      Or subscribe via email request &nearr;
-    </a>
+    <div class="beehiiv-frame">
+      <iframe src="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" title="Subscribe to the Sunday letter" style="margin:0;border-radius:0;background-color:transparent;width:100%"></iframe>
+    </div>
   </div>
 </aside>
 <!-- growth E3 newsletter:end -->

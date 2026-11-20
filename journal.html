@@ -160,6 +160,7 @@
   }
   .masthead .kpi .n { font-family: var(--f-display); font-size: 36px; line-height: 1; font-weight: 400; letter-spacing: -0.02em;}
   .masthead .kpi .l { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 6px;}
+  .masthead .kpi .honest { font-family: var(--f-sans); font-size: 15px; line-height: 1.35; letter-spacing: -0.01em; color: var(--ink-2); align-self: end; }
 
   /* ======= Filter bar ======= */
   .filter-bar {
@@ -538,6 +539,8 @@
     .masthead .meta, .pager { flex-wrap: wrap; gap: 16px; }
     .f1, .f2 { padding: 24px; }
     .card h3 { font-size: 30px; }
+    .masthead .kpi { grid-template-columns: 1fr 1fr; }
+    .masthead .kpi .honest { grid-column: 1 / -1; align-self: start; }
   }
 </style>
 <script type="application/ld+json">
@@ -645,10 +648,7 @@
           <div class="n">214</div>
           <div class="l">Pieces in the archive</div>
         </div>
-        <div>
-          <div class="n">11<span style="color:var(--muted);">.4k</span></div>
-          <div class="l">Sunday subscribers</div>
-        </div>
+        <div class="honest">Join architects getting the Sunday letter</div>
         <div>
           <div class="n">48</div>
           <div class="l">Tools reviewed this year</div>
