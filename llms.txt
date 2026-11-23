@@ -59,6 +59,7 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [AI Project Planning for Architecture Firms](https://archigenai.com/ai-project-planning-software-architecture-firms-2026.html): AI project planning software can automate budgets, staffing and risk alerts for architecture firms. Compare Monograph, Mosaic and Deltek Vantagepoint.
 - [Advice: Selecting an AI Rendering Platform](https://archigenai.com/selecting-ai-rendering-platform-architects-2026.html): Professional advice for selecting an AI rendering platform: test workflow fit, geometry drift, privacy, revisions and cost before buying.
 - [AI Rendering Generator: What Architects Need](https://archigenai.com/ai-rendering-generator-architects-2026.html): An AI rendering generator should match your source file, correction path and tolerance for drift. Compare Veras, Rendair, Gendo, SketchUp and ComfyUI.
 - [ArchPulse.co Alternatives: 5 Options](https://archigenai.com/archpulse-co-alternatives-architects-2026.html): Compare five ArchPulse.co alternatives for architecture AI research, from task-led tool tables and AEC directories to professional guidance.
