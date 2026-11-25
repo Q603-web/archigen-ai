@@ -448,3 +448,6 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 - [Real-Time Engines Are Absorbing AI Rendering](https://archigenai.com/real-time-renderers-absorbing-ai-architects-2026.html): Chaos Vantage, Enscape, Twinmotion and D5 now fill AI rendering lists because they added AI. Why engines win the boring middle, and where standalone tools fit.
 - [Should Architects Bring Visualization In-House With AI?](https://archigenai.com/ai-rendering-bring-basic-visualization-in-house-architects-2026.html): A practical test for deciding which architectural visualization work AI lets a small firm bring in-house, and which images still belong with a specialist.
 - [ComfyUI Sketch Renders: Nodes and Models](https://archigenai.com/comfyui-sketch-to-photoreal-architecture.html): Choose ComfyUI nodes and models for architectural sketch renders: line preprocessors, compatible FLUX files, model licences and workflow JSON structure.
+
+## Revit AI rendering
+- [Revit AI Rendering: Plugins and Workflows](https://archigenai.com/revit-ai-rendering.html): Guides grouped by plugins, image uploads, design handoffs and BIM claim checks.
