@@ -17,21 +17,21 @@
   !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], Object.defineProperty(u, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e } }), Object.defineProperty(u.people, "toString", { configurable: !0, enumerable: !0, writable: !0, value: function () { return u.toString(1) + ".people (stub)" } }), o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getSurveys getActiveMatchingSurveys captureException".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
   if(!(window.localStorage&&localStorage.getItem('plausible_ignore')==='true')){posthog.init('phc_BJ9s2kq7bREwkC3EzJUBwGFkdEmw6c72MeJGWjn53xAF',{api_host:'https://us.i.posthog.com',defaults:'2026-05-30',person_profiles:'identified_only',persistence:'memory',disable_session_recording:true});}
 </script>
-<title>Membership & Pricing, ArchiGen AI</title>
-<meta name="description" content="ArchiGen membership tiers. Free for the journal, paid for the studio. No drip campaigns, no sponsored editorial." />
+<title>Read and Subscribe for Free | ArchiGen AI</title>
+<meta name="description" content="Read the ArchiGen AI journal and subscribe to the free Sunday letter about AI tools for architects. Nothing is for sale today; no paid membership is offered." />
 <link rel="canonical" href="https://archigenai.com/pricing.html" /><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://archigenai.com/pricing.html" />
-<meta property="og:title" content="Membership & Pricing, ArchiGen AI" />
-<meta property="og:description" content="ArchiGen membership tiers. Free for the journal, paid for the studio. No drip campaigns, no sponsored editorial." />
+<meta property="og:title" content="Read and Subscribe for Free | ArchiGen AI" />
+<meta property="og:description" content="Read the ArchiGen AI journal and subscribe to the free Sunday letter about AI tools for architects. Nothing is for sale today; no paid membership is offered." />
 <meta property="og:image" content="https://archigenai.com/assets/og-image.jpg" />
 <meta property="og:site_name" content="ArchiGen AI" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@archigenai" />
-<meta name="twitter:title" content="Membership & Pricing, ArchiGen AI" />
-<meta name="twitter:description" content="ArchiGen membership tiers. Free for the journal, paid for the studio. No drip campaigns, no sponsored editorial." />
+<meta name="twitter:title" content="Read and Subscribe for Free | ArchiGen AI" />
+<meta name="twitter:description" content="Read the ArchiGen AI journal and subscribe to the free Sunday letter about AI tools for architects. Nothing is for sale today; no paid membership is offered." />
 <meta name="twitter:image" content="https://archigenai.com/assets/og-image.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,6 +122,14 @@
     .nav-links { display: none; }
     .page-hero { padding: 64px 0 56px; }
   }
+.reader-signup { max-width:840px; margin:0 auto; padding:56px 0 80px; }
+  .reader-signup h2 { font-family:var(--f-display); font-size:32px; font-weight:400; }
+  .reader-signup .beehiiv-frame { max-width:600px; background:#fff; border-radius:8px; overflow:hidden; }
+  .reader-signup iframe { display:block; width:100%; height:52px; border:0; }
+  .reader-signup .signup-help { font-size:13px; color:var(--ink-2); }
+  .reader-signup a { color:var(--ink); text-underline-offset:3px; }
+  .reader-signup a:focus-visible { outline:3px solid var(--terracotta); outline-offset:4px; }
+  @media(max-width:619px) { .reader-signup iframe { height:108px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -154,8 +162,8 @@
       "@type": "WebPage",
       "@id": "https://archigenai.com/pricing.html#webpage",
       "url": "https://archigenai.com/pricing.html",
-      "name": "Membership & Pricing, ArchiGen AI",
-      "description": "ArchiGen membership tiers. Free for the journal, paid for the studio. No drip campaigns, no sponsored editorial.",
+      "name": "Read and Subscribe for Free | ArchiGen AI",
+      "description": "Read the ArchiGen AI journal and subscribe to the free Sunday letter about AI tools for architects. Nothing is for sale today; no paid membership is offered.",
       "isPartOf": {
         "@id": "https://archigenai.com/#website"
       },
@@ -196,55 +204,31 @@
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
-      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Join the studio &rarr;</a>
+      <a href="#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="nav" data-ph-capture-attribute-cta_id="nav-newsletter-anchor-1">Subscribe free &rarr;</a>
     </div>
   </div>
 </nav>
 
-<section style="padding: 0 40px;">
+<main>
+<section class="wrap">
   <div class="page-hero">
-    <div class="tag">Membership</div>
-    <h1>Free to read.<br><em>Paid to go deeper.</em></h1>
-    <p>The journal is free. Field notes, essays, tool reviews, all of it, no paywall, no email gate. Membership funds the deeper work: studio case studies, documented comparisons and workflow source files as we build them, and an honest editorial line that nobody can buy.</p>
-    <p>No ads in the body of articles. No sponsored reviews. No pay-to-play tool placements. Members make that possible.</p>
-    <div class="actions">
-      <a href="index.html#newsletter" class="btn dark" data-ph-capture-attribute-cta="newsletter-anchor" data-ph-capture-attribute-placement="body" data-ph-capture-attribute-cta_id="body-newsletter-anchor-1">Start with the free letter →</a>
-      <a href="mailto:hello@archigenai.com?subject=Studio+membership" class="btn" data-ph-capture-attribute-cta="email-contact" data-ph-capture-attribute-placement="body" data-ph-capture-attribute-cta_id="body-email-contact-1">Ask about studio plans</a>
-    </div>
+    <div class="tag">Reader · Free</div>
+    <h1>Read and<br><em>subscribe.</em></h1>
+    <p>The journal and the Sunday letter are free. Read every article without a paywall or an email gate, or subscribe to receive the letter.</p>
+    <p>Nothing is for sale today; paid workflow files may come later.</p>
+    <p>No ads in the body of articles. No sponsored reviews. No pay-to-play tool placements.</p>
   </div>
 </section>
-
-<section class="page-body" style="padding-left: 40px; padding-right: 40px;">
-  <div class="inner">
-    <div>
-      <h2>Reader <em>— free.</em></h2>
-      <p>The Sunday letter, the full journal archive, every field note, every essay. No paywall on any editorial. Subscribe with your email; unsubscribe anytime.</p>
-      <p>If you only want to read, this is everything you need. We are not going to drip-campaign you into upgrading.</p>
-    </div>
-    <div>
-      <h2>Studio <em>— $12/month or $108/year.</em></h2>
-      <p>For practitioners. Members get a private members-only feed, plus workflow source files (ComfyUI graphs, prompt sets, render presets, post-processing actions), case-study writeups and comparison data as they are published.</p>
-      <p>Group plans for studios of three or more are available. Email us with your team size and we will send a quote that does not require a sales call.</p>
-      <div class="actions" style="display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;">
-        <a id="join-monthly" href="mailto:hello@archigenai.com?subject=Studio%20membership%20%2412%2Fmo" class="btn dark" data-ph-capture-attribute-cta="email-contact" data-ph-capture-attribute-placement="body" data-ph-capture-attribute-cta_id="body-email-contact-2">Join Studio · $12/mo →</a>
-        <a id="join-annual" href="mailto:hello@archigenai.com?subject=Studio%20membership%20annual%20%24108" class="btn" data-ph-capture-attribute-cta="email-contact" data-ph-capture-attribute-placement="body" data-ph-capture-attribute-cta_id="body-email-contact-3">Annual · $108/yr</a>
-        <a id="join-founders" href="mailto:hello@archigenai.com?subject=Founders%20lifetime%20membership" class="btn" data-ph-capture-attribute-cta="email-contact" data-ph-capture-attribute-placement="body" data-ph-capture-attribute-cta_id="body-email-contact-4">Founders · lifetime</a>
-      </div>
-    </div>
+<section class="wrap" aria-labelledby="reader-heading">
+  <div class="reader-signup" id="newsletter">
+    <h2 id="reader-heading">Reader: the free Sunday letter</h2>
+    <p>Subscribe below. Unsubscribe anytime.</p>
+    <div class="beehiiv-frame"><iframe src="https://embeds.beehiiv.com/29e37e2e-720d-43e3-8a35-ccf19808781e?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" title="Subscribe to the Sunday letter" style="margin:0;border-radius:0;background-color:transparent;width:100%"></iframe></div>
+    <p class="signup-help">The form is hosted by Beehiiv. <a href="privacy.html">How newsletter data is handled</a>.</p>
+    <p><a href="journal.html">Read the journal</a> without subscribing.</p>
   </div>
 </section>
-
-<section class="page-list" style="padding-left: 40px; padding-right: 40px;">
-  <div class="inner">
-    <div class="label">In the room</div>
-    <ul>
-      <li><span class="k">Reader · Free</span><span class="v">Journal, essays, field notes, tool reviews, all of it</span></li>
-      <li><span class="k">Studio · $12/mo</span><span class="v">Members-only feed; workflow source files, case studies and comparison data as they are published</span></li>
-      <li><span class="k">Group · From $9/seat/mo</span><span class="v">Studio plan for teams of 3+. Email for a quote</span></li>
-      <li><span class="k">Founders</span><span class="v">A handful of lifetime memberships are reserved for early supporters. Email to inquire</span></li>
-    </ul>
-  </div>
-</section>
+</main>
 
 <footer class="foot">
   <div class="wrap">
@@ -269,7 +253,7 @@
         <h4>Tools</h4>
         <a href="tools.html">Directory</a>
         <a href="comparisons.html">Comparisons</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="pricing.html">Read and subscribe</a>
         <a href="tools.html">Stack builder</a>
       </div>
       <div>
@@ -292,29 +276,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  // ============================================================
-  // STRIPE CONFIG — the ONLY thing to edit when Payment Links exist.
-  // Create Payment Links in the Stripe dashboard (set the success
-  // redirect to https://archigenai.com/welcome.html) and paste them
-  // below. The CTAs upgrade from mailto to checkout automatically.
-  // Group plans stay on email by design (quote path).
-  // ============================================================
-  var STRIPE_LINKS = {
-    monthly: '',  // ← BLOCKER: Payment Link for Studio $12/mo
-    annual: '',   // ← BLOCKER: Payment Link for Studio $108/yr
-    founders: ''  // ← BLOCKER: Payment Link for Founders lifetime (one-time)
-  };
-
-  (function () {
-    var map = { monthly: 'join-monthly', annual: 'join-annual', founders: 'join-founders' };
-    Object.keys(map).forEach(function (k) {
-      var el = document.getElementById(map[k]);
-      if (el && STRIPE_LINKS[k]) el.href = STRIPE_LINKS[k];
-    });
-  })();
-</script>
 
 </body>
 </html>
