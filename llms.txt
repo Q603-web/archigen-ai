@@ -59,6 +59,8 @@ Every indexable ArchiGen article, grouped by topic. Articles under correction ar
 
 ### Recently published
 
+- [AI Zoning Analysis Tool: Check One Parcel](https://archigenai.com/ai-zoning-analysis-tool.html): Choose an AI zoning analysis tool by tracing one parcel from map to rule. Compare Zoneomics and TestFit with a two-envelope exercise before buying.
+
 - [AI-Augmented Architectural Visualizations](https://archigenai.com/ai-augmented-architectural-visualizations.html): How to make AI-augmented architectural visualizations for a material decision: choose the edit, check the geometry and show the client a fair comparison.
 
 - [AI Project Planning for Architecture Firms](https://archigenai.com/ai-project-planning-software-architecture-firms-2026.html): AI project planning software can automate budgets, staffing and risk alerts for architecture firms. Compare Monograph, Mosaic and Deltek Vantagepoint.
